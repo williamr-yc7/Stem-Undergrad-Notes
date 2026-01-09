@@ -1,0 +1,203 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{authblk} % Required for author affiliations
+\usepackage{indentfirst} % Indent first paragraph of sections
+\usepackage{amssymb} % For mathematical symbols
+\usepackage{amsthm} % For theorem environments
+\usepackage{amsmath} % For advanced math typesetting
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}{Definition}
+
+\begin{document}
+%------- Title page   -----------
+\title{PHYS260: Relativity and Modern Physics}
+\author{William Homier}
+\affil[1]{McGill University Physics, 3600 Rue University, Montréal, QC H3A 2T8, Canada}
+\date{December 1, 2025}
+\setcounter{Maxaffil}{0}
+\renewcommand\Affilfont{\itshape\small}
+\maketitle
+
+%------- Abstract -----------
+\noindent\rule{\textwidth}{0.4pt}
+\thispagestyle{empty}
+\begin{abstract}
+\noindent This course covers the history and foundations of special relativity, including Lorentz transformations in both kinematics and dynamics, as well as the transformation of electric and magnetic forces. In the modern physics portion, the course introduces foundational concepts of quantum mechanics, beginning with probability theory, followed by the Schrödinger equation, the Heisenberg uncertainty principle, the Born rule, and applications such as quantum scattering and tunneling. The course consists of three hours of lectures per week in the Fall term. Prerequisite: CEGEP physics or PHYS 142. Corequisite: MATH 222.
+\end{abstract}
+\noindent\rule{\textwidth}{0.4pt}
+\clearpage
+
+%------- Table of Contents -----------
+\thispagestyle{empty}
+\tableofcontents
+\clearpage
+
+%------- introduction -----------
+\setcounter{page}{1}
+\section{Introduction}
+My personal opinion for this course is that it is very interesting, and I really enjoyed learning about both special relativity and modern physics. The concepts are quite different from classical mechanics, and they challenge our intuition about how the universe works. Overall, I found the course to be engaging and thought-provoking.
+\section{Prerequisite knowledge}
+\subsection{Dimensional analysis}
+Dimensional analysis is a method used in physics and engineering to analyze the relationships between different physical quantities by identifying their fundamental dimensions (such as length, mass, time, etc.). It helps to ensure that equations are dimensionally consistent and can be used to derive relationships between variables.
+
+\begin{theorem}
+\label{Homogeneity}
+\textnormal{\textbf{(Principle of Dimensional Homogeneity)}} Whenever we have an equation of the form (... something ...) = (... something else ...) then "something" and "something else" must have the same dimensions.
+\end{theorem}
+
+\begin{corollary}
+A physical law must be independent of the units in which it is expressed.
+\end{corollary}
+\begin{corollary}
+A physical law can always be expressed in a non-dimensional form.
+\end{corollary}
+
+\begin{theorem}
+\label{Buckingham-Pi}
+\textnormal{\textbf{(Buckingham Pi Theorem)}} Given $n$ relevant variables with $r$ fundamental dimensions, $n - r$ dimensionless groupings of the variables can be found.
+\end{theorem}
+
+\textbf{Problem 1}
+
+\subsection{Complex variables}
+A complex variable is a variable that can take on complex values, which are numbers that have both a real part and an imaginary part. Complex variables are often used in mathematics and physics to represent quantities that have both magnitude and direction, such as electric fields or wave functions.
+\begin{theorem}[Euler's Formula]
+\label{Euler's formula}
+For any real number $x$,
+\[e^{ix} = \cos(x) + i\sin(x)\]
+\end{theorem}
+\begin{definition}
+\label{Complex Conjugate}
+The complex conjugate of a complex number $z = a + bi$ is given by $z^* = a - bi$.
+\end{definition}
+\begin{definition}
+\label{Modulus of a complex number}
+The modulus (or absolute value) of a complex number $z = a + bi$ is given by $|z| = \sqrt{a^2 + b^2}$.
+\end{definition}
+\begin{definition}
+\label{Polar form of a complex number}
+The polar form of a complex number $z = a + bi$ is given by $z = r(\cos\theta + i\sin\theta)$, where $r = |z|$ and $\theta = \tan^{-1}(b/a)$.
+\end{definition}
+\begin{theorem}[De Moivre's Theorem]
+\label{De Moivre's Theorem}
+For any real number $x$ and integer $n$,
+\[(\cos(x) + i\sin(x))^n = \cos(nx) + i\sin(nx)\]
+\end{theorem}
+\begin{definition}
+\label{complex identities}
+Some useful complex identities include:
+\begin{itemize}
+    \item $e^{i\pi} + 1 = 0$
+    \item $\cos(x) = \frac{e^{ix} + e^{-ix}}{2}$
+    \item $\sin(x) = \frac{e^{ix} - e^{-ix}}{2i}$
+\end{itemize}
+\end{definition}
+
+\subsection{Trigonometric identities}
+Some useful trigonometric identities include:
+\begin{itemize}
+    \item Pythagorean identity: $\sin^2(x) + \cos^2(x) = 1$
+    \item Angle sum and difference identities:
+    \begin{itemize}
+        \item $\sin(a \pm b) = \sin(a)\cos(b) \pm \cos(a)\sin(b)$
+        \item $\cos(a \pm b) = \cos(a)\cos(b) \mp \sin(a)\sin(b)$
+    \end{itemize}
+    \item Double angle identities:
+    \begin{itemize}
+        \item $\sin(2x) = 2\sin(x)\cos(x)$
+        \item $\cos(2x) = \cos^2(x) - \sin^2(x) = 2\cos^2(x) - 1 = 1 - 2\sin^2(x)$
+    \end{itemize}
+    \item Half angle identities:
+    \begin{itemize}
+        \item $\sin^2\left(\frac{x}{2}\right) = \frac{1 - \cos(x)}{2}$
+        \item $\cos^2\left(\frac{x}{2}\right) = \frac{1 + \cos(x)}{2}$
+        \item $\cos^2(x) = \frac{1 + \cos(2x)}{2}$
+        \item $\sin^2(x) = \frac{1 - \cos(2x)}{2}$
+    \end{itemize}
+\end{itemize}
+
+\section{Special Relativity}
+Special relativity is a theory of physics that describes the behavior of objects moving at high speeds, particularly those approaching the speed of light. It was developed by Albert Einstein in 1905 and is based on two postulates: the laws of physics are the same for all observers in uniform motion relative to one another, and the speed of light in a vacuum is constant and independent of the motion of the source or observer. Special relativity has many important implications, including time dilation, length contraction, and the equivalence of mass and energy (as expressed in the famous equation \(E = mc^2\)). It has been confirmed by numerous experiments and is a fundamental part of modern physics.
+
+\subsection{Spacetime}
+\begin{definition}[Spacetime]
+\label{Spacetime}
+A four-dimensional union of space and time.
+\end{definition}
+Special relativity is often refered to as a 3D + 1D theory, meaning that it combines three spatial dimensions (length, width, height) with one temporal dimension (time) to form a four-dimensional framework for understanding the behavior of objects in motion.
+\subsection{Consequence of the invariance of the spacetime interval}
+\subsection{Galilen relatibity}
+\subsection{The wave equation}
+\subsection{Solutions to the wave equation}
+\subsection{The Michelson-Morley experiment}
+\subsection{The postulates of special relativity}
+\subsection{Length contraction and Lorentz transformations}
+\subsection{Applications of Lorentz transformations I}
+\subsection{Applications of Lorentz transformations II}
+\subsection{Spacetime diagrams I}
+\subsection{Spacetime diagrams II}
+\subsection{Aging and Causality}
+\subsection{Four-vectors}
+\subsection{Four-velocity and four-momentum}
+\subsection{Conservation of four-momentum}
+
+\section{Modern Physics}
+\subsection{Math for Quantum (Probability)}
+\subsection{Math for Quantum (Fourier Series)}
+\subsection{Math for Quantum (Fourier Transforms)}
+\subsection{Experimental Foundations of Quantum Mechanics}
+\subsection{Atomic structure and semi-classical quantum mechanics}
+\subsection{Wavefunctions}
+\subsection{Operators}
+\subsection{Stationary states of the Schrödinger equation}
+\subsection{Infinite square well (particle in a box)}
+\subsection{Ehrenfest's theorem}
+\subsection{Measurement and wavefunction collapse}
+\subsection{Qualitative wavefunction sketches}
+\subsection{Scattering}
+\subsection{Quantum Tunnelling and Nuclear Decay}
+\subsection{Intro to Relativistic Forces and Acceleration}
+\subsection{Transforming Relativistic Forces and Accelerations}
+\subsection{Intro to Relativistic Electromagnetism}
+\subsection{Transforming Electromagnetic Fields}
+
+\pagebreak
+\subsection{Transforming Maxwell's Equations}
+w=ck: dispersion relation, wave recasting
+
+how to boost in the frame of light?
+if we already know: 
+E'y = gamma(Ey - vBz)
+E = E0 sin(kx - wt) yhat
+B = (E0/c) sin(kx-wt) zhat
+we will get
+E_y' = gamma E_0 sin(kx-wt)(1 - v/c)
+
+gamma(1-v/c) = sqrt((1-v/c)/(1+v/c))
+E_y' = E0 sqrt((1-v/c)/(1+v/c)) sin(kx-wt)
+we want everytihng in prime, so:
+
+x = gamma(x'+vt')
+t = gamma(t' + vx'/c2)
+kx-wt = gamma((k-kv/c)x' - (omega - omegav/c)t') = sqrt((1-v/c)/(1+v/c))(kx' - omegat')
+
+Doppler shifts:
+k' = sqrt((1-v/c)/(1+v/c))k
+omega' = sqrt((1-v/c)/(1+v/c))omega
+
+therefore
+E_y' = E_0 sqrt((1-v/c)/(1+v/c)) sin(k'x' - omega't')
+
+omega'/k' = omega/k = c
+
+We want speed of light to be the same in all referance frames, so we therefore also want electromagnetism to account for that. And we can see this is possible cuz of omega'/k' = omega/k = c.
+The amplitude of the wave is different because of E_0 sqrt((1-v/c)/(1+v/c)), and that should be expected the amplitude of a wave is relative to energy, and we know energy changes with different frames as weve seen before. therefore the final answer of if we go to a frame that moves with this light wave would we see frozen light, the answer is NO! There are no solution to maxwells equation that allows us to see a frozen wave, and by frozen we mean not oscillating, you can ofcourse create standing waves, but they would still oscillate up and down
+
+\textbf{Exercise}: Pick two of the transformation laws that we have previously derived (maybe one of the parallel and one of the perpendicular ones). Show explicitly that by Lorentz transforming the Faraday tensor, we recover the transformation laws. Note: this is a tricky thing to do if you are rusty with your index manipulations so I recommend budgeting some time for this, even if you only have time to do a cursory job before lecture you can come back to it later on while studying for the final. 
+
+\section{Answer Key}
+\textbf{Problem 1}
+\end{document}

@@ -1,0 +1,18 @@
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
+\contentsline {section}{\numberline {2}Prerequisite knowledge}{1}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Notation}{1}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Sets}{1}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}Symbols}{1}{subsubsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.2}Complex Algebra}{1}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Complex Numbers}{1}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}Complex Operations}{2}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.3}Complex Conjugate}{2}{subsubsection.2.2.3}%
+\contentsline {section}{\numberline {3}Basic Algebraic structures}{3}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Invertibility}{4}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Ring}{4}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Field}{4}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Vector Spaces}{5}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Cartesian space}{5}{subsection.4.1}%
+\contentsline {section}{\numberline {5}Appendix}{5}{section.5}%
+\contentsline {section}{\numberline {6}Solutions}{5}{section.6}%
+\contentsline {section}{\numberline {7}Useful Links}{6}{section.7}%
