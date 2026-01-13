@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1768245706.99492 "c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math223.tex" "Math223.pdf" "Math223" 1768245709.29585 0
+["pdflatex"] 1768326788.78663 "c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math223.tex" "Math223.pdf" "Math223" 1768326793.92244 0
   "C:/Users/erenr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1767907935 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/erenr/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk" 1767801684 11548 9ea6db1ff0b947846d8751dabcdcf90a ""
   "C:/Users/erenr/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1767801679 13333486 ad3a4e5807f6f25ced943a60862e7471 ""
@@ -88,6 +88,7 @@
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex" 1756451143 35251 5ff5b5b310c5ac882610e0ccc99095e7 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex" 1756451143 22012 81b34a0aa8fa1a6158cc6220b00e4f10 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex" 1756451144 8893 e851de2175338fdf7c17f3e091d94618 ""
+  "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarycalc.code.tex" 1756451144 15929 463535aa2c4268fead6674a75c0e8266 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.code.tex" 1756451144 5650 0ccd824135f363f45d6a97602e59d55a ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathmorphing.code.tex" 1756451144 321 cdd11262840e01e25374a2d458f15e99 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathreplacing.code.tex" 1756451144 1319 0b2de5126c6cbc295f0eb77f7344b34d ""
@@ -96,6 +97,7 @@
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex" 1756451144 186859 0445d9a41a87648b4723e04765409541 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathmorphing.code.tex" 1756451144 8843 5533436db3e30fbad1e0440db6027dac ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathreplacing.code.tex" 1756451144 7474 f05a7223b140f230922562ac6a9fede5 ""
+  "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.tex" 1756451144 58801 1e750fb0692eb99aaac45698bbec96b1 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/generic/pgf/libraries/pgflibraryfpu.code.tex" 1756451144 85937 c349c2b4a923dd367213cf12546baa15 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex" 1756451144 32995 ac577023e12c0e4bd8aa420b2e852d1a ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/generic/pgf/libraries/pgflibraryplotmarks.code.tex" 1756451144 14526 4bc184b12436aa7f6490b2d2036870ef ""
@@ -216,11 +218,11 @@
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/tools/indentfirst.sty" 1761901070 1618 30b01152766afcef2ed8f904cfdd3cc6 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
-  "Math223.aux" 1768245708 3083 ad16d9a0ec72d3d37e0d81a73f5f15f4 "pdflatex"
-  "Math223.out" 1768245708 2617 16d6800415c67f372fc999c74319d472 "pdflatex"
-  "Math223.tex" 1768245705 21355 86fafc61d8990c522a2b309408b97aaf ""
-  "Math223.toc" 1768245708 1860 bdf9f2d6b9bd425d1debeb02e9d3110d "pdflatex"
-  "c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math223.tex" 1768245705 21355 86fafc61d8990c522a2b309408b97aaf ""
+  "Math223.aux" 1768326793 3339 2dd9f930589318a4daefc93e9ff9872d "pdflatex"
+  "Math223.out" 1768326793 2909 e3d51b8d8c5d3f89891dd6ab59a800b9 "pdflatex"
+  "Math223.tex" 1768326786 23349 807868e1a40e2b7355cd612e122aee57 ""
+  "Math223.toc" 1768326793 2034 20b76f40ce110002391d6af3da2b4ce7 "pdflatex"
+  "c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math223.tex" 1768326786 23349 807868e1a40e2b7355cd612e122aee57 ""
   (generated)
   "Math223.aux"
   "Math223.log"
