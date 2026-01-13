@@ -57,27 +57,46 @@
 \subsection{Notation}
 \subsubsection{Sets}
 Sets are a grouping of objects.
-\begin{itemize}
-    \item \(\mathbb{N}\) is the set of natural numbers: (0, 1, 2, 3, ...).
-    \item \(\mathbb{Z}\) is the set of integers: (..., -3, -2, -1, 0, 1, 2, 3, ...).
-    \item \(\mathbb{Q}\) is the set of rational numbers (numbers that can be expressed as a fraction of two integers): \(\mathbb{Q} = {\frac{a}{b} | a,b \in \mathbb{Z}, b \neq 0}\).
-    \item \(\mathbb{R} =\) all rational + all irrational numbers.
-    \item \(\mathbb{C} = \{x + iy | x,y \in \mathbb{R}\}\), basically: \(\mathbb{C} =\) all real (\(\mathbb{R}\)) + all imaginary numbers (\(i\)), where \(i\) is defined to be a root of \(x^2 + 1\), which is \(i \subseteq \sqrt{-1}\).
-\end{itemize}
+\begin{center}
+\begin{tabular}{c|p{6cm}|p{5cm}}
+Set & Meaning & Examples \\
+\hline
+$\mathbb{N}$ & The set of natural numbers & (0, 1, 2, 3, ...)\\
+$\mathbb{Z}$ & The set of integers & (..., -3, -2, -1, 0, 1, 2, 3, ...)\\
+$\mathbb{Q}$ & The set of rational numbers & \(\mathbb{Q} = {\frac{a}{b}\:|\:\forall a,b \in \mathbb{Z}\:and\:b \neq 0}\)\\
+$\mathbb{R}$ & The set of all rational and all irrational numbers & \((...,-1,0,\frac{1}{4},1,1000,...)\)\\
+$\mathbb{C}$ & The set of all complex numbers & \(\mathbb{C} = \{x + iy\:|\:x,y \in \mathbb{R}\:and\:i \subseteq \sqrt{-1}\}\).\\
+\end{tabular}
+\end{center}
+
 We have the following relationships between sets:
 \[\mathbb{N} \subseteq \mathbb{Z} \subseteq \mathbb{Q} \subseteq \mathbb{R} \subseteq \mathbb{C}\]
 \subsubsection{Symbols}
-We will be using the following symbols:
-\begin{itemize}
-    \item \(\subseteq\) means "is a subset of or equal to".
-    \item \(\subset\) means "is a subset of" or "is contained in", it could also mean the same thing as \(\subseteq\), but not all the time.
-    \item \(\forall\) means "for all".
-    \item \(\exists\) means "there exists".
-\end{itemize}
+\begin{center}
+\begin{tabular}{c|l}
+Symbol & Meaning \\
+\hline
+$\subseteq$ & is a subset of or equal to \\
+$\subset$ & is a strict subset of \\
+$\in$ & is an element of \\
+$\forall$ & for all \\
+$\exists$ & there exists \\
+$\emptyset$ & empty set \\
+$\Rightarrow$ & implies \\
+$\Leftrightarrow$ & if and only if
+\end{tabular}
+\end{center}
 
 \subsection{Complex Algebra}
 \subsubsection{Complex Numbers}
 A complex number is of the form: \(z = x + iy\) where \(x,y \in \mathbb{R}\) and \(i\) is the imaginary unit such that \(i^2 + 1 = 0\).
+\begin{definition}[Powers of \(i\)]
+\begin{tabular}{c|cccccc}
+k & 0 & 1 & 2 & 3 & 4 & 5 \\
+\hline
+$i^k$ & 1 & i & -1 & -i & 1 & i
+\end{tabular}
+\end{definition}
 \begin{theorem}[Fundamental Theorem of Algebra]
     Any polynomial\footnote{Polynomial is a function such as: \(f = a_n x^n + a_{n-1}x^{n-1} + ... + a_1 x + a_0\) where \(a_i \in \mathbb{R}\) or \(\mathbb{C}\) and \(n \in \mathbb{N}\).} \(f\) (except constant functions) has a root in \(\mathbb{C}\).
 \end{theorem}
@@ -94,7 +113,10 @@ We can define operations on complex numbers as follows:
     \item Multiplication: \(zz' = (x + iy)(x' + iy') = (xx' - yy') + i(xy' + yx')\).
     \item Inverse: \(\frac{1}{z} = \frac{\overline{z}}{z\overline{z}} = \frac{x - iy}{x^2 + y^2} = \frac{x}{x^2 + y^2} + i\frac{-y}{x^2 + y^2}\)
 \end{itemize}
-From the definition of inverse, we can see that for any complex number \(z\), its inverse \(\frac{1}{z}\) is also a complex number. For example, take \(z = 1 + i\), where \(x = y = 1\), from the definition of inverse, we can conclude that: \[\frac{1}{1 + i} \in \mathbb{C}\]
+From the definition of inverse, we can see that for any complex number \(z\), its inverse \(\frac{1}{z}\) is also a complex number. For example, take \(z = 1 + i\), where \(x = y = 1\), from the definition of inverse, we can conclude that:
+\[\frac{1}{1 + i} \in \mathbb{C}\]
+Multiplying by a complex number \(z\) corresponds geometrically to
+\[\begin{cases}\text{a rotation by some angle } \theta,\\\text{a rescaling by the factor } |z|.\end{cases}\]
 \subsubsection{Complex Conjugate}
 A complex conjugate is a way to "flip" the imaginary part of a complex number. For example, if we have a complex number \(z = x + iy\), then the complex conjugate of \(z\) is \(\overline{z} = x - iy\). Some basic properties of complex conjugates are:
 \begin{itemize}
@@ -106,9 +128,12 @@ A complex conjugate is a way to "flip" the imaginary part of a complex number. F
 \subsubsection{Geometric and Polar Form of Complex Numbers}
 \marginpar{January 09, 2026.}
 
+\paragraph{1. Geometric Interpretation}
 \begin{definition}[Geometric interpretation]
-    Every complex number \(z = x + iy\) can be identified with a point \((x,y)\) in the plane, called the \emph{complex plane}. This allows us to study complex numbers using geometry.
+    Every complex number \(z = x + iy\) can be identified with a point \((x,y)\) in the plane, called the complex plane.
 \end{definition}
+We define the complex plane as:
+\[\mathbb{C} = \{x + iy \mid x,y \in \mathbb{R}\}.\]
 
 \begin{center}
 \begin{tikzpicture}[scale=2]
@@ -137,36 +162,23 @@ A complex conjugate is a way to "flip" the imaginary part of a complex number. F
 \end{tikzpicture}
 \end{center}
 
-\[\mathbb{C} = \{x + iy \mid x,y \in \mathbb{R}\}.\]
-
+\paragraph{2. Modulus and Unit Circle}
 \begin{definition}[Modulus]
     The modulus of a complex number \(z\) is defined by
     \[|z| = \sqrt{z\overline{z}} = \sqrt{x^2 + y^2}.\]
     Geometrically, \(|z|\) is the distance from the origin to the point \((x,y)\).
 \end{definition}
 We can rewrite the definition of the unit circle as follows:
-\[S' = \{(x,y) \in \mathbb{R}^2 : x^2 + y^2 = 1\} = \{ z \in \mathbb{C} : |z| = 1\}.\]
-Thus, \(S'\) is the \emph{unit circle} in the complex plane.
+\[S' = \{(x,y) \in \mathbb{R}^2 : x^2 + y^2 = 1\} = \{ z \in \mathbb{C} : |z| = 1\},\]
+where \(S'\) is the unit circle in the complex plane.
 
-\begin{definition}[Powers of \(i\)]
-\begin{center}
-\begin{tabular}{c|cccccc}
-k & 0 & 1 & 2 & 3 & 4 & 5 \\
-\hline
-$i^k$ & 1 & i & -1 & -i & 1 & i
-\end{tabular}
-\end{center}
-\end{definition}
-
-\begin{definition}[Geometric meaning of multiplication]
-    Multiplying by a complex number \(z\) corresponds geometrically to
-    \[\begin{cases}\text{a rotation by some angle } \theta,\\\text{a rescaling by the factor } |z|.\end{cases}\]
-\end{definition}
+\paragraph{3. Polar Coordinates}
 
 \begin{definition}[Polar coordinates]
     Instead of describing a point by \((x,y)\), we may describe it using polar coordinates \((r,\theta)\), where \(r = |z|\) is the distance to the origin and \(\theta\) is the angle with the positive \(x\)-axis.
 \end{definition}
 \begin{example}
+    Consider the point \((x,y)\), where \(x = r \cos(\theta)\:and\:y = r \sin(\theta)\). We can define \((r,\theta)\) as follows:
     \begin{center}
     \begin{tikzpicture}[scale=2]
     % Axes
@@ -188,20 +200,12 @@ $i^k$ & 1 & i & -1 & -i & 1 & i
 
     \end{tikzpicture}
     \end{center}
-
-    \[x = r \cos(\theta), \quad y = r \sin(\theta).\]
 \end{example}
-
-
+Complex numbers can also be described using polar coordinates.
 \begin{definition}[Polar and exponential form]
     \[z = x + iy = r \cos(\theta) + ir \sin(\theta) = r(\cos(\theta) + i \sin(\theta)) = re^{i\theta}.\]
 \end{definition}
-
-\begin{definition}[Euler's formula]
-    Euler's formula gives
-    \[e^{i\theta} = \cos(\theta) + i \sin(\theta).\]
-\end{definition}
-
+We can also define multiplication in polar form:
 \begin{definition}[Multiplication in polar form]
     \[z = re^{i\theta}, \quad z' = r'e^{i\theta'}, \quad zz' = rr'e^{i(\theta + \theta')}.\]
 \end{definition}
@@ -209,47 +213,64 @@ $i^k$ & 1 & i & -1 & -i & 1 & i
     \[(1 + i)^{32} = (\sqrt{2}e^{i\pi/4})^{32} = (\sqrt{2})^{32} e^{i8\pi} = 2^{16}(\cos 8\pi + i \sin 8\pi) = 2^{16}.\]
 \end{example}
 
+Around the 1740, the mathematician Euler discovered a formula for complex numbers. The formula is known as Euler's formula.
+\begin{definition}[Euler's formula]
+    \[e^{i\theta} = \cos(\theta) + i \sin(\theta).\]
+\end{definition}
+This formula is quite useful when dealing with complex numbers, as it allows us to write complex numbers in a more compact form.
 
+\paragraph{4. Roots}
 \begin{definition}[\(n^{\text{th}}\) roots]
     An \(n^{\text{th}}\) root of \(z\) is a complex number \(w\) such that
     \[w^n = z.\]
 \end{definition}
+If \(z = re^{i\theta}\), then any solution of \(w^n = z\) must satisfy
+\[w^n = r e^{i\theta}.\]
+Writing \(w = \rho e^{i\varphi}\), we obtain
+\[\rho^n = r, \quad n\varphi = \theta + 2\pi k, \quad k \in \mathbb{Z}.\]
+Hence, all \(n^{\text{th}}\) roots of \(z\) are
+\[w_k = r^{1/n} e^{i(\theta + 2\pi k)/n}, \quad k = 0,1,2,\dots,n-1.\]
+
 
 \begin{definition}[Roots of unity]
-    The \(n^{\text{th}}\) roots of unity are the solutions of
-    \[w^n = 1, \quad w \in \mathbb{C}.\]
-    Geometrically, they lie on the unit circle \(|w|=1\).
-    \begin{center}
-    \begin{tikzpicture}[scale=2]
-    % Axes
-    \draw[->] (-1.3,0)--(1.3,0);
-    \draw[->] (0,-1.3)--(0,1.3);
-
-    % Unit circle
-    \draw (0,0) circle(1);
-
-    % Example: n = 6 roots
-    \foreach \k in {0,1,2,3,4,5}{
-    \coordinate (P\k) at ({cos(60*\k)},{sin(60*\k)});
-    \draw[fill] (P\k) circle(0.02);
-    \draw (0,0) -- (P\k);
-    }
-
-    \node at (0.75,0.75) {$|w| = 1$};
-    \end{tikzpicture}
-    \end{center}
-
-    \[1 = e^{i2\pi k}, \quad k \in \mathbb{Z},\]
-    \[w_k = e^{i2\pi k/n}, \quad w^n = (e^{i2\pi/n})^n = e^{i2\pi} = 1.\]
+The \(n^{\text{th}}\) roots of unity are the solutions of
+\[w^n = (e^{i2\pi/n})^n = e^{i2\pi} = 1,\:w \in \mathbb{C}.\]
+Since \(1 = e^{i2\pi k}\), they are given by
+\[w_k = e^{i2\pi k/n},\: k = 0,1,2,\dots,n-1 \in \mathbb{Z}.\]
 \end{definition}
+Geometrically, the \(n^{\text{th}}\) roots of unity lie on the unit circle and are equally spaced.
 
+\begin{center}
+\begin{tikzpicture}[scale=2]
+% Axes
+\draw[->] (-1.3,0)--(1.3,0);
+\draw[->] (0,-1.3)--(0,1.3);
+
+% Unit circle
+\draw (0,0) circle(1);
+
+% Example: n = 6 roots
+\foreach \k in {0,1,2,3,4,5}{
+\coordinate (P\k) at ({cos(60*\k)},{sin(60*\k)});
+\draw[fill] (P\k) circle(0.02);
+\draw (0,0) -- (P\k);
+}
+
+\node at (0.75,0.75) {$|w| = 1$};
+\end{tikzpicture}
+\end{center}
 
 \section{Basic Algebraic structures}
-"Let V be a vector space over a field K"
+\subsection{Sets with Multiplication}
+\begin{definition}[Set with multiplication]
+A set with multiplication is a set $M$ equipped with a binary operation
+\[\cdot : M \times M \to M\]
+that assigns to every pair $(a,b)$ an element $ab \in M$.
+\end{definition}
 
 \subsection{Invertibility}
 \begin{definition}[Condition for Invertibility]
-    Let \(A \in M\) be an \(n \times n\) matrix, and suppose that there exists an \(n \times n\) matrix \(B\) such that \(AB = I_n\) or \(BA = I_n\). Where \(I_n\) is the \(n \times n\) identity matrix\footnote{An identity matrix is a square matrix with 1s on its main diagonal and 0s everywhere else. It represents no change in linear transformations, and it's used in finding matrix inverses.}$\begin{bmatrix}1&0&0&0\\0&1&0&0\\0&0&...&0\\0&0&0&1\end{bmatrix}$. Then A is invertible, and \(B = A^{-1}\).
+    Let \(A \in M\) be an \(n \times n\) matrix, and suppose that there exists an \(n \times n\) matrix \(B\) such that \(AB = I_n\) or \(BA = I_n\). Where \(I_n\) is the \(n \times n\) identity matrix\footnote{An identity matrix is a square matrix with 1s on its main diagonal and 0s everywhere else. It represents no change in linear transformations, and it's used in finding matrix inverses.}$\begin{bmatrix}1&0&0\\0&\ldots&0\\0&0&1\end{bmatrix}$. Then A is invertible, and \(B\) is called the inverse of \(A\) and is denoted by \(B = A^{-1}\).
 \end{definition}
 
 \begin{remark}
@@ -334,7 +355,118 @@ Set A inside \(\mathbb{R}^2\)
 \end{cases}\]
 Draw a graph with one long diagonal line in the +x, +y and three arrows on the same line showing the vector grows.
 
-\[Span\{r\} = \] line spanned by \(v\)
+\[Span\{r\} = \] line spanned by \(v\).
+
+\marginpar{January 12, 2026.}
+\(\mathbb{R}^n\) and \(\mathbb{C}^n\). 
+\(v_1, \ldots, v_n \in \mathbb{R}^n\).
+Linear combination: \(v = \lambda_1v_1 + \ldots + \lambda_nv_n\), where lambda is a scalar and v is a vector.
+example: \(\lambda_1v_1 + \lambda_2v_2 = 2\begin{pmatrix}1\\3\end{pmatrix} + 4\begin{pmatrix}2\\5\end{pmatrix}\)
+
+Span:
+\[Span(v_1,\ldots,v_n) = \{\lambda_2v1+\ldots+\lambda_nv_n : \lambda_i \in \mathbb{R}\}\]
+example:
+\[span\begin{pmatrix}
+    1\\1
+\end{pmatrix}\]
+draw a graf with a linear function with \(span\begin{pmatrix}1\\1
+\end{pmatrix}\) in \(\mathbb{R}^2\)
+
+Draw a graph with 2 linear functions one v1 and the other v2 and a point lambda1v1 on line v1, draw a line parallel to v2 from this point, and lamda2v2 on line v2, draw a line parallel to v1 from this point, and both new lines should intersect at lambda1v1 +lambda2v2, and v3 in span(v1,v2).
+
+draw a graph with one linear function which is v1 and v2 together but v2 has the arrow at a later distance than v1 on the linear function and this graph says span(v1,v2) = span(v1) = span(v2).
+
+now in \(\mathbb{C}\):
+\(v_1, \ldots, v_n \in \mathbb{C}^n\).
+Linear combination: \(v = \lambda_1v_1 + \ldots + \lambda_nv_n\), where lambda is a scalar and v is a vector and \(\lambda_i \in \mathbb{C}\).
+example: \(\lambda_1v_1 + \lambda_2v_2 = 2\begin{pmatrix}1\\3\end{pmatrix} + 4\begin{pmatrix}2\\5\end{pmatrix}\)
+
+Span:
+\[Span_\mathbb{C}(v_1,\ldots,v_n) = \{\lambda_2v1+\ldots+\lambda_nv_n : \lambda_i \in \mathbb{C}\}\]
+example:
+\[span\begin{pmatrix}
+    2i\\2
+\end{pmatrix}+i\begin{pmatrix}
+    3\\1+i
+\end{pmatrix} \in \mathbb{C}^2\]
+
+So:
+\[\mathbb{R}^n = \{\begin{pmatrix}x_1\\\ldots\\x_n\end{pmatrix} : x_i \in \mathbb{R}\} \qquad \mathbb{C}^n = \{\begin{pmatrix}x_1\\\ldots\\x_n\end{pmatrix} : x_i \in \mathbb{C}\}\]
+
+Standard basis:
+\[\mathbb{R}^n = \{\begin{pmatrix}x_1\\\ldots\\x_n\end{pmatrix} : x_i \in \mathbb{R}\}\]
+\[e_1 = \begin{pmatrix}
+    1\\0\\\vdots\\0
+\end{pmatrix} \ldots e_n = \begin{pmatrix}0\\\vdots\\0\\1\end{pmatrix}\]
+Basis -> (span + LI)
+
+Claim: These vectors span \(\mathbb{R}^n\)
+Proof: To show an arbitrary vector in \(\mathbb{R}\) can be written as a linear combination of \(e_1,\ldots,e_n\).
+
+\[Let \begin{pmatrix}
+    x_1\\\vdots\\x_n
+\end{pmatrix} \in \mathbb{R}^n = \begin{pmatrix}
+    x_1\\\vdots\\x_n
+\end{pmatrix} + \begin{pmatrix} x_2\\\vdots\\x_n\end{pmatrix} + \ldots + \begin{pmatrix}
+    0\\\vdots\\x_n
+\end{pmatrix} = x_1e_1 + x_2e_2 + \ldots + x_ne_n : Linear combination\]
+
+Example:
+\[\mathbb{C}^2 = span_\mathbb{C}(e_1,e_2) = \{z_1e_1 + z_2e_2 : z_1,z_2 \in \mathbb{C}\}\]
+where \(e_1 = \begin{pmatrix}1\\0\end{pmatrix}\) and \(e_2 = \begin{pmatrix}0\\1\end{pmatrix}\) and \(e_1, e_2\) are in \(dim_\mathbb{C}\mathbb{C}^2 = 2\) and \(dim_\mathbb{R}\mathbb{C}^2 = 4\).
+\[= \{(x_1+iy_1)e_1 + (x_2+iy_2)e_2 : x_1,x_2,y_1,y_2 \in \mathbb{R}\}\]
+\[= x_1e_1 + x_2e_2 + y_1(ie_1) + y_2(ie_2)\]
+\[= span_\mathbb{R}(\begin{pmatrix}
+    1\\0
+\end{pmatrix},\begin{pmatrix}
+    0\\1
+\end{pmatrix},\begin{pmatrix}
+    i\\0
+\end{pmatrix},\begin{pmatrix}
+    0\\i
+\end{pmatrix})\]
+
+Draw a graph in \(\mathbb{C}\) where there is an arrow on the x-axis named 1 and one on the y-axis named i.
+\[\mathbb{C} = span_\mathbb{C}(1) = \{\lambda : \lambda \in \mathbb{C}\}\]
+\[\mathbb{C} = span_\mathbb{R}(1,i) = \{x + iy : x, y \in \mathbb{R}\}\]
+
+Abstract vector space:
+V = a set
+vector space = addition (\(v_1 + v_2\)), scalar multiplication (\(\lambda v\) where \(\lambda\) is a field \(k\)) + axioms
+
+Def: Let \(k\) be a field. A vector space over \(k\) is a set \(V\) and two operations
+\[\begin{cases}
+    v_1 + v_2 \in V, v_1,v_2 \in V\\
+    \lambda v \in V, v \in V, \lambda \in k
+\end{cases}
++ 8 axioms.\]
+
+\[\lambda (v_1 + v_2) = \lambda v_1 + \lambda v_2\].
+
+4 rules for addition:
+\[(v_1 + v_2) + v_3 = v_1 + (v_2 + v_3)\]
+There exists a zero \(0 (origin of V) \in V [0 + v = v]\)
+\(-v\) makes sense
+\(u + v = v + u\)
+
+2 rules (axioms) for scaling:
+\[1 \cdot v = v\]
+\[\lambda_1(\lambda_2 v) = (\lambda_1 \lambda_2) v\]
+
+compatibility: distributivity
+\[(\lambda_1 + \lambda_2)v = \lambda_1 v + \lambda_2 v\]
+\[\lambda(v_1 + v_2) = \lambda v_1 + \lambda v_2\]
+
+Example 1:
+Let K be a Field
+\[K^n = \{\begin{pmatrix}
+    x_1\\\vdots\\x_n
+\end{pmatrix} : x_i \in K\}\]
+is a vector space over K
+Remark:
+\[span_\mathbb{Z}(e_1,e_2) = \{\lambda_1 e_1 + \lambda_2 e_2 : \lambda_i \in \mathbb{Z}\}\]
+
+Draw graph with unit vectors $e_1$ on $x$ and $e_2$ on $y$.
 
 \section{Appendix}
 
