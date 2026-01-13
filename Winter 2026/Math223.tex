@@ -351,20 +351,16 @@ scalar multiplication: \(\lambda \begin{pmatrix} x_1 \\ \vdots \\ x_n \end{pmatr
 \end{example}
 
 \subsubsection{Span}
+\begin{definition}[Span]
+Let \(A \subset \mathbb{R}^2\). The span of \(A\), denoted \(Span(A)\), is the set of all linear combinations of elements of \(A\).
+\end{definition}
+\begin{example}
+    \[A = \begin{pmatrix}1\\1\end{pmatrix}\in \mathbb{R}^2\]
+\end{example}
 
-Set A inside \(\mathbb{R}^2\)
-\(Span(A) =\) all linear combinations of elements in A.
 
-\[
-\begin{pmatrix}
-    1\\1
-\end{pmatrix}
-\in \mathbb{R}^2\]
-\[A = \begin{cases}
-    \begin{pmatrix}
-        1\\1
-    \end{pmatrix}
-\end{cases}\]
+
+
 \begin{tikzpicture}[scale=1.1, >=Stealth]
 \draw[->] (-3,0) -- (3,0);
 \draw[->] (0,-3) -- (0,3);
