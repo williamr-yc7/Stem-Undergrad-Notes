@@ -8,12 +8,14 @@
 \contentsline {subsubsection}{\numberline {3.2.2}Linearity}{5}{subsubsection.3.2.2}%
 \contentsline {subsubsection}{\numberline {3.2.3}Autonomy}{5}{subsubsection.3.2.3}%
 \contentsline {subsubsection}{\numberline {3.2.4}Solutions of ODEs}{6}{subsubsection.3.2.4}%
-\contentsline {section}{\numberline {4}}{7}{section.4}%
-\contentsline {section}{\numberline {5}}{7}{section.5}%
-\contentsline {section}{\numberline {6}}{7}{section.6}%
-\contentsline {section}{\numberline {7}}{7}{section.7}%
-\contentsline {section}{\numberline {8}}{7}{section.8}%
-\contentsline {section}{\numberline {9}}{7}{section.9}%
-\contentsline {section}{\numberline {10}Solutions}{7}{section.10}%
-\contentsline {section}{\numberline {11}Appendix}{7}{section.11}%
-\contentsline {section}{\numberline {12}Useful Links}{7}{section.12}%
+\contentsline {subsection}{\numberline {3.3}Initial Value Problems}{6}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Theorem of Existence \& Uniqueness}{7}{subsection.3.4}%
+\contentsline {section}{\numberline {4}}{9}{section.4}%
+\contentsline {section}{\numberline {5}}{9}{section.5}%
+\contentsline {section}{\numberline {6}}{9}{section.6}%
+\contentsline {section}{\numberline {7}}{9}{section.7}%
+\contentsline {section}{\numberline {8}}{9}{section.8}%
+\contentsline {section}{\numberline {9}}{9}{section.9}%
+\contentsline {section}{\numberline {10}Solutions}{9}{section.10}%
+\contentsline {section}{\numberline {11}Appendix}{9}{section.11}%
+\contentsline {section}{\numberline {12}Useful Links}{9}{section.12}%

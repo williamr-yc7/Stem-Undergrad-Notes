@@ -228,6 +228,96 @@ To verify, differentiate implicitly:
 \[\frac{d}{dx}(x^2 - y^2) = 0 \;\Longrightarrow\; 2x - 2y\frac{dy}{dx} = 0\;\Longrightarrow\; y\frac{dy}{dx} = x.\]
 \end{example}
 
+\marginpar{January 13, 2026}
+\subsection{Initial Value Problems}
+\[y' = f(y, t), \quad f : D \times (a,b) \to \mathbb{R}^n.\]
+Consider \(t_0 \in (a,b)\) (initial time)
+An initial condition is given by \(y(t_0) = y_0 \in \mathbb{R}^n\), where $y_0$ is given. An initial value problem is of the form 
+\[y' = f(y,t), \quad y(t_0) = y_0.\]
+
+\subsection{Theorem of Existence \& Uniqueness}
+\begin{definition}
+    Consider a set \(D \subseteq \mathbb{R}^n\) and choose a norm \(||\cdot||\) on \(\mathbb{R}^n\) (e.g \(||x||_2 = \sqrt{x_1^2 + x_2^2 + \ldots + x_n^2}\) the Euclidean norm). A function \(f \cdot D \to \mathbb{R}^n\) is Lipschitz continuous if there exists a constant \(L \geq 0\) such that \(\forall y_1,y_2 \in D, ||f(y_1) - f(y_2)|| \leq l ||y_1 - y_2||\).
+
+    The smallest \(L\) which satisfies the inequality is called the Lipschitz constant and is denoted \(Lip(f)\).
+\end{definition}
+\begin{example}
+    Consider \(f(y) = 4y - 5 \quad (n = 1, D = \mathbb{R}) \quad f : \mathbb{R} \to \mathbb{R}\). \(||\cdot|| = |\cdot|\) (absolute value). Let \(y_1, y_2 \in \mathbb{R}\),
+    \[|f(y_1) - f(y_2)| = |4y_1 - 4y_2| = 4|y_1 - y_2| \quad (LC) Lip(f) = 4.\]
+\end{example}
+\begin{example}
+    Let
+    \[f(y) = \frac{1}{y - 1}\]
+    and \(D = (1, \inf)\).\\
+    Draw the function, with the asymptote at x = 1.
+    \[\therefore f \cdot D \to \mathbb{R}\:is\:not\:LC.\]
+    Now, fix \(\delta > 1\), and let \(D_\delta = (\delta, +\inf)\).
+
+    Draw the function, with the asymptote at x = 1, but now add a line on the x axis starting at a later point than x = 1 and this new point is delta wih a line continuing to infinity called D sub delta, and pick two points on D sub delta named y1 and y2.
+
+    Then, \(f \cdot D_\delta \to \mathbb{R}\:is\:LC.\)
+    Indeed, let \(y_1 < y_2 \in D_\delta\). By the Mean Value Theorem, there exists \(z \in (y_1,y_2)\) such that
+    \[f(y_2) - f(y_1) = f'(z)(y_2 - y_1),\]
+    where \(f'(y) = -\frac{1}{(y - 1)^2}\)
+    \[f(y_2) - f(y_1) = |-\frac{1}{(z - 1)^2}||y_2 - y_1|\]
+    \[f(y_2) - f(y_1) \leq (sup_{z \in D_\delta}\frac{1}{(z - 1)^2})|y_2 - y_1| = \frac{1}{(\delta - 1)^2}|y_2 - y_1|,\]
+    where \(\frac{1}{(\delta - 1)^2}\) is \(L = Lip(f)\).
+
+    For any \(k \subset D\) compact (for instance \(k = [\delta,\beta]\)), \(L = \frac{1}{(\delta - 1)^2}\).
+\end{example}
+
+\begin{definition}
+    Consider \(D \subseteq \mathbb{R}^n\) open. \(f : D \to \mathbb{R}^n\) is locally LC, if any compact set \(k \subset D\)(closed \& bounded), there exists a constant \(L = L(k)\) such that, for all \(y_1, y_2 \in k\), \(||f(y_1) - f(y_2)|| \leq L ||y_1 - y_2||\).
+\end{definition}
+
+\begin{problem}
+    (See tutorial 1)
+    \[f \in C^1(D) \to f\:is\: LLC.\]
+\end{problem}
+
+\begin{theorem}[Existance \& Uniqueness]
+    Consider \(D \subseteq \mathbb{R}^n\) open and an open interval $(a,b)$ which contains $t_0$. Such as
+    \[\begin{cases}
+        y' = f(y,t)\\
+        y(t_0) = y_0
+    \end{cases}\]
+    \(f : D \times (a,b) \to \mathbb{R}^n\) is continuous and that, for all compact set \(k \subset D \times (a,b) \subset \mathbb{R}^{n + 1}\), there exists \(L = L(k)\) such that (IVP):
+    \[||f(x,t) - f(y,t)|| \leq L||x - y||\]
+    for all \((x,t),(y,t) \in K\).
+    If \(y_0 \in D\), then there exists an open interval \(J\), containing \(t_0\), over which a solution to the (IVP) is defined. Moreover, the IVP has only one solution defined on $J$.
+\end{theorem}
+\begin{lemma}
+    y solves the IVP
+    \[\leftrightarrow y(t) = y_0 + \int_{t_0}^{t} f(y(s),s)ds\]
+\end{lemma}
+\begin{proof}
+    \[y'(t) = f(y(t),t), y(t_0) = y_0\]
+    By the Fundamental Theorem of Calculus,
+    \[y(t) - y(t_0) = \int_{t_0}^{t}f(y(s),s)ds\]
+    \[y(t_0) = y_0 + \int_{t_0}^{t_0}f(y(s),s)ds = y_0\]
+    Differentiating the integral equation:
+    \[y'(t) = \frac{d}{dt}(y_0) + \frac{d}{dt}(\int_{t_0}^{t}f(y(s),s)ds) = 0 + f(y(t),t)\]
+    Since \((y_0,t_0) \in D \times (a,b)\) (open in $\mathbb{R}^n$), there exist $\alpha,\delta > 0$ such that the compact cylinder
+    \[D_{\alpha,\delta} = \{(y,t) \in \mathbb{R}^{n + 1} | ||y - y_0|| \leq \alpha, |t - t_0| \leq \delta\} \subset D \times (a,b)\]
+    3D graph check phone (there is alpha and y0)
+    Let \(M_{\alpha,\delta} = sup_{(y,t) \in D_{\alpha,\delta}}||f(y,t)|| < +\inf\)
+\end{proof}
+\begin{lemma}[Picard Operator]
+    Let \(\epsilon > 0\) be defined by $\epsilon = min(\delta, \frac{\alpha}{M_{\alpha,\delta}})$.
+    Let $J = (t_0 - \epsilon, t_0 + \epsilon)$. Then for any function $y(t)$ which satisfies \(y(t_0) = y_0\) and $(y(t),t) \in D_{\alpha,\delta}$ for all $t \in J$, then $T(y)$ defined by 
+    \[T(y)(t) = y_0 + \int_{t_0}^{t}f(y(s),s)ds\]
+    also satisfies (\(y(t_0) = y_0\) and $(y(t),t) \in D_{\alpha,\delta}$ for all $t \in J$).
+\end{lemma}
+\begin{proof}
+    \[T(y)(t_0) = y_0 + 0 = y_0\]
+    \[(T(y)(t), t) \in D_{\alpha,\epsilon} \forall t \in J ?\]
+    Show:
+    \[||T(y)(t) - y_0|| \leq \alpha\].
+
+    \[||T(y)(t) - y_0|| = ||y_0 + \int_{t_0}^{t}f(y(s),s)ds - y_0||\]
+    \[= ||\int_{t_0}^{t}f(y(s),s)ds|| \leq \int_{t_0}^{t}||f(y(s),s)||ds \leq M_{\alpha,\delta} \int_{t_0}^{t}ds\]
+    \[= M_{\alpha,\delta}||t - t_0| (where\: t \in J) \leq M_{\alpha,\delta}\cdot \epsilon \leq \frac{\alpha}{M_{\alpha,\delta}} \cdot M_{\alpha,\delta}\]
+\end{proof}
 \section{}
 \section{}
 \section{}
