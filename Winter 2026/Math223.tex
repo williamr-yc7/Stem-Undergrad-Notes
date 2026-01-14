@@ -293,21 +293,24 @@ To determine if an element \(A\) in a set with multiplication \(M\) is invertibl
 
 \subsection{Ring}
 \begin{definition}
-A ring is a set \(R\) with the following properties:
+A \textbf{ring} is a set \(\mathbb{R}\) where you can \textbf{add} and \textbf{multiply} elements, and the following are true:
+
 \begin{enumerate}
-    \item \(R\) is an abelian group under addition.
-    \item \(R\) is a monoid under multiplication.
-    \item The distribution law holds: \(a(b + c) = ab + ac\) for all \(a,b,c \in R\).
+    \item You can add any two elements and stay in \(\mathbb{R}\). There is a zero, negatives exist, and the order of addition does not matter.
+    \item You can multiply any two elements and stay in \(\mathbb{R}\). There is a \(1\), and multiplication is associative.
+    \item Multiplication distributes over addition:
+    \[
+    a(b+c) = ab + ac \quad \text{and} \quad (a+b)c = ac + bc.
+    \]
 \end{enumerate}
 \end{definition}
-More informally, a ring is a set with two operations (addition and multiplication) that satisfy certain properties.\\
 The main example of a ring is the set of integers \(\mathbb{Z}\).
 \subsection{Field}
 \begin{definition}
 A field is a commutative ring in which every element is invertible.
 \end{definition}
 The main example of a field is the real numbers \(\mathbb{R}\) or the complex numbers \(\mathbb{C}\). Mathematically, \(K = \mathbb{R}\) or \(\mathbb{C}\), where \(K\) is the field.\\
-In the following explanation, we will denote \(M\) to be a set with multiplication\footnote{A set of objects where you can multiply any two of them.}.
+In the following explanation, we will denote \(M\) to be a set with multiplication.
 An example of a set with multiplication is the set of all \(2 \times 2\) complex matrices: \(M = M_2(\mathbb{C})\). Another example is the nonzero set of all real numbers \(\mathbb{R}\) with ordinary multiplication: \(\mathbb{R}^* = \mathbb{R} \setminus \{0\}\).
 
 \begin{problem}
@@ -347,7 +350,8 @@ scalar multiplication: \(\lambda \begin{pmatrix} x_1 \\ \vdots \\ x_n \end{pmatr
 \end{definition}
 \begin{example}
     A linear combination could look like this:
-    \[\xi((v_1 + 2v_2) + v_3) + v_4\]
+    \[\xi((v_1 + 2v_2) + v_3) + v_4,\]
+    where $\xi \in \mathbb{R}$.
 \end{example}
 
 \subsubsection{Span}
@@ -355,7 +359,6 @@ scalar multiplication: \(\lambda \begin{pmatrix} x_1 \\ \vdots \\ x_n \end{pmatr
 \begin{definition}[Span]
 Let \(A \subset \mathbb{R}^2\). The span of \(A\), denoted \(Span(A)\), is the set of all linear combinations of elements of \(A\).
 \end{definition}
-\paragraph{Span in $\mathbb{R}^n$}
 \begin{remark}
 If \(A = \{v\}\) contains one nonzero vector, then \(\operatorname{Span}(v)\) is a line through the origin.
 \end{remark}
@@ -379,10 +382,15 @@ which is a line in \(\mathbb{R}^2\).
 \end{center}
 \end{example}
 
+\paragraph{1. Span in $\mathbb{R}^n$}
+
 \begin{example}
     The span of n vectors \(v_1,\ldots,v_n\) is the set of all linear combinations of \(v_1,\ldots,v_n\). Then any vector in \(\operatorname{Span}(v_1,\ldots,v_n)\) has the form
-    \[Span(v_1,\ldots,v_n) = \{\lambda_2v1+\ldots+\lambda_nv_n : \lambda_i \in \mathbb{R}\}\]
+    \[Span(v_1,\ldots,v_n) = \{\lambda_2v_1+\ldots+\lambda_nv_n : \lambda_i \in \mathbb{R}\}\]
 \end{example}
+When working in \(\mathbb{R}^n\), the span describes all points you can reach by scaling and adding the given vectors.  
+Depending on the vectors, the span can be a line (if the vectors are dependent), a plane, or a higher-dimensional subspace.  
+The following examples show what spans look like in \(\mathbb{R}^2\).
 \begin{example}
     Let \(v_1 = \begin{pmatrix}3\\1\end{pmatrix}\), \(v_2 = \begin{pmatrix}1\\3\end{pmatrix}\).
     Then \(\operatorname{Span}(v_1,v_2) = \{\lambda_1v_1+\lambda_2v_2 : \lambda_1,\lambda_2 \in \mathbb{R}\}\)
@@ -459,104 +467,117 @@ Then \(v_2 = 2v_1\), so
 
 \paragraph{Span in $\mathbb{C}^n$}
 \begin{definition}
-    \[Span_\mathbb{C}(v_1,\ldots,v_n) = \{\lambda_2v1+\ldots+\lambda_nv_n : \lambda_i \in \mathbb{C}\}\]
+The span over \(\mathbb{C}\) of vectors \(v_1,\ldots,v_n\) is
+\[Span_{\mathbb{C}}(v_1,\ldots,v_n)=\{\lambda_1 v_1 + \ldots + \lambda_n v_n : \lambda_i \in \mathbb{C}\}.\]
 \end{definition}
 \begin{example}
-    \[span\begin{pmatrix}
-    2i\\2
-\end{pmatrix}+i\begin{pmatrix}
-    3\\1+i
-\end{pmatrix} \in \mathbb{C}^2\]
+For example,
+\[\begin{pmatrix}2i\\2\end{pmatrix} + i\begin{pmatrix}3\\1+i\end{pmatrix} \in \mathbb{C}^2.\]
+\end{example}
+
+\medskip
+\noindent
+So we distinguish between real and complex vector spaces:
+\[
+\mathbb{R}^n = \left\{\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix} : x_i \in \mathbb{R}\right\},
+\qquad
+\mathbb{C}^n = \left\{\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix} : x_i \in \mathbb{C}\right\}.
+\]
+
+\subsubsection{Standard Basis}
+
+\begin{definition}
+The standard basis for \(\mathbb{R}^n\) is the set \(\{e_1,\ldots,e_n\}\), where \(e_i\) is the \(i\)th standard basis vector.
+
+\[\mathbb{R}^n = \left\{\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix} : x_i \in \mathbb{R}\right\}\]
+
+\[e_1 = \begin{pmatrix}1\\0\\\vdots\\0\end{pmatrix}, \quad \ldots \quad e_n = \begin{pmatrix}0\\\vdots\\0\\1\end{pmatrix}\]
+\end{definition}
+
+\medskip
+\noindent
+(Basis = span + linear independence)
+
+\paragraph{Claim}
+These vectors span \(\mathbb{R}^n\).
+
+\begin{proof}
+We show that any vector in \(\mathbb{R}^n\) can be written as a linear combination of \(e_1,\ldots,e_n\):
+\[\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix} = \begin{pmatrix}x_1\\0\\\vdots\\0\end{pmatrix} + \begin{pmatrix}0\\x_2\\\vdots\\0\end{pmatrix} + \cdots + \begin{pmatrix}0\\\vdots\\0\\x_n\end{pmatrix} = x_1 e_1 + x_2 e_2 + \cdots + x_n e_n.\]
+\end{proof}
+
+\begin{example}[Complex vs Real Span]
+    \[\mathbb{C}^2 = \operatorname{Span}_{\mathbb{C}}(e_1,e_2)
+    = \{z_1 e_1 + z_2 e_2 : z_1,z_2 \in \mathbb{C}\},\]
+    where 
+    \[e_1=\begin{pmatrix}1\\0\end{pmatrix}, \quad e_2=\begin{pmatrix}0\\1\end{pmatrix}.\]
+    Here \(\dim_{\mathbb{C}}\mathbb{C}^2=2\) but \(\dim_{\mathbb{R}}\mathbb{C}^2=4\).
+    Every complex scalar can be written as \(z_k=x_k+iy_k\) with \(x_k,y_k \in \mathbb{R}\). So
+    \[\operatorname{Span}_{\mathbb{C}}(e_1,e_2) = \{(x_1+iy_1)e_1 + (x_2+iy_2)e_2 : x_1,x_2,y_1,y_2 \in \mathbb{R}\}.\]
+    Separating real and imaginary parts,
+    \[\operatorname{Span}_{\mathbb{C}}(e_1,e_2) = x_1 e_1 + x_2 e_2 + y_1 (i e_1) + y_2 (i e_2).\]
+    Therefore,
+    \[\operatorname{Span}_{\mathbb{C}}(e_1,e_2) = \operatorname{Span}_{\mathbb{R}}\left(
+    \begin{pmatrix}1\\0\end{pmatrix},
+    \begin{pmatrix}0\\1\end{pmatrix},
+    \begin{pmatrix}i\\0\end{pmatrix},
+    \begin{pmatrix}0\\i\end{pmatrix}
+    \right).
+    \]
+
+    \begin{center}
+    \begin{tikzpicture}[scale=1.2, >=Stealth]
+    \draw[->] (-3,0) -- (3,0) node[right] {$\Re$};
+    \draw[->] (0,-3) -- (0,3) node[above] {$\Im$};
+
+    \draw[->, thick] (0,0) -- (2,0) node[below] {$1$};
+    \draw[->, thick] (0,0) -- (0,2) node[left] {$i$};
+
+    \node at (1.5,1.5) {$\mathbb{C}=\text{span}_{\mathbb{R}}(1,i)$};
+    \end{tikzpicture}
+    \end{center}
 \end{example}
 
 
-So:
-\[\mathbb{R}^n = \{\begin{pmatrix}x_1\\\ldots\\x_n\end{pmatrix} : x_i \in \mathbb{R}\} \qquad \mathbb{C}^n = \{\begin{pmatrix}x_1\\\ldots\\x_n\end{pmatrix} : x_i \in \mathbb{C}\}\]
+\subsubsection{Abstract Vector Spaces}
+An abstract vector space is just a set with two operations:
+vector addition \((v_1+v_2)\) and scalar multiplication \((\lambda v)\), where \(\lambda\) comes from a field \(k\), satisfying certain axioms.
 
-Standard basis:
-\[\mathbb{R}^n = \{\begin{pmatrix}x_1\\\ldots\\x_n\end{pmatrix} : x_i \in \mathbb{R}\}\]
-\[e_1 = \begin{pmatrix}
-    1\\0\\\vdots\\0
-\end{pmatrix} \ldots e_n = \begin{pmatrix}0\\\vdots\\0\\1\end{pmatrix}\]
-Basis -> (span + LI)
+\begin{definition}
+    Let \(k\) be a field. A \textbf{vector space over \(k\)} is a set \(V\) together with two operations
+    \[
+    \begin{cases}
+    v_1+v_2 \in V, \quad v_1,v_2 \in V,\\
+    \lambda v \in V, \quad v \in V, \ \lambda \in k,
+    \end{cases}
+    \]
+    satisfying 8 axioms.
+\end{definition}
 
-Claim: These vectors span \(\mathbb{R}^n\)
-Proof: To show an arbitrary vector in \(\mathbb{R}\) can be written as a linear combination of \(e_1,\ldots,e_n\).
+\paragraph{Axioms}
+(1) Rules for addition
+\[(v_1+v_2)+v_3 = v_1+(v_2+v_3)\]
+There exists a zero vector \(0 \in V\) such that \(0+v=v\).
+For every \(v \in V\), there exists \(-v \in V\).
+\[u+v = v+u\]
+(2) Rules for scalar multiplication
+\[1\cdot v = v\]
+\[\lambda_1(\lambda_2 v) = (\lambda_1\lambda_2)v\]
+(3) Compatibility (distributive laws)
+\[(\lambda_1+\lambda_2)v = \lambda_1 v + \lambda_2 v\]
+\[\lambda(v_1+v_2) = \lambda v_1 + \lambda v_2\]
 
-\[Let \begin{pmatrix}
-    x_1\\\vdots\\x_n
-\end{pmatrix} \in \mathbb{R}^n = \begin{pmatrix}
-    x_1\\\vdots\\x_n
-\end{pmatrix} + \begin{pmatrix} x_2\\\vdots\\x_n\end{pmatrix} + \ldots + \begin{pmatrix}
-    0\\\vdots\\x_n
-\end{pmatrix} = x_1e_1 + x_2e_2 + \ldots + x_ne_n : Linear combination\]
+\begin{example}
+Let \(K\) be a field. Then
+\[K^n = \left\{\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix} : x_i \in K\right\}\]
+is a vector space over \(K\).
+\end{example}
 
-Example:
-\[\mathbb{C}^2 = span_\mathbb{C}(e_1,e_2) = \{z_1e_1 + z_2e_2 : z_1,z_2 \in \mathbb{C}\}\]
-where \(e_1 = \begin{pmatrix}1\\0\end{pmatrix}\) and \(e_2 = \begin{pmatrix}0\\1\end{pmatrix}\) and \(e_1, e_2\) are in \(dim_\mathbb{C}\mathbb{C}^2 = 2\) and \(dim_\mathbb{R}\mathbb{C}^2 = 4\).
-\[= \{(x_1+iy_1)e_1 + (x_2+iy_2)e_2 : x_1,x_2,y_1,y_2 \in \mathbb{R}\}\]
-\[= x_1e_1 + x_2e_2 + y_1(ie_1) + y_2(ie_2)\]
-\[= span_\mathbb{R}(\begin{pmatrix}
-    1\\0
-\end{pmatrix},\begin{pmatrix}
-    0\\1
-\end{pmatrix},\begin{pmatrix}
-    i\\0
-\end{pmatrix},\begin{pmatrix}
-    0\\i
-\end{pmatrix})\]
+\begin{remark}
+\[\operatorname{Span}_{\mathbb{Z}}(e_1,e_2) = \{\lambda_1 e_1 + \lambda_2 e_2 : \lambda_i \in \mathbb{Z}\}.\]
+\end{remark}
 
-
-\begin{tikzpicture}[scale=1.2, >=Stealth]
-\draw[->] (-3,0) -- (3,0) node[right] {$\Re$};
-\draw[->] (0,-3) -- (0,3) node[above] {$\Im$};
-
-\draw[->, thick] (0,0) -- (2,0) node[below] {$1$};
-\draw[->, thick] (0,0) -- (0,2) node[left] {$i$};
-
-\node at (1.5,1.5) {$\mathbb{C}=\text{span}_\mathbb{R}(1,i)$};
-\end{tikzpicture}
-
-
-\[\mathbb{C} = span_\mathbb{C}(1) = \{\lambda : \lambda \in \mathbb{C}\}\]
-\[\mathbb{C} = span_\mathbb{R}(1,i) = \{x + iy : x, y \in \mathbb{R}\}\]
-
-Abstract vector space:
-V = a set
-vector space = addition (\(v_1 + v_2\)), scalar multiplication (\(\lambda v\) where \(\lambda\) is a field \(k\)) + axioms
-
-Def: Let \(k\) be a field. A vector space over \(k\) is a set \(V\) and two operations
-\[\begin{cases}
-    v_1 + v_2 \in V, v_1,v_2 \in V\\
-    \lambda v \in V, v \in V, \lambda \in k
-\end{cases}
-+ 8 axioms.\]
-
-\[\lambda (v_1 + v_2) = \lambda v_1 + \lambda v_2\].
-
-4 rules for addition:
-\[(v_1 + v_2) + v_3 = v_1 + (v_2 + v_3)\]
-There exists a zero \(0 (origin of V) \in V [0 + v = v]\)
-\(-v\) makes sense
-\(u + v = v + u\)
-
-2 rules (axioms) for scaling:
-\[1 \cdot v = v\]
-\[\lambda_1(\lambda_2 v) = (\lambda_1 \lambda_2) v\]
-
-compatibility: distributivity
-\[(\lambda_1 + \lambda_2)v = \lambda_1 v + \lambda_2 v\]
-\[\lambda(v_1 + v_2) = \lambda v_1 + \lambda v_2\]
-
-Example 1:
-Let K be a Field
-\[K^n = \{\begin{pmatrix}
-    x_1\\\vdots\\x_n
-\end{pmatrix} : x_i \in K\}\]
-is a vector space over K
-Remark:
-\[span_\mathbb{Z}(e_1,e_2) = \{\lambda_1 e_1 + \lambda_2 e_2 : \lambda_i \in \mathbb{Z}\}\]
-
+\begin{center}
 \begin{tikzpicture}[scale=1.2, >=Stealth]
 \draw[->] (-0.5,0) -- (3,0);
 \draw[->] (0,-0.5) -- (0,3);
@@ -566,7 +587,94 @@ Remark:
 
 \node at (1.4,1.4) {$\mathbb{R}^2$};
 \end{tikzpicture}
+\end{center}
 
+\subsubsection{Examples of Vector Spaces}
+\marginpar{14 January, 2026}
+
+We now list important examples of vector spaces.
+
+\paragraph{1. Coordinate spaces}
+Let \(k\) be a field (\(k=\mathbb{R}\) or \(k=\mathbb{C}\)).
+\[
+k^n = \left\{\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix} : x_i \in k\right\}
+\]
+is a vector space over \(k\).
+
+The standard basis is
+\[
+e_1=\begin{pmatrix}1\\0\\\vdots\\0\end{pmatrix}, \ \ldots \ ,
+e_n=\begin{pmatrix}0\\\vdots\\0\\1\end{pmatrix}.
+\]
+
+\paragraph{2. Polynomial spaces}
+A polynomial is an expression
+\[
+f(x)=a_n x^n + a_{n-1}x^{n-1} + \cdots + a_1 x + a_0,
+\quad a_i \in k.
+\]
+
+\[
+P_n(k)=\{a_n x^n + \cdots + a_1 x + a_0 : a_i \in k\}
+\]
+is a vector space over \(k\).
+
+Examples:
+\[
+1+x^2 \in P_2(\mathbb{R}), \qquad 1+i x^3 \in P_3(\mathbb{C}).
+\]
+
+The subscript must satisfy \(\deg(f)\le n\).
+
+All polynomials:
+\[
+P_\infty = \{a_n x^n + \cdots + a_1 x + a_0 : a_i \in k, \ n\ge0\}.
+\]
+
+\[
+P_0 \subseteq P_1 \subseteq P_2 \subseteq \cdots \subseteq P_\infty.
+\]
+
+A standard basis is \(\{1,x,x^2,\ldots,x^n\}\).  
+Every \(f \in P_n\) can be written
+\[
+f=\lambda_0 + \lambda_1 x + \lambda_2 x^2 + \cdots + \lambda_n x^n.
+\]
+
+\paragraph{3. Matrix spaces}
+\[
+M_n(k)=\left\{\begin{pmatrix}
+a_{11}&\cdots&a_{1n}\\
+\vdots&\ddots&\vdots\\
+a_{n1}&\cdots&a_{nn}
+\end{pmatrix}: a_{ij}\in k\right\}
+\]
+is a vector space over \(k\).
+
+Standard basis matrices:
+\[
+e_{11}=\begin{pmatrix}1&0&\cdots&0\\0&0&\cdots&0\\\vdots&\vdots&\ddots&\vdots\\0&0&\cdots&0\end{pmatrix},\quad
+e_{12}=\begin{pmatrix}0&1&\cdots&0\\0&0&\cdots&0\\\vdots&\vdots&\ddots&\vdots\\0&0&\cdots&0\end{pmatrix}, \ \ldots
+\]
+
+\[
+\dim M_n(k)=n^2.
+\]
+
+Example in \(M_2(\mathbb{R})\):
+\[
+\begin{pmatrix}1&2\\3&4\end{pmatrix}
+=1e_{11}+2e_{12}+3e_{21}+4e_{22}.
+\]
+
+\paragraph{4. Function spaces}
+Let \(D\) be a set and \(k\) a field.
+\[
+F(D,k)=\{f:D\to k\}
+\]
+is a vector space over \(k\).
+
+When \(D=\mathbb{R}\) and \(k=\mathbb{R}\), functions are drawn with horizontal axis \(D\) and vertical axis \(k\).
 
 \section{Appendix}
 
