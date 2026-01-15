@@ -445,7 +445,9 @@ The Picard iterations converge uniformly to a function $y : J \to \mathbb{R}^n$ 
     \end{cases}\]
     \[||y(t) - z(t)|| \leq \int_{t_0}^{t}||f(y(s),s) - f(z(s),s)||ds \leq \int_{t_0}^{t}||y(s) - z(s)||ds.\]
     Define \(g(t) = \int_{t_0}^{t}||y(s) - z(s)||ds\). Therefore,
-    \[g'(t) = ||y(t) - z(t)|| \leq \int_{t_0}^{t}||y(s) - z(s)||ds = g(t).\]
+    \[g'(t) = ||y(t) - z(t)|| \leq Lg(t).\]
+    Which implies that
+    \[g'(t) - Lg(t) \leq 0.\]
 \end{proof}
 \section{}
 \section{}
