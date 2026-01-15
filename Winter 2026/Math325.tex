@@ -435,7 +435,18 @@ The Picard iterations converge uniformly to a function $y : J \to \mathbb{R}^n$ 
     Taking the limit when \(k \to +\infty\)
     \[y(t) = y_0 + \lim_{k \to +\infty} \int_{t_0}^{t} f(y_{k-1}(s),s)ds =\footnote{Uniform convergence} y_0 + \int_{t_0}^{t}\lim_{k \to +\infty} f(y_{k-1}(s),s)ds = y_0 + \int_{t_0}^{t} f(y(s),s)ds.\]
 \end{proof}\footnote{Evaluated on compacted cylinder, understanding epsilon, the L lipschitz constant coming from somehwere, not on the analysis background such as...}
-
+\begin{proof}[Uniqueness]
+    Assume that $y(t)$ and $z(t)$ satisfy the IVP
+    \[\begin{cases}y' = f(y,t),\\ y(t_0) = y_0.\end{cases}\]
+    Which implies that
+    \[\begin{cases}
+        y(t) = y_0 + \int_{t_0}^{t} f(y(s),s)ds,\\
+        z(t) = y_0 + \int_{t_0}^{t} f(z(s),s)ds.
+    \end{cases}\]
+    \[||y(t) - z(t)|| \leq \int_{t_0}^{t}||f(y(s),s) - f(z(s),s)||ds \leq \int_{t_0}^{t}||y(s) - z(s)||ds.\]
+    Define \(g(t) = \int_{t_0}^{t}||y(s) - z(s)||ds\). Therefore,
+    \[g'(t) = ||y(t) - z(t)|| \leq \int_{t_0}^{t}||y(s) - z(s)||ds = g(t).\]
+\end{proof}
 \section{}
 \section{}
 \section{}
