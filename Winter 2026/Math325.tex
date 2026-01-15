@@ -448,6 +448,9 @@ The Picard iterations converge uniformly to a function $y : J \to \mathbb{R}^n$ 
     \[g'(t) = ||y(t) - z(t)|| \leq Lg(t).\]
     Which implies that
     \[g'(t) - Lg(t) \leq 0.\]
+    Multiply both sides by \(e^{-L(t-t_0)}\)
+    \[\frac{d}{dt}(e^{-L(t-t_0)}g(t)) = (g'(t) - Lg(t))e^{-L(t-t_0)} \leq 0.\]
+    Which implies that \(e^{-L(t-t_0)}g(t)\) is decreasing. Therefore, for all $t \geq t_0, \quad e^{-L(t-t_0)}g(t) \leq e^{-L(t-t_0)}g(t_0)$
 \end{proof}
 \section{}
 \section{}
