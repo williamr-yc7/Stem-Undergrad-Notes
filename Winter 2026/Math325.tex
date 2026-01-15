@@ -430,12 +430,11 @@ The Picard iterations converge uniformly to a function $y : J \to \mathbb{R}^n$ 
     \[y(t) - y_{m+1}(t) \leq \frac{M_{\alpha,\delta}}{L}\sum_{j=m+2}^{+\inf}\frac{(L\epsilon)^j}{j!} \to_{m \to +\inf} 0.\]
     This implies that $y_k(t)$ converges uniformly to $y(t)$. By construction, $y(t_0) = y_0$ is continuous, $y_1,y_2,y_3,\ldots$ are also continuous.
     By the uniform convergence theorem, $y(t)$ is continuous.
+    By Picard's iterations,
+    \[y_k(t) = y_0 + \int_{t_0}^{t} f(y_{k-1}(s),s)ds.\]
+    Taking the limit when \(k \to +\infty\)
+    \[y(t) = y_0 + \lim_{k \to +\infty} \int_{t_0}^{t} f(y_{k-1}(s),s)ds =\footnote{Uniform convergence} y_0 + \int_{t_0}^{t}\lim_{k \to +\infty} f(y_{k-1}(s),s)ds = y_0 + \int_{t_0}^{t} f(y(s),s)ds.\]
 \end{proof}\footnote{Evaluated on compacted cylinder, understanding epsilon, the L lipschitz constant coming from somehwere, not on the analysis background such as...}
-
-By Picard's iterations,
-\[y_k(t) = y_0 + \int_{t_0}^{t} f(y_{k-1}(s),s)ds.\]
-Taking the limit when \(k \to +\infty\)
-\[y(t) = y_0 + \lim_{k \to +\infty} \int_{t_0}^{t} f(y_{k-1}(s),s)ds.\]
 
 \section{}
 \section{}
