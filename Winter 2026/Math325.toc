@@ -15,12 +15,13 @@
 \contentsline {subsubsection}{\numberline {3.4.3}Existence and Uniqueness Theorem}{7}{subsubsection.3.4.3}%
 \contentsline {subsubsection}{\numberline {3.4.4}Integral form of solutions}{8}{subsubsection.3.4.4}%
 \contentsline {subsubsection}{\numberline {3.4.5}Picard operator}{8}{subsubsection.3.4.5}%
-\contentsline {section}{\numberline {4}}{9}{section.4}%
-\contentsline {section}{\numberline {5}}{9}{section.5}%
-\contentsline {section}{\numberline {6}}{9}{section.6}%
-\contentsline {section}{\numberline {7}}{9}{section.7}%
-\contentsline {section}{\numberline {8}}{9}{section.8}%
-\contentsline {section}{\numberline {9}}{9}{section.9}%
-\contentsline {section}{\numberline {10}Solutions}{9}{section.10}%
-\contentsline {section}{\numberline {11}Appendix}{9}{section.11}%
-\contentsline {section}{\numberline {12}Useful Links}{9}{section.12}%
+\contentsline {paragraph}{Picard iterations}{9}{section*.2}%
+\contentsline {paragraph}{Existance}{9}{section*.3}%
+\contentsline {section}{\numberline {4}}{11}{section.4}%
+\contentsline {section}{\numberline {5}}{11}{section.5}%
+\contentsline {section}{\numberline {6}}{11}{section.6}%
+\contentsline {section}{\numberline {7}}{11}{section.7}%
+\contentsline {section}{\numberline {8}}{11}{section.8}%
+\contentsline {section}{\numberline {9}Solutions}{11}{section.9}%
+\contentsline {section}{\numberline {10}Appendix}{11}{section.10}%
+\contentsline {section}{\numberline {11}Useful Links}{11}{section.11}%

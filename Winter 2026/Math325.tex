@@ -357,14 +357,9 @@ D_{\alpha,\delta} = \{(y,t) : ||y - y_0|| \le \alpha, |t - t_0| \le \delta\}
 \subset D \times (a,b).
 \]
 Define
-\[
-M_{\alpha,\delta} = \sup_{(y,t) \in D_{\alpha,\delta}} ||f(y,t)|| < +\infty.
-\]
+\[M_{\alpha,\delta} = \sup_{(y,t) \in D_{\alpha,\delta}}\footnote{\(sup\) means the largest value in a set of numbers.} ||f(y,t)|| < +\infty.\]
 Let
-\[
-\epsilon = \min\left(\delta, \frac{\alpha}{M_{\alpha,\delta}}\right), \quad
-J = (t_0 - \epsilon, t_0 + \epsilon).
-\]
+\[\epsilon = \min\left(\delta, \frac{\alpha}{M_{\alpha,\delta}}\right), \quad J = (t_0 - \epsilon, t_0 + \epsilon).\]
 
 \begin{lemma}[Picard operator]
 For any function \(y\) such that \(y(t_0)=y_0\) and \((y(t),t) \in D_{\alpha,\delta}\) for all \(t \in J\), define
@@ -386,7 +381,56 @@ For \(t \in J\),
 \]
 So \((T(y)(t),t) \in D_{\alpha,\delta}\).
 \end{proof}
-\section{}
+
+\marginpar{January 15, 2026}
+\begin{lemma}
+    If $y : J \to \mathbb{R}^n$ satisfies 
+    \begin{enumerate}
+        \item $y(t_0) = y_0$,
+        \item $(y(t),t) \in D_{\alpha,\delta}$ for all $t \in J$,
+    \end{enumerate}
+    then $T(y) : J \to \mathbb{R}^n$ satisfies the same properties.
+\end{lemma}
+\paragraph{Picard iterations}
+Define $y_0(t) = y_0$ (constant function) clearly satisfies (1) and (2).
+For $k \geq 1$, define the Picard iterations by
+\[y_k(t) = T(y_{k-1}(t)) = y_0 + \int_{t_0}^{t} f(y_{k-1}(s),s)ds.\]
+
+\paragraph{Existance}
+The Picard iterations converge uniformly to a function $y : J \to \mathbb{R}^n$ which satisfies (1) and (2), and is a solution of the IVP.
+
+\begin{proof}
+    Pick $t \in [t_0, t_0 + \epsilon]$ (the proof is similar for $t \in [t_0 - \epsilon, t_0]$).
+    The goal is to show first that $\{y_k(t)\}_{k=0}^{\infty}$ is a Cauchy sequence\footnote{Cauchy sequence is a sequence that has a limit in a metric space $\mathbb{R}^n$.} in $\mathbb{R}^n$. We prove by induction that
+    \[(**) : ||y_m(t) - y_{m - 1}(t)|| \leq L^{m - 1}M_{\alpha,\delta} \frac{(t - t_0)^m}{m!},\:\forall m \geq 1.\]
+    For $m = 1$,
+    \[||y_1(t) - y_0(t)|| = ||y_0 + \int_{t_0}^{t} f(y_0,s)ds - y_0|| \leq \int_{t_0}^{t}||f(y_0,s)||ds \leq M_{\alpha,\delta}|t - t_0| \leq \alpha.\]
+
+    Assume $(**)$ holds for $m$ and show that it holds for $m + 1$
+    \[||y_{m + 1}(t) - y_m(t)|| = ||y_0 + \int_{t_0}^{t}f(y_m(s),s)ds - y_0 - \int_{t_0}^{t}f(y_{m-1}(s),s)ds|| \leq \int_{t_0}^{t}||f(y_m(s),s) - f(y_{m-1}(s),s)||ds.\]
+
+    Since $D_{\alpha,\delta}$ is compact and $f$ is (LLC) Lipschitz on $D_{\alpha,\delta}$ with Lipschitz constant $L$. Therefore, there exists $L = L(D_{\alpha,\delta})$ such that
+    \[||f(x,t) - f(y,t)|| \leq L||x - y||,\:\forall (x,t),(y,t) \in D_{\alpha,\delta}.\]
+    Which implies
+    \[\leq \int_{t_0}^{t}||y_m(s) - y_{m - 1}(s)||ds. \leq\footnote{By the (**)} L\int_{t_0}^{t}L^{m - 1}M_{\alpha,\delta} \frac{(t - t_0)^{m - 1}}{(m - 1)!}ds \leq L^{m - 1}M_{\alpha,\delta} \frac{(s - t_0)^m}{m!}ds\]
+    \[= L^m \frac{M_{\alpha,\delta}}{m!} \int_{t_0}^{t}(s - t_0)^mds = L^m M_{\alpha,\delta}\frac{(t - t_0)^m}{(m+1)!}.\]
+    In particular, for all $\rho \geq 1$,
+    \[||y_\rho(t) - y_{\rho-1}(t)|| \leq M_{\alpha,\delta} \frac{(L(t - t_0))^{\rho}}{(\rho)!} < \frac{M_{\alpha,\delta}}{L}\frac{(L\epsilon)^\rho}{\rho!}.\]
+    Pick $m,p \geq 1$ be two fixed integers
+    \[||y_{m+p}(t) - y_{m+1}(t)|| = ||y_{m+p} - y_{m+p-1} + y_{m+p-1} + \ldots - y_{m+2} + y_{m+2} - y_{m+1}||.\]
+
+    Triangle inequality gives
+    \[\leq \sum_{k_1}^{p-1}||y_{m+k+1}(t) - y_{m+k}(t)||\]
+    \[< \sum_{k=1}^{p-1}\frac{(L\epsilon)^{m+k+1}}{(m+k+1)!} =\footnote{(***)} \frac{M_{\alpha,\delta}}{L}\sum_{j=m+2}^{m+p}\frac{(L\epsilon)^j}{j!}.\]
+    Where $j = m+k+1$. Now
+    \[\to_{m,p \to +\inf} 0\]
+    since $e^{L\epsilon} = \sum_{j=0}^{+\inf}\frac{(L\epsilon)^j}{j!}$ converges.
+    \(\to \{y_k(t)\}_{k=0}^{\infty}\) is a Cauchy sequence in \(\mathbb{R}^n\). Since $\mathbb{R}^n$ is complete (all cauchy sequences converge) $y_k(t)$ converges to a limit, that we denote $y(t)$.
+    Take the limit when $p \to +\inf$ in (***) :
+    \[y(t) - y_{m+1}(t) \leq \frac{M_{\alpha,\delta}}{L}\sum_{j=m+2}^{+\inf}\frac{(L\epsilon)^j}{j!} \to_{m \to +\inf} 0.\]
+    This implies that $y_k(t)$ converges uniformly to $y(t)$. By construction, $y(t_0) = y_0$ is continuous, $y_1,y_2,y_3,\ldots$ are also continuous
+\end{proof}\footnote{Evaluated on compacted cylinder, understanding epsilon, the L lipschitz constant coming from somehwere, not on the analysis background such as...}
+
 \section{}
 \section{}
 \section{}
