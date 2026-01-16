@@ -8,19 +8,26 @@
 \contentsline {subsubsection}{\numberline {3.2.1}DC}{1}{subsubsection.3.2.1}%
 \contentsline {paragraph}{DC Offset}{1}{section*.2}%
 \contentsline {subsubsection}{\numberline {3.2.2}AC}{1}{subsubsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.3}Linear Systems}{2}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Current flow}{2}{subsection.3.4}%
-\contentsline {subsection}{\numberline {3.5}Ohm's Law}{2}{subsection.3.5}%
-\contentsline {section}{\numberline {4}Circuit Theory Beyond Electronic}{2}{section.4}%
-\contentsline {section}{\numberline {5}Capacitors \& Inductors}{2}{section.5}%
-\contentsline {section}{\numberline {6}RC and LR Circuits with AC Driving}{2}{section.6}%
-\contentsline {section}{\numberline {7}Impedance}{2}{section.7}%
-\contentsline {section}{\numberline {8}RLC Circuits}{2}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Transient Response}{2}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Driven RLC Circuits}{2}{subsection.8.2}%
-\contentsline {subsection}{\numberline {8.3}Power Input to RLC and Circuit Network}{2}{subsection.8.3}%
-\contentsline {section}{\numberline {9}Circuit Networks}{2}{section.9}%
-\contentsline {section}{\numberline {10}Fourier Series}{2}{section.10}%
-\contentsline {section}{\numberline {11}Fourier Transforms}{2}{section.11}%
-\contentsline {section}{\numberline {12}Appendix}{2}{section.12}%
-\contentsline {section}{\numberline {13}Useful Links}{2}{section.13}%
+\contentsline {subsection}{\numberline {3.3}Waves}{2}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Properties of waves}{2}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Waveforms}{2}{subsubsection.3.3.2}%
+\contentsline {paragraph}{Direct current (DC).}{2}{section*.3}%
+\contentsline {paragraph}{Alternating current (AC).}{3}{section*.4}%
+\contentsline {paragraph}{Pulsating current (DC + AC).}{3}{section*.5}%
+\contentsline {subsection}{\numberline {3.4}Linear Systems}{4}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Electric Charge}{4}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}Current flow}{4}{subsection.3.6}%
+\contentsline {subsection}{\numberline {3.7}Ohm's Law}{5}{subsection.3.7}%
+\contentsline {section}{\numberline {4}Circuit Theory Beyond Electronic}{5}{section.4}%
+\contentsline {section}{\numberline {5}Capacitors \& Inductors}{5}{section.5}%
+\contentsline {section}{\numberline {6}RC and LR Circuits with AC Driving}{5}{section.6}%
+\contentsline {section}{\numberline {7}Impedance}{5}{section.7}%
+\contentsline {section}{\numberline {8}RLC Circuits}{5}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Transient Response}{5}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Driven RLC Circuits}{5}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Power Input to RLC and Circuit Network}{5}{subsection.8.3}%
+\contentsline {section}{\numberline {9}Circuit Networks}{5}{section.9}%
+\contentsline {section}{\numberline {10}Fourier Series}{5}{section.10}%
+\contentsline {section}{\numberline {11}Fourier Transforms}{5}{section.11}%
+\contentsline {section}{\numberline {12}Appendix}{5}{section.12}%
+\contentsline {section}{\numberline {13}Useful Links}{5}{section.13}%

@@ -90,10 +90,113 @@ Doing this shifts the entire signal up or down relative to the \(0\,\text{V}\) l
     Example of a source of AC current is a transformer. Other examples of AC current are wall outlets.
 \end{example}
 
-\subsection{Linear Systems}
- 
-\subsection{Current flow}
+\subsection{Waves}
+\subsubsection{Properties of waves}
+To describe waves, considering a sinusoidal wave of the form \(A_psin(2\pi vt)\), we use the following terms
+\begin{itemize}
+    \item Peak amplitude (\(A_p\)): maximum value of the wave from its equilibrium position .
+    \item Peak-to-peak amplitude: total height of the wave from its maximum to its minimum value (i.e., \(2A_p\)).
+    \item Frequency (\(v\)): number of cycles per second (Hz).
+    \item Time (\(t\)): time variable.
+\end{itemize}
+To be able to describe AC signals effectively, we take the root mean square (RMS) amplitude \(\frac{A_p}{\sqrt{2}}\) of values such as current and voltage.
+\[I_{RMS} = \frac{I_p}{\sqrt{2}}\]
+\[V_{RMS} = \frac{V_p}{\sqrt{2}}\]
 
+\subsubsection{Waveforms}
+
+A waveform is the shape of a signal when plotted as a function of time. Common waveforms include:
+\begin{itemize}
+    \item Sine wave
+    \item Square wave
+    \item Triangle wave
+    \item Sawtooth wave
+\end{itemize}
+
+\paragraph{Direct current (DC).}
+A direct current is constant in time, so its graph is a horizontal line.
+
+Graph of a direct current \(I(t)\):
+\begin{center}
+\begin{tikzpicture}[scale=1.1]
+    % Axes
+    \draw[->] (-0.5,0) -- (6,0) node[right] {$t$};
+    \draw[->] (0,-0.5) -- (0,5) node[above] {$I(t)$};
+
+    % DC graph
+    \draw (0,3) -- (6,3);
+\end{tikzpicture}
+\end{center}
+
+\paragraph{Alternating current (AC).}
+An alternating current varies periodically in time and typically oscillates about zero.
+
+Graph of an alternating current \(I(t)\):
+\begin{center}
+\begin{tikzpicture}[scale=1.1]
+    % Axes
+    \draw[->] (0,2.5) -- (6,2.5) node[right] {$t$};
+    \draw[->] (0,0) -- (0,5) node[above] {$I(t)$};
+
+    % AC graph
+    \draw[domain=0:6, samples=400] plot (\x,{sin(8*\x r)+2.5});
+\end{tikzpicture}
+\end{center}
+
+\paragraph{Pulsating current (DC + AC).}
+A pulsating current is an alternating current superimposed on a non-zero DC level. This is just a matter of adding a constant DC level to an AC signal so that the signal is either shifted up or down with respect to the zero current level.
+
+Graph of a pulsating current \(I(t)\):
+\begin{center}
+\begin{tikzpicture}[scale=1.1]
+    % Axes
+    \draw[->] (0,2.5) -- (6,2.5) node[right] {$t$};
+    \draw[->] (0,0) -- (0,5) node[above] {$I(t)$};
+
+    % AC + DC signal
+    \draw[domain=0:6, samples=600] plot (\x,{sin(8*\x r)+2.5});
+
+    % DC level
+    \draw[dashed] (0,2.5) -- (6,2.5);
+\end{tikzpicture}
+\end{center}
+
+\subsection{Linear Systems}
+\begin{definition}
+    Linear systems obey the principles of superposition and scaling.
+\end{definition}
+\begin{example}
+    Consider two inputs $x_1(t)$ and $x_2(t)$ to a linear system producing outputs $y_1(t) = H[x_1(t)]$ and $y_2(t) = H[x_2(t)]$, where $H$ is some transformation function.
+
+    A linear transformation must satisfy:
+    \[y_{total} = \alpha y_1(t) + \beta y_1(t) = H[\alpha x_1(t) + \beta x_2(t)],\]
+    where \(\alpha\) and \(\beta\) are constants.
+\end{example}
+\begin{example}[Superposition]
+    \[H[x_1(t) + x_2(t)] = H[x_1(t)] + H[x_2(t)]\]
+\end{example}
+\begin{example}[Scaling]
+    \[H[\alpha x(t)] = \alpha H[x(t)]\]
+\end{example}
+\subsection{Electric Charge}
+\begin{definition}
+    Charge is a fundamental physical property that comes in two types: positive (+) and negative (-) (which cancel). Positive and negative charge are usually present in matter in exactly equal proportion (so matter is typically electrically neutral). Charge is conserved—can neither be created nor destroyed and is quantized in units of electronic charge $e = 1.6 \times 10^{-19} \text{C}$.
+\end{definition}
+\subsection{Current flow}
+\begin{definition}[Electric Current]
+    Charge per unit time passing a given point in a circuit.
+\end{definition}
+\begin{definition}[Current Flow]
+    The flow of electrons through a wire driven by an electric field potential energy difference. Defined as the rate of charge past a point in a circuit:
+    \[I[ampere] = \frac{Q[coulomb]}{time[seconds]}\]
+\end{definition}
+\begin{definition}[Voltage]
+    The electric potential energy divided by the charge. It is the energy per unit charge.
+    \[V[volt] = \frac{\Delta E_{Electric}[joule]}{Q[coulomb]}\]
+\end{definition}
+\begin{definition}[Electron-volt]
+    The energy gained or lost by an electron when it moves through an electric potential difference of one volt, which is a unit of energy equal to the work done on an electron in accelerating it through a potential difference of 1V, equal to $1.6 \times 10^{-19}$ Joule.
+\end{definition}
 \subsection{Ohm's Law}
 
 \section{Circuit Theory Beyond Electronic}

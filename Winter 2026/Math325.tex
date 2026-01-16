@@ -505,31 +505,19 @@ y(t) = y_0 + \int_{t_0}^{t} f(y(s),s)ds.
 \paragraph{Uniqueness}
 
 \begin{proof}
+    Assume $y(t)$ and $z(t)$ solve the IVP. Then
+    \[||y(t) - z(t)|| \leq \int_{t_0}^{t}||f(y(s),s) - f(z(s),s)||ds \leq L \int_{t_0}^{t}||y(s) - z(s)||ds.\]
 
-Assume $y(t)$ and $z(t)$ solve the IVP. Then
-\[
-||y(t) - z(t)|| 
-\leq \int_{t_0}^{t}||f(y(s),s) - f(z(s),s)||ds 
-\leq L \int_{t_0}^{t}||y(s) - z(s)||ds.
-\]
+    Define \(g(t) = \int_{t_0}^{t}||y(s) - z(s)||ds\). Then
+    \[g'(t) \leq Lg(t).\]
 
-Define \(g(t) = \int_{t_0}^{t}||y(s) - z(s)||ds\). Then
-\[
-g'(t) \leq Lg(t).
-\]
+    So,
+    \[\frac{d}{dt}(e^{-L(t-t_0)}g(t)) \leq 0.\]
 
-So,
-\[
-\frac{d}{dt}(e^{-L(t-t_0)}g(t)) \leq 0.
-\]
+    Thus \(e^{-L(t-t_0)}g(t)\) is decreasing and
+    \[0 \leq g(t) \leq g(t_0) = 0.\]
 
-Thus \(e^{-L(t-t_0)}g(t)\) is decreasing and
-\[
-0 \leq g(t) \leq g(t_0) = 0.
-\]
-
-Hence \(g(t)=0\) and \(y(t)=z(t)\).
-
+    Hence \(g(t)=0\) and \(y(t)=z(t)\).
 \end{proof}
 \section{}
 \section{}
