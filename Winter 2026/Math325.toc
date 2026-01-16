@@ -15,8 +15,12 @@
 \contentsline {subsubsection}{\numberline {3.4.3}Existence and Uniqueness Theorem}{7}{subsubsection.3.4.3}%
 \contentsline {subsubsection}{\numberline {3.4.4}Integral form of solutions}{8}{subsubsection.3.4.4}%
 \contentsline {subsubsection}{\numberline {3.4.5}Picard operator}{8}{subsubsection.3.4.5}%
-\contentsline {paragraph}{Picard iterations}{9}{section*.2}%
-\contentsline {paragraph}{Existance}{9}{section*.3}%
+\contentsline {paragraph}{Setup and notation}{8}{section*.2}%
+\contentsline {paragraph}{Definition of the Picard operator}{8}{section*.3}%
+\contentsline {paragraph}{Invariant properties}{9}{section*.4}%
+\contentsline {paragraph}{Picard iterations}{9}{section*.5}%
+\contentsline {paragraph}{Existence}{9}{section*.6}%
+\contentsline {paragraph}{Uniqueness}{11}{section*.7}%
 \contentsline {section}{\numberline {4}}{11}{section.4}%
 \contentsline {section}{\numberline {5}}{11}{section.5}%
 \contentsline {section}{\numberline {6}}{11}{section.6}%

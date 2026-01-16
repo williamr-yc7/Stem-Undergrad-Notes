@@ -351,15 +351,27 @@ y'(t) = f(y(t),t), \quad y(t_0) = y_0.
 
 \subsubsection{Picard operator}
 
+\paragraph{Setup and notation}
+
 Let \((y_0,t_0) \in D \times (a,b)\). Since this set is open, there exist \(\alpha,\delta > 0\) such that
 \[
 D_{\alpha,\delta} = \{(y,t) : ||y - y_0|| \le \alpha, |t - t_0| \le \delta\}
 \subset D \times (a,b).
 \]
+
 Define
-\[M_{\alpha,\delta} = \sup_{(y,t) \in D_{\alpha,\delta}}\footnote{\(sup\) means the largest value in a set of numbers.} ||f(y,t)|| < +\infty.\]
+\[
+M_{\alpha,\delta} = \sup_{(y,t) \in D_{\alpha,\delta}}\footnote{\(sup\) means the largest value in a set of numbers.} ||f(y,t)|| < +\infty.
+\]
+
 Let
-\[\epsilon = \min\left(\delta, \frac{\alpha}{M_{\alpha,\delta}}\right), \quad J = (t_0 - \epsilon, t_0 + \epsilon).\]
+\[
+\epsilon = \min\left(\delta, \frac{\alpha}{M_{\alpha,\delta}}\right), 
+\quad 
+J = (t_0 - \epsilon, t_0 + \epsilon).
+\]
+
+\paragraph{Definition of the Picard operator}
 
 \begin{lemma}[Picard operator]
 For any function \(y\) such that \(y(t_0)=y_0\) and \((y(t),t) \in D_{\alpha,\delta}\) for all \(t \in J\), define
@@ -373,85 +385,151 @@ Then \(T(y)(t_0)=y_0\) and \((T(y)(t),t) \in D_{\alpha,\delta}\) for all \(t \in
 \[
 T(y)(t_0) = y_0.
 \]
+
 For \(t \in J\),
 \[
-||T(y)(t) - y_0|| \le \int_{t_0}^{t} ||f(y(s),s)||ds
+||T(y)(t) - y_0|| 
+\le \int_{t_0}^{t} ||f(y(s),s)||ds
 \le M_{\alpha,\delta}|t - t_0|
-\le M_{\alpha,\delta}\epsilon \le \alpha.
+\le M_{\alpha,\delta}\epsilon 
+\le \alpha.
 \]
+
 So \((T(y)(t),t) \in D_{\alpha,\delta}\).
 \end{proof}
 
 \marginpar{January 15, 2026}
-\begin{lemma}
-    If $y : J \to \mathbb{R}^n$ satisfies 
-    \begin{enumerate}
-        \item $y(t_0) = y_0$,
-        \item $(y(t),t) \in D_{\alpha,\delta}$ for all $t \in J$,
-    \end{enumerate}
-    then $T(y) : J \to \mathbb{R}^n$ satisfies the same properties.
-\end{lemma}
-\paragraph{Picard iterations}
-Define $y_0(t) = y_0$ (constant function) clearly satisfies (1) and (2).
-For $k \geq 1$, define the Picard iterations by
-\[y_k(t) = T(y_{k-1}(t)) = y_0 + \int_{t_0}^{t} f(y_{k-1}(s),s)ds.\]
 
-\paragraph{Existance}
+\paragraph{Invariant properties}
+
+\begin{lemma}
+If $y : J \to \mathbb{R}^n$ satisfies 
+\begin{enumerate}
+\item $y(t_0) = y_0$,
+\item $(y(t),t) \in D_{\alpha,\delta}$ for all $t \in J$,
+\end{enumerate}
+then $T(y) : J \to \mathbb{R}^n$ satisfies the same properties.
+\end{lemma}
+
+\paragraph{Picard iterations}
+
+Define $y_0(t) = y_0$ (constant function), which clearly satisfies (1) and (2).
+
+For $k \geq 1$, define
+\[
+y_k(t) = T(y_{k-1})(t) 
+= y_0 + \int_{t_0}^{t} f(y_{k-1}(s),s)ds.
+\]
+
+\paragraph{Existence}
+
 The Picard iterations converge uniformly to a function $y : J \to \mathbb{R}^n$ which satisfies (1) and (2), and is a solution of the IVP.
 
 \begin{proof}
-    Pick $t \in [t_0, t_0 + \epsilon]$ (the proof is similar for $t \in [t_0 - \epsilon, t_0]$).
-    The goal is to show first that $\{y_k(t)\}_{k=0}^{\infty}$ is a Cauchy sequence\footnote{Cauchy sequence is a sequence that has a limit in a metric space $\mathbb{R}^n$.} in $\mathbb{R}^n$. We prove by induction that
-    \[(**) : ||y_m(t) - y_{m - 1}(t)|| \leq L^{m - 1}M_{\alpha,\delta} \frac{(t - t_0)^m}{m!},\:\forall m \geq 1.\]
-    For $m = 1$,
-    \[||y_1(t) - y_0(t)|| = ||y_0 + \int_{t_0}^{t} f(y_0,s)ds - y_0|| \leq \int_{t_0}^{t}||f(y_0,s)||ds \leq M_{\alpha,\delta}|t - t_0| \leq \alpha.\]
 
-    Assume $(**)$ holds for $m$ and show that it holds for $m + 1$
-    \[||y_{m + 1}(t) - y_m(t)|| = ||y_0 + \int_{t_0}^{t}f(y_m(s),s)ds - y_0 - \int_{t_0}^{t}f(y_{m-1}(s),s)ds|| \leq \int_{t_0}^{t}||f(y_m(s),s) - f(y_{m-1}(s),s)||ds.\]
+Pick $t \in [t_0, t_0 + \epsilon]$ (the proof is similar for $t \in [t_0 - \epsilon, t_0]$).
 
-    Since $D_{\alpha,\delta}$ is compact and $f$ is (LLC) Lipschitz on $D_{\alpha,\delta}$ with Lipschitz constant $L$. Therefore, there exists $L = L(D_{\alpha,\delta})$ such that
-    \[||f(x,t) - f(y,t)|| \leq L||x - y||,\:\forall (x,t),(y,t) \in D_{\alpha,\delta}.\]
-    Which implies
-    \[\leq \int_{t_0}^{t}||y_m(s) - y_{m - 1}(s)||ds. \leq\footnote{By the (**)} L\int_{t_0}^{t}L^{m - 1}M_{\alpha,\delta} \frac{(t - t_0)^{m - 1}}{(m - 1)!}ds \leq L^{m - 1}M_{\alpha,\delta} \frac{(s - t_0)^m}{m!}ds\]
-    \[= L^m \frac{M_{\alpha,\delta}}{m!} \int_{t_0}^{t}(s - t_0)^mds = L^m M_{\alpha,\delta}\frac{(t - t_0)^m}{(m+1)!}.\]
-    In particular, for all $\rho \geq 1$,
-    \[||y_\rho(t) - y_{\rho-1}(t)|| \leq M_{\alpha,\delta} \frac{(L(t - t_0))^{\rho}}{(\rho)!} < \frac{M_{\alpha,\delta}}{L}\frac{(L\epsilon)^\rho}{\rho!}.\]
-    Pick $m,p \geq 1$ be two fixed integers
-    \[||y_{m+p}(t) - y_{m+1}(t)|| = ||y_{m+p} - y_{m+p-1} + y_{m+p-1} + \ldots - y_{m+2} + y_{m+2} - y_{m+1}||.\]
+The goal is to show that $\{y_k(t)\}_{k=0}^{\infty}$ is a Cauchy sequence\footnote{Cauchy sequence is a sequence that has a limit in a metric space $\mathbb{R}^n$.} in $\mathbb{R}^n$.
 
-    Triangle inequality gives
-    \[\leq \sum_{k_1}^{p-1}||y_{m+k+1}(t) - y_{m+k}(t)||\]
-    \[< \sum_{k=1}^{p-1}\frac{(L\epsilon)^{m+k+1}}{(m+k+1)!} =\footnote{(***)} \frac{M_{\alpha,\delta}}{L}\sum_{j=m+2}^{m+p}\frac{(L\epsilon)^j}{j!}.\]
-    Where $j = m+k+1$. Now
-    \[\to_{m,p \to +\inf} 0\]
-    since $e^{L\epsilon} = \sum_{j=0}^{+\inf}\frac{(L\epsilon)^j}{j!}$ converges.
-    \(\to \{y_k(t)\}_{k=0}^{\infty}\) is a Cauchy sequence in \(\mathbb{R}^n\). Since $\mathbb{R}^n$ is complete (all cauchy sequences converge) $y_k(t)$ converges to a limit, that we denote $y(t)$.
-    Take the limit when $p \to +\inf$ in (***) :
-    \[y(t) - y_{m+1}(t) \leq \frac{M_{\alpha,\delta}}{L}\sum_{j=m+2}^{+\inf}\frac{(L\epsilon)^j}{j!} \to_{m \to +\inf} 0.\]
-    This implies that $y_k(t)$ converges uniformly to $y(t)$. By construction, $y(t_0) = y_0$ is continuous, $y_1,y_2,y_3,\ldots$ are also continuous.
-    By the uniform convergence theorem, $y(t)$ is continuous.
-    By Picard's iterations,
-    \[y_k(t) = y_0 + \int_{t_0}^{t} f(y_{k-1}(s),s)ds.\]
-    Taking the limit when \(k \to +\infty\)
-    \[y(t) = y_0 + \lim_{k \to +\infty} \int_{t_0}^{t} f(y_{k-1}(s),s)ds =\footnote{Uniform convergence} y_0 + \int_{t_0}^{t}\lim_{k \to +\infty} f(y_{k-1}(s),s)ds = y_0 + \int_{t_0}^{t} f(y(s),s)ds.\]
+We prove by induction that
+\[
+(**)\quad ||y_m(t) - y_{m - 1}(t)|| \leq L^{m - 1}M_{\alpha,\delta} \frac{(t - t_0)^m}{m!},\:\forall m \geq 1.
+\]
+
+\textbf{Base case \(m=1\):}
+\[
+||y_1(t) - y_0(t)|| 
+= \left\| \int_{t_0}^{t} f(y_0,s)ds \right\|
+\leq \int_{t_0}^{t}||f(y_0,s)||ds 
+\leq M_{\alpha,\delta}|t - t_0| 
+\leq \alpha.
+\]
+
+\textbf{Induction step:}
+
+\[
+||y_{m + 1}(t) - y_m(t)|| 
+\leq \int_{t_0}^{t}||f(y_m(s),s) - f(y_{m-1}(s),s)||ds.
+\]
+
+Since $D_{\alpha,\delta}$ is compact and $f$ is Lipschitz on $D_{\alpha,\delta}$, there exists $L$ such that
+\[
+||f(x,t) - f(y,t)|| \leq L||x - y||.
+\]
+
+Thus,
+\[
+\le L \int_{t_0}^{t}||y_m(s) - y_{m - 1}(s)||ds.
+\]
+
+Using (**),
+\[
+\le L^m M_{\alpha,\delta} \frac{1}{(m-1)!} \int_{t_0}^{t}(s - t_0)^{m-1}ds
+= L^m M_{\alpha,\delta} \frac{(t - t_0)^m}{m!}.
+\]
+
+Hence (**) holds.
+
+In particular, for all $\rho \geq 1$,
+\[
+||y_\rho(t) - y_{\rho-1}(t)|| 
+\leq M_{\alpha,\delta} \frac{(L(t - t_0))^{\rho}}{(\rho)!}
+< \frac{M_{\alpha,\delta}}{L}\frac{(L\epsilon)^\rho}{\rho!}.
+\]
+
+Let $m,p \geq 1$:
+\[
+||y_{m+p}(t) - y_{m+1}(t)|| 
+\leq \sum_{k=1}^{p-1}||y_{m+k+1}(t) - y_{m+k}(t)||.
+\]
+
+So,
+\[
+< \frac{M_{\alpha,\delta}}{L}\sum_{j=m+2}^{m+p}\frac{(L\epsilon)^j}{j!}.
+\]
+
+Since \(e^{L\epsilon} = \sum_{j=0}^{\infty}\frac{(L\epsilon)^j}{j!}\) converges,
+\[
+\to_{m,p \to +\infty} 0.
+\]
+
+Thus $\{y_k(t)\}$ is Cauchy and converges to $y(t)$.
+
+Taking limits in the iteration,
+\[
+y(t) = y_0 + \int_{t_0}^{t} f(y(s),s)ds.
+\]
+
 \end{proof}\footnote{Evaluated on compacted cylinder, understanding epsilon, the L lipschitz constant coming from somehwere, not on the analysis background such as...}
-\begin{proof}[Uniqueness]
-    Assume that $y(t)$ and $z(t)$ satisfy the IVP
-    \[\begin{cases}y' = f(y,t),\\ y(t_0) = y_0.\end{cases}\]
-    Which implies that
-    \[\begin{cases}
-        y(t) = y_0 + \int_{t_0}^{t} f(y(s),s)ds,\\
-        z(t) = y_0 + \int_{t_0}^{t} f(z(s),s)ds.
-    \end{cases}\]
-    \[||y(t) - z(t)|| \leq \int_{t_0}^{t}||f(y(s),s) - f(z(s),s)||ds \leq \int_{t_0}^{t}||y(s) - z(s)||ds.\]
-    Define \(g(t) = \int_{t_0}^{t}||y(s) - z(s)||ds\). Therefore,
-    \[g'(t) = ||y(t) - z(t)|| \leq Lg(t).\]
-    Which implies that
-    \[g'(t) - Lg(t) \leq 0.\]
-    Multiply both sides by \(e^{-L(t-t_0)}\)
-    \[\frac{d}{dt}(e^{-L(t-t_0)}g(t)) = (g'(t) - Lg(t))e^{-L(t-t_0)} \leq 0.\]
-    Which implies that \(e^{-L(t-t_0)}g(t)\) is decreasing. Therefore, for all $t \geq t_0, \quad 0 \leq e^{-L(t-t_0)}g(t) \leq e^{-L(t-t_0)}g(t_0)$.
-    From that we get $g(t) = 0$. Which implies that $g'(t) = ||y(t) - z(t)|| = 0$ for all $t \in J$.
+
+\paragraph{Uniqueness}
+
+\begin{proof}
+
+Assume $y(t)$ and $z(t)$ solve the IVP. Then
+\[
+||y(t) - z(t)|| 
+\leq \int_{t_0}^{t}||f(y(s),s) - f(z(s),s)||ds 
+\leq L \int_{t_0}^{t}||y(s) - z(s)||ds.
+\]
+
+Define \(g(t) = \int_{t_0}^{t}||y(s) - z(s)||ds\). Then
+\[
+g'(t) \leq Lg(t).
+\]
+
+So,
+\[
+\frac{d}{dt}(e^{-L(t-t_0)}g(t)) \leq 0.
+\]
+
+Thus \(e^{-L(t-t_0)}g(t)\) is decreasing and
+\[
+0 \leq g(t) \leq g(t_0) = 0.
+\]
+
+Hence \(g(t)=0\) and \(y(t)=z(t)\).
+
 \end{proof}
 \section{}
 \section{}
