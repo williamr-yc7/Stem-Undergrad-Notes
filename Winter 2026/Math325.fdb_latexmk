@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1768947063.63068 "c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math325.tex" "Math325.pdf" "Math325" 1768947067.95019 0
+["pdflatex"] 1768947881.23942 "c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math325.tex" "Math325.pdf" "Math325" 1768947888.1643 0
   "C:/Users/erenr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1768538118 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/erenr/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk" 1767801684 11548 9ea6db1ff0b947846d8751dabcdcf90a ""
   "C:/Users/erenr/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1767801679 13333486 ad3a4e5807f6f25ced943a60862e7471 ""
@@ -216,11 +216,11 @@
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/tools/indentfirst.sty" 1761901070 1618 30b01152766afcef2ed8f904cfdd3cc6 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
-  "Math325.aux" 1768947067 3811 ed99a87a40ec9146c0f50b560336a22d "pdflatex"
-  "Math325.out" 1768947067 3230 ee8158677227cbe4694b46200a18cd0f "pdflatex"
-  "Math325.tex" 1768947060 24151 d38b695569bcc8ea0dfd7b341fd9fd46 ""
-  "Math325.toc" 1768947067 2377 4f1fef777bcaa123cc47d4b5dfed0bc5 "pdflatex"
-  "c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math325.tex" 1768947060 24151 d38b695569bcc8ea0dfd7b341fd9fd46 ""
+  "Math325.aux" 1768947887 3811 ed99a87a40ec9146c0f50b560336a22d "pdflatex"
+  "Math325.out" 1768947887 3230 ee8158677227cbe4694b46200a18cd0f "pdflatex"
+  "Math325.tex" 1768947879 24202 8b7c23a165f9acef99e76afcdc8255b3 ""
+  "Math325.toc" 1768947887 2377 4f1fef777bcaa123cc47d4b5dfed0bc5 "pdflatex"
+  "c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math325.tex" 1768947879 24202 8b7c23a165f9acef99e76afcdc8255b3 ""
   (generated)
   "Math325.aux"
   "Math325.log"

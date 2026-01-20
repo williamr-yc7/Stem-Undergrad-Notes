@@ -148,9 +148,11 @@ Given \(n \in \mathbb{N}\), an \(n\)\textsuperscript{th} order scalar ODE is wri
 where \(F : \mathbb{R}^{n + 2} \to \mathbb{R}\) is a map and where \(y^{(k)}(t) = \frac{d^ky}{dt^k}(t), k = 1, \ldots, n\).\\\\
 
 \noindent\textbf{Systems of first order ODEs}\\
-\indent Consider a map \(f: D \times (a,b) \to \mathbb{R}^n\), where \(D \subseteq \mathbb{R}^n\) is an open set, and (a,b) is a "time" interval. A general first order system of ODEs is given by \(y'(t) = f(y(t), t)\), where \(y(t) = \begin{pmatrix}y_1(t)\\ \vdots \\ y_n(t)\end{pmatrix}\), \(f = \begin{pmatrix}f_1\\ \vdots \\ f_n\end{pmatrix}\), and \(y' = \begin{pmatrix}y'_1\\ \vdots \\ y'_n\end{pmatrix}\).\\
-\textbf{Remark:} Assume that a scalar \(n\)\textsuperscript{th} order ODE has the form \[y^{(n)}(t) = G(t, y(t), y'(t), \ldots, y^{(n-1)}(t)).\]
-Letting \(y_1 = y, y_2 = y', \ldots, y_n = y^{(n-1)}\). This leads us to \(y_1' = y' = y_2, y_2' = y'' = y_3, \ldots, y_{n-1}' = y^{(n-1)} = y_n, y_n' = y^{(n)} = G(t, y_1, y_2, \ldots, y_n)\). Therefore, we can rewrite the \(n\)\textsuperscript{th} order ODE as a first order system of ODEs:
+\indent Imagine a map \(f: D \times (a,b) \to \mathbb{R}^n\), where \(D \subseteq \mathbb{R}^n\) is an open set, and (a,b) is a "time" interval. A general first order system of ODEs is given by \(y'(t) = f(y(t), t)\), where \(y(t) = \begin{pmatrix}y_1(t)\\ \vdots \\ y_n(t)\end{pmatrix}\), \(f = \begin{pmatrix}f_1\\ \vdots \\ f_n\end{pmatrix}\), and \(y' = \begin{pmatrix}y'_1\\ \vdots \\ y'_n\end{pmatrix}\).\\
+\begin{remark}
+    Assume that a scalar \(n\)\textsuperscript{th} order ODE has the form \[y^{(n)}(t) = G(t, y(t), y'(t), \ldots, y^{(n-1)}(t)).\]
+\end{remark}
+Let's break this down into simpler terms. Letting \(y_1 = y, y_2 = y', \ldots, y_n = y^{(n-1)}\). This leads us to \(y_1' = y' = y_2, y_2' = y'' = y_3, \ldots, y_{n-1}' = y^{(n-1)} = y_n, y_n' = y^{(n)} = G(t, y_1, y_2, \ldots, y_n)\). So, we can rewrite the \(n\)\textsuperscript{th} order ODE as a first order system of ODEs:
 \[\begin{pmatrix}y_1'\\y_2'\\\vdots\\y_{n-1}'\\y_n'\end{pmatrix} = \begin{pmatrix}y_2\\y_3\\\vdots\\y_n\\G(t, y_1, y_2, \ldots, y_n)\end{pmatrix}\]
 
 \begin{example}[Lorenz Equation]
