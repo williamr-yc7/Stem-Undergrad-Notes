@@ -1,5 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1768539436.56571 "c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Phys241.tex" "Phys241.pdf" "Phys241" 1768539443.26868 0
+["pdflatex"] 1768918788.89999 "c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Phys241.tex" "Phys241.pdf" "Phys241" 1768918799.99463 0
+  "../Images/Pulsating-direct-current-diagram.svg.png" 1768918111 32813 7e351fd9ae204183e9fb141cb122f6f9 ""
   "C:/Users/erenr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1768538118 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/erenr/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk" 1767801684 11548 9ea6db1ff0b947846d8751dabcdcf90a ""
   "C:/Users/erenr/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1767801679 13333486 ad3a4e5807f6f25ced943a60862e7471 ""
@@ -231,11 +232,11 @@
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/tools/indentfirst.sty" 1761901070 1618 30b01152766afcef2ed8f904cfdd3cc6 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
-  "Phys241.aux" 1768539442 4352 3e60b9dbd86fb9781421737fc0c4316b "pdflatex"
-  "Phys241.out" 1768539442 4360 f07ac6e2157cdef29b33df3b9c4869b8 "pdflatex"
-  "Phys241.tex" 1768539431 11371 7f341237cf5e1d5d4d8d811fb3d189d7 ""
-  "Phys241.toc" 1768539442 2755 a7f5eb0a6c429421640acdf05bba1ed3 "pdflatex"
-  "c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Phys241.tex" 1768539431 11371 7f341237cf5e1d5d4d8d811fb3d189d7 ""
+  "Phys241.aux" 1768918798 4633 567162970b7f0cec4b2096c6e2db508e "pdflatex"
+  "Phys241.out" 1768918798 4496 e03de8ee03c27e6277bd1f15d019ef05 "pdflatex"
+  "Phys241.tex" 1768918786 11630 d7f2beeedd39a6321255f427b582fb86 ""
+  "Phys241.toc" 1768918798 2791 b689ab8b699e2858b51988ab0a365a4a "pdflatex"
+  "c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Phys241.tex" 1768918786 11630 d7f2beeedd39a6321255f427b582fb86 ""
   (generated)
   "Phys241.aux"
   "Phys241.log"

@@ -676,6 +676,65 @@ is a vector space over \(k\).
 
 When \(D=\mathbb{R}\) and \(k=\mathbb{R}\), functions are drawn with horizontal axis \(D\) and vertical axis \(k\).
 
+
+\marginpar{16 January, 2026}
+$F(D)$ is a function from $D$ to $K$, where $K = \mathbb{R}\:or\:\mathbb{C}$. No "standard basis" in general.
+
+Standard basis if $D$ is a finite set $eg\:D=\{1,\ldots,n\}$.
+\[(f \in F(D). f(1)=2,f(2)=4,\ldots,f(n)=2^n\]
+
+Kronecker function: Let $x \in D$, $\delta_x \in F(D)$, defined by $\delta_x(y)=\left\{\begin{array}{ll}1&x=y\\0&x\ne y\end{array}\right.$
+Then $\{\delta_x : x \in D\}$ is a standard basis of $F(D)$.
+
+Standard basis :\((\delta_1,\ldots,\delta_n)\), for $F(\{1,\ldots,n\})$.
+
+Remark: $\{\delta_x : x \in \mathbb{R}\} $ do not span $F(\mathbb{R})$.
+
+Proof that $(\delta_1,\ldots,\delta_n)$ spans $F\{1,\ldots,n\}$. Take any
+\[f \in F(D)\]
+Find $a_1,\ldots,a_n \in K$ such that
+\[f = a_1 \delta_1 + \ldots + a_n \delta_n\]
+\[f(x), \quad x \in D = \{1,\ldots,n\}\]
+\[g(1) = a_1\delta_1(1) + a_2 \delta_2(1) + \ldots + a_n \delta_n(1) = a_1\]
+
+Claim: $a_k = f(K) \in K$
+Claim: $f = \sum f(k) \delta_k$, where $f(k) \in K$ and $\delta_k$ is the basis vector.
+
+Proof:
+\[g(l) = f(1)\delta_1(l)+\ldots+f(l)\delta_l(l)+\ldots+f(n)\delta_n(l) = f(l)\]
+
+Subspace criterion. Let $V$ be a vector space.
+To check a subset $u \subseteq V$ is a vector space.
+In principle need to checck:
+1. $U$ is stable under addition $u,v \in U$ Hence $u+v \in U$.
+2. $U$ is stable under scalar multiplication. $\lambda \in K, u \in U$ Hence $\lambda u \in U$.
+3. 8 axioms hold in $U$.
+
+Proposition. A subset $U \subseteq V$ is a vector space (8 axioms are true) if f:
+(0) $U$ is not empty ($0 \in U$)
+(1) $U$ is stable under addition: $u,v \in U \to u + v \in U$.
+(2) $U$ is stable under scalar multiplication: $u \in U, \lambda \in K \to \lambda u \in U$.
+
+\marginpar{January 19, 2026}
+Subspaces
+\begin{problem}[Subspace criterion]
+    Let $A \in M_n(K)$ be a fixed matrix. Prove thet
+    \[U = \{x \in K^n : Ax = \vec{0}\}\]
+    is a subspace, null space or kernel.
+\end{problem}
+\begin{problem}[Subspace criterion 2]
+    The set $U = \{Ax : x \in K^n\}$ is a subspace, image of A.
+\end{problem}
+\begin{problem}[Subspace criterion 3]
+    Let $V = K$ (vector space of dim 1) show that the only 2 subspaces of $V$ are $\{0\}$ and $V$ itself.
+\end{problem}
+\begin{problem}[Subspace criterion 4]
+    $Span(v_1,\ldots,v_n) = \{\lambda_1v_1 + \ldots + \lambda_nv_n : \lambda_1,\ldots,\lambda_n \in K\}$ is a subspace.
+\end{problem}
+\begin{problem}
+    $Span(v_1, \ldots, v_n)$ is the smallest subspace c
+\end{problem}
+
 \section{Appendix}
 
 \section{Solutions}
@@ -701,6 +760,57 @@ When \(D=\mathbb{R}\) and \(k=\mathbb{R}\), functions are drawn with horizontal 
 \begin{solution}
     We can answer this problem with proof by contradiction. Let's
     suppose this matrix is invertible. By definition there exists B = $\begin{pmatrix}a&b\\c&d\end{pmatrix}$ such that $\begin{bmatrix}0&1\\0&0\end{bmatrix}$ $\begin{bmatrix}a&b\\c&d\end{bmatrix}$ = $\begin{bmatrix}1&0\\0&1\end{bmatrix}$.  We can rewrite this equation into: $\begin{bmatrix}a&b\\c&d\end{bmatrix}$ = $\begin{bmatrix}0&1\\0&0\end{bmatrix}^{-1}$. The inverse of our matrix can be rewritten as $\frac{1}{0*0 - 1*0}\begin{bmatrix}0&-1\\0&0\end{bmatrix}$\footnote{Recall that an inverse of a $2 \times 2$ matrix is equal to its determinant multiplied with its conjugate}. But this is undefined since division by 0 is undefined. Therefore, our initial assumption that the matrix is invertible is false, and thus the matrix is not invertible.
+\end{solution}
+\begin{solution}[Subspace criterion]
+    (0) is $0 \in U$?
+    Yes, because $A0 = 0$.
+    \[\begin{pmatrix}
+        a&b\\
+        c&d
+    \end{pmatrix}\begin{pmatrix}
+        0\\0
+    \end{pmatrix} = \begin{pmatrix}
+        0\\0
+    \end{pmatrix}\]
+    
+    (1) Addition: Let $x,y \in U$. Prove $x+y \in U$.
+    \[A(x+y) = Ax + Ay = 0 + 0 = 0\]
+    (2) Scalar multiplication: Let $x \in U, \lambda \in K$. Prove $\lambda x \in U$.
+    \[A(\lambda x) = \lambda Ax = \lambda 0 = 0\]
+\end{solution}
+\begin{solution}[Subspace criterion 2]
+    (0) is $0 \in U$?
+    Find $x \in K^n$ such that $Ax = 0$.
+    $x = 0$.
+
+    (1) Stability under addition: $y_1,y_2 \in U \to y_1 + y_2 \in U$.
+    There exist $x$, such that $y_1 = Ax_1, y_2 = Ax_2$.
+    \[y_1 + y_2 = Ax_1 + Ax_2 = A(x_1 + x_2) \in U\]
+    
+    (2) Stability under scalar multiplication: If $f = Ax$, for some $x$, $\lambda y = A(\lambda x)$
+\end{solution}
+\begin{solution}[Subspace criterion 3]
+    Let $U \subseteq \mathbb{R}$ be a subspace. Prove: $U = \{0\}$ or $U = \mathbb{R}$.
+    
+    Case 1: $U = \{0\}$.
+
+    Case 2: $U \ne \{0\} \to$ there exists $v \in \mathbb{R}$, $v \ne 0$.
+    Prove: $U = \mathbb{R}$.
+    Let $x \in \mathbb{R}$ be any real number. Prove: $x \in U$.
+    Since $U$ is a subspace, it is stable under scalar multiplication.
+    \[x \in U \to Ax \in U\]
+    Therefore, $x \in U$.
+\end{solution}
+\begin{solution}[Subspace criterion 4]
+    (0) $0 \in span(v_1,\ldots,v_n)$, because
+    \[\lambda_1 = \ldots \lambda_n = 0 \qquad \lambda_1 v_1 + \ldots + \lambda_n v_n = 0.\]
+    
+    (1) addition: $u,v \in span$ Prove $u + v \in span$.
+    \[u = a_1 v_1 + \ldots + a_n v_n\]
+    \[v = b_1 v_1 + \ldots + b_n v_n\]
+    \[u + v = (a_1 + b_1)v_1 + \ldots + (a_n + b_n)v_n \in span(v_1,\ldots,v_n)\]
+    
+    (2) scalar multiplication:
 \end{solution}
 
 \section{Useful Links}
