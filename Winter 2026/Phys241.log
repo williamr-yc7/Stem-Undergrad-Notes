@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  20 JAN 2026 09:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  20 JAN 2026 14:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -595,13 +595,13 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 31.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{C:/Users/erenr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (Phys241.toc)
+{C:/Users/erenr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (Phys241.toc [2
+
+])
 \tf@toc=\write5
 \openout5 = `Phys241.toc'.
 
- [2
-
-]
+ [3]
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
@@ -614,31 +614,36 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has b
                    \relax 
 l.125 \end{center}
                    [2]
-<../Images/Pulsating-direct-current-diagram.svg.png, id=209, 1284.8pt x 632.3625pt>
+<../Images/Pulsating-direct-current-diagram.svg.png, id=233, 1284.8pt x 632.3625pt>
 File: ../Images/Pulsating-direct-current-diagram.svg.png Graphic file (type png)
 <use ../Images/Pulsating-direct-current-diagram.svg.png>
 Package pdftex.def Info: ../Images/Pulsating-direct-current-diagram.svg.png  used on input line 131.
 (pdftex.def)             Requested size: 172.5pt x 84.9021pt.
- [3 <../Images/Pulsating-direct-current-diagram.svg.png>] [4] [5] [6] (Phys241.aux)
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.144 ...1(t) = H[\alpha x_1(t) + \beta x_2(t)],\]
+                                                   [3 <../Images/Pulsating-direct-current-diagram.svg.png>] [4] [5] [6] [7] [8] (Phys241.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
 Package rerunfilecheck Info: File `Phys241.out' has not changed.
-(rerunfilecheck)             Checksum: E03DE8EE03C27E6277BD1F15D019EF05;4496.
+(rerunfilecheck)             Checksum: E54DD13F041A8EA1DA08FB90052A5F6D;5048.
  ) 
 Here is how much of TeX's memory you used:
- 49652 strings out of 467871
- 1293791 string characters out of 5418377
- 2044878 words of memory out of 5000000
- 77923 multiletter control sequences out of 15000+600000
+ 49664 strings out of 467871
+ 1293977 string characters out of 5418377
+ 2045884 words of memory out of 5000000
+ 77927 multiletter control sequences out of 15000+600000
  639857 words of font info for 85 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,8n,118p,807b,767s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\erenr\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti9.pfb>
-Output written on Phys241.pdf (8 pages, 322305 bytes).
+Output written on Phys241.pdf (11 pages, 335499 bytes).
 PDF statistics:
- 346 PDF objects out of 1000 (max. 8388607)
- 65 named destinations out of 1000 (max. 500000)
- 274 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 382 PDF objects out of 1000 (max. 8388607)
+ 73 named destinations out of 1000 (max. 500000)
+ 306 words of extra memory for PDF output out of 10000 (max. 10000000)
 

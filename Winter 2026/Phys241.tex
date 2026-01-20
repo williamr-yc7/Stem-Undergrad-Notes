@@ -212,6 +212,44 @@ To better understand the concept of EMF, consider the following analogy: EMF is 
     where \(\mathcal{E}_{EMF}\) is the induced EMF, and \(\Phi_B\) is the magnetic flux through a wire loop, defined as:
     \[\Phi_B = \int B \cdot da\]
 \end{theorem}
+
+\subsection{Ohm's Law}
+\begin{definition}
+    Ohm's Law states that the current \(I\) flowing through a conductor is directly proportional to the voltage \(V\) across it and inversely proportional to its resistance \(R\). Mathematically, it is expressed as:
+    \[I = \frac{V}{R}\]
+\end{definition}
+Microscopically, Ohm's Law can be understood in terms of the motion of electrons in a conductor. When a voltage is applied across a conductor, it creates an electric field that exerts a force on the free electrons, causing them to move and create an electric current. The resistance of the conductor arises from collisions between the electrons and the atoms in the material, which impede their motion. The greater the resistance, the more collisions occur, resulting in a lower current for a given voltage.
+The current density \(J\) is given by Ohm's Law, which states that the current density is proportional to the electric field strength \(E\):
+\[J = \sigma E\]
+Conversely, the electric field strength is given by the current density and the resistivity of the material:
+\[E = J\rho_r\]
+The current \(I\) is given by the current density and the cross-sectional area of the material:
+\[I = AJ = A\sigma E\]
+The electric field strength can also be expressed in terms of the potential difference \(\Delta V\) across the material and its length \(l\):
+\[E = \Delta V/l\]
+Substituting this into the expression for the current, we obtain:
+\[I = \frac{A\sigma \Delta V}{l} = \frac{A\Delta V}{\rho_r l}\]
+The potential difference across the material is also given by the resistance \(R\) and the current \(I\) as stated in Ohm's Law:
+\[\Delta V = IR\]
+Finally, the resistance can be expressed in terms of the resistivity of the material, the length of the material, and its cross-sectional area:
+\[R = \frac{\rho_r l}{A}\]
+
+\subsection{Resistors}
+\begin{definition}
+    A resistor is a device that opposes the flow of current through it, resulting in a voltage drop across it. Resistors are characterized by their resistance value \(R\), measured in ohms (\(\Omega\)), which quantifies the amount of opposition they provide to the flow of current. According to Ohm's Law, the voltage drop \(V\) across a resistor is directly proportional to the current \(I\) flowing through it:
+    \[V = IR\]
+\end{definition}
+When resistors are connected in series, their resistances add together to form a total resistance $R_{tot} = R_1 + R_2 + \cdots + R_n$. In contrast, when resistors are connected in parallel, their resistances add inversely to form a total resistance $\frac{1}{R_{tot}} = \frac{1}{R_1} + \frac{1}{R_2} + \cdots + \frac{1}{R_n}$. 
+\subsubsection{Temperature Dependence}
+The temperature dependence of the resistance of many metals can be modelled by the following equation:
+\[R_T = R_0[1 + \alpha (T - T_0)]\]
+where \(R_0\) is the resistance value at reference temperature \(T_0\), and \(\alpha\) is the linear temperature coefficient. This equation shows that the resistance of a metal increases linearly with temperature, which is a common phenomenon observed in many metals.
+\subsubsection{Power Dissipation}
+When current flows through a resistor, electrical energy is converted into heat energy due to the resistance of the material. The power \(P\) dissipated by a resistor can be calculated using the formula:
+\[P = \Delta V \cdot I\]
+Using Ohm's Law, we can express the power dissipated in terms of the resistance \(R\) and either the voltage drop \(\Delta V\) or the current \(I\):
+\[P = I^2 R = \frac{(\Delta V)^2}{R}\]
+
 \section{Circuit Theory Beyond Electronic}
 \section{Capacitors \& Inductors}
 \section{RC and LR Circuits with AC Driving}

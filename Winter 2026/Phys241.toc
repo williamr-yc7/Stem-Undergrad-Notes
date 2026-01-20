@@ -20,16 +20,20 @@
 \contentsline {subsection}{\numberline {3.8}Potential \& Ground}{5}{subsection.3.8}%
 \contentsline {subsection}{\numberline {3.9}Electromotive Force}{5}{subsection.3.9}%
 \contentsline {subsubsection}{\numberline {3.9.1}Faraday's Law}{6}{subsubsection.3.9.1}%
-\contentsline {section}{\numberline {4}Circuit Theory Beyond Electronic}{6}{section.4}%
-\contentsline {section}{\numberline {5}Capacitors \& Inductors}{6}{section.5}%
-\contentsline {section}{\numberline {6}RC and LR Circuits with AC Driving}{6}{section.6}%
-\contentsline {section}{\numberline {7}Impedance}{6}{section.7}%
-\contentsline {section}{\numberline {8}RLC Circuits}{6}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Transient Response}{6}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Driven RLC Circuits}{6}{subsection.8.2}%
-\contentsline {subsection}{\numberline {8.3}Power Input to RLC and Circuit Network}{6}{subsection.8.3}%
-\contentsline {section}{\numberline {9}Circuit Networks}{6}{section.9}%
-\contentsline {section}{\numberline {10}Fourier Series}{6}{section.10}%
-\contentsline {section}{\numberline {11}Fourier Transforms}{6}{section.11}%
-\contentsline {section}{\numberline {12}Appendix}{6}{section.12}%
-\contentsline {section}{\numberline {13}Useful Links}{6}{section.13}%
+\contentsline {subsection}{\numberline {3.10}Ohm's Law}{6}{subsection.3.10}%
+\contentsline {subsection}{\numberline {3.11}Resistors}{7}{subsection.3.11}%
+\contentsline {subsubsection}{\numberline {3.11.1}Temperature Dependence}{7}{subsubsection.3.11.1}%
+\contentsline {subsubsection}{\numberline {3.11.2}Power Dissipation}{7}{subsubsection.3.11.2}%
+\contentsline {section}{\numberline {4}Circuit Theory Beyond Electronic}{8}{section.4}%
+\contentsline {section}{\numberline {5}Capacitors \& Inductors}{8}{section.5}%
+\contentsline {section}{\numberline {6}RC and LR Circuits with AC Driving}{8}{section.6}%
+\contentsline {section}{\numberline {7}Impedance}{8}{section.7}%
+\contentsline {section}{\numberline {8}RLC Circuits}{8}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Transient Response}{8}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Driven RLC Circuits}{8}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Power Input to RLC and Circuit Network}{8}{subsection.8.3}%
+\contentsline {section}{\numberline {9}Circuit Networks}{8}{section.9}%
+\contentsline {section}{\numberline {10}Fourier Series}{8}{section.10}%
+\contentsline {section}{\numberline {11}Fourier Transforms}{8}{section.11}%
+\contentsline {section}{\numberline {12}Appendix}{8}{section.12}%
+\contentsline {section}{\numberline {13}Useful Links}{8}{section.13}%
