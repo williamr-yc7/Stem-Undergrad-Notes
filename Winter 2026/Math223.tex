@@ -735,6 +735,64 @@ Subspaces
     $Span(v_1, \ldots, v_n)$ is the smallest subspace c
 \end{problem}
 
+\marginpar{January 21, 2026}
+\begin{problem}[$K = \mathbb{R}$]
+    Is $v_i \begin{pmatrix}
+        3\\5\\-5\end{pmatrix}$ in the space of $v_1 = \begin{pmatrix}
+            1\\2\\1
+    \end{pmatrix}, v_2 = \begin{pmatrix}
+        2\\5\\4
+    \end{pmatrix}, v_3 = \begin{pmatrix}
+        1\\3\\6
+    \end{pmatrix}$
+    In otherwords: are there $x,y,z \in \mathbb{R}$ such that $v = xv_1 + yv_2 + zv_3$?
+\end{problem}
+\begin{problem}
+    Is $f: 3x^2 + 5x - 5$ in the span of $f_1 = x^2 + 2x + 1, f_2 = 2x^2 + 5x + 4, f_3 = x^2 + 3x + 6$?
+    \[f = xf_1 + yf_2 + zf_3\]
+\end{problem}
+
+Intersection, sums, direct sums.
+$W$ vector space.
+$U, V \subseteq W$ two subspaces.
+Definition: $U \cap V = \{v \in W : v \in U \text{ and } v \in V\}$ smallest intersection $\{0\}$.
+
+The union of 2 subspaces in NOT a subspace (in general).
+
+$W = \mathbb{R}^2$ :
+draw a cartesian plane with vertical being $V$ and horizontal being $U$ and draw the cross ($u+v$).
+$U \cup V =$ cross, no quadrant, not a subspace
+
+Sum of 2 subspaces:
+$U + V = \{u + v : u \in U, v \in V\}$
+line $U$ + line $V$ = plane
+
+Propoisition: $U, V$ are subspaces of $W$. $U + V$ is a subspace.
+U cannot rescale a vector space, therefore $U + U = U$.
+Proof:
+$\subseteq$: Let $u + u' \in U + U$ prove $u + u' \in U$. Yes subce $U$ is a subspace stable under addition.
+$\supseteq$: Take $u \in U$, prove $u \in U + U$. $u = u + 0 \in U + U$.
+Proof: subspace criterion.
+(0) $0 \in U + V$ since $0 \in U, 0 \in V$.
+(1) Stable under addition: let $w_1, w_2 \in U + V$. Prove $w_1 + w_2 \in U + V$.
+\[w_1 = u_1 + v_1, u_1 \in U, v_1 \in V\]
+\[w_2 = u_2 + v_2, u_2 \in U, v_2 \in V\]
+\[w_1 + w_2 = (u_1 + u_2) + (v_1 + v_2)\]
+\[u_1 + u_2 \in U, v_1 + v_2 \in V\]
+\[w_1 + w_2 \in U + V\]
+(2) Stable under scalar multiplication: let $w \in U + V, \lambda \in K$. Prove $\lambda w = \lambda u + \lambda v \in U + V$.
+
+Prop: $U + V = span(U \cup V)$.
+$U + V = $ smalles subspace containing $U \cup V$.
+Proof:
+$\subseteq$: Take $w \in U + V$ prove $w \in span(U \cup V)$.
+\[w = u + v, u \in U, v \in V\]
+Prove $w \in span(U \cup V)$. (You could also write it like $span(U,V)$ since line can be of both in $U$ or $V$). 
+$\supseteq$: Take $w \in span(U \cup V)$ prove $w \in U + V$.
+\[w = a_1 u_1 + \ldots + a_n u_n + b_1 v_1 + \ldots + b_m v_m\]
+where $u_i \in U, v_j \in V, a_i,b_j \in K$.
+\[w = (a_1 u_1 + \ldots + a_n u_n) + (b_1 v_1 + \ldots + b_m v_m)\]
+\[w = u + v, u \in U + V\]
 \section{Appendix}
 
 \section{Solutions}
@@ -811,6 +869,24 @@ Subspaces
     \[u + v = (a_1 + b_1)v_1 + \ldots + (a_n + b_n)v_n \in span(v_1,\ldots,v_n)\]
     
     (2) scalar multiplication:
+\end{solution}
+\begin{solution}
+    \[\begin{pmatrix}
+        3\\5\\-5
+    \end{pmatrix} = x\begin{pmatrix}
+        1\\2\\1
+    \end{pmatrix} + y\begin{pmatrix}
+        2\\5\\4
+    \end{pmatrix} + z\begin{pmatrix}
+        1\\3\\6
+    \end{pmatrix}\]
+    \[\begin{cases}
+        x+2y+z = 3\\
+        2x+5y+3z = 5\\
+        x+4y+6z = -5
+    \end{cases} \to x = 3, y = 1, z = -2\]
+    A: yes since 
+    \[v = 3v_1 + v_2 + 2v_3\]
 \end{solution}
 
 \section{Useful Links}
