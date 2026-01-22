@@ -234,6 +234,14 @@ The potential difference across the material is also given by the resistance \(R
 Finally, the resistance can be expressed in terms of the resistivity of the material, the length of the material, and its cross-sectional area:
 \[R = \frac{\rho_r l}{A}\]
 
+Ohm's Law can be represented graphically using the Ohm's Law Wheel, which illustrates the relationships between current, voltage, resistance, and conductance. The wheel is a useful tool for quickly finding the value of one electrical property given the values of the other three.
+\begin{figure}[h]
+    \begin{center}
+        \includegraphics[width=0.5\textwidth]{../Images/Ohms-Law-Formula-Wheel.png}
+        \caption{Ohm's Law Wheel and Current Density}
+    \end{center}
+\end{figure}
+
 \subsection{Resistors}
 \begin{definition}
     A resistor is a device that opposes the flow of current through it, resulting in a voltage drop across it. Resistors are characterized by their resistance value \(R\), measured in ohms (\(\Omega\)), which quantifies the amount of opposition they provide to the flow of current. According to Ohm's Law, the voltage drop \(V\) across a resistor is directly proportional to the current \(I\) flowing through it:
@@ -249,6 +257,18 @@ When current flows through a resistor, electrical energy is converted into heat 
 \[P = \Delta V \cdot I\]
 Using Ohm's Law, we can express the power dissipated in terms of the resistance \(R\) and either the voltage drop \(\Delta V\) or the current \(I\):
 \[P = I^2 R = \frac{(\Delta V)^2}{R}\]
+\subsubsection{Ideal vs Real Batteries}
+\begin{definition}[Ideal Battery]
+    An ideal battery is a theoretical concept that represents a perfect voltage source with no internal resistance. It maintains a constant voltage output regardless of the current drawn from it, meaning that it can supply any amount of current without any voltage drop or loss of energy.
+\end{definition}
+\begin{definition}[Real Battery]
+    A real battery, on the other hand, has internal resistance that causes a voltage drop when current is drawn from it. This means that the voltage output of a real battery decreases as the current increases, leading to a loss of energy in the form of heat due to the internal resistance.
+\end{definition}
+The circuit containing a real battery can be modeled as an ideal voltage source \(V_0\) or \(V_{ideal}\) in series with an internal resistance \(r\). The terminal voltage \(V_{terminal}\) of the battery when a current \(I\) is drawn from it can be expressed as:
+\[V_{terminal} = V_{0} - Ir\]
+However, if the circuit contained a resistor \(R\) connected to the battery, the current \(I\) flowing through the circuit can be calculated using Ohm's Law:
+\[V_0 = Ir + IR\]
+
 
 \section{Circuit Theory Beyond Electronic}
 \section{Capacitors \& Inductors}

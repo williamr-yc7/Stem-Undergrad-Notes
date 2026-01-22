@@ -1,5 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1768938517.39411 "c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Phys241.tex" "Phys241.pdf" "Phys241" 1768938523.56414 0
+["pdflatex"] 1769030917.67494 "c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Phys241.tex" "Phys241.pdf" "Phys241" 1769030923.67119 0
+  "../Images/Ohms-Law-Formula-Wheel.png" 1769029882 8385 c5e978fbe5f6991095d6b8d090da3862 ""
   "../Images/Pulsating-direct-current-diagram.svg.png" 1768918111 32813 7e351fd9ae204183e9fb141cb122f6f9 ""
   "C:/Users/erenr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1768538118 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/erenr/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk" 1767801684 11548 9ea6db1ff0b947846d8751dabcdcf90a ""
@@ -232,11 +233,11 @@
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/tools/indentfirst.sty" 1761901070 1618 30b01152766afcef2ed8f904cfdd3cc6 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
-  "Phys241.aux" 1768938522 5147 24947b8f3754353c13a7a8fb78542618 "pdflatex"
-  "Phys241.out" 1768938522 5048 e54dd13f041a8ea1da08fb90052a5f6d "pdflatex"
-  "Phys241.tex" 1768938515 15202 773428dc74fc3357ab0094b063784086 ""
-  "Phys241.toc" 1768938522 3140 97947560ca0f1e7ca17c035361cf37f7 "pdflatex"
-  "c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Phys241.tex" 1768938515 15202 773428dc74fc3357ab0094b063784086 ""
+  "Phys241.aux" 1769030922 5435 b9512bd828b34843feafead8f96a1c29 "pdflatex"
+  "Phys241.out" 1769030922 5242 e9bd80c2a89b9a13f61f3b34115fe2d3 "pdflatex"
+  "Phys241.tex" 1769030913 16897 3b04a2293ea02f9c380632fefd1ac879 ""
+  "Phys241.toc" 1769030922 3241 aaf65a516d5831a8fdabbf04a3c00c12 "pdflatex"
+  "c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Phys241.tex" 1769030913 16897 3b04a2293ea02f9c380632fefd1ac879 ""
   (generated)
   "Phys241.aux"
   "Phys241.log"

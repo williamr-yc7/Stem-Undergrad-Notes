@@ -99,13 +99,16 @@ $i^k$ & 1 & i & -1 & -i & 1 & i
 \end{tabular}
 \end{definition}
 \begin{theorem}[Fundamental Theorem of Algebra]
-    Any polynomial\footnote{Polynomial is a function such as: \(f = a_n x^n + a_{n-1}x^{n-1} + ... + a_1 x + a_0\) where \(a_i \in \mathbb{R}\) or \(\mathbb{C}\) and \(n \in \mathbb{N}\).} \(f\) (except constant functions) has a root in \(\mathbb{C}\).
+    Any complex polynomial\footnote{Polynomial is a function such as: \(f = a_n x^n + a_{n-1}x^{n-1} + ... + a_1 x + a_0\) where \(a_i \in \mathbb{R}\) or \(\mathbb{C}\) and \(n \in \mathbb{N}\).} \(f\) (except constant functions) has a root in \(\mathbb{C}\).
 \end{theorem}
 \begin{remark}
-    If we have a polynomial \(f\) of degree \(n\), then it has \(n\) roots, where each root can have a multiplicity\footnote{The multiplicity of a root represents how many times the root occurs in the polynomial.}. For example, if we have a polynomial \((x-1)^2\), it has a degree of 2 but only one root, which is 1, with a multiplicity of 2. This means that the root 1 appears twice in the polynomial.
+    If we have a polynomial \(f\) of degree \(n\), then it has \(n\) roots, where each root can have a multiplicity\footnote{The multiplicity of a root represents how many times the root occurs in the polynomial.}.
 \end{remark}
+\begin{example}
+    If we have a polynomial \((x-1)^2\), it has a degree of 2 but only one root, which is 1, with a multiplicity of 2. This means that the root 1 appears twice in the polynomial.
+\end{example}
 We can factorize a polynomial in the form of \(f = a_n x^n + ... + a_1 x + a_0\) into a linear factor: \(f = a(x - z_1)(x - z_2)...(x - z_n)\) where \(z_i\) are the roots of \(f\) in \(\mathbb{C}\).\\\\
-Using the FTA for a function such as \(f = a_nx^n + ... + a_1 x + a_0\), we can say that the FTA implies that \(f\) has a root \(f(z) = 0\).
+Using the FTA for a function such as \(f = a_nx^n + ... + a_1 x + a_0\), we can say that the FTA implies that \(f\) has a root \(f(z) = 0\), because $f(z) = a(z-z) = 0$.
 \subsubsection{Complex Operations}
 \label{subsec:CO}
 We can define operations on complex numbers as follows:
@@ -220,27 +223,24 @@ Around the 1740, the mathematician Euler discovered a formula for complex number
 \end{definition}
 This formula is quite useful when dealing with complex numbers, as it allows us to write complex numbers in a more compact form.
 
-\paragraph{4. Roots}
-\begin{definition}[\(n^{\text{th}}\) roots]
-    An \(n^{\text{th}}\) root of \(z\) is a complex number \(w\) such that
+\paragraph{4. Roots in $\mathbb{C}$}
+\begin{definition}[\(n^{\text{th}}\) roots in $\mathbb{C}$]
+    For any complex number $z$, an $n^{\text{th}}$ root of $z$ is a complex number $w$ such that
     \[w^n = z.\]
 \end{definition}
-If \(z = re^{i\theta}\), then any solution of \(w^n = z\) must satisfy
-\[w^n = r e^{i\theta}.\]
-Writing \(w = \rho e^{i\varphi}\), we obtain
-\[\rho^n = r, \quad n\varphi = \theta + 2\pi k, \quad k \in \mathbb{Z}.\]
-Hence, all \(n^{\text{th}}\) roots of \(z\) are
-\[w_k = r^{1/n} e^{i(\theta + 2\pi k)/n}, \quad k = 0,1,2,\dots,n-1.\]
-
-
+\begin{example}
+    If \(z = re^{i\theta}\), then any solution of \(w^n = z\) must satisfy
+    \[w_k = r^{1/n} e^{i(\theta + 2\pi k)/n}, \quad k = 0,1,2,\dots,n-1,\]
+    where the $n^{\text{th}}$ roots of $z$ are equally spaced on a circle of radius $r^{1/n}$ centered at the origin.
+\end{example}
 \begin{definition}[Roots of unity]
-The \(n^{\text{th}}\) roots of unity are the solutions of
-\[w^n = (e^{i2\pi/n})^n = e^{i2\pi} = 1,\:w \in \mathbb{C}.\]
-Since \(1 = e^{i2\pi k}\), they are given by
-\[w_k = e^{i2\pi k/n},\: k = 0,1,2,\dots,n-1 \in \mathbb{Z}.\]
+The \(n^{\text{th}}\) roots of unity are the solutions of a special case where $z = 1$.
 \end{definition}
-Geometrically, the \(n^{\text{th}}\) roots of unity lie on the unit circle and are equally spaced.
-
+\begin{example}
+    If $z = 1$, then any solution of $w^n = z$ must satisfy
+    \[w_k = e^{i2\pi k/n}, \quad k = 0,1,2,\dots,n-1.\]
+    Geometrically, they lie on the unit circle and are equally spaced.
+\end{example}
 \begin{center}
 \begin{tikzpicture}[scale=2]
 % Axes
