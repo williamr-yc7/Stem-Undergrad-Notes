@@ -617,7 +617,13 @@ where $a_0,a_1,g$ are functions of $t$.
 Dividing by $a_0$ leads to
 \[y' + p(t)y = q(t)\]
 where $p(t) = \frac{a_1(t)}{a_0(t)}$ and $q(t) = \frac{g(t)}{a_0(t)}$
-
+Multiply the ODE by an integrating factor $\mu(t)$ (to be determined).
+\[\mu(t)y' + \mu(t)p(t)y = \mu(t)q(t)\]
+Requirement in $\mu$ is that $\mu(t)y' + \mu(t)p(t)y = \frac{d}{dt}(\mu(t)y(t))$ holds.
+In this case, integrate with respect to $t$.
+\[\mu(t)y(t) = \int\mu(t)q(t)dt + C,\]
+where $C \in \mathbb{R}$ is a constant of integration. We therefore get
+\[y(t) = \frac{1}{\mu(t)}\int\mu(t)q(t)dt + C\]
 
 \section{Systems of Linear Equations}
 \section{Second and Higher-Order Scalar Linear Equations}
