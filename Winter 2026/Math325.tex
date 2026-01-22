@@ -619,11 +619,95 @@ Dividing by $a_0$ leads to
 where $p(t) = \frac{a_1(t)}{a_0(t)}$ and $q(t) = \frac{g(t)}{a_0(t)}$
 Multiply the ODE by an integrating factor $\mu(t)$ (to be determined).
 \[\mu(t)y' + \mu(t)p(t)y = \mu(t)q(t)\]
-Requirement in $\mu$ is that $\mu(t)y' + \mu(t)p(t)y = \frac{d}{dt}(\mu(t)y(t))$ holds.
+Requirement in $\mu$ is that $\mu(t)y' + \mu(t)p(t)y = \frac{d}{dt}(\mu(t)y(t))$ (*) holds.
 In this case, integrate with respect to $t$.
 \[\mu(t)y(t) = \int\mu(t)q(t)dt + C,\]
 where $C \in \mathbb{R}$ is a constant of integration. We therefore get
-\[y(t) = \frac{1}{\mu(t)}\int\mu(t)q(t)dt + C\]
+\[y(t) = \frac{1}{\mu(t)}\int\mu(t)q(t)dt + C.\]
+Let us find $\mu$ so that (*) holds.
+\[\frac{d}{dt}(\mu(t)y(t)) = \mu(t)y' + \mu(t)p(t)y = \mu'(t)y(t) + \mu(t)y',\]
+this implies that
+\[\mu'(t)y(t) = \mu(t)p(t)y(t).\]
+It is sufficient to have that
+\[\mu'(t) = \mu(t)p(t).\]
+Now we can solve for $p(t)$
+\[\frac{d}{dt}ln|\mu(t)| = \frac{\mu'(t)}{\mu(t)} = p(t),\]
+now integrate with respect to $t$
+\[ln|\mu(t)| = \int p(t)dt + C,\]
+where $C \in \mathbb{R}$ is a constant of integration, and now we exponentiate
+\[|\mu(t)| = e^{\int p(t)dt + C_1} = e^{C_1}e^{\int p(t)dt}\]
+\[\mu(t) = (\pm e^{C_1})e^{\int p(t)dt}.\]
+We can therefore say choose $\mu(t) = e^{\int p(t)dt}$ (integrating factor).
+This is the general solution of the first order linear equation.
+
+\begin{example}
+    \[y' - 2y = 3e^t\]
+    \[p(t) = -2, q(t) = 3e^t\]
+    \[\mu(t) = e^{\int -2dt} = e^{-2t}\]
+    \[e^{-2t}(y' - 2y) = e^{-2t}3e^t = 3e^{-t}\]
+    \[e^{-2t}(y' - 2y) = \frac{d}{dt}(e^{-2t}y(t))\]
+    integrate with respect to $t$
+    \[e^{-2t}y(t) = \int e^{-2t}3e^{-t}dt + C = -3e^{-t} + C\]
+    Using this explicit solution
+    \[y(t) = \frac{1}{\mu(t)}[\int \mu(t)q(t)dt + C]\]
+    we can find the general solution
+    \[y(t) = e^{2t}(-3e^{-t} + C) = -3e^t + Ce^{2t}\]
+    If $y(0) = 1$, then $y(0) = -3 + C = 1$, so $C = 4$.
+    \[y(t) = -3e^t + 4e^{2t}\]
+\end{example}
+
+\begin{theorem}[Existence \& Uniqueness for Linear Equations]
+    \[\begin{cases}
+        y' + p(t)y = q(t)\\
+        y(t_0) = y_0
+    \end{cases}\]
+    Assume that the functions $p$ and $q$ are continuous on some interval $(a,b)$, where $(-\infty \leq a < b \leq \infty)$, and assume that $t_0 \in (a,b)$.
+    Then there is a unique solution $y(t)$ to the IVP and $J_{max} = (a,b)$.
+\end{theorem}
+\begin{example}
+    \[\begin{cases}
+        y' + \frac{1}{t - 1}y = \frac{1}{cos(t)}\\
+        y(0) = 1
+    \end{cases}\]
+    \[J_{max} = (-\frac{\pi}{2}, 1)\]
+\end{example}
+\begin{example}[Falling Object]
+    Imagine a falling object, subject to gravity and air drag.
+    \[v'(t) + \frac{\gamma}{m}v(t) = g\]
+    This is a first order linear equation. The integrating factor is
+    \[\mu(t) = e^{\int \frac{\gamma}{m}dt} = e^{\frac{\gamma}{m}t}\]
+    \[\frac{d}{dt}(e^{\frac{\gamma}{m}t}v(t)) = e^{\frac{\gamma t}{m}}(v' + \frac{\gamma}{m}v) = e^{\frac{\gamma t}{m}g}\]
+    We get
+    \[e^{\frac{\gamma t}{m}}v(t) = g\int e^{\frac{\gamma t}{m}}dt + C = \frac{gm}{\gamma}e^{\frac{\gamma t}{m}} + C\]
+    \[v(t) = \frac{gm}{\gamma} + Ce^{-\frac{\gamma t}{m}}\]
+    where $C \in \mathbb{R}$.
+    \[v(0) = \frac{gm}{\gamma} = \frac{gm}{\gamma} + C\]
+    Which implies
+    \[C = 0\]
+    \[y(t) = \frac{gm}{\gamma}\]
+\end{example}
+\begin{example}[Mixing Problems]
+    Imagine a tank, at $t = 0$, the tank contains 100 litres of brine water, in which $y_0$ grams of salt is dissolved. You pour in 50g of salt per litre in the tank, and there is a flow in of water at a rate of $R$ litres per second. Water is flowing out of the tank with a rate of $R$ litres per seconds.
+    Denote by $y(t)$ the quantity of salt in grams in the tank at time $t$ in seconds.
+    $\frac{dy}{dt}$ is the rate in - the rate out.
+    \[\frac{dy}{dt} = 50 [\frac{grams}{litres}] \times R [\frac{litres}{seconds}] - \frac{y(t)}{100} [\frac{g\:of\:salt}{litres}]\]
+    We get now that
+    \[y' = 50R - \frac{R}{100}y\]
+    Rewrite it as
+    \[y' + \frac{R}{100}y = 50R\]
+    and
+    \[y(0) = y_0\]
+    Now we can solve this IVP.
+    \[\mu(t) = e^{\frac{Rt}{100}}\]
+    \[\frac{d}{dt}(e^{\frac{Rt}{100}}y(t)) = e^{\frac{Rt}{100}} \cdot 50R\]
+    \[e^{\frac{Rt}{100}}y(t) = 50R \frac{100}{R} e^{\frac{Rt}{100}} + C = 5000e^{\frac{Rt}{100}} + C\]
+    \[y(t) = 5000 + Ce^{-\frac{Rt}{100}}\]
+    \[y(0) = 5000 + C = y_0\]
+    \[C = y_0 - 5000\]
+    \[y(t) = 5000 + (y_0 - 5000)e^{-\frac{Rt}{100}}\]
+
+    Draw graph with threshold 5000, and two exponentials approaching the threshold from the top and below.
+\end{example}
 
 \section{Systems of Linear Equations}
 \section{Second and Higher-Order Scalar Linear Equations}

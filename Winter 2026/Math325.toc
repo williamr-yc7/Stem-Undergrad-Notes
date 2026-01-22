@@ -21,11 +21,13 @@
 \contentsline {paragraph}{Picard iterations}{9}{section*.5}%
 \contentsline {paragraph}{Existence}{9}{section*.6}%
 \contentsline {paragraph}{Uniqueness}{11}{section*.7}%
-\contentsline {section}{\numberline {4}}{14}{section.4}%
-\contentsline {section}{\numberline {5}}{14}{section.5}%
-\contentsline {section}{\numberline {6}}{14}{section.6}%
-\contentsline {section}{\numberline {7}}{14}{section.7}%
-\contentsline {section}{\numberline {8}}{14}{section.8}%
-\contentsline {section}{\numberline {9}Solutions}{14}{section.9}%
-\contentsline {section}{\numberline {10}Appendix}{14}{section.10}%
-\contentsline {section}{\numberline {11}Useful Links}{14}{section.11}%
+\contentsline {section}{\numberline {4}First-Order Scalar Equation}{13}{section.4}%
+\contentsline {subsection}{\numberline {4.1}First order linear equations}{14}{subsection.4.1}%
+\contentsline {section}{\numberline {5}Systems of Linear Equations}{17}{section.5}%
+\contentsline {section}{\numberline {6}Second and Higher-Order Scalar Linear Equations}{17}{section.6}%
+\contentsline {section}{\numberline {7}Stability, Phase Portraits and Orbits}{17}{section.7}%
+\contentsline {section}{\numberline {8}Laplace Transform}{17}{section.8}%
+\contentsline {section}{\numberline {9}Power Series Solutions and Numerical Methods}{17}{section.9}%
+\contentsline {section}{\numberline {10}Solutions}{17}{section.10}%
+\contentsline {section}{\numberline {11}Appendix}{17}{section.11}%
+\contentsline {section}{\numberline {12}Useful Links}{17}{section.12}%
