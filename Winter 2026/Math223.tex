@@ -278,6 +278,12 @@ To determine if an element \(A\) in a set with multiplication \(M\) is invertibl
     Is \(1 + i\) invertible in \(\mathbb{C}\)?\\
     Solution: Yes, using our previous definition of inverse (\ref{subsec:CO}), we get that \[\frac{1}{1 + i} = \frac{1 - i}{2} \in \mathbb{C}.\]
 \end{example}
+\begin{problem}[Invertibility]
+    Show that if an inverse of A in \(\mathbb{M}\) exists, then it is unique.
+\end{problem}
+\begin{problem}[Invertibility 2]
+    Let \(K\) be a field. Prove that this matrix $\begin{bmatrix}0&1\\0&0\end{bmatrix}$ \(\in M_2(K)\) is not invertible.
+\end{problem}
 
 \subsection{Ring}
 \begin{definition}
@@ -298,24 +304,18 @@ The main example of a ring is the set of integers $\mathbb{Z}$.
 \begin{definition}
     A field is a set of numbers which can be added, subtracted, multiplied, and divided (except for division by zero) in a way that satisfies certain rules. These rules are:
     \begin{enumerate}
-        \item You can add any two elements and stay in the field. There is a zero, every element has a negative, and addition is commutative\footnote{} and associative.
-        \item You can multiply any two elements and stay in the field. Multiplication is associative, and there is a 1.
+        \item You can add any two elements and stay in the field. There is a zero, every element has a negative, and addition is commutative\footnote{Property which focuses on changing order of addition, i.e $a + b = b + a$.} and associative\footnote{Property which focuses on changing grouping of addition, i.e $a + (b + c) = (a + b) + c$.}.
+        \item You can multiply any two elements and stay in the field. Multiplication is associative, and there is a 1\footnote{Like literally the number 1.}.
         \item Multiplication distributes over addition:
         \[
         a(b+c) = ab + ac \quad \text{and} \quad (a+b)c = ac + bc.
         \]
     \end{enumerate}
-    Examples of fields include the real numbers \(\mathbb{R}\) and the complex numbers \(\mathbb{C}\).\\
+    Examples of fields include the set of real numbers \(\mathbb{R}\) and the set of complex numbers \(\mathbb{C}\).\\
 \end{definition}
 
-\begin{problem}
+\begin{problem}[Field]
     Construct a field with 2 elements.
-\end{problem}
-\begin{problem}
-    Show that if an inverse of A in \(\mathbb{M}\) exists, then it is unique.
-\end{problem}
-\begin{problem}
-    Let \(K\) be a field. Prove that this matrix $\begin{bmatrix}0&1\\0&0\end{bmatrix}$ \(\in M_2(K)\) is not invertible.
 \end{problem}
 
 \section{Vector Spaces}
@@ -825,7 +825,17 @@ Claim: $F(A)$ can be "identified" with a subspace $U\:of\: F(D)$.
 \section{Appendix}
 
 \section{Solutions}
-\begin{solution}
+
+\begin{solution}[Invertibility]
+    Suppose \(B\) and \(B'\) are both inverses of \(A\). Then
+    \[B = B I = B(AB') = (BA)B' = I B' = B'.\]
+    Therefore, \(B = B'\), so the inverse is unique.
+\end{solution}
+\begin{solution}[Invertibility 2]
+    We can answer this problem with proof by contradiction. Let's
+    suppose this matrix is invertible. By definition there exists B = $\begin{pmatrix}a&b\\c&d\end{pmatrix}$ such that $\begin{bmatrix}0&1\\0&0\end{bmatrix}$ $\begin{bmatrix}a&b\\c&d\end{bmatrix}$ = $\begin{bmatrix}1&0\\0&1\end{bmatrix}$.  We can rewrite this equation into: $\begin{bmatrix}a&b\\c&d\end{bmatrix}$ = $\begin{bmatrix}0&1\\0&0\end{bmatrix}^{-1}$. The inverse of our matrix can be rewritten as $\frac{1}{0*0 - 1*0}\begin{bmatrix}0&-1\\0&0\end{bmatrix}$\footnote{Recall that an inverse of a $2 \times 2$ matrix is equal to its determinant multiplied with its conjugate}. But this is undefined since division by 0 is undefined. Therefore, our initial assumption that the matrix is invertible is false, and thus the matrix is not invertible.
+\end{solution}
+\begin{solution}[Field]
     A field with 2 elements can be constructed as follows:
     Let \(F = \{0, 1\}\) be a set with two elements. We define addition and multiplication operations on \(F\) as follows:
     \begin{itemize}
@@ -838,15 +848,6 @@ Claim: $F(A)$ can be "identified" with a subspace $U\:of\: F(D)$.
         \item \(1 \times 0 = 0\)
         \item \(1 \times 1 = 1\)
     \end{itemize}
-\end{solution}
-\begin{solution}
-    Suppose \(B\) and \(B'\) are both inverses of \(A\). Then
-    \[B = B I = B(AB') = (BA)B' = I B' = B'.\]
-    Therefore, \(B = B'\), so the inverse is unique.
-\end{solution}
-\begin{solution}
-    We can answer this problem with proof by contradiction. Let's
-    suppose this matrix is invertible. By definition there exists B = $\begin{pmatrix}a&b\\c&d\end{pmatrix}$ such that $\begin{bmatrix}0&1\\0&0\end{bmatrix}$ $\begin{bmatrix}a&b\\c&d\end{bmatrix}$ = $\begin{bmatrix}1&0\\0&1\end{bmatrix}$.  We can rewrite this equation into: $\begin{bmatrix}a&b\\c&d\end{bmatrix}$ = $\begin{bmatrix}0&1\\0&0\end{bmatrix}^{-1}$. The inverse of our matrix can be rewritten as $\frac{1}{0*0 - 1*0}\begin{bmatrix}0&-1\\0&0\end{bmatrix}$\footnote{Recall that an inverse of a $2 \times 2$ matrix is equal to its determinant multiplied with its conjugate}. But this is undefined since division by 0 is undefined. Therefore, our initial assumption that the matrix is invertible is false, and thus the matrix is not invertible.
 \end{solution}
 \begin{solution}[Subspace criterion]
     (0) is $0 \in U$?
