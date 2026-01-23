@@ -241,38 +241,26 @@ The \(n^{\text{th}}\) roots of unity are the solutions of a special case where $
     \[w_k = e^{i2\pi k/n}, \quad k = 0,1,2,\dots,n-1.\]
     Geometrically, they lie on the unit circle and are equally spaced.
 \end{example}
-\begin{center}
-\begin{tikzpicture}[scale=2]
-% Axes
-\draw[->] (-1.3,0)--(1.3,0);
-\draw[->] (0,-1.3)--(0,1.3);
-
-% Unit circle
-\draw (0,0) circle(1);
-
-% Example: n = 6 roots
-\foreach \k in {0,1,2,3,4,5}{
-\coordinate (P\k) at ({cos(60*\k)},{sin(60*\k)});
-\draw[fill] (P\k) circle(0.02);
-\draw (0,0) -- (P\k);
-}
-
-\node at (0.75,0.75) {$|w| = 1$};
-\end{tikzpicture}
-\end{center}
 
 \section{Basic Algebraic structures}
 \subsection{Sets with Multiplication}
 \begin{definition}[Set with multiplication]
-A set with multiplication is a set $M$ where you can multiply any two elements of $M$, and the result is still an element of $M$. Formally, this means there is a rule $\cdot$ that takes any pair $(a, a)$ from $M$ and produces an element $ab$ that is also in $M$:
-\[\cdot : M \times M \to M\]
+A set $M$ is called a set with multiplication if you can multiply any two elements of $M$, and the result is still in $M$.
+In other words, for any $a,b \in M$, the product $ab$ is also in $M$.
 \end{definition}
+\begin{example}
+Let $M = \mathbb{R}$.  
+If $a,b \in \mathbb{R}$, then $ab \in \mathbb{R}$.  
+So the real numbers $\mathbb{R}$ form a set with multiplication.
+\end{example}
+\begin{example}
+    An example of a set with multiplication is the set of all \(2 \times 2\) complex matrices: \(M = M_2(\mathbb{C})\). Another example is the nonzero set of all real numbers \(\mathbb{R}\) with ordinary multiplication: \(\mathbb{R}^* = \mathbb{R} \setminus \{0\}\).
+\end{example}
 
 \subsection{Invertibility}
 \begin{definition}[Condition for Invertibility]
     Let \(A \in M\) be an \(n \times n\) matrix, and suppose that there exists an \(n \times n\) matrix \(B\) such that \(AB = I_n\) or \(BA = I_n\). Where \(I_n\) is the \(n \times n\) identity matrix\footnote{An identity matrix is a square matrix with 1s on its main diagonal and 0s everywhere else. It represents no change in linear transformations, and it's used in finding matrix inverses.}$\begin{bmatrix}1&0&0\\0&\ldots&0\\0&0&1\end{bmatrix}$. Then A is invertible, and \(B\) is called the inverse of \(A\) and is denoted by \(B = A^{-1}\).
 \end{definition}
-
 \begin{remark}
     If \(A\) is invertible, then \(A^{-1}\) exists and is unique\footnote{Unique means there is exactly one such element.}.
 \end{remark}
@@ -293,25 +281,32 @@ To determine if an element \(A\) in a set with multiplication \(M\) is invertibl
 
 \subsection{Ring}
 \begin{definition}
-A \textbf{ring} is a set \(\mathbb{R}\) where you can \textbf{add} and \textbf{multiply} elements, and the following are true:
+A \textbf{ring} is a set $R$ where you can \textbf{add} and \textbf{multiply} elements, and the following are true:
 
 \begin{enumerate}
-    \item You can add any two elements and stay in \(\mathbb{R}\). There is a zero, negatives exist, and the order of addition does not matter.
-    \item You can multiply any two elements and stay in \(\mathbb{R}\). There is a \(1\), and multiplication is associative.
+    \item You can add any two elements and stay in $R$. There is a zero, every element has a negative, and addition is commutative and associative.
+    \item You can multiply any two elements and stay in $R$. Multiplication is associative, and there is a $1$.
     \item Multiplication distributes over addition:
     \[
     a(b+c) = ab + ac \quad \text{and} \quad (a+b)c = ac + bc.
     \]
 \end{enumerate}
 \end{definition}
-The main example of a ring is the set of integers \(\mathbb{Z}\).
-\subsection{Field}
+The main example of a ring is the set of integers $\mathbb{Z}$.
+
+\subsection{Field} %need to organize
 \begin{definition}
-A field is a commutative ring in which every element is invertible.
+    A field is a set of numbers which can be added, subtracted, multiplied, and divided (except for division by zero) in a way that satisfies certain rules. These rules are:
+    \begin{enumerate}
+        \item You can add any two elements and stay in the field. There is a zero, every element has a negative, and addition is commutative\footnote{} and associative.
+        \item You can multiply any two elements and stay in the field. Multiplication is associative, and there is a 1.
+        \item Multiplication distributes over addition:
+        \[
+        a(b+c) = ab + ac \quad \text{and} \quad (a+b)c = ac + bc.
+        \]
+    \end{enumerate}
+    Examples of fields include the real numbers \(\mathbb{R}\) and the complex numbers \(\mathbb{C}\).\\
 \end{definition}
-The main example of a field is the real numbers \(\mathbb{R}\) or the complex numbers \(\mathbb{C}\). Mathematically, \(K = \mathbb{R}\) or \(\mathbb{C}\), where \(K\) is the field.\\
-In the following explanation, we will denote \(M\) to be a set with multiplication.
-An example of a set with multiplication is the set of all \(2 \times 2\) complex matrices: \(M = M_2(\mathbb{C})\). Another example is the nonzero set of all real numbers \(\mathbb{R}\) with ordinary multiplication: \(\mathbb{R}^* = \mathbb{R} \setminus \{0\}\).
 
 \begin{problem}
     Construct a field with 2 elements.
@@ -328,15 +323,7 @@ An example of a set with multiplication is the set of all \(2 \times 2\) complex
 \subsection{Cartesian vector spaces}
 \begin{definition}[$R^n$]
 Let \(n \in \mathbb{N}\). The Cartesian product of \(n\) copies of \(\mathbb{R}\) is called \(\mathbb{R}^n\).
-
-\[\mathbb{R}^n = \begin{cases}
-    \begin{pmatrix}
-        x_1\\
-        \ldots\\
-        x_n
-    \end{pmatrix} : x_1, \ldots, x_n \in \mathbb{R}
-\end{cases}
-\]
+\[\mathbb{R}^n = \{\begin{pmatrix}x_1\\\ldots\\x_n\end{pmatrix} : x_1, \ldots, x_n \in \mathbb{R}\}\]
 \end{definition}
 
 \subsection{Vectors}
@@ -793,6 +780,48 @@ $\supseteq$: Take $w \in span(U \cup V)$ prove $w \in U + V$.
 where $u_i \in U, v_j \in V, a_i,b_j \in K$.
 \[w = (a_1 u_1 + \ldots + a_n u_n) + (b_1 v_1 + \ldots + b_m v_m)\]
 \[w = u + v, u \in U + V\]
+
+\marginpar{January 23, 2026}
+\subsection{Direct sums}
+$U, V$ subspaces in $W$ (ambiant space).
+\begin{definition}
+    $U$ and $V$ are in direct sum if $U \cap V = \{0\}$.
+    Its a sum where the intersection is zero.
+    Sum: \[U + V = \{u + v : u \in U, v \in V\}\]
+    Now if $U \cap V = \{0\}$ we write $U \oplus V$, and $U,V \subseteq W$.
+    Sol: $W = U \oplus V$ means $\begin{cases}
+        W = U + V\\
+        U \cap V = \{0\}
+    \end{cases}$
+    To prove $W = U \oplus V$,
+    \begin{itemize}
+        \item $W = U + V$, $\subseteq$ Let $w \in W$. Prove: there exist $u \in U$, $v \in V$ such that $w = u + v$.
+        \item $U \cap V = \{0\}$. $\supseteq$ automatic. Pick $w \in \{0\}$. Prove $w \in U \cap V$. By assumption $w = 0$. Prove $w \in U$ and $w \in V$ hold by definition of subspace. Only need to show $U \cap V \subseteq \{0\}$. Let $w \in U$ and $w \in V$. Prove $w = 0$.
+    \end{itemize}
+\end{definition}
+\begin{tabular}{c|c}
+    Sets & Vector Spaces\\
+    \hline
+    intersection $A \cap B$ & intersection $U \cap V$\\
+    union $A \cup B$ & union $U + V$\\
+    Disjoint union $A \sqcup B$ and $A \cap B = \emptyset$ & Direct sum $U \cap V = \{0\}$
+\end{tabular}
+\begin{example}
+    \[D = \{1,2,3,4,5\}\]
+    \[A = \{1,2,3\}, B = \{4,5,6\}\]
+    Then
+    \[D = A \sqcup B\]
+\end{example}
+
+$\to$ function spaces
+$F(d) = $ functions on D.
+\[f \in F(D)\]
+Example of a function: $f(1) = 2, f(2) = \sqrt{2}, f(3) = \pi...$
+View $F(A)$ as a subspace of $F(D)$.
+Claim: $F(A)$ can be "identified" with a subspace $U\:of\: F(D)$.
+\[U = \{f : D \to \mathbb{R} : f(x) = 0, x \notin A\}\]
+
+
 \section{Appendix}
 
 \section{Solutions}
