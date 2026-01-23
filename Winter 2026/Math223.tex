@@ -313,7 +313,6 @@ The main example of a ring is the set of integers $\mathbb{Z}$.
     \end{enumerate}
     Examples of fields include the set of real numbers \(\mathbb{R}\) and the set of complex numbers \(\mathbb{C}\).\\
 \end{definition}
-
 \begin{problem}[Field]
     Construct a field with 2 elements.
 \end{problem}
@@ -328,9 +327,15 @@ Let \(n \in \mathbb{N}\). The Cartesian product of \(n\) copies of \(\mathbb{R}\
 
 \subsection{Vectors}
 \subsubsection{Vector operations}
-Vector operations are defined as follows.\\
-Addition: \(\begin{pmatrix} x_1 \\ \vdots \\ x_n \end{pmatrix} + \begin{pmatrix} y_1 \\ \vdots \\ y_n \end{pmatrix} = \begin{pmatrix} x_1 + y_1 \\ \vdots \\ x_n + y_n \end{pmatrix}\),\\
-scalar multiplication: \(\lambda \begin{pmatrix} x_1 \\ \vdots \\ x_n \end{pmatrix} = \begin{pmatrix} \lambda x_1 \\ \vdots \\ \lambda x_n \end{pmatrix}\), where \(\lambda \in \mathbb{R}\).
+Vector operations are defined as follows:\\
+
+Addition:
+\[\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix} + \begin{pmatrix}y_1\\
+\vdots\\y_n\end{pmatrix} = \begin{pmatrix}x_1 + y_1\\\vdots\\x_n + y_n\end{pmatrix}.\]\\
+
+Scalar multiplication:
+\[\lambda \begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix} = \begin{pmatrix}\lambda x_1\\\vdots\\\lambda x_n\end{pmatrix},\]
+where $\lambda \in \mathbb{R}$.
 
 \begin{definition}[Linear combination]
     A linear combination of vectors \(v_1, \ldots, v_n\) is a vector \(v\) of the form \(v = \lambda_1v_1 + \ldots + \lambda_nv_n\), where \(\lambda_1, \ldots, \lambda_n \in \mathbb{R}\).
@@ -371,10 +376,10 @@ which is a line in \(\mathbb{R}^2\).
 
 \paragraph{1. Span in $\mathbb{R}^n$}
 
-\begin{example}
+\begin{definition}
     The span of n vectors \(v_1,\ldots,v_n\) is the set of all linear combinations of \(v_1,\ldots,v_n\). Then any vector in \(\operatorname{Span}(v_1,\ldots,v_n)\) has the form
     \[Span(v_1,\ldots,v_n) = \{\lambda_2v_1+\ldots+\lambda_nv_n : \lambda_i \in \mathbb{R}\}\]
-\end{example}
+\end{definition}
 When working in \(\mathbb{R}^n\), the span describes all points you can reach by scaling and adding the given vectors.  
 Depending on the vectors, the span can be a line (if the vectors are dependent), a plane, or a higher-dimensional subspace.  
 The following examples show what spans look like in \(\mathbb{R}^2\).
