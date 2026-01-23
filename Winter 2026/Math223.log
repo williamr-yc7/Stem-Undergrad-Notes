@@ -451,4 +451,213 @@ Package pgfplots: loading complementary utilities for your pgf version...
 \t@pgf@tokb=\toks47
 \t@pgf@tokc=\toks48
 (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/oldpgfcompatib\pgfplotsoldpgfsupp_pgfutil-common-lists.tex)) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/util\pgfplotsutil.code.tex (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/liststructure\pgfplotsliststructure.code.tex) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/liststructure\pgfplotsliststructureext.code.tex) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/liststructure\pgfplotsarray.code.tex
-\
+\c@pgfplotsarray@tmp=\count335
+) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/liststructure\pgfplotsmatrix.code.tex) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/numtable\pgfplotstableshared.code.tex
+\c@pgfplotstable@counta=\count336
+\t@pgfplotstable@a=\toks49
+) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/liststructure\pgfplotsdeque.code.tex) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/util\pgfplotsbinary.code.tex (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/util\pgfplotsbinary.data.code.tex)) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/util\pgfplotsutil.verb.code.tex) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/libs\pgflibrarypgfplots.surfshading.code.tex
+\c@pgfplotslibrarysurf@no=\count337
+ (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/sys\pgflibrarypgfplots.surfshading.pgfsys-pdftex.def))) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/util\pgfplotscolormap.code.tex (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/util\pgfplotscolor.code.tex)) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplotsstackedplots.code.tex) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplotsplothandlers.code.tex (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplotsmeshplothandler.code.tex (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplotsmeshplotimage.code.tex))) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplots.scaling.code.tex) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplotscoordprocessing.code.tex) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplots.errorbars.code.tex) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplots.markers.code.tex) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplotsticks.code.tex) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplots.paths.code.tex) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarydecorations.code.tex (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmoduledecorations.code.tex
+\pgfdecoratedcompleteddistance=\dimen272
+\pgfdecoratedremainingdistance=\dimen273
+\pgfdecoratedinputsegmentcompleteddistance=\dimen274
+\pgfdecoratedinputsegmentremainingdistance=\dimen275
+\pgf@decorate@distancetomove=\dimen276
+\pgf@decorate@repeatstate=\count338
+\pgfdecorationsegmentamplitude=\dimen277
+\pgfdecorationsegmentlength=\dimen278
+)
+\tikz@lib@dec@box=\box67
+) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarydecorations.pathmorphing.code.tex (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/decorations\pgflibrarydecorations.pathmorphing.code.tex)) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarydecorations.pathreplacing.code.tex (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/decorations\pgflibrarydecorations.pathreplacing.code.tex)) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/libs\tikzlibrarypgfplots.contourlua.code.tex)
+\pgfplots@numplots=\count339
+\pgfplots@xmin@reg=\dimen279
+\pgfplots@xmax@reg=\dimen280
+\pgfplots@ymin@reg=\dimen281
+\pgfplots@ymax@reg=\dimen282
+\pgfplots@zmin@reg=\dimen283
+\pgfplots@zmax@reg=\dimen284
+) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryplotmarks.code.tex
+File: tikzlibraryplotmarks.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+ (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibraryplotmarks.code.tex
+File: pgflibraryplotmarks.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+))) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibraryarrows.meta.code.tex
+File: pgflibraryarrows.meta.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfarrowinset=\dimen285
+\pgfarrowlength=\dimen286
+\pgfarrowwidth=\dimen287
+\pgfarrowlinewidth=\dimen288
+) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarycalc.code.tex
+File: tikzlibrarycalc.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+\c@theorem=\count340
+\c@corollary=\count341
+\c@definition=\count342
+\c@problem=\count343
+\c@solution=\count344
+\c@remark=\count345
+ (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
+File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count346
+) (Math223.aux)
+\openout1 = `Math223.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+ (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count347
+\scratchdimen=\dimen289
+\scratchbox=\box68
+\nofMPsegments=\count348
+\nofMParguments=\count349
+\everyMPshowfont=\toks50
+\MPscratchCnt=\count350
+\MPscratchDim=\dimen290
+\MPnumerator=\count351
+\makeMPintoPDFobject=\count352
+\everyMPtoPDFconversion=\toks51
+) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+))
+Package hyperref Info: Link coloring OFF on input line 23.
+ (Math223.out) (Math223.out)
+\@outlinefile=\write4
+\openout4 = `Math223.out'.
+
+
+Package pgfplots notification 'compat/show suggested version=true': document has been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
+
+LaTeX Font Info:    Trying to load font information for U+msa on input line 32.
+(C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 32.
+ (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [1
+
+{C:/Users/erenr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (Math223.toc)
+\tf@toc=\write5
+\openout5 = `Math223.toc'.
+
+ [2
+
+]
+Overfull \hbox (17.86923pt too wide) in paragraph at lines 62--71
+ [] 
+ []
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.106 \end{remark}
+                   [1
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 110--112
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 133--133
+[]\OT1/cmr/m/n/10 January 09,
+ []
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.140 ...} = \{x + iy \mid x,y \in \mathbb{R}\}.\]
+                                                   [2] [3] [4] [5] [6]
+Underfull \hbox (badness 10000) in paragraph at lines 314--315
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 321--321
+[]\OT1/cmr/m/n/10 January 09,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 330--331
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 334--335
+
+ []
+
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 350--350
+[]\OT1/cmr/m/n/10 January 12,
+ []
+
+[8] [9] [10] [11]
+Underfull \hbox (badness 10000) in paragraph at lines 585--585
+[]\OT1/cmr/m/n/10 14 Jan-uary,
+ []
+
+[12] [13]
+Underfull \hbox (badness 10000) in paragraph at lines 672--672
+[]\OT1/cmr/m/n/10 16 Jan-uary,
+ []
+
+[14]
+Underfull \hbox (badness 10000) in paragraph at lines 710--710
+[]\OT1/cmr/m/n/10 January 19,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 730--730
+[]\OT1/cmr/m/n/10 January 21,
+ []
+
+[15]
+Underfull \hbox (badness 10000) in paragraph at lines 789--789
+[]\OT1/cmr/m/n/10 January 23,
+ []
+
+[16] [17] [18] [19] (Math223.aux)
+ ***********
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-12-24>
+ ***********
+Package rerunfilecheck Info: File `Math223.out' has not changed.
+(rerunfilecheck)             Checksum: 5CC9D72A2276F3FE39146A93C0A8F2E9;3640.
+ ) 
+Here is how much of TeX's memory you used:
+ 31318 strings out of 467871
+ 739693 string characters out of 5418377
+ 1268149 words of memory out of 5000000
+ 59594 multiletter control sequences out of 15000+600000
+ 640216 words of font info for 86 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 99i,11n,118p,868b,772s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\erenr\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on Math223.pdf (21 pages, 409696 bytes).
+PDF statistics:
+ 471 PDF objects out of 1000 (max. 8388607)
+ 118 named destinations out of 1000 (max. 500000)
+ 229 words of extra memory for PDF output out of 10000 (max. 10000000)
+
