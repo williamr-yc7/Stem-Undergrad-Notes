@@ -490,41 +490,44 @@ The standard basis also helps clarify the difference between real and complex ve
 
 
 \subsection{Abstract Vector Spaces} %to organize
-An abstract vector space is just a set with two operations:
-vector addition \((v_1+v_2)\) and scalar multiplication \((\lambda v)\), where \(\lambda\) comes from a field \(k\), satisfying certain axioms.
+An abstract vector space generalizes the idea of vectors in \(\mathbb{R}^n\). It is a set equipped with two operations (vector addition and scalar multiplication) that satisfy certain rules (axioms).
 
-\begin{definition}
-    Let \(k\) be a field. A \textbf{vector space over \(k\)} is a set \(V\) together with two operations
-    \[
-    \begin{cases}
-    v_1+v_2 \in V, \quad v_1,v_2 \in V,\\
-    \lambda v \in V, \quad v \in V, \ \lambda \in k,
-    \end{cases}
-    \]
-    satisfying 8 axioms.
+\begin{definition}[Vector space over a field]
+Let \(k\) be a field. A \textbf{vector space over \(k\)} is a set \(V\) together with two operations:
+\[
+v_1 + v_2 \in V, \quad \forall v_1,v_2 \in V, \qquad
+\lambda v \in V, \quad \forall v \in V, \ \lambda \in k,
+\]
+satisfying the following axioms:
+\begin{enumerate}
+    \item Commutativity of addition: \(v_1 + v_2 = v_2 + v_1\)
+    \item Associativity of addition: \((v_1 + v_2) + v_3 = v_1 + (v_2 + v_3)\)
+    \item Existence of additive identity: \(\exists 0 \in V\) such that \(v + 0 = v\)
+    \item Existence of additive inverses: \(\forall v \in V, \exists -v \in V\) with \(v + (-v) = 0\)
+    \item Compatibility of scalar multiplication with field multiplication: \(\lambda(\mu v) = (\lambda\mu)v\)
+    \item Identity element of scalar multiplication: \(1 v = v\)
+    \item Distributivity of scalar multiplication over vector addition: \(\lambda(v_1 + v_2) = \lambda v_1 + \lambda v_2\)
+    \item Distributivity of scalar multiplication over field addition: \((\lambda + \mu)v = \lambda v + \mu v\)
+\end{enumerate}
 \end{definition}
 
-\paragraph{Axioms}
-(1) Rules for addition
-\[(v_1+v_2)+v_3 = v_1+(v_2+v_3)\]
-There exists a zero vector \(0 \in V\) such that \(0+v=v\).
-For every \(v \in V\), there exists \(-v \in V\).
-\[u+v = v+u\]
-(2) Rules for scalar multiplication
-\[1\cdot v = v\]
-\[\lambda_1(\lambda_2 v) = (\lambda_1\lambda_2)v\]
-(3) Compatibility (distributive laws)
-\[(\lambda_1+\lambda_2)v = \lambda_1 v + \lambda_2 v\]
-\[\lambda(v_1+v_2) = \lambda v_1 + \lambda v_2\]
-
-\begin{example}
+\begin{example}[Cartesian vector space]
 Let \(K\) be a field. Then
-\[K^n = \left\{\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix} : x_i \in K\right\}\]
-is a vector space over \(K\).
+\[
+K^n = \left\{\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix} : x_i \in K\right\}
+\]
+is a vector space over \(K\). Its standard basis is
+\[
+e_1 = \begin{pmatrix}1\\0\\\vdots\\0\end{pmatrix}, \dots, e_n = \begin{pmatrix}0\\\vdots\\0\\1\end{pmatrix},
+\]
+and \(\dim K^n = n\).
 \end{example}
 
-\begin{remark}
-\[\operatorname{Span}_{\mathbb{Z}}(e_1,e_2) = \{\lambda_1 e_1 + \lambda_2 e_2 : \lambda_i \in \mathbb{Z}\}.\]
+\begin{remark}[Span over integers is not a vector space]
+\[
+\operatorname{Span}_{\mathbb{Z}}(e_1,e_2) = \{\lambda_1 e_1 + \lambda_2 e_2 : \lambda_i \in \mathbb{Z}\}
+\]
+is an additive subgroup but not a vector space over \(\mathbb{R}\), because \(\mathbb{Z}\) is not a field.
 \end{remark}
 
 \begin{center}
@@ -541,55 +544,33 @@ is a vector space over \(K\).
 
 \subsubsection{Examples of Vector Spaces}
 \marginpar{14 January, 2026}
+\begin{definition}[Coordinate Spaces]
+    A coordinate space of dimension \(n\) over a field \(k\) (\(k=\mathbb{R}\) or \(k=\mathbb{C}\)) is defined as
+    \[k^n = \left\{\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix} : x_i \in k\right\}.\]
+    The standard basis is
+    \[e_1=\begin{pmatrix}1\\0\\\vdots\\0\end{pmatrix}, \ \ldots \ , e_n=\begin{pmatrix}0\\\vdots\\0\\1\end{pmatrix}.\]
+\end{definition}
 
-We now list important examples of vector spaces.
+\begin{definition}[Polynomial Spaces]
+    A polynomial space of degree at most \(n\) over a field \(k\) is
+    \[P_n(k) = \{ a_n x^n + \cdots + a_1 x + a_0 : a_i \in k \},\]
+    which forms a vector space over \(k\).
+\end{definition}
 
-\paragraph{1. Coordinate spaces}
-Let \(k\) be a field (\(k=\mathbb{R}\) or \(k=\mathbb{C}\)).
-\[
-k^n = \left\{\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix} : x_i \in k\right\}
-\]
-is a vector space over \(k\).
-
-The standard basis is
-\[
-e_1=\begin{pmatrix}1\\0\\\vdots\\0\end{pmatrix}, \ \ldots \ ,
-e_n=\begin{pmatrix}0\\\vdots\\0\\1\end{pmatrix}.
-\]
-
-\paragraph{2. Polynomial spaces}
-A polynomial is an expression
-\[
-f(x)=a_n x^n + a_{n-1}x^{n-1} + \cdots + a_1 x + a_0,
-\quad a_i \in k.
-\]
-
-\[
-P_n(k)=\{a_n x^n + \cdots + a_1 x + a_0 : a_i \in k\}
-\]
-is a vector space over \(k\).
-
-Examples:
-\[
-1+x^2 \in P_2(\mathbb{R}), \qquad 1+i x^3 \in P_3(\mathbb{C}).
-\]
-
-The subscript must satisfy \(\deg(f)\le n\).
-
-All polynomials:
-\[
-P_\infty = \{a_n x^n + \cdots + a_1 x + a_0 : a_i \in k, \ n\ge0\}.
-\]
-
-\[
-P_0 \subseteq P_1 \subseteq P_2 \subseteq \cdots \subseteq P_\infty.
-\]
-
-A standard basis is \(\{1,x,x^2,\ldots,x^n\}\).  
-Every \(f \in P_n\) can be written
-\[
-f=\lambda_0 + \lambda_1 x + \lambda_2 x^2 + \cdots + \lambda_n x^n.
-\]
+\begin{example}[Polynomial Spaces]
+    Some examples of polynomials in these spaces are
+    \[1+x^2 \in P_2(\mathbb{R}), \qquad 1+i x^3 \in P_3(\mathbb{C}).\]
+    The subscript \(n\) indicates that \(\deg(f) \le n\).
+    All polynomials can be collected in
+    \[P_\infty = \{ a_n x^n + \cdots + a_1 x + a_0 : a_i \in k, \ n \ge 0 \},\]
+    which is an infinite-dimensional vector space over \(k\).  
+    We have the natural inclusions
+    \[P_0 \subseteq P_1 \subseteq P_2 \subseteq \cdots \subseteq P_\infty.\]
+    A standard basis for \(P_n(k)\) is 
+    \[\{1, x, x^2, \ldots, x^n\},\]
+    and every \(f \in P_n(k)\) can be written uniquely as
+    \[f = \lambda_0 + \lambda_1 x + \lambda_2 x^2 + \cdots + \lambda_n x^n, \quad \lambda_i \in k.\]
+\end{example}
 
 \paragraph{3. Matrix spaces}
 \[
