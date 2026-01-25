@@ -349,8 +349,16 @@ where $\lambda \in \mathbb{R}$.
 \subsubsection{Span}
 \marginpar{January 12, 2026.}
 \begin{definition}[Span]
-Let \(A \subset \mathbb{R}^2\). The span of \(A\), denoted \(Span(A)\), is the set of all linear combinations of elements of \(A\).
+Let \(A \subset \mathbb{R}^n\). The span of \(A\), denoted \(\operatorname{Span}(A)\), is the set of all linear combinations of elements of \(A\). In particular, if \(A=\{v_1,\ldots,v_n\}\), then
+\[
+\operatorname{Span}(v_1,\ldots,v_n)
+=
+\{\lambda_1 v_1+\cdots+\lambda_n v_n : \lambda_i \in \mathbb{R}\}.
+\]
 \end{definition}
+When working in \(\mathbb{R}^n\), the span describes all points you can reach by scaling and adding the given vectors.  
+Depending on the vectors, the span can be a line (if the vectors are dependent), a plane, or a higher-dimensional subspace.  
+The following examples show what spans look like in \(\mathbb{R}^2\).
 \begin{remark}
 If \(A = \{v\}\) contains one nonzero vector, then \(\operatorname{Span}(v)\) is a line through the origin.
 \end{remark}
@@ -418,76 +426,55 @@ Then \(v_2 = 2v_1\), so
 \end{tikzpicture}
 \end{center}
 
-
-\paragraph{1. Span in $\mathbb{R}^n$}
-
-\begin{definition}
-    The span of n vectors \(v_1,\ldots,v_n\) is the set of all linear combinations of \(v_1,\ldots,v_n\). Then any vector in \(\operatorname{Span}(v_1,\ldots,v_n)\) has the form
-    \[Span(v_1,\ldots,v_n) = \{\lambda_2v_1+\ldots+\lambda_nv_n : \lambda_i \in \mathbb{R}\}\]
-\end{definition}
-When working in \(\mathbb{R}^n\), the span describes all points you can reach by scaling and adding the given vectors.  
-Depending on the vectors, the span can be a line (if the vectors are dependent), a plane, or a higher-dimensional subspace.  
-The following examples show what spans look like in \(\mathbb{R}^2\).
 \paragraph{Span in $\mathbb{C}^n$}
+The definition of span is the same in complex vector spaces, except the scalars are complex numbers.
 \begin{definition}
-The span over \(\mathbb{C}\) of vectors \(v_1,\ldots,v_n\) is
-\[Span_{\mathbb{C}}(v_1,\ldots,v_n)=\{\lambda_1 v_1 + \ldots + \lambda_n v_n : \lambda_i \in \mathbb{C}\}.\]
+The span over \(\mathbb{C}\) of vectors \(v_1,\ldots,v_n \in \mathbb{C}^n\) is
+\[\operatorname{Span}_{\mathbb{C}}(v_1,\ldots,v_n) = \{\lambda_1 v_1 + \cdots + \lambda_n v_n : \lambda_i \in \mathbb{C}\}.\]
 \end{definition}
-\begin{example}
-For example,
-\[\begin{pmatrix}2i\\2\end{pmatrix} + i\begin{pmatrix}3\\1+i\end{pmatrix} \in \mathbb{C}^2.\]
-\end{example}
-
-\medskip
-\noindent
-So we distinguish between real and complex vector spaces:
-\[
-\mathbb{R}^n = \left\{\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix} : x_i \in \mathbb{R}\right\},
-\qquad
-\mathbb{C}^n = \left\{\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix} : x_i \in \mathbb{C}\right\}.
-\]
+Thus, \(\operatorname{Span}_{\mathbb{C}}(v_1,\ldots,v_n)\) consists of all vectors obtained by complex linear combinations of \(v_1,\ldots,v_n\).
 
 \subsubsection{Standard Basis}
-
-\begin{definition}
-The standard basis for \(\mathbb{R}^n\) is the set \(\{e_1,\ldots,e_n\}\), where \(e_i\) is the \(i\)th standard basis vector.
-
-\[\mathbb{R}^n = \left\{\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix} : x_i \in \mathbb{R}\right\}\]
-
-\[e_1 = \begin{pmatrix}1\\0\\\vdots\\0\end{pmatrix}, \quad \ldots \quad e_n = \begin{pmatrix}0\\\vdots\\0\\1\end{pmatrix}\]
+\begin{definition}[Standard basis of $\mathbb{R}^n$]
+    The standard basis of \(\mathbb{R}^n\) is the set \(\{e_1,\ldots,e_n\}\), where
+    \[e_1=\begin{pmatrix}1\\0\\\vdots\\0\end{pmatrix},\;e_2=\begin{pmatrix}0\\1\\\vdots\\0\end{pmatrix},\;\ldots,\;e_n=\begin{pmatrix}0\\0\\\vdots\\1\end{pmatrix}.\]
 \end{definition}
-
+\noindent Every vector \(x=\begin{pmatrix}x_1\\ \vdots \\ x_n\end{pmatrix}\in\mathbb{R}^n\) can be written uniquely as
+\[x = x_1 e_1 + \cdots + x_n e_n.\]
+We now verify that the standard basis really is a basis, by checking that it spans \(\mathbb{R}^n\) and is linearly independent.
+\paragraph{Claim 1.}
+The vectors \(e_1,\ldots,e_n\) span \(\mathbb{R}^n\).
+\begin{proof}
+    We show that any vector in \(\mathbb{R}^n\) can be written as a linear combination of \(e_1,\ldots,e_n\):
+    \[\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix} = \begin{pmatrix}x_1\\0\\\vdots\\0\end{pmatrix} + \begin{pmatrix}0\\x_2\\\vdots\\0\end{pmatrix} + \cdots + \begin{pmatrix}0\\\vdots\\0\\x_n\end{pmatrix} = x_1 e_1 + x_2 e_2 + \cdots + x_n e_n.\]
+\end{proof}
+\paragraph{Claim 2.}
+The vectors \(e_1,\ldots,e_n\) are linearly independent.
+\begin{proof}
+    Suppose
+    \[\lambda_1 e_1 + \cdots + \lambda_n e_n = 0.\]
+    Then
+    \[\begin{pmatrix}\lambda_1\\ \vdots \\ \lambda_n\end{pmatrix} = \begin{pmatrix}0\\ \vdots \\ 0\end{pmatrix},\]
+    so \(\lambda_1=\cdots=\lambda_n=0\). Therefore \(e_1,\ldots,e_n\) are linearly independent.
+\end{proof}
 \medskip
 \noindent
-(Basis = span + linear independence)
+The standard basis also helps clarify the difference between real and complex vector spaces. In particular, the same vectors can generate very different spans depending on whether the scalars are real or complex.
+\begin{example}[Standard basis and real vs complex span]
+    Consider the standard basis \(e_1 = \begin{pmatrix}1\\0\end{pmatrix}, e_2 = \begin{pmatrix}0\\1\end{pmatrix}\) in \(\mathbb{C}^2\).
+    \begin{itemize}
+        \item Over \(\mathbb{C}\), any vector in \(\mathbb{C}^2\) can be written as
+        \[z_1 e_1 + z_2 e_2, \quad z_1,z_2 \in \mathbb{C}.\]
+        So the complex span is
+        \[\operatorname{Span}_{\mathbb{C}}(e_1,e_2) = \mathbb{C}^2,\quad \dim_{\mathbb{C}} \mathbb{C}^2 = 2.\]
 
-\paragraph{Claim}
-These vectors span \(\mathbb{R}^n\).
-
-\begin{proof}
-We show that any vector in \(\mathbb{R}^n\) can be written as a linear combination of \(e_1,\ldots,e_n\):
-\[\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix} = \begin{pmatrix}x_1\\0\\\vdots\\0\end{pmatrix} + \begin{pmatrix}0\\x_2\\\vdots\\0\end{pmatrix} + \cdots + \begin{pmatrix}0\\\vdots\\0\\x_n\end{pmatrix} = x_1 e_1 + x_2 e_2 + \cdots + x_n e_n.\]
-\end{proof}
-
-\begin{example}[Complex vs Real Span]
-    \[\mathbb{C}^2 = \operatorname{Span}_{\mathbb{C}}(e_1,e_2)
-    = \{z_1 e_1 + z_2 e_2 : z_1,z_2 \in \mathbb{C}\},\]
-    where 
-    \[e_1=\begin{pmatrix}1\\0\end{pmatrix}, \quad e_2=\begin{pmatrix}0\\1\end{pmatrix}.\]
-    Here \(\dim_{\mathbb{C}}\mathbb{C}^2=2\) but \(\dim_{\mathbb{R}}\mathbb{C}^2=4\).
-    Every complex scalar can be written as \(z_k=x_k+iy_k\) with \(x_k,y_k \in \mathbb{R}\). So
-    \[\operatorname{Span}_{\mathbb{C}}(e_1,e_2) = \{(x_1+iy_1)e_1 + (x_2+iy_2)e_2 : x_1,x_2,y_1,y_2 \in \mathbb{R}\}.\]
-    Separating real and imaginary parts,
-    \[\operatorname{Span}_{\mathbb{C}}(e_1,e_2) = x_1 e_1 + x_2 e_2 + y_1 (i e_1) + y_2 (i e_2).\]
-    Therefore,
-    \[\operatorname{Span}_{\mathbb{C}}(e_1,e_2) = \operatorname{Span}_{\mathbb{R}}\left(
-    \begin{pmatrix}1\\0\end{pmatrix},
-    \begin{pmatrix}0\\1\end{pmatrix},
-    \begin{pmatrix}i\\0\end{pmatrix},
-    \begin{pmatrix}0\\i\end{pmatrix}
-    \right).
-    \]
-
+        \item Each complex scalar can be written as \(z_k = x_k + i y_k\), \(x_k,y_k \in \mathbb{R}\). Then
+        \[z_1 e_1 + z_2 e_2 = x_1 e_1 + y_1 (i e_1) + x_2 e_2 + y_2 (i e_2),\]
+        showing that every complex linear combination is also a real linear combination of the four vectors
+        \[e_1, e_2, i e_1, i e_2.\]
+        Hence, as a real vector space, \(\mathbb{C}^2\) has dimension 4:
+        \[\dim_{\mathbb{R}} \mathbb{C}^2 = 4.\]
+    \end{itemize}
     \begin{center}
     \begin{tikzpicture}[scale=1.2, >=Stealth]
     \draw[->] (-3,0) -- (3,0) node[right] {$\Re$};
@@ -502,7 +489,7 @@ We show that any vector in \(\mathbb{R}^n\) can be written as a linear combinati
 \end{example}
 
 
-\subsubsection{Abstract Vector Spaces}
+\subsubsection{Abstract Vector Spaces} %to organize
 An abstract vector space is just a set with two operations:
 vector addition \((v_1+v_2)\) and scalar multiplication \((\lambda v)\), where \(\lambda\) comes from a field \(k\), satisfying certain axioms.
 
