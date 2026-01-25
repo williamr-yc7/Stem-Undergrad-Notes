@@ -489,7 +489,7 @@ The standard basis also helps clarify the difference between real and complex ve
 \end{example}
 
 
-\subsection{Abstract Vector Spaces} %to organize
+\subsection{Abstract Vector Spaces}
 An abstract vector space generalizes the idea of vectors in \(\mathbb{R}^n\). It is a set equipped with two operations (vector addition and scalar multiplication) that satisfy certain rules (axioms).
 
 \begin{definition}[Vector space over a field]
@@ -571,41 +571,57 @@ is an additive subgroup but not a vector space over \(\mathbb{R}\), because \(\m
     and every \(f \in P_n(k)\) can be written uniquely as
     \[f = \lambda_0 + \lambda_1 x + \lambda_2 x^2 + \cdots + \lambda_n x^n, \quad \lambda_i \in k.\]
 \end{example}
-
-\paragraph{3. Matrix spaces}
+\begin{definition}[Matrix Spaces]%to organize
+    The set of all \(n \times n\) matrices over a field \(k\) is
+    \[M_n(k) = \left\{ \begin{pmatrix}
+    a_{11} & \cdots & a_{1n} \\
+    \vdots & \ddots & \vdots \\
+    a_{n1} & \cdots & a_{nn}
+    \end{pmatrix} : a_{ij} \in k \right\},\]
+    which forms a vector space over \(k\).
+    A standard basis for \(M_n(k)\) is the set of matrices \(\{ e_{ij} : 1 \le i,j \le n \}\), where \(e_{ij}\) has a 1 in the \((i,j)\)-th entry and 0 elsewhere.  
+    The dimension is
+    \[\dim M_n(k) = n^2.\]
+\end{definition}
+\begin{example}[Matrix Spaces]
+    For \(M_2(\mathbb{R})\),
+    \[\begin{pmatrix}1 & 2 \\ 3 & 4\end{pmatrix} = 1 e_{11} + 2 e_{12} + 3 e_{21} + 4 e_{22}.\]
+\end{example}
+\begin{definition}[Function Spaces]
+    Let \(D\) be a set and \(k\) a field. The set of all functions from \(D\) to \(k\) is
+    \[F(D,k) = \{ f : D \to k \},\]
+    which forms a vector space over \(k\) under pointwise addition and scalar multiplication:
+    \[(f+g)(x) = f(x) + g(x), \quad (\lambda f)(x) = \lambda f(x), \quad \forall x \in D.\]
+    If \(D\) is finite, e.g. \(D = \{1,2,\dots,n\}\), then \(\{ \delta_1, \dots, \delta_n \}\) is a \textbf{standard basis}, where \(\delta_i(j) = 1\) if \(i=j\) and 0 otherwise.  
+    If \(D = \mathbb{R}\) and \(k = \mathbb{R}\), we usually consider the functions drawn with horizontal axis \(D\) and vertical axis \(k\). In general, no finite standard basis exists.
+\end{definition}
+\begin{definition}[Function Spaces]
+\marginpar{16 January, 2026}
+Let $D$ be a set and $k$ a field. The set of all functions from $D$ to $k$ is
 \[
-M_n(k)=\left\{\begin{pmatrix}
-a_{11}&\cdots&a_{1n}\\
-\vdots&\ddots&\vdots\\
-a_{n1}&\cdots&a_{nn}
-\end{pmatrix}: a_{ij}\in k\right\}
+F(D,k) = \{ f : D \to k \},
 \]
-is a vector space over \(k\).
-
-Standard basis matrices:
+which forms a vector space over $k$ under pointwise addition and scalar multiplication:
 \[
-e_{11}=\begin{pmatrix}1&0&\cdots&0\\0&0&\cdots&0\\\vdots&\vdots&\ddots&\vdots\\0&0&\cdots&0\end{pmatrix},\quad
-e_{12}=\begin{pmatrix}0&1&\cdots&0\\0&0&\cdots&0\\\vdots&\vdots&\ddots&\vdots\\0&0&\cdots&0\end{pmatrix}, \ \ldots
+(f+g)(x) = f(x) + g(x), \quad (\lambda f)(x) = \lambda f(x), \quad \forall x \in D.
 \]
 
+\textbf{Standard basis (finite case):} If $D = \{1, \dots, n\}$, define the Kronecker functions
 \[
-\dim M_n(k)=n^2.
+\delta_i(j) =
+\begin{cases}
+1, & i=j,\\
+0, & i \neq j.
+\end{cases}
 \]
-
-Example in \(M_2(\mathbb{R})\):
+Then $\{\delta_1, \dots, \delta_n\}$ is a standard basis of $F(D,k)$, and every $f \in F(D,k)$ can be written uniquely as
 \[
-\begin{pmatrix}1&2\\3&4\end{pmatrix}
-=1e_{11}+2e_{12}+3e_{21}+4e_{22}.
+f = \sum_{i=1}^n f(i) \delta_i.
 \]
 
-\paragraph{4. Function spaces}
-Let \(D\) be a set and \(k\) a field.
-\[
-F(D,k)=\{f:D\to k\}
-\]
-is a vector space over \(k\).
+\textbf{Infinite case:} If $D$ is infinite (e.g., $D = \mathbb{R}$), no finite standard basis exists.
+\end{definition}%to organize
 
-When \(D=\mathbb{R}\) and \(k=\mathbb{R}\), functions are drawn with horizontal axis \(D\) and vertical axis \(k\).
 
 
 \marginpar{16 January, 2026}
