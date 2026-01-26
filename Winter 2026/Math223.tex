@@ -698,45 +698,55 @@ Let $W$ be a vector space and $U,V \subseteq W$ subspaces.
     so $w \in U+V$.
 \end{proof}
 
-\marginpar{January 23, 2026}
 \subsection{Direct sums}
-$U, V$ subspaces in $W$ (ambiant space).
-\begin{definition}
-    $U$ and $V$ are in direct sum if $U \cap V = \{0\}$.
-    Its a sum where the intersection is zero.
-    Sum: \[U + V = \{u + v : u \in U, v \in V\}\]
-    Now if $U \cap V = \{0\}$ we write $U \oplus V$, and $U,V \subseteq W$.
-    Sol: $W = U \oplus V$ means $\begin{cases}
-        W = U + V\\
-        U \cap V = \{0\}
-    \end{cases}$
-    To prove $W = U \oplus V$,
-    \begin{itemize}
-        \item $W = U + V$, $\subseteq$ Let $w \in W$. Prove: there exist $u \in U$, $v \in V$ such that $w = u + v$.
-        \item $U \cap V = \{0\}$. $\supseteq$ automatic. Pick $w \in \{0\}$. Prove $w \in U \cap V$. By assumption $w = 0$. Prove $w \in U$ and $w \in V$ hold by definition of subspace. Only need to show $U \cap V \subseteq \{0\}$. Let $w \in U$ and $w \in V$. Prove $w = 0$.
-    \end{itemize}
+\marginpar{January 23, 2026}
+Let $W$ be a vector space and $U,V \subseteq W$ subspaces.
+\begin{definition}[Direct sum]
+    We say that $U$ and $V$ are in direct sum if
+    \[U \cap V = \{0\}.\]
+    In this case, their sum
+    \[U+V=\{u+v : u \in U,\; v \in V\}\]
+    is denoted by $U \oplus V$.
+    We write
+    \[W = U \oplus V\]
+    if and only if
+    \[\begin{cases}
+    W = U+V,\\
+    U \cap V = \{0\}.
+    \end{cases}\]
 \end{definition}
-\begin{tabular}{c|c}
-    Sets & Vector Spaces\\
-    \hline
-    intersection $A \cap B$ & intersection $U \cap V$\\
-    union $A \cup B$ & union $U + V$\\
-    Disjoint union $A \sqcup B$ and $A \cap B = \emptyset$ & Direct sum $U \cap V = \{0\}$
-\end{tabular}
+\begin{remark}
+    To prove $W = U \oplus V$, one must show:
+    \begin{itemize}
+    \item Every $w \in W$ can be written as $w=u+v$ with $u \in U$, $v \in V$.
+    \item If $w \in U$ and $w \in V$, then $w=0$.
+    \end{itemize}
+\end{remark}
+\subsubsection*{Analogy with sets}
+\[\begin{array}{c|c}
+\text{Sets} & \text{Vector spaces} \\
+\hline
+A \cap B & U \cap V \\
+A \cup B & U + V \\
+A \sqcup B,\ A \cap B = \emptyset & U \oplus V,\ U \cap V = \{0\}
+\end{array}\]
 \begin{example}
-    \[D = \{1,2,3,4,5\}\]
-    \[A = \{1,2,3\}, B = \{4,5,6\}\]
+    Let
+    \[D=\{1,2,3,4,5\},\quad A=\{1,2,3\},\quad B=\{4,5\}.\]
     Then
-    \[D = A \sqcup B\]
+    \[D = A \sqcup B.\]
 \end{example}
 
-$\to$ function spaces
-$F(d) = $ functions on D.
-\[f \in F(D)\]
-Example of a function: $f(1) = 2, f(2) = \sqrt{2}, f(3) = \pi...$
-View $F(A)$ as a subspace of $F(D)$.
-Claim: $F(A)$ can be "identified" with a subspace $U\:of\: F(D)$.
-\[U = \{f : D \to \mathbb{R} : f(x) = 0, x \notin A\}\]
+\subsubsection{Direct sums in function spaces}
+Let $D$ be a set and $A \subseteq D$. Consider the function space $F(D,\mathbb{R})$.
+\begin{definition}[]
+    Define
+    \[U = \{f \in F(D,\mathbb{R}) : f(x)=0 \text{ for all } x \notin A\}.\]
+    Then $U$ is a subspace of $F(D,\mathbb{R})$, and $U$ can be identified with $F(A,\mathbb{R})$.
+\end{definition}
+\begin{remark}
+    Every function in $U$ is completely determined by its values on $A$ and vanishes outside $A$.
+\end{remark}
 
 
 \section{Appendix}
