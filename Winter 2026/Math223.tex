@@ -19,6 +19,7 @@
 \newtheorem{solution}{Solution}
 \newtheorem*{example}{Example}
 \newtheorem{remark}{Remark}
+\newtheorem{proposition}{Proposition}
 \reversemarginpar
 \begin{document}
 %------- Title page   -----------
@@ -542,7 +543,7 @@ is an additive subgroup but not a vector space over \(\mathbb{R}\), because \(\m
 \end{tikzpicture}
 \end{center}
 
-\subsubsection{Examples of Vector Spaces}
+\subsubsection{Coordinate Spaces}
 \marginpar{14 January, 2026}
 \begin{definition}[Coordinate Spaces]
     A coordinate space of dimension \(n\) over a field \(k\) (\(k=\mathbb{R}\) or \(k=\mathbb{C}\)) is defined as
@@ -551,12 +552,12 @@ is an additive subgroup but not a vector space over \(\mathbb{R}\), because \(\m
     \[e_1=\begin{pmatrix}1\\0\\\vdots\\0\end{pmatrix}, \ \ldots \ , e_n=\begin{pmatrix}0\\\vdots\\0\\1\end{pmatrix}.\]
 \end{definition}
 
+\subsubsection{Polynomial Spaces}
 \begin{definition}[Polynomial Spaces]
     A polynomial space of degree at most \(n\) over a field \(k\) is
     \[P_n(k) = \{ a_n x^n + \cdots + a_1 x + a_0 : a_i \in k \},\]
     which forms a vector space over \(k\).
 \end{definition}
-
 \begin{example}[Polynomial Spaces]
     Some examples of polynomials in these spaces are
     \[1+x^2 \in P_2(\mathbb{R}), \qquad 1+i x^3 \in P_3(\mathbb{C}).\]
@@ -571,7 +572,9 @@ is an additive subgroup but not a vector space over \(\mathbb{R}\), because \(\m
     and every \(f \in P_n(k)\) can be written uniquely as
     \[f = \lambda_0 + \lambda_1 x + \lambda_2 x^2 + \cdots + \lambda_n x^n, \quad \lambda_i \in k.\]
 \end{example}
-\begin{definition}[Matrix Spaces]%to organize
+
+\subsubsection{Matrix Spaces}
+\begin{definition}[Matrix Spaces]
     The set of all \(n \times n\) matrices over a field \(k\) is
     \[M_n(k) = \left\{ \begin{pmatrix}
     a_{11} & \cdots & a_{1n} \\
@@ -587,159 +590,113 @@ is an additive subgroup but not a vector space over \(\mathbb{R}\), because \(\m
     For \(M_2(\mathbb{R})\),
     \[\begin{pmatrix}1 & 2 \\ 3 & 4\end{pmatrix} = 1 e_{11} + 2 e_{12} + 3 e_{21} + 4 e_{22}.\]
 \end{example}
-\begin{definition}[Function Spaces]
-    Let \(D\) be a set and \(k\) a field. The set of all functions from \(D\) to \(k\) is
-    \[F(D,k) = \{ f : D \to k \},\]
-    which forms a vector space over \(k\) under pointwise addition and scalar multiplication:
-    \[(f+g)(x) = f(x) + g(x), \quad (\lambda f)(x) = \lambda f(x), \quad \forall x \in D.\]
-    If \(D\) is finite, e.g. \(D = \{1,2,\dots,n\}\), then \(\{ \delta_1, \dots, \delta_n \}\) is a \textbf{standard basis}, where \(\delta_i(j) = 1\) if \(i=j\) and 0 otherwise.  
-    If \(D = \mathbb{R}\) and \(k = \mathbb{R}\), we usually consider the functions drawn with horizontal axis \(D\) and vertical axis \(k\). In general, no finite standard basis exists.
+
+\subsubsection{Function Spaces}
+\marginpar{16 January, 2026}
+\begin{definition}[Function spaces]
+    Let $D$ be a set and $k$ a field. Define
+    \[F(D,k) = \{ f : D \to k \}.\]
+    With pointwise operations
+    \[(f+g)(x) = f(x)+g(x), \quad (\lambda f)(x) = \lambda f(x),\]
+    $F(D,k)$ is a vector space over $k$.
 \end{definition}
-\begin{definition}[Function Spaces]
-\marginpar{16 January, 2026}
-Let $D$ be a set and $k$ a field. The set of all functions from $D$ to $k$ is
-\[
-F(D,k) = \{ f : D \to k \},
-\]
-which forms a vector space over $k$ under pointwise addition and scalar multiplication:
-\[
-(f+g)(x) = f(x) + g(x), \quad (\lambda f)(x) = \lambda f(x), \quad \forall x \in D.
-\]
+\paragraph{1. Finite case: standard basis}
+Assume $D = \{1,\dots,n\}$. For each $i \in D$, define the Kronecker delta function
+\[\delta_i(j) = \begin{cases}1, & i=j,\\0, & i \ne j.\end{cases}\]
+Then $\{\delta_1,\dots,\delta_n\}$ is a basis of $F(D,k)$. Moreover, every $f \in F(D,k)$ can be written uniquely as
+\[f = \sum_{i=1}^n f(i)\,\delta_i.\]
+Indeed, evaluating at $j$ gives
+\[\sum_{i=1}^n f(i)\delta_i(j) = f(j),\]
+so the functions span, and linear independence is immediate.
+\paragraph{2. Infinite case}
+If $D$ is infinite, $F(D,k)$ has no finite basis.  
+The family $\{\delta_x : x \in D\}$ is linearly independent but does not span $F(D,k)$.
 
-\textbf{Standard basis (finite case):} If $D = \{1, \dots, n\}$, define the Kronecker functions
-\[
-\delta_i(j) =
-\begin{cases}
-1, & i=j,\\
-0, & i \neq j.
-\end{cases}
-\]
-Then $\{\delta_1, \dots, \delta_n\}$ is a standard basis of $F(D,k)$, and every $f \in F(D,k)$ can be written uniquely as
-\[
-f = \sum_{i=1}^n f(i) \delta_i.
-\]
-
-\textbf{Infinite case:} If $D$ is infinite (e.g., $D = \mathbb{R}$), no finite standard basis exists.
-\end{definition}%to organize
-
-
-
-\marginpar{16 January, 2026}
-$F(D)$ is a function from $D$ to $K$, where $K = \mathbb{R}\:or\:\mathbb{C}$. No "standard basis" in general.
-
-Standard basis if $D$ is a finite set $eg\:D=\{1,\ldots,n\}$.
-\[(f \in F(D). f(1)=2,f(2)=4,\ldots,f(n)=2^n\]
-
-Kronecker function: Let $x \in D$, $\delta_x \in F(D)$, defined by $\delta_x(y)=\left\{\begin{array}{ll}1&x=y\\0&x\ne y\end{array}\right.$
-Then $\{\delta_x : x \in D\}$ is a standard basis of $F(D)$.
-
-Standard basis :\((\delta_1,\ldots,\delta_n)\), for $F(\{1,\ldots,n\})$.
-
-Remark: $\{\delta_x : x \in \mathbb{R}\} $ do not span $F(\mathbb{R})$.
-
-Proof that $(\delta_1,\ldots,\delta_n)$ spans $F\{1,\ldots,n\}$. Take any
-\[f \in F(D)\]
-Find $a_1,\ldots,a_n \in K$ such that
-\[f = a_1 \delta_1 + \ldots + a_n \delta_n\]
-\[f(x), \quad x \in D = \{1,\ldots,n\}\]
-\[g(1) = a_1\delta_1(1) + a_2 \delta_2(1) + \ldots + a_n \delta_n(1) = a_1\]
-
-Claim: $a_k = f(K) \in K$
-Claim: $f = \sum f(k) \delta_k$, where $f(k) \in K$ and $\delta_k$ is the basis vector.
-
-Proof:
-\[g(l) = f(1)\delta_1(l)+\ldots+f(l)\delta_l(l)+\ldots+f(n)\delta_n(l) = f(l)\]
-
-Subspace criterion. Let $V$ be a vector space.
-To check a subset $u \subseteq V$ is a vector space.
-In principle need to checck:
-1. $U$ is stable under addition $u,v \in U$ Hence $u+v \in U$.
-2. $U$ is stable under scalar multiplication. $\lambda \in K, u \in U$ Hence $\lambda u \in U$.
-3. 8 axioms hold in $U$.
-
-Proposition. A subset $U \subseteq V$ is a vector space (8 axioms are true) if f:
-(0) $U$ is not empty ($0 \in U$)
-(1) $U$ is stable under addition: $u,v \in U \to u + v \in U$.
-(2) $U$ is stable under scalar multiplication: $u \in U, \lambda \in K \to \lambda u \in U$.
-
+\subsection{Subspaces}
 \marginpar{January 19, 2026}
-Subspaces
+\begin{definition}
+    A subspace is a subset of a larger vector space that is itself a vector space, meaning it contains the zero vector and is closed under vector addition and scalar multiplication. Subspaces are essential because they allow focus on smaller, self-contained structures where standard linear algebra operations (like finding spans, bases, and transformations) still hold, with examples including lines through the origin in \(\mathbb{R}^{2}\), the null space of a matrix, or the entire space itself.
+\end{definition}
+\begin{proposition}[Subspace criterion]
+    Let $V$ be a vector space over a field $k$ and let $U \subseteq V$. Then $U$ is a vector subspace of $V$ if and only if:
+    \begin{enumerate}
+    \item $0 \in U$,
+    \item $u,v \in U \Rightarrow u+v \in U$,
+    \item $u \in U,\ \lambda \in k \Rightarrow \lambda u \in U$.
+    \end{enumerate}
+\end{proposition}
 \begin{problem}[Subspace criterion]
     Let $A \in M_n(K)$ be a fixed matrix. Prove thet
     \[U = \{x \in K^n : Ax = \vec{0}\}\]
     is a subspace, null space or kernel.
 \end{problem}
 \begin{problem}[Subspace criterion 2]
-    The set $U = \{Ax : x \in K^n\}$ is a subspace, image of A.
+    Let $A \in M_n(K)$. Show that
+    \[U = \{Ax : x \in K^n\}\]
+    is a subspace of $K^n$. The set $U$ is called the image (or range) of $A$.
 \end{problem}
 \begin{problem}[Subspace criterion 3]
-    Let $V = K$ (vector space of dim 1) show that the only 2 subspaces of $V$ are $\{0\}$ and $V$ itself.
+    Let $V = K$, viewed as a vector space over $K$. Show that the only subspaces of $V$ are $\{0\}$ and $V$ itself.
 \end{problem}
 \begin{problem}[Subspace criterion 4]
-    $Span(v_1,\ldots,v_n) = \{\lambda_1v_1 + \ldots + \lambda_nv_n : \lambda_1,\ldots,\lambda_n \in K\}$ is a subspace.
-\end{problem}
-\begin{problem}
-    $Span(v_1, \ldots, v_n)$ is the smallest subspace c
+Let $V$ be a vector space over $K$ and let $v_1,\dots,v_n \in V$. Show that
+\[\operatorname{Span}(v_1,\dots,v_n) = \{\lambda_1 v_1 + \cdots + \lambda_n v_n : \lambda_1,\dots,\lambda_n \in K\}\]
+is a subspace of $V$.
 \end{problem}
 
 \marginpar{January 21, 2026}
-\begin{problem}[$K = \mathbb{R}$]
-    Is $v_i \begin{pmatrix}
-        3\\5\\-5\end{pmatrix}$ in the space of $v_1 = \begin{pmatrix}
-            1\\2\\1
-    \end{pmatrix}, v_2 = \begin{pmatrix}
-        2\\5\\4
-    \end{pmatrix}, v_3 = \begin{pmatrix}
-        1\\3\\6
-    \end{pmatrix}$
-    In otherwords: are there $x,y,z \in \mathbb{R}$ such that $v = xv_1 + yv_2 + zv_3$?
+\subsubsection{Membership in a span}
+\begin{problem}[Span membership]
+    Let
+    \[v=\begin{pmatrix}3\\5\\-5\end{pmatrix},\quad v_1=\begin{pmatrix}1\\2\\1\end{pmatrix},\; v_2=\begin{pmatrix}2\\5\\4\end{pmatrix},\;
+    v_3=\begin{pmatrix}1\\3\\6\end{pmatrix}.\]
+    Decide whether $v \in \operatorname{Span}(v_1,v_2,v_3)$.
 \end{problem}
-\begin{problem}
-    Is $f: 3x^2 + 5x - 5$ in the span of $f_1 = x^2 + 2x + 1, f_2 = 2x^2 + 5x + 4, f_3 = x^2 + 3x + 6$?
-    \[f = xf_1 + yf_2 + zf_3\]
+\begin{problem}[Span membership 2]
+    Let
+    \[f = 3x^2 + 5x - 5,\quad f_1 = x^2 + 2x + 1,\; f_2 = 2x^2 + 5x + 4,\; f_3 = x^2 + 3x + 6.\]
+    Decide whether $f \in \operatorname{Span}(f_1,f_2,f_3)$.
 \end{problem}
 
-Intersection, sums, direct sums.
-$W$ vector space.
-$U, V \subseteq W$ two subspaces.
-Definition: $U \cap V = \{v \in W : v \in U \text{ and } v \in V\}$ smallest intersection $\{0\}$.
+\subsubsection{Operations on subspaces}
+Let $W$ be a vector space and $U,V \subseteq W$ subspaces.
+\begin{definition}[Intersection]
+    \[U \cap V = \{w \in W : w \in U \text{ and } w \in V\}.\]
+    The intersection of subspaces is a subspace. In particular, the smallest possible intersection is $\{0\}$.
+\end{definition}
+\begin{remark}
+    In general, the union $U \cup V$ is not a subspace unless $U \subseteq V$ or $V \subseteq U$.
+\end{remark}
+\begin{definition}[Sum of subspaces]
+    \[U + V = \{u+v : u \in U,\, v \in V\}.\]
+\end{definition}
+\begin{proposition}
+    If $U$ and $V$ are subspaces of $W$, then $U+V$ is a subspace of $W$.
+\end{proposition}
+\begin{proof}[Proof that $U+V$ is a subspace]
+    We apply the subspace criterion.
+    (0) Since $0 \in U$ and $0 \in V$, we have $0 = 0+0 \in U+V$.
+    (1) Let $w_1,w_2 \in U+V$. Then
+    \[w_1=u_1+v_1,\quad w_2=u_2+v_2\]
+    with $u_1,u_2 \in U$ and $v_1,v_2 \in V$. Hence
+    \[w_1+w_2=(u_1+u_2)+(v_1+v_2) \in U+V.\]
 
-The union of 2 subspaces in NOT a subspace (in general).
+    (2) Let $w \in U+V$ and $\lambda \in K$. Then $w=u+v$ and
+    \[\lambda w=\lambda u+\lambda v \in U+V.\]
+\end{proof}
+\begin{proposition}
+    \[U + V = \operatorname{Span}(U \cup V).\]
+    Equivalently, $U+V$ is the smallest subspace of $W$ containing both $U$ and $V$.
+\end{proposition}
+\begin{proof}[Proof that $U+V = \operatorname{Span}(U \cup V)$]
+    ($\subseteq$) Let $w \in U+V$. Then $w=u+v$ with $u \in U$, $v \in V$. Since $u,v \in U \cup V$, we have $w \in \operatorname{Span}(U \cup V)$.
 
-$W = \mathbb{R}^2$ :
-draw a cartesian plane with vertical being $V$ and horizontal being $U$ and draw the cross ($u+v$).
-$U \cup V =$ cross, no quadrant, not a subspace
-
-Sum of 2 subspaces:
-$U + V = \{u + v : u \in U, v \in V\}$
-line $U$ + line $V$ = plane
-
-Propoisition: $U, V$ are subspaces of $W$. $U + V$ is a subspace.
-U cannot rescale a vector space, therefore $U + U = U$.
-Proof:
-$\subseteq$: Let $u + u' \in U + U$ prove $u + u' \in U$. Yes subce $U$ is a subspace stable under addition.
-$\supseteq$: Take $u \in U$, prove $u \in U + U$. $u = u + 0 \in U + U$.
-Proof: subspace criterion.
-(0) $0 \in U + V$ since $0 \in U, 0 \in V$.
-(1) Stable under addition: let $w_1, w_2 \in U + V$. Prove $w_1 + w_2 \in U + V$.
-\[w_1 = u_1 + v_1, u_1 \in U, v_1 \in V\]
-\[w_2 = u_2 + v_2, u_2 \in U, v_2 \in V\]
-\[w_1 + w_2 = (u_1 + u_2) + (v_1 + v_2)\]
-\[u_1 + u_2 \in U, v_1 + v_2 \in V\]
-\[w_1 + w_2 \in U + V\]
-(2) Stable under scalar multiplication: let $w \in U + V, \lambda \in K$. Prove $\lambda w = \lambda u + \lambda v \in U + V$.
-
-Prop: $U + V = span(U \cup V)$.
-$U + V = $ smalles subspace containing $U \cup V$.
-Proof:
-$\subseteq$: Take $w \in U + V$ prove $w \in span(U \cup V)$.
-\[w = u + v, u \in U, v \in V\]
-Prove $w \in span(U \cup V)$. (You could also write it like $span(U,V)$ since line can be of both in $U$ or $V$). 
-$\supseteq$: Take $w \in span(U \cup V)$ prove $w \in U + V$.
-\[w = a_1 u_1 + \ldots + a_n u_n + b_1 v_1 + \ldots + b_m v_m\]
-where $u_i \in U, v_j \in V, a_i,b_j \in K$.
-\[w = (a_1 u_1 + \ldots + a_n u_n) + (b_1 v_1 + \ldots + b_m v_m)\]
-\[w = u + v, u \in U + V\]
+    ($\supseteq$) Let $w \in \operatorname{Span}(U \cup V)$. Then
+    \[w = a_1u_1 + \cdots + a_nu_n + b_1v_1 + \cdots + b_mv_m\]
+    with $u_i \in U$, $v_j \in V$. Grouping terms,
+    \[w = (a_1u_1 + \cdots + a_nu_n) + (b_1v_1 + \cdots + b_mv_m),\]
+    so $w \in U+V$.
+\end{proof}
 
 \marginpar{January 23, 2026}
 \subsection{Direct sums}
@@ -812,74 +769,101 @@ Claim: $F(A)$ can be "identified" with a subspace $U\:of\: F(D)$.
 \begin{solution}[Span]
     \[\operatorname{Span}(v_1,v_2) = \{xv_1 + yv_2 : x,y \in \mathbb{R}\} = \left\{\begin{pmatrix}3x + y\\x + 3y\end{pmatrix}: x,y \in \mathbb{R}\right\}.\]
 \end{solution}
-\begin{solution}[Subspace criterion]
-    (0) is $0 \in U$?
-    Yes, because $A0 = 0$.
-    \[\begin{pmatrix}
-        a&b\\
-        c&d
-    \end{pmatrix}\begin{pmatrix}
-        0\\0
-    \end{pmatrix} = \begin{pmatrix}
-        0\\0
-    \end{pmatrix}\]
-    
-    (1) Addition: Let $x,y \in U$. Prove $x+y \in U$.
-    \[A(x+y) = Ax + Ay = 0 + 0 = 0\]
-    (2) Scalar multiplication: Let $x \in U, \lambda \in K$. Prove $\lambda x \in U$.
-    \[A(\lambda x) = \lambda Ax = \lambda 0 = 0\]
-\end{solution}
-\begin{solution}[Subspace criterion 2]
-    (0) is $0 \in U$?
-    Find $x \in K^n$ such that $Ax = 0$.
-    $x = 0$.
+\begin{solution}[Subspace Criterion]
+    Let $A \in M_n(K)$ be fixed and define
+    \[U = \{x \in K^n : Ax = \vec{0}\}.\]
+    We verify the subspace criterion.
 
-    (1) Stability under addition: $y_1,y_2 \in U \to y_1 + y_2 \in U$.
-    There exist $x$, such that $y_1 = Ax_1, y_2 = Ax_2$.
-    \[y_1 + y_2 = Ax_1 + Ax_2 = A(x_1 + x_2) \in U\]
-    
-    (2) Stability under scalar multiplication: If $f = Ax$, for some $x$, $\lambda y = A(\lambda x)$
-\end{solution}
-\begin{solution}[Subspace criterion 3]
-    Let $U \subseteq \mathbb{R}$ be a subspace. Prove: $U = \{0\}$ or $U = \mathbb{R}$.
-    
-    Case 1: $U = \{0\}$.
+    (0) Non-empty:  
+    Since $A0 = 0$, we have $0 \in U$.
 
-    Case 2: $U \ne \{0\} \to$ there exists $v \in \mathbb{R}$, $v \ne 0$.
-    Prove: $U = \mathbb{R}$.
-    Let $x \in \mathbb{R}$ be any real number. Prove: $x \in U$.
-    Since $U$ is a subspace, it is stable under scalar multiplication.
-    \[x \in U \to Ax \in U\]
-    Therefore, $x \in U$.
+    (1) Closed under addition:  
+    Let $x,y \in U$. Then $Ax = 0$ and $Ay = 0$. Hence
+    \[A(x+y) = Ax + Ay = 0 + 0 = 0,\]
+    so $x+y \in U$.
+
+    (2) Closed under scalar multiplication:  
+    Let $x \in U$ and $\lambda \in K$. Then
+    \[A(\lambda x) = \lambda Ax = \lambda 0 = 0,\]
+    so $\lambda x \in U$.
+
+    Therefore, by the subspace criterion, $U$ is a subspace of $K^n$. It is called the null space (kernel) of $A$.
 \end{solution}
-\begin{solution}[Subspace criterion 4]
-    (0) $0 \in span(v_1,\ldots,v_n)$, because
-    \[\lambda_1 = \ldots \lambda_n = 0 \qquad \lambda_1 v_1 + \ldots + \lambda_n v_n = 0.\]
-    
-    (1) addition: $u,v \in span$ Prove $u + v \in span$.
-    \[u = a_1 v_1 + \ldots + a_n v_n\]
-    \[v = b_1 v_1 + \ldots + b_n v_n\]
-    \[u + v = (a_1 + b_1)v_1 + \ldots + (a_n + b_n)v_n \in span(v_1,\ldots,v_n)\]
-    
-    (2) scalar multiplication:
+\begin{solution}[Subspace Criterion 2]
+    We verify the subspace criterion.
+
+    (0) Non-empty:  
+    Since $A0 = 0$, we have $0 \in U$.
+
+    (1) Closed under addition:  
+    Let $y_1,y_2 \in U$. Then there exist $x_1,x_2 \in K^n$ such that
+    \[y_1 = Ax_1, \quad y_2 = Ax_2.\]
+    Hence,
+    \[y_1 + y_2 = Ax_1 + Ax_2 = A(x_1 + x_2) \in U.\]
+
+    (2) Closed under scalar multiplication:  
+    Let $y \in U$ and $\lambda \in K$. Then $y = Ax$ for some $x \in K^n$, and
+    \[\lambda y = \lambda Ax = A(\lambda x) \in U.\]
+
+    Therefore, by the subspace criterion, $U$ is a subspace of $K^n$. It is called the image of $A$.
 \end{solution}
-\begin{solution}
-    \[\begin{pmatrix}
-        3\\5\\-5
-    \end{pmatrix} = x\begin{pmatrix}
-        1\\2\\1
-    \end{pmatrix} + y\begin{pmatrix}
-        2\\5\\4
-    \end{pmatrix} + z\begin{pmatrix}
-        1\\3\\6
-    \end{pmatrix}\]
+\begin{solution}[Subspace Criterion 3]
+    Let $U \subseteq K$ be a subspace. We show that either $U = \{0\}$ or $U = K$. If $U = \{0\}$, we are done. Otherwise, $U \neq \{0\}$. Then there exists $v \in U$ with $v \neq 0$.
+    We prove that $U = K$. Let $x \in K$ be arbitrary. Since $v \neq 0$, there exists $\lambda \in K$ such that
+    \[x = \lambda v.\]
+    Because $U$ is closed under scalar multiplication, $\lambda v \in U$, hence $x \in U$. Therefore every $x \in K$ belongs to $U$, so $U = K$. Conclusion: the only subspaces of $K$ are $\{0\}$ and $K$.
+\end{solution}
+\begin{solution}[Subspace Criterion 4]
+    We verify the subspace criterion.
+    (0) Non-empty:  
+    Taking $\lambda_1=\cdots=\lambda_n=0$ gives
+    \[0 = 0v_1 + \cdots + 0v_n \in \operatorname{Span}(v_1,\dots,v_n).\]
+    (1) Closed under addition:  
+    Let $u,v \in \operatorname{Span}(v_1,\dots,v_n)$. Then there exist scalars
+    $a_1,\dots,a_n,b_1,\dots,b_n \in K$ such that
+    \[u = a_1 v_1 + \cdots + a_n v_n, \quad v = b_1 v_1 + \cdots + b_n v_n.\]
+    Hence,
+    \[u+v = (a_1+b_1)v_1 + \cdots + (a_n+b_n)v_n \in \operatorname{Span}(v_1,\dots,v_n).\]
+    (2) Closed under scalar multiplication:  
+    Let $u \in \operatorname{Span}(v_1,\dots,v_n)$ and $\lambda \in K$. Then
+    \[u = a_1 v_1 + \cdots + a_n v_n\]
+    for some scalars $a_i$, and
+    \[\lambda u = (\lambda a_1)v_1 + \cdots + (\lambda a_n)v_n \in \operatorname{Span}(v_1,\dots,v_n).\]
+    Therefore, $\operatorname{Span}(v_1,\dots,v_n)$ is a subspace of $V$.
+\end{solution}
+\begin{solution}[Span Membership]
+    We look for scalars $x,y,z \in \mathbb{R}$ such that
+    \[xv_1 + yv_2 + zv_3 = v.\]
+    That is,
+    \[x\begin{pmatrix}1\\2\\1\end{pmatrix} + y\begin{pmatrix}2\\5\\4\end{pmatrix} + z\begin{pmatrix}1\\3\\6\end{pmatrix} = \begin{pmatrix}3\\5\\-5\end{pmatrix}.\]
+    This gives the system
     \[\begin{cases}
-        x+2y+z = 3\\
-        2x+5y+3z = 5\\
-        x+4y+6z = -5
-    \end{cases} \to x = 3, y = 1, z = -2\]
-    A: yes since 
-    \[v = 3v_1 + v_2 + 2v_3\]
+    x + 2y + z = 3,\\
+    2x + 5y + 3z = 5,\\
+    x + 4y + 6z = -5.
+    \end{cases}\]
+    Solving, we obtain
+    \[x=3,\quad y=1,\quad z=-2.\]
+    Therefore,
+    \[v = 3v_1 + v_2 - 2v_3,\]
+    so $v \in \operatorname{Span}(v_1,v_2,v_3)$.
+\end{solution}
+\begin{solution}[Span Membership 2]
+    We seek scalars $x,y,z \in \mathbb{R}$ such that
+    \[f = xf_1 + yf_2 + zf_3.\]
+    Comparing coefficients,
+    \[x(x^2+2x+1) + y(2x^2+5x+4) + z(x^2+3x+6) = 3x^2+5x-5,\]
+    which gives
+    \[\begin{cases}
+    x + 2y + z = 3,\\
+    2x + 5y + 3z = 5,\\
+    x + 4y + 6z = -5.
+    \end{cases}\]
+    Solving,
+    \[x=3,\quad y=1,\quad z=-2.\]
+    Hence,
+    \[f = 3f_1 + f_2 - 2f_3,\]
+    and therefore $f \in \operatorname{Span}(f_1,f_2,f_3)$.
 \end{solution}
 
 \section{Useful Links}
