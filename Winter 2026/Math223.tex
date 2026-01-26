@@ -748,7 +748,100 @@ Let $D$ be a set and $A \subseteq D$. Consider the function space $F(D,\mathbb{R
     Every function in $U$ is completely determined by its values on $A$ and vanishes outside $A$.
 \end{remark}
 
+\section{Basis and Dimension}
+\marginpar{January 26, 2026}
+\subsection{Finite Dimensional Spaces}
+Let V be a vector space over a field k. Then there are two possibilities:
+\begin{itemize}
+    \item The zero vector space: $V = \{0\}$
+    \item The non-zero vector space: $V \neq \{0\}$
+\end{itemize}
+In the second case, there exists a non-zero vector $v_1 \in V$ such that $v_1 \neq 0$. Then $span(v_1)$ is a subspace of $V$, and there are two possibilities:
+\begin{itemize}
+    \item $V = span(v_1)$, i.e., $v_1$ is a generator of $V$.
+    \item $V \neq span(v_1)$, i.e., there exists a $v_2 \in V$ such that $v_2 \notin span(v_1)$.
+\end{itemize}
+In the second case, $span(v_1,v_2) \subseteq V$. This process can be repeated to obtain a sequence of vectors $v_1,v_2,\ldots,v_n$ such that $span(v_1,\ldots,v_n) \subseteq V$. The maximum number of linearly independent vectors in $V$ is called the dimension of $V$, denoted by $\dim V$.
 
+2 cases (2d space plane):
+\begin{itemize}
+    \item $v = v_2 = span(v_1,v_2)$
+    \item $v \neq v_2 \quad \exists v_3 \notin v_2$, where $v_3 = span(v_1,v_2,v_3) \subseteq v$
+\end{itemize}
+
+2 cases (3d space):
+\begin{itemize}
+    \item $v_3 = v$
+    \item $v_3 \neq v \quad \exists v_4...$
+\end{itemize}
+\begin{definition}
+    $V$ is finite dimensional if it can be spanned by finitely many vectors.
+    \[\exists v_1,\ldots,v_n : V = span(v_1,\ldots,v_n).\]
+    $dim V =$ smallest $n$ such that $V = span(v_1,\ldots,v_n)$.
+\end{definition}
+$dim_kV =$ min $n$ such that $V = span_k(v_1,\ldots,v_n)$.
+\begin{example}
+    $(\mathbb{C}^n,n=1)$
+    $\mathbb{C} = span_{\mathbb{R}}(1,i) = 2$
+    \[x \cdot 1 + y \cdot i\]
+    $M_n(\mathbb{C})$
+    \[A = \begin{pmatrix}
+        z_{11} & z_{12} & \cdots & z_{1n}\\
+        \vdots & \vdots & \ddots & \vdots\\
+        z_{n1} & z_{n2} & \cdots & z_{nn}
+    \end{pmatrix} = \begin{pmatrix}
+        x_{11} + y_{11}i & x_{12} + y_{12}i & \cdots & x_{1n} + y_{1n}i\\
+        \vdots & \vdots & \ddots & \vdots\\
+        x_{n1} + y_{n1}i & x_{n2} + y_{n2}i & \cdots & x_{nn} + y_{nn}i
+    \end{pmatrix}\]
+    First matrix is of $dim_{\mathbb{C}}M_n(\mathbb{C}) = n^2$, and the second matrix is of $dim_{\mathbb{R}}M_n(\mathbb{C}) = 2n^2$.
+\end{example}
+\begin{example}[dim $V = \infty$]
+    \[P_{\infty}\]
+    \[v_1 = 1 \quad v_2 = x \quad v_3 = x^2\]
+    $span(v_1) =$ constant polynomials
+    \[V_1 = span(v_1,v_2) = P_1\]
+    \[v_{n+1} = x^n \notin P_{n-1}\]
+\end{example}
+
+\subsection{Linear Independence}
+\begin{definition}
+    $v_1,\ldots,v_n$ are linearly independent if $\lambda_1v_1 + \ldots + \lambda_nv_n = 0 \implies \lambda_1 = \ldots = \lambda_n = 0$.
+\end{definition}
+\begin{example}
+    \[e_1 = \begin{pmatrix}
+        1\\0
+    \end{pmatrix} \quad e_2 = \begin{pmatrix}
+        0\\1
+    \end{pmatrix}\]
+    Prove LI.
+    Assume $xe_1 + ye_2 = 0$. Prove $x=y=0$.
+    \[xe_1 + ye_2 = x\begin{pmatrix}
+        1\\0
+    \end{pmatrix} + y\begin{pmatrix}
+        0\\1
+    \end{pmatrix} = \begin{pmatrix}
+        x\\y
+    \end{pmatrix} = 0 \implies x = y = 0.\]
+\end{example}
+\begin{proposition}
+    The "standard basis" are both spanning and LI.
+    $(e_1,\ldots,e_n)$ of $k^n$
+    $(1,x,\ldots,x^{n})$ of $P_n$
+    $(e_{11},\ldots,e_{nn})$ of $M_n(k)$
+    $(\delta_1,\ldots,\delta_n)$ of $F(D)$, where $D = \{1,\ldots,n\}$
+\end{proposition}
+\begin{definition}
+    basis $= set(v_1,\ldots,v_n)$ both span and LI.
+    \[dim(\forall) = \#basis\]
+\end{definition}
+\begin{problem}
+    Prove $dim P_{\infty} = \infty$.
+    Assume $dim P_{\infty} < \infty$. Proof by contradiction.
+    $\exists f_1,\ldots,f_n$ polynomials $P_{\infty}=span(f_1,\ldots,f_n)$. Let $d =$ max degree of $f_k$.
+    \[x^{d+1} \notin span(f_1,\ldots,f_n)\]
+    degree $\leq d$.
+\end{problem}
 \section{Appendix}
 
 \section{Solutions}
