@@ -755,6 +755,10 @@ We call the ODE separable if $f(x,y) = f_1(x)f_2(y)$
 Consider $H_1(x)$ and $H_2(y)$ antiderivatives of $M(x)$ and $N(y)$, respectively.
 From the Chain Rule $\frac{d}{dx}H_2(y(x)) = H_2'(y)\frac{dy}{dx}$
 \[H_1'(x) + H_2'(y)\frac{dy}{dx} = 0 \leftrightarrow \frac{d}{dx}(H_1(x) + H_2(y(x))) = 0\]
+\[\rightarrow H_1(x) +H_2(y(x)) = C\] is an implicit general solution.
+\[\leftrightarrow \int M(x)dx + \int N(y)dy = C\]
+\[\leftrightarrow \int -f_1(x)dx + \int \frac{dy}{f_2(y)} = C\]
+\[\leftrightarrow \int \frac{dy}{f_2(y)} = \int f_1(x)dx + C\]
 
 
 \begin{definition}[Separable Equations]
