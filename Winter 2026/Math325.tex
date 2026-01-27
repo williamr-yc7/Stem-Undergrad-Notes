@@ -259,27 +259,24 @@ Other examples include \(\frac{dy}{dt}=1 - y^{2}\) or exponential growth \(\frac
     \[\frac{d}{dx}(x^2 - y^2) = 0 \;\Longrightarrow\; 2x - 2y\frac{dy}{dx} = 0\;\Longrightarrow\; y\frac{dy}{dx} = x.\]
 \end{example}
 
-\subsection{Initial Value Problems}%to organize
+\subsection{Initial Value Problems}
 \marginpar{January 13, 2026}
-A first-order system of ODEs is written as
-\[
-y' = f(y,t), \quad f : D \times (a,b) \to \mathbb{R}^n.
-\]
-Let \(t_0 \in (a,b)\). An initial condition is
-\[
-y(t_0) = y_0 \in \mathbb{R}^n.
-\]
-An initial value problem (IVP) is
-\[
-\begin{cases}
-y' = f(y,t),\\
-y(t_0) = y_0.
-\end{cases}
-\]
+\begin{definition}[Initial Value Problem (IVP)]
+    An initial value problem (IVP) is a system of ODEs with an initial condition.
+\end{definition}
+\begin{example}[IVP]
+    Consider the following ODE 
+    \[y' = f(y,t), \quad f : D \times (a,b) \to \mathbb{R}^n.\]
+    Let \(t_0 \in (a,b)\). An initial condition is
+    \[y(t_0) = y_0 \in \mathbb{R}^n.\]
+    An initial value problem (IVP) is
+    \[\begin{cases}y' = f(y,t), \\ y(t_0) = y_0.\end{cases}.\]
+\end{example}
+
 
 \subsection{Existence and Uniqueness Theorem}
 
-\subsubsection{Lipschitz continuity}
+\subsubsection{Lipschitz continuity}%to organize
 
 \begin{definition}[Lipschitz continuity]
 Let \(D \subseteq \mathbb{R}^n\) and let \(||\cdot||\) be a norm on \(\mathbb{R}^n\).
@@ -758,8 +755,55 @@ From the Chain Rule $\frac{d}{dx}H_2(y(x)) = H_2'(y)\frac{dy}{dx}$
 \[\rightarrow H_1(x) +H_2(y(x)) = C\] is an implicit general solution.
 \[\leftrightarrow \int M(x)dx + \int N(y)dy = C\]
 \[\leftrightarrow \int -f_1(x)dx + \int \frac{dy}{f_2(y)} = C\]
-\[\leftrightarrow \int \frac{dy}{f_2(y)} = \int f_1(x)dx + C\]
+\[\leftrightarrow \int \frac{dy}{f_2(y)} = \int f_1(x)dx + C, \quad C \in \mathbb{R}\]
 
+\begin{example}
+    \[\frac{dy}{dx} = \frac{x^2}{1 - y^2}\]
+    \[\int (1 - y^2)dy = \int x^2dx + C\]
+    \[\Psi(x,y) = y - \frac{y^3}{3} - \frac{x^3}{3} = C\]
+\end{example}
+
+\begin{example}[Logistic Equation]
+    \[\frac{dN}{dt} = rN(1 - \frac{N}{K})\]
+    This ODE is non-linear but is separable.
+    \[\longrightarrow \int\frac{KdN}{N(N - K)} = -\int rdt + C\]
+    \[\int \frac{K}{N(N - K)} = -rt + C\]
+    Using the method of partial fractions.
+    \[\frac{K}{N(N - K)} = \frac{A}{N} + \frac{B}{N - K} = \frac{A(N-K) + BN}{N(N-K)}\]
+    \[K = (A+B)N - AK \longrightarrow A+B = 0, \quad -AK = K, \quad \therefore A = -1, B = 1\]
+    \[\longrightarrow -ln|N| + ln|N-K| = -rt +C\]
+    \[\longrightarrow ln|\frac{N-K}{N}| = -rt + C\]
+    \[\longrightarrow |\frac{N-K}{N}| = e^{-rt + C} = C_1 e^{-rt}\]
+    \[\longrightarrow \frac{N-K}{N} = (\pm C_1)e^{-rt} = C_2 e^{-rt}\]
+    At $t=0$, $N(0) = N_0$
+    \[N-K = C_2Ne^{-rt}\]
+    \[\longrightarrow N(t) = \frac{K}{1-C_2e^{-rt}} = \frac{K}{\frac{N0}{N0} - (\frac{N_0-K}{N_0})e^{-rt}}\]
+    \[\longrightarrow N(t) = \frac{KN_0}{N_0 + (K-N_0)e^{-rt}}\]
+    If $N_0 = 0$, then $N(t) = 0, \forall t$. If $N_0 = K$, then $N(t) = K, \forall t$. If $N_0 \in (0,K)$, $N_0 \leq N_0 + (K-N_0)e^{-rt}$ as $N_0$ decreases $\longrightarrow N(t) \to \frac{KN_0}{N_0} = K$. If $N_0 > K$, verify that $N(t) \to K$ as $t \to +\infty$.
+\end{example}
+
+Denote $\Psi(x,y) = H_1(x) + H_2(y)$ is the potential function.
+Note that the general solution $\Psi(x,y) = C$ is given by the level curves of the potential function.
+\begin{definition}[Integral Curve]
+    An integral curve is a level curve of the potential function.
+\end{definition}
+\begin{example}
+    \[\frac{dy}{dx} = -\frac{x}{y} \to \int ydy = \int -xdx + C\]
+    \[\longrightarrow \Psi(x,y) = \frac{y^2}{2} + \frac{x^2}{2} = C, \quad (C \geq 0)\] this is a general implicit solution.
+\end{example}
+\begin{example}
+    \[x^2 + y^2 = (\sqrt{2C})^2\]
+    Assume that $y(0) = 2$ and $x_0 = 0$
+    \[\frac{x_0^2}{2} + \frac{y_0^2}{2} = 2 = C\]
+    The unique integral curve that contains the initial condition $(x_0, y_0) = (0,2)$ is
+    \[\frac{x^2}{2} + \frac{y^2}{2} = 2\]
+    \[\longrightarrow y^2 = 4 - x^2\]
+    \[\longrightarrow y(x) = \pm \sqrt{4 - x^2}\]
+    \[\longrightarrow y(x) = \sqrt{4 - x^2}, \quad J_max = (-2,2)\]
+\end{example}
+An integral curve is a geometric object that contains (possibly many) solutions. The unique integral curve that contains the initial condition $y(x_0) = y_0$ is defined by
+\[\Gamma_{(x_0,y_0)} = \{(x,y) | \Psi(x,y) = \Psi(x_0,y_0) = C(x_0,y_0)\}\] 
+\[\frac{d}{dx}[\int f_1(x)dx + \int \frac{dy}{f_2(y)} = C]\]
 
 \begin{definition}[Separable Equations]
     An equation of the form
