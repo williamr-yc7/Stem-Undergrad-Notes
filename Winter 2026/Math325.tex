@@ -143,96 +143,124 @@ Example of a PDE is the Heat Equation. Let \(u = u(x,t)\), \(\frac{\partial u}{\
 \begin{example}
     \(y''(t) + 2y'(t) = e^t\) (second order ODE)
 \end{example}
-Given \(n \in \mathbb{N}\), an \(n\)\textsuperscript{th} order scalar ODE is written as
-\[F(t, y(t), y'(t), y''(t), \ldots, y^{(n)}(t)) = 0,\]
-where \(F : \mathbb{R}^{n + 2} \to \mathbb{R}\) is a map and where \(y^{(k)}(t) = \frac{d^ky}{dt^k}(t), k = 1, \ldots, n\).\\\\
 
-\noindent\textbf{Systems of first order ODEs}\\
-\indent Imagine a map \(f: D \times (a,b) \to \mathbb{R}^n\), where \(D \subseteq \mathbb{R}^n\) is an open set, and (a,b) is a "time" interval. A general first order system of ODEs is given by \(y'(t) = f(y(t), t)\), where \(y(t) = \begin{pmatrix}y_1(t)\\ \vdots \\ y_n(t)\end{pmatrix}\), \(f = \begin{pmatrix}f_1\\ \vdots \\ f_n\end{pmatrix}\), and \(y' = \begin{pmatrix}y'_1\\ \vdots \\ y'_n\end{pmatrix}\).\\
-\begin{remark}
-    Assume that a scalar \(n\)\textsuperscript{th} order ODE has the form \[y^{(n)}(t) = G(t, y(t), y'(t), \ldots, y^{(n-1)}(t)).\]
-\end{remark}
-Let's break this down into simpler terms. Letting \(y_1 = y, y_2 = y', \ldots, y_n = y^{(n-1)}\). This leads us to \(y_1' = y' = y_2, y_2' = y'' = y_3, \ldots, y_{n-1}' = y^{(n-1)} = y_n, y_n' = y^{(n)} = G(t, y_1, y_2, \ldots, y_n)\). So, we can rewrite the \(n\)\textsuperscript{th} order ODE as a first order system of ODEs:
-\[\begin{pmatrix}y_1'\\y_2'\\\vdots\\y_{n-1}'\\y_n'\end{pmatrix} = \begin{pmatrix}y_2\\y_3\\\vdots\\y_n\\G(t, y_1, y_2, \ldots, y_n)\end{pmatrix}\]
-
-\begin{example}[Lorenz Equation]
-    \[y_1' = \sigma(y_2 - y_1)\]
-    \[y_2' = \rho y_1 - y_2 - y_1y_3\]
-    \[y_3' = y_1y_2 - \beta y_3\]
-    where \(\sigma, \rho, \beta\) are parameters. n = 3. This is a first order system of ODEs. They are nonlinear because of the products \(y_1y_3\) and \(y_1y_2\).
+\subsubsection{Dimension of the State}
+\begin{definition}[Scalar ODE]
+    A scalar ODE has one unknown function.
+\end{definition}
+\begin{example}[Scalar ODE]
+    \[y'' + y = 0\]
+\end{example}
+\begin{definition}[System of ODEs]
+    A system of ODEs has several unknown functions.
+\end{definition}
+\begin{example}[System of ODEs]
+    \[\begin{cases}
+        y_1' = y_2\\
+        y_2' = -y_1
+    \end{cases}\]
+\end{example}
+\begin{definition}[Systems of first order ODEs]
+    A system of first order ODEs is just a collection of differential equations where all derivatives are first order. It can be written compactly as
+    \[y'(t) = f(y(t), t),\]
+    where \(y(t)\) is a vector of unknown functions,
+    \[y(t) = \begin{pmatrix} y_1(t) \\ \vdots \\ y_n(t) \end{pmatrix},\]
+    and \(f\) gives the right-hand sides of the equations.
+    Writing this out means
+    \[\begin{cases}y_1'(t) = f_1(y_1,\dots,y_n,t) \\ \vdots \\ y_n'(t) = f_n(y_1,\dots,y_n,t).\end{cases}\]
+    Any single \(n\)th-order ODE can always be turned into such a system. If
+    \[y^{(n)}(t) = G(t, y, y', \dots, y^{(n-1)}),\]
+    define new variables
+    \[y_1 = y, \quad y_2 = y', \quad \dots, \quad y_n = y^{(n-1)}.\]
+    Then each new variable has a first derivative, and the equation becomes
+    \[\begin{cases}y_1' = y_2, \\ y_2' = y_3, \\ \vdots \\ y_{n-1}' = y_n, \\ y_n' = G(t, y_1, \dots, y_n).\end{cases}\]
+    So one higher-order equation is the same thing as many first order equations.
+\end{definition}
+\begin{problem}[System of First Order ODEs]
+    Rewrite this third order ODE as a first order system:
+    \[y''' + 4y' - y = 0\]
+\end{problem}
+\begin{example}[System of First Order ODEs 2]
+    Consider the second-order ODE
+    \[y'' + 2y' + y = e^t\]
+    \[\Longrightarrow y'' = -2y' - y + e^t.\]
+    Define new variables
+    \[y_1 = y, \qquad y_2 = y'.\]
+    Then the system becomes
+    \[\begin{pmatrix}y_1' \\ y_2'\end{pmatrix} = \begin{pmatrix}0 & 1 \\ -1 & -2\end{pmatrix} \begin{pmatrix}y_1 \\ y_2\end{pmatrix} + \begin{pmatrix} 0 \\ e^t \end{pmatrix}.\]
+    Let
+    \[A = \begin{pmatrix} 0 & 1 \\ -1 & -2 \end{pmatrix},\quad r(t) = \begin{pmatrix} 0 \\ e^t \end{pmatrix}.\]
+\end{example}
+\begin{example}[Lorenz system]
+    \[\begin{aligned}y_1' &= \sigma (y_2-y_1), \\ y_2' &= \rho y_1 - y_2 - y_1y_3, \\ y_3' &= y_1y_2 - \beta y_3,\end{aligned}\]
+    where \(\sigma,\rho,\beta\) are parameters. This is a nonlinear first order system in \(\mathbb{R}^3\).
 \end{example}
 
 \subsubsection{Linearity}
 \begin{definition}[Linearity]
-    The n\textsuperscript{th} order ODE \(F(t, y, y', \ldots, y^{(n)}) = 0\) is linear if \(F\) is a linear polynomial in the variables \(y, y', y'', \ldots, y^{(n)}\), that is, it is of the form \(a_0(t)y^{(n)}(t) + a_1(t)y^{(n-1)}(t) + \ldots + a_{n-1}(t)y'(t) + a_n(t)y(t) = g(t)\), where \(a_0, a_1, \ldots, a_n, g\) are given functions of t. Otherwise, it is nonlinear.
+    A linear Ordinary Differential Equation (ODE) is one where the unknown function (\(y\)) and its derivatives (\(y^{\prime },y^{\prime \prime },\dots \)) appear only to the first power, are not multiplied together, and are not part of special functions like \(\sin (y)\) or \(e^{y}\). Essentially, they are "simple" combinations (addition/subtraction) of \(y\) and its derivatives, potentially multiplied by functions of the independent variable (like \(x\) or \(t\)).
 \end{definition}
-In short terms, an ODE is said to be linear if it can be written as \(y'(t) = A(t)y(t) + r(t)\) where, given \(t \in (a,b)\), \(A(t) \in M_n(\mathbb{R})\) (the set of \(n \times n\) real matrices) and \(r(t) \in \mathbb{R}^n\).
-
-\begin{example}
-Consider the second-order ODE
-\[y'' + 2y' + y = e^t\]
-\[\Longrightarrow y'' = -2y' - y + e^t.\]
-
-Define new variables
-\[y_1 = y, \qquad y_2 = y'.\]
-
-Then the system becomes
-\[\begin{pmatrix} y_1' \\ y_2' \end{pmatrix}=\begin{pmatrix} 0 & 1 \\ -1 & -2 \end{pmatrix}\begin{pmatrix} y_1 \\ y_2 \end{pmatrix}
-+\begin{pmatrix} 0 \\ e^t \end{pmatrix}.\]
-
-Let
-\[A = \begin{pmatrix} 0 & 1 \\ -1 & -2 \end{pmatrix},\qquad r(t) = \begin{pmatrix} 0 \\ e^t \end{pmatrix}.\]
+\begin{example}[Linearity]
+    Consider the following ODEs:
+    \begin{itemize}
+        \item Linear: $y' +3y = 0$
+        \item Linear: $y'' - 2xy' + y = cos(x)$
+        \item Non-linear: $y' + y^2 = 0$
+        \item Non-linear: $y'' + sin(y) = 0$
+    \end{itemize}
 \end{example}
 
 \subsubsection{Autonomy}
 \begin{definition}[Autonomy]
     The \(n\)\textsuperscript{th} order ODE \(F(t, y, y', \ldots, y^{(n)}) = 0\) is autonomous if \(F\) does not depend explicitly on t, that is, if it is of the form \(F(y, y', \ldots, y^{(n)}) = 0\). Otherwise, it is non-autonomous.
 \end{definition}
-\begin{example}
-    \(y'' + 2y' + y - e^t = 0\) is non-autonomous.
+\begin{example}[Autonomy]
+    Consider the following ODEs:
+    \begin{itemize}
+        \item Non-autonomous: \(y'' + 2y' + y - e^t = 0\)
+        \item Autonomous: \(N'(t) = rN(t)\)
+        \item Non-autonomous: \(y'(t) = ty(t)\)
+    \end{itemize}
 \end{example}
+Equivalently, a first-order system \(y' = f(y,t)\) is autonomous if it can be written as \[ y' = f(y). \] Otherwise, it is non-autonomous.
 \begin{example}
-    \(N'(t) = rN(t)\) is autonomous.
+A classic, simple example of an autonomous first-order system is the linear growth/decay model:
+\[\frac{dy}{dt} = ky\]
+Here, \(f(y,t) = ky\), which depends only on \(y\) (where \(k\) is a constant), making it autonomous.
+Other examples include \(\frac{dy}{dt}=1 - y^{2}\) or exponential growth \(\frac{dy}{dt} = 0.5y\).
 \end{example}
-\begin{example}
-    \(y'(t) = ty(t)\) is non-autonomous.
-\end{example}
-
-\noindent Equivalently, a first-order system \(y' = f(y,t)\) is autonomous if it can be written as \[ y' = f(y). \] Otherwise, it is non-autonomous.\\
-
-\textbf{Note:} The Lorenz system is an example of an autonomous system\footnote{Here “system” means the unknown \(y\) is vector-valued, e.g. \(y \in \mathbb{R}^m\), rather than scalar.}.
+\begin{remark}
+    The Lorenz system is an example of an autonomous system\footnote{Here “system” means the unknown \(y\) is vector-valued, e.g. \(y \in \mathbb{R}^m\), rather than scalar.}.
+\end{remark} 
 
 \subsubsection{Solutions of ODEs}
 \begin{definition}[Solutions of ODEs]
     Let \(f: D \times (a,b) \to \mathbb{R}^n\). A solution of \(y'(t) = f(y(t), t)\) on an interval \(J \subset \mathbb{R}\) is a differentiable function \(y: J \to D \subset \mathbb{R}^n\), such that \(y'(t) = f(y(t), t), \forall t \in J\). \(t\) is the independent variable, and \(y = (y_1, \ldots, y_n)\) is the dependent variable.
 \end{definition}
-
-\noindent\textbf{Explicit Solutions}
-\begin{example}
-    Consider the ODE
+\paragraph{1. Explicit Solutions}
+\begin{example}[Explicit Solution]
+    Consider the following ODE
     \[y' + y = 1.\]
     We can verify that \(y(t) = e^{-t} + 1\), and therefore \(y'(t) = -e^{-t}\), is a solution on \(\mathbb{R}\). Indeed,
     \[y' + y = -e^{-t} + (e^{-t} + 1) = 1.\]
     In this example, \(y = y(t)\) is explicitly given as a function of t (independent variable).
 \end{example}
-
-\noindent\textbf{Implicit solutions}
-\begin{example}
-Consider the ODE
-\[y \frac{dy}{dx} = x.\]
-This is a nonautonomous, nonlinear, first-order scalar ODE. Separating variables gives
-\[y\,dy = x\,dx.\]
-Integrating,
-\[\frac{1}{2}y^2 = \frac{1}{2}x^2 + C,\]
-or equivalently, the implicit solution
-\[x^2 - y^2 = C, \qquad C \in \mathbb{R}.\]
-To verify, differentiate implicitly:
-\[\frac{d}{dx}(x^2 - y^2) = 0 \;\Longrightarrow\; 2x - 2y\frac{dy}{dx} = 0\;\Longrightarrow\; y\frac{dy}{dx} = x.\]
+\paragraph{2. Implicit solutions}
+\begin{example}[Implicit Solution]
+    Consider the ODE
+    \[y \frac{dy}{dx} = x.\]
+    This is a nonautonomous, nonlinear, first-order scalar ODE. Separating variables gives
+    \[y\,dy = x\,dx.\]
+    Integrating,
+    \[\frac{1}{2}y^2 = \frac{1}{2}x^2 + C,\]
+    or equivalently, the implicit solution
+    \[x^2 - y^2 = C, \quad C \in \mathbb{R}.\]
+    To verify, differentiate implicitly:
+    \[\frac{d}{dx}(x^2 - y^2) = 0 \;\Longrightarrow\; 2x - 2y\frac{dy}{dx} = 0\;\Longrightarrow\; y\frac{dy}{dx} = x.\]
 \end{example}
 
+\subsection{Initial Value Problems}%to organize
 \marginpar{January 13, 2026}
-\subsection{Initial Value Problems}
-
 A first-order system of ODEs is written as
 \[
 y' = f(y,t), \quad f : D \times (a,b) \to \mathbb{R}^n.
@@ -709,6 +737,36 @@ This is the general solution of the first order linear equation.
     Draw graph with threshold 5000, and two exponentials approaching the threshold from the top and below.
 \end{example}
 
+\subsection{Separable Equations}
+\marginpar{January 27, 2026}
+Notes:
+\[\frac{dy}{dx} = f(x,y) = f_1(x)f_2(y) \to\]
+\[\int \frac{dy}{f_2(y)} = \int f_1(x)dx + C\]
+We call the ODE separable if $f(x,y) = f_1(x)f_2(y)$
+\begin{example}
+    \[\frac{dy}{dx} = -\frac{x}{y}\]
+    \[f_1(x) = x,\quad f_2(y) = -\frac{1}{y}\]
+\end{example}
+\begin{example}
+    This following ODE is not separable
+    \[\frac{dy}{dx} = x^2 + y^2\]
+\end{example}
+\[\frac{dy}{dx} = f_1(x)f_2(y) \leftrightarrow -f_1(x) + \frac{1}{f_2(y)}\frac{dy}{dx} = 0 \leftrightarrow M(x) + N(y)\frac{dy}{dx} = 0\]
+Consider $H_1(x)$ and $H_2(y)$ antiderivatives of $M(x)$ and $N(y)$, respectively.
+From the Chain Rule $\frac{d}{dx}H_2(y(x)) = H_2'(y)\frac{dy}{dx}$
+\[H_1'(x) + H_2'(y)\frac{dy}{dx} = 0 \leftrightarrow \frac{d}{dx}(H_1(x) + H_2(y(x))) = 0\]
+
+
+\begin{definition}[Separable Equations]
+    An equation of the form
+    \[\begin{cases}
+        y' + p(t)y = q(t)\\
+        y(0) = y_0
+    \end{cases}\]
+    where $p(t)$ and $q(t)$ are functions of $t$ is called a separable equation.
+\end{definition}
+
+
 \section{Systems of Linear Equations}
 \section{Second and Higher-Order Scalar Linear Equations}
 \section{Stability, Phase Portraits and Orbits}
@@ -717,6 +775,16 @@ This is the general solution of the first order linear equation.
 
 
 \section{Solutions}
+\begin{solution}[System of First Order ODEs]
+    Define new variables:
+    \[y_1 = y, \quad y_2 = y', \quad y_3 = y''.\]
+    Now we can rewrite the third order ODE into a first order system:
+    \[\begin{cases}
+        y_1' = y_2\\
+        y_2' = y_3\\
+        y_3' = -4y_2 + y_1
+    \end{cases}\]
+\end{solution}
 
 \section{Appendix}
 

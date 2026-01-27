@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  22 JAN 2026 17:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  27 JAN 2026 16:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -580,71 +580,214 @@ Underfull \hbox (badness 10000) in paragraph at lines 135--135
 []\OT1/cmr/m/n/10 January 08,
  []
 
-[3]
-Underfull \hbox (badness 10000) in paragraph at lines 147--149
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 147--149
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 150--152
-
- []
-
-[4]
-Underfull \hbox (badness 10000) in paragraph at lines 201--202
-
- []
-
-[5]
-Underfull \hbox (badness 10000) in paragraph at lines 233--233
+[3] [4] [5] [6]
+Underfull \hbox (badness 10000) in paragraph at lines 263--263
 []\OT1/cmr/m/n/10 January 13,
  []
 
-[6] [7]
-Underfull \hbox (badness 10000) in paragraph at lines 403--403
+[7] [8] [9]
+Underfull \hbox (badness 10000) in paragraph at lines 431--431
 []\OT1/cmr/m/n/10 January 15,
  []
 
-[8] [9] [10]
-Underfull \hbox (badness 10000) in paragraph at lines 525--525
+[10] [11]
+Underfull \hbox (badness 10000) in paragraph at lines 553--553
 []\OT1/cmr/m/n/10 January 20,
  []
 
-[11] [12]
-Underfull \hbox (badness 10000) in paragraph at lines 612--612
+[12] [13]
+Underfull \hbox (badness 10000) in paragraph at lines 640--640
 []\OT1/cmr/m/n/10 January 22,
  []
 
-[13] [14] [15]
-Overfull \hbox (0.94116pt too wide) in paragraph at lines 709--710
+[14] [15] [16]
+Overfull \hbox (0.94116pt too wide) in paragraph at lines 737--738
 []\OT1/cmr/m/it/10 Draw graph with thresh-old 5000, and two ex-po-nen-tials ap-proach-ing the thresh-
  []
 
-[16] [17] (Math325.aux)
+
+Underfull \hbox (badness 10000) in paragraph at lines 741--741
+[]\OT1/cmr/m/n/10 January 27,
+ []
+
+[17]
+c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math325.tex:747: Missing $ inserted.
+<inserted text> 
+                $
+l.747 \section
+              {Systems of Linear Equations}
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math325.tex:747: Missing } inserted.
+<inserted text> 
+                }
+l.747 \section
+              {Systems of Linear Equations}
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math325.tex:747: Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.747 \section
+              {Systems of Linear Equations}
+I'm guessing that you meant to end an alignment here.
+
+c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math325.tex:747: Missing $ inserted.
+<inserted text> 
+                $
+l.747 \section
+              {Systems of Linear Equations}
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math325.tex:770: LaTeX Error: \begin{cases} on input line 744 ended by \end{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.770 \end{document}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+(Math325.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
-Package rerunfilecheck Info: File `Math325.out' has not changed.
-(rerunfilecheck)             Checksum: 3CDB58D7A4B10B8DC955D5B83C1C8494;4577.
- ) 
-Here is how much of TeX's memory you used:
- 30785 strings out of 467871
- 726592 string characters out of 5418377
- 1268149 words of memory out of 5000000
- 59111 multiletter control sequences out of 15000+600000
- 640216 words of font info for 86 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 99i,9n,118p,812b,649s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\erenr\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Math325.pdf (19 pages, 399150 bytes).
-PDF statistics:
- 405 PDF objects out of 1000 (max. 8388607)
- 75 named destinations out of 1000 (max. 500000)
- 229 words of extra memory for PDF output out of 10000 (max. 10000000)
 
+
+Package rerunfilecheck Warning: File `Math325.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `Math325.out':
+(rerunfilecheck)             Before: 21B1B5EE8DFB03E2B78249066E69BFC7;4920
+(rerunfilecheck)             After:  1F46AA28EC87E8E7458B30DEA320C98F;3347.
+c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math325.tex:770: You can't use `\end' in internal vertical mode.
+\enddocument ...cument/end}\deadcycles \z@ \@@end 
+                                                  
+l.770 \end{document}
+                    
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math325.tex:770: LaTeX Error: \begin{cases} on input line 744 ended by \end{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.770 \end{document}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math325.tex:770: Missing } inserted.
+<inserted text> 
+                }
+l.770 \end{document}
+                    
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math325.tex:770: Missing \right. inserted.
+<inserted text> 
+                \right .
+l.770 \end{document}
+                    
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math325.tex:771: Extra }, or forgotten $.
+l.771 s}
+        
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math325.tex:772: Missing $ inserted.
+<inserted text> 
+                $
+l.772 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math325.tex:772: Missing } inserted.
+<inserted text> 
+                }
+l.772 
+      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math325.tex:772: Display math should end with $$.
+<to be read again> 
+                   \tex_par:D 
+l.772 
+      
+The `$' that I just saw supposedly matches a previous `$$'.
+So I shall assume that you typed `$$' both times.
+
+
+Overfull \hbox (16.44302pt too wide) detected at line 772
+[] \OML/cmm/m/it/10 s[]
+ []
+
+c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math325.tex:772: Extra }, or forgotten \endgroup.
+\par ...m \@noitemerr {\@@par }\fi \else {\@@par }
+                                                  \fi 
+l.772 
+      
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+
+c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math325.tex:773: LaTeX Error: \begin{equation*} on input line 744 ended by \end{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.773 \end{document}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[18
+\BOOKMARK [2][-]{subsection.4.2}{\376\377\000S\000e\000p\000a\000r\000a\000b\000l\000e\000\040\000E\000q\000u\000a\000t\000i\000o\000n\000s}{section.4}% 21
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Separable Equations}{18}{subsection.4.2}\protected@file@percent }
+\BOOKMARK [1][-]{section.5}{\376\377\000S\000y\000s\000t\000e\000m\000s\000\040\000o\000f\000\040\000L\000i\000n\000e\000a\000r\000\040\000E\000q\000u\000a\000t\000i\000o\000n\000s}{}% 22
+\@writefile{toc}{\contentsline {section}{\numberline {5}Systems of Linear Equations}{18}{section.5}\protected@file@percent }
+\BOOKMARK [1][-]{section.6}{\376\377\000S\000e\000c\000o\000n\000d\000\040\000a\000n\000d\000\040\000H\000i\000g\000h\000e\000r\000-\000O\000r\000d\000e\000r\000\040\000S\000c\000a\000l\000a\000r\000\040\000L\000i\000n\000e\000a\000r\000\040\000E\000q\000u\000a\000t\000i\000o\000n\000s}{}% 23
+\@writefile{toc}{\contentsline {section}{\numberline {6}Second and Higher-Order Scalar Linear Equations}{18}{section.6}\protected@file@percent }
+\BOOKMARK [1][-]{section.7}{\376\377\000S\000t\000a\000b\000i\000l\000i\000t\000y\000,\000\040\000P\000h\000a\000s\000e\000\040\000P\000o\000r\000t\000r\000a\000i\000t\000s\000\040\000a\000n\000d\000\040\000O\000r\000b\000i\000t\000s}{}% 24
+\@writefile{toc}{\contentsline {section}{\nu
