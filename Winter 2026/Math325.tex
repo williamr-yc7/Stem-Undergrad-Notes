@@ -276,80 +276,73 @@ Other examples include \(\frac{dy}{dt}=1 - y^{2}\) or exponential growth \(\frac
 
 \subsection{Existence and Uniqueness Theorem}
 
-\subsubsection{Lipschitz continuity}%to organize
-
+\subsubsection{Lipschitz continuity}
 \begin{definition}[Lipschitz continuity]
-Let \(D \subseteq \mathbb{R}^n\) and let \(||\cdot||\) be a norm on \(\mathbb{R}^n\).
-A function \(f : D \to \mathbb{R}^n\) is Lipschitz continuous if there exists \(L \ge 0\) such that
-\[
-||f(y_1) - f(y_2)|| \le L||y_1 - y_2|| \quad \forall y_1,y_2 \in D.
-\]
-The smallest such \(L\) is called the Lipschitz constant and is denoted \(Lip(f)\).
+    Let \(D \subseteq \mathbb{R}^n\) and let \(||\cdot||\) be a norm on \(\mathbb{R}^n\).
+    A function \(f : D \to \mathbb{R}^n\) is Lipschitz continuous if there exists \(L \ge 0\) such that
+    \[z||f(y_1) - f(y_2)|| \le L||y_1 - y_2|| \quad \forall y_1,y_2 \in D, z \in \mathbb{R}.\]
+    The smallest such \(L\) is called the Lipschitz constant and is denoted \(Lip(f)\).
 \end{definition}
-
 \begin{example}
-Let \(f(y) = 4y - 5\), \(D = \mathbb{R}\), and \(||\cdot|| = |\cdot|\).
-Then
-\[
-|f(y_1) - f(y_2)| = |4y_1 - 4y_2| = 4|y_1 - y_2|.
-\]
-So \(f\) is Lipschitz with \(Lip(f) = 4\).
+    Let \(f(y) = 4y - 5\), \(D = \mathbb{R}\), and \(||\cdot|| = |\cdot|\).
+    Then
+    \[|f(y_1) - f(y_2)| = |4y_1 - 4y_2| = 4|y_1 - y_2|.\]
+    So \(f\) is Lipschitz with \(Lip(f) = 4\).
 \end{example}
-
 \begin{example}
-Let
-\[
-f(y) = \frac{1}{y - 1}, \quad D = (1, +\infty).
-\]
-Then \(f\) is not Lipschitz on \(D\).
-
-Now fix \(\delta > 1\) and define \(D_\delta = (\delta, +\infty)\).
-For \(y_1,y_2 \in D_\delta\), by the Mean Value Theorem, there exists \(z \in (y_1,y_2)\) such that
-\[
-f(y_2) - f(y_1) = f'(z)(y_2 - y_1),
-\quad f'(y) = -\frac{1}{(y-1)^2}.
-\]
-So
-\[
-|f(y_2) - f(y_1)| \le \frac{1}{(z-1)^2}|y_2 - y_1|
-\le \frac{1}{(\delta-1)^2}|y_2 - y_1|.
-\]
-Thus \(f\) is Lipschitz on \(D_\delta\) with
-\[
-Lip(f) = \frac{1}{(\delta - 1)^2}.
-\]
+    Let
+    \[f(y) = \frac{1}{y - 1}, \quad f'(y) = -\frac{1}{(y - 1)^2}, \quad D = (1, +\infty).\]
+    This function is not Lipschitz continuous on \(D\) since as \(y \to 1^+\), the derivative \(f'(y)\) approaches \(-\infty\), and so the ratio \(\frac{|f(y_2) - f(y_1)|}{|y_2 - y_1|}\) approaches \(\infty\) for any \(y_1,y_2 \in D\). Therefore, there is no Lipschitz constant for \(f\) on \(D\).\\
+    To make this function Lipschitz continuous, we fix \(\delta > 1\) and define \(D_\delta = (\delta, +\infty)\). For \(y_1,y_2 \in D_\delta\), by the Mean Value Theorem, there exists \(z \in (y_1,y_2)\) such that
+    \[f(y_2) - f(y_1) = f'(z)(y_2 - y_1).\]
+    So
+    \[|f(y_2) - f(y_1)| \le \frac{1}{(z-1)^2}|y_2 - y_1|\le \frac{1}{(\delta-1)^2}|y_2 - y_1|.\]
+    Thus \(f\) is Lipschitz on \(D_\delta\) with
+    \[Lip(f) = \frac{1}{(\delta - 1)^2}.\]
 \end{example}
 
 \subsubsection{Local Lipschitz continuity}
-
 \begin{definition}[Locally Lipschitz]
-Let \(D \subseteq \mathbb{R}^n\) be open. A function \(f : D \to \mathbb{R}^n\) is locally Lipschitz if for every compact set \(K \subset D\), there exists \(L(K)\) such that
-\[
-||f(y_1) - f(y_2)|| \le L(K)||y_1 - y_2|| \quad \forall y_1,y_2 \in K.
-\]
+    Let \(D \subseteq \mathbb{R}^n\) be open. A function \(f : D \to \mathbb{R}^n\) is called locally Lipschitz if, around every point in \(D\), there is some neighborhood where \(f\) is Lipschitz.
+    Equivalently, for every compact set \(K \subset D\), there exists a constant \(L > 0\) such that
+    \[\|f(y_1) - f(y_2)\| \le L \|y_1 - y_2\| \quad \text{for all } y_1, y_2 \in K.\]
 \end{definition}
+\begin{remark}
+    Lipschitz continuity and local Lipschitz continuity are not the same.
+    \[\text{Lipschitz} \;\Rightarrow\; \text{locally Lipschitz}, \qquad \text{but not conversely.}\]
+\end{remark}
+\begin{example}[Locally Lipschitz but not Lipschitz]
+    \[f(y) = y^2 \in \mathbb{R}.\]
+    Since \(f'(y)=2y\) is unbounded on \(\mathbb{R}\), no single constant works on the whole domain, so \(f\) is not Lipschitz.  
+    However, on any bounded set \(K=[-M,M]\), \(|f'(y)| \le 2M\), so \(f\) is locally Lipschitz.
+\end{example}
+\begin{example}[Lipschitz (hence locally Lipschitz)]
+    \[f(y) = \sin y.\]
+    Since \(|f'(y)| = |\cos y| \leq 1\), $\forall y$, $f$ is Lipschitz on \(\mathbb{R}\).
+\end{example}
+\begin{example}[Continuous but not locally Lipschitz]
+    \[f(y) = \sqrt{|y|}.\]
+    The derivative is unbounded near \(y = 0\), so no Lipschitz constant exists even locally. Hence \(f\) is not locally Lipschitz.
+\end{example}
 
-\begin{problem}
-(See tutorial 1)  
-If \(f \in C^1(D)\), then \(f\) is locally Lipschitz.
-\end{problem}
-
-\subsubsection{Existence and Uniqueness Theorem}
-
+\subsubsection{Existence and Uniqueness Theorem}%to organize
 \begin{theorem}[Existence and Uniqueness]
-Let \(D \subseteq \mathbb{R}^n\) be open and let \((a,b)\) be an open interval containing \(t_0\).
-Consider the IVP
-\[
-\begin{cases}
-y' = f(y,t),\\
-y(t_0) = y_0.
-\end{cases}
-\]
-Assume \(f : D \times (a,b) \to \mathbb{R}^n\) is continuous and locally Lipschitz in \(y\).
-
-If \(y_0 \in D\), then there exists an open interval \(J\) containing \(t_0\) on which a solution exists.
-Moreover, this solution is unique on \(J\).
+    Let \(D \subseteq \mathbb{R}^n\) be open and let \((a,b)\) be an open interval containing \(t_0\). Consider the IVP
+    \[\begin{cases}y' = f(y,t), \\ y(t_0) = y_0.\end{cases}\]
+    Assume \(f : D \times (a,b) \to \mathbb{R}^n\) is continuous and locally Lipschitz in \(y\).\footnote{\(D \times (a,b)\) denotes the set of all pairs \((y,t)\) with \(y \in D \subset \mathbb{R}^n\) and \(t \in (a,b)\), i.e., all allowed state-time inputs of \(f\).}
+    If \(y_0 \in D\), then there exists an open interval \(J\) containing \(t_0\) on which a solution exists.
+    Moreover, this solution is unique on \(J\).
 \end{theorem}
+\begin{problem}[Existence and Uniqueness Theorem]
+    Consider the IVP
+    \[\begin{cases}y' = \sqrt{1+y^2}+t^2 \\ y(1) = 0.\end{cases}\]
+    \begin{enumerate}
+        \item Identify $f(y,t)$.
+        \item Decide whether the hypotheses of the Existence and Uniqueness Theorem are satisfied.
+        \item State clearly what the theorem guarantees about solutions near $t = 1$.
+    \end{enumerate}
+    Do not solve the ODE. Simply analyze it.
+\end{problem}
 
 \subsubsection{Integral form of solutions}
 
@@ -832,6 +825,16 @@ An integral curve is a geometric object that contains (possibly many) solutions.
         y_2' = y_3\\
         y_3' = -4y_2 + y_1
     \end{cases}\]
+\end{solution}
+\begin{solution}[Existence and Uniqueness Theorem]
+    1. For this IVP, $y' = \sqrt{1 + y^2} + t^2$, the function is simply $f(y,t) = \sqrt{1 + y^2} + t^2$.
+
+    2. Check the hypotheses:
+    \begin{itemize}
+        \item $f$ is continuous $\forall y \in \mathbb{R},\:t \in \mathbb{R}$ because square root of $1 + y^2$ and $t^2$ are continuous everywhere.
+        \item Check local Lipschitz in $y$: $\frac{\partial f}{\partial y} = \frac{y}{\sqrt{1 + y^2}}$, which is continuous $\forall y$. Therefore $f$ is locally Lipschitz in $y$. So the hypotheses of E \& U th. are satisfied in $\mathbb{R} \times \mathbb{R}$.
+        \item Since $f$ is continuous and locally Lipschitz in $y$, and since $y(1) = 0$ with $0 \in \mathbb{R}$, the Existence and Uniqueness Theorem guarantees that there exists an open interval $J$ containing $t = 1$ on which a solution exists, and this solution is unique on $J$.
+    \end{itemize}
 \end{solution}
 
 \section{Appendix}
