@@ -500,28 +500,48 @@ A first-order scalar differential equation has the form
 \end{definition}
 
 \subsubsection{Integrating Factor Method}
-Multiply the ODE by an integrating factor $\mu(t)$ (to be determined).
-\[\mu(t)y' + \mu(t)p(t)y = \mu(t)q(t)\]
-Requirement in $\mu$ is that $\mu(t)y' + \mu(t)p(t)y = \frac{d}{dt}(\mu(t)y(t))$ (*) holds.
-In this case, integrate with respect to $t$.
-\[\mu(t)y(t) = \int\mu(t)q(t)dt + C,\]
-where $C \in \mathbb{R}$ is a constant of integration. We therefore get
-\[y(t) = \frac{1}{\mu(t)}\int\mu(t)q(t)dt + C.\]
-Let us find $\mu$ so that (*) holds.
-\[\frac{d}{dt}(\mu(t)y(t)) = \mu(t)y' + \mu(t)p(t)y = \mu'(t)y(t) + \mu(t)y',\]
-this implies that
-\[\mu'(t)y(t) = \mu(t)p(t)y(t).\]
-It is sufficient to have that
-\[\mu'(t) = \mu(t)p(t).\]
-Now we can solve for $p(t)$
-\[\frac{d}{dt}ln|\mu(t)| = \frac{\mu'(t)}{\mu(t)} = p(t),\]
-now integrate with respect to $t$
-\[ln|\mu(t)| = \int p(t)dt + C,\]
-where $C \in \mathbb{R}$ is a constant of integration, and now we exponentiate
-\[|\mu(t)| = e^{\int p(t)dt + C_1} = e^{C_1}e^{\int p(t)dt}\]
-\[\mu(t) = (\pm e^{C_1})e^{\int p(t)dt}.\]
-We can therefore say choose $\mu(t) = e^{\int p(t)dt}$ (integrating factor).
-This is the general solution of the first order linear equation.
+\begin{definition}[Integrating Factor]
+    An integrating factor is a function $\mu(t)$ such that
+    \[\mu(t)y' + \mu(t)p(t)y = \mu(t)q(t).\]
+\end{definition}
+\begin{example}[Integrating Factor for a First-Order Linear Equation]
+    Consider the first-order linear equation
+    \[y' + p(t)y = q(t).\]
+    We multiply the equation by a function $\mu(t)$ to be determined:
+    \[\mu y' + \mu p(t)y = \mu q(t).\]
+    We require that the left-hand side be the derivative of a product:
+    \[\mu y' + \mu p(t)y = \frac{d}{dt}\big(\mu(t)y(t)\big). \tag{*}\]
+    Since
+    \[\frac{d}{dt}(\mu y) = \mu y' + \mu' y,\]
+    condition (*) holds provided that
+    \[\mu'(t)y = \mu(t)p(t)y,\]
+    which is guaranteed if
+    \[\mu'(t) = \mu(t)p(t).\]
+    Solving for $\mu$,
+
+    
+    \[\frac{d}{dt}ln|\mu(t)| = \frac{\mu'(t)}{\mu(t)} = p(t),\]
+    now integrate with respect to $t$
+    \[ln|\mu(t)| = \int p(t)dt + C,\]
+    where $C \in \mathbb{R}$ is a constant of integration, and now we exponentiate
+    \[|\mu(t)| = e^{\int p(t)dt + C_1} = e^{C_1}e^{\int p(t)dt}\]
+    \[\mu(t) = (\pm e^{C_1})e^{\int p(t)dt}.\]
+    We can therefore say choose $\mu(t) = e^{\int p(t)dt}$ (integrating factor).
+    This is the general solution of the first order linear equation.
+\end{example}
+
+
+
+\subsubsection{Worked Examples}
+
+\subsection{Existence and Uniqueness for Linear Equations}
+
+\subsection{Applications}
+\subsubsection{Falling Object with Air Resistance}
+\subsubsection{Mixing Problem}
+
+
+
 
 \begin{example}
     \[y' - 2y = 3e^t\]

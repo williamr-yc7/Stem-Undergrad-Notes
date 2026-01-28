@@ -842,6 +842,67 @@ $dim_kV =$ min $n$ such that $V = span_k(v_1,\ldots,v_n)$.
     \[x^{d+1} \notin span(f_1,\ldots,f_n)\]
     degree $\leq d$.
 \end{problem}
+
+\marginpar{January 28, 2026}
+\begin{problem}
+    \[v_1 = \begin{pmatrix}1\\1\\0\end{pmatrix}, \quad v_2 = \begin{pmatrix}1\\3\\2\end{pmatrix}, \quad v_3 = \begin{pmatrix}4\\9\\5\end{pmatrix}.\]
+    Are these vectors linearly independent? Are there $x,y,z \in \mathbb{R}$ such that 
+    \[xv_1 + yv_2 + zv_3 = 0?\]
+\end{problem}
+\begin{solution}
+    $x,y,z$ not all zero.
+    \[x\begin{pmatrix}1\\1\\0\end{pmatrix} + y\begin{pmatrix}1\\3\\2\end{pmatrix} + z\begin{pmatrix}4\\9\\5\end{pmatrix} = \begin{pmatrix}0\\0\\0\end{pmatrix}\]
+    \[\begin{cases}x + 3y + 4z = 0\\1 + 3y + 9z = 0\\0 + 2y + 5z = 0\end{cases}\]
+    Find a non-trivial solution. $x = 3$, $y = 5$, $z = -2$. Not LI: $3v_1 + 5v_2 - 2v_3 = 0$.
+\end{solution}
+\begin{definition}[Linear Dependence]
+    Linearly dependent (LD) just means not LI.
+\end{definition}
+\begin{proposition}
+    $v_1,\ldots,v_n$ are linearly dependent if and only if one vector is in the span of the other vectors.
+\end{proposition}
+\begin{example}
+    \[3v_1 + 5v_2 - 2v_3 = 0\]
+    As we can see, $v_1$ is in the span of $v_2$ and $v_3$.
+    \[v_1 = \frac{1}{3}(-5v_2+2v_3)\]
+\end{example}
+\begin{remark}
+    If one vector $v_1 = 0$ then the family is LD.
+\end{remark}
+\begin{proof}
+    Proof of $\longrightarrow$: Assumption  $\lambda_1v_1 + \cdots + \lambda_nv_n = 0$. Not all $\lambda_i$ are zero, at least one is nonzero, say $\lambda_k \neq 0$.
+    The goal is to write $v_k$ in the span of the other vectors.
+    \[v_k = \frac{-1}{\lambda_k}\sum_{i \neq k} \lambda_iv_i.\]
+    \[v_k \in span(v_1,\ldots,v_k,\ldots,v_n).\]
+
+    Converse: Assume one vector, say $v_k$ is in the span of the other vectors.
+    \[v_k \in span(v_1,\ldots,v_k,\ldots,v_n).\]
+    There exists coefficients $\lambda_1,\ldots,\lambda_n$ such that
+    \[v_k = \lambda_1v_1 + \cdots + \lambda_{k-1}v_{k+-1} + \lambda_{k+1}v_{k+1} + \cdots + \lambda_nv_n.\]
+    LD: non trivial dependency between the $v_i$'s.
+\end{proof}
+\begin{example}
+    \[V = \mathbb{R}^3\]
+    \[v_1 = \begin{pmatrix}a_1\\0\\0\end{pmatrix}, \quad v_2 = \begin{pmatrix}b_1\\b_2\\0\end{pmatrix}, \quad v_3 = \begin{pmatrix}c_1\\c_2\\c_3\end{pmatrix}.\]
+    LI:
+    \[v_1 = \begin{pmatrix}1\\0\\0\end{pmatrix}, \quad v_2 = \begin{pmatrix}1\\2\\0\end{pmatrix}, \quad v_3 = \begin{pmatrix}1\\2\\3\end{pmatrix}.\]
+    LD:
+    \[v_1 = \begin{pmatrix}1\\0\\0\end{pmatrix}, \quad v_2 = \begin{pmatrix}1\\2\\0\end{pmatrix}, \quad v_3 = \begin{pmatrix}1\\3\\0\end{pmatrix}.\]
+
+    Assume $xv_1 + yv_2 + zv_3 = 0$.
+    \[x\begin{pmatrix}a_1\\0\\0\end{pmatrix} + y\begin{pmatrix}b_1\\b_2\\0\end{pmatrix} + z\begin{pmatrix}c_1\\c_2\\c_3\end{pmatrix}.\]
+
+    \[\begin{cases}
+        a_1x + b_1y + c_1z = 0\\
+        b_2y + c_2z = 0\\
+        c_3z = 0
+    \end{cases}\]
+
+    If $a_1 = 0$. $v_1 = \begin{pmatrix}0\\0\\0\end{pmatrix}$. Answer: LD. Can assume $a_1 \neq 0$.
+    If $b_2 = 0$. $v_1 = \begin{pmatrix}a_1\\0\\0\end{pmatrix}, \quad v_2 = \begin{pmatrix}b_1\\0\\0\end{pmatrix}$. Answer: LD.
+\end{example}
+
+
 \section{Appendix}
 
 \section{Solutions}
