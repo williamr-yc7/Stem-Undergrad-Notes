@@ -827,14 +827,15 @@ An integral curve is a geometric object that contains (possibly many) solutions.
     \end{cases}\]
 \end{solution}
 \begin{solution}[Existence and Uniqueness Theorem]
-    1. For this IVP, $y' = \sqrt{1 + y^2} + t^2$, the function is simply $f(y,t) = \sqrt{1 + y^2} + t^2$.
-
-    2. Check the hypotheses:
-    \begin{itemize}
-        \item $f$ is continuous $\forall y \in \mathbb{R},\:t \in \mathbb{R}$ because square root of $1 + y^2$ and $t^2$ are continuous everywhere.
-        \item Check local Lipschitz in $y$: $\frac{\partial f}{\partial y} = \frac{y}{\sqrt{1 + y^2}}$, which is continuous $\forall y$. Therefore $f$ is locally Lipschitz in $y$. So the hypotheses of E \& U th. are satisfied in $\mathbb{R} \times \mathbb{R}$.
-        \item Since $f$ is continuous and locally Lipschitz in $y$, and since $y(1) = 0$ with $0 \in \mathbb{R}$, the Existence and Uniqueness Theorem guarantees that there exists an open interval $J$ containing $t = 1$ on which a solution exists, and this solution is unique on $J$.
-    \end{itemize}
+    \begin{enumerate}
+        \item For this IVP, $y' = \sqrt{1 + y^2} + t^2$, the function is simply $f(y,t) = \sqrt{1 + y^2} + t^2$.
+        \item 2. Check the hypotheses:
+        \begin{itemize}
+            \item $f$ is continuous $\forall y \in \mathbb{R},\:t \in \mathbb{R}$ because square root of $1 + y^2$ and $t^2$ are continuous everywhere.
+            \item Check local Lipschitz in $y$: $\frac{\partial f}{\partial y} = \frac{y}{\sqrt{1 + y^2}}$, which is continuous $\forall y$. Therefore $f$ is locally Lipschitz in $y$. So the hypotheses of E \& U th. are satisfied in $\mathbb{R} \times \mathbb{R}$.
+            \item Since $f$ is continuous and locally Lipschitz in $y$, and since $y(1) = 0$ with $0 \in \mathbb{R}$, the Existence and Uniqueness Theorem guarantees that there exists an open interval $J$ containing $t = 1$ on which a solution exists, and this solution is unique on $J$.
+        \end{itemize}
+    \end{enumerate}
 \end{solution}
 
 \section{Appendix}
