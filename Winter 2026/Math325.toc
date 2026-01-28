@@ -22,25 +22,22 @@
 \contentsline {paragraph}{2. Definition of the Picard Operator}{11}{section*.5}%
 \contentsline {paragraph}{3. Interpretation}{11}{section*.6}%
 \contentsline {paragraph}{4. Basic Property}{11}{section*.7}%
-\contentsline {paragraph}{5. Invariant properties}{11}{section*.8}%
-\contentsline {paragraph}{6. Picard iterations}{11}{section*.9}%
+\contentsline {paragraph}{5. Invariant properties}{12}{section*.8}%
+\contentsline {paragraph}{6. Picard iterations}{12}{section*.9}%
 \contentsline {paragraph}{4. Existence}{12}{section*.10}%
-\contentsline {paragraph}{5. Uniqueness}{13}{section*.11}%
-\contentsline {paragraph}{6. Examples}{13}{section*.12}%
-\contentsline {section}{\numberline {4}First-Order Scalar Equation}{15}{section.4}%
-\contentsline {subsection}{\numberline {4.1}First order linear equations}{15}{subsection.4.1}%
-\contentsline {subsubsection}{\numberline {4.1.1}Integrating Factor Method}{15}{subsubsection.4.1.1}%
-\contentsline {subsubsection}{\numberline {4.1.2}Worked Examples}{16}{subsubsection.4.1.2}%
-\contentsline {subsection}{\numberline {4.2}Existence and Uniqueness for Linear Equations}{16}{subsection.4.2}%
+\contentsline {paragraph}{5. Uniqueness}{12}{section*.11}%
+\contentsline {paragraph}{6. Examples}{12}{section*.12}%
+\contentsline {section}{\numberline {4}First-Order Scalar Equation}{14}{section.4}%
+\contentsline {subsection}{\numberline {4.1}First order linear equations}{14}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Integrating Factor Method}{14}{subsubsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.2}Existence and Uniqueness for Linear Equations}{15}{subsection.4.2}%
 \contentsline {subsection}{\numberline {4.3}Applications}{16}{subsection.4.3}%
-\contentsline {subsubsection}{\numberline {4.3.1}Falling Object with Air Resistance}{16}{subsubsection.4.3.1}%
-\contentsline {subsubsection}{\numberline {4.3.2}Mixing Problem}{16}{subsubsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.4}Separable Equations}{18}{subsection.4.4}%
-\contentsline {section}{\numberline {5}Systems of Linear Equations}{21}{section.5}%
-\contentsline {section}{\numberline {6}Second and Higher-Order Scalar Linear Equations}{21}{section.6}%
-\contentsline {section}{\numberline {7}Stability, Phase Portraits and Orbits}{21}{section.7}%
-\contentsline {section}{\numberline {8}Laplace Transform}{21}{section.8}%
-\contentsline {section}{\numberline {9}Power Series Solutions and Numerical Methods}{21}{section.9}%
-\contentsline {section}{\numberline {10}Solutions}{21}{section.10}%
-\contentsline {section}{\numberline {11}Appendix}{25}{section.11}%
-\contentsline {section}{\numberline {12}Useful Links}{25}{section.12}%
+\contentsline {subsection}{\numberline {4.4}Separable Equations}{16}{subsection.4.4}%
+\contentsline {section}{\numberline {5}Systems of Linear Equations}{19}{section.5}%
+\contentsline {section}{\numberline {6}Second and Higher-Order Scalar Linear Equations}{19}{section.6}%
+\contentsline {section}{\numberline {7}Stability, Phase Portraits and Orbits}{19}{section.7}%
+\contentsline {section}{\numberline {8}Laplace Transform}{19}{section.8}%
+\contentsline {section}{\numberline {9}Power Series Solutions and Numerical Methods}{19}{section.9}%
+\contentsline {section}{\numberline {10}Solutions}{19}{section.10}%
+\contentsline {section}{\numberline {11}Appendix}{23}{section.11}%
+\contentsline {section}{\numberline {12}Useful Links}{24}{section.12}%

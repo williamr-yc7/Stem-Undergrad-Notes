@@ -250,7 +250,7 @@ Other examples include \(\frac{dy}{dt}=1 - y^{2}\) or exponential growth \(\frac
     Consider the ODE
     \[y \frac{dy}{dx} = x.\]
     This is a nonautonomous, nonlinear, first-order scalar ODE. Separating variables gives
-    \[y\,dy = x\,dx.\]
+    \[ydy = xdx.\]
     Integrating,
     \[\frac{1}{2}y^2 = \frac{1}{2}x^2 + C,\]
     or equivalently, the implicit solution
@@ -375,7 +375,7 @@ Other examples include \(\frac{dy}{dt}=1 - y^{2}\) or exponential growth \(\frac
     \[y'(t) = f(y(t),t), \quad y(t_0) = y_0.\]
 \end{proof}
 
-\subsubsection{Picard operator}%to organize
+\subsubsection{Picard operator}
 \paragraph{1. Setup and notation}
 Let \((y_0,t_0) \in D \times (a,b)\). Since this set is open, there exist \(\alpha,\delta > 0\) such that
 \[D_{\alpha,\delta} = \{(y,t) : ||y - y_0|| \le \alpha, |t - t_0| \le \delta\}
@@ -392,6 +392,14 @@ Let
     The map \(T\) is called the Picard operator.
 \end{definition}
 
+\begin{example}[Picard operator]
+    Consider the IVP $y' = y$, $y(0) = 1$.  
+    Define the Picard operator by
+    \[T(y)(t) = 1 + \int_0^t y(s)ds.\]
+    Take a trial function $y_0(t) = 0$. Then $T(y_0)(t) = 1 + \int_0^t 0ds = 1$, so $T(y_0) \neq y_0$. Apply $T$ again: let $y_1(t) = 1$. Then $T(y_1)(t) = 1 + \int_0^t 1ds = 1+t$, so $T(y_1) \neq y_1$. The true solution is $y(t)=e^t$. Indeed, $T(y)(t) = 1 + \int_0^t e^s ds = e^t$, so $T(y)=y$. Therefore, $T$ is an operator that maps a function to a new one, and only the true solution is a fixed point of $T$.
+\end{example}
+
+
 \paragraph{3. Interpretation}
 The operator \(T\) takes a function \(y(t)\) and produces a new one. A function \(y\) solves the IVP if and only if \(T(y) = y\), i.e., \(y\) is a fixed point of \(T\).
 
@@ -401,7 +409,7 @@ The operator \(T\) takes a function \(y(t)\) and produces a new one. A function 
 \end{lemma}
 \begin{proof}
     Clearly \(T(y)(t_0)=y_0\). For \(t \in J\),
-    \[\|T(y)(t) - y_0\| \le \int_{t_0}^{t} \|f(y(s),s)\|\,ds \le M_{\alpha,\delta}|t - t_0| \le M_{\alpha,\delta}\epsilon \le \alpha.\]
+    \[\|T(y)(t) - y_0\| \le \int_{t_0}^{t} \|f(y(s),s)\|ds \le M_{\alpha,\delta}|t - t_0| \le M_{\alpha,\delta}\epsilon \le \alpha.\]
     Hence \((T(y)(t),t) \in D_{\alpha,\delta}\).
 \end{proof}
 
@@ -418,52 +426,18 @@ The operator \(T\) takes a function \(y(t)\) and produces a new one. A function 
 
 \paragraph{6. Picard iterations}
 Define $y_0(t) = y_0$ (constant function), which clearly satisfies (1) and (2).
-
 For $k \geq 1$, define
 \[y_k(t) = T(y_{k-1})(t) = y_0 + \int_{t_0}^{t} f(y_{k-1}(s),s)ds.\]
 
 \paragraph{4. Existence}
 The Picard iterations converge uniformly to a function $y : J \to \mathbb{R}^n$ which satisfies (1) and (2), and is a solution of the IVP.
-\begin{proof}
-    Pick $t \in [t_0, t_0 + \epsilon]$ (the proof is similar for $t \in [t_0 - \epsilon, t_0]$).
-    The goal is to show that $\{y_k(t)\}_{k=0}^{\infty}$ is a Cauchy sequence\footnote{Cauchy sequence is a sequence that has a limit in a metric space $\mathbb{R}^n$.} in $\mathbb{R}^n$.
-    We prove by induction that
-    \[(**)\quad ||y_m(t) - y_{m - 1}(t)|| \leq L^{m - 1}M_{\alpha,\delta} \frac{(t - t_0)^m}{m!},\:\forall m \geq 1.\]
-    \textbf{Base case \(m=1\):}
-    \[||y_1(t) - y_0(t)|| = \left\| \int_{t_0}^{t} f(y_0,s)ds \right\| \leq \int_{t_0}^{t}||f(y_0,s)||ds \leq M_{\alpha,\delta}|t - t_0| \leq \alpha.\]
-    \textbf{Induction step:}
-    \[||y_{m + 1}(t) - y_m(t)|| \leq \int_{t_0}^{t}||f(y_m(s),s) - f(y_{m-1}(s),s)||ds.\]
-    Since $D_{\alpha,\delta}$ is compact and $f$ is Lipschitz on $D_{\alpha,\delta}$, there exists $L$ such that
-    \[||f(x,t) - f(y,t)|| \leq L||x - y||.\]
-    Thus,
-    \[\leq L \int_{t_0}^{t}||y_m(s) - y_{m - 1}(s)||ds.\]
-    Using (**),
-    \[\leq L^m M_{\alpha,\delta} \frac{1}{(m-1)!} \int_{t_0}^{t}(s - t_0)^{m-1}ds
-    = L^m M_{\alpha,\delta} \frac{(t - t_0)^m}{m!}.\]
-    Hence (**) holds.
-    In particular, for all $\rho \geq 1$,
-    \[||y_\rho(t) - y_{\rho-1}(t)|| \leq M_{\alpha,\delta} \frac{(L(t - t_0))^{\rho}}{(\rho)!} < \frac{M_{\alpha,\delta}}{L}\frac{(L\epsilon)^\rho}{\rho!}.\]
-    Let $m,p \geq 1$:
-    \[||y_{m+p}(t) - y_{m+1}(t)|| \leq \sum_{k=1}^{p-1}||y_{m+k+1}(t) - y_{m+k}(t)||.\]
-    So,
-    \[< \frac{M_{\alpha,\delta}}{L}\sum_{j=m+2}^{m+p}\frac{(L\epsilon)^j}{j!}.\]
-    Since \(e^{L\epsilon} = \sum_{j=0}^{\infty}\frac{(L\epsilon)^j}{j!}\) converges,
-    \[\to_{m,p \to +\infty} 0.\]
-    Thus $\{y_k(t)\}$ is Cauchy and converges to $y(t)$.
-    Taking limits in the iteration,
-    \[y(t) = y_0 + \int_{t_0}^{t} f(y(s),s)ds.\]
-\end{proof}\footnote{Evaluated on compacted cylinder, understanding epsilon, the L Lipschitz constant coming from somewhere, not on the analysis background such as the Banach fixed point theorem.}
+To see the proof, refer to (\textbf{\ref{pf:picard-convergence}}).
+
 \paragraph{5. Uniqueness}
-\begin{proof}
-    Assume $y(t)$ and $z(t)$ solve the IVP. Then
-    \[||y(t) - z(t)|| \leq \int_{t_0}^{t}||f(y(s),s) - f(z(s),s)||ds \leq L \int_{t_0}^{t}||y(s) - z(s)||ds.\]
-    Define \(g(t) = \int_{t_0}^{t}||y(s) - z(s)||ds\). Then
-    \[g'(t) \leq Lg(t).\]
-    So,
-    \[\frac{d}{dt}(e^{-L(t-t_0)}g(t)) \leq 0.\]
-    Thus \(e^{-L(t-t_0)}g(t)\) is decreasing and
-    \[0 \leq g(t) \leq g(t_0) = 0.\]
-    Hence \(g(t)=0\) and \(y(t)=z(t)\).
+\begin{proof}[Proof of Uniqueness]
+    Assume $y(t)$ and $z(t)$ are two solutions of the IVP with the same initial condition. Then
+    \[\|y(t)-z(t)\| \leq \int_{t_0}^{t} \|f(y(s),s)-f(z(s),s)\|ds \leq L \int_{t_0}^{t} \|y(s)-z(s)\|ds,\]
+    for some Lipschitz constant $L>0$. Define $g(t) = \int_{t_0}^{t} \|y(s)-z(s)\|ds$, so $g'(t) \leq L g(t)$ and $g(t_0)=0$. Multiplying by $e^{-L(t-t_0)}$ gives $\frac{d}{dt}(e^{-L(t-t_0)}g(t)) \le 0$, which shows $e^{-L(t-t_0)}g(t)$ is decreasing and thus $g(t) = 0$ for all $t$. Hence $\|y(t) - z(t)\| = 0$ and $y(t) = z(t)$, meaning two solutions with the same initial condition cannot diverge, this proves the solution is unique.
 \end{proof}
 
 \marginpar{January 20, 2026}
@@ -473,13 +447,13 @@ The Picard iterations converge uniformly to a function $y : J \to \mathbb{R}^n$ 
     Consider the IVP
     \[\begin{cases}y' = f(y,t), \\ y(t_0) = y_0.\end{cases}\]
     The theorem guarantees that there exists a unique solution 
-    \[y : (t_0-\varepsilon,\, t_0+\varepsilon) \to \mathbb{R}^n.\]
+    \[y : (t_0-\varepsilon, t_0+\varepsilon) \to \mathbb{R}^n.\]
     Choose \(\alpha > 0\) and \(\delta > 0\) such that
     \[D_{\alpha,\delta} := \{(y,t) : \|y-y_0\| \le \alpha,\ |t-t_0| \le \delta\} \subset D \times (a,b).\]
     Since \(f\) is continuous, define
     \[M_{\alpha,\delta} = \sup_{(y,t)\in D_{\alpha,\delta}} \|f(y,t)\| < \infty.\]
     Then one may take
-    \[\varepsilon = \min\!\left(\delta,\, \frac{\alpha}{M_{\alpha,\delta}}\right).\]
+    \[\varepsilon = \min\!\left(\delta, \frac{\alpha}{M_{\alpha,\delta}}\right).\]
 \end{remark}\footnote{In this course, you are only expected to determine \(\varepsilon\) from the theorem, and not to justify the construction further.}
 \begin{problem}[Existence and Uniqueness Theorem 2]
     Consider the initial value problem
@@ -510,7 +484,7 @@ The Picard iterations converge uniformly to a function $y : J \to \mathbb{R}^n$ 
 \section{First-Order Scalar Equation}
 \marginpar{January 22, 2026}
 A first-order scalar differential equation has the form
-\[y' = f(y,t) \in \mathbb{R} \quad (n=1)\:One\:equation\]
+\[y' = f(y,t) \in \mathbb{R} \quad (n=1)\]
 \subsection{First order linear equations}%to organize
 \begin{definition}[First Order Linear Equation]
     A first-order linear equation is
@@ -525,7 +499,7 @@ A first-order scalar differential equation has the form
     An integrating factor is a function $\mu(t)$ such that
     \[\mu(t)y' + \mu(t)p(t)y = \mu(t)q(t).\]
 \end{definition}
-\begin{example}[Integrating Factor for a First-Order Linear Equation]
+\begin{example}
     Consider the first-order linear equation
     \[y' + p(t)y = q(t).\]
     We multiply the equation by a function $\mu(t)$ to be determined:
@@ -539,98 +513,63 @@ A first-order scalar differential equation has the form
     which is guaranteed if
     \[\mu'(t) = \mu(t)p(t).\]
     Solving for $\mu$,
-
-
-    \[\frac{d}{dt}ln|\mu(t)| = \frac{\mu'(t)}{\mu(t)} = p(t),\]
+    \[\frac{\mu'(t)}{\mu(t)} = \frac{d}{dt}ln|\mu(t)| = p(t),\]
     now integrate with respect to $t$
     \[ln|\mu(t)| = \int p(t)dt + C,\]
     where $C \in \mathbb{R}$ is a constant of integration, and now we exponentiate
-    \[|\mu(t)| = e^{\int p(t)dt + C_1} = e^{C_1}e^{\int p(t)dt}\]
-    \[\mu(t) = (\pm e^{C_1})e^{\int p(t)dt}.\]
+    \[|\mu(t)| = e^{C}e^{\int p(t)dt}\]
+    \[\therefore \mu(t) = C_2e^{\int p(t)dt}, \quad C_1 = \pm e^{C}.\]
     We can therefore say choose $\mu(t) = e^{\int p(t)dt}$ (integrating factor).
     This is the general solution of the first order linear equation.
 \end{example}
-
-
-
-\subsubsection{Worked Examples}
+\begin{example}
+    Solve the first-order linear equation 
+    \[y' - 2y = 3e^t.\] 
+    First, identify the functions \(p(t)\) and \(q(t)\): 
+    \[p(t) = -2, \quad q(t) = 3e^t.\] 
+    Next, compute the integrating factor: 
+    \[\mu(t) = e^{\int p(t) dt} = e^{-2t}.\] 
+    Multiply through by \(\mu(t)\) to rewrite the left-hand side as a derivative:
+    \[e^{-2t}(y' - 2y) = \frac{d}{dt}(e^{-2t}y) = 3e^{-t}.\] 
+    Integrate both sides with respect to \(t\):
+    \[e^{-2t}y = \int 3e^{-t} dt + C = -3e^{-t} + C.\] 
+    Solve for \(y(t)\):
+    \[y(t) = e^{2t}(-3e^{-t} + C) = -3e^t + Ce^{2t}.\] 
+    Using the initial condition \(y(0) = 1\), we find \(C = 4\), giving the final solution:
+    \[y(t) = -3e^t + 4e^{2t}.\]
+\end{example}
 
 \subsection{Existence and Uniqueness for Linear Equations}
 
-\subsection{Applications}
-\subsubsection{Falling Object with Air Resistance}
-\subsubsection{Mixing Problem}
-
-
-
-
-\begin{example}
-    \[y' - 2y = 3e^t\]
-    \[p(t) = -2, q(t) = 3e^t\]
-    \[\mu(t) = e^{\int -2dt} = e^{-2t}\]
-    \[e^{-2t}(y' - 2y) = e^{-2t}3e^t = 3e^{-t}\]
-    \[e^{-2t}(y' - 2y) = \frac{d}{dt}(e^{-2t}y(t))\]
-    integrate with respect to $t$
-    \[e^{-2t}y(t) = \int e^{-2t}3e^{-t}dt + C = -3e^{-t} + C\]
-    Using this explicit solution
-    \[y(t) = \frac{1}{\mu(t)}[\int \mu(t)q(t)dt + C]\]
-    we can find the general solution
-    \[y(t) = e^{2t}(-3e^{-t} + C) = -3e^t + Ce^{2t}\]
-    If $y(0) = 1$, then $y(0) = -3 + C = 1$, so $C = 4$.
-    \[y(t) = -3e^t + 4e^{2t}\]
-\end{example}
-
-\begin{theorem}[Existence \& Uniqueness for Linear Equations]
-    \[\begin{cases}
-        y' + p(t)y = q(t)\\
-        y(t_0) = y_0
-    \end{cases}\]
-    Assume that the functions $p$ and $q$ are continuous on some interval $(a,b)$, where $(-\infty \leq a < b \leq \infty)$, and assume that $t_0 \in (a,b)$.
-    Then there is a unique solution $y(t)$ to the IVP and $J_{max} = (a,b)$.
+\begin{theorem}[Existence \& Uniqueness]
+    For \[y' + p(t)y = q(t), \quad y(t_0) = y_0\]  
+    if \(p\) and \(q\) are continuous on an interval containing \(t_0\), there exists a unique solution on that interval.
 \end{theorem}
+
+This theorem guarantees that any first-order linear equation we solve, including real-world applications like falling objects or mixing problems, has a unique solution on the interval where \(p\) and \(q\) are continuous.
+
 \begin{example}
     \[\begin{cases}
-        y' + \frac{1}{t - 1}y = \frac{1}{cos(t)}\\
+        y' + \frac{1}{t-1}y = \frac{1}{\cos t} \\
         y(0) = 1
     \end{cases}\]
-    \[J_{max} = (-\frac{\pi}{2}, 1)\]
+    Maximal interval: \(J_{max} = (-\frac{\pi}{2}, 1)\)
 \end{example}
-\begin{example}[Falling Object]
-    Imagine a falling object, subject to gravity and air drag.
-    \[v'(t) + \frac{\gamma}{m}v(t) = g\]
-    This is a first order linear equation. The integrating factor is
-    \[\mu(t) = e^{\int \frac{\gamma}{m}dt} = e^{\frac{\gamma}{m}t}\]
-    \[\frac{d}{dt}(e^{\frac{\gamma}{m}t}v(t)) = e^{\frac{\gamma t}{m}}(v' + \frac{\gamma}{m}v) = e^{\frac{\gamma t}{m}g}\]
-    We get
-    \[e^{\frac{\gamma t}{m}}v(t) = g\int e^{\frac{\gamma t}{m}}dt + C = \frac{gm}{\gamma}e^{\frac{\gamma t}{m}} + C\]
-    \[v(t) = \frac{gm}{\gamma} + Ce^{-\frac{\gamma t}{m}}\]
-    where $C \in \mathbb{R}$.
-    \[v(0) = \frac{gm}{\gamma} = \frac{gm}{\gamma} + C\]
-    Which implies
-    \[C = 0\]
-    \[y(t) = \frac{gm}{\gamma}\]
-\end{example}
-\begin{example}[Mixing Problems]
-    Imagine a tank, at $t = 0$, the tank contains 100 litres of brine water, in which $y_0$ grams of salt is dissolved. You pour in 50g of salt per litre in the tank, and there is a flow in of water at a rate of $R$ litres per second. Water is flowing out of the tank with a rate of $R$ litres per seconds.
-    Denote by $y(t)$ the quantity of salt in grams in the tank at time $t$ in seconds.
-    $\frac{dy}{dt}$ is the rate in - the rate out.
-    \[\frac{dy}{dt} = 50 [\frac{grams}{litres}] \times R [\frac{litres}{seconds}] - \frac{y(t)}{100} [\frac{g\:of\:salt}{litres}]\]
-    We get now that
-    \[y' = 50R - \frac{R}{100}y\]
-    Rewrite it as
-    \[y' + \frac{R}{100}y = 50R\]
-    and
-    \[y(0) = y_0\]
-    Now we can solve this IVP.
-    \[\mu(t) = e^{\frac{Rt}{100}}\]
-    \[\frac{d}{dt}(e^{\frac{Rt}{100}}y(t)) = e^{\frac{Rt}{100}} \cdot 50R\]
-    \[e^{\frac{Rt}{100}}y(t) = 50R \frac{100}{R} e^{\frac{Rt}{100}} + C = 5000e^{\frac{Rt}{100}} + C\]
-    \[y(t) = 5000 + Ce^{-\frac{Rt}{100}}\]
-    \[y(0) = 5000 + C = y_0\]
-    \[C = y_0 - 5000\]
-    \[y(t) = 5000 + (y_0 - 5000)e^{-\frac{Rt}{100}}\]
 
-    Draw graph with threshold 5000, and two exponentials approaching the threshold from the top and below.
+\subsection{Applications}
+\begin{example}[Falling Object with Air Resistance]
+    \[v' + \frac{\gamma}{m}v = g\]
+    Integrating factor: \(\mu(t) = e^{\frac{\gamma}{m}t}\)
+    \[\frac{d}{dt}(\mu v) = g\mu \implies v = \frac{gm}{\gamma} + Ce^{-\frac{\gamma}{m}t}\]
+    With \(v(0) = \frac{gm}{\gamma}\), \(C = 0\), so \(v(t) = \frac{gm}{\gamma}\)
+\end{example}
+
+\begin{example}[Mixing Problem]
+    Tank contains 100 L brine with \(y_0\) g salt. Inflow: 50 g/L at rate \(R\), outflow: \(R\) L/s.  
+    \[y' = 50R - \frac{R}{100}y \implies y' + \frac{R}{100}y = 50R, \quad y(0) = y_0\]
+    Integrating factor: \(\mu(t) = e^{\frac{R}{100}t}\)
+    \[y(t) = 5000 + (y_0 - 5000)e^{-\frac{R}{100}t}\]
+    Threshold 5000: exponential approaches from above and below.
 \end{example}
 
 \subsection{Separable Equations}
@@ -753,17 +692,17 @@ An integral curve is a geometric object that contains (possibly many) solutions.
     \[f : D \to \mathbb{R}, \qquad D = \mathbb{R} = (-\infty, +\infty).\]
     Since \(f\) is defined everywhere, there are no constraints on \(\alpha\) and \(\delta\).
     Define
-    \[D_{\alpha,\delta} = \{(y,t) : \|y-1\| \le \alpha,\ |t-0| \le \delta\} = [1-\alpha,\,1+\alpha] \times [-\delta,\,\delta] \subset \mathbb{R} \times \mathbb{R}.\]
+    \[D_{\alpha,\delta} = \{(y,t) : \|y-1\| \le \alpha,\ |t-0| \le \delta\} = [1-\alpha,1+\alpha] \times [-\delta,\delta] \subset \mathbb{R} \times \mathbb{R}.\]
     Then
-    \[M_{\alpha,\delta} = \sup_{(y,t)\in D_{\alpha,\delta}} \|f(y,t)\| = \sup_{y\in[1-\alpha,\,1+\alpha]} |y+1| = 2+\alpha.\]
+    \[M_{\alpha,\delta} = \sup_{(y,t)\in D_{\alpha,\delta}} \|f(y,t)\| = \sup_{y\in[1-\alpha,1+\alpha]} |y+1| = 2+\alpha.\]
     The theorem allows us to take
-    \[\varepsilon = \min\!\left(\delta,\, \frac{\alpha}{2+\alpha}\right).\]
+    \[\varepsilon = \min\!\left(\delta, \frac{\alpha}{2+\alpha}\right).\]
     Pick \(\alpha = 1\), \(\delta = 1\):
-    \[\varepsilon = \min\!\left(1,\, \frac{1}{3}\right) = \frac{1}{3}.\]
-    Therefore, there exists a unique solution on \(\left(-\frac{1}{3},\, \frac{1}{3}\right)\).
+    \[\varepsilon = \min\!\left(1, \frac{1}{3}\right) = \frac{1}{3}.\]
+    Therefore, there exists a unique solution on \(\left(-\frac{1}{3}, \frac{1}{3}\right)\).
     Pick \(\alpha = 3\), \(\delta = 2\):
-    \[\varepsilon = \min\!\left(2,\, \frac{3}{5}\right) = \frac{3}{5}.\]
-    Therefore, there exists a unique solution on \(\left(-\frac{3}{5},\, \frac{3}{5}\right)\).
+    \[\varepsilon = \min\!\left(2, \frac{3}{5}\right) = \frac{3}{5}.\]
+    Therefore, there exists a unique solution on \(\left(-\frac{3}{5}, \frac{3}{5}\right)\).
     Since there are no constraints on \(\alpha\) and \(\delta\), we can make \(\varepsilon\) as large as we want. Hence, the solution exists and is unique on \(\mathbb{R}\).
     The “maximal” time interval guaranteed by the Existence and Uniqueness Theorem is
     \[J = (-1,1).\]
@@ -780,17 +719,17 @@ An integral curve is a geometric object that contains (possibly many) solutions.
     \[f : D \to \mathbb{R}, \qquad D = \mathbb{R} = (-\infty, +\infty).\]
     Since \(f\) is defined everywhere, there are no constraints on \(\alpha\) and \(\delta\).
     Define
-    \[D_{\alpha,\delta} = \{(y,t) : \|y-1\| \le \alpha,\ |t-0| \le \delta\} = [1-\alpha,\,1+\alpha] \times [-\delta,\,\delta] \subset \mathbb{R} \times \mathbb{R}.\]
+    \[D_{\alpha,\delta} = \{(y,t) : \|y-1\| \le \alpha,\ |t-0| \le \delta\} = [1-\alpha,1+\alpha] \times [-\delta,\delta] \subset \mathbb{R} \times \mathbb{R}.\]
     Then
-    \[M_{\alpha,\delta} = \sup_{(y,t)\in D_{\alpha,\delta}} |f(y,t)| = \sup_{y\in[1-\alpha,\,1+\alpha]} |y+1| = 2+\alpha.\]
+    \[M_{\alpha,\delta} = \sup_{(y,t)\in D_{\alpha,\delta}} |f(y,t)| = \sup_{y\in[1-\alpha,1+\alpha]} |y+1| = 2+\alpha.\]
     Hence,
-    \[\varepsilon = \min\!\left(\delta,\, \frac{\alpha}{2+\alpha}\right).\]
+    \[\varepsilon = \min\!\left(\delta, \frac{\alpha}{2+\alpha}\right).\]
     Pick \(\alpha = 1\), \(\delta = 1\):
     \[\varepsilon = \frac{1}{3},\]
-    so a unique solution exists on \(\left(-\frac{1}{3},\,\frac{1}{3}\right)\).
+    so a unique solution exists on \(\left(-\frac{1}{3},\frac{1}{3}\right)\).
     Pick \(\alpha = 3\), \(\delta = 2\):
     \[\varepsilon = \frac{3}{5},\]
-    so a unique solution exists on \(\left(-\frac{3}{5},\,\frac{3}{5}\right)\).
+    so a unique solution exists on \(\left(-\frac{3}{5},\frac{3}{5}\right)\).
     Since there are no constraints on \(\alpha,\delta\), \(\varepsilon\) can be made arbitrarily large. Therefore, the solution exists and is unique on \(\mathbb{R}\).
     The “maximal” interval guaranteed by the theorem is \(J = (-1,1)\).
     In Chapter 2, we will see the explicit solution is
@@ -800,17 +739,17 @@ An integral curve is a geometric object that contains (possibly many) solutions.
 \end{solution}
 \begin{solution}[Existence and Uniqueness Theorem 4]
     Since \(f(y)=y^2\) is \(C^1\), it is locally Lipschitz, so a solution exists and is unique locally.
-    On \(D_{\alpha,\delta} = [1-\alpha,\,1+\alpha] \times [-\delta,\,\delta]\),
-    \[M_{\alpha,\delta} = \sup_{y \in [1-\alpha,\,1+\alpha]} |y^2| = (1+\alpha)^2.\]
+    On \(D_{\alpha,\delta} = [1-\alpha,1+\alpha] \times [-\delta,\delta]\),
+    \[M_{\alpha,\delta} = \sup_{y \in [1-\alpha,1+\alpha]} |y^2| = (1+\alpha)^2.\]
     Thus,
-    \[\varepsilon = \min\!\left(\delta,\, \frac{\alpha}{(1+\alpha)^2}\right).\]
+    \[\varepsilon = \min\!\left(\delta, \frac{\alpha}{(1+\alpha)^2}\right).\]
     Define
     \[h(\alpha) = \frac{\alpha}{(1+\alpha)^2}, \qquad h'(\alpha) = \frac{1-\alpha}{(1+\alpha)^3}.\]
     Setting \(h'(\alpha)=0\) gives \(\alpha=1\).
     Pick \(\alpha=1\), \(\delta = 104073\):
     \[\varepsilon = \frac{1}{4}.\]
     Therefore, there exists a unique solution
-    \[y : \left(-\frac14,\,\frac14\right) \to \mathbb{R}.\]
+    \[y : \left(-\frac14,\frac14\right) \to \mathbb{R}.\]
     Chapter 2 will show the solution is
     \[y(t) = \frac{1}{1-t}.\]
     The vertical asymptote illustrates finite-time blow-up.
@@ -821,9 +760,9 @@ An integral curve is a geometric object that contains (possibly many) solutions.
     we have
     \[M_{\alpha,\delta} = \sup_{(y,t)\in D_{\alpha,\delta}} |t^2 + y^2| = \delta^2 + \alpha^2.\]
     Hence,
-    \[\varepsilon = \min\!\left(\delta,\, \frac{\alpha}{\delta^2+\alpha^2}\right).\]
+    \[\varepsilon = \min\!\left(\delta, \frac{\alpha}{\delta^2+\alpha^2}\right).\]
     Pick \(\alpha = 10^{12}\), \(\delta = 1\):
-    \[\varepsilon = \min\!\left(1,\, \frac{10^{12}}{1+10^{24}}\right) = \frac{10^{12}}{1+10^{24}} \approx 0.\]
+    \[\varepsilon = \min\!\left(1, \frac{10^{12}}{1+10^{24}}\right) = \frac{10^{12}}{1+10^{24}} \approx 0.\]
 \end{solution}
 \begin{solution}[LLC]
     We have
@@ -840,6 +779,36 @@ An integral curve is a geometric object that contains (possibly many) solutions.
 \end{solution}
 
 \section{Appendix}
+\begin{proof}[Proof of Picard Iterations Convergence]
+    \label{pf:picard-convergence}
+    Pick $t \in [t_0, t_0 + \epsilon]$ (the proof is similar for $t \in [t_0 - \epsilon, t_0]$).
+    The goal is to show that $\{y_k(t)\}_{k=0}^{\infty}$ is a Cauchy sequence\footnote{Cauchy sequence is a sequence that has a limit in a metric space $\mathbb{R}^n$.} in $\mathbb{R}^n$.
+    We prove by induction that
+    \[(**)\quad ||y_m(t) - y_{m - 1}(t)|| \leq L^{m - 1}M_{\alpha,\delta} \frac{(t - t_0)^m}{m!},\:\forall m \geq 1.\]
+    \textbf{Base case \(m=1\):}
+    \[||y_1(t) - y_0(t)|| = \left\| \int_{t_0}^{t} f(y_0,s)ds \right\| \leq \int_{t_0}^{t}||f(y_0,s)||ds \leq M_{\alpha,\delta}|t - t_0| \leq \alpha.\]
+    \textbf{Induction step:}
+    \[||y_{m + 1}(t) - y_m(t)|| \leq \int_{t_0}^{t}||f(y_m(s),s) - f(y_{m-1}(s),s)||ds.\]
+    Since $D_{\alpha,\delta}$ is compact and $f$ is Lipschitz on $D_{\alpha,\delta}$, there exists $L$ such that
+    \[||f(x,t) - f(y,t)|| \leq L||x - y||.\]
+    Thus,
+    \[\leq L \int_{t_0}^{t}||y_m(s) - y_{m - 1}(s)||ds.\]
+    Using (**),
+    \[\leq L^m M_{\alpha,\delta} \frac{1}{(m-1)!} \int_{t_0}^{t}(s - t_0)^{m-1}ds
+    = L^m M_{\alpha,\delta} \frac{(t - t_0)^m}{m!}.\]
+    Hence (**) holds.
+    In particular, for all $\rho \geq 1$,
+    \[||y_\rho(t) - y_{\rho-1}(t)|| \leq M_{\alpha,\delta} \frac{(L(t - t_0))^{\rho}}{(\rho)!} < \frac{M_{\alpha,\delta}}{L}\frac{(L\epsilon)^\rho}{\rho!}.\]
+    Let $m,p \geq 1$:
+    \[||y_{m+p}(t) - y_{m+1}(t)|| \leq \sum_{k=1}^{p-1}||y_{m+k+1}(t) - y_{m+k}(t)||.\]
+    So,
+    \[< \frac{M_{\alpha,\delta}}{L}\sum_{j=m+2}^{m+p}\frac{(L\epsilon)^j}{j!}.\]
+    Since \(e^{L\epsilon} = \sum_{j=0}^{\infty}\frac{(L\epsilon)^j}{j!}\) converges,
+    \[\to_{m,p \to +\infty} 0.\]
+    Thus $\{y_k(t)\}$ is Cauchy and converges to $y(t)$.
+    Taking limits in the iteration,
+    \[y(t) = y_0 + \int_{t_0}^{t} f(y(s),s)ds.\]
+\end{proof}\footnote{Evaluated on compacted cylinder, understanding epsilon, the L Lipschitz constant coming from somewhere, not on the analysis background such as the Banach fixed point theorem.}
 
 \section{Useful Links}
 
