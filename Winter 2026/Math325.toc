@@ -33,5 +33,5 @@
 \contentsline {section}{\numberline {8}Laplace Transform}{22}{section.8}%
 \contentsline {section}{\numberline {9}Power Series Solutions and Numerical Methods}{22}{section.9}%
 \contentsline {section}{\numberline {10}Solutions}{22}{section.10}%
-\contentsline {section}{\numberline {11}Appendix}{22}{section.11}%
-\contentsline {section}{\numberline {12}Useful Links}{22}{section.12}%
+\contentsline {section}{\numberline {11}Appendix}{23}{section.11}%
+\contentsline {section}{\numberline {12}Useful Links}{23}{section.12}%

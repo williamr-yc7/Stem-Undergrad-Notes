@@ -325,7 +325,7 @@ Other examples include \(\frac{dy}{dt}=1 - y^{2}\) or exponential growth \(\frac
     The derivative is unbounded near \(y = 0\), so no Lipschitz constant exists even locally. Hence \(f\) is not locally Lipschitz.
 \end{example}
 
-\subsubsection{Existence and Uniqueness Theorem}%to organize
+\subsubsection{Existence and Uniqueness Theorem}
 \begin{theorem}[Existence and Uniqueness]
     Let \(D \subseteq \mathbb{R}^n\) be open and let \((a,b)\) be an open interval containing \(t_0\). Consider the IVP
     \[\begin{cases}y' = f(y,t), \\ y(t_0) = y_0.\end{cases}\]
@@ -344,7 +344,7 @@ Other examples include \(\frac{dy}{dt}=1 - y^{2}\) or exponential growth \(\frac
     Do not solve the ODE. Simply analyze it.
 \end{problem}
 
-\subsubsection{Integral form of solutions}
+\subsubsection{Integral form of solutions}%to organize
 
 \begin{lemma}
 A function \(y\) solves the IVP if and only if
@@ -827,14 +827,16 @@ An integral curve is a geometric object that contains (possibly many) solutions.
     \end{cases}\]
 \end{solution}
 \begin{solution}[Existence and Uniqueness Theorem]
+    We have the IVP
+    \[\begin{cases}y' = \sqrt{1 + y^2} + t^2 \\ y(1) = 0\end{cases}\]
     \begin{enumerate}
-        \item For this IVP, $y' = \sqrt{1 + y^2} + t^2$, the function is simply $f(y,t) = \sqrt{1 + y^2} + t^2$.
-        \item 2. Check the hypotheses:
+        \item The function is simply $f(y,t) = \sqrt{1 + y^2} + t^2$.
+        \item Check the hypotheses:
         \begin{itemize}
             \item $f$ is continuous $\forall y \in \mathbb{R},\:t \in \mathbb{R}$ because square root of $1 + y^2$ and $t^2$ are continuous everywhere.
             \item Check local Lipschitz in $y$: $\frac{\partial f}{\partial y} = \frac{y}{\sqrt{1 + y^2}}$, which is continuous $\forall y$. Therefore $f$ is locally Lipschitz in $y$. So the hypotheses of E \& U th. are satisfied in $\mathbb{R} \times \mathbb{R}$.
-            \item Since $f$ is continuous and locally Lipschitz in $y$, and since $y(1) = 0$ with $0 \in \mathbb{R}$, the Existence and Uniqueness Theorem guarantees that there exists an open interval $J$ containing $t = 1$ on which a solution exists, and this solution is unique on $J$.
         \end{itemize}
+        \item Since $f$ is continuous and locally Lipschitz in $y$, and since $y(1) = 0$ with $0 \in \mathbb{R}$, the Existence and Uniqueness Theorem guarantees that there exists an open interval $J$ containing $t = 1$ on which a solution exists, and this solution is unique on $J$.
     \end{enumerate}
 \end{solution}
 
