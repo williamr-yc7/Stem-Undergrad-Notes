@@ -462,18 +462,19 @@ To see the proof, refer to (\textbf{\ref{pf:picard-convergence}}).
 \end{problem}
 \begin{problem}[Existence and Uniqueness Theorem 3]
     Consider the initial value problem
-    \[\begin{cases}y' = y + 1, \\ y(0) = 1,\end{cases} \qquad t_0 = 0,\; y_0 = 1.\]
-    Use the Existence and Uniqueness Theorem to determine an interval on which a unique solution is guaranteed to exist.
-\end{problem}
-\begin{problem}[Existence and Uniqueness Theorem 4]
-    Consider the initial value problem
     \[\begin{cases}y' = y^2, \\ y(0) = 1.\end{cases}\]
     Use the Existence and Uniqueness Theorem to estimate an interval of existence.
 \end{problem}
-\begin{problem}[Existence and Uniqueness Theorem 5]
-    Consider the initial value problem
-    \[\begin{cases}y' = t^2 + y^2, \\ y(0) = 0.\end{cases}\]
-    Use the Existence and Uniqueness Theorem to estimate \(\varepsilon\).
+\begin{problem}[Existence and Uniqueness Theorem 4]
+    Consider the first order differential equation
+    \[y' + \frac{t}{t^2 - 25}y = \frac{e^t}{t - 9}\]
+    For each of the initial conditions below, determine the largest interval $a < t < b$ on which the existence and uniqueness theorem for first order linear differential equations guarantees the existence of a unique solution.
+    \begin{itemize}
+        \item $y(-7) = -2.1.$
+        \item $y(-1.5) = -3.14.$
+        \item $y(8.5) = 6.4.$
+        \item $y(13) = -0.5.$
+    \end{itemize}
 \end{problem}
 \begin{problem}[LLC]
     Consider the initial value problem
@@ -737,32 +738,6 @@ and in the separable case,
     \[J_{\max} = \mathbb{R}.\]
 \end{solution}
 \begin{solution}[Existence and Uniqueness Theorem 3]
-    We write
-    \[f(y,t) = y + 1.\]
-    Since \(f\) is a \(C^1\) function, it is locally Lipschitz in \(y\), and the theorem applies.
-    The domain is
-    \[f : D \to \mathbb{R}, \qquad D = \mathbb{R} = (-\infty, +\infty).\]
-    Since \(f\) is defined everywhere, there are no constraints on \(\alpha\) and \(\delta\).
-    Define
-    \[D_{\alpha,\delta} = \{(y,t) : \|y-1\| \le \alpha,\ |t-0| \le \delta\} = [1-\alpha,1+\alpha] \times [-\delta,\delta] \subset \mathbb{R} \times \mathbb{R}.\]
-    Then
-    \[M_{\alpha,\delta} = \sup_{(y,t)\in D_{\alpha,\delta}} |f(y,t)| = \sup_{y\in[1-\alpha,1+\alpha]} |y+1| = 2+\alpha.\]
-    Hence,
-    \[\varepsilon = \min\!\left(\delta, \frac{\alpha}{2+\alpha}\right).\]
-    Pick \(\alpha = 1\), \(\delta = 1\):
-    \[\varepsilon = \frac{1}{3},\]
-    so a unique solution exists on \(\left(-\frac{1}{3},\frac{1}{3}\right)\).
-    Pick \(\alpha = 3\), \(\delta = 2\):
-    \[\varepsilon = \frac{3}{5},\]
-    so a unique solution exists on \(\left(-\frac{3}{5},\frac{3}{5}\right)\).
-    Since there are no constraints on \(\alpha,\delta\), \(\varepsilon\) can be made arbitrarily large. Therefore, the solution exists and is unique on \(\mathbb{R}\).
-    The “maximal” interval guaranteed by the theorem is \(J = (-1,1)\).
-    In Chapter 2, we will see the explicit solution is
-    \[y(t) = 2e^t - 1.\]
-    In fact, the maximal interval of existence is
-    \[J_{\max} = \mathbb{R}.\]
-\end{solution}
-\begin{solution}[Existence and Uniqueness Theorem 4]
     Since \(f(y)=y^2\) is \(C^1\), it is locally Lipschitz, so a solution exists and is unique locally.
     On \(D_{\alpha,\delta} = [1-\alpha,1+\alpha] \times [-\delta,\delta]\),
     \[M_{\alpha,\delta} = \sup_{y \in [1-\alpha,1+\alpha]} |y^2| = (1+\alpha)^2.\]
@@ -779,15 +754,29 @@ and in the separable case,
     \[y(t) = \frac{1}{1-t}.\]
     The vertical asymptote illustrates finite-time blow-up.
 \end{solution}
-\begin{solution}[Existence and Uniqueness Theorem 5]
-    On
-    \[D_{\alpha,\delta} = [-\alpha,\alpha] \times [-\delta,\delta],\]
-    we have
-    \[M_{\alpha,\delta} = \sup_{(y,t)\in D_{\alpha,\delta}} |t^2 + y^2| = \delta^2 + \alpha^2.\]
-    Hence,
-    \[\varepsilon = \min\!\left(\delta, \frac{\alpha}{\delta^2+\alpha^2}\right).\]
-    Pick \(\alpha = 10^{12}\), \(\delta = 1\):
-    \[\varepsilon = \min\!\left(1, \frac{10^{12}}{1+10^{24}}\right) = \frac{10^{12}}{1+10^{24}} \approx 0.\]
+\begin{solution}[Existence and Uniqueness Theorem 4]
+    The differential equation is
+    \[y' + \frac{t}{t^2-25}y = \frac{e^t}{t-9}.\]
+    The existence and uniqueness theorem requires the coefficients
+    \[p(t)=\frac{t}{t^2-25}, \qquad g(t)=\frac{e^t}{t-9}\]
+    to be continuous.
+    Discontinuities occur when denominators are zero:
+    \[t^2-25=0 \Rightarrow t=\pm5, \qquad t-9=0 \Rightarrow t=9.\]
+    So the critical points are \(t=-5,\:5,\:9\).
+    \begin{itemize}
+        \item For \(y(-7)=-2.1\): the nearest discontinuity is \(t=-5\).  
+        Largest interval:
+        \[(-\infty,-5).\]
+        \item For \(y(-1.5)=-3.14\): the nearest discontinuities are \(t=-5\) and \(t=5\).  
+        Largest interval:
+        \[(-5,5).\]
+        \item For \(y(8.5)=6.4\): the nearest discontinuities are \(t=5\) and \(t=9\).  
+        Largest interval:
+        \[(5,9).\]
+        \item For \(y(13)=-0.5\): the nearest discontinuity is \(t=9\).  
+        Largest interval:
+        \[(9,\infty).\]
+    \end{itemize}
 \end{solution}
 \begin{solution}[LLC]
     We have
