@@ -488,14 +488,18 @@ The Picard iterations converge uniformly to a function $y : J \to \mathbb{R}^n$ 
 
 \section{First-Order Scalar Equation}
 \marginpar{January 22, 2026}
-
+A first-order scalar differential equation has the form
 \[y' = f(y,t) \in \mathbb{R} \quad (n=1)\:One\:equation\]
-\subsection{First order linear equations}
-\[a_0(t)y' + a_1(t)y = g(t)\]
-where $a_0,a_1,g$ are functions of $t$.
-Dividing by $a_0$ leads to
-\[y' + p(t)y = q(t)\]
-where $p(t) = \frac{a_1(t)}{a_0(t)}$ and $q(t) = \frac{g(t)}{a_0(t)}$
+\subsection{First order linear equations}%to organize
+\begin{definition}[First Order Linear Equation]
+    A first-order linear equation is
+    \[a_0(t)y' + a_1(t)y = g(t),\]
+    where $a_0, a_1, g$ are functions of $t$ and $a_0(t) \neq 0$.
+    Dividing by $a_0(t)$ gives the standard form
+    \[y' + p(t)y = q(t), \quad p(t) = \frac{a_1(t)}{a_0(t)}, \quad q(t) = \frac{g(t)}{a_0(t)}.\]
+\end{definition}
+
+\subsubsection{Integrating Factor Method}
 Multiply the ODE by an integrating factor $\mu(t)$ (to be determined).
 \[\mu(t)y' + \mu(t)p(t)y = \mu(t)q(t)\]
 Requirement in $\mu$ is that $\mu(t)y' + \mu(t)p(t)y = \frac{d}{dt}(\mu(t)y(t))$ (*) holds.
