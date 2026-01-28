@@ -344,287 +344,148 @@ Other examples include \(\frac{dy}{dt}=1 - y^{2}\) or exponential growth \(\frac
     Do not solve the ODE. Simply analyze it.
 \end{problem}
 
-\subsubsection{Integral form of solutions}%to organize
-
+\subsubsection{Integral form of solutions}
 \begin{lemma}
-A function \(y\) solves the IVP if and only if
-\[
-y(t) = y_0 + \int_{t_0}^{t} f(y(s),s)\,ds.
-\]
+    A function \(y\) solves the IVP if and only if
+    \[y(t) = y_0 + \int_{t_0}^{t} f(y(s),s)ds.\]
 \end{lemma}
-
 \begin{proof}
-If \(y' = f(y,t)\) and \(y(t_0) = y_0\), then by the Fundamental Theorem of Calculus,
-\[
-y(t) - y(t_0) = \int_{t_0}^{t} f(y(s),s)\,ds,
-\]
-so
-\[
-y(t) = y_0 + \int_{t_0}^{t} f(y(s),s)\,ds.
-\]
-
-Conversely, differentiating the right-hand side gives
-\[
-y'(t) = f(y(t),t), \quad y(t_0) = y_0.
-\]
+    If \(y' = f(y,t)\) and \(y(t_0) = y_0\), then by the Fundamental Theorem of Calculus,
+    \[y(t) - y(t_0) = \int_{t_0}^{t} f(y(s),s)ds,\]
+    so
+    \[y(t) = y_0 + \int_{t_0}^{t} f(y(s),s)ds.\]
+    Conversely, differentiating the right-hand side gives
+    \[y'(t) = f(y(t),t), \quad y(t_0) = y_0.\]
 \end{proof}
 
-\subsubsection{Picard operator}
-
-\paragraph{Setup and notation}
-
+\subsubsection{Picard operator}%to organize
+\paragraph{1. Setup and notation}
 Let \((y_0,t_0) \in D \times (a,b)\). Since this set is open, there exist \(\alpha,\delta > 0\) such that
-\[
-D_{\alpha,\delta} = \{(y,t) : ||y - y_0|| \le \alpha, |t - t_0| \le \delta\}
-\subset D \times (a,b).
-\]
+\[D_{\alpha,\delta} = \{(y,t) : ||y - y_0|| \le \alpha, |t - t_0| \le \delta\}
+\subset D \times (a,b).\]
 
 Define
-\[
-M_{\alpha,\delta} = \sup_{(y,t) \in D_{\alpha,\delta}}\footnote{\(sup\) means the largest value in a set of numbers.} ||f(y,t)|| < +\infty.
-\]
+\[M_{\alpha,\delta} = \sup_{(y,t) \in D_{\alpha,\delta}} ||f(y,t)|| < +\infty.\footnote{\(sup\) means the largest value in a set of numbers.}\]
 
 Let
-\[
-\epsilon = \min\left(\delta, \frac{\alpha}{M_{\alpha,\delta}}\right), 
-\quad 
-J = (t_0 - \epsilon, t_0 + \epsilon).
-\]
+\[\epsilon = \min\left(\delta, \frac{\alpha}{M_{\alpha,\delta}}\right), \quad J = (t_0 - \epsilon, t_0 + \epsilon).\]
 
-\paragraph{Definition of the Picard operator}
-
+\paragraph{2. Definition of the Picard operator}
 \begin{lemma}[Picard operator]
-For any function \(y\) such that \(y(t_0)=y_0\) and \((y(t),t) \in D_{\alpha,\delta}\) for all \(t \in J\), define
-\[
-T(y)(t) = y_0 + \int_{t_0}^{t} f(y(s),s)\,ds.
-\]
-Then \(T(y)(t_0)=y_0\) and \((T(y)(t),t) \in D_{\alpha,\delta}\) for all \(t \in J\).
+    For any function \(y\) such that \(y(t_0)=y_0\) and \((y(t),t) \in D_{\alpha,\delta}\) for all \(t \in J\), define
+    \[T(y)(t) = y_0 + \int_{t_0}^{t} f(y(s),s)ds.\]
+    Then \(T(y)(t_0)=y_0\) and \((T(y)(t),t) \in D_{\alpha,\delta}\) for all \(t \in J\).
 \end{lemma}
 
 \begin{proof}
-\[
-T(y)(t_0) = y_0.
-\]
-
-For \(t \in J\),
-\[
-||T(y)(t) - y_0|| 
-\le \int_{t_0}^{t} ||f(y(s),s)||ds
-\le M_{\alpha,\delta}|t - t_0|
-\le M_{\alpha,\delta}\epsilon 
-\le \alpha.
-\]
-
-So \((T(y)(t),t) \in D_{\alpha,\delta}\).
+    \[T(y)(t_0) = y_0.\]
+    For \(t \in J\),
+    \[||T(y)(t) - y_0|| \leq \int_{t_0}^{t} ||f(y(s),s)||ds \leq M_{\alpha,\delta}|t - t_0| \leq M_{\alpha,\delta}\epsilon \leq \alpha.\]
+    So \((T(y)(t),t) \in D_{\alpha,\delta}\).
 \end{proof}
 
 \marginpar{January 15, 2026}
-
-\paragraph{Invariant properties}
-
+\paragraph{3. Invariant properties}
 \begin{lemma}
-If $y : J \to \mathbb{R}^n$ satisfies 
-\begin{enumerate}
-\item $y(t_0) = y_0$,
-\item $(y(t),t) \in D_{\alpha,\delta}$ for all $t \in J$,
-\end{enumerate}
-then $T(y) : J \to \mathbb{R}^n$ satisfies the same properties.
+    If $y : J \to \mathbb{R}^n$ satisfies 
+    \begin{enumerate}
+        \item $y(t_0) = y_0$,
+        \item $(y(t),t) \in D_{\alpha,\delta}$ for all $t \in J$,
+    \end{enumerate}
+    then $T(y) : J \to \mathbb{R}^n$ satisfies the same properties.
 \end{lemma}
 
-\paragraph{Picard iterations}
-
+\paragraph{3. Picard iterations}
 Define $y_0(t) = y_0$ (constant function), which clearly satisfies (1) and (2).
 
 For $k \geq 1$, define
-\[
-y_k(t) = T(y_{k-1})(t) 
-= y_0 + \int_{t_0}^{t} f(y_{k-1}(s),s)ds.
-\]
+\[y_k(t) = T(y_{k-1})(t) = y_0 + \int_{t_0}^{t} f(y_{k-1}(s),s)ds.\]
 
-\paragraph{Existence}
-
+\paragraph{4. Existence}
 The Picard iterations converge uniformly to a function $y : J \to \mathbb{R}^n$ which satisfies (1) and (2), and is a solution of the IVP.
-
 \begin{proof}
-
-Pick $t \in [t_0, t_0 + \epsilon]$ (the proof is similar for $t \in [t_0 - \epsilon, t_0]$).
-
-The goal is to show that $\{y_k(t)\}_{k=0}^{\infty}$ is a Cauchy sequence\footnote{Cauchy sequence is a sequence that has a limit in a metric space $\mathbb{R}^n$.} in $\mathbb{R}^n$.
-
-We prove by induction that
-\[
-(**)\quad ||y_m(t) - y_{m - 1}(t)|| \leq L^{m - 1}M_{\alpha,\delta} \frac{(t - t_0)^m}{m!},\:\forall m \geq 1.
-\]
-
-\textbf{Base case \(m=1\):}
-\[
-||y_1(t) - y_0(t)|| 
-= \left\| \int_{t_0}^{t} f(y_0,s)ds \right\|
-\leq \int_{t_0}^{t}||f(y_0,s)||ds 
-\leq M_{\alpha,\delta}|t - t_0| 
-\leq \alpha.
-\]
-
-\textbf{Induction step:}
-
-\[
-||y_{m + 1}(t) - y_m(t)|| 
-\leq \int_{t_0}^{t}||f(y_m(s),s) - f(y_{m-1}(s),s)||ds.
-\]
-
-Since $D_{\alpha,\delta}$ is compact and $f$ is Lipschitz on $D_{\alpha,\delta}$, there exists $L$ such that
-\[
-||f(x,t) - f(y,t)|| \leq L||x - y||.
-\]
-
-Thus,
-\[
-\le L \int_{t_0}^{t}||y_m(s) - y_{m - 1}(s)||ds.
-\]
-
-Using (**),
-\[
-\le L^m M_{\alpha,\delta} \frac{1}{(m-1)!} \int_{t_0}^{t}(s - t_0)^{m-1}ds
-= L^m M_{\alpha,\delta} \frac{(t - t_0)^m}{m!}.
-\]
-
-Hence (**) holds.
-
-In particular, for all $\rho \geq 1$,
-\[
-||y_\rho(t) - y_{\rho-1}(t)|| 
-\leq M_{\alpha,\delta} \frac{(L(t - t_0))^{\rho}}{(\rho)!}
-< \frac{M_{\alpha,\delta}}{L}\frac{(L\epsilon)^\rho}{\rho!}.
-\]
-
-Let $m,p \geq 1$:
-\[
-||y_{m+p}(t) - y_{m+1}(t)|| 
-\leq \sum_{k=1}^{p-1}||y_{m+k+1}(t) - y_{m+k}(t)||.
-\]
-
-So,
-\[
-< \frac{M_{\alpha,\delta}}{L}\sum_{j=m+2}^{m+p}\frac{(L\epsilon)^j}{j!}.
-\]
-
-Since \(e^{L\epsilon} = \sum_{j=0}^{\infty}\frac{(L\epsilon)^j}{j!}\) converges,
-\[
-\to_{m,p \to +\infty} 0.
-\]
-
-Thus $\{y_k(t)\}$ is Cauchy and converges to $y(t)$.
-
-Taking limits in the iteration,
-\[
-y(t) = y_0 + \int_{t_0}^{t} f(y(s),s)ds.
-\]
-
-\end{proof}\footnote{Evaluated on compacted cylinder, understanding epsilon, the L lipschitz constant coming from somehwere, not on the analysis background such as...}
-
+    Pick $t \in [t_0, t_0 + \epsilon]$ (the proof is similar for $t \in [t_0 - \epsilon, t_0]$).
+    The goal is to show that $\{y_k(t)\}_{k=0}^{\infty}$ is a Cauchy sequence\footnote{Cauchy sequence is a sequence that has a limit in a metric space $\mathbb{R}^n$.} in $\mathbb{R}^n$.
+    We prove by induction that
+    \[(**)\quad ||y_m(t) - y_{m - 1}(t)|| \leq L^{m - 1}M_{\alpha,\delta} \frac{(t - t_0)^m}{m!},\:\forall m \geq 1.\]
+    \textbf{Base case \(m=1\):}
+    \[||y_1(t) - y_0(t)|| = \left\| \int_{t_0}^{t} f(y_0,s)ds \right\| \leq \int_{t_0}^{t}||f(y_0,s)||ds \leq M_{\alpha,\delta}|t - t_0| \leq \alpha.\]
+    \textbf{Induction step:}
+    \[||y_{m + 1}(t) - y_m(t)|| \leq \int_{t_0}^{t}||f(y_m(s),s) - f(y_{m-1}(s),s)||ds.\]
+    Since $D_{\alpha,\delta}$ is compact and $f$ is Lipschitz on $D_{\alpha,\delta}$, there exists $L$ such that
+    \[||f(x,t) - f(y,t)|| \leq L||x - y||.\]
+    Thus,
+    \[\leq L \int_{t_0}^{t}||y_m(s) - y_{m - 1}(s)||ds.\]
+    Using (**),
+    \[\leq L^m M_{\alpha,\delta} \frac{1}{(m-1)!} \int_{t_0}^{t}(s - t_0)^{m-1}ds
+    = L^m M_{\alpha,\delta} \frac{(t - t_0)^m}{m!}.\]
+    Hence (**) holds.
+    In particular, for all $\rho \geq 1$,
+    \[||y_\rho(t) - y_{\rho-1}(t)|| \leq M_{\alpha,\delta} \frac{(L(t - t_0))^{\rho}}{(\rho)!} < \frac{M_{\alpha,\delta}}{L}\frac{(L\epsilon)^\rho}{\rho!}.\]
+    Let $m,p \geq 1$:
+    \[||y_{m+p}(t) - y_{m+1}(t)|| \leq \sum_{k=1}^{p-1}||y_{m+k+1}(t) - y_{m+k}(t)||.\]
+    So,
+    \[< \frac{M_{\alpha,\delta}}{L}\sum_{j=m+2}^{m+p}\frac{(L\epsilon)^j}{j!}.\]
+    Since \(e^{L\epsilon} = \sum_{j=0}^{\infty}\frac{(L\epsilon)^j}{j!}\) converges,
+    \[\to_{m,p \to +\infty} 0.\]
+    Thus $\{y_k(t)\}$ is Cauchy and converges to $y(t)$.
+    Taking limits in the iteration,
+    \[y(t) = y_0 + \int_{t_0}^{t} f(y(s),s)ds.\]
+\end{proof}\footnote{Evaluated on compacted cylinder, understanding epsilon, the L Lipschitz constant coming from somewhere, not on the analysis background such as the Banach fixed point theorem.}
 \paragraph{Uniqueness}
-
 \begin{proof}
     Assume $y(t)$ and $z(t)$ solve the IVP. Then
     \[||y(t) - z(t)|| \leq \int_{t_0}^{t}||f(y(s),s) - f(z(s),s)||ds \leq L \int_{t_0}^{t}||y(s) - z(s)||ds.\]
-
     Define \(g(t) = \int_{t_0}^{t}||y(s) - z(s)||ds\). Then
     \[g'(t) \leq Lg(t).\]
-
     So,
     \[\frac{d}{dt}(e^{-L(t-t_0)}g(t)) \leq 0.\]
-
     Thus \(e^{-L(t-t_0)}g(t)\) is decreasing and
     \[0 \leq g(t) \leq g(t_0) = 0.\]
-
     Hence \(g(t)=0\) and \(y(t)=z(t)\).
 \end{proof}
 
 \marginpar{January 20, 2026}
-Examples on how to use the theorem.
-\[\begin{cases}
-    y' = f(y,t)\\
-    y(t_0) = y_0
-\end{cases}\]
-Th. \(\exists \& !\) says there is a solution for this IVP, and it is unique.
-\[y : (t_0 - \epsilon, t_0 + \epsilon) \to \mathbb{R}^n\] solves the IVP
-\[\epsilon = min(\delta, \frac{\alpha}{M_{\alpha, \delta}})\]
-\[f : D \times (a,b) \to \mathbb{R}^n\]
-Choose $\alpha, \delta$ such that $D_{\alpha, \delta} \subset D \times (a,b)$.
-\[\{(y,t) : ||y - y_0|| \leq \alpha, |t - t_0| \leq \delta\} \subset D \times (a,b)\]
-\[M_{\alpha, \delta} = sup_{(y,t) \in D_{\alpha, \delta}} ||f(y,t)|| < +\infty\]
-Demanded to obtain epsilon from the theorem in this ODE course, nothing else, since it is not an analysis course.
+\paragraph{5. Examples}
+\begin{remark}[How \(\varepsilon\) is chosen in the theorem]
+    To apply the Existence and Uniqueness Theorem, we choose \(\varepsilon\) so that the solution remains inside the domain \(D \times (a,b)\).
+    Consider the IVP
+    \[\begin{cases}y' = f(y,t), \\ y(t_0) = y_0.\end{cases}\]
+    The theorem guarantees that there exists a unique solution 
+    \[y : (t_0-\varepsilon,\, t_0+\varepsilon) \to \mathbb{R}^n.\]
+    Choose \(\alpha > 0\) and \(\delta > 0\) such that
+    \[D_{\alpha,\delta} := \{(y,t) : \|y-y_0\| \le \alpha,\ |t-t_0| \le \delta\} \subset D \times (a,b).\]
+    Since \(f\) is continuous, define
+    \[M_{\alpha,\delta} = \sup_{(y,t)\in D_{\alpha,\delta}} \|f(y,t)\| < \infty.\]
+    Then one may take
+    \[\varepsilon = \min\!\left(\delta,\, \frac{\alpha}{M_{\alpha,\delta}}\right).\]
+\end{remark}\footnote{In this course, you are only expected to determine \(\varepsilon\) from the theorem, and not to justify the construction further.}
 
-\begin{example}
-    \[\begin{cases}
-        y' = y + 1\\
-        y(0) = 1 = y_0\\
-        t_0 = 0
-    \end{cases}\]
-    \[f(y) = y + 1\]
-    If f is a $C^1$ function, then it is locally Lipschitz in $y$ and the theorem applies.
-    \[f : D \to \mathbb{R}, D = \mathbb{R} = (-\infty, +\infty)\]
-    Since $f$ is defined everywhere, then there are no constraints on $\alpha, \delta$.
-    \[D_{\alpha, \delta} = \{(y,t) : ||y - 1|| \leq \alpha, |t - 0| \leq \delta\} \subset \mathbb{R} \times \mathbb{R} | \forall \alpha,\delta > 0\]
-    \[D_{\alpha,\delta} = [1 - \alpha, 1 + \alpha] \times [-\delta, \delta] \subset \mathbb{R} \times \mathbb{R}\]
-    \[M_{\alpha,\delta} = sup_{(y,t) \in D_{\alpha,\delta}} ||f(y,t)y + 1|| = sup_{y \in [1 - \alpha, 1 + \alpha]} ||y + 1|| = 2 + \alpha\]
-    \[\epsilon = min(\delta, \frac{\alpha}{2 + \alpha})\]
-    Pick $\alpha = 1, \delta = 1$
-    \[\epsilon = min(1, \frac{1}{3}) = \frac{1}{3}\]
-    Therefore, there exists a unique solution on the interval $(-\frac{1}{3}, \frac{1}{3})$.
-    Pick $\alpha = 3, \delta = 2$
-    \[\epsilon = min(2, \frac{3}{5}) = \frac{3}{5}\]
-    Therefore, there exists a unique solution on the interval $(-\frac{3}{5}, \frac{3}{5})$.
-    Since there are no constraints on $\alpha, \delta$, we can make $\epsilon$ as large as we want, therefore the solution exists and is unique on $\mathbb{R}$.
-    The "maximal" times interval guaranteed by the theorem of $\exists \& !$ is $J = (-1, 1)$.
-    In chapter 2 we will see that the solution is $y(t) = 2e^t - 1$.
-    In fact the maximal time interval on which the solution is defined is $J_max = \mathbb{R}$
-\end{example}
-\begin{example}
-    \[\begin{cases}
-        y' = y^2\\
-        y(0) = 1
-    \end{cases}\]
-    Let $y \in C^1 \to LLC$, therefore there exists a solution.
-    \[M_{\alpha,\delta} = sup_{y \in [1 - \alpha, 1 + \alpha]} ||y^2|| = (1 + \alpha)^2\]
-    \[\epsilon = min(\delta, \frac{\alpha}{(1 + \alpha)^2})\]
-    \[h(\alpha) = \frac{\alpha}{(1 + \alpha)^2}\]
-    \[h'(\alpha) = \frac{1 - \alpha}{(1 + \alpha)^3}\]
-    \[h'(\alpha) = \frac{1 - \alpha^2}{blablabla} =  0\]
-    Pick $\alpha = 1$, $\delta = 104073$
-    \[\epsilon = \frac{1}{4}\]
-    \(\exists !\) solution on $y : (-\frac{1}{4}, \frac{1}{4}) \to \mathbb{R}$ to the IVP.
-    Chapter 2 will show that the answer is in the form
-    \[y(t) = \frac{1}{1 - t}\]
-    draw a cartesian plane and an exponential function and the asymptote is named the finite time blowup.
-\end{example}
-\begin{example}
-    \[\begin{cases}
-        y' = t^2 +y^2 = f(y,t)\\
-        y(0) = 0
-    \end{cases}\]
-    \[D_{\alpha, \delta} = [-\alpha, \alpha] \times [-\delta, \delta]\]
-    \[M_{\alpha, \delta} = sup_{(y,t) \in D_{\alpha, \delta}} |t^2 + y^2| = \delta^2 + \alpha^2\]
-    \[\epsilon = min(\delta, \frac{\alpha}{\delta^2 + \alpha^2})\]
-    Pick $\alpha = 10^{12}, \delta = 1$
-    \[\epsilon = min(1, \frac{10^{12}}{1 + 10^{24}}) = \frac{10^{12}}{1 + 10^{24}} \approx 0\]
-\end{example}
-\begin{example}[LLC matters]
-    \[\begin{cases}
-        y' = 3y^{\frac{2}{3}}\\
-        y(0) = 0
-    \end{cases}\]
-    \[y(t) = 0, \forall y \text{is a solution}\]
-    \[f(y) = 3y^{\frac{2}{3}}\]
-    \[f'(y) = 2y^{-\frac{1}{3}}\]
-    This function is not locally Lipschitz continuous at \(y = 0\).
-    In chapter 2, we will learn how to solve this separable ODE (assuming $y \neq 0$) we will get $y_2(t) = \begin{cases}
-        t^3, t \geq 0\\
-        0, t < 0
-    \end{cases}$.
-    \[y_2' = \frac{d}{dt}(t^3) = 3t^2 = 3(y_2(t))^{\frac{2}{3}}\]
-    The solution is not unique.
-\end{example}
+\begin{problem}[Existence and Uniqueness Theorem]
+    Consider the initial value problem
+    \[\begin{cases}y' = y + 1, \\ y(0) = 1,\end{cases} \qquad \text{with } t_0 = 0,\; y_0 = 1.\]
+    Use the Existence and Uniqueness Theorem to determine an interval on which a unique solution is guaranteed to exist. Compute \(\varepsilon\) explicitly using the theorem.
+\end{problem}
+\begin{problem}[Existence and Uniqueness Theorem 2]
+    Consider the initial value problem
+    \[\begin{cases}y' = y + 1, \\ y(0) = 1,\end{cases} \qquad t_0 = 0,\; y_0 = 1.\]
+    Use the Existence and Uniqueness Theorem to determine an interval on which a unique solution is guaranteed to exist.
+\end{problem}
+\begin{problem}[Existence and Uniqueness Theorem 3]
+    Consider the initial value problem
+    \[\begin{cases}y' = y^2, \\ y(0) = 1.\end{cases}\]
+    Use the Existence and Uniqueness Theorem to estimate an interval of existence.
+\end{problem}
+\begin{problem}[Existence and Uniqueness Theorem 4]
+    Consider the initial value problem
+    \[\begin{cases}y' = t^2 + y^2, \\ y(0) = 0.\end{cases}\]
+    Use the Existence and Uniqueness Theorem to estimate \(\varepsilon\).
+\end{problem}
+\begin{problem}[LLC]
+    Consider the initial value problem
+    \[\begin{cases}y' = 3y^{2/3}, \\ y(0) = 0.\end{cases}\]
+    Investigate existence and uniqueness.
+\end{problem}
 
 \section{First-Order Scalar Equation}
 \marginpar{January 22, 2026}
@@ -838,6 +699,99 @@ An integral curve is a geometric object that contains (possibly many) solutions.
         \end{itemize}
         \item Since $f$ is continuous and locally Lipschitz in $y$, and since $y(1) = 0$ with $0 \in \mathbb{R}$, the Existence and Uniqueness Theorem guarantees that there exists an open interval $J$ containing $t = 1$ on which a solution exists, and this solution is unique on $J$.
     \end{enumerate}
+\end{solution}
+\begin{solution}[Existence and Uniqueness Theorem]
+    We write
+    \[f(y,t) = y + 1.\]
+    Since \(f\) is a \(C^1\) function, it is locally Lipschitz in \(y\), and the Existence and Uniqueness Theorem applies.
+    The domain is
+    \[f : D \to \mathbb{R}, \qquad D = \mathbb{R} = (-\infty, +\infty).\]
+    Since \(f\) is defined everywhere, there are no constraints on \(\alpha\) and \(\delta\).
+    Define
+    \[D_{\alpha,\delta} = \{(y,t) : \|y-1\| \le \alpha,\ |t-0| \le \delta\} = [1-\alpha,\,1+\alpha] \times [-\delta,\,\delta] \subset \mathbb{R} \times \mathbb{R}.\]
+    Then
+    \[M_{\alpha,\delta} = \sup_{(y,t)\in D_{\alpha,\delta}} \|f(y,t)\| = \sup_{y\in[1-\alpha,\,1+\alpha]} |y+1| = 2+\alpha.\]
+    The theorem allows us to take
+    \[\varepsilon = \min\!\left(\delta,\, \frac{\alpha}{2+\alpha}\right).\]
+    Pick \(\alpha = 1\), \(\delta = 1\):
+    \[\varepsilon = \min\!\left(1,\, \frac{1}{3}\right) = \frac{1}{3}.\]
+    Therefore, there exists a unique solution on \(\left(-\frac{1}{3},\, \frac{1}{3}\right)\).
+    Pick \(\alpha = 3\), \(\delta = 2\):
+    \[\varepsilon = \min\!\left(2,\, \frac{3}{5}\right) = \frac{3}{5}.\]
+    Therefore, there exists a unique solution on \(\left(-\frac{3}{5},\, \frac{3}{5}\right)\).
+    Since there are no constraints on \(\alpha\) and \(\delta\), we can make \(\varepsilon\) as large as we want. Hence, the solution exists and is unique on \(\mathbb{R}\).
+    The “maximal” time interval guaranteed by the Existence and Uniqueness Theorem is
+    \[J = (-1,1).\]
+    In Chapter 2 we will see that the explicit solution is
+    \[y(t) = 2e^t - 1.\]
+    In fact, the maximal interval on which the solution is defined is
+    \[J_{\max} = \mathbb{R}.\]
+\end{solution}
+\begin{solution}[Existence and Uniqueness Theorem 2]
+    We write
+    \[f(y,t) = y + 1.\]
+    Since \(f\) is a \(C^1\) function, it is locally Lipschitz in \(y\), and the theorem applies.
+    The domain is
+    \[f : D \to \mathbb{R}, \qquad D = \mathbb{R} = (-\infty, +\infty).\]
+    Since \(f\) is defined everywhere, there are no constraints on \(\alpha\) and \(\delta\).
+    Define
+    \[D_{\alpha,\delta} = \{(y,t) : \|y-1\| \le \alpha,\ |t-0| \le \delta\} = [1-\alpha,\,1+\alpha] \times [-\delta,\,\delta] \subset \mathbb{R} \times \mathbb{R}.\]
+    Then
+    \[M_{\alpha,\delta} = \sup_{(y,t)\in D_{\alpha,\delta}} |f(y,t)| = \sup_{y\in[1-\alpha,\,1+\alpha]} |y+1| = 2+\alpha.\]
+    Hence,
+    \[\varepsilon = \min\!\left(\delta,\, \frac{\alpha}{2+\alpha}\right).\]
+    Pick \(\alpha = 1\), \(\delta = 1\):
+    \[\varepsilon = \frac{1}{3},\]
+    so a unique solution exists on \(\left(-\frac{1}{3},\,\frac{1}{3}\right)\).
+    Pick \(\alpha = 3\), \(\delta = 2\):
+    \[\varepsilon = \frac{3}{5},\]
+    so a unique solution exists on \(\left(-\frac{3}{5},\,\frac{3}{5}\right)\).
+    Since there are no constraints on \(\alpha,\delta\), \(\varepsilon\) can be made arbitrarily large. Therefore, the solution exists and is unique on \(\mathbb{R}\).
+    The “maximal” interval guaranteed by the theorem is \(J = (-1,1)\).
+    In Chapter 2, we will see the explicit solution is
+    \[y(t) = 2e^t - 1.\]
+    In fact, the maximal interval of existence is
+    \[J_{\max} = \mathbb{R}.\]
+\end{solution}
+\begin{solution}[Existence and Uniqueness Theorem 3]
+    Since \(f(y)=y^2\) is \(C^1\), it is locally Lipschitz, so a solution exists and is unique locally.
+    On \(D_{\alpha,\delta} = [1-\alpha,\,1+\alpha] \times [-\delta,\,\delta]\),
+    \[M_{\alpha,\delta} = \sup_{y \in [1-\alpha,\,1+\alpha]} |y^2| = (1+\alpha)^2.\]
+    Thus,
+    \[\varepsilon = \min\!\left(\delta,\, \frac{\alpha}{(1+\alpha)^2}\right).\]
+    Define
+    \[h(\alpha) = \frac{\alpha}{(1+\alpha)^2}, \qquad h'(\alpha) = \frac{1-\alpha}{(1+\alpha)^3}.\]
+    Setting \(h'(\alpha)=0\) gives \(\alpha=1\).
+    Pick \(\alpha=1\), \(\delta = 104073\):
+    \[\varepsilon = \frac{1}{4}.\]
+    Therefore, there exists a unique solution
+    \[y : \left(-\frac14,\,\frac14\right) \to \mathbb{R}.\]
+    Chapter 2 will show the solution is
+    \[y(t) = \frac{1}{1-t}.\]
+    The vertical asymptote illustrates finite-time blow-up.
+\end{solution}
+\begin{solution}[Existence and Uniqueness Theorem 4]
+    On
+    \[D_{\alpha,\delta} = [-\alpha,\alpha] \times [-\delta,\delta],\]
+    we have
+    \[M_{\alpha,\delta} = \sup_{(y,t)\in D_{\alpha,\delta}} |t^2 + y^2| = \delta^2 + \alpha^2.\]
+    Hence,
+    \[\varepsilon = \min\!\left(\delta,\, \frac{\alpha}{\delta^2+\alpha^2}\right).\]
+    Pick \(\alpha = 10^{12}\), \(\delta = 1\):
+    \[\varepsilon = \min\!\left(1,\, \frac{10^{12}}{1+10^{24}}\right) = \frac{10^{12}}{1+10^{24}} \approx 0.\]
+\end{solution}
+\begin{solution}[LLC]
+    We have
+    \[f(y) = 3y^{2/3}, \qquad f'(y) = 2y^{-1/3}.\]
+    This derivative is not bounded near \(y=0\), so \(f\) is not locally Lipschitz at \(y=0\).
+    The function
+    \[y_1(t) = 0\]
+    is a solution.
+    In Chapter 2, solving the separable equation (assuming \(y \neq 0\)) gives another solution
+    \[y_2(t) = \begin{cases}t^3, & t \ge 0, \\ 0, & t < 0.\end{cases}\]
+    Indeed,
+    \[y_2'(t) = 3t^2 = 3(y_2(t))^{2/3}.\]
+    Thus, the solution is not unique.
 \end{solution}
 
 \section{Appendix}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  27 JAN 2026 21:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  27 JAN 2026 22:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -586,31 +586,31 @@ Underfull \hbox (badness 10000) in paragraph at lines 263--263
  []
 
 [7] [8] [9]
-Underfull \hbox (badness 10000) in paragraph at lines 421--421
+Underfull \hbox (badness 10000) in paragraph at lines 387--387
 []\OT1/cmr/m/n/10 January 15,
  []
 
 [10] [11] [12]
-Underfull \hbox (badness 10000) in paragraph at lines 543--543
+Underfull \hbox (badness 10000) in paragraph at lines 448--448
 []\OT1/cmr/m/n/10 January 20,
  []
 
-[13] [14]
-Underfull \hbox (badness 10000) in paragraph at lines 630--630
+[13]
+Underfull \hbox (badness 10000) in paragraph at lines 491--491
 []\OT1/cmr/m/n/10 January 22,
  []
 
-[15] [16] [17]
-Overfull \hbox (0.94116pt too wide) in paragraph at lines 727--728
+[14] [15] [16]
+Overfull \hbox (0.94116pt too wide) in paragraph at lines 588--589
 []\OT1/cmr/m/it/10 Draw graph with thresh-old 5000, and two ex-po-nen-tials ap-proach-ing the thresh-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 731--731
+Underfull \hbox (badness 10000) in paragraph at lines 592--592
 []\OT1/cmr/m/n/10 January 27,
  []
 
-[18] [19] [20] [21] [22] [23] (Math325.aux)
+[17] [18] [19] [20] [21] [22] [23] [24] (Math325.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
@@ -619,17 +619,17 @@ Package rerunfilecheck Info: File `Math325.out' has not changed.
 (rerunfilecheck)             Checksum: 21B1B5EE8DFB03E2B78249066E69BFC7;4920.
  ) 
 Here is how much of TeX's memory you used:
- 30818 strings out of 467871
- 727004 string characters out of 5418377
+ 30832 strings out of 467871
+ 727136 string characters out of 5418377
  1265149 words of memory out of 5000000
  59117 multiletter control sequences out of 15000+600000
  640216 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,8n,118p,812b,649s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\erenr\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Math325.pdf (25 pages, 432436 bytes).
+Output written on Math325.pdf (26 pages, 441345 bytes).
 PDF statistics:
- 469 PDF objects out of 1000 (max. 8388607)
- 102 named destinations out of 1000 (max. 500000)
+ 491 PDF objects out of 1000 (max. 8388607)
+ 116 named destinations out of 1000 (max. 500000)
  245 words of extra memory for PDF output out of 10000 (max. 10000000)
 
