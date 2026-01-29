@@ -36,11 +36,12 @@
 \contentsline {subsubsection}{\numberline {4.4.1}General Method for Separable Equations}{17}{subsubsection.4.4.1}%
 \contentsline {subsubsection}{\numberline {4.4.2}Potential Functions and Integral Curves}{18}{subsubsection.4.4.2}%
 \contentsline {subsection}{\numberline {4.5}Exact Equations}{20}{subsection.4.5}%
-\contentsline {section}{\numberline {5}Systems of Linear Equations}{20}{section.5}%
-\contentsline {section}{\numberline {6}Second and Higher-Order Scalar Linear Equations}{20}{section.6}%
-\contentsline {section}{\numberline {7}Stability, Phase Portraits and Orbits}{20}{section.7}%
-\contentsline {section}{\numberline {8}Laplace Transform}{20}{section.8}%
-\contentsline {section}{\numberline {9}Power Series Solutions and Numerical Methods}{20}{section.9}%
-\contentsline {section}{\numberline {10}Solutions}{20}{section.10}%
-\contentsline {section}{\numberline {11}Appendix}{23}{section.11}%
-\contentsline {section}{\numberline {12}Useful Links}{24}{section.12}%
+\contentsline {subsection}{\numberline {4.6}Integrating Factors for Exact Equations}{21}{subsection.4.6}%
+\contentsline {section}{\numberline {5}Systems of Linear Equations}{22}{section.5}%
+\contentsline {section}{\numberline {6}Second and Higher-Order Scalar Linear Equations}{22}{section.6}%
+\contentsline {section}{\numberline {7}Stability, Phase Portraits and Orbits}{22}{section.7}%
+\contentsline {section}{\numberline {8}Laplace Transform}{22}{section.8}%
+\contentsline {section}{\numberline {9}Power Series Solutions and Numerical Methods}{22}{section.9}%
+\contentsline {section}{\numberline {10}Solutions}{22}{section.10}%
+\contentsline {section}{\numberline {11}Appendix}{25}{section.11}%
+\contentsline {section}{\numberline {12}Useful Links}{26}{section.12}%

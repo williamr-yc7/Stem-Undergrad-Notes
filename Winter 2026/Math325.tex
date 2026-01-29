@@ -486,7 +486,7 @@ To see the proof, refer to (\textbf{\ref{pf:picard-convergence}}).
 \marginpar{January 22, 2026}
 A first-order scalar differential equation has the form
 \[y' = f(y,t) \in \mathbb{R} \quad (n=1)\]
-\subsection{First order linear equations}%to organize
+\subsection{First order linear equations}
 \begin{definition}[First Order Linear Equation]
     A first-order linear equation is
     \[a_0(t)y' + a_1(t)y = g(t),\]
@@ -676,17 +676,62 @@ and in the separable case,
     \[y(x) = \sqrt{4 - x^2}, \quad J_\text{max} = (-2,2).\]
 \end{example}
 
-\subsection{Exact Equations}
+\subsection{Exact Equations}%to organize
 \marginpar{January 29, 2026}
-
-\[M(x,y) + N(x,y)\frac{dy}{dx} = 0\]
+\begin{equation}
+    \label{figureoutanamelater}
+    M(x,y) + N(x,y)\frac{dy}{dx} = 0
+\end{equation}
 Define $\frac{dy}{dx} = f(x,y)$, where $f(x,y) = -\frac{M(x,y)}{N(x,y)}$.
-\begin{definition}
-    The ODE is exact if there exists a potential function $\Psi(x,y)$ such that $M(x,y) = \frac{\partial \Psi}{\partial x}(x,y)$ and $N(x,y) = \frac{\partial \Psi}{\partial y}(x,y)$.
+\begin{definition}[Exact Equation]
+    The ODE is exact in a domain $D$ if there exists a potential function $\Psi(x,y)$ such that $M(x,y) = \frac{\partial \Psi}{\partial x}(x,y), \quad \forall (x,y) \in D$ and $N(x,y) = \frac{\partial \Psi}{\partial y}(x,y)$.
     Of the ODE is exact, then it can be re-written as
-    \[\frac{\partial \Psi}{\partial x} + \frac{\partial \Psi}{\partial y}\frac{dy}{dx} = 0.\]
+    \[\frac{\partial \Psi}{\partial x} + \frac{\partial \Psi}{\partial y}\frac{dy}{dx} = 0 \Longleftrightarrow \frac{d}{dx}(\Psi(x,y(x))) = 0.\]
+    General solution: $\Psi(x,y) = C$.
 \end{definition}
-
+\begin{theorem}
+    Let $D \subset \mathbb{R}^2$ be an open simply connected (no holes) domain in the plane. Assume that $M,N$ $M_y = \frac{\partial M}{\partial y}$, $N_x = \frac{\partial N}{\partial x}$ are continuous on $D$. The ODE \ref{figureoutanamelater} is exact in $D \Longleftrightarrow M_y(x,y) = Nx(x,y), \quad \forall(x,y) \in D$.
+\end{theorem}
+\begin{proof}
+    ($\Longrightarrow$) The ODE is exact $\implies \exists$ potential function $\Psi$ such that $M = \Psi_x, N = \Psi_y$.
+    \[\implies M_y = \frac{\partial M}{\partial y} = \frac{\partial}{\partial y}(\Psi_x) = \frac{\partial^2 \Psi}{\partial y \partial x}\]
+    \[N_x = \frac{\partial N}{\partial x} = \frac{\partial^2 \Psi}{\partial x \partial y}\].
+    ($\Longleftarrow$) See the notes when $D$ is an open rectangle. The proof for general simply connected domains is more involved.
+\end{proof}
+\begin{example}
+    \[ycos(x) + 2xe^y + (sin(x) + x^2e^y-1)\frac{dy}{dx} = 0\]
+    \[M(x,y) = ycos(x) + 2xe^y\]
+    \[N(x,y) = sin(x) + x^2e^y - 1\]
+    Here, $M,N,M_y,N_x$ are continuous on $D = \mathbb{R}^2$ (open simply connected).
+    \[M_y = cos(x) + 2xe^y = N_x = cos(x) + 2xe^y \implies \text{ODE is exact}\]
+    By the theorem, $\exists \Psi$ such that $M = \Psi_x$ (E1) and $N = \Psi_y$ (E2).
+    Using (E1) first $\implies \Psi(x,y) = \int M(x,y)dx + c(y)$, where $c$ is the constant of integration that possibly depends on $y$.
+    \[= \int ycos(x) + 2xe^ydx + c(y)\]
+    \[= ysinx + 2xe^y + c(y)\]
+    Using (E2):
+    \[\frac{\partial \Psi}{\partial y} = \frac{\partial}{\partial y}(ysinx + 2xe^y + c(y)) = N(x,y) = sin(x) + x^2e^y - 1\]
+    \[\implies c'(y) = -1\]
+    \[\implies c(y) = -y \implies \Psi(x,y) = ysinx + 2xe^y - y [\text{Potential Function, where} \Psi(x,y) = C \text{is a general solution}].\]
+    Starting with E2 instead:
+    \[\Psi(x,y) = \int N(x,y)dy + c(x) = ysin(x) + x^2e^y - y + c(x)\]
+    Now using E1:
+    \[\Psi_x = ycos(x) + 2xe^y + c'(x) = M = ycos(x) + 2xe^y \implies c'(x) = 0, \quad c(x) = 0\]
+    \[\implies \Psi(x,y) = ysin(x) + x^2e^y - y.\]
+\end{example}
+\begin{remark}
+    Separable equations are exact over simply connected domains.
+\end{remark}
+\[M(x) + N(y)\frac{dy}{dx} = 0\]
+\[M_y = \frac{\partial}{\partial y}(M(x)) = 0 = \frac{\partial}{\partial x}(N(y)) = N_x\]
+\subsection{Integrating Factors for Exact Equations}
+Assume that $M(x,y) + N(x,y)\frac{dy}{dx} = 0$ is not exact. Let us multiply that ODE by a function $\mu(x,y)$ (the integrating factor):
+\[\mu(x,y)M(x,y) + \mu(x,y)N(x,y)\frac{dy}{dx} = 0 \tag{*2}\]
+Equation (*2) is exact if $(\mu M)_y = (\mu N)_x, \quad \mu_yM + \mu M_y = \mu_xN + \mu N_x$(*3).
+Goal: Find $\mu(x,y)$ such that (*3) holds, but this is a PDE ;-;.
+If $\mu = \mu(x)$, then $\mu_y = 0$. (*3) becomes
+\[\mu M_y = \frac{d\mu}{dx}N + \mu N_x\]
+\[\Longleftrightarrow \frac{d\mu}{dx} = \mu \frac{(N_x - M_y)}{N} \tag{*4}\]
+If $\frac{N_x - M_y}{N}$ only depends on x, we can solve the separable equation (*4), find $\mu(x)$, then solve the exact ODE (*2).
 
 \section{Systems of Linear Equations}
 \section{Second and Higher-Order Scalar Linear Equations}
