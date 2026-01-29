@@ -591,7 +591,6 @@ This theorem guarantees that any first-order linear equation we solve, including
     This ODE is not separable because it is not in the form \(f_1(x)f_2(y)\).
 \end{example}
 
-\subsubsection{General Method and Implicit Solutions}
 \subsubsection{General Method for Separable Equations}
 Defining the general form of a separable ODE to be
 \[\frac{dy}{dx} = f_1(x)f_2(y).\]
@@ -677,7 +676,16 @@ and in the separable case,
     \[y(x) = \sqrt{4 - x^2}, \quad J_\text{max} = (-2,2).\]
 \end{example}
 
+\subsection{Exact Equations}
+\marginpar{January 29, 2026}
 
+\[M(x,y) + N(x,y)\frac{dy}{dx} = 0\]
+Define $\frac{dy}{dx} = f(x,y)$, where $f(x,y) = -\frac{M(x,y)}{N(x,y)}$.
+\begin{definition}
+    The ODE is exact if there exists a potential function $\Psi(x,y)$ such that $M(x,y) = \frac{\partial \Psi}{\partial x}(x,y)$ and $N(x,y) = \frac{\partial \Psi}{\partial y}(x,y)$.
+    Of the ODE is exact, then it can be re-written as
+    \[\frac{\partial \Psi}{\partial x} + \frac{\partial \Psi}{\partial y}\frac{dy}{dx} = 0.\]
+\end{definition}
 
 
 \section{Systems of Linear Equations}
