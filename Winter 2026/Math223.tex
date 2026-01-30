@@ -902,6 +902,73 @@ $dim_kV =$ min $n$ such that $V = span_k(v_1,\ldots,v_n)$.
     If $b_2 = 0$. $v_1 = \begin{pmatrix}a_1\\0\\0\end{pmatrix}, \quad v_2 = \begin{pmatrix}b_1\\0\\0\end{pmatrix}$. Answer: LD.
 \end{example}
 
+\subsection{Basis}%to organize
+\marginpar{January 30, 2026}
+\begin{definition}
+    $(v_1,\ldots,v_n)$ basis if and only if it spans \(V\) and is linearly independent.
+\end{definition}
+\begin{example}
+    \[e_1 = \begin{pmatrix}1\\0\\0\end{pmatrix}, \quad e_2 = \begin{pmatrix}0\\1\\0\end{pmatrix}, \quad e_3 = \begin{pmatrix}0\\0\\1\end{pmatrix}.\]
+    are basis of $\mathbb{R}^3$.
+\end{example}
+\begin{proof}
+    Prove it is a spanning set.
+    Span: Let $v = \begin{pmatrix}x\\y\\z\end{pmatrix} \in \mathbb{R}^3$. Prove $v =$ linear combination of $e_1, e_2, e_3$.
+    \[v = \begin{pmatrix}x\\y\\z\end{pmatrix} = x\begin{pmatrix}1\\0\\0\end{pmatrix} + y\begin{pmatrix}0\\1\\0\end{pmatrix} + z\begin{pmatrix}0\\0\\1\end{pmatrix} = xe_1 + ye_2 + ze_3\]
+    LI:
+    \[xe_1 + ye_2 + ze_3 = 0 \implies x = y = z = 0.\]
+\end{proof}
+\begin{example}
+    All standard basis are basis in the same span + LI.
+    \begin{itemize}
+        \item $\mathbb{R}^n (e_1, \ldots, e_n)$
+        \item $M_n(k) e_{ij}$
+        \item $P_n(k) 1,x,\ldots,x^{n}$
+        \item $F(D)$ D finite $\{\delta_x, x \in D\}$
+    \end{itemize}
+\end{example}
+for $\mathbb{R}^3$, and $v_1,\ldots,v_n \in \mathbb{R}^3$:
+If $n < 3$ then $\{v_1,\ldots,v_n\}$ do not span.
+If $n > 3$ then $\{v_1,\ldots,v_n\}$ are not LI.
+\begin{lemma}
+    $V$ vectorspace, $u_1,\ldots,u_n \in V$, $v_1,\ldots,v_m \in V$. 
+    If $u_1,\ldots,u_n$ span V and $v_1,\ldots,v_m$ are linearly independent $\implies n \geq m$.
+    We can conclude, that a spanning set $\geq$ LI set.
+\end{lemma}
+Main theorem
+\begin{theorem}
+    Let \(V\) be a vector space and $v_1,\ldots,v_n \in v$, the following are equivalent:
+    Basis: (1) $e = (v_1,\ldots,v_n)$ basis (span+LI)
+    Min span: (2) $(v_1,\ldots,v_n)$ span $V$ and $n$ is minimal among all spanning sets.
+    Max LI: (3) $(v_1,\ldots,v_n)$ LI in $V$ and $n$ is maximal among all LI sets.
+    Coordinates: (4) any $v \in V$ can be written in a unique way. $v = x_1v_1 + \ldots + x_nv_n$, another way to write this is:
+    \[[v]_e = \begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix}.\]
+\end{theorem}
+Coronary: Any two basis have the same number of vectors (called the dimension of $V$).
+\begin{proof}
+    Take two basis $(e_1,\ldots,e_n)$ and $(f_1,\ldots,f_n)$ prove $n=m$
+\end{proof}
+\begin{example}
+    Let
+    \[v_1 = \begin{pmatrix}
+        1\\2\\3\\4
+    \end{pmatrix}, v_2 = \begin{pmatrix}
+        0\\1\\2\\3
+    \end{pmatrix}, v_3 = \begin{pmatrix}
+        5\\1\\0\\7
+    \end{pmatrix}, v_4 = \begin{pmatrix}
+        0\\1\\2\\7
+    \end{pmatrix}, v_5 = \begin{pmatrix}
+        0\\-2\\3\\1
+    \end{pmatrix}\]
+    are they LI? LD?
+\end{example}
+\begin{problem}
+    \[v_1,\ldots,v_n = LI\]
+    \[v_{n+1} \notin span(v_1,\ldots,v_n)\]
+    \[\implies v_1,\ldots,v_{n+1} = LI\]
+\end{problem}
+
 
 \section{Appendix}
 
