@@ -243,22 +243,22 @@ The \(n^{\text{th}}\) roots of unity are the solutions of a special case where $
     Geometrically, they lie on the unit circle and are equally spaced.
 \end{example}
 
-\section{Basic Algebraic structures}
-\subsection{Sets with Multiplication}
+\subsection{Basic Algebraic structures}
+\subsubsection{Sets with Multiplication}
 \begin{definition}[Set with multiplication]
 A set $M$ is called a set with multiplication if you can multiply any two elements of $M$, and the result is still in $M$.
 In other words, for any $a,b \in M$, the product $ab$ is also in $M$.
 \end{definition}
 \begin{example}
+    An example of a set with multiplication is the set of all \(2 \times 2\) complex matrices: \(M = M_2(\mathbb{C})\). Another example is the nonzero set of all real numbers \(\mathbb{R}\) with ordinary multiplication: \(\mathbb{R}^* = \mathbb{R} \setminus \{0\}\).
+\end{example}
+\begin{example}
 Let $M = \mathbb{R}$.  
 If $a,b \in \mathbb{R}$, then $ab \in \mathbb{R}$.  
 So the real numbers $\mathbb{R}$ form a set with multiplication.
 \end{example}
-\begin{example}
-    An example of a set with multiplication is the set of all \(2 \times 2\) complex matrices: \(M = M_2(\mathbb{C})\). Another example is the nonzero set of all real numbers \(\mathbb{R}\) with ordinary multiplication: \(\mathbb{R}^* = \mathbb{R} \setminus \{0\}\).
-\end{example}
 
-\subsection{Invertibility}
+\subsubsection{Invertibility}
 \begin{definition}[Condition for Invertibility]
     Let \(A \in M\) be an \(n \times n\) matrix, and suppose that there exists an \(n \times n\) matrix \(B\) such that \(AB = I_n\) or \(BA = I_n\). Where \(I_n\) is the \(n \times n\) identity matrix\footnote{An identity matrix is a square matrix with 1s on its main diagonal and 0s everywhere else. It represents no change in linear transformations, and it's used in finding matrix inverses.}$\begin{bmatrix}1&0&0\\0&\ldots&0\\0&0&1\end{bmatrix}$. Then A is invertible, and \(B\) is called the inverse of \(A\) and is denoted by \(B = A^{-1}\).
 \end{definition}
@@ -286,12 +286,12 @@ To determine if an element \(A\) in a set with multiplication \(M\) is invertibl
     Let \(K\) be a field. Prove that this matrix $\begin{bmatrix}0&1\\0&0\end{bmatrix}$ \(\in M_2(K)\) is not invertible.
 \end{problem}
 
-\subsection{Ring}
-\begin{definition}
+\subsubsection{Ring}
+\begin{definition}[Ring]
 A \textbf{ring} is a set $R$ where you can \textbf{add} and \textbf{multiply} elements, and the following are true:
 
 \begin{enumerate}
-    \item You can add any two elements and stay in $R$. There is a zero, every element has a negative, and addition is commutative and associative.
+    \item You can add any two elements and stay in $R$. There is a zero, every element has a negative, and addition is commutative\footnote{Property which focuses on changing order of addition, i.e $a + b = b + a$.} and associative\footnote{Property which focuses on changing grouping of addition, i.e $a + (b + c) = (a + b) + c$.}.
     \item You can multiply any two elements and stay in $R$. Multiplication is associative, and there is a $1$.
     \item Multiplication distributes over addition:
     \[
@@ -301,18 +301,9 @@ A \textbf{ring} is a set $R$ where you can \textbf{add} and \textbf{multiply} el
 \end{definition}
 The main example of a ring is the set of integers $\mathbb{Z}$.
 
-\subsection{Field}
-\begin{definition}
-    A field is a set of numbers which can be added, subtracted, multiplied, and divided (except for division by zero) in a way that satisfies certain rules. These rules are:
-    \begin{enumerate}
-        \item You can add any two elements and stay in the field. There is a zero, every element has a negative, and addition is commutative\footnote{Property which focuses on changing order of addition, i.e $a + b = b + a$.} and associative\footnote{Property which focuses on changing grouping of addition, i.e $a + (b + c) = (a + b) + c$.}.
-        \item You can multiply any two elements and stay in the field. Multiplication is associative, and there is a 1\footnote{Like literally the number 1.}.
-        \item Multiplication distributes over addition:
-        \[
-        a(b+c) = ab + ac \quad \text{and} \quad (a+b)c = ac + bc.
-        \]
-    \end{enumerate}
-    Examples of fields include the set of real numbers \(\mathbb{R}\) and the set of complex numbers \(\mathbb{C}\).\\
+\subsubsection{Field}
+\begin{definition}[Field]
+    A field is a ring in which every nonzero element has a multiplicative inverse.
 \end{definition}
 \begin{problem}[Field]
     Construct a field with 2 elements.
@@ -510,6 +501,11 @@ satisfying the following axioms:
     \item Distributivity of scalar multiplication over vector addition: \(\lambda(v_1 + v_2) = \lambda v_1 + \lambda v_2\)
     \item Distributivity of scalar multiplication over field addition: \((\lambda + \mu)v = \lambda v + \mu v\)
 \end{enumerate}
+
+\textbf{BASICALLY WHAT TO KNOW IS 3 THINGS: \[
+(1)v_1 + v_2 \in V, \quad \forall v_1,v_2 \in V, \qquad
+(2)\lambda v \in V, \quad \forall v \in V, \ \lambda \in k, (3)\exists 0 \in V
+\]}
 \end{definition}
 
 \begin{example}[Cartesian vector space]
