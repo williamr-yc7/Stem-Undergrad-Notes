@@ -901,104 +901,109 @@ $dim_kV =$ min $n$ such that $V = span_k(v_1,\ldots,v_n)$.
     If $b_2 = 0$. $v_1 = \begin{pmatrix}a_1\\0\\0\end{pmatrix}, \quad v_2 = \begin{pmatrix}b_1\\0\\0\end{pmatrix}$. Answer: LD.
 \end{example}
 
-\subsection{Basis}%to organize
+\subsection{Basis}
 \marginpar{January 30, 2026}
-\begin{definition}
-    $(v_1,\ldots,v_n)$ basis if and only if it spans \(V\) and is linearly independent.
+\begin{definition}[Basis]
+    A list $(v_1,\ldots,v_n)$ in a vector space $V$ is a \textbf{basis} if
+    \begin{enumerate}
+        \item it spans $V$, and
+        \item it is linearly independent.
+    \end{enumerate}
 \end{definition}
-\begin{example}
+\begin{example}[Standard basis of $\mathbb{R}^3$]
     \[e_1 = \begin{pmatrix}1\\0\\0\end{pmatrix}, \quad e_2 = \begin{pmatrix}0\\1\\0\end{pmatrix}, \quad e_3 = \begin{pmatrix}0\\0\\1\end{pmatrix}.\]
-    are basis of $\mathbb{R}^3$.
+    These vectors form a basis of $\mathbb{R}^3$.
 \end{example}
 \begin{proof}
-    Prove it is a spanning set.
-    Span: Let $v = \begin{pmatrix}x\\y\\z\end{pmatrix} \in \mathbb{R}^3$. Prove $v =$ linear combination of $e_1, e_2, e_3$.
-    \[v = \begin{pmatrix}x\\y\\z\end{pmatrix} = x\begin{pmatrix}1\\0\\0\end{pmatrix} + y\begin{pmatrix}0\\1\\0\end{pmatrix} + z\begin{pmatrix}0\\0\\1\end{pmatrix} = xe_1 + ye_2 + ze_3\]
-    LI:
-    \[xe_1 + ye_2 + ze_3 = 0 \implies x = y = z = 0.\]
+    Let $v=\begin{pmatrix}x\\y\\z\end{pmatrix}$. Then
+    \[v = xe_1 + ye_2 + ze_3\]
+    so the set spans $\mathbb{R}^3$.
+    If
+    \[xe_1 + ye_2 + ze_3 = 0 \implies x = y = z = 0,\]
+    hence the vectors are linearly independent.
 \end{proof}
-\begin{example}
-    All standard basis are basis in the same span + LI.
+\begin{proposition}[Common standard bases]
     \begin{itemize}
-        \item $\mathbb{R}^n (e_1, \ldots, e_n)$
-        \item $M_n(k) e_{ij}$
-        \item $P_n(k) 1,x,\ldots,x^{n}$
-        \item $F(D)$ D finite $\{\delta_x, x \in D\}$
+        \item $\mathbb{R}^n$: $(e_1, \ldots, e_n)$
+        \item $M_n(k)$: $e_{ij}$
+        \item $P_n(k)$: $(1,x,\ldots,x^{n})$
+        \item $F(D)$ for finite $D$: $\{\delta_x, x \in D\}$
     \end{itemize}
-\end{example}
-for $\mathbb{R}^3$, and $v_1,\ldots,v_n \in \mathbb{R}^3$:
-If $n < 3$ then $\{v_1,\ldots,v_n\}$ do not span.
-If $n > 3$ then $\{v_1,\ldots,v_n\}$ are not LI.
+\end{proposition}
+
+\subsubsection{Size of spanning and independent sets}
+For $(v_1,\ldots,v_n) \in \mathbb{R}^3$:
+\begin{itemize}
+    \item If $n < 3$ then the vectors cannot span $\mathbb{R}^3$.
+    \item If $n > 3$ then the vectors cannot be linearly independent.
+\end{itemize}
 \begin{lemma}
-    $V$ vectorspace, $u_1,\ldots,u_n \in V$, $v_1,\ldots,v_m \in V$. 
-    If $u_1,\ldots,u_n$ span V and $v_1,\ldots,v_m$ are linearly independent $\implies n \geq m$.
+    If $u_1,\ldots,u_n$ span $V$ and $v_1,\ldots,v_m$ are linearly independent in $V$, then
+    \[n \geq m.\]
     We can conclude, that a spanning set $\geq$ LI set.
 \end{lemma}
-Main theorem
-\begin{theorem}
-    Let \(V\) be a vector space and $v_1,\ldots,v_n \in v$, the following are equivalent:
-    Basis: (1) $e = (v_1,\ldots,v_n)$ basis (span+LI)
-    Min span: (2) $(v_1,\ldots,v_n)$ span $V$ and $n$ is minimal among all spanning sets.
-    Max LI: (3) $(v_1,\ldots,v_n)$ LI in $V$ and $n$ is maximal among all LI sets.
-    Coordinates: (4) any $v \in V$ can be written in a unique way. $v = x_1v_1 + \ldots + x_nv_n$, another way to write this is:
-    \[[v]_e = \begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix}.\]
-\end{theorem}
-Coronary: Any two basis have the same number of vectors (called the dimension of $V$).
-\begin{proof}
-    Take two basis $(e_1,\ldots,e_n)$ and $(f_1,\ldots,f_n)$ prove $n=m$
-\end{proof}
-\begin{example}
-    Let
-    \[v_1 = \begin{pmatrix}
-        1\\2\\3\\4
-    \end{pmatrix}, v_2 = \begin{pmatrix}
-        0\\1\\2\\3
-    \end{pmatrix}, v_3 = \begin{pmatrix}
-        5\\1\\0\\7
-    \end{pmatrix}, v_4 = \begin{pmatrix}
-        0\\1\\2\\7
-    \end{pmatrix}, v_5 = \begin{pmatrix}
-        0\\-2\\3\\1
-    \end{pmatrix}\]
-    are they LI? LD?
-\end{example}
-\begin{problem}
-    \[v_1,\ldots,v_n = LI\]
-    \[v_{n+1} \notin span(v_1,\ldots,v_n)\]
-    \[\implies v_1,\ldots,v_{n+1} = LI\]
-\end{problem}
-
-\marginpar{February 2, 2026}%to organize
-\begin{theorem}[Basis]
-    TFAE for $(v_1,\ldots,v_n)$ in $V$:
+\subsubsection{Characterizations of a basis}
+\begin{theorem}[Equivalent Conditions]
+    Let $(v_1,\ldots,v_n)$ be vectors in $V$. The following are equivalent:
     \begin{enumerate}
-        \item Basis = span + LI
-        \item Min span = spanning set $(v_1,\ldots,v_n)$, n minimal
-        \item Max LI = LI set $(v_1,\ldots,v_n)$, n maximal
-        \item Coordinates
-    \end{enumerate}    
+        \item Basis: $(v_1,\ldots,v_n)$ is a basis.
+        \item Minimal span: It spans $V$ and $n$ is minimal among spanning sets.
+        \item Maximal LI: It is linearly independent and $n$ is maximal among independent sets.
+        \item Coordinates: Every $v\in V$ has a unique representation. \[v = x_1v_1 + \cdots + x_nv_n.\]
+    \end{enumerate}
+    The vector
+    \[[v]_e = \begin{pmatrix}x_1\\ \vdots \\ x_n\end{pmatrix}\]
+    is called the coordinate vector of $v$.
 \end{theorem}
-How to find a basis: Let $(v_1,\ldots,v_n)$ BE VECTORS IN $k^n$. Find a basis of $span(v_1,\ldots,v_n)$.
-Row space algorithm:
+\begin{corollary}
+    Any two bases of $V$ have the same number of vectors.  
+    This number is the dimension of $V$.
+\end{corollary}
+\begin{proof}
+    Let $(e_1,\ldots,e_n)$ and $(f_1,\ldots,f_m)$ be bases.
+    Since one spans and the other is linearly independent, the lemma gives
+    $n \geq m$ and $m \geq n$, hence $n=m$.
+\end{proof}
+
+%below is not organized
+\marginpar{February 2, 2026}
+\subsubsection{Finding a Basis}
+Let $(v_1,\ldots,v_n) \in k^m$ and set $U=\operatorname{span}(v_1,\ldots,v_n)$.
 \begin{enumerate}
-    \item Write vectors as row in a matrix A.
-    \item Gaussian algorithm $\to$ Echele form B.
-    \item Rows of B = basis of U
+    \item Put the vectors as rows of a matrix $A$.
+    \item Row reduce $A$ to echelon form $B$.
+    \item The nonzero rows of $B$ form a basis of $U$.
 \end{enumerate}
-How to prove a set $(v_1,\ldots,v_n)$ of vectors in $K^n$ is a basis? S vectors in $\mathbb{R}^5$
-Solution 1: Apply row space alg. Find the dimension of $U = span(v_1,\ldots,v_n)$. $(v_1,\ldots,v_n)$ basis $\iff dimU = n$.
-Solution 2: (Apply main basis theorem) Prove span or LI. Prop: $(v_1,\ldots,v_n)$ in $V$ where $dimV = n$ TFAE:
-\begin{enumerate}
-    \item $(v_1,\ldots,v_n)$ form a basis (span + LI)
-    \item $(v_1,\ldots,v_n)$ span
-    \item $(v_1,\ldots,v_n)$ LI
-\end{enumerate}
-Proof of $(1) \iff (2)$:
-$(1) \implies (2)$: basis $\implies$ spanning obvious.
-$(2) \implies (1)$: Suppose $(v_1,\ldots,v_n)$ is a spanning set, assuming $dim V = n$ Prove $(v_1,\ldots,v_n)$ basis = Prove span + LI. Only need prove LI.
-Prof of LI: spanning set of $n = dim V$ vectors $\implies$ this is a minimal ($\implies LI$) spanning set
-Theorem (transfer theorem): $\begin{cases}u_1,\ldots,u_n span V\\ v_1,\ldots,v_n LI\end{cases} \implies$ both are Basis
-$u_i = X^i$ span $P_n$, $v_i = (x-a)^i$ LI $\implies$ both are basis.
+\paragraph{1. Proving a set of vectors is a Basis}
+Let $V$ be finite dimensional.
+
+\textbf{Method 1 (dimension test).}
+\[(v_1,\ldots,v_n)\text{ is a basis} \iff \dim(\operatorname{span}(v_1,\ldots,v_n)) = n.\]
+Compute the dimension using row reduction.
+
+\textbf{Method 2 (basis criterion when $\dim V=n$).}
+\begin{proposition}
+    Let $\dim V=n$ and $v_1,\ldots,v_n\in V$. The following are equivalent:
+    \begin{enumerate}
+        \item $(v_1,\ldots,v_n)$ is a basis,
+        \item $(v_1,\ldots,v_n)$ spans $V$,
+        \item $(v_1,\ldots,v_n)$ is linearly independent.
+    \end{enumerate}
+\end{proposition}
+\begin{proof}[Idea]
+    A spanning set of $n=\dim V$ vectors is minimal, hence linearly independent.
+    An independent set of $n$ vectors is maximal, hence spans.
+\end{proof}
+
+\paragraph{2. Transfer (exchange) principle}
+If
+\[u_1,\ldots,u_n \text{ span } V \quad\text{and}\quad v_1,\ldots,v_n \text{ are linearly independent},\]
+then both lists are bases of $V$.
+\begin{example}
+    In $P_n$,
+    \[(1,x,\ldots,x^n) \text{ spans}, \qquad ((x-a)^0,\ldots,(x-a)^n)\text{ is LI},\]
+    so both are bases.
+\end{example}
 
 
 \section{Appendix}
