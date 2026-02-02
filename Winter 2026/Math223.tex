@@ -968,6 +968,38 @@ Coronary: Any two basis have the same number of vectors (called the dimension of
     \[\implies v_1,\ldots,v_{n+1} = LI\]
 \end{problem}
 
+\marginpar{February 2, 2026}%to organize
+\begin{theorem}[Basis]
+    TFAE for $(v_1,\ldots,v_n)$ in $V$:
+    \begin{enumerate}
+        \item Basis = span + LI
+        \item Min span = spanning set $(v_1,\ldots,v_n)$, n minimal
+        \item Max LI = LI set $(v_1,\ldots,v_n)$, n maximal
+        \item Coordinates
+    \end{enumerate}    
+\end{theorem}
+How to find a basis: Let $(v_1,\ldots,v_n)$ BE VECTORS IN $k^n$. Find a basis of $span(v_1,\ldots,v_n)$.
+Row space algorithm:
+\begin{enumerate}
+    \item Write vectors as row in a matrix A.
+    \item Gaussian algorithm $\to$ Echele form B.
+    \item Rows of B = basis of U
+\end{enumerate}
+How to prove a set $(v_1,\ldots,v_n)$ of vectors in $K^n$ is a basis? S vectors in $\mathbb{R}^5$
+Solution 1: Apply row space alg. Find the dimension of $U = span(v_1,\ldots,v_n)$. $(v_1,\ldots,v_n)$ basis $\iff dimU = n$.
+Solution 2: (Apply main basis theorem) Prove span or LI. Prop: $(v_1,\ldots,v_n)$ in $V$ where $dimV = n$ TFAE:
+\begin{enumerate}
+    \item $(v_1,\ldots,v_n)$ form a basis (span + LI)
+    \item $(v_1,\ldots,v_n)$ span
+    \item $(v_1,\ldots,v_n)$ LI
+\end{enumerate}
+Proof of $(1) \iff (2)$:
+$(1) \implies (2)$: basis $\implies$ spanning obvious.
+$(2) \implies (1)$: Suppose $(v_1,\ldots,v_n)$ is a spanning set, assuming $dim V = n$ Prove $(v_1,\ldots,v_n)$ basis = Prove span + LI. Only need prove LI.
+Prof of LI: spanning set of $n = dim V$ vectors $\implies$ this is a minimal ($\implies LI$) spanning set
+Theorem (transfer theorem): $\begin{cases}u_1,\ldots,u_n span V\\ v_1,\ldots,v_n LI\end{cases} \implies$ both are Basis
+$u_i = X^i$ span $P_n$, $v_i = (x-a)^i$ LI $\implies$ both are basis.
+
 
 \section{Appendix}
 

@@ -42,6 +42,6 @@
 \contentsline {subsection}{\numberline {4.1}Finite Dimensional Spaces}{17}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Linear Independence}{19}{subsection.4.2}%
 \contentsline {subsection}{\numberline {4.3}Basis}{21}{subsection.4.3}%
-\contentsline {section}{\numberline {5}Appendix}{22}{section.5}%
-\contentsline {section}{\numberline {6}Solutions}{22}{section.6}%
-\contentsline {section}{\numberline {7}Useful Links}{25}{section.7}%
+\contentsline {section}{\numberline {5}Appendix}{23}{section.5}%
+\contentsline {section}{\numberline {6}Solutions}{23}{section.6}%
+\contentsline {section}{\numberline {7}Useful Links}{26}{section.7}%
