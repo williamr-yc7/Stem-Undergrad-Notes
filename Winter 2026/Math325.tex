@@ -738,7 +738,7 @@ If $\frac{N_x - M_y}{N}$ only depends on x, we can solve the separable equation 
 Let $\mu = \mu(x,y)$. Then
 \[(\mu M)_y = (\mu N)_x\]
 \[\iff \mu_yM + \mu M_y = \mu_xN + \mu N_x\]
-If $\mu = \mu(x)$, then $\mu_y = 0 \implies \mu\frac{(M_y - N_x)}{N} = \mu_x = \frac{d\mu}{dx}$. Hence, IF the function $\frac{(M_y - N_x)}{N}$ only depends on x, we can solve the separable ODE $\mu\frac{(M_y - N_x)}{N} = \mu_x = \frac{d\mu}{dx}$ and we find the integrating factor $\mu(x)$, we use it to transform the original into an exact ODE, which we then solve.
+If $\mu = \mu(x)$, then $\mu_y = 0 \implies \mu\frac{(M_y - N_x)}{N} = \mu_x = \frac{d\mu}{dx}$. Hence, IF the function $\frac{(M_y - N_x)}{N}$ only depends on x, we can solve the separable ODE $\mu\frac{(M_y - N_x)}{N} = \mu_x = \frac{d\mu}{dx}$ and we find the integrating factor $\mu(x)$, we use it to transform the original ODE into an exact ODE, which we then solve.
 \begin{example}
     \[(3xy + y^2) + (x^2 + xy)\frac{dy}{dx} = 0\]
     \[M_y = 3x + 2y \neq N_x = 2x+y \quad \text{Not exact}\]
@@ -754,10 +754,10 @@ If $\mu = \mu(x)$, then $\mu_y = 0 \implies \mu\frac{(M_y - N_x)}{N} = \mu_x = \
     \[\Psi(x,y) = \int M(x,y)dx = \int 3x^2y + yx^2dx = x^3y + \frac{x^2y^2}{2} + c(y)\]
     Using $N = \Psi_y$:
     \[\Psi_y = x^3 + x^2y + c'(y) = N = x^3 + x^2y \implies c'(y) = 0 \implies c(y) = 0 \implies \Psi(x,y) = x^3y + \frac{x^2y^2}{2}\]
-    \[\psi
+    \[\psi(x,y) = x^3y + \frac{x^2y^2}{2} = C (general implicit solution).\]
 \end{example}
-
 \section{Systems of Linear Equations}
+february 3rd 2026, check paper
 \section{Second and Higher-Order Scalar Linear Equations}
 \section{Stability, Phase Portraits and Orbits}
 \section{Laplace Transform}
