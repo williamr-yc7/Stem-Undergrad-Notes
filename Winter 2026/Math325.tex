@@ -756,8 +756,198 @@ If $\mu = \mu(x)$, then $\mu_y = 0 \implies \mu\frac{(M_y - N_x)}{N} = \mu_x = \
     \[\Psi_y = x^3 + x^2y + c'(y) = N = x^3 + x^2y \implies c'(y) = 0 \implies c(y) = 0 \implies \Psi(x,y) = x^3y + \frac{x^2y^2}{2}\]
     \[\psi(x,y) = x^3y + \frac{x^2y^2}{2} = C (general implicit solution).\]
 \end{example}
+
 \section{Systems of Linear Equations}
-february 3rd 2026, check paper
+\marginpar{February 3, 2026}
+
+We study first order linear systems of ODEs
+\[
+y'(t) = A(t)y(t) + r(t), \quad t \in I. \tag{3}
+\]
+
+\textbf{Notation.}
+\[
+y(t) =
+\begin{pmatrix}
+y_1(t)\\
+\vdots\\
+y_n(t)
+\end{pmatrix} \in \mathbb{R}^n,
+\quad
+A(t) \in M_n(\mathbb{R}),
+\quad
+r(t) =
+\begin{pmatrix}
+r_1(t)\\
+\vdots\\
+r_n(t)
+\end{pmatrix}.
+\]
+\[
+y,r : I \to \mathbb{R}^n,
+\qquad
+A : I \to M_n(\mathbb{R}).
+\]
+
+%---------------------------------------
+
+\subsection{From higher order scalar ODEs to linear systems}
+
+\begin{example}
+Convert the third order equation
+\[
+y''' - 2y'' + 4y' - 5y = \sin t + t^3
+\]
+into a first order system.
+
+Let
+\[
+y_1 = y, \quad
+y_2 = y', \quad
+y_3 = y''.
+\]
+Then
+\[
+\begin{pmatrix}
+y_1'\\
+y_2'\\
+y_3'
+\end{pmatrix}
+=
+\begin{pmatrix}
+0 & 1 & 0\\
+0 & 0 & 1\\
+5 & -4 & 2
+\end{pmatrix}
+\begin{pmatrix}
+y_1\\
+y_2\\
+y_3
+\end{pmatrix}
++
+\begin{pmatrix}
+0\\
+0\\
+\sin t + t^3
+\end{pmatrix}.
+\]
+
+Thus the equation is written in the form \(y' = Ay + r\), with \(J_{\max}=\mathbb{R}\).
+\end{example}
+
+%---------------------------------------
+
+\subsection{Theory of first order linear systems}
+
+\begin{theorem}[Existence and uniqueness]
+If every entry of \(A(t)\) and \(r(t)\) is continuous on an interval \(I\), then for any
+\[
+t_0 \in I, \quad y_0 \in \mathbb{R}^n,
+\]
+the IVP
+\[
+\begin{cases}
+y'(t) = A(t)y(t) + r(t), \\
+y(t_0) = y_0
+\end{cases}
+\]
+has a unique solution on all of \(I\). Hence \(J_{\max}=I\).
+\end{theorem}
+
+\begin{definition}
+If \(r(t)=0\), the system is \textbf{homogeneous}.  
+Otherwise it is \textbf{non-homogeneous}.
+\end{definition}
+
+We first study the homogeneous system
+\[
+y'(t)=A(t)y(t). \tag{4}
+\]
+
+Let
+\[
+S=\{\, y:I\to\mathbb{R}^n \mid y \text{ solves (4)} \,\} \subset C^1(I).
+\]
+
+%---------------------------------------
+
+\subsection{Structure of the solution space}
+
+\begin{definition}
+Functions \(y_1,\dots,y_n : I \to \mathbb{R}^n\) are \textbf{linearly independent} if
+\[
+c_1y_1(t)+\cdots+c_ny_n(t)=0 \ \text{for all } t
+\quad \Rightarrow \quad
+c_1=\cdots=c_n=0.
+\]
+\end{definition}
+
+\begin{theorem}
+The solution set \(S\) is an \(n\)-dimensional vector subspace of \(C^1(I)\).
+\end{theorem}
+
+\begin{proof}
+\textbf{Step 1: Vector space.}
+
+If \(y_1,y_2 \in S\) and \(\alpha_1,\alpha_2 \in \mathbb{R}\),
+\[
+(\alpha_1 y_1 + \alpha_2 y_2)'
+=
+\alpha_1 y_1' + \alpha_2 y_2'
+=
+A(t)(\alpha_1 y_1 + \alpha_2 y_2),
+\]
+so \(\alpha_1 y_1 + \alpha_2 y_2 \in S\). Also \(0 \in S\).
+
+\textbf{Step 2: Construct a basis.}
+
+Let \(e_1,\dots,e_n\) be the standard basis of \(\mathbb{R}^n\).
+
+For each \(i\), let \(y_i\) be the unique solution of
+\[
+\begin{cases}
+y' = A(t)y, \\
+y(t_0) = e_i.
+\end{cases}
+\]
+
+Define
+\[
+B=\{y_1,\dots,y_n\}.
+\]
+
+Every linear combination of the \(y_i\) solves the system, so
+\(\operatorname{span}(B)\subset S\).
+
+If \(z \in S\) and
+\[
+z(t_0)=
+\begin{pmatrix}
+z_1\\
+\vdots\\
+z_n
+\end{pmatrix},
+\]
+then uniqueness gives
+\[
+z(t)=\sum_{i=1}^n z_i\,y_i(t),
+\]
+so \(S\subset \operatorname{span}(B)\).
+
+\textbf{Step 3: Independence.}
+
+If
+\[
+c_1y_1(t)+\cdots+c_ny_n(t)=0,
+\]
+evaluating at \(t_0\) gives
+\[
+c_1e_1+\cdots+c_ne_n=0,
+\]
+hence \(c_1=\cdots=c_n=0\).
+
+Thus \(B\) is a basis and \(\dim S=n\).
+\end{proof}
 \section{Second and Higher-Order Scalar Linear Equations}
 \section{Stability, Phase Portraits and Orbits}
 \section{Laplace Transform}
