@@ -37,7 +37,7 @@
 \contentsline {subsubsection}{\numberline {4.4.2}Potential Functions and Integral Curves}{18}{subsubsection.4.4.2}%
 \contentsline {subsection}{\numberline {4.5}Exact Equations}{20}{subsection.4.5}%
 \contentsline {subsection}{\numberline {4.6}Integrating Factors for Exact Equations}{21}{subsection.4.6}%
-\contentsline {section}{\numberline {5}Systems of Linear Equations}{23}{section.5}%
+\contentsline {section}{\numberline {5}Systems of Linear Equations}{22}{section.5}%
 \contentsline {section}{\numberline {6}Second and Higher-Order Scalar Linear Equations}{23}{section.6}%
 \contentsline {section}{\numberline {7}Stability, Phase Portraits and Orbits}{23}{section.7}%
 \contentsline {section}{\numberline {8}Laplace Transform}{23}{section.8}%

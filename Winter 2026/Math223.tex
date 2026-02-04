@@ -1004,7 +1004,45 @@ then both lists are bases of $V$.
     so both are bases.
 \end{example}
 
-
+\marginpar{February 4, 2026} %to organize
+\subsubsection{Unique vector decomposition}
+$W$ vector space $U, V \subseteq W$.
+Sum of two subspaces: $U + V = \{u + v : u \in U, v \in V\}$.
+Direction: $U \cap V = \{0\}$.
+Proposition: Assume $U+V$ is direct ($U \cap V = \{0\}$) $\iff$ Any $w \in U+V$ can be written as a sum $w = u+v$ in a unique way.
+Proof: $\implies$ Assume $U \cap V = \{0\}$. Let $w \in W$. Prove there exist a unique $u \in U$, $v \in V$, such that $w = u+v$. Since $w \in U+V$ we know $u,v$ exists.
+Proof: $u,v$ are unique.
+Assume $w = u_1 + v_1 = u_2 +v_2$
+Prove $u_1 = u_2$ and $v_1 = v_2$:
+$\implies u_1 - u_2 = v_2 - v_1$
+$u_1 - u_2 = \{0\}, u_1 - u_2 = 0$
+$u_1 - u_2 \in U \cap V = \{0\}$
+$v_2 - v_1 \in U \cap V = \{0\}$
+$\therefore u_1 = u_2$ and $v_1 = v_2$
+Converse: Assume any $w$ is a unique sume $w = u+v$. Prove $U \cap V \{0\}.$
+\[\supseteq \text{ obvious : }0 \in U, 0\in V \implies 0 \in U \cap V\]
+Only need $\subseteq$ Take $w \in U \cap V$. Prove $w=0$
+\[0 = 0(\in U) + 0(\in V) = w-w\]
+$0 \in U+V$:
+\[0 = 0(\in U) + 0(\in V) = w-w\]
+Unique decomp of zero $\implies w = 0$.
+Another proof: Assume $U \cap V \neq \{0\}$. Prove non unique. Take $w \in U \ cap V, \quad w \neq 0$. there are infinetely many decomp form, example:
+\[w = u + v = (u+w)+(v-w)\]
+Contradiction: Assume A, assume B fails $\implies$ contradiction.
+Coordinates: TFAE from Main Basiss theorem:
+\begin{enumerate}
+    \item (1) $e_1,\ldots,e_n$ is a basis of $V$.
+    \item (4) Any $v$ can be written as a sum \[v = \lambda_1e_1 + \cdots + \lambda_ne_n\] in a unique way, ($\lambda_1,\ldots,\lambda_n$) are unique.
+\end{enumerate}
+write: $[v]_e = \begin{pmatrix}\lambda_1\\\vdots\\\lambda_n\end{pmatrix}$ coordinates.
+Example: $v = \begin{pmatrix}
+    x\\y\\z
+\end{pmatrix} \in \mathbb{R}^3$, $e = (e_1,e_2,e_3)$ standard basis. $\implies [v]_e = \begin{pmatrix}
+    x\\y\\z
+\end{pmatrix}$. Basis f defined by $f_1 = e_2$, $f_2 = e_1$, $f_3 = e_3$. $[v]_f = \begin{pmatrix}
+    y\\x\\z
+\end{pmatrix}$.
+Example: in $\mathbb{R}^2$, $v = \begin{pmatrix}1\\1\end{pmatrix}$, basis $f_1 = \begin{pmatrix}2\\1\end{pmatrix}$, $f_2 = \begin{pmatrix}0\\1\end{pmatrix}$. $v= \lambda_1f_1 + \lambda_2f_2$. $[v]_f = \begin{pmatrix}\frac{1}{2}\\\frac{1}{2}\end{pmatrix}$.
 \section{Appendix}
 
 \section{Solutions}
