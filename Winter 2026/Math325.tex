@@ -926,12 +926,113 @@ c_1e_1+\cdots+c_ne_n=0,
 hence \(c_1=\cdots=c_n=0\).
 
 Thus \(B\) is a basis and \(\dim S=n\).
+
+BTW $S = \{y : I \to \mathbb{R}^n |\text{ y is a solution}\}$.
 \end{proof}
+
+\marginpar{February 5, 2026}
+Definition: A matrix solution $y(t)$ of equation $y' = A(t)y$ (*1) is a $n \times n$ matrix function whose columns are solutions to (*1).
+By the POS (princicple of superposition), for any fixed vector $C = \begin{pmatrix}C_1\\C_2\\\vdots\\C_n\end{pmatrix} \in \mathbb{R}^n$.
+\[y(t)c = c_1y_1(t) + c_2y_2(t) + \cdots + c_ny_n(t) \in S\]
+Proposition: Let $y(t)$ be a matrix solution of  (*1). Either $det(y(t)) \neq 0$ $\forall t \in I$ or $det(y(t)) = 0$.
+Proof: Assume that there exist $t_0 \in I$ such that $det(y(t_0)) = 0 \implies y(t_0)$ is not invertible.
+$\implies \exists$ a non zero vector $v \in \mathbb{R}^n$ such that $y(t_0)v = 0 = \begin{pmatrix}0\\0\\\vdots\\0\end{pmatrix} \in \mathbb{R}^n$. Let $y_1(t) = y(t)v \in S$ which satisfies the initial condition $y_1(t_0) = y(t_0)v = 0$. But $y_2(t) = 0 \in S$.
+By the theorem of existence and uniqueness, $y_1(t) = y(t)v = y_2(t) = 0 \implies det(y(t)) = 0 \forall t \in I$.
+
+Definition:$w(t) = w(y_1,\ldots,y_n)(t) = det(y(t))$ is called the Wronskian of $y_1,\ldots,y_n$.
+
+Definition: A matrix solution with non banishing wronskian is called a fundamental matrix solution.
+
+Theorem (Louville's formula): Let $y(t)$ a matrix solution. Then $det(y(t)) = det(y(t_0))e^{\int_{t_0}^t tr(A(s))ds}$. Here, $tr(M) =$ Sum of the diagonal entries of $M \in M_n(\mathbb{R})$.
+
+$y' = A(t)y$. Goal: Find n linearly independent solutions $y_1,y_2,\ldots,y_n$ show that $W(t_0) \neq 0$.
+$\implies y(t) = c_1y_1(t) + c_2y_2(t) + \cdots + c_ny_n(t)$, for $c_1,\ldots,c_n \in \mathbb{R}$ (GENERAL SOLUTION).
+
+Given an initial condition $y(t_0) = y_0 \in \mathbb{R}^n$.
+\[\implies y(t_0) = c_1y_1(t_0) + \ldots + c_ny_n(t_0) = \begin{pmatrix}
+    |&|&|\\y_1(t_0)&y_2(t_0)&y_n(t_0)\\|&|&|
+\end{pmatrix}\begin{pmatrix}
+    c_1\\c_2\\\vdots\\c_n
+\end{pmatrix} = y_0 = \begin{pmatrix}
+    y_0'\\y_0''\\\vdots\\y_0^{(n)}
+\end{pmatrix}\]
+
+$\implies$The unique $(c_1,\ldots,c_n)$ is given by
+\[\begin{pmatrix}c_1\\c_2\\\vdots\\c_n\end{pmatrix} = \begin{pmatrix}|&|\\y_1(t_0)&y_n(t_0)\\|&|\end{pmatrix}^{-1}\begin{pmatrix}y_0'\\y_0''\\\vdots\\y_0^{(n)}\end{pmatrix}\]
+\subsection{Linear homogeneous systems with constant coefficients}
+\[y' = Ay \text{(*2)}, \qquad A \in M_n(\mathbb{R})\text{ with constant entries}\]
+We look for solutions of the form $y(t) = e^{\lambda t}u$ (*3), $U$ is a constant vector.
+\[a_0y^n + a_1y^{n+1} + \cdots + a_{n-1}y' + a_ny = 0\]
+Look for solutions of the form $e^{rt}$
+
+Plug (*3) in (*2):
+\[y'(t) = \frac{d}{dt}(e^{\lambda t}u) = \lambda e^{\lambda t}u = e^{\lambda t}(\lambda u) = Ay = A(e^{\lambda t}u) = e^{\lambda t}(Au) \implies Au = \lambda u \text{(*4)}\]
+In other words, $\lambda$ is an eigenvalue of A and u is a corresponding eigenvector.
+
+Definition: Given a matrix $A \in M_n(\mathbb{C})$, denote by $ker A = \{u | Au = 0\}$, it is called the kernel (or null space) of A.
+
+Equation (*4) $\iff Au - \lambda u = 0 \iff Au - \lambda Iu = 0$, where I is the identity matrix $\in M_n(\mathbb{R})$, $\iff (A - \lambda I)u = 0$.
+
+Define $p(\lambda) = det(A - \lambda I)$. It is called the characteristic polynomial of A. An eigenvalue is a root of $p(\lambda)$ that is, it solves $p(\lambda) = det(A - \lambda I) = 0$.
+
+Definition: Given a matrix A, we denote by $\sigma(A) = \{\lambda | p(\lambda) = 0\}$ the set of eigenvalues of A. It is called the spectrum of A.
+
+Example:
+\[y' = Ay\]
+where $y = \begin{pmatrix}y_1\\y_2\end{pmatrix}$ and $A = \begin{pmatrix}1&3\\3&1\end{pmatrix}$.
+\[p(\lambda) = det(A - \lambda I) = \begin{pmatrix}1 - \lambda & 3\\3 & 1 - \lambda\end{pmatrix} = (1 - \lambda)^2 - 9 = 0\]
+\[\iff (1 - \lambda)^2 - 9 = 0 \iff 1 - \lambda = \pm 3\]
+$\implies \lambda = \lambda_1 = -2, \lambda = \lambda_2 = 4$ are the two eigenvalues $\implies \sigma(A) = \{-2,4\}$.
+
+Eigenvectors: for $u_1$ : $(A - \lambda I)u_1 = 0$
+\[\begin{pmatrix}3&3\\3&3\end{pmatrix}\begin{pmatrix}a\\b\end{pmatrix} = \begin{pmatrix}0\\0\end{pmatrix}\]
+\[\therefore b = -a\]
+You can pick any values of a and b would be the negative of a, lets pick $a = 1$..
+
+for $u_2$ : $u_2 = \begin{pmatrix}1\\1\end{pmatrix} \implies y_1(t) = e^{-2t}\begin{pmatrix}1\\-1\end{pmatrix} \in S$ and $y_2(t) = e^{4t}\begin{pmatrix}1\\1\end{pmatrix} \in S$
+
+\[w(t) = |e^{-2t}\begin{pmatrix}1\\-1\end{pmatrix} e^{4t}\begin{pmatrix}1\\1\end{pmatrix}|\]
+\[w(0) = \begin{pmatrix}
+    
+\end{pmatrix}
+
 \section{Second and Higher-Order Scalar Linear Equations}
 \section{Stability, Phase Portraits and Orbits}
 \section{Laplace Transform}
 \section{Power Series Solutions and Numerical Methods}
 
+
+\section{Appendix}
+\begin{proof}[Proof of Picard Iterations Convergence]
+    \label{pf:picard-convergence}
+    Pick $t \in [t_0, t_0 + \epsilon]$ (the proof is similar for $t \in [t_0 - \epsilon, t_0]$).
+    The goal is to show that $\{y_k(t)\}_{k=0}^{\infty}$ is a Cauchy sequence\footnote{Cauchy sequence is a sequence that has a limit in a metric space $\mathbb{R}^n$.} in $\mathbb{R}^n$.
+    We prove by induction that
+    \[(**)\quad ||y_m(t) - y_{m - 1}(t)|| \leq L^{m - 1}M_{\alpha,\delta} \frac{(t - t_0)^m}{m!},\:\forall m \geq 1.\]
+    \textbf{Base case \(m=1\):}
+    \[||y_1(t) - y_0(t)|| = \left\| \int_{t_0}^{t} f(y_0,s)ds \right\| \leq \int_{t_0}^{t}||f(y_0,s)||ds \leq M_{\alpha,\delta}|t - t_0| \leq \alpha.\]
+    \textbf{Induction step:}
+    \[||y_{m + 1}(t) - y_m(t)|| \leq \int_{t_0}^{t}||f(y_m(s),s) - f(y_{m-1}(s),s)||ds.\]
+    Since $D_{\alpha,\delta}$ is compact and $f$ is Lipschitz on $D_{\alpha,\delta}$, there exists $L$ such that
+    \[||f(x,t) - f(y,t)|| \leq L||x - y||.\]
+    Thus,
+    \[\leq L \int_{t_0}^{t}||y_m(s) - y_{m - 1}(s)||ds.\]
+    Using (**),
+    \[\leq L^m M_{\alpha,\delta} \frac{1}{(m-1)!} \int_{t_0}^{t}(s - t_0)^{m-1}ds
+    = L^m M_{\alpha,\delta} \frac{(t - t_0)^m}{m!}.\]
+    Hence (**) holds.
+    In particular, for all $\rho \geq 1$,
+    \[||y_\rho(t) - y_{\rho-1}(t)|| \leq M_{\alpha,\delta} \frac{(L(t - t_0))^{\rho}}{(\rho)!} < \frac{M_{\alpha,\delta}}{L}\frac{(L\epsilon)^\rho}{\rho!}.\]
+    Let $m,p \geq 1$:
+    \[||y_{m+p}(t) - y_{m+1}(t)|| \leq \sum_{k=1}^{p-1}||y_{m+k+1}(t) - y_{m+k}(t)||.\]
+    So,
+    \[< \frac{M_{\alpha,\delta}}{L}\sum_{j=m+2}^{m+p}\frac{(L\epsilon)^j}{j!}.\]
+    Since \(e^{L\epsilon} = \sum_{j=0}^{\infty}\frac{(L\epsilon)^j}{j!}\) converges,
+    \[\to_{m,p \to +\infty} 0.\]
+    Thus $\{y_k(t)\}$ is Cauchy and converges to $y(t)$.
+    Taking limits in the iteration,
+    \[y(t) = y_0 + \int_{t_0}^{t} f(y(s),s)ds.\]
+\end{proof}\footnote{Evaluated on compacted cylinder, understanding epsilon, the L Lipschitz constant coming from somewhere, not on the analysis background such as the Banach fixed point theorem.}
 
 \section{Solutions}
 \begin{solution}[System of First Order ODEs]
@@ -1038,38 +1139,6 @@ Thus \(B\) is a basis and \(\dim S=n\).
     \[y_2'(t) = 3t^2 = 3(y_2(t))^{2/3}.\]
     Thus, the solution is not unique.
 \end{solution}
-
-\section{Appendix}
-\begin{proof}[Proof of Picard Iterations Convergence]
-    \label{pf:picard-convergence}
-    Pick $t \in [t_0, t_0 + \epsilon]$ (the proof is similar for $t \in [t_0 - \epsilon, t_0]$).
-    The goal is to show that $\{y_k(t)\}_{k=0}^{\infty}$ is a Cauchy sequence\footnote{Cauchy sequence is a sequence that has a limit in a metric space $\mathbb{R}^n$.} in $\mathbb{R}^n$.
-    We prove by induction that
-    \[(**)\quad ||y_m(t) - y_{m - 1}(t)|| \leq L^{m - 1}M_{\alpha,\delta} \frac{(t - t_0)^m}{m!},\:\forall m \geq 1.\]
-    \textbf{Base case \(m=1\):}
-    \[||y_1(t) - y_0(t)|| = \left\| \int_{t_0}^{t} f(y_0,s)ds \right\| \leq \int_{t_0}^{t}||f(y_0,s)||ds \leq M_{\alpha,\delta}|t - t_0| \leq \alpha.\]
-    \textbf{Induction step:}
-    \[||y_{m + 1}(t) - y_m(t)|| \leq \int_{t_0}^{t}||f(y_m(s),s) - f(y_{m-1}(s),s)||ds.\]
-    Since $D_{\alpha,\delta}$ is compact and $f$ is Lipschitz on $D_{\alpha,\delta}$, there exists $L$ such that
-    \[||f(x,t) - f(y,t)|| \leq L||x - y||.\]
-    Thus,
-    \[\leq L \int_{t_0}^{t}||y_m(s) - y_{m - 1}(s)||ds.\]
-    Using (**),
-    \[\leq L^m M_{\alpha,\delta} \frac{1}{(m-1)!} \int_{t_0}^{t}(s - t_0)^{m-1}ds
-    = L^m M_{\alpha,\delta} \frac{(t - t_0)^m}{m!}.\]
-    Hence (**) holds.
-    In particular, for all $\rho \geq 1$,
-    \[||y_\rho(t) - y_{\rho-1}(t)|| \leq M_{\alpha,\delta} \frac{(L(t - t_0))^{\rho}}{(\rho)!} < \frac{M_{\alpha,\delta}}{L}\frac{(L\epsilon)^\rho}{\rho!}.\]
-    Let $m,p \geq 1$:
-    \[||y_{m+p}(t) - y_{m+1}(t)|| \leq \sum_{k=1}^{p-1}||y_{m+k+1}(t) - y_{m+k}(t)||.\]
-    So,
-    \[< \frac{M_{\alpha,\delta}}{L}\sum_{j=m+2}^{m+p}\frac{(L\epsilon)^j}{j!}.\]
-    Since \(e^{L\epsilon} = \sum_{j=0}^{\infty}\frac{(L\epsilon)^j}{j!}\) converges,
-    \[\to_{m,p \to +\infty} 0.\]
-    Thus $\{y_k(t)\}$ is Cauchy and converges to $y(t)$.
-    Taking limits in the iteration,
-    \[y(t) = y_0 + \int_{t_0}^{t} f(y(s),s)ds.\]
-\end{proof}\footnote{Evaluated on compacted cylinder, understanding epsilon, the L Lipschitz constant coming from somewhere, not on the analysis background such as the Banach fixed point theorem.}
 
 \section{Useful Links}
 
