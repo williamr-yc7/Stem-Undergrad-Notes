@@ -426,29 +426,26 @@ is an additive subgroup but not a vector space over \(\mathbb{R}\), because \(\m
 \begin{definition}[Coordinate Spaces]
     A coordinate space of dimension \(n\) over a field \(k\) (\(k=\mathbb{R}\) or \(k=\mathbb{C}\)) is defined as
     \[k^n = \left\{\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix} : x_i \in k\right\}.\]
-    The standard basis is
+    The standard basis for a coordinate space is
     \[e_1=\begin{pmatrix}1\\0\\\vdots\\0\end{pmatrix}, \ \ldots \ , e_n=\begin{pmatrix}0\\\vdots\\0\\1\end{pmatrix}.\]
 \end{definition}
 
-\subsubsection{Polynomial Spaces}%to read
+\subsubsection{Polynomial Spaces}
 \begin{definition}[Polynomial Spaces]
     A polynomial space of degree at most \(n\) over a field \(k\) is
     \[P_n(k) = \{ a_n x^n + \cdots + a_1 x + a_0 : a_i \in k \},\]
-    which forms a vector space over \(k\).
+    which forms a vector space over \(k\). The standard basis for a polynomial space of degree \(n\) is
+    \[\{1, x, x^2, \ldots, x^n\}.\]
 \end{definition}
 \begin{example}[Polynomial Spaces]
     Some examples of polynomials in these spaces are
-    \[1+x^2 \in P_2(\mathbb{R}), \qquad 1+i x^3 \in P_3(\mathbb{C}).\]
+    \[f = 1+x^2 \in P_2(\mathbb{R}), \qquad f = 1+i x^3 \in P_3(\mathbb{C}).\]
     The subscript \(n\) indicates that \(\deg(f) \le n\).
     All polynomials can be collected in
-    \[P_\infty = \{ a_n x^n + \cdots + a_1 x + a_0 : a_i \in k, \ n \ge 0 \},\]
+    \[P_\infty(k) = \{ a_n x^n + \cdots + a_1 x + a_0 : a_i \in k, \ n \ge 0 \},\]
     which is an infinite-dimensional vector space over \(k\).  
     We have the natural inclusions
     \[P_0 \subseteq P_1 \subseteq P_2 \subseteq \cdots \subseteq P_\infty.\]
-    A standard basis for \(P_n(k)\) is 
-    \[\{1, x, x^2, \ldots, x^n\},\]
-    and every \(f \in P_n(k)\) can be written uniquely as
-    \[f = \lambda_0 + \lambda_1 x + \lambda_2 x^2 + \cdots + \lambda_n x^n, \quad \lambda_i \in k.\]
 \end{example}
 
 \subsubsection{Matrix Spaces}
@@ -461,15 +458,14 @@ is an additive subgroup but not a vector space over \(\mathbb{R}\), because \(\m
     \end{pmatrix} : a_{ij} \in k \right\},\]
     which forms a vector space over \(k\).
     A standard basis for \(M_n(k)\) is the set of matrices \(\{ e_{ij} : 1 \le i,j \le n \}\), where \(e_{ij}\) has a 1 in the \((i,j)\)-th entry and 0 elsewhere.  
-    The dimension is
-    \[\dim M_n(k) = n^2.\]
+    The dimension of \(M_n(k)\) is $\dim M_n(k) = n^2$.
 \end{definition}
 \begin{example}[Matrix Spaces]
     For \(M_2(\mathbb{R})\),
-    \[\begin{pmatrix}1 & 2 \\ 3 & 4\end{pmatrix} = 1 e_{11} + 2 e_{12} + 3 e_{21} + 4 e_{22}.\]
+    \[\begin{pmatrix}1 & 2 \\ 3 & 4\end{pmatrix} = 1\begin{pmatrix}1 & 0 \\ 0 & 0\end{pmatrix} + 2\begin{pmatrix}0 & 1 \\ 0 & 0\end{pmatrix} + 3\begin{pmatrix}0 & 0 \\ 1 & 0\end{pmatrix} + 4\begin{pmatrix}0 & 0 \\ 0 & 1\end{pmatrix} = 1 e_{11} + 2 e_{12} + 3 e_{21} + 4 e_{22}.\]
 \end{example}
 
-\subsubsection{Function Spaces}
+\subsubsection{Function Spaces}%to read
 \marginpar{16 January, 2026}
 \begin{definition}[Function spaces]
     Let $D$ be a set and $k$ a field. Define

@@ -31,7 +31,7 @@
 \contentsline {subsubsection}{\numberline {3.3.3}Matrix Spaces}{11}{subsubsection.3.3.3}%
 \contentsline {subsubsection}{\numberline {3.3.4}Function Spaces}{11}{subsubsection.3.3.4}%
 \contentsline {paragraph}{1. Finite case: standard basis}{11}{section*.8}%
-\contentsline {paragraph}{2. Infinite case}{12}{section*.9}%
+\contentsline {paragraph}{2. Infinite case}{11}{section*.9}%
 \contentsline {subsection}{\numberline {3.4}Subspaces}{12}{subsection.3.4}%
 \contentsline {subsubsection}{\numberline {3.4.1}Membership in a span}{12}{subsubsection.3.4.1}%
 \contentsline {subsubsection}{\numberline {3.4.2}Operations on subspaces}{13}{subsubsection.3.4.2}%
