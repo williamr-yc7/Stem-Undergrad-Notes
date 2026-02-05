@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  4 FEB 2026 18:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  4 FEB 2026 19:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -562,21 +562,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 69--69
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.83 ...frac{dN}{dt} = \frac{1}{N} \cdot N' = r,\]
-                                                   [1
+l.85     \[ln(N(t)) = rt + C,\]
+                                [1
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 96--98
-
- []
-
-
 pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.112 \end{center}
-                   [2]
-Underfull \hbox (badness 10000) in paragraph at lines 135--135
+l.120 \end{example}
+                    [2]
+Underfull \hbox (badness 10000) in paragraph at lines 123--123
 []\OT1/cmr/m/n/10 January 08,
  []
 
@@ -584,58 +579,58 @@ Underfull \hbox (badness 10000) in paragraph at lines 135--135
 pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.139 \end{definition}
-                       [3] [4] [5] [6]
-Underfull \hbox (badness 10000) in paragraph at lines 263--263
+l.162 ...n,\\y_n'=G(t,y_1,\dots,y_n).\end{cases}\]
+                                                   [3] [4] [5]
+Underfull \hbox (badness 10000) in paragraph at lines 244--244
 []\OT1/cmr/m/n/10 January 13,
  []
 
-[7] [8] [9] [10]
-Underfull \hbox (badness 10000) in paragraph at lines 416--416
+[6] [7] [8] [9]
+Underfull \hbox (badness 10000) in paragraph at lines 395--395
 []\OT1/cmr/m/n/10 January 15,
  []
 
-[11]
-Underfull \hbox (badness 10000) in paragraph at lines 443--443
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 422--422
 []\OT1/cmr/m/n/10 January 20,
  []
 
-[12]
-Underfull \hbox (badness 10000) in paragraph at lines 486--486
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 465--465
 []\OT1/cmr/m/n/10 January 22,
  []
 
-[13] [14] [15]
-Underfull \hbox (badness 10000) in paragraph at lines 580--580
+[12] [13] [14]
+Underfull \hbox (badness 10000) in paragraph at lines 559--559
 []\OT1/cmr/m/n/10 January 27,
  []
 
-[16] [17] [18]
-Underfull \hbox (badness 10000) in paragraph at lines 680--680
+[15] [16] [17]
+Underfull \hbox (badness 10000) in paragraph at lines 659--659
 []\OT1/cmr/m/n/10 January 29,
  []
 
-[19]
-Overfull \hbox (122.21683pt too wide) detected at line 714
+[18]
+Overfull \hbox (122.21683pt too wide) detected at line 693
  \OT1/cmr/m/n/10 =[]\OMS/cmsy/m/n/10 )  \OML/cmm/m/it/10 c\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 ) = \OMS/cmsy/m/n/10 ^^@\OML/cmm/m/it/10 y  \OT1/cmr/m/n/10 =[]\OMS/cmsy/m/n/10 )  \OT1/cmr/m/n/10 	(\OML/cmm/m/it/10 x; y\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 ysinx \OT1/cmr/m/n/10 + 2\OML/cmm/m/it/10 xe[] \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 y\OT1/cmr/m/n/10 [[]	(\OML/cmm/m/it/10 x; y\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 C[]\OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 :
  []
 
-[20]
-Underfull \hbox (badness 10000) in paragraph at lines 736--736
+[19]
+Underfull \hbox (badness 10000) in paragraph at lines 715--715
 []\OT1/cmr/m/n/10 February 3,
  []
 
-[21]
-Overfull \hbox (57.31596pt too wide) detected at line 756
+[20]
+Overfull \hbox (57.31596pt too wide) detected at line 735
 \OT1/cmr/m/n/10 	[] = \OML/cmm/m/it/10 x[] \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 x[]y \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 c[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 N \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 x[] \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 x[]y  \OT1/cmr/m/n/10 =[]\OMS/cmsy/m/n/10 )  \OML/cmm/m/it/10 c[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 ) = 0  =[]\OMS/cmsy/m/n/10 )  \OML/cmm/m/it/10 c\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 ) = 0  =[]\OMS/cmsy/m/n/10 )  \OT1/cmr/m/n/10 	(\OML/cmm/m/it/10 x; y\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 x[]y \OT1/cmr/m/n/10 + []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 761--761
+Underfull \hbox (badness 10000) in paragraph at lines 740--740
 []\OT1/cmr/m/n/10 February 3,
  []
 
-[22] [23] [24] [25] [26] [27] [28] [29] (Math325.aux)
+[21] [22] [23] [24] [25] [26] [27] (Math325.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
@@ -644,15 +639,15 @@ Package rerunfilecheck Info: File `Math325.out' has not changed.
 (rerunfilecheck)             Checksum: AC91801FCF542DB85273B9015F7D8BCB;7273.
  ) 
 Here is how much of TeX's memory you used:
- 30881 strings out of 467871
- 727803 string characters out of 5418377
- 1266149 words of memory out of 5000000
- 59131 multiletter control sequences out of 15000+600000
+ 30823 strings out of 467871
+ 726419 string characters out of 5418377
+ 1267149 words of memory out of 5000000
+ 59073 multiletter control sequences out of 15000+600000
  640216 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,8n,118p,812b,727s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\erenr\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Math325.pdf (32 pages, 475483 bytes).
+ 99i,8n,118p,812b,717s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\erenr\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on Math325.pdf (30 pages, 481913 bytes).
 PDF statistics:
  594 PDF objects out of 1000 (max. 8388607)
  151 named destinations out of 1000 (max. 500000)

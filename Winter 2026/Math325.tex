@@ -70,66 +70,54 @@ Since its honours you will deal with analysis.
 \begin{definition}[Differential Equation]
     A differential equation (DE) is a relation that involves an unknown function and some of its derivatives.
 \end{definition}
-To better understand what a differential equation is, consider the following example.\\
-Imagine a ball of mass \(m\) falling, subject to gravity and air resistance (drag). Denote by \(v(t)\) the velocity of the ball at time \(t\), whereas \(t\) is the independent variable, and \(v\) the dependent variable. Let the downward direction be positive. We know the force of gravity is given by \(F_g = mg\), where \(g\) is the acceleration due to gravity. The drag force is given by \(F_d = -\lambda v\), where \(\lambda\) is the drag coefficient and is \(\lambda \geq 0\). According to Newton's second law \(\sum F = ma\), the net force acting on the ball is equal to its mass times its acceleration
-\[m\frac{dv}{dt} = mg - \lambda v.\]
-Let \(y(t)\) be the position, meaning \(v(t) = \frac{dy}{dt}\). Then, we can rewrite the above equation as
-\[my'' + \lambda y' = mg.\]
-
-Let's analyze another example, population growth (known as the Malthusian growth model).\\
-Denote by \(N(t)\) the size of a given population at time t. In an "unconstraint" environment, it is reasonable to assume that the rate of change of the number of individuals is proportional to the number of individuals present. This assumption leads to the following differential equation:
-\[\frac{dN}{dt} = rN,\]
-where \(r\) is called the growth rate (if \(r > 0\)), and decay rate (if \(r < 0\)). Assume that \(N > 0\). Using the chain rule and assuming that \(N(t)\) satisfies \(N' = rN\)
-\[\frac{d}{dt}ln(N(t)) = \frac{dln(N)}{dN} \cdot \frac{dN}{dt} = \frac{1}{N} \cdot N' = r,\]
-integrate with respect to t
-\[ln(N(t)) = rt + C,\]
-where \(C\) is the constant of integration. Exponentiating both sides, we obtain
-\[N(t) = e^{ln(N(t))} = e^Ce^{rt} = ke^{rt},\]
-where \(\{k > 0 | k \in \mathbb{R}\}\) which could be any positive constant is the initial population size at time \(t = 0\).\\
-Assume that an initial population (condition) is given:
-\[N(0) = N_0 (fixed),\]
-we therefore get that \(k = N_0\), and the unique solution that satisfies the initial condition is
-\[N(t) = N_0e^{rt}.\]
-
-The problem with the answer we got in the previous example is that it is not realistic in the long run, how about we consider a carrying capacity\footnote{maximum population size that the environment can sustain indefinitely}. This leads us to another example: Population growth/decay with the carrying capacity of the environment.\\
-Now assume that our growth rate depends on the population size \(N(t)\) itself, therefore we get that
-\[\frac{dN}{dt} = R(N)N.\]
-Denote by K the number of individual that the environment can carry. K is called the carrying capacity of the environment. If \(N < K\), we want growth \((R(N) > 0)\) and if \(N > K\), we want decay \((R(N) < 0)\).\\
-\begin{center}
-\begin{tikzpicture}[scale=1.1]
-    % Axes
-    \draw[->] (-0.5,0) -- (6,0) node[right] {$N$};
-    \draw[->] (0,-0.5) -- (0,5) node[above] {$R(N)$};
-
-    % Line
-    \draw[thick] (0,4) -- (5,0);
-
-    % Intercepts
-    \fill (0,4) circle (2pt) node[left] {$r$};
-    \fill (5,0) circle (2pt) node[below] {$K$};
-
-\end{tikzpicture}
-\end{center}
-Let's pick the simplest function \(R(N)\) that satisfies \(R(0) = r, R(K) = 0\) and is linear. We get that
-\[R(N) = r(1 - \frac{N}{K}).\]
-Therefore, our differential equation becomes
-\[\frac{dN}{dt} = r(1 - \frac{N}{K})N = \frac{r}{K}(K - N(t))N(t).\]
-This is called the logistic equation.
-
+\begin{example}[Motion under gravity and linear drag]
+    Imagine a ball of mass \(m\) falling, subject to gravity and air resistance (drag). Denote by \(v(t)\) the velocity of the ball at time \(t\). Let the downward direction be positive. We know the force of gravity is given by \(F_g = mg\), where \(g\) is the acceleration due to gravity. The drag force is given by \(F_d = -\lambda v\), where \(\lambda\) is the drag coefficient and \(\lambda \geq 0\). According to Newton's second law\footnote{\(\sum_{i} F_i = ma\)}, the net force acting on the ball is equal to its mass times its acceleration
+    \[m\frac{dv}{dt} = mg - \lambda v.\]
+    Let \(y(t)\) be the position, meaning \(v(t) = \frac{dy}{dt}\). Then, we can rewrite the above equation as
+    \[my'' + \lambda y' = mg.\]
+\end{example}
+\begin{example}[The Malthusian Growth Model]
+    Denote by \(N(t)\) the size of a given population at time t. In an "unconstraint" environment, it is reasonable to assume that the rate of change of the number of individuals is proportional to the number of individuals present. This assumption leads to the following differential equation:
+    \[\frac{dN}{dt} = rN,\]
+    where \(r\) is called the growth rate (if \(r > 0\)), and decay rate (if \(r < 0\)). Assume that \(N > 0\). Using the chain rule and assuming that \(N(t)\) satisfies \(N' = rN\)
+    \[\frac{dN}{N} = rdt,\]
+    integrate both sides
+    \[ln(N(t)) = rt + C,\]
+    where \(C\) is the constant of integration. Exponentiating both sides, we obtain
+    \[N(t) = e^Ce^{rt} = ke^{rt},\]
+    where \(\{k > 0 | k \in \mathbb{R}\}\) is the initial population size at time \(t = 0\).\\
+    Assume that an initial population (condition) is given:
+    \[N(0) = N_0 (fixed),\]
+    we therefore get that \(k = N_0\), and the unique solution that satisfies the initial condition is
+    \[N(t) = N_0e^{rt}.\]
+\end{example}
+\begin{example}[The Logistic Equation]
+    Now assume that our growth rate depends on the population size \(N(t)\) itself, therefore we get that
+    \[\frac{dN}{dt} = R(N)N.\]
+    Denote by K the number of individual that the environment can carry. K is called the carrying capacity\footnote{maximum population size that the environment can sustain indefinitely.} of the environment. If \(N < K\), we want growth \((R(N) > 0)\) and if \(N > K\), we want decay \((R(N) < 0)\).
+    Let's pick the simplest function \(R(N)\) that satisfies \(R(0) = r\), \(R(K) = 0\) and is linear. We get that
+    \[R(N) = r(1 - \frac{N}{K}).\]
+    Therefore, our differential equation becomes
+    \[\frac{dN}{dt} = \frac{r}{K}(K - N(t))N(t).\]
+    This is called the logistic equation.
+\end{example}
 \begin{definition}[Ordinary Differential Equation]
     An ordinary differential equation (ODE) is a differential equation whose unknown function depends on one independent variable only.
 \end{definition}
-Example of ODEs:
-\begin{itemize}
-    \item \(y''(t) + y'(t) + 2y(t) = sin(t)\)
-    \item \(N'(t) = rN(t)\)
-    \item \(mv'(t) = mg - \lambda v(t)\)
-    \item \(y'(x) + 3y(x) = e^x\)
-\end{itemize}
+\begin{example} Examples of ODEs
+    \begin{itemize}
+        \item \(y''(t) + y'(t) + 2y(t) = sin(t)\)
+        \item \(N'(t) = rN(t)\)
+        \item \(mv'(t) = mg - \lambda v(t)\)
+        \item \(y'(x) + 3y(x) = e^x\)
+    \end{itemize}
+\end{example}
 \begin{definition}[Partial Differential Equation]
     A partial differential equation (PDE) is a differential equation whose unknown function depends on more than one independent variable. \textbf{Will not be taught in this course.}
 \end{definition}
-Example of a PDE is the Heat Equation. Let \(u = u(x,t)\), \(\frac{\partial u}{\partial t} = \frac{\partial^2 u}{\partial x^2}\). This PDE denotes the temperature of a body at time t and at position x.
+\begin{example}[Heat Equation]
+    The Heat Equation is an example of a PDE. Let \(u = u(x,t)\), \(\frac{\partial u}{\partial t} = \frac{\partial^2 u}{\partial x^2}\). This PDE denotes the temperature of a body at time t and at position x.
+\end{example}
 
 \subsection{Classification}
 \marginpar{January 08, 2026.}
@@ -160,30 +148,22 @@ Example of a PDE is the Heat Equation. Let \(u = u(x,t)\), \(\frac{\partial u}{\
         y_2' = -y_1
     \end{cases}\]
 \end{example}
-\begin{definition}[Systems of first order ODEs]
-    A system of first order ODEs is just a collection of differential equations where all derivatives are first order. It can be written compactly as
-    \[y'(t) = f(y(t), t),\]
-    where \(y(t)\) is a vector of unknown functions,
-    \[y(t) = \begin{pmatrix} y_1(t) \\ \vdots \\ y_n(t) \end{pmatrix},\]
-    and \(f\) gives the right-hand sides of the equations.
-    Writing this out means
-    \[\begin{cases}y_1'(t) = f_1(y_1,\dots,y_n,t) \\ \vdots \\ y_n'(t) = f_n(y_1,\dots,y_n,t).\end{cases}\]
-    Any single \(n\)th-order ODE can always be turned into such a system. If
-    \[y^{(n)}(t) = G(t, y, y', \dots, y^{(n-1)}),\]
-    define new variables
-    \[y_1 = y, \quad y_2 = y', \quad \dots, \quad y_n = y^{(n-1)}.\]
-    Then each new variable has a first derivative, and the equation becomes
-    \[\begin{cases}y_1' = y_2, \\ y_2' = y_3, \\ \vdots \\ y_{n-1}' = y_n, \\ y_n' = G(t, y_1, \dots, y_n).\end{cases}\]
-    So one higher-order equation is the same thing as many first order equations.
+\begin{definition}[System of first order ODEs]
+    A first order system has the form
+    \[y'(t)=f(y(t),t),\]
+    where \(y(t)\in\mathbb{R}^n\) and \(f:\mathbb{R}^n\times\mathbb{R}\to\mathbb{R}^n\).
+    In components,
+    \[y_i'(t)=f_i(y_1,\dots,y_n,t), \quad i=1,\dots,n.\]
+    Any \(n\)th-order ODE
+    \[y^{(n)}=G(t,y,y',\dots,y^{(n-1)})\]
+    can be written as a first order system by setting
+    \[y_1=y,\; y_2=y',\; \dots,\; y_n=y^{(n-1)},\]
+    which gives
+    \[\begin{cases}y_1'=y_2,\\y_2'=y_3,\\\vdots\\y_{n-1}'=y_n,\\y_n'=G(t,y_1,\dots,y_n).\end{cases}\]
 \end{definition}
-\begin{problem}[System of First Order ODEs]
-    Rewrite this third order ODE as a first order system:
-    \[y''' + 4y' - y = 0\]
-\end{problem}
-\begin{example}[System of First Order ODEs 2]
+\begin{example}[System of First Order ODEs]
     Consider the second-order ODE
-    \[y'' + 2y' + y = e^t\]
-    \[\Longrightarrow y'' = -2y' - y + e^t.\]
+    \[y'' + 2y' + y = e^t.\]
     Define new variables
     \[y_1 = y, \qquad y_2 = y'.\]
     Then the system becomes
@@ -191,10 +171,10 @@ Example of a PDE is the Heat Equation. Let \(u = u(x,t)\), \(\frac{\partial u}{\
     Let
     \[A = \begin{pmatrix} 0 & 1 \\ -1 & -2 \end{pmatrix},\quad r(t) = \begin{pmatrix} 0 \\ e^t \end{pmatrix}.\]
 \end{example}
-\begin{example}[Lorenz system]
-    \[\begin{aligned}y_1' &= \sigma (y_2-y_1), \\ y_2' &= \rho y_1 - y_2 - y_1y_3, \\ y_3' &= y_1y_2 - \beta y_3,\end{aligned}\]
-    where \(\sigma,\rho,\beta\) are parameters. This is a nonlinear first order system in \(\mathbb{R}^3\).
-\end{example}
+\begin{problem}[System of First Order ODEs]
+    Rewrite this third order ODE as a first order system:
+    \[y''' + 4y' - y = 0\]
+\end{problem}
 
 \subsubsection{Linearity}
 \begin{definition}[Linearity]
@@ -209,10 +189,14 @@ Example of a PDE is the Heat Equation. Let \(u = u(x,t)\), \(\frac{\partial u}{\
         \item Non-linear: $y'' + sin(y) = 0$
     \end{itemize}
 \end{example}
+\begin{example}[Lorenz system]
+    \[\begin{aligned}y_1' &= \sigma (y_2-y_1), \\ y_2' &= \rho y_1 - y_2 - y_1y_3, \\ y_3' &= y_1y_2 - \beta y_3,\end{aligned}\]
+    where \(\sigma,\rho,\beta\) are parameters. This is a nonlinear first order system in \(\mathbb{R}^3\).
+\end{example}
 
 \subsubsection{Autonomy}
 \begin{definition}[Autonomy]
-    The \(n\)\textsuperscript{th} order ODE \(F(t, y, y', \ldots, y^{(n)}) = 0\) is autonomous if \(F\) does not depend explicitly on t, that is, if it is of the form \(F(y, y', \ldots, y^{(n)}) = 0\). Otherwise, it is non-autonomous.
+    The \(n\)\textsuperscript{th} order ODE \(F(t, y, y', \ldots, y^{(n)}) = 0\) is autonomous if \(F\) does not depend explicitly on t, that is, it can be written as \(F(y, y', \ldots, y^{(n)}) = 0\). Otherwise, it is non-autonomous.
 \end{definition}
 \begin{example}[Autonomy]
     Consider the following ODEs:
@@ -222,20 +206,20 @@ Example of a PDE is the Heat Equation. Let \(u = u(x,t)\), \(\frac{\partial u}{\
         \item Non-autonomous: \(y'(t) = ty(t)\)
     \end{itemize}
 \end{example}
-Equivalently, a first-order system \(y' = f(y,t)\) is autonomous if it can be written as \[ y' = f(y). \] Otherwise, it is non-autonomous.
 \begin{example}
-A classic, simple example of an autonomous first-order system is the linear growth/decay model:
-\[\frac{dy}{dt} = ky\]
-Here, \(f(y,t) = ky\), which depends only on \(y\) (where \(k\) is a constant), making it autonomous.
-Other examples include \(\frac{dy}{dt}=1 - y^{2}\) or exponential growth \(\frac{dy}{dt} = 0.5y\).
+    A classic, simple example of an autonomous first-order system is the linear growth/decay model:
+    \[\frac{dy}{dt} = ky\]
+    Here, \(f(y,t) = ky\), which depends only on \(y\) (where \(k\) is a constant), making it autonomous.
 \end{example}
 \begin{remark}
-    The Lorenz system is an example of an autonomous system\footnote{Here “system” means the unknown \(y\) is vector-valued, e.g. \(y \in \mathbb{R}^m\), rather than scalar.}.
+    The Lorenz system is an example of an autonomous system.
 \end{remark} 
 
 \subsubsection{Solutions of ODEs}
-\begin{definition}[Solutions of ODEs]
-    Let \(f: D \times (a,b) \to \mathbb{R}^n\). A solution of \(y'(t) = f(y(t), t)\) on an interval \(J \subset \mathbb{R}\) is a differentiable function \(y: J \to D \subset \mathbb{R}^n\), such that \(y'(t) = f(y(t), t), \forall t \in J\). \(t\) is the independent variable, and \(y = (y_1, \ldots, y_n)\) is the dependent variable.
+\begin{definition}[Solution of a first order system]
+Let \(f: D\times I \to \mathbb{R}^n\).\footnote{\(f\) takes a state \(y\in D \subset \mathbb{R}^n\) and a time \(t\in I \subset \mathbb{R}\), and outputs a vector in \(\mathbb{R}^n\).}
+A solution of $y'(t)=f(y(t),t)$ on an interval \(J\subset I\) is a differentiable function \(y:J\to D\)(\footnote{\(y(t)\) returns a vector of \(n\) components, so \(y(t)\in\mathbb{R}^n\). The set \(D\) is simply where these values are allowed to live.}) such that
+\[y'(t)=f(y(t),t)\quad \text{for all } t\in J.\]
 \end{definition}
 \paragraph{1. Explicit Solutions}
 \begin{example}[Explicit Solution]
@@ -243,7 +227,6 @@ Other examples include \(\frac{dy}{dt}=1 - y^{2}\) or exponential growth \(\frac
     \[y' + y = 1.\]
     We can verify that \(y(t) = e^{-t} + 1\), and therefore \(y'(t) = -e^{-t}\), is a solution on \(\mathbb{R}\). Indeed,
     \[y' + y = -e^{-t} + (e^{-t} + 1) = 1.\]
-    In this example, \(y = y(t)\) is explicitly given as a function of t (independent variable).
 \end{example}
 \paragraph{2. Implicit solutions}
 \begin{example}[Implicit Solution]
@@ -255,14 +238,12 @@ Other examples include \(\frac{dy}{dt}=1 - y^{2}\) or exponential growth \(\frac
     \[\frac{1}{2}y^2 = \frac{1}{2}x^2 + C,\]
     or equivalently, the implicit solution
     \[x^2 - y^2 = C, \quad C \in \mathbb{R}.\]
-    To verify, differentiate implicitly:
-    \[\frac{d}{dx}(x^2 - y^2) = 0 \;\Longrightarrow\; 2x - 2y\frac{dy}{dx} = 0\;\Longrightarrow\; y\frac{dy}{dx} = x.\]
 \end{example}
 
 \subsection{Initial Value Problems}
 \marginpar{January 13, 2026}
 \begin{definition}[Initial Value Problem (IVP)]
-    An initial value problem (IVP) is a system of ODEs with an initial condition.
+    An initial value problem consists of an ODE together with a condition $y(t_0)=y_0$, where the value of the solution is prescribed at an initial time \(t_0\).
 \end{definition}
 \begin{example}[IVP]
     Consider the following ODE 
@@ -273,9 +254,7 @@ Other examples include \(\frac{dy}{dt}=1 - y^{2}\) or exponential growth \(\frac
     \[\begin{cases}y' = f(y,t), \\ y(t_0) = y_0.\end{cases}.\]
 \end{example}
 
-
 \subsection{Existence and Uniqueness Theorem}
-
 \subsubsection{Lipschitz continuity}
 \begin{definition}[Lipschitz continuity]
     Let \(D \subseteq \mathbb{R}^n\) and let \(||\cdot||\) be a norm on \(\mathbb{R}^n\).
