@@ -455,7 +455,7 @@ To see the proof, refer to (\textbf{\ref{pf:picard-convergence}}).
 \marginpar{January 22, 2026}
 A first-order scalar differential equation is an equation involving a single scalar function $y(t)$ and its first derivative $y'$, generally expressed as
 \[y' = f(y,t).\]
-\subsection{First order linear equations}
+\subsection{First Order Linear Equations}
 \begin{definition}[First Order Linear Equation]
     A first-order linear equation is of the form
     \[a_0(t)y' + a_1(t)y = g(t),\]
@@ -464,7 +464,7 @@ A first-order scalar differential equation is an equation involving a single sca
     \[y' + P(t)y = Q(t), \quad P(t) = \frac{a_1(t)}{a_0(t)}, \quad Q(t) = \frac{g(t)}{a_0(t)}.\]
 \end{definition}
 
-\subsubsection{Integrating Factor Method}%to read
+\subsubsection{Integrating Factor Method}
 \begin{definition}[Integrating Factor]
     An integrating factor is a function $\mu(t)$ such that
     \[\mu(t)y' + \mu(t)P(t)y = \mu(t)Q(t).\]
@@ -476,49 +476,37 @@ A first-order scalar differential equation is an equation involving a single sca
     \[\mu y' + \mu P(t)y = \mu Q(t).\]
     We require that the left-hand side be the derivative of a product:
     \[\mu y' + \mu P(t)y = \frac{d}{dt}\big(\mu(t)y(t)\big). \tag{*}\]
-    Since
-    \[\frac{d}{dt}(\mu y) = \mu y' + \mu' y,\]
-    condition (*) holds provided that
-    \[\mu'(t)y = \mu(t)P(t)y,\]
-    which is guaranteed if
+    The condition (*) holds provided that
     \[\mu'(t) = \mu(t)P(t).\]
     Solving for $\mu$,
-    \[\frac{\mu'(t)}{\mu(t)} = \frac{d}{dt}ln|\mu(t)| = P(t),\]
-    now integrate with respect to $t$
-    \[ln|\mu(t)| = \int P(t)dt + C,\]
-    where $C \in \mathbb{R}$ is a constant of integration, and now we exponentiate
-    \[|\mu(t)| = e^{C}e^{\int P(t)dt}\]
-    \[\therefore \mu(t) = C_2e^{\int P(t)dt}, \quad C_1 = \pm e^{C}.\]
+    \[ln|\mu(t)| = \int P(t)dt + C, \quad C \in \mathbb{R}\]
+    \[\implies |\mu(t)| = e^{C}e^{\int P(t)dt}\]
+    \[\therefore \mu(t) = C_1e^{\int P(t)dt}, \quad C_1 = \pm e^{C}.\]
     We can therefore say choose $\mu(t) = e^{\int P(t)dt}$ (integrating factor).
     This is the general solution of the first order linear equation.
 \end{proposition}
 \begin{example}
     Solve the first-order linear equation 
     \[y' - 2y = 3e^t.\] 
-    First, identify the functions \(P(t)\) and \(Q(t)\): 
-    \[P(t) = -2, \quad Q(t) = 3e^t.\] 
-    Next, compute the integrating factor: 
-    \[\mu(t) = e^{\int P(t) dt} = e^{-2t}.\] 
+    First, identify the functions $P(t) = -2, \quad Q(t) = 3e^t$. 
+    Next, compute the integrating factor $\mu(t) = e^{\int P(t) dt} = e^{-2t}$.
     Multiply through by \(\mu(t)\) to rewrite the left-hand side as a derivative:
     \[e^{-2t}(y' - 2y) = e^{-2t}3e^{t}.\]
     \[\implies \frac{d}{dt}(e^{-2t}y) = 3e^{-t}.\]
-    Integrate both sides with respect to \(t\):
+    Integrate both sides with respect to \(t\) and solve for $y(t)$
     \[e^{-2t}y = \int 3e^{-t} dt + C = -3e^{-t} + C.\] 
-    Solve for \(y(t)\):
-    \[y(t) = e^{2t}(-3e^{-t} + C) = -3e^t + Ce^{2t}.\] 
+    \[\implies y(t) = e^{2t}(-3e^{-t} + C) = -3e^t + Ce^{2t}.\] 
     Using the initial condition \(y(0) = 1\), we find \(C = 4\), giving the final solution:
-    \[y(t) = -3e^t + 4e^{2t}.\]
+    \[\therefore y(t) = -3e^t + 4e^{2t}.\]
 \end{example}
 
-\subsection{Existence and Uniqueness for Linear Equations}
-
+\subsubsection{Existence and Uniqueness for First Order Linear Equations}
 \begin{theorem}[Existence \& Uniqueness]
-    For \[y' + P(t)y = Q(t), \quad y(t_0) = y_0\]  
-    if \(p\) and \(q\) are continuous on an interval containing \(t_0\), there exists a unique solution on that interval.
+    Let there be a first-order linear IVP of the form
+    \[y' + P(t)y = Q(t), \quad y(t_0) = y_0.\]
+    If \(P\) and \(Q\) are continuous on an interval containing \(t_0\), there exists a unique solution on that interval.
 \end{theorem}
-
-This theorem guarantees that any first-order linear equation we solve, including real-world applications like falling objects or mixing problems, has a unique solution on the interval where \(p\) and \(q\) are continuous.
-
+This theorem guarantees that any first-order linear equation we solve, including real-world applications like falling objects or mixing problems, has a unique solution on the interval where \(P\) and \(Q\) are continuous.
 \begin{example}
     \[\begin{cases}
         y' + \frac{1}{t-1}y = \frac{1}{\cos t} \\
@@ -527,7 +515,7 @@ This theorem guarantees that any first-order linear equation we solve, including
     Maximal interval: \(J_{max} = (-\frac{\pi}{2}, 1)\)
 \end{example}
 
-\subsection{Applications}
+\subsection{Applications}%to read
 \begin{example}[Falling Object with Air Resistance]
     Consider an object falling under gravity while experiencing air resistance proportional to its velocity. The differential equation is
     \[v' + \frac{\gamma}{m}v = g.\]
