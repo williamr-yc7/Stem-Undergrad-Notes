@@ -402,7 +402,7 @@ To see the proof, refer to (\textbf{\ref{pf:picard-convergence}}).
 
 \subsubsection{Uniqueness}
 \begin{proof}[Proof of Uniqueness]
-    Assume $y(t)$ and $z(t)$ are two solutions of the IVP with the same initial condition. Then
+    Assume $y(t)$ and $z(t)$ are two solutions of the IVP with the same initial condition. By the Lipschitz property of $f$,
     \[\|y(t)-z(t)\| \leq \int_{t_0}^{t} \|f(y(s),s)-f(z(s),s)\|ds \leq L \int_{t_0}^{t} \|y(s)-z(s)\|ds,\]
     for some Lipschitz constant $L>0$. Define $g(t) = \int_{t_0}^{t} \|y(s)-z(s)\|ds$, so $g'(t) \leq L g(t)$ and $g(t_0)=0$. Multiplying by $e^{-L(t-t_0)}$ gives $\frac{d}{dt}(e^{-L(t-t_0)}g(t)) \le 0$, which shows $e^{-L(t-t_0)}g(t)$ is decreasing and thus $g(t) = 0$ for all $t$. Hence $\|y(t) - z(t)\| = 0$ and $y(t) = z(t)$, meaning two solutions with the same initial condition cannot diverge, this proves the solution is unique.
 \end{proof}
