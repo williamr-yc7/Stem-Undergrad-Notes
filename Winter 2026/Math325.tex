@@ -18,6 +18,7 @@
 \newtheorem{solution}{Solution}
 \newtheorem*{example}{Example}
 \newtheorem{remark}{Remark}
+\newtheorem{proposition}{Proposition}
 \reversemarginpar
 \begin{document}
 %------- Title page   -----------
@@ -450,7 +451,7 @@ To see the proof, refer to (\textbf{\ref{pf:picard-convergence}}).
     so $g'(t) \leq L g(t)$ and $g(t_0)=0$. Grönwall's idea\footnote{Multiplying by $e^{-L(t-t_0)}$ gives $\frac{d}{dt}(e^{-L(t-t_0)}g(t)) \le 0$, which shows $e^{-L(t-t_0)}g(t)$ is decreasing and thus $g(t) = 0$} tells us this forces $g(t) = 0$ for all $t$, so $\|y(t) - z(t)\| = 0$. Hence, $y(t) = z(t)$, meaning two solutions with the same initial condition cannot diverge, this proves the solution is unique.
 \end{proof}
 
-\section{First-Order Scalar Equation}%to read
+\section{First-Order Scalar Equation}
 \marginpar{January 22, 2026}
 A first-order scalar differential equation is an equation involving a single scalar function $y(t)$ and its first derivative $y'$, generally expressed as
 \[y' = f(y,t).\]
@@ -463,41 +464,41 @@ A first-order scalar differential equation is an equation involving a single sca
     \[y' + P(t)y = Q(t), \quad P(t) = \frac{a_1(t)}{a_0(t)}, \quad Q(t) = \frac{g(t)}{a_0(t)}.\]
 \end{definition}
 
-\subsubsection{Integrating Factor Method}
+\subsubsection{Integrating Factor Method}%to read
 \begin{definition}[Integrating Factor]
     An integrating factor is a function $\mu(t)$ such that
     \[\mu(t)y' + \mu(t)P(t)y = \mu(t)Q(t).\]
 \end{definition}
-\begin{example}
+\begin{proposition}
     Consider the first-order linear equation
-    \[y' + p(t)y = q(t).\]
+    \[y' + P(t)y = Q(t).\]
     We multiply the equation by a function $\mu(t)$ to be determined:
-    \[\mu y' + \mu p(t)y = \mu q(t).\]
+    \[\mu y' + \mu P(t)y = \mu Q(t).\]
     We require that the left-hand side be the derivative of a product:
-    \[\mu y' + \mu p(t)y = \frac{d}{dt}\big(\mu(t)y(t)\big). \tag{*}\]
+    \[\mu y' + \mu P(t)y = \frac{d}{dt}\big(\mu(t)y(t)\big). \tag{*}\]
     Since
     \[\frac{d}{dt}(\mu y) = \mu y' + \mu' y,\]
     condition (*) holds provided that
-    \[\mu'(t)y = \mu(t)p(t)y,\]
+    \[\mu'(t)y = \mu(t)P(t)y,\]
     which is guaranteed if
-    \[\mu'(t) = \mu(t)p(t).\]
+    \[\mu'(t) = \mu(t)P(t).\]
     Solving for $\mu$,
-    \[\frac{\mu'(t)}{\mu(t)} = \frac{d}{dt}ln|\mu(t)| = p(t),\]
+    \[\frac{\mu'(t)}{\mu(t)} = \frac{d}{dt}ln|\mu(t)| = P(t),\]
     now integrate with respect to $t$
-    \[ln|\mu(t)| = \int p(t)dt + C,\]
+    \[ln|\mu(t)| = \int P(t)dt + C,\]
     where $C \in \mathbb{R}$ is a constant of integration, and now we exponentiate
-    \[|\mu(t)| = e^{C}e^{\int p(t)dt}\]
-    \[\therefore \mu(t) = C_2e^{\int p(t)dt}, \quad C_1 = \pm e^{C}.\]
-    We can therefore say choose $\mu(t) = e^{\int p(t)dt}$ (integrating factor).
+    \[|\mu(t)| = e^{C}e^{\int P(t)dt}\]
+    \[\therefore \mu(t) = C_2e^{\int P(t)dt}, \quad C_1 = \pm e^{C}.\]
+    We can therefore say choose $\mu(t) = e^{\int P(t)dt}$ (integrating factor).
     This is the general solution of the first order linear equation.
-\end{example}
+\end{proposition}
 \begin{example}
     Solve the first-order linear equation 
     \[y' - 2y = 3e^t.\] 
-    First, identify the functions \(p(t)\) and \(q(t)\): 
-    \[p(t) = -2, \quad q(t) = 3e^t.\] 
+    First, identify the functions \(P(t)\) and \(Q(t)\): 
+    \[P(t) = -2, \quad Q(t) = 3e^t.\] 
     Next, compute the integrating factor: 
-    \[\mu(t) = e^{\int p(t) dt} = e^{-2t}.\] 
+    \[\mu(t) = e^{\int P(t) dt} = e^{-2t}.\] 
     Multiply through by \(\mu(t)\) to rewrite the left-hand side as a derivative:
     \[e^{-2t}(y' - 2y) = e^{-2t}3e^{t}.\]
     \[\implies \frac{d}{dt}(e^{-2t}y) = 3e^{-t}.\]
@@ -512,7 +513,7 @@ A first-order scalar differential equation is an equation involving a single sca
 \subsection{Existence and Uniqueness for Linear Equations}
 
 \begin{theorem}[Existence \& Uniqueness]
-    For \[y' + p(t)y = q(t), \quad y(t_0) = y_0\]  
+    For \[y' + P(t)y = Q(t), \quad y(t_0) = y_0\]  
     if \(p\) and \(q\) are continuous on an interval containing \(t_0\), there exists a unique solution on that interval.
 \end{theorem}
 

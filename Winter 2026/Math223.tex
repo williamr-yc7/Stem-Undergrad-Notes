@@ -926,6 +926,12 @@ Find $x,y,z$.
 \[[v]_f = \begin{pmatrix}x\\y\\z\end{pmatrix} = \begin{pmatrix}3\\2\\4\end{pmatrix} \in \mathbb{R}^3.\]
 Example: $D = \{0,1,2,3,4\}$, $V = F(D)$, $g(x)=x^2$, $g \in V$, find coordinate of y in standard basis $\delta = (\delta_0, \delta_1, \delta_2, \delta_3, \delta_4)$. $dim V = 5$. $[g]_\delta = \begin{pmatrix}\lambda_0\\\vdots\\\lambda_4\end{pmatrix}$, where $g = \lambda_0 \delta_0 + \lambda_1 \delta_1 + \lambda_2 \delta_2 + \lambda_3 \delta_3 + \lambda_4 \delta_4$.
 
+Nose Basis theorem: Basis extraction theorem: $v_1,\ldots,v_n$ spans $V$ can extract a basis $\{e_1,\ldots,e_n\}$ from $\{v_1,\ldots,v_n\}$.
+Example: $v_1 = \begin{pmatrix}1\\0\end{pmatrix}, v_2 = \begin{pmatrix}0\\1\end{pmatrix}, v_3 = \begin{pmatrix}1\\1\end{pmatrix}$ spans $\mathbb{R}^3$.
+Proof: Let $\{e_1,\ldots,e_n\} \subseteq \{v_1,\ldots,v_n\}$ be a subset which is spanning with m minimal.
+Claim: $e_1,\ldots,e_m$ is a basis.
+Proof by contradiction: Asumption: $(e_1,\ldots,e_n)$ not LI: one vector is in the span of the other $(\lambda_1e_1 + \ldots + \lambda_ne_n = 0)$. $e_k \in span(e_1,e_2,\ldots,e_k,\ldots,e_n)$.
+
 
 
 
