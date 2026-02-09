@@ -515,7 +515,7 @@ This theorem guarantees that any first-order linear equation we solve, including
     Maximal interval: \(J_{max} = (-\frac{\pi}{2}, 1)\)
 \end{example}
 
-\subsection{Applications}%to read
+\subsection{Applications}
 \begin{example}[Falling Object with Air Resistance]
     Consider an object falling under gravity while experiencing air resistance proportional to its velocity. The differential equation is
     \[v' + \frac{\gamma}{m}v = g.\]
@@ -523,17 +523,16 @@ This theorem guarantees that any first-order linear equation we solve, including
     \[\frac{d}{dt}(\mu v) = g\mu \implies v = \frac{gm}{\gamma} + Ce^{-\frac{\gamma}{m}t}.\]
     Applying the initial condition \(v(0) = \frac{gm}{\gamma}\) gives \(C = 0\), so the velocity reaches a constant terminal value:
     \[v(t) = \frac{gm}{\gamma}.\]
-    This example shows how first-order linear equations model real-world motion with resistive forces.
 \end{example}
 \begin{example}[Mixing Problem]
     A tank initially contains 100 L of brine with \(y_0\) g of dissolved salt. Pure salt solution enters at 50 g/L at rate \(R\) L/s, and the well-mixed solution leaves at the same rate. Let \(y(t)\) be the amount of salt at time \(t\). The equation is
     \[y' = 50R - \frac{R}{100}y \implies y' + \frac{R}{100}y = 50R, \quad y(0) = y_0.\]
     Using the integrating factor \(\mu(t) = e^{\frac{R}{100}t}\), we solve:
     \[y(t) = 5000 + (y_0 - 5000)e^{-\frac{R}{100}t}.\]
-    The solution shows that over time the salt concentration approaches a stable threshold of 5000 g, illustrating exponential approach in mixing problems.
+    The solution shows that over time the salt concentration approaches a stable threshold of 5000 g.
 \end{example}
 
-\subsection{Separable Equations}
+\subsection{Separable Equations}%to read
 \marginpar{January 27, 2026}
 \begin{definition}
     Let \(f(x,y)\) be a function of two variables. Then \(f\) is separable if there exist two functions \(f_1(x)\) and \(f_2(y)\) such that \(f(x,y) = f_1(x)f_2(y)\).
@@ -543,10 +542,11 @@ This theorem guarantees that any first-order linear equation we solve, including
     \[\frac{dy}{dx} = -\frac{x}{y}\]
     \[f_1(x) = x,\quad f_2(y) = -\frac{1}{y}\]
 \end{example}
-\begin{example}
+\begin{remark}
+    The following ODE
     \[\frac{dy}{dx} = x^2 + y^2\]
-    This ODE is not separable because it is not in the form \(f_1(x)f_2(y)\).
-\end{example}
+    is not separable because it is not in the form \(f_1(x) \cdot f_2(y)\).
+\end{remark}
 
 \subsubsection{General Method for Separable Equations}
 Defining the general form of a separable ODE to be
