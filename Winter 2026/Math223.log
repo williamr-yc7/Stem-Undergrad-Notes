@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  6 FEB 2026 12:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  9 FEB 2026 12:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -540,7 +540,6 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 Package hyperref Info: Link coloring OFF on input line 24.
- (Math223.out) (Math223.out)
 \@outlinefile=\write4
 \openout4 = `Math223.out'.
 
@@ -556,13 +555,14 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 33.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{C:/Users/erenr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (Math223.toc [2
-
-])
+{C:/Users/erenr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
+No file Math223.toc.
 \tf@toc=\write5
 \openout5 = `Math223.toc'.
 
- [3]
+[2
+
+]
 Overfull \hbox (17.86923pt too wide) in paragraph at lines 63--72
  [] 
  []
@@ -584,12 +584,11 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has b
 <to be read again> 
                    \relax 
 l.150 \end{center}
-                   [2]
-pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.189     \[x=r\cos\theta, \quad y=r\sin\theta,\]
-                                                  [3] [4] [5]
+                   [2] [3] [4]
+
+LaTeX Warning: Reference `subsec:CO' on page 5 undefined on input line 254.
+
+[5]
 Underfull \hbox (badness 10000) in paragraph at lines 287--287
 []\OT1/cmr/m/n/10 January 09,
  []
@@ -609,7 +608,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 311--311
 []\OT1/cmr/m/n/10 January 12,
  []
 
-[6] [7] [8] [9]
+[6] [7] [8]
+
+LaTeX Warning: Reference `subsec:SB' on page 9 undefined on input line 391.
+
+
+LaTeX Warning: Reference `subsec:VSA' on page 9 undefined on input line 414.
+
+[9]
 Underfull \hbox (badness 10000) in paragraph at lines 425--425
 []\OT1/cmr/m/n/10 14 Jan-uary,
  []
@@ -669,26 +675,65 @@ Underfull \hbox (badness 10000) in paragraph at lines 919--919
 []\OT1/cmr/m/n/10 February 6,
  []
 
-[21] [22] [23] [24] [25] [26] (Math223.aux)
+[21]
+Underfull \hbox (badness 10000) in paragraph at lines 937--937
+[]\OT1/cmr/m/n/10 February 2,
+ []
+
+c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math223.tex:972: Missing $ inserted.
+<inserted text> 
+                $
+l.972 Span : v \in
+                   U + U' \implies v = u + u'
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math223.tex:973: Missing $ inserted.
+<inserted text> 
+                $
+l.973 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+Overfull \hbox (20.1277pt too wide) in paragraph at lines 964--973
+[]\OT1/cmr/m/n/10 proof of : Sup-pose $\OML/cmm/m/it/10 U \OMS/cmsy/m/n/10 ^^H \OML/cmm/m/it/10 U[]$ \OT1/cmr/m/n/10 are in di-rect sum in V As-sume: $[]$
+ []
+
+[22] [23] [24] [25] [26] [27] (Math223.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
-Package rerunfilecheck Info: File `Math223.out' has not changed.
-(rerunfilecheck)             Checksum: 5B47A240E0DDF54F133002B65FD20FFF;6634.
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `Math223.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `Math223.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  5B47A240E0DDF54F133002B65FD20FFF;6634.
  ) 
 Here is how much of TeX's memory you used:
- 31447 strings out of 467871
- 741519 string characters out of 5418377
- 1271149 words of memory out of 5000000
- 59641 multiletter control sequences out of 15000+600000
+ 31397 strings out of 467871
+ 740480 string characters out of 5418377
+ 1273149 words of memory out of 5000000
+ 59595 multiletter control sequences out of 15000+600000
  640216 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,11n,118p,868b,761s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\erenr\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on Math223.pdf (29 pages, 452675 bytes).
+Output written on Math223.pdf (29 pages, 431153 bytes).
 PDF statistics:
- 663 PDF objects out of 1000 (max. 8388607)
- 200 named destinations out of 1000 (max. 500000)
- 365 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 486 PDF objects out of 1000 (max. 8388607)
+ 202 named destinations out of 1000 (max. 500000)
+ 13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

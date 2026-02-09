@@ -934,7 +934,42 @@ Proof by contradiction: Asumption: $(e_1,\ldots,e_n)$ not LI:
 Proposition: one vector is in the span of the other $(\lambda_1e_1 + \ldots + \lambda_ne_n = 0)$. $e_k \in span(e_1,e_2,\ldots,e_k,\ldots,e_n)$.
 
 
+\marginpar{February 2, 2026}%to organize
+$V$vector space (finite dimensional) $v_1,\ldots,v_n$ LI set. Can extend $v_1,\ldots,v_n$ to a basis of $V$.
+Proof: $span(v_1,\ldots,v_n) = U \subseteq V$.
+Step 1:
+Case 1: If $U=V \to $ basis (LI + span)
+Case 2: $U \neq V \implies \exists v_{n+1} \in V \ U$
+Claim: ($v_1,\ldots,v_{n+1}$) LI V minus U.
+\[U_{n+1} = span(v_1,\ldots,v_{n+1})\]
+Step 2:
+Case 1: $U_{n+1} = V \implies (v_1,\ldots,v_{n+1})$ is a basis.
+Case 2: $U_{n+1} \neq V \implies $a m add $v_{m+2}$
 
+Step 3:
+\dots
+This stops at $v_n$ for some $n \geq m$, $n = dimV \implies n$ LI vectors in V.
+
+Coronary: $U \subseteq V$, $dim U \leq dim V$ or $U \nsubseteq V$ and $dim U < dim V$.\footnote{$\nsubseteq$ means it is a subset but not equal to.}.
+If for $U \subseteq V$, $U = V \iff dim U = dim V$.
+
+Coronary: $U \subseteq V$. $U$ admits a supplement, meaning there exists a subspace $U' \subseteq V$ such that $V = U \oplus U'$. $dim V = dim U + dim U'$.
+
+Basis concatenation:
+Theorem: Suppose $U \oplus U'$ are in direct sum in V.
+$(e_1,\ldots,e_n)$ basis of U. $(f_1,\ldots,f_m)$ basis of U'.
+$\implies (e_1,\ldots,e_n,f_1,\ldots,f_m)$ is a basis of $U \oplus U'$, which means $dim U \oplus U' = m+n = dim U + dim U'$.
+Theorem: $U, U' \subset V$, $dim U+U' = dim U + dim U' - dim (U \cap U')$.
+
+proof of : Suppose $U \oplus U'$ are in direct sum in V 
+Assume: $\begin{cases}
+    e_1,\ldots,e_n basis of U\\
+    f_1,\ldots,f_m basis of U'\end{cases}$
+Prove $(e_1,\ldots,e_n,f_1,\ldots,f_m)$ is a basis
+LI: $a_1e_1 + \ldots + a_ne_n + b_1f_1 + \ldots + b_mf_m = 0$
+$w = a_1e_1 + \ldots + a_ne_n = - b_1f_1 - \ldots - b_mf_m$.
+$w \in U$, $w \in U' \implies w \neq 0 \implies a_1e_1 + \ldots a_ne_n = 0 \implies a_i = 0$. $\implies b_1f_1 + \ldots b_nf_n = 0 \implies b_i = 0$.
+Span : v \in U + U' \implies v = u + u'
 
 \section{Appendix}
 \subsection{Proof: Standard Basis is a Basis}
