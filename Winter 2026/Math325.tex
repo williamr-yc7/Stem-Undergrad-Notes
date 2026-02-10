@@ -5,11 +5,14 @@
 \usepackage{amssymb} % For mathematical symbols
 \usepackage{amsthm} % For theorem environments
 \usepackage{amsmath} % For advanced math typesetting
-\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=black,citecolor=black,urlcolor=black]{hyperref}
 \usepackage{enumitem}
 \usepackage{pgfplots} % For plots
-\pgfplotsset{compat=1.18} % Set compatibility level
 \usepackage{tikz} % For drawing shapes
+\pgfplotsset{compat=1.18} % Set compatibility level
+\let\oldref\ref
+\renewcommand{\ref}[1]{\textcolor{red}{\oldref{#1}}}
 \newtheorem{theorem}{Theorem}
 \newtheorem{corollary}{Corollary}[theorem]
 \newtheorem{lemma}[theorem]{Lemma}
@@ -41,12 +44,6 @@
 
 %------- Table of Contents -----------
 \thispagestyle{empty}
-\hypersetup{
-    citecolor=black,
-    filecolor=black,
-    linkcolor=black,
-    urlcolor=black
-}
 \tableofcontents
 \clearpage
 
@@ -771,7 +768,7 @@ For a homogeneous system
     \label{eq:ode-system-homogeneous}
     y'(t)=A(t)y(t),
 \end{equation}
-the set of all solutions forms a vector space: it contains the zero function, and any linear combination of solutions is also a solution (principle of superposition). To describe this space concretely, we select \(n\) linearly independent solutions; arranging them as the columns of a matrix gives a fundamental matrix, which allows every solution to be expressed as a linear combination of these columns.
+the set of all solutions forms a vector space: it contains the zero function, and any linear combination of solutions is also a solution \{\ref{POS}\}. To describe this space concretely, we select \(n\) linearly independent solutions; arranging them as the columns of a matrix gives a fundamental matrix, which allows every solution to be expressed as a linear combination of these columns.
 
 The non-homogeneous system \(y' = A(t)y + r(t)\) can be solved using a fundamental matrix \(\Phi(t)\) of the homogeneous system:
 \[y(t) = \Phi(t) c + \Phi(t) \int_{t_0}^t \Phi(s)^{-1} r(s)ds,\]
@@ -785,8 +782,7 @@ where \(c \in \mathbb{R}^n\) is determined by the initial condition \(y(t_0) = y
 \begin{theorem}[Solution Set]
     The solution set \(S\) is an \(n\)-dimensional vector subspace of \(C^1(Q)\).
 \end{theorem}
-We first justify the theorem by showing that the set of solutions indeed forms a vector space of dimension \(n\).
-\begin{proof}[$S$ is a vector space of dimension \(n\)]
+\begin{proof}To prove that $S$ is a vector space of dimension \(n\), we show the following:
     \textbf{Step 1: Vector space.} If \(y_1,y_2 \in S\) and \(\alpha_1,\alpha_2 \in \mathbb{R}\),
     \[
     (\alpha_1 y_1 + \alpha_2 y_2)' = \alpha_1 y_1' + \alpha_2 y_2' = A(t)(\alpha_1 y_1 + \alpha_2 y_2),
@@ -803,101 +799,149 @@ We first justify the theorem by showing that the set of solutions indeed forms a
     for \(i=1,\dots,n\). Define \(B = \{y_1,\dots,y_n\}\). By uniqueness, any solution \(z \in S\) can be written as a linear combination of the \(y_i\), so \(B\) spans \(S\). Evaluating a linear combination at \(t_0\) shows the \(y_i\) are independent. Hence, \(B\) is a basis and \(\dim S = n\).
 \end{proof}
 
+\marginpar{February 5, 2026}
+\begin{definition}[Matrix Solution]
+    A matrix solution $y(t)$ of the equation
+    \begin{equation}
+        \label{eq:ode-system-matrix}
+        y' = A(t)y
+    \end{equation}
+    is an $n \times n$ matrix function whose columns are solutions to \{\textup{\ref{eq:ode-system-matrix}}\}.
+\end{definition}
+\begin{definition}[Principle of Superposition]
+    \label{POS}
+    The principle of superposition states that if \(y_1(t), \dots, y_n(t)\) are solutions of \(y' = A(t)y\), then any linear combination of these solutions is also a solution.
+\end{definition}
+By the POS (principle of superposition), for any fixed vector
+\[C = \begin{pmatrix}C_1\\C_2\\\vdots\\C_n\end{pmatrix} \in \mathbb{R}^n, \quad y(t)c = c_1 y_1(t) + c_2 y_2(t) + \cdots + c_n y_n(t) \in S.\]
+\begin{proposition}
+    Let $y(t)$ be a matrix solution of \{\textup{\ref{eq:ode-system-matrix}}\}. Either
+    \[\det(y(t)) \neq 0 \quad \forall t \in Q\]
+    or
+    \[\det(y(t)) = 0.\]
+\end{proposition}
 
 \begin{proof}
-\textbf{Step 1: Vector space.}
-
-If \(y_1,y_2 \in S\) and \(\alpha_1,\alpha_2 \in \mathbb{R}\),
-\[
-(\alpha_1 y_1 + \alpha_2 y_2)'
-=
-\alpha_1 y_1' + \alpha_2 y_2'
-=
-A(t)(\alpha_1 y_1 + \alpha_2 y_2),
-\]
-so \(\alpha_1 y_1 + \alpha_2 y_2 \in S\). Also \(0 \in S\).
-
-\textbf{Step 2: Construct a basis.}
-
-Let \(e_1,\dots,e_n\) be the standard basis of \(\mathbb{R}^n\).
-
-For each \(i\), let \(y_i\) be the unique solution of
-\[
-\begin{cases}
-y' = A(t)y, \\
-y(t_0) = e_i.
-\end{cases}
-\]
-
-Define
-\[
-B=\{y_1,\dots,y_n\}.
-\]
-
-Every linear combination of the \(y_i\) solves the system, so
-\(\operatorname{span}(B)\subset S\).
-
-If \(z \in S\) and
-\[
-z(t_0)=
-\begin{pmatrix}
-z_1\\
-\vdots\\
-z_n
-\end{pmatrix},
-\]
-then uniqueness gives
-\[
-z(t)=\sum_{i=1}^n z_i\,y_i(t),
-\]
-so \(S\subset \operatorname{span}(B)\).
-
-\textbf{Step 3: Independence.}
-
-If
-\[
-c_1y_1(t)+\cdots+c_ny_n(t)=0,
-\]
-evaluating at \(t_0\) gives
-\[
-c_1e_1+\cdots+c_ne_n=0,
-\]
-hence \(c_1=\cdots=c_n=0\).
-
-Thus \(B\) is a basis and \(\dim S=n\).
-
-BTW $S = \{y : I \to \mathbb{R}^n |\text{ y is a solution}\}$.
+    Assume there exists $t_0 \in Q$ such that $\det(y(t_0)) = 0$. Then $y(t_0)$ is not invertible. Hence, by linear algebra, there exists a nonzero vector $v \in \mathbb{R}^n$ such that
+    \[y(t_0)v = 0.\]
+    Define
+    \[y_1(t) := y(t)v.\]
+    Since each column of $y(t)$ is a solution of $y' = A(t)y$, any linear combination of the columns is also a solution. Therefore $y_1(t)$ is a solution, i.e. $y_1 \in S$.
+    Also define the zero solution
+    \[y_2(t) := 0,\text{\footnote{":=" means 'is defined to be'}}\]
+    which satisfies $y_2' = A(t)y_2$, so $y_2 \in S$. Now,
+    \[y_1(t_0) = y(t_0)v = 0 = y_2(t_0).\]
+    Thus $y_1$ and $y_2$ are two solutions with the same initial condition. By the existence and uniqueness theorem,
+    \[y_1(t) = y_2(t) \quad \text{for all } t \in Q.\]
+    Hence
+    \[y(t)v = 0 \quad \text{for all } t.\]
+    Therefore the columns of $y(t)$ are linearly dependent for every $t$, which implies
+    \[\det(y(t)) = 0 \quad \text{for all } t \in Q.\]
 \end{proof}
 
-\marginpar{February 5, 2026}
-Definition: A matrix solution $y(t)$ of equation $y' = A(t)y$ (*1) is a $n \times n$ matrix function whose columns are solutions to (*1).
-By the POS (princicple of superposition), for any fixed vector $C = \begin{pmatrix}C_1\\C_2\\\vdots\\C_n\end{pmatrix} \in \mathbb{R}^n$.
-\[y(t)c = c_1y_1(t) + c_2y_2(t) + \cdots + c_ny_n(t) \in S\]
-Proposition: Let $y(t)$ be a matrix solution of  (*1). Either $det(y(t)) \neq 0$ $\forall t \in I$ or $det(y(t)) = 0$.
-Proof: Assume that there exist $t_0 \in I$ such that $det(y(t_0)) = 0 \implies y(t_0)$ is not invertible.
-$\implies \exists$ a non zero vector $v \in \mathbb{R}^n$ such that $y(t_0)v = 0 = \begin{pmatrix}0\\0\\\vdots\\0\end{pmatrix} \in \mathbb{R}^n$. Let $y_1(t) = y(t)v \in S$ which satisfies the initial condition $y_1(t_0) = y(t_0)v = 0$. But $y_2(t) = 0 \in S$.
-By the theorem of existence and uniqueness, $y_1(t) = y(t)v = y_2(t) = 0 \implies det(y(t)) = 0 \forall t \in I$.
 
-Definition:$w(t) = w(y_1,\ldots,y_n)(t) = det(y(t))$ is called the Wronskian of $y_1,\ldots,y_n$.
+\begin{definition}
+\[
+w(t) = w(y_1,\ldots,y_n)(t) = \det(y(t))
+\]
+is called the Wronskian of $y_1,\ldots,y_n$.
+\end{definition}
 
-Definition: A matrix solution with non banishing wronskian is called a fundamental matrix solution.
+\begin{definition}
+A matrix solution with nonvanishing Wronskian is called a fundamental matrix solution.
+\end{definition}
 
-Theorem (Louville's formula): Let $y(t)$ a matrix solution. Then $det(y(t)) = det(y(t_0))e^{\int_{t_0}^t tr(A(s))ds}$. Here, $tr(M) =$ Sum of the diagonal entries of $M \in M_n(\mathbb{R})$.
+\begin{theorem}[Liouville's formula]
+Let $y(t)$ be a matrix solution. Then
+\[
+\det(y(t))
+=
+\det(y(t_0))
+e^{\int_{t_0}^t \operatorname{tr}(A(s))\,ds}.
+\]
+Here,
+\[
+\operatorname{tr}(M)
+=
+\text{sum of the diagonal entries of } M \in M_n(\mathbb{R}).
+\]
+\end{theorem}
 
-$y' = A(t)y$. Goal: Find n linearly independent solutions $y_1,y_2,\ldots,y_n$ show that $W(t_0) \neq 0$.
-$\implies y(t) = c_1y_1(t) + c_2y_2(t) + \cdots + c_ny_n(t)$, for $c_1,\ldots,c_n \in \mathbb{R}$ (GENERAL SOLUTION).
+\begin{remark}
+For
+\[
+y' = A(t)y,
+\]
+the goal is to find $n$ linearly independent solutions
+\[
+y_1, y_2, \ldots, y_n
+\]
+such that $W(t_0) \neq 0$.
+\end{remark}
 
-Given an initial condition $y(t_0) = y_0 \in \mathbb{R}^n$.
-\[\implies y(t_0) = c_1y_1(t_0) + \ldots + c_ny_n(t_0) = \begin{pmatrix}
-    |&|&|\\y_1(t_0)&y_2(t_0)&y_n(t_0)\\|&|&|
-\end{pmatrix}\begin{pmatrix}
-    c_1\\c_2\\\vdots\\c_n
-\end{pmatrix} = y_0 = \begin{pmatrix}
-    y_0'\\y_0''\\\vdots\\y_0^{(n)}
-\end{pmatrix}\]
+Then the general solution is
+\[
+y(t)
+=
+c_1 y_1(t) + c_2 y_2(t) + \cdots + c_n y_n(t),
+\qquad
+c_1,\ldots,c_n \in \mathbb{R}.
+\]
 
-$\implies$The unique $(c_1,\ldots,c_n)$ is given by
-\[\begin{pmatrix}c_1\\c_2\\\vdots\\c_n\end{pmatrix} = \begin{pmatrix}|&|\\y_1(t_0)&y_n(t_0)\\|&|\end{pmatrix}^{-1}\begin{pmatrix}y_0'\\y_0''\\\vdots\\y_0^{(n)}\end{pmatrix}\]
+Given an initial condition
+\[
+y(t_0) = y_0 \in \mathbb{R}^n,
+\]
+\[
+y(t_0)
+=
+c_1 y_1(t_0) + \cdots + c_n y_n(t_0)
+=
+\begin{pmatrix}
+| & | & | \\
+y_1(t_0) & y_2(t_0) & y_n(t_0) \\
+| & | & |
+\end{pmatrix}
+\begin{pmatrix}
+c_1\\
+c_2\\
+\vdots\\
+c_n
+\end{pmatrix}
+=
+y_0
+=
+\begin{pmatrix}
+y_0'\\
+y_0''\\
+\vdots\\
+y_0^{(n)}
+\end{pmatrix}.
+\]
+
+The unique $(c_1,\ldots,c_n)$ is given by
+\[
+\begin{pmatrix}
+c_1\\
+c_2\\
+\vdots\\
+c_n
+\end{pmatrix}
+=
+\begin{pmatrix}
+| & | \\
+y_1(t_0) & y_n(t_0) \\
+| & |
+\end{pmatrix}^{-1}
+\begin{pmatrix}
+y_0'\\
+y_0''\\
+\vdots\\
+y_0^{(n)}
+\end{pmatrix}.
+\]
+
+
 \subsection{Linear homogeneous systems with constant coefficients}
 \[y' = Ay \text{(*2)}, \qquad A \in M_n(\mathbb{R})\text{ with constant entries}\]
 We look for solutions of the form $y(t) = e^{\lambda t}u$ (*3), $U$ is a constant vector.

@@ -41,5 +41,5 @@
 \contentsline {section}{\numberline {9}Power Series Solutions and Numerical Methods}{26}{section.9}%
 \contentsline {section}{\numberline {10}Appendix}{26}{section.10}%
 \contentsline {subsection}{\numberline {10.1}Picard Iterations Convergence}{26}{subsection.10.1}%
-\contentsline {section}{\numberline {11}Solutions}{27}{section.11}%
-\contentsline {section}{\numberline {12}Useful Links}{30}{section.12}%
+\contentsline {section}{\numberline {11}Solutions}{28}{section.11}%
+\contentsline {section}{\numberline {12}Useful Links}{31}{section.12}%
