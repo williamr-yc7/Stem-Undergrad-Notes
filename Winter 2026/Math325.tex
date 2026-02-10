@@ -778,12 +778,30 @@ The non-homogeneous system \(y' = A(t)y + r(t)\) can be solved using a fundament
 where \(c \in \mathbb{R}^n\) is determined by the initial condition \(y(t_0) = y_0\).
 
 \subsection{Structure of the Solution Space}%to read
+\begin{definition}[Linear Independence]
+    Functions \(y_1, \dots, y_n\) in the solution set \(S\)\footnote{\(y_1, \dots, y_n\) are solutions of \(y' = A(t)y\)} are linearly independent if
+    \[c_1 y_1(t) + \cdots + c_n y_n(t) = 0 \quad \forall t \in Q \implies c_1 = \cdots = c_n = 0.\]
+\end{definition}
 \begin{theorem}[Solution Set]
     The solution set \(S\) is an \(n\)-dimensional vector subspace of \(C^1(Q)\).
 \end{theorem}
-\begin{definition}[Linear Independence]
-    Functions $y_1, \dots, y_n \in S$ are linearly independent if \[c_1 y_1(t) + \cdots + c_n y_n(t) = 0 \quad \forall t \in Q \implies c_1 = \cdots = c_n = 0.\]
-\end{definition}
+We first justify the theorem by showing that the set of solutions indeed forms a vector space of dimension \(n\).
+\begin{proof}[$S$ is a vector space of dimension \(n\)]
+    \textbf{Step 1: Vector space.} If \(y_1,y_2 \in S\) and \(\alpha_1,\alpha_2 \in \mathbb{R}\),
+    \[
+    (\alpha_1 y_1 + \alpha_2 y_2)' = \alpha_1 y_1' + \alpha_2 y_2' = A(t)(\alpha_1 y_1 + \alpha_2 y_2),
+    \]
+    so any linear combination is in \(S\), and the zero function is also in \(S\).
+
+    \textbf{Step 2: Construct a basis.} Let \(e_1,\dots,e_n\) be the standard basis of \(\mathbb{R}^n\), and let \(y_i\) be the unique solution of
+    \[
+    \begin{cases}
+    y' = A(t)y, \\ 
+    y(t_0) = e_i
+    \end{cases}
+    \]
+    for \(i=1,\dots,n\). Define \(B = \{y_1,\dots,y_n\}\). By uniqueness, any solution \(z \in S\) can be written as a linear combination of the \(y_i\), so \(B\) spans \(S\). Evaluating a linear combination at \(t_0\) shows the \(y_i\) are independent. Hence, \(B\) is a basis and \(\dim S = n\).
+\end{proof}
 
 
 \begin{proof}

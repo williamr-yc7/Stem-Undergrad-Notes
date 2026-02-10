@@ -34,7 +34,7 @@
 \contentsline {subsection}{\numberline {5.1}From higher order scalar ODEs to linear systems}{21}{subsection.5.1}%
 \contentsline {subsection}{\numberline {5.2}Theory of First Order Linear Systems}{22}{subsection.5.2}%
 \contentsline {subsection}{\numberline {5.3}Structure of the Solution Space}{22}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Linear homogeneous systems with constant coefficients}{24}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.4}Linear homogeneous systems with constant coefficients}{25}{subsection.5.4}%
 \contentsline {section}{\numberline {6}Second and Higher-Order Scalar Linear Equations}{26}{section.6}%
 \contentsline {section}{\numberline {7}Stability, Phase Portraits and Orbits}{26}{section.7}%
 \contentsline {section}{\numberline {8}Laplace Transform}{26}{section.8}%
