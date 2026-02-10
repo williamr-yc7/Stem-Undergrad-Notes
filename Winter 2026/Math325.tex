@@ -777,7 +777,7 @@ The non-homogeneous system \(y' = A(t)y + r(t)\) can be solved using a fundament
 \[y(t) = \Phi(t) c + \Phi(t) \int_{t_0}^t \Phi(s)^{-1} r(s)ds,\]
 where \(c \in \mathbb{R}^n\) is determined by the initial condition \(y(t_0) = y_0\).
 
-\subsection{Structure of the Solution Space}%to read
+\subsection{Structure of the Solution Space}
 \begin{definition}[Linear Independence]
     Functions \(y_1, \dots, y_n\) in the solution set \(S\)\footnote{\(y_1, \dots, y_n\) are solutions of \(y' = A(t)y\)} are linearly independent if
     \[c_1 y_1(t) + \cdots + c_n y_n(t) = 0 \quad \forall t \in Q \implies c_1 = \cdots = c_n = 0.\]
@@ -965,7 +965,87 @@ where $I$ is the identity matrix in $M_n(\mathbb{R})$.
     and the general solution is
     \[y(t) = c_1 e^{-2t}\begin{pmatrix}1\\-1\end{pmatrix} +
     c_2 e^{4t}\begin{pmatrix}1\\1\end{pmatrix} = \begin{pmatrix}e^{-2t} & e^{4t} \\ -e^{-2t} & e^{4t}\end{pmatrix}\begin{pmatrix}c_1\\c_2\end{pmatrix}\]
+
+    If we set an initial condition such as $y(0) = \begin{pmatrix}1\\2\end{pmatrix}$, then we can solve for $c_1$ and $c_2$:
+    \[y(0) = \begin{pmatrix}1\\2\end{pmatrix} = c_1\begin{pmatrix}-1\\1\end{pmatrix} + c_2 \begin{pmatrix}1\\1\end{pmatrix} = \begin{pmatrix}-1&1\\1&1\end{pmatrix}\begin{pmatrix}c_1\\c_2\end{pmatrix}\]
+    \[\implies \begin{pmatrix}c_1\\c_2\end{pmatrix} = \begin{pmatrix}-1&1\\1&1\end{pmatrix}^{-1}\begin{pmatrix}1\\2\end{pmatrix} = \begin{pmatrix}-1/2&1/2\\1/2&1/2\end{pmatrix}\begin{pmatrix}1\\2\end{pmatrix} = \begin{pmatrix}1/2\\3/2\end{pmatrix}.\]
+    Therefore, the general solution of the system with the initial condition is
+    \[y(t) = \frac{1}{2}e^{-2t}\begin{pmatrix}-1\\1\end{pmatrix} + \frac{3}{2}e^{4t}\begin{pmatrix}-1\\1\end{pmatrix},\]
+    which is the unique solution satisfying $y(0) = \begin{pmatrix}1\\2\end{pmatrix}$.
 \end{example}
+
+\marginpar{February 10, 2026}
+\begin{example}[3 by 3 system]
+    Consider the system
+    \[y' = Ay, \quad A - \lambda I = \begin{pmatrix}3-\lambda & 1 & -2 \\ -1 & 5-\lambda & -2 \\ -3 & 3 & -2-\lambda\end{pmatrix}.\]
+    \textbf{Step 1: Find eigenvalues.}\\
+    The characteristic polynomial is
+    \[p(\lambda) = \det(A - \lambda I) = -(\lambda+2)(\lambda-4)^2 = 0,\]
+    giving eigenvalues $\lambda_1 = -2$ and $\lambda_2 = \lambda_3 = 4$.\\
+    \textbf{Step 2: Find eigenvectors.}\\
+    For $\lambda_1 = -2$, solve
+    \[(A + 2I) u_1 = 0.\]
+    A solution is $u_1 = \begin{pmatrix}1\\1\\3\end{pmatrix}$, yielding $y_1(t) = e^{-2t} u_1$.\\
+    For $\lambda = 4$, solve
+    \[(A - 4I) u = 0.\]
+    If we do Gaussian elimination (row reduction), we find that $a = b - 2c$, so $b$ and $c$ are free variables. Thus
+    \[\begin{pmatrix}a\\b\\c\end{pmatrix} = b\begin{pmatrix}1\\1\\0\end{pmatrix} + c\begin{pmatrix}-2\\0\\1\end{pmatrix}.\]
+    Since every solution is a linear combination of these two vectors, they span the solution space (the kernel).
+    A basis for the kernel is
+    \[\ker(A-4I) = \text{span}\left\{\begin{pmatrix}1\\1\\0\end{pmatrix}, \begin{pmatrix}-2\\0\\1\end{pmatrix}\right\}.\]
+    This gives the eigenvectors
+    \[u_2 = \begin{pmatrix}1\\1\\0\end{pmatrix}, \quad u_3 = \begin{pmatrix}-2\\0\\1\end{pmatrix},\]
+    giving
+    \[y_2(t) = e^{4t} u_2, \quad y_3(t) = e^{4t} u_3.\]
+    \textbf{Step 3: Verify linear independence.}\\
+    The Wronskian at $t=0$ is
+    \[W(0) = \det\begin{pmatrix}1 & 1 & -2 \\ 1 & 1 & 0 \\ 3 & 0 & 1\end{pmatrix} = 6 \neq 0,\]
+    so the solutions are linearly independent.\\
+    \textbf{Step 4: General solution.}\\
+    Therefore, the general solution is
+    \[y(t) = c_1 e^{-2t} \begin{pmatrix}1\\1\\3\end{pmatrix} + c_2 e^{4t} \begin{pmatrix}1\\1\\0\end{pmatrix} + c_3 e^{4t} \begin{pmatrix}-2\\0\\1\end{pmatrix}.\]
+\end{example}
+\begin{definition}[Diagonalizable matrices]
+    A matrix $A \in M_n(\mathbb{R})$ is diagonalizable if there exists an invertible matrix $P$ such that $P^{-1}AP$ is a diagonal matrix.
+\end{definition}
+\begin{theorem}[Diagonalization]
+    Let $A \in M_n(\mathbb{R})$ and assume that all eigenvalues of A are real and distinct, then A is diagonalizable.
+\end{theorem}
+\begin{proof}%to read
+    Denote by $\lambda_1,\ldots,\lambda_n$ the real distinct eigenvalues of $A$ to each eigenvalue $\lambda_i$ corresponds a (real) eigenvector $u_i \in \mathbb{R}^n$ A result from linear algebra implies that $u_1,u_2,\ldots,u_n$ are linearly independent. Let
+    \[P = \begin{pmatrix}|&|&|& &|\\u_1&u_2&\ldots&u_n\\|&|&|& &|\end{pmatrix}\]
+    be invertible.
+    \[APe_i = Au_i = \lambda_i u_i\]
+    where $u_i$ is the ith column of P.
+    \[\implies AP = P\,diag(\lambda_1,\ldots,\lambda_n) = P \begin{pmatrix}\lambda_1&0&\ldots&0\\0&\lambda_2&\ldots&0\\\vdots&\vdots&\ddots&\vdots\\0&0&\ldots&\lambda_n\end{pmatrix}\]
+    \[\implies P^{-1}AP = D\]
+\end{proof}
+\begin{theorem}
+    A is diagonalizable if and only if it has a basis of eigenvectors.
+\end{theorem}
+\begin{example}
+    Let
+    \[A = \begin{pmatrix}3&-1&-2\\-1&5&-2\\-3&3&-2\end{pmatrix}\]
+    Find the basis of eigenvectors of $A$.
+    \[\{u_1,u_2,u_3\} = \left\{\begin{pmatrix}1\\1\\3\end{pmatrix},\begin{pmatrix}1\\1\\0\end{pmatrix},\begin{pmatrix}-2\\0\\1\end{pmatrix}\right\}\]
+    Basis of $\mathbb{R}^3 \implies \text{A diagonalizable}$.
+\end{example}
+\begin{example}
+    Let
+    \[A = \begin{pmatrix}1&1\\0&1\end{pmatrix}\]
+    \[p(\lambda) = \begin{vmatrix}1-\lambda&1\\0&1-\lambda\end{vmatrix} = (\lambda-1)^2-1 = 0\]
+    \[\implies \lambda_1 = \lambda_2 = 1\]
+    Find the eigenvectors:
+    \[(A-I)u_1 = 0\]
+    \[\implies \begin{pmatrix}0&1\\0&0\end{pmatrix}\begin{pmatrix}a\\b\end{pmatrix} = \begin{pmatrix}0\\0\end{pmatrix} \implies b = 0.\]
+    Pick any values of $a$, say $a=1$, then there is only one eigenvector which is
+    \[u = \begin{pmatrix}1\\0\end{pmatrix}\]
+\end{example}
+\begin{theorem}
+    Let $A \in M_n(\mathbb{R})$ be diagonalizable. Let $\sigma(A) = \{\lambda_1,\ldots,\lambda_n\}$ (potentially complex valued). Since A is diagonalizable, denote by $u_1,\ldots,u_n$ the associated eigenvectors (potentially complex). The general solution (potentially complex) is of \textup{\eqref{eq:ode-system-matrix}}
+    \[y(t) = \sum_{i=1}^n c_ie^{\lambda_i t}u_i.\]
+\end{theorem}
+Question: What if some eigenvalues are complex?
 
 \subsubsection{Complex eigenvalues and real-valued solutions}
 If $A$ has real entries and a complex eigenpair $(\lambda,u)$ with $\lambda=\alpha+i\beta$ and $u=p+iq$ (where $p,q\in\mathbb{R}^n$), then a complex solution is
@@ -983,6 +1063,37 @@ real solutions:
         Use $t$ as the independent variable in your answers.
     \end{enumerate}
 \end{problem}
+
+\begin{example}
+    Let
+    \[A = \begin{pmatrix}2&-1\\1&2\end{pmatrix}\]
+    Define the characteristic polynomial to be
+    \[p(\lambda) = \begin{vmatrix}2-\lambda & -1 \\ 1 & 2-\lambda\end{vmatrix} = (\lambda-2)^2+1 = 0\]
+    Giving us two possible eigenvalues $\lambda_1 = 2 + i$ and $\lambda_2 = 2 - i$. Find the eigenvectors:
+    \[(A-2I)u_1 = 0\]
+    \[\implies \begin{pmatrix}i&-1\\1&i\end{pmatrix}\begin{pmatrix}a\\b\end{pmatrix} = \begin{pmatrix}0\\0\end{pmatrix} \implies b = ia.\]
+    Pick any values of $a$, say $a=1$, then the first eigenvector is
+    \[u_1 = \begin{pmatrix}1\\i\end{pmatrix}\]
+    
+    Let $\overline{z}$ denote the complex conjugate of $z \in \mathbb{C}$. Similarly, for $u \in \mathbb{C}^n$, $\overline{u}$ is the component-wise complex conjugate.
+    \[\overline{Au_1} = \overline{\lambda_1u_1}\]
+    \[\implies A\overline{u_1} = \overline{\lambda_1u_1}\]
+    since $\overline{A} = A$ cuz A is real.
+    
+    Conclusion, if $A \in M_n(\mathbb{R})$ and if $(\lambda,u)$ is an eigen pair, then $(\overline{\lambda},\overline{u})$ is also an eigenpair.
+\end{example}
+Assume that $(\lambda,u)$ is a complex eigenpair, then $y(t) = e^{\lambda t}u$ is a complex-valued solution to \eqref{eq:ode-system-matrix}. Denote $\lambda = \alpha + i\beta$ (eigenvalue) and $u + iv$ (eigenvalue).
+\begin{definition}[Euler's Formula]
+    Let $x \in \mathbb{R}$. Then the Euler's formula is
+    \[e^{ix} = \cos(x) + i\sin(x).\]
+    We can transform it into a series as
+    \[e^z = \sum_{n=0}^{\inf}\frac{1}{n!}z^n.\]
+\end{definition}
+\[y(t) = e^{(\alpha + i\beta)t}(u+iv) = e^{\alpha t}e^{i\beta t}(u+iv) = e^{\alpha t}(cos(\beta t)+i\sin(\beta t))(u+iv) =  e^{\alpha t}(cos(\beta t)u - \sin(\beta t)v) + ie^{\alpha t}(\sin(\beta t)u + \cos(\beta t)v).\]
+where $y_1(t) = e^{\alpha t}(cos(\beta t)u - \sin(\beta t)v)$ and $y_2(t) = e^{\alpha t}(\sin(\beta t)u + \cos(\beta t)v)$.
+Exercise: Verify that $y_1(t)$, $y_2(t)$ are real valued solutions to \eqref{eq:ode-system-matrix}.
+
+
 
 \section{Second and Higher-Order Scalar Linear Equations}
 \section{Stability, Phase Portraits and Orbits}
@@ -1129,8 +1240,9 @@ real solutions:
     Thus, the solution is not unique.
 \end{solution}
 \begin{solution}[Complex eigenvalues and real-valued solutions]
+    \vspace{0.5em}
+    \textbf{(a) Eigenvalues and eigenvectors.}
 
-\textbf{(a) Eigenvalues and eigenvectors.}
 
 We are given the system
 \[
