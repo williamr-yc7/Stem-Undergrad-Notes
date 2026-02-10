@@ -848,8 +848,8 @@ By the POS (principle of superposition), for any fixed vector
     Let
     \[y_1(t) = \begin{pmatrix}cos(2t)\\-sin(2t)\end{pmatrix}, \quad y_2(t) = \begin{pmatrix}-2sin(2t)\\-2cos(2t)\end{pmatrix},\]
     Compute the Wronskian to determine whether the functions $y_1(t)$ and $y_2(t)$ are linearly independent.
-    \[W(t) = \det\begin{pmatrix}cos(2t) & -2sin(2t)\\-sin(2t) & -2cos(2t)\end{pmatrix} = -\frac{1}{2}.\]
-    Therefore $y_1(t)$ and $y_2(t)$ are linearly dependent since $W(t) \neq 0$.
+    \[W(t) = \det\begin{pmatrix}cos(2t) & -2sin(2t)\\-sin(2t) & -2cos(2t)\end{pmatrix} = -2.\]
+    Therefore $y_1(t)$ and $y_2(t)$ are linearly independent since $W(t) \neq 0$.
 \end{example}
 \begin{definition}[Fundamental Matrix Solution]
     A matrix solution with nonvanishing\footnote{Nonvanishing in this context means not equal to zero.} Wronskian is called a fundamental matrix solution.
@@ -966,6 +966,23 @@ where $I$ is the identity matrix in $M_n(\mathbb{R})$.
     \[y(t) = c_1 e^{-2t}\begin{pmatrix}1\\-1\end{pmatrix} +
     c_2 e^{4t}\begin{pmatrix}1\\1\end{pmatrix} = \begin{pmatrix}e^{-2t} & e^{4t} \\ -e^{-2t} & e^{4t}\end{pmatrix}\begin{pmatrix}c_1\\c_2\end{pmatrix}\]
 \end{example}
+
+\subsubsection{Complex eigenvalues and real-valued solutions}
+If $A$ has real entries and a complex eigenpair $(\lambda,u)$ with $\lambda=\alpha+i\beta$ and $u=p+iq$ (where $p,q\in\mathbb{R}^n$), then a complex solution is
+\[y(t)=e^{\lambda t}u=e^{(\alpha+i\beta)t}(p+iq).\]
+Using $e^{i\beta t}=\cos(\beta t)+i\sin(\beta t)$ and taking real and imaginary parts gives two
+real solutions:
+\[y^{(1)}(t)=e^{\alpha t}\big(p\cos(\beta t)-q\sin(\beta t)\big), \qquad y^{(2)}(t)=e^{\alpha t}\big(p\sin(\beta t)+q\cos(\beta t)\big).\]
+\begin{problem}[Complex eigenvalues and real-valued solutions]
+    Consider the linear system
+    \[\vec y'= \begin{pmatrix}-3 & -2\\5 & 3\end{pmatrix}\vec y\]
+    \begin{enumerate}[label=(\alph*)]
+        \item Find the eigenvalues and eigenvectors for the coefficient matrix.
+        \item Find the real-valued solution to the initial value problem.
+        \[\begin{cases}y_1' = -3y_1-2y_2, \quad y_1(0) = 7 \\ y_2' = 5y_1+3y_2, \quad y_2(0) = -15\end{cases}\]
+        Use $t$ as the independent variable in your answers.
+    \end{enumerate}
+\end{problem}
 
 \section{Second and Higher-Order Scalar Linear Equations}
 \section{Stability, Phase Portraits and Orbits}
@@ -1110,6 +1127,25 @@ where $I$ is the identity matrix in $M_n(\mathbb{R})$.
     Indeed,
     \[y_2'(t) = 3t^2 = 3(y_2(t))^{2/3}.\]
     Thus, the solution is not unique.
+\end{solution}
+\begin{solution}[Complex eigenvalues and real-valued solutions]
+    a.
+    \[p(\lambda) = \det(A - \lambda I) = \det\begin{vmatrix}-3-\lambda & -2 \\ 5 & 3-\lambda\end{vmatrix} = \lambda^2 + 1\]
+    Set the determinant to be $0$,
+    \[\lambda^2 + 1 = 0\]
+    Solving, gives us two eigenvalues $\lambda_1 = i$ and $\lambda_2 = -i$. Now we need to find some eigenvectors.
+    For $\lambda_1 = i$,
+    \[\det\begin{pmatrix}-3-i & -2 \\ 5 & 3-i\end{pmatrix}\begin{pmatrix}a\\b\end{pmatrix} = 0\]
+    Solving for $a$ and $b$, we find that $a = \frac{2}{-3-i}b$, giving us the first eigenvector $u_1 = \begin{pmatrix}\frac{2}{-3-i}\\1\end{pmatrix}$.
+
+    For $\lambda_2 = -i$,
+    \[\det\begin{pmatrix}-3+i & -2 \\ 5 & 3+i\end{pmatrix}\begin{pmatrix}a\\b\end{pmatrix} = 0\]
+    Solving for $a$ and $b$, we find that $a = \frac{2}{-3+i}b$, giving us the first eigenvector $u_1 = \begin{pmatrix}\frac{2}{-3+i}\\1\end{pmatrix}$.
+    Answer:
+    \[\lambda_1 = i, \vec{v_1} = \begin{pmatrix}\frac{2}{-3-i}\\1\end{pmatrix}, \quad \lambda_2 = -i, \vec{v_2} = \begin{pmatrix}\frac{2}{-3+i}\\1\end{pmatrix}\]
+
+    b.
+    
 \end{solution}
 
 \section{Useful Links}
