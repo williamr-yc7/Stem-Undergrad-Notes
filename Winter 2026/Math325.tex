@@ -736,9 +736,9 @@ Many problems involve several unknown functions that evolve together and influen
 We consider systems of the form
 \begin{equation}
     \label{eq:ode-system}
-    y'(t) = A(t)y(t) + r(t), \quad t \in I,
+    y'(t) = A(t)y(t) + r(t), \quad t \in Q,
 \end{equation}
-where $y(t)$ is the unknown vector, $A(t)$ is a matrix of coefficients, and $r(t)$ is a forcing term. Explicitly,
+where $y(t)$ is the unknown vector, $A(t)$ is a matrix of coefficients, $r(t)$ is a forcing term, and $Q \subseteq \mathbb{R}$. Explicitly,
 \[y(t) = \begin{pmatrix}y_1(t)\\\vdots\\y_n(t)\end{pmatrix} \in \mathbb{R}^n, \quad A(t) \in M_n(\mathbb{R}), \quad
 r(t) = \begin{pmatrix}r_1(t)\\\vdots\\r_n(t)\end{pmatrix},\]
 
@@ -754,54 +754,37 @@ r(t) = \begin{pmatrix}r_1(t)\\\vdots\\r_n(t)\end{pmatrix},\]
     Thus the equation is written in the form \(y' = Ay + r\), with \(J_{\max}=\mathbb{R}\).
 \end{example}
 
-\subsection{Theory of first order linear systems}%to read
-
+\subsection{Theory of First Order Linear Systems}
 \begin{theorem}[Existence and uniqueness]
-If every entry of \(A(t)\) and \(r(t)\) is continuous on an interval \(I\), then for any
-\[
-t_0 \in I, \quad y_0 \in \mathbb{R}^n,
-\]
-the IVP
-\[
-\begin{cases}
-y'(t) = A(t)y(t) + r(t), \\
-y(t_0) = y_0
-\end{cases}
-\]
-has a unique solution on all of \(I\). Hence \(J_{\max}=I\).
+    If every entry of \(A(t)\) and \(r(t)\) is continuous on an interval \(Q\), then for any
+    \[t_0 \in Q, \quad y_0 \in \mathbb{R}^n,\]
+    the IVP
+    \[\begin{cases}y'(t) = A(t)y(t) + r(t), \\ y(t_0) = y_0\end{cases}\]
+    has a unique solution on all of \(Q\). Hence \(J_{\max}=Q\).
 \end{theorem}
-
 \begin{definition}
-If \(r(t)=0\), the system is \textbf{homogeneous}.  
-Otherwise it is \textbf{non-homogeneous}.
+    If \(r(t)=0\), the system is homogeneous. Otherwise it is non-homogeneous.
 \end{definition}
 
-We first study the homogeneous system
-\[
-y'(t)=A(t)y(t). \tag{4}
-\]
+For a homogeneous system 
+\begin{equation}
+    \label{eq:ode-system-homogeneous}
+    y'(t)=A(t)y(t),
+\end{equation}
+the set of all solutions forms a vector space: it contains the zero function, and any linear combination of solutions is also a solution (principle of superposition). To describe this space concretely, we select \(n\) linearly independent solutions; arranging them as the columns of a matrix gives a fundamental matrix, which allows every solution to be expressed as a linear combination of these columns.
 
-Let
-\[
-S=\{\, y:I\to\mathbb{R}^n \mid y \text{ solves (4)} \,\} \subset C^1(I).
-\]
+The non-homogeneous system \(y' = A(t)y + r(t)\) can be solved using a fundamental matrix \(\Phi(t)\) of the homogeneous system:
+\[y(t) = \Phi(t) c + \Phi(t) \int_{t_0}^t \Phi(s)^{-1} r(s)ds,\]
+where \(c \in \mathbb{R}^n\) is determined by the initial condition \(y(t_0) = y_0\).
 
-%---------------------------------------
-
-\subsection{Structure of the solution space}
-
-\begin{definition}
-Functions \(y_1,\dots,y_n : I \to \mathbb{R}^n\) are \textbf{linearly independent} if
-\[
-c_1y_1(t)+\cdots+c_ny_n(t)=0 \ \text{for all } t
-\quad \Rightarrow \quad
-c_1=\cdots=c_n=0.
-\]
+\subsection{Structure of the Solution Space}%to read
+\begin{theorem}[Solution Set]
+    The solution set \(S\) is an \(n\)-dimensional vector subspace of \(C^1(Q)\).
+\end{theorem}
+\begin{definition}[Linear Independence]
+    Functions $y_1, \dots, y_n \in S$ are linearly independent if \[c_1 y_1(t) + \cdots + c_n y_n(t) = 0 \quad \forall t \in Q \implies c_1 = \cdots = c_n = 0.\]
 \end{definition}
 
-\begin{theorem}
-The solution set \(S\) is an \(n\)-dimensional vector subspace of \(C^1(I)\).
-\end{theorem}
 
 \begin{proof}
 \textbf{Step 1: Vector space.}
