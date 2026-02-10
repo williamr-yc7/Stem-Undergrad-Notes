@@ -532,7 +532,7 @@ This theorem guarantees that any first-order linear equation we solve, including
     The solution shows that over time the salt concentration approaches a stable threshold of 5000 g.
 \end{example}
 
-\subsection{Separable Equations}%to read
+\subsection{Separable Equations}
 \marginpar{January 27, 2026}
 \begin{definition}
     Let \(f(x,y)\) be a function of two variables. Then \(f\) is separable if there exist two functions \(f_1(x)\) and \(f_2(y)\) such that \(f(x,y) = f_1(x)f_2(y)\).
@@ -542,17 +542,20 @@ This theorem guarantees that any first-order linear equation we solve, including
     \[\frac{dy}{dx} = -\frac{x}{y}\]
     \[f_1(x) = x,\quad f_2(y) = -\frac{1}{y}\]
 \end{example}
-\begin{remark}
+\begin{example}
     The following ODE
     \[\frac{dy}{dx} = x^2 + y^2\]
     is not separable because it is not in the form \(f_1(x) \cdot f_2(y)\).
-\end{remark}
+\end{example}
 
 \subsubsection{General Method for Separable Equations}
 Defining the general form of a separable ODE to be
 \[\frac{dy}{dx} = f_1(x)f_2(y).\]
 We can rewrite as
-\[M(x) + N(y)\frac{dy}{dx} = 0,\]
+\begin{equation}
+    \label{SeparableODE}
+    M(x) + N(y)\frac{dy}{dx} = 0,
+\end{equation}
 where $M(x) = -f_1(x)$ and $N(y) = \frac{1}{f_2(y)}$.
 
 Consider $H_1(x)$ and $H_2(y)$ as antiderivatives of $M(x)$ and $N(y)$, respectively.  
@@ -572,9 +575,9 @@ which provides a systematic way to solve any separable equation by integrating t
     Consider the logistic equation
     \[\frac{dN}{dt} = rN\Big(1 - \frac{N}{K}\Big).\]
     This ODE is separable. Using partial fractions:
-    \[\frac{K}{N(N-K)} = \frac{-1}{N} + \frac{1}{N-K},\]
+    \[\frac{K}{N(K-N)} = \frac{1}{N} + \frac{1}{N-K},\]
     so
-    \[\int \frac{dN}{N} - \int \frac{dN}{N-K} = \int r dt \implies \ln\Big|\frac{N-K}{N}\Big| = -rt + C.\]
+    \[\int \frac{dN}{N} + \int \frac{dN}{N-K} = \int r dt \implies \ln|\frac{N}{N-K}| = rt + C.\]
     Solving for $N(t)$ gives
     \[N(t) = \frac{KN_0}{N_0 + (K-N_0)e^{-rt}},\]
     where $N_0 = N(0)$.  
@@ -582,11 +585,13 @@ which provides a systematic way to solve any separable equation by integrating t
     This shows that $N(t)$ approaches the carrying capacity $K$ as $t \to \infty$, with special cases $N_0 = 0 \implies N(t) = 0$ and $N_0 = K \implies N(t) = K$ for all $t$.
 \end{example}
 
-\subsubsection{Potential Functions and Integral Curves}
+\subsection{Potential Functions and Integral Curves}
 \begin{definition}[Potential Function]
     A potential function is a function $\Psi(x,y)$ whose level curves define the solutions of a differential equation. For separable equations, we can take
-    \[\Psi(x,y) = H_1(x) + H_2(y),\]
-    where $H_1$ and $H_2$ are antiderivatives of $M(x)$ and $N(y)$ in the rewritten ODE $M(x) + N(y)y' = 0$.
+    \begin{equation}
+        \Psi(x,y) = H_1(x) + H_2(y),
+    \end{equation}
+    where $H_1$ and $H_2$ are antiderivatives of $M(x)$ and $N(y)$ from \{\textup{\ref{SeparableODE}}\}.
 \end{definition}
 \begin{definition}[Level Curve]
     A level curve of a potential function is a curve along which the potential function is constant:
@@ -605,55 +610,40 @@ and in the separable case,
     For a separable equation, the general solution $\Psi(x,y) = C$ describes all possible solution curves, and picking a particular $C$ gives the integral curve passing through a given point.
 \end{remark}
 \begin{example}
-    Solve the separable equation
-    \[\frac{dy}{dx} = \frac{x^2}{1 - y^2}.\]
-    Separate variables and integrate both sides:
-    \[\int (1 - y^2)dy = \int x^2 dx + C.\]
-    This gives the implicit general solution
-    \[\Psi(x,y) = y - \frac{y^3}{3} - \frac{x^3}{3} = C,\]
-    which defines the family of solution curves for this ODE.
-\end{example}
-\begin{example}
-    Solve the separable equation
-    \[\frac{dy}{dx} = -\frac{x}{y}.\]
-    Separate variables and integrate:
-    \[\int y\, dy = \int -x\, dx + C.\]
-    This gives the implicit general solution
-    \[\Psi(x,y) = \frac{y^2}{2} + \frac{x^2}{2} = C, \quad (C \geq 0),\]
-    which defines the family of solution curves for this ODE.
-\end{example}
-\begin{example}
-    Find the particular solution passing through $(x_0, y_0) = (0,2)$ for
-    \[x^2 + y^2 = (\sqrt{2C})^2.\]
-    Using the initial condition:
-    \[\frac{x_0^2}{2} + \frac{y_0^2}{2} = 2 = C,\]
-    so the unique integral curve is
-    \[\frac{x^2}{2} + \frac{y^2}{2} = 2 \implies y^2 = 4 - x^2 \implies y(x) = \pm \sqrt{4 - x^2}.\]
-    Taking the positive branch to satisfy the initial condition, we get
-    \[y(x) = \sqrt{4 - x^2}, \quad J_\text{max} = (-2,2).\]
+    Consider the separable differential equation
+    \[\frac{dy}{dx} = -\frac{x}{y}, \qquad y \neq 0.\]
+    Separating variables gives $y\,dy = -x\,dx.$ Integrating both sides,
+    \[\int y\,dy + \int x\,dx = C \quad \implies \quad \frac{y^2}{2} + \frac{x^2}{2} = C.\]
+    Define the potential function $\Psi(x,y) = \frac{x^2}{2} + \frac{y^2}{2}.$ The general solution is given implicitly by the level curves $\Psi(x,y) = C,$ which are circles centered at the origin. These level curves are the integral curves of the differential equation. For the initial condition $y(0) = 2$, $\Psi(0,2) = 2$, so the unique integral curve is
+    \[\frac{x^2}{2} + \frac{y^2}{2} = 2 \quad \implies \quad y(x) = \sqrt{4 - x^2}, \qquad J_{\text{max}} = (-2,2).\]
 \end{example}
 
-\subsection{Exact Equations}%to organize
+\subsection{Exact Equations}%to read
 \marginpar{January 29, 2026}
-\begin{equation}
-    \label{figureoutanamelater}
-    M(x,y) + N(x,y)\frac{dy}{dx} = 0
-\end{equation}
-Define $\frac{dy}{dx} = f(x,y)$, where $f(x,y) = -\frac{M(x,y)}{N(x,y)}$.
 \begin{definition}[Exact Equation]
-    The ODE is exact in a domain $D$ if there exists a potential function $\Psi(x,y)$ such that $M(x,y) = \frac{\partial \Psi}{\partial x}(x,y), \quad \forall (x,y) \in D$ and $N(x,y) = \frac{\partial \Psi}{\partial y}(x,y)$.
-    Of the ODE is exact, then it can be re-written as
-    \[\frac{\partial \Psi}{\partial x} + \frac{\partial \Psi}{\partial y}\frac{dy}{dx} = 0 \Longleftrightarrow \frac{d}{dx}(\Psi(x,y(x))) = 0.\]
-    General solution: $\Psi(x,y) = C$.
+    The first-order ODE \{\textup{\ref{SeparableODE}}\} is called \emph{exact} on a domain $D$ if there exists a function $\Psi(x,y)$ (a potential function) such that
+    \[\frac{\partial \Psi}{\partial x} = M \quad \text{and} \quad \frac{\partial \Psi}{\partial y} = N \qquad \forall (x,y)\in D.\]
+    In this case, $d\Psi = M\,dx + N\,dy$, so along any solution $y(x)$ we have
+    \[\frac{d}{dx}\big(\Psi(x,y(x))\big) = 0.\]
+    Hence $\Psi$ is constant along solutions, and the general solution is given implicitly by
+    \[\Psi(x,y) = C,\]
+    whose level curves are the integral curves of the ODE.
 \end{definition}
+
 \begin{theorem}
-    Let $D \subset \mathbb{R}^2$ be an open simply connected (no holes) domain in the plane. Assume that $M,N$ $M_y = \frac{\partial M}{\partial y}$, $N_x = \frac{\partial N}{\partial x}$ are continuous on $D$. The ODE \ref{figureoutanamelater} is exact in $D \Longleftrightarrow M_y(x,y) = Nx(x,y), \quad \forall(x,y) \in D$.
+    Let $D \subset \mathbb{R}^2$ be an open, simply connected domain\footnote{Meaning there are no holes in the domain.} in the plane. Suppose $M$, $N$, and their partial derivatives $M_y = \frac{\partial M}{\partial y}$ and $N_x = \frac{\partial N}{\partial x}$ are continuous on $D$.
+    Then the first-order equation \{\textup{\ref{SeparableODE}}\} is exact on $D$ if and only if $M_y(x,y) = N_x(x,y)$ for all $(x,y)\in D$.
 \end{theorem}
 \begin{proof}
-    ($\Longrightarrow$) The ODE is exact $\implies \exists$ potential function $\Psi$ such that $M = \Psi_x, N = \Psi_y$.
-    \[\implies M_y = \frac{\partial M}{\partial y} = \frac{\partial}{\partial y}(\Psi_x) = \frac{\partial^2 \Psi}{\partial y \partial x}\]
-    \[N_x = \frac{\partial N}{\partial x} = \frac{\partial^2 \Psi}{\partial x \partial y}\].
-    ($\Longleftarrow$) See the notes when $D$ is an open rectangle. The proof for general simply connected domains is more involved.
+    ($\Rightarrow$) Suppose the equation is exact. Then there exists a potential function $\Psi(x,y)$ such that
+    \[M = \Psi_x, \qquad N = \Psi_y.\]
+    Differentiating,
+    \[M_y = (\Psi_x)_y = \Psi_{xy}, \qquad N_x = (\Psi_y)_x = \Psi_{yx}.\]
+    Since mixed partial derivatives are equal for $C^2$ functions,
+    \[\Psi_{xy} = \Psi_{yx},\]
+    hence $M_y = N_x$.
+
+    ($\Leftarrow$) Conversely, if $M_y = N_x$ on a simply connected domain $D$ and the partial derivatives are continuous, then there exists a function $\Psi$ such that $\Psi_x = M$ and $\Psi_y = N$. Thus the equation is exact.\footnote{The construction is shown for rectangles in the notes; the general case follows similarly.}
 \end{proof}
 \begin{example}
     \[ycos(x) + 2xe^y + (sin(x) + x^2e^y-1)\frac{dy}{dx} = 0\]

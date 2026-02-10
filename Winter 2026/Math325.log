@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  9 FEB 2026 18:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  9 FEB 2026 20:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -611,71 +611,78 @@ Underfull \hbox (badness 10000) in paragraph at lines 536--536
 []\OT1/cmr/m/n/10 January 27,
  []
 
-[15] [16] [17]
-Underfull \hbox (badness 10000) in paragraph at lines 637--637
+[15]
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 594.
+ (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/latex/base\omscmr.fd
+File: omscmr.fd 2024/11/19 v2.5n Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 594.
+ [16]
+Underfull \hbox (badness 10000) in paragraph at lines 622--622
 []\OT1/cmr/m/n/10 January 29,
  []
 
-[18]
-Overfull \hbox (122.21683pt too wide) detected at line 671
+[17] [18]
+Overfull \hbox (122.21683pt too wide) detected at line 661
  \OT1/cmr/m/n/10 =[]\OMS/cmsy/m/n/10 )  \OML/cmm/m/it/10 c\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 ) = \OMS/cmsy/m/n/10 ^^@\OML/cmm/m/it/10 y  \OT1/cmr/m/n/10 =[]\OMS/cmsy/m/n/10 )  \OT1/cmr/m/n/10 	(\OML/cmm/m/it/10 x; y\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 ysinx \OT1/cmr/m/n/10 + 2\OML/cmm/m/it/10 xe[] \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 y\OT1/cmr/m/n/10 [[]	(\OML/cmm/m/it/10 x; y\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 C[]\OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 :
  []
 
-[19]
-Underfull \hbox (badness 10000) in paragraph at lines 693--693
+
+Underfull \hbox (badness 10000) in paragraph at lines 683--683
 []\OT1/cmr/m/n/10 February 3,
  []
 
-
-Overfull \hbox (57.31596pt too wide) detected at line 713
+[19]
+Overfull \hbox (57.31596pt too wide) detected at line 703
 \OT1/cmr/m/n/10 	[] = \OML/cmm/m/it/10 x[] \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 x[]y \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 c[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 N \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 x[] \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 x[]y  \OT1/cmr/m/n/10 =[]\OMS/cmsy/m/n/10 )  \OML/cmm/m/it/10 c[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 ) = 0  =[]\OMS/cmsy/m/n/10 )  \OML/cmm/m/it/10 c\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 ) = 0  =[]\OMS/cmsy/m/n/10 )  \OT1/cmr/m/n/10 	(\OML/cmm/m/it/10 x; y\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 x[]y \OT1/cmr/m/n/10 + []
  []
 
-[20]
-Underfull \hbox (badness 10000) in paragraph at lines 718--718
+
+Underfull \hbox (badness 10000) in paragraph at lines 708--708
 []\OT1/cmr/m/n/10 February 3,
  []
 
-[21] [22]
-Underfull \hbox (badness 10000) in paragraph at lines 911--911
+[20] [21]
+Underfull \hbox (badness 10000) in paragraph at lines 901--901
 []\OT1/cmr/m/n/10 February 5,
  []
 
-[23]
-Overfull \hbox (38.23651pt too wide) detected at line 936
+[22]
+Overfull \hbox (38.23651pt too wide) detected at line 926
  \OT1/cmr/m/n/10 =[]\OMS/cmsy/m/n/10 )  \OML/cmm/m/it/10 y\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t[]\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 c[]y[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t[]\OT1/cmr/m/n/10 ) + [] + \OML/cmm/m/it/10 c[]y[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t[]\OT1/cmr/m/n/10 ) = [] [] = \OML/cmm/m/it/10 y[] \OT1/cmr/m/n/10 = []
  []
 
 
-Overfull \hbox (2.65837pt too wide) in paragraph at lines 940--940
+Overfull \hbox (2.65837pt too wide) in paragraph at lines 930--930
 []\OT1/cmr/bx/n/12 Linear ho-mo-ge-neous sys-tems with con-stant co-ef-fi-cients 
  []
 
-
-Overfull \hbox (12.55035pt too wide) detected at line 947
+[23]
+Overfull \hbox (12.55035pt too wide) detected at line 937
 \OML/cmm/m/it/10 y[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ) = [](\OML/cmm/m/it/10 e[]u\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 ^^Ue[]u \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 e[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^Uu\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 Ay \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 A\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 e[]u\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 e[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 Au\OT1/cmr/m/n/10 )  =[]\OMS/cmsy/m/n/10 )  \OML/cmm/m/it/10 Au \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 ^^Uu[]
  []
 
-[24] [25] [26] [27] [28] [29] [30] (Math325.aux)
+[24] [25] [26] [27] [28] [29] (Math325.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
 Package rerunfilecheck Info: File `Math325.out' has not changed.
-(rerunfilecheck)             Checksum: 616FB2191C5A3E9B87532E9DB1FDBC68;8243.
+(rerunfilecheck)             Checksum: A0E39164761092FDEA5C634129E390FE;8233.
  ) 
 Here is how much of TeX's memory you used:
- 30838 strings out of 467871
- 726702 string characters out of 5418377
+ 30860 strings out of 467871
+ 727100 string characters out of 5418377
  1270149 words of memory out of 5000000
- 59087 multiletter control sequences out of 15000+600000
+ 59105 multiletter control sequences out of 15000+600000
  640216 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,9n,118p,897b,700s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,9n,118p,897b,814s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\erenr\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Math325.pdf (33 pages, 508604 bytes).
+Output written on Math325.pdf (32 pages, 507700 bytes).
 PDF statistics:
- 628 PDF objects out of 1000 (max. 8388607)
- 152 named destinations out of 1000 (max. 500000)
+ 630 PDF objects out of 1000 (max. 8388607)
+ 153 named destinations out of 1000 (max. 500000)
  357 words of extra memory for PDF output out of 10000 (max. 10000000)
 
