@@ -618,7 +618,7 @@ and in the separable case,
     \[\frac{x^2}{2} + \frac{y^2}{2} = 2 \quad \implies \quad y(x) = \sqrt{4 - x^2}, \qquad J_{\text{max}} = (-2,2).\]
 \end{example}
 
-\subsection{Exact Equations}%to read
+\subsection{Exact Equations}
 \marginpar{January 29, 2026}
 \begin{definition}[Exact Equation]
     The first-order ODE \{\textup{\ref{SeparableODE}}\} is called \emph{exact} on a domain $D$ if there exists a function $\Psi(x,y)$ (a potential function) such that
@@ -646,145 +646,115 @@ and in the separable case,
     ($\Leftarrow$) Conversely, if $M_y = N_x$ on a simply connected domain $D$ and the partial derivatives are continuous, then there exists a function $\Psi$ such that $\Psi_x = M$ and $\Psi_y = N$. Thus the equation is exact.\footnote{The construction is shown for rectangles in the notes; the general case follows similarly.}
 \end{proof}
 \begin{example}
-    \[ycos(x) + 2xe^y + (sin(x) + x^2e^y-1)\frac{dy}{dx} = 0\]
-    \[M(x,y) = ycos(x) + 2xe^y\]
-    \[N(x,y) = sin(x) + x^2e^y - 1\]
-    Here, $M,N,M_y,N_x$ are continuous on $D = \mathbb{R}^2$ (open simply connected).
-    \[M_y = cos(x) + 2xe^y = N_x = cos(x) + 2xe^y \implies \text{ODE is exact}\]
-    By the theorem, $\exists \Psi$ such that $M = \Psi_x$ (E1) and $N = \Psi_y$ (E2).
-    Using (E1) first $\implies \Psi(x,y) = \int M(x,y)dx + c(y)$, where $c$ is the constant of integration that possibly depends on $y$.
-    \[= \int ycos(x) + 2xe^ydx + c(y)\]
-    \[= ysinx + 2xe^y + c(y)\]
-    Using (E2):
-    \[\frac{\partial \Psi}{\partial y} = \frac{\partial}{\partial y}(ysinx + 2xe^y + c(y)) = N(x,y) = sin(x) + x^2e^y - 1\]
-    \[\implies c'(y) = -1\]
-    \[\implies c(y) = -y \implies \Psi(x,y) = ysinx + 2xe^y - y [\text{Potential Function, where} \Psi(x,y) = C \text{is a general solution}].\]
-    Starting with E2 instead:
-    \[\Psi(x,y) = \int N(x,y)dy + c(x) = ysin(x) + x^2e^y - y + c(x)\]
-    Now using E1:
-    \[\Psi_x = ycos(x) + 2xe^y + c'(x) = M = ycos(x) + 2xe^y \implies c'(x) = 0, \quad c(x) = 0\]
-    \[\implies \Psi(x,y) = ysin(x) + x^2e^y - y.\]
+    Solve the differential equation
+    \[y\cos x + 2x e^{y} + (\sin x + x^{2} e^{y} - 1)\frac{dy}{dx} = 0.\]
+    Write it in the form $M(x,y)\,dx + N(x,y)\,dy = 0$, where
+    \[M(x,y) = y\cos x + 2x e^{y}, \qquad N(x,y) = \sin x + x^{2} e^{y} - 1.\]
+    Since $M, N$ and their partial derivatives are continuous on 
+    $\mathbb{R}^2$, we test exactness:
+    \[M_y = \cos x + 2x e^{y}, \qquad N_x = \cos x + 2x e^{y}.\]
+    Thus $M_y = N_x$, so the equation is exact. Hence there exists a potential function $\Psi$ such that
+    \[\Psi_x = M, \qquad \Psi_y = N.\]
+    Integrate $\Psi_x = M$ with respect to $x$:
+    \[\Psi(x,y) = \int (y\cos x + 2x e^{y})\,dx + c(y) = y\sin x + x^{2} e^{y} + c(y),\]
+    where $c(y)$ depends only on $y$. Differentiate with respect to $y$:
+    \[\Psi_y = \sin x + x^{2} e^{y} + c'(y).\]
+    Set this equal to $N$:
+    \[\sin x + x^{2} e^{y} + c'(y) = \sin x + x^{2} e^{y} - 1,\]
+    giving
+    \[c'(y) = -1 \quad \Rightarrow \quad c(y) = -y.\]
+    Therefore the potential function is
+    \[\Psi(x,y) = y\sin x + x^{2} e^{y} - y,\]
+    and the general solution is given implicitly by
+    \[\Psi(x,y) = C.\]
 \end{example}
 \begin{remark}
-    Separable equations are exact over simply connected domains.
+    Every separable equation is exact on a simply connected domain.
+    Indeed, a separable equation can be written as
+    \[M(x)\,dx + N(y)\,dy = 0,\]
+    where $M$ depends only on $x$ and $N$ only on $y$. Hence
+    \[M_y = 0 = N_x,\]
+    so the exactness condition $M_y = N_x$ is automatically satisfied.
 \end{remark}
-\[M(x) + N(y)\frac{dy}{dx} = 0\]
-\[M_y = \frac{\partial}{\partial y}(M(x)) = 0 = \frac{\partial}{\partial x}(N(y)) = N_x\]
-\subsection{Integrating Factors for Exact Equations}
-Assume that $M(x,y) + N(x,y)\frac{dy}{dx} = 0$ is not exact. Let us multiply that ODE by a function $\mu(x,y)$ (the integrating factor):
-\[\mu(x,y)M(x,y) + \mu(x,y)N(x,y)\frac{dy}{dx} = 0 \tag{*2}\]
-Equation (*2) is exact if $(\mu M)_y = (\mu N)_x, \quad \mu_yM + \mu M_y = \mu_xN + \mu N_x$(*3).
-Goal: Find $\mu(x,y)$ such that (*3) holds, but this is a PDE ;-;.
-If $\mu = \mu(x)$, then $\mu_y = 0$. (*3) becomes
-\[\mu M_y = \frac{d\mu}{dx}N + \mu N_x\]
-\[\Longleftrightarrow \frac{d\mu}{dx} = \mu \frac{(N_x - M_y)}{N} \tag{*4}\]
-If $\frac{N_x - M_y}{N}$ only depends on x, we can solve the separable equation (*4), find $\mu(x)$, then solve the exact ODE (*2).
 
-\marginpar{February 3, 2026}%not organized
-\[M(x,y) + N(x,y)\frac{dy}{dx} = 0\]
-Let $\mu = \mu(x,y)$. Then
-\[(\mu M)_y = (\mu N)_x\]
-\[\iff \mu_yM + \mu M_y = \mu_xN + \mu N_x\]
-If $\mu = \mu(x)$, then $\mu_y = 0 \implies \mu\frac{(M_y - N_x)}{N} = \mu_x = \frac{d\mu}{dx}$. Hence, IF the function $\frac{(M_y - N_x)}{N}$ only depends on x, we can solve the separable ODE $\mu\frac{(M_y - N_x)}{N} = \mu_x = \frac{d\mu}{dx}$ and we find the integrating factor $\mu(x)$, we use it to transform the original ODE into an exact ODE, which we then solve.
+\subsubsection{Integrating Factors for Exact Equations}
+\marginpar{February 3, 2026}
+Consider the first-order equation
+\begin{equation}
+    M(x,y)\,dx + N(x,y)\,dy = 0,
+\end{equation}
+and suppose it is not exact, so that $M_y \neq N_x$. We try to multiply the equation by a function $\mu(x,y)$ (the integrating factor) to obtain
+\[\mu(x,y)M(x,y)\,dx + \mu(x,y)N(x,y)\,dy = 0.\]
+Our goal is to choose $\mu$ so that this new equation is exact.
+Hence we require $(\mu M)_y = (\mu N)_x$. Using the product rule,
+\[(\mu M)_y = \mu_y M + \mu M_y, \qquad (\mu N)_x = \mu_x N + \mu N_x.\]
+Therefore $\mu$ must satisfy
+\[\mu_y M + \mu M_y = \mu_x N + \mu N_x.\]
+This is generally a partial differential equation for $\mu$.
+
+To simplify, we often look for integrating factors that depend on only
+one variable.
+
+\textbf{Case 1:} $\mu = \mu(x)$.
+
+Then $\mu_y = 0$, and the condition becomes
+\[\mu M_y = \mu' N + \mu N_x.\]
+Rearranging,
+\[\mu' = \mu \frac{N_x - M_y}{N}.\]
+If the quantity $\frac{N_x - M_y}{N}$ depends only on $x$, this is a separable ODE for $\mu(x)$, which we can solve. After finding $\mu$, multiplying the original equation by $\mu$ makes it exact.
 \begin{example}
-    \[(3xy + y^2) + (x^2 + xy)\frac{dy}{dx} = 0\]
-    \[M_y = 3x + 2y \neq N_x = 2x+y \quad \text{Not exact}\]
-    Now $\frac{M_y - N_x}{N} = \frac{3x + 2y - (2x+y)}{x^2+xy} = \frac{1}{x}$.
-    \[\implies \mu(x) \frac{1}{x} = \frac{d\mu}{dx}\]
-    \[\implies \int\frac{dx}{x} = \int\frac{d\mu}{\mu} + C\]
-    \[ln|x| = ln|\mu| + C \implies |x| = e^C|\mu| \implies x = \mu\]
-    \[\implies x(3xy+y^2) + x(x^2 + xy)\frac{dy}{dx} = 0\]
-    \[\implies M = 3x^2y + xy^2,\quad N = x^3 + x^2y\]
-    \[\implies M_y = 3x^2 + 2xy,\quad N_x = 3x^2 + 2xy\]
-    $\exists \Psi$ such that $M = \Psi_x$ and $N=\Psi_y$.
-    Using $M = \Psi_x$:
-    \[\Psi(x,y) = \int M(x,y)dx = \int 3x^2y + yx^2dx = x^3y + \frac{x^2y^2}{2} + c(y)\]
-    Using $N = \Psi_y$:
-    \[\Psi_y = x^3 + x^2y + c'(y) = N = x^3 + x^2y \implies c'(y) = 0 \implies c(y) = 0 \implies \Psi(x,y) = x^3y + \frac{x^2y^2}{2}\]
-    \[\psi(x,y) = x^3y + \frac{x^2y^2}{2} = C (general implicit solution).\]
+    Solve
+    \[(3xy + y^2)\,dx + (x^2 + xy)\,dy = 0.\]
+    Identify
+    \[M(x,y) = 3xy + y^2, \qquad N(x,y) = x^2 + xy.\]
+    Test exactness:
+    \[M_y = 3x + 2y, \qquad N_x = 2x + y.\]
+    Since $M_y \ne N_x$, the equation is not exact. Therefore we seek an integrating factor $\mu(x,y)$ that makes the equation exact. Compute
+    \[\frac{M_y - N_x}{N} = \frac{(3x+2y)-(2x+y)}{x^2+xy} = \frac{x+y}{x(x+y)}
+    = \frac{1}{x}.\]
+    This depends only on $x$, so we can solve the ODE for $\mu(x)$.
+    \[\frac{d\mu}{dx} = \mu \frac{1}{x}.\]
+    Solving this not so difficult ODE, we find that $\mu(x) = x$. Going back to our original equation, multiply by $x$:
+    \[(3x^2y + xy^2)\,dx + (x^3 + x^2y)\,dy = 0.\]
+    We identify
+    \[M = 3x^2y + xy^2, \qquad N = x^3 + x^2y,\]
+    and
+    \[M_y = 3x^2 + 2xy, \qquad N_x = 3x^2 + 2xy,\]
+    so the equation is exact since $M_y = N_x$. We have to now find a potential function. Integrate $M$ with respect to $x$:
+    \[\Psi(x,y) = \int (3x^2y + xy^2)\,dx + c(y) = x^3y + \frac{x^2y^2}{2} + c(y).\]
+    Differentiate:
+    \[\Psi_y = x^3 + x^2y + c'(y).\]
+    Matching with $N$ gives $c'(y)=0$, so $c(y)=0$. Therefore the general implicit solution is
+    \[\Psi(x,y) = x^3y + \frac{x^2y^2}{2} = C.\]
 \end{example}
+
 
 \section{Systems of Linear Equations}
 \marginpar{February 3, 2026}
+Many problems involve several unknown functions that evolve together and influence one another. Instead of a single differential equation, we therefore study systems of first-order linear ODEs. Writing the unknown functions as a vector allows us to treat the entire system using matrix algebra and apply the tools of linear algebra (matrices, eigenvalues, and fundamental matrices).
 
-We study first order linear systems of ODEs
-\[
-y'(t) = A(t)y(t) + r(t), \quad t \in I. \tag{3}
-\]
-
-\textbf{Notation.}
-\[
-y(t) =
-\begin{pmatrix}
-y_1(t)\\
-\vdots\\
-y_n(t)
-\end{pmatrix} \in \mathbb{R}^n,
-\quad
-A(t) \in M_n(\mathbb{R}),
-\quad
-r(t) =
-\begin{pmatrix}
-r_1(t)\\
-\vdots\\
-r_n(t)
-\end{pmatrix}.
-\]
-\[
-y,r : I \to \mathbb{R}^n,
-\qquad
-A : I \to M_n(\mathbb{R}).
-\]
-
-%---------------------------------------
+We consider systems of the form
+\begin{equation}
+    \label{eq:ode-system}
+    y'(t) = A(t)y(t) + r(t), \quad t \in I,
+\end{equation}
+where $y(t)$ is the unknown vector, $A(t)$ is a matrix of coefficients, and $r(t)$ is a forcing term. Explicitly,
+\[y(t) = \begin{pmatrix}y_1(t)\\\vdots\\y_n(t)\end{pmatrix} \in \mathbb{R}^n, \quad A(t) \in M_n(\mathbb{R}), \quad
+r(t) = \begin{pmatrix}r_1(t)\\\vdots\\r_n(t)\end{pmatrix},\]
 
 \subsection{From higher order scalar ODEs to linear systems}
-
 \begin{example}
-Convert the third order equation
-\[
-y''' - 2y'' + 4y' - 5y = \sin t + t^3
-\]
-into a first order system.
-
-Let
-\[
-y_1 = y, \quad
-y_2 = y', \quad
-y_3 = y''.
-\]
-Then
-\[
-\begin{pmatrix}
-y_1'\\
-y_2'\\
-y_3'
-\end{pmatrix}
-=
-\begin{pmatrix}
-0 & 1 & 0\\
-0 & 0 & 1\\
-5 & -4 & 2
-\end{pmatrix}
-\begin{pmatrix}
-y_1\\
-y_2\\
-y_3
-\end{pmatrix}
-+
-\begin{pmatrix}
-0\\
-0\\
-\sin t + t^3
-\end{pmatrix}.
-\]
-
-Thus the equation is written in the form \(y' = Ay + r\), with \(J_{\max}=\mathbb{R}\).
+    Convert the third order equation
+    \[y''' - 2y'' + 4y' - 5y = \sin t + t^3\]
+    into a first order system.
+    Let
+    \[y_1 = y, \quad y_2 = y', \quad y_3 = y''.\]
+    Then
+    \[\begin{pmatrix}y_1'\\y_2'\\y_3'\end{pmatrix} = \begin{pmatrix}0 & 1 & 0\\0 & 0 & 1\\5 & -4 & 2\end{pmatrix}\begin{pmatrix}y_1\\y_2\\y_3\end{pmatrix} + \begin{pmatrix}0\\0\\\sin t + t^3\end{pmatrix}.\]
+    Thus the equation is written in the form \(y' = Ay + r\), with \(J_{\max}=\mathbb{R}\).
 \end{example}
 
-%---------------------------------------
-
-\subsection{Theory of first order linear systems}
+\subsection{Theory of first order linear systems}%to read
 
 \begin{theorem}[Existence and uniqueness]
 If every entry of \(A(t)\) and \(r(t)\) is continuous on an interval \(I\), then for any
