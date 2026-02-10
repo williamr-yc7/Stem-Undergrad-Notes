@@ -1012,13 +1012,22 @@ where $I$ is the identity matrix in $M_n(\mathbb{R})$.
     Let $A \in M_n(\mathbb{R})$ and assume that all eigenvalues of A are real and distinct, then A is diagonalizable.
 \end{theorem}
 \begin{proof}%to read
-    Denote by $\lambda_1,\ldots,\lambda_n$ the real distinct eigenvalues of $A$ to each eigenvalue $\lambda_i$ corresponds a (real) eigenvector $u_i \in \mathbb{R}^n$ A result from linear algebra implies that $u_1,u_2,\ldots,u_n$ are linearly independent. Let
-    \[P = \begin{pmatrix}|&|&|& &|\\u_1&u_2&\ldots&u_n\\|&|&|& &|\end{pmatrix}\]
-    be invertible.
-    \[APe_i = Au_i = \lambda_i u_i\]
-    where $u_i$ is the ith column of P.
-    \[\implies AP = P\,diag(\lambda_1,\ldots,\lambda_n) = P \begin{pmatrix}\lambda_1&0&\ldots&0\\0&\lambda_2&\ldots&0\\\vdots&\vdots&\ddots&\vdots\\0&0&\ldots&\lambda_n\end{pmatrix}\]
-    \[\implies P^{-1}AP = D\]
+    Denote by $\lambda_1,\ldots,\lambda_n$ the real, distinct eigenvalues of $A$.  
+    For each eigenvalue $\lambda_i$, let $u_i \in \mathbb{R}^n$ be a corresponding eigenvector, so
+    \[Au_i = \lambda_iu_i.\]
+    Since the eigenvalues are distinct, a standard result from linear algebra states that the eigenvectors $u_1,\ldots,u_n$ are linearly independent. Therefore they form a basis of $\mathbb{R}^n$.
+    Let $P$ be the matrix
+    \[P = \begin{bmatrix}u_1&u_2&\ldots&u_n\end{bmatrix},\]
+    whose columns are these eigenvectors. Because the columns are linearly independent, $P$ is invertible.
+    Now observe how $A$ acts on the columns of $P$. For the $i$th standard basis vector $e_i$,
+    \[APe_i = Au_i = \lambda_i u_i.\]
+    Thus multiplying by $A$ simply scales the $i$th column of $P$ by $\lambda_i$. This means that multiplying $P$ on the right by the diagonal matrix
+    \[D=\operatorname{diag}(\lambda_1,\ldots,\lambda_n)\]
+    has exactly the same effect, since $PD$ also scales the $i$th column by $\lambda_i$. Hence
+    \[AP = PD.\]
+    Finally, multiplying on the left by $P^{-1}$ gives
+    \[P^{-1}AP = D,\]
+    so $A$ is similar to the diagonal matrix $D$, and therefore diagonalizable.
 \end{proof}
 \begin{theorem}
     A is diagonalizable if and only if it has a basis of eigenvectors.
