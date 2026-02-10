@@ -847,6 +847,31 @@ By the POS (principle of superposition), for any fixed vector
 \begin{definition}[Fundamental Matrix Solution]
     A matrix solution with nonvanishing\footnote{Nonvanishing in this context means not equal to zero.} Wronskian is called a fundamental matrix solution.
 \end{definition}
+\begin{proposition}[Recovering the coefficient matrix]
+    \label{prop:recover-A}
+    Let $\Phi(t)$ be a fundamental matrix solution of the homogeneous system \textup{\eqref{eq:ode-system-matrix}} on an interval $Q$. Then $\Phi(t)$ is invertible for all $t \in Q$, and
+    \[A(t) = \Phi'(t)\,\Phi(t)^{-1}.\]
+    In particular, if $A(t) = A$ is constant, then the right-hand side is independent of $t$.
+\end{proposition}
+\begin{proof}
+    Since $\Phi(t)$ is a matrix solution, its columns satisfy \textup{\eqref{eq:ode-system-matrix}}, hence
+    \[\Phi'(t) = A(t)\Phi(t).\]
+    Because $\Phi(t)$ is a fundamental matrix, $\det \Phi(t) \neq 0$ for all $t \in Q$, so $\Phi(t)$ is invertible. Multiplying both sides on the right by $\Phi(t)^{-1}$ gives
+    \[A(t) = \Phi'(t)\Phi(t)^{-1}.\]
+\end{proof}
+\begin{example}
+    Suppose the general solution of a linear system is given by
+    \[y(t) = \begin{pmatrix}e^{2t} & 0 \\ 0 & e^{-t}\end{pmatrix}\begin{pmatrix}c_1 \\ c_2\end{pmatrix}.\]
+    Then a fundamental matrix is
+    \[\Phi(t) = \begin{pmatrix}e^{2t} & 0 \\ 0 & e^{-t}\end{pmatrix}.\]
+    Differentiating,
+    \[\Phi'(t) = \begin{pmatrix}2e^{2t} & 0 \\ 0 & -e^{-t}\end{pmatrix},\]
+    and since
+    \[\Phi(t)^{-1} = \begin{pmatrix}e^{-2t} & 0 \\ 0 & e^{t}
+    \end{pmatrix},\]
+    we obtain
+    \[A = \Phi'(t)\Phi(t)^{-1} = \begin{pmatrix}2 & 0 \\ 0 & -1\end{pmatrix}.\]
+\end{example}
 \begin{theorem}[Liouville's formula]
     Let $y(t)$ be a matrix solution to \textup{\eqref{eq:ode-system-matrix}} satisfying the initial condition $y(t_0) = y_0 \in M_n(\mathbb{R})$. Then
     \[\det(y(t)) = \det(y_0)e^{\int_{t_0}^t \operatorname{tr}(A(s))\,ds}.\]
@@ -873,16 +898,10 @@ Consider \eqref{eq:ode-system-matrix}, where $A \in M_n(\mathbb{R})$ with consta
     y(t) = e^{\lambda t}u
 \end{equation}
 where $u$ is a constant vector.\footnote{Recall the analogous scalar case $a_0 y^{(n)} + a_1 y^{(n-1)} + \cdots + a_{n-1} y' + a_n y = 0$, where we look for solutions of the form $e^{rt}$.}
-If we substitute \eqref{eq:exp-ansatz} into \eqref{eq:ode-system-matrix}, we get
-\begin{equation}
-    \label{eq:ode-system-exp}
-    y'(t) = \frac{d}{dt}(e^{\lambda t}u) = e^{\lambda t}(\lambda u),
-\end{equation}
-and
-\begin{equation}
-    \label{eq:ode-system-exp-A}
-    Ay = e^{\lambda t}(Au).
-\end{equation}
+Differentiating \eqref{eq:exp-ansatz} gives
+\[y'(t) = \frac{d}{dt}(e^{\lambda t}u) = e^{\lambda t} (\lambda u),\]
+and substituting \eqref{eq:exp-ansatz} into the differential equation \eqref{eq:ode-system-matrix} gives
+\[y'(t) = Ay = A(e^{\lambda t} u) = e^{\lambda t}(Au).\]
 Hence if we combine both equations, we get
 \begin{equation}
     \label{eq:ode-system-exp-A-2}
