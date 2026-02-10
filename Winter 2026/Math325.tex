@@ -1011,7 +1011,7 @@ where $I$ is the identity matrix in $M_n(\mathbb{R})$.
 \begin{theorem}[Diagonalization]
     Let $A \in M_n(\mathbb{R})$ and assume that all eigenvalues of A are real and distinct, then A is diagonalizable.
 \end{theorem}
-\begin{proof}%to read
+\begin{proof}
     Denote by $\lambda_1,\ldots,\lambda_n$ the real, distinct eigenvalues of $A$.  
     For each eigenvalue $\lambda_i$, let $u_i \in \mathbb{R}^n$ be a corresponding eigenvector, so
     \[Au_i = \lambda_iu_i.\]
@@ -1029,17 +1029,32 @@ where $I$ is the identity matrix in $M_n(\mathbb{R})$.
     \[P^{-1}AP = D,\]
     so $A$ is similar to the diagonal matrix $D$, and therefore diagonalizable.
 \end{proof}
-\begin{theorem}
+\begin{theorem}[Diagonalization 2]
     A is diagonalizable if and only if it has a basis of eigenvectors.
 \end{theorem}
 \begin{example}
     Let
     \[A = \begin{pmatrix}3&-1&-2\\-1&5&-2\\-3&3&-2\end{pmatrix}\]
-    Find the basis of eigenvectors of $A$.
-    \[\{u_1,u_2,u_3\} = \left\{\begin{pmatrix}1\\1\\3\end{pmatrix},\begin{pmatrix}1\\1\\0\end{pmatrix},\begin{pmatrix}-2\\0\\1\end{pmatrix}\right\}\]
-    Basis of $\mathbb{R}^3 \implies \text{A diagonalizable}$.
+    Find the basis of eigenvectors of $A$.\\
+    \textbf{Step 1: Find the eigenvalues.}
+    Compute the characteristic polynomial:
+    \[p(\lambda) = \det(A-\lambda I)=-(\lambda+2)(\lambda-4)^2.\]
+    Hence the eigenvalues are $\lambda=-2$ and $\lambda=4$ (with multiplicity $2$).\\
+    \textbf{Step 2: Find eigenvectors.}
+    For $\lambda=-2$, solve $(A+2I)u=0$.  
+    Row reduction gives one free variable, so the eigenspace is one-dimensional.  
+    A basis vector is
+    \[u_1=\begin{pmatrix}1\\1\\3\end{pmatrix}.\]
+    For $\lambda=4$, solve $(A-4I)u=0$.  
+    Row reduction gives two free variables, so the eigenspace is two-dimensional.  
+    A convenient basis is
+    \[u_2=\begin{pmatrix}1\\1\\0\end{pmatrix}, \quad u_3=\begin{pmatrix}-2\\0\\1\end{pmatrix}.\]
+    \textbf{Step 3: Form a basis.}
+    Thus the eigenvectors
+    \[\{u_1,u_2,u_3\} = \left\{\begin{pmatrix}1\\1\\3\end{pmatrix}, \begin{pmatrix}1\\1\\0\end{pmatrix}, \begin{pmatrix}-2\\0\\1\end{pmatrix}\right\}\]
+    are linearly independent and form a basis of $\mathbb{R}^3$. Since $A$ has a basis of eigenvectors, it is diagonalizable.
 \end{example}
-\begin{example}
+\begin{example}%to read
     Let
     \[A = \begin{pmatrix}1&1\\0&1\end{pmatrix}\]
     \[p(\lambda) = \begin{vmatrix}1-\lambda&1\\0&1-\lambda\end{vmatrix} = (\lambda-1)^2-1 = 0\]
