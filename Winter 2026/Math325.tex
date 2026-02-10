@@ -946,9 +946,10 @@ where $I$ is the identity matrix in $M_n(\mathbb{R})$.
     \[u_2 = \begin{pmatrix}1\\1\end{pmatrix}.\]
 
     Each eigenpair $(\lambda,u)$ produces a solution of the system of the form $y(t)=e^{\lambda t}u$. Hence
-    \[y_1(t) = e^{-2t}\begin{pmatrix}1\\-1\end{pmatrix} \in S, \qquad y_2(t) = e^{4t}\begin{pmatrix}1\\1\end{pmatrix} \in S.\]
+    \[y_1(t) = c_1e^{-2t}\begin{pmatrix}1\\-1\end{pmatrix} \in S, \qquad y_2(t) = c_2e^{4t}\begin{pmatrix}1\\1\end{pmatrix} \in S,\]
+    where $c_1$ and $c_2$ are arbitrary constants that will be determined when applying the initial condition to form the general solution.
 
-    The wronskian of $y_1$ and $y_2$ is
+    To ensure that these solutions form a complete basis for the solution space, we check their linear independence using the Wronskian. The wronskian of $y_1$ and $y_2$ is
     \[w(t) = \det\begin{pmatrix}e^{-2t} & e^{4t}\\- e^{-2t} & e^{4t}\end{pmatrix}.\]
     Evaluating at $t=0$,
     \[w(0) = \begin{vmatrix}1 & 1\\-1 & 1\end{vmatrix} = 2 \neq 0,\]
@@ -956,7 +957,7 @@ where $I$ is the identity matrix in $M_n(\mathbb{R})$.
     \[S = \langle \{y_1,y_2\} \rangle,\]
     and the general solution is
     \[y(t) = c_1 e^{-2t}\begin{pmatrix}1\\-1\end{pmatrix} +
-    c_2 e^{4t}\begin{pmatrix}1\\1\end{pmatrix}.\]
+    c_2 e^{4t}\begin{pmatrix}1\\1\end{pmatrix} = \begin{pmatrix}e^{-2t} & e^{4t} \\ -e^{-2t} & e^{4t}\end{pmatrix}\begin{pmatrix}c_1\\c_2\end{pmatrix}\]
 \end{example}
 
 \section{Second and Higher-Order Scalar Linear Equations}
