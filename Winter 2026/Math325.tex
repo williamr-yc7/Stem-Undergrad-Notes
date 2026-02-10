@@ -1129,23 +1129,198 @@ real solutions:
     Thus, the solution is not unique.
 \end{solution}
 \begin{solution}[Complex eigenvalues and real-valued solutions]
-    a.
-    \[p(\lambda) = \det(A - \lambda I) = \det\begin{vmatrix}-3-\lambda & -2 \\ 5 & 3-\lambda\end{vmatrix} = \lambda^2 + 1\]
-    Set the determinant to be $0$,
-    \[\lambda^2 + 1 = 0\]
-    Solving, gives us two eigenvalues $\lambda_1 = i$ and $\lambda_2 = -i$. Now we need to find some eigenvectors.
-    For $\lambda_1 = i$,
-    \[\det\begin{pmatrix}-3-i & -2 \\ 5 & 3-i\end{pmatrix}\begin{pmatrix}a\\b\end{pmatrix} = 0\]
-    Solving for $a$ and $b$, we find that $a = \frac{2}{-3-i}b$, giving us the first eigenvector $u_1 = \begin{pmatrix}\frac{2}{-3-i}\\1\end{pmatrix}$.
 
-    For $\lambda_2 = -i$,
-    \[\det\begin{pmatrix}-3+i & -2 \\ 5 & 3+i\end{pmatrix}\begin{pmatrix}a\\b\end{pmatrix} = 0\]
-    Solving for $a$ and $b$, we find that $a = \frac{2}{-3+i}b$, giving us the first eigenvector $u_1 = \begin{pmatrix}\frac{2}{-3+i}\\1\end{pmatrix}$.
-    Answer:
-    \[\lambda_1 = i, \vec{v_1} = \begin{pmatrix}\frac{2}{-3-i}\\1\end{pmatrix}, \quad \lambda_2 = -i, \vec{v_2} = \begin{pmatrix}\frac{2}{-3+i}\\1\end{pmatrix}\]
+\textbf{(a) Eigenvalues and eigenvectors.}
 
-    b.
-    
+We are given the system
+\[
+\vec y' = A\vec y,
+\qquad
+A =
+\begin{pmatrix}
+-3 & -2 \\
+5 & 3
+\end{pmatrix}.
+\]
+
+The characteristic polynomial is
+\[
+p(\lambda) = \det(A-\lambda I)
+=
+\begin{vmatrix}
+-3-\lambda & -2 \\
+5 & 3-\lambda
+\end{vmatrix}
+= (-3-\lambda)(3-\lambda)+10
+= \lambda^2 + 1.
+\]
+
+Setting $p(\lambda)=0$ gives
+\[
+\lambda^2+1=0,
+\]
+so the eigenvalues are
+\[
+\lambda_1 = i, \qquad \lambda_2 = -i.
+\]
+
+For $\lambda_1=i$, we solve $(A-iI)u=0$:
+\[
+\begin{pmatrix}
+-3-i & -2 \\
+5 & 3-i
+\end{pmatrix}
+\begin{pmatrix}
+a \\ b
+\end{pmatrix}
+=0.
+\]
+From the first row,
+\[
+(-3-i)a - 2b = 0
+\quad \Rightarrow \quad
+a = \frac{2}{-3-i} b.
+\]
+Choosing $b=1$, we obtain
+\[
+u_1 =
+\begin{pmatrix}
+\dfrac{2}{-3-i} \\[6pt]
+1
+\end{pmatrix}.
+\]
+
+For $\lambda_2=-i$, we similarly solve $(A+iI)u=0$:
+\[
+\begin{pmatrix}
+-3+i & -2 \\
+5 & 3+i
+\end{pmatrix}
+\begin{pmatrix}
+a \\ b
+\end{pmatrix}
+=0,
+\]
+which gives
+\[
+a = \frac{2}{-3+i} b.
+\]
+Again choosing $b=1$, we obtain
+\[
+u_2 =
+\begin{pmatrix}
+\dfrac{2}{-3+i} \\[6pt]
+1
+\end{pmatrix}.
+\]
+
+Hence,
+\[
+\boxed{
+\lambda_1 = i,\quad
+\vec v_1 =
+\begin{pmatrix}
+\dfrac{2}{-3-i} \\[4pt]
+1
+\end{pmatrix},
+\qquad
+\lambda_2 = -i,\quad
+\vec v_2 =
+\begin{pmatrix}
+\dfrac{2}{-3+i} \\[4pt]
+1
+\end{pmatrix}.
+}
+\]
+
+\medskip
+
+\textbf{(b) Real-valued solution of the initial value problem.}
+
+From the eigenpair $(\lambda_1,u_1)$, a complex-valued solution is
+\[
+\vec y(t) = e^{it} u_1.
+\]
+Using Euler's formula $e^{it}=\cos t + i\sin t$, we write
+\[
+\vec y(t)
+= (\cos t + i\sin t)
+\begin{pmatrix}
+\dfrac{2}{-3-i} \\
+1
+\end{pmatrix}.
+\]
+
+Separating real and imaginary parts yields two real-valued solutions:
+\[
+\vec y^{(1)}(t) =
+\begin{pmatrix}
+2\cos t \\
+-3\cos t + \sin t
+\end{pmatrix},
+\qquad
+\vec y^{(2)}(t) =
+\begin{pmatrix}
+2\sin t \\
+-3\sin t - \cos t
+\end{pmatrix}.
+\]
+
+Therefore, the general real solution is
+\[
+\vec y(t) = c_1 \vec y^{(1)}(t) + c_2 \vec y^{(2)}(t).
+\]
+
+Applying the initial conditions $y_1(0)=7$ and $y_2(0)=-15$, we compute
+\[
+\vec y^{(1)}(0)=
+\begin{pmatrix}
+2\\
+-3
+\end{pmatrix},
+\qquad
+\vec y^{(2)}(0)=
+\begin{pmatrix}
+0\\
+-1
+\end{pmatrix}.
+\]
+
+Thus,
+\[
+c_1
+\begin{pmatrix}
+2\\
+-3
+\end{pmatrix}
++
+c_2
+\begin{pmatrix}
+0\\
+-1
+\end{pmatrix}
+=
+\begin{pmatrix}
+7\\
+-15
+\end{pmatrix}.
+\]
+Solving gives
+\[
+c_1 = \frac{7}{2},
+\qquad
+c_2 = \frac{9}{2}.
+\]
+
+Hence, the real-valued solution of the initial value problem is
+\[
+\boxed{
+\begin{aligned}
+y_1(t) &= 7\cos t + 9\sin t,\\
+y_2(t) &= -15\cos t - 10\sin t.
+\end{aligned}
+}
+\]
 \end{solution}
 
 \section{Useful Links}
