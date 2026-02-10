@@ -909,112 +909,35 @@ where $I$ is the identity matrix in $M_n(\mathbb{R})$.
     \[\sigma(A) = \{\lambda \mid p(\lambda) = 0\}\]
     is called the spectrum of $A$.
 \end{definition}
-
 \begin{example}
-Consider
-\[
-y' = Ay, \qquad
-y = \begin{pmatrix}y_1\\y_2\end{pmatrix}, \qquad
-A = \begin{pmatrix}1 & 3\\ 3 & 1\end{pmatrix}.
-\]
+    Consider
+    \[y' = Ay, \qquad y = \begin{pmatrix}y_1\\y_2\end{pmatrix}, \qquad A = \begin{pmatrix}1 & 3\\ 3 & 1\end{pmatrix}.\]
+    To solve the system, we first find the eigenvalues and eigenvectors of $A$. Define the characteristic polynomial to be
+    \[p(\lambda) = \det(A - \lambda I) = \begin{vmatrix}1-\lambda & 3\\3 & 1-\lambda\end{vmatrix} = (1-\lambda)^2 - 9.\]
+    Solving $(1-\lambda)^2 - 9 = 0$, gives us two eigenvalues $\lambda_1 = -2$ and $\lambda_2 = 4$. Hence the spectrum of $A$ is
+    \[\sigma(A) = \{-2,4\}.\]
+    To find the eigenvectors, we need to solve $(A-\lambda I)u = 0$.
 
-Characteristic polynomial:
-\[
-p(\lambda)
-= \det(A - \lambda I)
-= \begin{vmatrix}
-1-\lambda & 3\\
-3 & 1-\lambda
-\end{vmatrix}
-= (1-\lambda)^2 - 9.
-\]
+    For $\lambda_1 = -2$:
+    \[(A-\lambda I)u_1 = 0 \implies \begin{pmatrix}3 & 3\\ 3 & 3\end{pmatrix}\begin{pmatrix}a\\b\end{pmatrix} = \begin{pmatrix}0\\0\end{pmatrix} \implies b = -a.\]
+    You can pick any values of $a$, and $b$ is the negative of $a$; choose $a=1$:
+    \[u_1 = \begin{pmatrix}1\\-1\end{pmatrix}.\]
 
-Solve
-\[
-(1-\lambda)^2 - 9 = 0
-\iff 1-\lambda = \pm 3.
-\]
+    For $\lambda_2 = 4$, solving $(A-4I)u_2=0$ similarly yields
+    \[u_2 = \begin{pmatrix}1\\1\end{pmatrix}.\]
 
-Thus
-\[
-\lambda_1 = -2, \qquad \lambda_2 = 4,
-\]
-so
-\[
-\sigma(A) = \{-2,4\}.
-\]
+    Each eigenpair $(\lambda,u)$ produces a solution of the system of the form $y(t)=e^{\lambda t}u$. Hence
+    \[y_1(t) = e^{-2t}\begin{pmatrix}1\\-1\end{pmatrix} \in S, \qquad y_2(t) = e^{4t}\begin{pmatrix}1\\1\end{pmatrix} \in S.\]
 
-
-\medskip
-
-\textbf{Eigenvectors:}
-
-For $\lambda_1 = -2$:
-\[
-(A-\lambda I)u_1 = 0
-\Rightarrow
-\begin{pmatrix}3 & 3\\ 3 & 3\end{pmatrix}
-\begin{pmatrix}a\\b\end{pmatrix}
-=
-\begin{pmatrix}0\\0\end{pmatrix}
-\Rightarrow b = -a.
-\]
-You can pick any values of $a$, and $b$ is the negative of $a$; choose $a=1$:
-\[
-u_1 = \begin{pmatrix}1\\-1\end{pmatrix}.
-\]
-
-For $\lambda_2 = 4$:
-\[
-u_2 = \begin{pmatrix}1\\1\end{pmatrix}.
-\]
-
-
-\medskip
-
-\textbf{Solutions:}
-\[
-y_1(t) = e^{-2t}\begin{pmatrix}1\\-1\end{pmatrix} \in S,
-\qquad
-y_2(t) = e^{4t}\begin{pmatrix}1\\1\end{pmatrix} \in S.
-\]
-
-
-\medskip
-
-Wronskian:
-\[
-w(t)
-=
-\det
-\begin{pmatrix}
-e^{-2t} & e^{4t}\\
-- e^{-2t} & e^{4t}
-\end{pmatrix}.
-\]
-
-\[
-w(0)
-=
-\begin{vmatrix}
-1 & 1\\
--1 & 1
-\end{vmatrix}
-= 2 \neq 0.
-\]
-
-Hence
-\[
-S = \langle \{y_1,y_2\} \rangle,
-\]
-and the general solution is
-\[
-y(t)
-=
-c_1 e^{-2t}\begin{pmatrix}1\\-1\end{pmatrix}
-+
-c_2 e^{4t}\begin{pmatrix}1\\1\end{pmatrix}.
-\]
+    The wronskian of $y_1$ and $y_2$ is
+    \[w(t) = \det\begin{pmatrix}e^{-2t} & e^{4t}\\- e^{-2t} & e^{4t}\end{pmatrix}.\]
+    Evaluating at $t=0$,
+    \[w(0) = \begin{vmatrix}1 & 1\\-1 & 1\end{vmatrix} = 2 \neq 0,\]
+    so $y_1$ and $y_2$ are linearly independent. Therefore they form a basis of the solution space,
+    \[S = \langle \{y_1,y_2\} \rangle,\]
+    and the general solution is
+    \[y(t) = c_1 e^{-2t}\begin{pmatrix}1\\-1\end{pmatrix} +
+    c_2 e^{4t}\begin{pmatrix}1\\1\end{pmatrix}.\]
 \end{example}
 
 \section{Second and Higher-Order Scalar Linear Equations}
@@ -1028,7 +951,7 @@ c_2 e^{4t}\begin{pmatrix}1\\1\end{pmatrix}.
 \begin{proof}[Proof of Picard Iterations Convergence]
     \label{pf:picard-convergence}
     Pick $t \in [t_0, t_0 + \epsilon]$ (the proof is similar for $t \in [t_0 - \epsilon, t_0]$).
-    The goal is to show that $\{y_k(t)\}_{k=0}^{\infty}$ is a Cauchy sequence\footnote{Cauchy sequence is a sequence that has a limit in a metric space $\mathbb{R}^n$.} in $\mathbb{R}^n$.
+    The goal is to show that $\{y_k(t)\}_{k=0}^{\infty}$ is a Cauchy sequence\footnote{Cauchy sequence is a sequence that has a limit in a metric space $\mathbb{R}^n$.} in $\mathbb{R}^n$.\footnote{Evaluated on compacted cylinder, understanding epsilon, the L Lipschitz constant coming from somewhere, not on the analysis background such as the Banach fixed point theorem.}
     We prove by induction that
     \[(**)\quad ||y_m(t) - y_{m - 1}(t)|| \leq L^{m - 1}M_{\alpha,\delta} \frac{(t - t_0)^m}{m!},\:\forall m \geq 1.\]
     \textbf{Base case \(m=1\):}
@@ -1054,7 +977,7 @@ c_2 e^{4t}\begin{pmatrix}1\\1\end{pmatrix}.
     Thus $\{y_k(t)\}$ is Cauchy and converges to $y(t)$.
     Taking limits in the iteration,
     \[y(t) = y_0 + \int_{t_0}^{t} f(y(s),s)ds.\]
-\end{proof}\footnote{Evaluated on compacted cylinder, understanding epsilon, the L Lipschitz constant coming from somewhere, not on the analysis background such as the Banach fixed point theorem.}
+\end{proof}
 
 \section{Solutions}
 \begin{solution}[System of First Order ODEs]
