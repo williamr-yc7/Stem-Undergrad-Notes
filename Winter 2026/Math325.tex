@@ -5,14 +5,11 @@
 \usepackage{amssymb} % For mathematical symbols
 \usepackage{amsthm} % For theorem environments
 \usepackage{amsmath} % For advanced math typesetting
-\usepackage{xcolor}
-\usepackage[colorlinks=true,linkcolor=black,citecolor=black,urlcolor=black]{hyperref}
+\usepackage{hyperref}
 \usepackage{enumitem}
 \usepackage{pgfplots} % For plots
 \usepackage{tikz} % For drawing shapes
 \pgfplotsset{compat=1.18} % Set compatibility level
-\let\oldref\ref
-\renewcommand{\ref}[1]{\textcolor{red}{\oldref{#1}}}
 \newtheorem{theorem}{Theorem}
 \newtheorem{corollary}{Corollary}[theorem]
 \newtheorem{lemma}[theorem]{Lemma}
@@ -23,6 +20,9 @@
 \newtheorem{remark}{Remark}
 \newtheorem{proposition}{Proposition}
 \reversemarginpar
+\hypersetup{
+    colorlinks=true,
+}
 \begin{document}
 %------- Title page   -----------
 \title{MATH 325: Honours Ordinary Differential Equations}
@@ -44,7 +44,10 @@
 
 %------- Table of Contents -----------
 \thispagestyle{empty}
-\tableofcontents
+{
+  \hypersetup{linkcolor=black}
+  \tableofcontents
+}
 \clearpage
 
 %------- introduction -----------
@@ -588,7 +591,7 @@ which provides a systematic way to solve any separable equation by integrating t
     \begin{equation}
         \Psi(x,y) = H_1(x) + H_2(y),
     \end{equation}
-    where $H_1$ and $H_2$ are antiderivatives of $M(x)$ and $N(y)$ from \{\textup{\ref{SeparableODE}}\}.
+    where $H_1$ and $H_2$ are antiderivatives of $M(x)$ and $N(y)$ from \textup{\eqref{SeparableODE}}.
 \end{definition}
 \begin{definition}[Level Curve]
     A level curve of a potential function is a curve along which the potential function is constant:
@@ -618,7 +621,7 @@ and in the separable case,
 \subsection{Exact Equations}
 \marginpar{January 29, 2026}
 \begin{definition}[Exact Equation]
-    The first-order ODE \{\textup{\ref{SeparableODE}}\} is called \emph{exact} on a domain $D$ if there exists a function $\Psi(x,y)$ (a potential function) such that
+    The first-order ODE \textup{\eqref{SeparableODE}} is called \emph{exact} on a domain $D$ if there exists a function $\Psi(x,y)$ (a potential function) such that
     \[\frac{\partial \Psi}{\partial x} = M \quad \text{and} \quad \frac{\partial \Psi}{\partial y} = N \qquad \forall (x,y)\in D.\]
     In this case, $d\Psi = M\,dx + N\,dy$, so along any solution $y(x)$ we have
     \[\frac{d}{dx}\big(\Psi(x,y(x))\big) = 0.\]
@@ -629,7 +632,7 @@ and in the separable case,
 
 \begin{theorem}
     Let $D \subset \mathbb{R}^2$ be an open, simply connected domain\footnote{Meaning there are no holes in the domain.} in the plane. Suppose $M$, $N$, and their partial derivatives $M_y = \frac{\partial M}{\partial y}$ and $N_x = \frac{\partial N}{\partial x}$ are continuous on $D$.
-    Then the first-order equation \{\textup{\ref{SeparableODE}}\} is exact on $D$ if and only if $M_y(x,y) = N_x(x,y)$ for all $(x,y)\in D$.
+    Then the first-order equation \textup{\eqref{SeparableODE}} is exact on $D$ if and only if $M_y(x,y) = N_x(x,y)$ for all $(x,y)\in D$.
 \end{theorem}
 \begin{proof}
     ($\Rightarrow$) Suppose the equation is exact. Then there exists a potential function $\Psi(x,y)$ such that
@@ -806,7 +809,7 @@ where \(c \in \mathbb{R}^n\) is determined by the initial condition \(y(t_0) = y
         \label{eq:ode-system-matrix}
         y' = A(t)y
     \end{equation}
-    is an $n \times n$ matrix function whose columns are solutions to \{\textup{\ref{eq:ode-system-matrix}}\}.
+    is an $n \times n$ matrix function whose columns are solutions to \textup{\eqref{eq:ode-system-matrix}}.
 \end{definition}
 \begin{definition}[Principle of Superposition]
     \label{POS}
@@ -815,12 +818,11 @@ where \(c \in \mathbb{R}^n\) is determined by the initial condition \(y(t_0) = y
 By the POS (principle of superposition), for any fixed vector
 \[C = \begin{pmatrix}C_1\\C_2\\\vdots\\C_n\end{pmatrix} \in \mathbb{R}^n, \quad y(t)c = c_1 y_1(t) + c_2 y_2(t) + \cdots + c_n y_n(t) \in S.\]
 \begin{proposition}
-    Let $y(t)$ be a matrix solution of \{\textup{\ref{eq:ode-system-matrix}}\}. Either
+    Let $y(t)$ be a matrix solution of \textup{\eqref{eq:ode-system-matrix}}. Either
     \[\det(y(t)) \neq 0 \quad \forall t \in Q\]
     or
     \[\det(y(t)) = 0.\]
 \end{proposition}
-
 \begin{proof}
     Assume there exists $t_0 \in Q$ such that $\det(y(t_0)) = 0$. Then $y(t_0)$ is not invertible. Hence, by linear algebra, there exists a nonzero vector $v \in \mathbb{R}^n$ such that
     \[y(t_0)v = 0.\]
@@ -838,145 +840,182 @@ By the POS (principle of superposition), for any fixed vector
     Therefore the columns of $y(t)$ are linearly dependent for every $t$, which implies
     \[\det(y(t)) = 0 \quad \text{for all } t \in Q.\]
 \end{proof}
-
-
-\begin{definition}
-\[
-w(t) = w(y_1,\ldots,y_n)(t) = \det(y(t))
-\]
-is called the Wronskian of $y_1,\ldots,y_n$.
+\begin{definition}[Wronskian]
+    \[w(t) = w(y_1,\ldots,y_n)(t) = \det(y(t))\]
+    is called the Wronskian of $y_1,\ldots,y_n$.
 \end{definition}
-
-\begin{definition}
-A matrix solution with nonvanishing Wronskian is called a fundamental matrix solution.
+\begin{definition}[Fundamental Matrix Solution]
+    A matrix solution with nonvanishing\footnote{Nonvanishing in this context means not equal to zero.} Wronskian is called a fundamental matrix solution.
 \end{definition}
-
 \begin{theorem}[Liouville's formula]
-Let $y(t)$ be a matrix solution. Then
-\[
-\det(y(t))
-=
-\det(y(t_0))
-e^{\int_{t_0}^t \operatorname{tr}(A(s))\,ds}.
-\]
-Here,
-\[
-\operatorname{tr}(M)
-=
-\text{sum of the diagonal entries of } M \in M_n(\mathbb{R}).
-\]
+    Let $y(t)$ be a matrix solution to \textup{\eqref{eq:ode-system-matrix}} satisfying the initial condition $y(t_0) = y_0 \in M_n(\mathbb{R})$. Then
+    \[\det(y(t)) = \det(y_0)e^{\int_{t_0}^t \operatorname{tr}(A(s))\,ds}.\]
+    Here,
+    \[\operatorname{tr}(M) = \text{sum of the diagonal entries of } M \in M_n(\mathbb{R}).\]
 \end{theorem}
-
 \begin{remark}
-For
-\[
-y' = A(t)y,
-\]
-the goal is to find $n$ linearly independent solutions
-\[
-y_1, y_2, \ldots, y_n
-\]
-such that $W(t_0) \neq 0$.
+    For the homogeneous system \textup{\eqref{eq:ode-system-matrix}}, the goal is to find $n$ linearly independent solutions
+    \[y_1, y_2, \ldots, y_n\]
+    such that $W(t_0) \neq 0$.
 \end{remark}
+Since $y_1,\ldots,y_n$ are linearly independent, they form a basis for the solution space. Therefore every solution has the form
+\[y(t) = c_1 y_1(t) + c_2 y_2(t) + \cdots + c_n y_n(t), \qquad c_1,\ldots,c_n \in \mathbb{R}.\]
+Given an initial condition
+\[y(t_0) = y_0 \in \mathbb{R}^n,\]
+\[y(t_0) = c_1 y_1(t_0) + \cdots + c_n y_n(t_0) = \begin{pmatrix}| & | & | \\ y_1(t_0) & y_2(t_0) & y_n(t_0) \\ | & | & |\end{pmatrix}\begin{pmatrix}c_1\\c_2\\\vdots\\c_n\end{pmatrix} = y_0 = \begin{pmatrix}y_0'\\y_0''\\\vdots\\y_0^{(n)}\end{pmatrix}.\]
+The unique $(c_1,\ldots,c_n)$ is given by
+\[\begin{pmatrix}c_1\\c_2\\\vdots\\c_n\end{pmatrix} = \begin{pmatrix}| & | \\y_1(t_0) & y_n(t_0) \\| & |\end{pmatrix}^{-1}\begin{pmatrix}y_0'\\y_0''\\\vdots\\y_0^{(n)}\end{pmatrix}.\]
 
-Then the general solution is
+\subsection{Linear homogeneous systems with constant coefficients}
+Consider \eqref{eq:ode-system-matrix}, where $A \in M_n(\mathbb{R})$ with constant entries. We look for solutions of the form
+\begin{equation}
+    \label{eq:exp-ansatz}
+    y(t) = e^{\lambda t}u
+\end{equation}
+where $u$ is a constant vector.\footnote{Recall the analogous scalar case $a_0 y^{(n)} + a_1 y^{(n-1)} + \cdots + a_{n-1} y' + a_n y = 0$, where we look for solutions of the form $e^{rt}$.}
+If we substitute \eqref{eq:exp-ansatz} into \eqref{eq:ode-system-matrix}, we get
+\begin{equation}
+    \label{eq:ode-system-exp}
+    y'(t) = \frac{d}{dt}(e^{\lambda t}u) = e^{\lambda t}(\lambda u),
+\end{equation}
+and
+\begin{equation}
+    \label{eq:ode-system-exp-A}
+    Ay = e^{\lambda t}(Au).
+\end{equation}
+Hence if we combine both equations, we get
+\begin{equation}
+    \label{eq:ode-system-exp-A-2}
+    e^{\lambda t}(\lambda u) = e^{\lambda t}(Au) \implies Au = \lambda u.
+\end{equation}
+In other words, $\lambda$ is an eigenvalue of $A$ and $u$ is a corresponding eigenvector.
+\begin{definition}[Kernel]
+    Given a matrix $A \in M_n(\mathbb{C})$, define
+    \[\ker A = \{u \mid Au = 0\},\]
+    called the kernel (or null space) of $A$.
+\end{definition}
+Equation \eqref{eq:ode-system-exp-A-2} is equivalent to
+\[Au - \lambda u = 0 \iff (A - \lambda I)u = 0,\]
+where $I$ is the identity matrix in $M_n(\mathbb{R})$.
+\begin{definition}[Characteristic Polynomial]
+    Let $A \in M_n(\mathbb{R})$. The characteristic polynomial of $A$, denoted $p(\lambda)$, is defined to be
+    \[p(\lambda) = \det(A - \lambda I)\]
+\end{definition}
+\begin{definition}[Eigenvalue]
+    An eigenvalue of $A$ is a root of $p(\lambda)$.
+\end{definition}
+\begin{definition}[Spectrum]
+    The set
+    \[\sigma(A) = \{\lambda \mid p(\lambda) = 0\}\]
+    is called the spectrum of $A$.
+\end{definition}
+
+\begin{example}
+Consider
+\[
+y' = Ay, \qquad
+y = \begin{pmatrix}y_1\\y_2\end{pmatrix}, \qquad
+A = \begin{pmatrix}1 & 3\\ 3 & 1\end{pmatrix}.
+\]
+
+Characteristic polynomial:
+\[
+p(\lambda)
+= \det(A - \lambda I)
+= \begin{vmatrix}
+1-\lambda & 3\\
+3 & 1-\lambda
+\end{vmatrix}
+= (1-\lambda)^2 - 9.
+\]
+
+Solve
+\[
+(1-\lambda)^2 - 9 = 0
+\iff 1-\lambda = \pm 3.
+\]
+
+Thus
+\[
+\lambda_1 = -2, \qquad \lambda_2 = 4,
+\]
+so
+\[
+\sigma(A) = \{-2,4\}.
+\]
+
+
+\medskip
+
+\textbf{Eigenvectors:}
+
+For $\lambda_1 = -2$:
+\[
+(A-\lambda I)u_1 = 0
+\Rightarrow
+\begin{pmatrix}3 & 3\\ 3 & 3\end{pmatrix}
+\begin{pmatrix}a\\b\end{pmatrix}
+=
+\begin{pmatrix}0\\0\end{pmatrix}
+\Rightarrow b = -a.
+\]
+You can pick any values of $a$, and $b$ is the negative of $a$; choose $a=1$:
+\[
+u_1 = \begin{pmatrix}1\\-1\end{pmatrix}.
+\]
+
+For $\lambda_2 = 4$:
+\[
+u_2 = \begin{pmatrix}1\\1\end{pmatrix}.
+\]
+
+
+\medskip
+
+\textbf{Solutions:}
+\[
+y_1(t) = e^{-2t}\begin{pmatrix}1\\-1\end{pmatrix} \in S,
+\qquad
+y_2(t) = e^{4t}\begin{pmatrix}1\\1\end{pmatrix} \in S.
+\]
+
+
+\medskip
+
+Wronskian:
+\[
+w(t)
+=
+\det
+\begin{pmatrix}
+e^{-2t} & e^{4t}\\
+- e^{-2t} & e^{4t}
+\end{pmatrix}.
+\]
+
+\[
+w(0)
+=
+\begin{vmatrix}
+1 & 1\\
+-1 & 1
+\end{vmatrix}
+= 2 \neq 0.
+\]
+
+Hence
+\[
+S = \langle \{y_1,y_2\} \rangle,
+\]
+and the general solution is
 \[
 y(t)
 =
-c_1 y_1(t) + c_2 y_2(t) + \cdots + c_n y_n(t),
-\qquad
-c_1,\ldots,c_n \in \mathbb{R}.
+c_1 e^{-2t}\begin{pmatrix}1\\-1\end{pmatrix}
++
+c_2 e^{4t}\begin{pmatrix}1\\1\end{pmatrix}.
 \]
-
-Given an initial condition
-\[
-y(t_0) = y_0 \in \mathbb{R}^n,
-\]
-\[
-y(t_0)
-=
-c_1 y_1(t_0) + \cdots + c_n y_n(t_0)
-=
-\begin{pmatrix}
-| & | & | \\
-y_1(t_0) & y_2(t_0) & y_n(t_0) \\
-| & | & |
-\end{pmatrix}
-\begin{pmatrix}
-c_1\\
-c_2\\
-\vdots\\
-c_n
-\end{pmatrix}
-=
-y_0
-=
-\begin{pmatrix}
-y_0'\\
-y_0''\\
-\vdots\\
-y_0^{(n)}
-\end{pmatrix}.
-\]
-
-The unique $(c_1,\ldots,c_n)$ is given by
-\[
-\begin{pmatrix}
-c_1\\
-c_2\\
-\vdots\\
-c_n
-\end{pmatrix}
-=
-\begin{pmatrix}
-| & | \\
-y_1(t_0) & y_n(t_0) \\
-| & |
-\end{pmatrix}^{-1}
-\begin{pmatrix}
-y_0'\\
-y_0''\\
-\vdots\\
-y_0^{(n)}
-\end{pmatrix}.
-\]
-
-
-\subsection{Linear homogeneous systems with constant coefficients}
-\[y' = Ay \text{(*2)}, \qquad A \in M_n(\mathbb{R})\text{ with constant entries}\]
-We look for solutions of the form $y(t) = e^{\lambda t}u$ (*3), $U$ is a constant vector.
-\[a_0y^n + a_1y^{n+1} + \cdots + a_{n-1}y' + a_ny = 0\]
-Look for solutions of the form $e^{rt}$
-
-Plug (*3) in (*2):
-\[y'(t) = \frac{d}{dt}(e^{\lambda t}u) = \lambda e^{\lambda t}u = e^{\lambda t}(\lambda u) = Ay = A(e^{\lambda t}u) = e^{\lambda t}(Au) \implies Au = \lambda u \text{(*4)}\]
-In other words, $\lambda$ is an eigenvalue of A and u is a corresponding eigenvector.
-
-Definition: Given a matrix $A \in M_n(\mathbb{C})$, denote by $ker A = \{u | Au = 0\}$, it is called the kernel (or null space) of A.
-
-Equation (*4) $\iff Au - \lambda u = 0 \iff Au - \lambda Iu = 0$, where I is the identity matrix $\in M_n(\mathbb{R})$, $\iff (A - \lambda I)u = 0$.
-
-Define $p(\lambda) = det(A - \lambda I)$. It is called the characteristic polynomial of A. An eigenvalue is a root of $p(\lambda)$ that is, it solves $p(\lambda) = det(A - \lambda I) = 0$.
-
-Definition: Given a matrix A, we denote by $\sigma(A) = \{\lambda | p(\lambda) = 0\}$ the set of eigenvalues of A. It is called the spectrum of A.
-
-Example:
-\[y' = Ay\]
-where $y = \begin{pmatrix}y_1\\y_2\end{pmatrix}$ and $A = \begin{pmatrix}1&3\\3&1\end{pmatrix}$.
-\[p(\lambda) = det(A - \lambda I) = \begin{pmatrix}1 - \lambda & 3\\3 & 1 - \lambda\end{pmatrix} = (1 - \lambda)^2 - 9 = 0\]
-\[\iff (1 - \lambda)^2 - 9 = 0 \iff 1 - \lambda = \pm 3\]
-$\implies \lambda = \lambda_1 = -2, \lambda = \lambda_2 = 4$ are the two eigenvalues $\implies \sigma(A) = \{-2,4\}$.
-
-Eigenvectors: for $u_1$ : $(A - \lambda I)u_1 = 0$
-\[\begin{pmatrix}3&3\\3&3\end{pmatrix}\begin{pmatrix}a\\b\end{pmatrix} = \begin{pmatrix}0\\0\end{pmatrix}\]
-\[\therefore b = -a\]
-You can pick any values of a and b would be the negative of a, lets pick $a = 1$..
-
-for $u_2$ : $u_2 = \begin{pmatrix}1\\1\end{pmatrix} \implies y_1(t) = e^{-2t}\begin{pmatrix}1\\-1\end{pmatrix} \in S$ and $y_2(t) = e^{4t}\begin{pmatrix}1\\1\end{pmatrix} \in S$
-
-\[w(t) = |e^{-2t}\begin{pmatrix}1\\-1\end{pmatrix} e^{4t}\begin{pmatrix}1\\1\end{pmatrix}|\]
-\[w(0) = \begin{pmatrix}1&1\\-1&1\end{pmatrix} = 2 \neq 0\]
-\[\implies S = <\{y_1,y_2\}> \implies y(t) = c_1e^{-2t}\begin{pmatrix}1\\-1\end{pmatrix} + c_2e^{4t}\begin{pmatrix}1\\1\end{pmatrix}\]
+\end{example}
 
 \section{Second and Higher-Order Scalar Linear Equations}
 \section{Stability, Phase Portraits and Orbits}
