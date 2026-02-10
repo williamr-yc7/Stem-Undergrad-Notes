@@ -844,6 +844,13 @@ By the POS (principle of superposition), for any fixed vector
     \[w(t) = w(y_1,\ldots,y_n)(t) = \det(y(t))\]
     is called the Wronskian of $y_1,\ldots,y_n$.
 \end{definition}
+\begin{example}[Wronskian]
+    Let
+    \[y_1(t) = \begin{pmatrix}cos(2t)\\-sin(2t)\end{pmatrix}, \quad y_2(t) = \begin{pmatrix}-2sin(2t)\\-2cos(2t)\end{pmatrix},\]
+    Compute the Wronskian to determine whether the functions $y_1(t)$ and $y_2(t)$ are linearly independent.
+    \[W(t) = \det\begin{pmatrix}cos(2t) & -2sin(2t)\\-sin(2t) & -2cos(2t)\end{pmatrix} = -\frac{1}{2}.\]
+    Therefore $y_1(t)$ and $y_2(t)$ are linearly dependent since $W(t) \neq 0$.
+\end{example}
 \begin{definition}[Fundamental Matrix Solution]
     A matrix solution with nonvanishing\footnote{Nonvanishing in this context means not equal to zero.} Wronskian is called a fundamental matrix solution.
 \end{definition}
