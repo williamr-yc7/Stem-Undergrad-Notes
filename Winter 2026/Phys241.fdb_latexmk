@@ -1,8 +1,9 @@
 # Fdb version 4
-["pdflatex"] 1769030917.67494 "c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Phys241.tex" "Phys241.pdf" "Phys241" 1769030923.67119 0
+["pdflatex"] 1770789775.49896 "c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Phys241.tex" "Phys241.pdf" "Phys241" 1770789787.06526 0
   "../Images/Ohms-Law-Formula-Wheel.png" 1769029882 8385 c5e978fbe5f6991095d6b8d090da3862 ""
+  "../Images/Parallel_resistors.png" 1770786710 30374 d13f9bf5b1fa61a7ffd3690f72045336 ""
   "../Images/Pulsating-direct-current-diagram.svg.png" 1768918111 32813 7e351fd9ae204183e9fb141cb122f6f9 ""
-  "C:/Users/erenr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1768538118 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
+  "C:/Users/erenr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1770702763 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/erenr/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk" 1767801684 11548 9ea6db1ff0b947846d8751dabcdcf90a ""
   "C:/Users/erenr/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1767801679 13333486 ad3a4e5807f6f25ced943a60862e7471 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/tcrm1000.tfm" 993062508 1436 c7f957a372ef2fbe93c0982f96625e12 ""
@@ -202,6 +203,7 @@
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/graphics-cfg/color.cfg" 1465894292 1213 620bba36b25224fa9b7e1ccb4ecb76fd ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/graphics-cfg/graphics.cfg" 1465894292 1224 978390e9c2234eab29404bc21b268d1e ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/graphics-def/pdftex.def" 1762694372 19626 23e2822b9b2b5005f4c549ca98b9334d ""
+  "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/graphics/color.sty" 1749322634 7245 a7e8457a46cda4920df85d975267efb4 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/graphics/graphics.sty" 1749322634 18363 69bb4f5538964bfea50d1e6d89cbe69f ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/graphics/graphicx.sty" 1749322634 8118 43b99e52946c33a23f5f43b52d5cc5ec ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/graphics/keyval.sty" 1749322634 2671 d9941f4bf4750e9b0603c9a2ec54693b ""
@@ -233,11 +235,11 @@
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/tools/indentfirst.sty" 1761901070 1618 30b01152766afcef2ed8f904cfdd3cc6 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
-  "Phys241.aux" 1769030922 5435 b9512bd828b34843feafead8f96a1c29 "pdflatex"
-  "Phys241.out" 1769030922 5242 e9bd80c2a89b9a13f61f3b34115fe2d3 "pdflatex"
-  "Phys241.tex" 1769030913 16897 3b04a2293ea02f9c380632fefd1ac879 ""
-  "Phys241.toc" 1769030922 3241 aaf65a516d5831a8fdabbf04a3c00c12 "pdflatex"
-  "c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Phys241.tex" 1769030913 16897 3b04a2293ea02f9c380632fefd1ac879 ""
+  "Phys241.aux" 1770789785 5738 2a4f22020b71baaece3dc94d11298395 "pdflatex"
+  "Phys241.out" 1770789785 5375 e36e3d721c3ed320875573aa84976768 "pdflatex"
+  "Phys241.tex" 1770789766 18372 6e5eb1e9914438b3709311bc8b1467b3 ""
+  "Phys241.toc" 1770789785 3329 1b0efa693e4fd14883348aa63e2dfc10 "pdflatex"
+  "c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Phys241.tex" 1770789766 18372 6e5eb1e9914438b3709311bc8b1467b3 ""
   (generated)
   "Phys241.aux"
   "Phys241.log"

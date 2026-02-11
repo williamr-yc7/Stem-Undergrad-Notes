@@ -298,6 +298,7 @@ INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex\latex\epstopdf-pkg\epstop
 INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex\latex\00miktex\epstopdf-sys.cfg
 INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex\latex\00miktex\epstopdf-sys.cfg
 INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex\latex\00miktex\epstopdf-sys.cfg
+INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex\latex\graphics\color.sty
 INPUT .\Phys241.out
 INPUT .\Phys241.out
 INPUT Phys241.out
@@ -375,6 +376,13 @@ INPUT ..\Images\Ohms-Law-Formula-Wheel.png
 INPUT ..\Images\Ohms-Law-Formula-Wheel.png
 INPUT ..\Images\Ohms-Law-Formula-Wheel.png
 INPUT ..\Images\Ohms-Law-Formula-Wheel.png
+INPUT ..\Images\Parallel_resistors.png
+INPUT ..\Images\Parallel_resistors.png
+INPUT ..\Images\Parallel_resistors.png
+INPUT ..\Images\Parallel_resistors.png
+INPUT ..\Images\Parallel_resistors.png
+INPUT ..\Images\Parallel_resistors.png
+INPUT ..\Images\Parallel_resistors.png
 INPUT Phys241.aux
 INPUT .\Phys241.out
 INPUT .\Phys241.out
