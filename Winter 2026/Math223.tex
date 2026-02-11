@@ -91,7 +91,8 @@ We have the following relationships between sets:
         $\exists$ & there exists \\
         $\emptyset$ & empty set \\
         $\Rightarrow$ & implies \\
-        $\Leftrightarrow$ & if and only if
+        $\Leftrightarrow$ & if and only if \\
+        $\cong$ & is isomorphic to
     \end{tabular}
 \end{center}
 
@@ -601,7 +602,7 @@ Let $W$ be a vector space and $U,V \subseteq W$ subspaces.
 
 \subsection{Direct sums}
 \marginpar{January 23, 2026}
-Let $W$ be a vector space and $U,V \subseteq W$ subspaces.
+Let $W$ be a vector space and $U,V \subseteq W$ be subspaces.
 \begin{definition}[Direct sum]
     We say that $U$ and $V$ are in direct sum if
     \[U \cap V = \{0\}.\]
@@ -609,12 +610,7 @@ Let $W$ be a vector space and $U,V \subseteq W$ subspaces.
     \[U+V=\{u+v : u \in U,\; v \in V\}\]
     is denoted by $U \oplus V$.
     We write
-    \[W = U \oplus V\]
-    if and only if
-    \[\begin{cases}
-    W = U+V,\\
-    U \cap V = \{0\}.
-    \end{cases}\]
+    \[W = U \oplus V \iff \begin{cases}W = U+V,\\U \cap V = \{0\}.\end{cases}\]
 \end{definition}
 \begin{remark}
     To prove $W = U \oplus V$, one must show:
@@ -623,7 +619,7 @@ Let $W$ be a vector space and $U,V \subseteq W$ subspaces.
     \item If $w \in U$ and $w \in V$, then $w=0$.
     \end{itemize}
 \end{remark}
-\subsubsection*{Analogy with sets}
+\subsubsection{Analogy with sets}
 \[\begin{array}{c|c}
 \text{Sets} & \text{Vector spaces} \\
 \hline
@@ -631,7 +627,7 @@ A \cap B & U \cap V \\
 A \cup B & U + V \\
 A \sqcup B,\ A \cap B = \emptyset & U \oplus V,\ U \cap V = \{0\}
 \end{array}\]
-\begin{example}
+\begin{example}[Analogy with disjoint sets]
     Let
     \[D=\{1,2,3,4,5\},\quad A=\{1,2,3\},\quad B=\{4,5\}.\]
     Then
@@ -642,12 +638,21 @@ A \sqcup B,\ A \cap B = \emptyset & U \oplus V,\ U \cap V = \{0\}
 Let $D$ be a set and $A \subseteq D$. Consider the function space $F(D,\mathbb{R})$.
 \begin{definition}[]
     Define
-    \[U = \{f \in F(D,\mathbb{R}) : f(x)=0 \text{ for all } x \notin A\}.\]
-    Then $U$ is a subspace of $F(D,\mathbb{R})$, and $U$ can be identified with $F(A,\mathbb{R})$.
+    \[U = \{f \in F(D,\mathbb{R}) : f(x)=0\,\forall x \notin A\}.\]
+    Then $U$ is a subspace of $F(D,\mathbb{R})$ (it is closed under addition and scalar multiplication, and contains the zero function). Moreover, $U$ can be naturally identified with $F(A,\mathbb{R})$, since each function in $U$ is completely determined by its values on $A$
 \end{definition}
 \begin{remark}
     Every function in $U$ is completely determined by its values on $A$ and vanishes outside $A$.
 \end{remark}
+\begin{example}[Functions supported on a subset]
+    Let $D = \{1,2,3,4,5\}$ and $A = \{2,4\}$. Then
+    \[U = \{ f \in F(D,\mathbb{R}) : f(1)=f(3)=f(5)=0 \}.\]
+    Examples of functions in $U$ include
+    \[f = (0,3,0,-1,0), \quad g = (0,0,0,7,0).\]
+    Each function in $U$ is completely determined by its values on $A$, i.e.,
+    \[f \iff (f(2), f(4)) \in F(A, \mathbb{R}) \cong \mathbb{R}^2.\]
+    Hence $U$ is a 2-dimensional subspace of $F(D, \mathbb{R})$.
+\end{example}
 
 \section{Basis and Dimension}
 \marginpar{January 26, 2026}
