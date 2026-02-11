@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  11 FEB 2026 12:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  11 FEB 2026 13:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -496,31 +496,31 @@ File: tikzlibrarycalc.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \c@solution=\count344
 \c@remark=\count345
 \c@proposition=\count346
-Package hyperref Info: Option `colorlinks' set `true' on input line 26.
+Package hyperref Info: Option `colorlinks' set `true' on input line 32.
  (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count347
 ) (Math223.aux)
 \openout1 = `Math223.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
  (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count348
@@ -540,7 +540,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring ON on input line 27.
+Package hyperref Info: Link coloring ON on input line 33.
  (Math223.out) (Math223.out)
 \@outlinefile=\write4
 \openout4 = `Math223.out'.
@@ -548,11 +548,11 @@ Package hyperref Info: Link coloring ON on input line 27.
 
 Package pgfplots notification 'compat/show suggested version=true': document has been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 36.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 42.
 (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 36.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 42.
  (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
@@ -564,7 +564,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \openout5 = `Math223.toc'.
 
  [3]
-Overfull \hbox (17.86923pt too wide) in paragraph at lines 63--72
+Overfull \hbox (17.86923pt too wide) in paragraph at lines 69--78
  [] 
  []
 
@@ -572,16 +572,16 @@ Overfull \hbox (17.86923pt too wide) in paragraph at lines 63--72
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.110     \end{center}
+l.116     \end{center}
                        [1
 
 ]
 pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.141 \end{definition}
+l.147 \end{definition}
                        [2]
-Underfull \hbox (badness 10000) in paragraph at lines 149--149
+Underfull \hbox (badness 10000) in paragraph at lines 155--155
 []\OT1/cmr/m/n/10 January 09,
  []
 
@@ -589,131 +589,140 @@ Underfull \hbox (badness 10000) in paragraph at lines 149--149
 pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.183     \[e^{i\theta}=\cos\theta+i\sin\theta.\]
-                                                  [3]
+l.192     \end{equation}
+                         [3]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 198.
+(hyperref)                removing `math shift' on input line 207.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 198.
+(hyperref)                removing `math shift' on input line 207.
 
 [4] [5]
-Underfull \hbox (badness 10000) in paragraph at lines 284--284
+Underfull \hbox (badness 10000) in paragraph at lines 299--299
 []\OT1/cmr/m/n/10 January 09,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 293--294
+Underfull \hbox (badness 10000) in paragraph at lines 308--310
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 297--298
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 308--308
+Underfull \hbox (badness 10000) in paragraph at lines 318--318
 []\OT1/cmr/m/n/10 January 12,
  []
 
-[6] [7] [8] [9]
-Underfull \hbox (badness 10000) in paragraph at lines 422--422
+[6] [7]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 367.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 367.
+
+
+Overfull \hbox (14.43977pt too wide) in paragraph at lines 383--385
+[][]\OT1/cmr/bx/n/10 Definition 19 \OT1/cmr/m/n/10 (Ba-sis)\OT1/cmr/bx/n/10 . []\OT1/cmr/m/it/10 Let $\OML/cmm/m/it/10 V$ \OT1/cmr/m/it/10 be a vec-tor space. A set of vec-tors $\OML/cmm/m/it/10 B \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 v[]; [] ; v[]\OMS/cmsy/m/n/10 g ^^Z
+ []
+
+[8] [9]
+Underfull \hbox (badness 10000) in paragraph at lines 442--442
 []\OT1/cmr/m/n/10 14 Jan-uary,
  []
 
 [10]
-Overfull \hbox (3.90337pt too wide) detected at line 462
+Overfull \hbox (3.90337pt too wide) detected at line 482
 [] \OT1/cmr/m/n/10 = 1 [] + 2 [] + 3 [] + 4 [] = 1\OML/cmm/m/it/10 e[] \OT1/cmr/m/n/10 + 2\OML/cmm/m/it/10 e[] \OT1/cmr/m/n/10 + 3\OML/cmm/m/it/10 e[] \OT1/cmr/m/n/10 + 4\OML/cmm/m/it/10 e[]:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 466--466
+Underfull \hbox (badness 10000) in paragraph at lines 486--486
 []\OT1/cmr/m/n/10 16 Jan-uary,
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 487--487
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 507--507
 []\OT1/cmr/m/n/10 January 19,
  []
 
-[11]
-Underfull \hbox (badness 10000) in paragraph at lines 518--518
+[12]
+Underfull \hbox (badness 10000) in paragraph at lines 538--538
 []\OT1/cmr/m/n/10 January 21,
  []
 
-[12]
-Underfull \hbox (badness 10000) in paragraph at lines 573--573
+[13]
+Underfull \hbox (badness 10000) in paragraph at lines 593--593
 []\OT1/cmr/m/n/10 January 23,
  []
 
-[13]
-Underfull \hbox (badness 10000) in paragraph at lines 623--623
+[14]
+Underfull \hbox (badness 10000) in paragraph at lines 643--643
 []\OT1/cmr/m/n/10 January 26,
  []
 
-[14] [15]
-Underfull \hbox (badness 10000) in paragraph at lines 717--717
+[15] [16]
+Underfull \hbox (badness 10000) in paragraph at lines 737--737
 []\OT1/cmr/m/n/10 January 28,
  []
 
-[16] [17]
-Underfull \hbox (badness 10000) in paragraph at lines 777--777
+[17]
+Underfull \hbox (badness 10000) in paragraph at lines 797--797
 []\OT1/cmr/m/n/10 January 30,
  []
 
-[18]
-Underfull \hbox (badness 10000) in paragraph at lines 840--840
+[18] [19]
+Underfull \hbox (badness 10000) in paragraph at lines 860--860
 []\OT1/cmr/m/n/10 February 2,
- []
-
-[19]
-Underfull \hbox (badness 10000) in paragraph at lines 879--879
-[]\OT1/cmr/m/n/10 February 4,
  []
 
 [20]
-Underfull \hbox (badness 10000) in paragraph at lines 916--916
-[]\OT1/cmr/m/n/10 February 6,
+Underfull \hbox (badness 10000) in paragraph at lines 899--899
+[]\OT1/cmr/m/n/10 February 4,
  []
 
 [21]
-Underfull \hbox (badness 10000) in paragraph at lines 934--934
+Underfull \hbox (badness 10000) in paragraph at lines 936--936
+[]\OT1/cmr/m/n/10 February 6,
+ []
+
+[22]
+Underfull \hbox (badness 10000) in paragraph at lines 954--954
 []\OT1/cmr/m/n/10 February 2,
  []
 
 
-Overfull \hbox (20.1277pt too wide) in paragraph at lines 961--970
+Overfull \hbox (20.1277pt too wide) in paragraph at lines 981--990
 []\OT1/cmr/m/n/10 proof of : Sup-pose $\OML/cmm/m/it/10 U \OMS/cmsy/m/n/10 ^^H \OML/cmm/m/it/10 U[]$ \OT1/cmr/m/n/10 are in di-rect sum in V As-sume: $[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 971--971
+Underfull \hbox (badness 10000) in paragraph at lines 991--991
 []\OT1/cmr/m/n/10 February 11,
  []
 
-[22] [23] [24] [25] [26] [27] [28] (Math223.aux)
+[23] [24] [25] [26] [27] [28] [29] (Math223.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
 Package rerunfilecheck Info: File `Math223.out' has not changed.
-(rerunfilecheck)             Checksum: 0E152F0E30E501E959E2783B700FCD5E;7378.
+(rerunfilecheck)             Checksum: AB72DADFA306D56651A2F436ACE0ACB2;7502.
  ) 
 Here is how much of TeX's memory you used:
- 31459 strings out of 467871
- 741730 string characters out of 5418377
- 1275211 words of memory out of 5000000
- 59650 multiletter control sequences out of 15000+600000
+ 31479 strings out of 467871
+ 742021 string characters out of 5418377
+ 1272211 words of memory out of 5000000
+ 59660 multiletter control sequences out of 15000+600000
  640216 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,11n,118p,868b,761s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,11n,118p,868b,727s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\erenr\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on Math223.pdf (31 pages, 466034 bytes).
+Output written on Math223.pdf (32 pages, 473970 bytes).
 PDF statistics:
- 694 PDF objects out of 1000 (max. 8388607)
- 203 named destinations out of 1000 (max. 500000)
- 405 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 716 PDF objects out of 1000 (max. 8388607)
+ 213 named destinations out of 1000 (max. 500000)
+ 413 words of extra memory for PDF output out of 10000 (max. 10000000)
 
