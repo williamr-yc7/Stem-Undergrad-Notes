@@ -89,9 +89,9 @@ We have the following relationships between sets:
     \end{tabular}
 \end{center}
 
-\subsection{Polar Coordinate}
+\subsection{Polar Coordinates}
 \begin{definition}[Polar coordinates]
-    Instead of describing a point by \((x,y)\), we may describe it using polar coordinates \((r,\theta)\), where \(r = |z|\) is the distance to the origin and \(\theta\) is the angle with the positive \(x\)-axis.
+    Instead of describing a point by \((x,y)\), we may describe it using polar coordinates \((r,\theta)\), where \(r\) is the distance to the origin and \(\theta\) is the angle with the positive \(x\)-axis.
 \end{definition}
 \begin{example}
     Consider the point \((x,y)\), where \(x = r \cos(\theta)\:and\:y = r \sin(\theta)\). We can define \((r,\theta)\) as follows:
@@ -175,7 +175,7 @@ where \(S'\) is the unit circle in the complex plane.
 \begin{definition}[Modulus]
     The modulus of a complex number \(z\) is defined by
     \[|z| = \sqrt{z\overline{z}} = \sqrt{x^2 + y^2}.\]
-    Geometrically, \(|z|\) is the distance from the origin to the point \((x,y)\).
+    Geometrically, \(|z|\) is the distance from the origin to the point \((x,y)\). Recall $r$ in polar coordinates, which is the same as \(|z|\).
 \end{definition}
 
 \subsubsection{Polar Form of Complex Numbers}
@@ -982,6 +982,34 @@ Definition: $T$ is a bijection if it is both injective and surjective.
 Example: $x^3$ is bijective whilst $x^2$ is not.
 More precisely: $f : \mathbb{R} \to \mathbb{R}$ $x \to x^2$ is not injective nor surjective.
 Example: $y : \mathbb{C} \to \mathbb{C}$ $z \to z^2$ injective? $(-1)^2 = (1)^2$. surjective? $z^2 = w$ where $w \in \mathbb{C}$ is any complex number. Fix w, solve for z, $g(z) = w$.
+Composition of transformations:
+    \[R: \longrightarrow T \longrightarrow V \longrightarrow S \longrightarrow W\]
+    \[u \longrightarrow T(u) \longrightarrow S(T(u))\]
+    Composition:
+    \[R: U \longrightarrow W\]
+    \[u \longrightarrow S(T(u))\]
+\[g : \mathbb{R} \xrightarrow[A]{x^2} \mathbb{R} \xrightarrow[B]{sin} \mathbb{R}\]
+\[g = sin(x^2)\]
+\[R : U \xrightarrow[]{T} V \xrightarrow[]{S} W\]
+\[R(u) = S(T(u))\]
+\[R = S \circ T\]
+($\circ$) is called composition.
+A inverse = a matrix B such that $AB = Id$ and $BA = Id$.
+Proposition: $T : U \to V$ is bjective $\iff$ T admits an inverse, $\exists S$ such that $\begin{cases}ST = id\\TS = id\end{cases}$.
+Let $U$ be a vector space:
+\[T: U \longrightarrow U \text{Id transformation}\]
+\[u \longrightarrow u\]
+\[U = \mathbb{R}^n\]
+\[T\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix} = \begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix}\]
+Example: $U = \mathbb{R}^n$, $V = \mathbb{R}^n$, $A \in M_n(\mathbb{R})$, $T_A : u \to v$, $T_A = $ trans with A.
+\[\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix} \to A\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix}\]
+Example:
+\[A = \begin{pmatrix}1&2\\3&4\end{pmatrix}\]
+\[A\begin{pmatrix}x\\y\end{pmatrix}\]
+\[T : \mathbb{R}^2 \longrightarrow \mathbb{R}^2\]
+\[\begin{pmatrix}x\\y\end{pmatrix} \to \begin{pmatrix}x+2y\\3x+4y\end{pmatrix}\]
+Definition: $U$,$V$ vector spaces over $K$. $T : U \to V$ transformation. Say T is linear if $T(u + v) = T(u) + T(v)$ and $T(\lambda u) = \lambda T(u)$.
+Proposition: $S$,$T$ are linear, here $S \circ T$ is linear.
 
 \section{Appendix}
 \subsection{Proof: Standard Basis is a Basis}
