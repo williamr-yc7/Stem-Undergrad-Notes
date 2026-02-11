@@ -1303,22 +1303,24 @@ Taking real and imaginary parts therefore yields two real solutions:
     \[\boxed{\lambda_1 = i,\quad \vec v_1 = \begin{pmatrix}
     \dfrac{2}{-3-i}\\1\end{pmatrix}, \qquad \lambda_2 = -i,\quad \vec v_2 = \begin{pmatrix}\dfrac{2}{-3+i} \\ 1\end{pmatrix}.}\]
     \textbf{(b) Real-valued solution of the initial value problem.}\\
-    From the eigenpair $(\lambda_1,u_1)$, a complex-valued solution is
+    From the eigenpair $(\lambda_1,u_1)$\footnote{Since the matrix has real coefficients, the second eigenpair $(\lambda_2,u_2)$ is simply the complex conjugate of $(\lambda_1,u_1)$, so it produces the same two real solutions after taking real and imaginary parts. Therefore, working with one eigenpair is sufficient.}, a complex-valued solution is
     \[\vec y(t) = e^{it} u_1.\]
     Using Euler's formula \eqref{eq:EulerFormula}, we write
-    \[\vec y(t) = (\cos t + i\sin t)\begin{pmatrix}\dfrac{2}{-3-i}\\1\end{pmatrix}.\]
+    \[\vec y(t) = (\cos t + i\sin t)\begin{pmatrix}\dfrac{2}{-3-i}\\1\end{pmatrix} = (\cos t + i\sin t)\begin{pmatrix}-\dfrac{3}{5} + \dfrac{1}{5}i\\1\end{pmatrix}.\]
     Separating real and imaginary parts yields two real-valued solutions:
-    \[\vec y^{(1)}(t) = \begin{pmatrix}2\cos t \\ -3\cos t + \sin t\end{pmatrix}, \qquad \vec y^{(2)}(t) = \begin{pmatrix} 2\sin t \\ -3\sin t - \cos t \end{pmatrix}.\]
+    \[\vec y_1(t) = \begin{pmatrix}-3\cos t - \sin t \\ 5 \cos t\end{pmatrix}, \qquad \vec y_2(t) = \begin{pmatrix} \cos t - 3 \sin t \\ 5 \sin t\end{pmatrix}.\]
     Therefore, the general real solution is
-    \[\vec y(t) = c_1 \vec y^{(1)}(t) + c_2 \vec y^{(2)}(t).\]
-    Applying the initial conditions $y_1(0)=7$ and $y_2(0)=-15$, we compute
-    \[\vec y^{(1)}(0)=\begin{pmatrix}2\\-3\end{pmatrix}, \qquad \vec y^{(2)}(0)=\begin{pmatrix}0\\-1\end{pmatrix}.\]
+    \[\vec y(t) = c_1 \vec y_1(t) + c_2 \vec y_2(t).\]
+    Applying the initial conditions $y_(0)=\begin{pmatrix}7\\-15\end{pmatrix}$, we compute
+    \[\vec y_1(0)=\begin{pmatrix}-3\\5\end{pmatrix}, \qquad \vec y_2(0)=\begin{pmatrix}1\\0\end{pmatrix}.\]
     Thus,
-    \[c_1\begin{pmatrix}2\\-3\end{pmatrix} + c_2\begin{pmatrix}0\\-1\end{pmatrix} = \begin{pmatrix}7\\-15\end{pmatrix}.\]
+    \[\begin{pmatrix}7\\-15\end{pmatrix} = c_1\begin{pmatrix}-3\\5\end{pmatrix} + c_2\begin{pmatrix}1\\0\end{pmatrix}.\]
     Solving gives
-    \[c_1 = \frac{7}{2}, \qquad c_2 = \frac{9}{2}.\]
-    Hence, the real-valued solution of the initial value problem is
-    \[\boxed{\begin{aligned}y_1(t) &= 7\cos t + 9\sin t,\\y_2(t) &= -15\cos t - 10\sin t.\end{aligned}}\]
+    \[c_1 = -3, \qquad c_2 = -2.\]
+    Therefore, the real-valued solution of the initial value problem is
+    \[\vec y(t) = c_1 \vec y_1(t) + c_2 \vec y_2(t) = -3 \begin{pmatrix}-3\cos t - \sin t \\ 5 \cos t \end{pmatrix}-2 \begin{pmatrix}-3\sin t + \cos t \\ 5 \sin t \end{pmatrix}.\]
+    You can simplify each component if desired:
+    \[\vec y(t) = \begin{pmatrix}9\cos t + 3 \sin t + 6 \sin t - 2 \cos t \\ -15 \cos t - 10 \sin t\end{pmatrix} = \begin{pmatrix}7 \cos t + 9 \sin t \\ -15 \cos t - 10 \sin t\end{pmatrix}.\]
 \end{solution}
 
 \section{Useful Links}
