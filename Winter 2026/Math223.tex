@@ -95,6 +95,12 @@ We have the following relationships between sets:
     \end{tabular}
 \end{center}
 
+\subsection{Familiarity with $\mathbb{R}^n$}
+\begin{definition}[$\mathbb{R}^n$]
+Let \(n \in \mathbb{N}\). The Cartesian product of \(n\) copies of \(\mathbb{R}\) is called \(\mathbb{R}^n\).
+\[\mathbb{R}^n = \{\begin{pmatrix}x_1\\\ldots\\x_n\end{pmatrix} : x_1, \ldots, x_n \in \mathbb{R}\}\]
+\end{definition}
+
 \subsection{Polar Coordinates}
 \begin{definition}[Polar coordinates]
     Instead of describing a point by \((x,y)\), we may describe it using polar coordinates \((r,\theta)\), where \(r\) is the distance to the origin and \(\theta\) is the angle with the positive \(x\)-axis.
@@ -295,12 +301,14 @@ To determine if an element \(A\) in a set with multiplication \(M\) is invertibl
     Construct a field with 2 elements.
 \end{problem}
 
-\section{Vector Spaces}
 \marginpar{January 09, 2026.}
-\subsection{Cartesian vector spaces}
-\begin{definition}[$\mathbb{R}^n$]
-Let \(n \in \mathbb{N}\). The Cartesian product of \(n\) copies of \(\mathbb{R}\) is called \(\mathbb{R}^n\).
-\[\mathbb{R}^n = \{\begin{pmatrix}x_1\\\ldots\\x_n\end{pmatrix} : x_1, \ldots, x_n \in \mathbb{R}\}\]
+\section{Vector Spaces}
+\subsection{Abstract Vector Spaces}
+A regular vector space like $\mathbb{R}^n$ has concrete vectors you can see as tuples of numbers, while an abstract vector space generalizes this idea: vectors can be anything, as long as addition and scalar multiplication satisfy the vector space axioms.
+\begin{definition}[Vector space over a field]
+    Let $k$ be a field. A vector space over $k$ is a set $V$ with addition and scalar multiplication such that
+    \[\text{(i) } v_1+v_2\in V, \qquad\text{(ii) } \lambda v\in V, \qquad\text{(iii) } 0\in V,\]
+    and satisfying the usual vector space axioms (see Appendix~\ref{subsec:VSA}).\footnote{For this course, the main properties we need to know are closure under addition and scalar multiplication, and the existence of the zero vector.}
 \end{definition}
 
 \subsection{Vectors}
@@ -314,7 +322,7 @@ Vector operations are defined as follows:\\
     A linear combination of vectors \(v_1, \ldots, v_n\) is a vector \(v\) of the form \(v = \lambda_1v_1 + \ldots + \lambda_nv_n\), where \(\lambda_1, \ldots, \lambda_n \in \mathbb{R}\).
 \end{definition}
 
-\subsubsection{Span}
+\subsection{Span}
 \marginpar{January 12, 2026.}
 \begin{definition}[Span]
     Let \(A \subset \mathbb{R}^n\). The span of \(A\), denoted \(\Span(A)\), is the set of all linear combinations of elements of \(A\). In particular, if \(A=\{v_1,\ldots,v_k\}\) (where \(k\) is the number of vectors in the set), then
@@ -378,7 +386,7 @@ Furthermore, if \(v_1,v_2\) are linearly dependent such that $v_1 = \lambda v_2$
     \[\Span_{\mathbb{C}}(v_1,v_2) = \mathbb{C}^2.\]
 \end{example}
 
-\subsubsection{Standard Basis}
+\subsection{Standard Basis}
 \begin{definition}[Basis]
     Let \(V\) be a vector space. A set of vectors \(B=\{v_1,\ldots,v_k\}\subset V\) is called a \textbf{basis} of \(V\) if
     \begin{enumerate}
@@ -424,21 +432,7 @@ The standard basis also helps clarify the difference between real and complex ve
     The same vectors generate different spans depending on the allowed scalars. Complex scalars count as one direction, while real scalars require separate vectors for the real and imaginary parts.
 \end{example}
 
-\subsection{Abstract Vector Spaces}
-A regular vector space like $\mathbb{R}^n$ has concrete vectors you can see as tuples of numbers, while an abstract vector space generalizes this idea: vectors can be anything, as long as addition and scalar multiplication satisfy the vector space axioms.
-\begin{definition}[Vector space over a field]
-    Let $k$ be a field. A \textbf{vector space} over $k$ is a set $V$ with addition and scalar multiplication such that
-    \[\text{(i) } v_1+v_2\in V, \qquad\text{(ii) } \lambda v\in V, \qquad\text{(iii) } 0\in V,\]
-    and satisfying the usual vector space axioms (see Appendix~\ref{subsec:VSA}).\footnote{For this course, the main properties we need to know are closure under addition and scalar multiplication, and the existence of the zero vector.}
-\end{definition}
-\begin{remark}[Span over integers is not a vector space]
-\[
-\Span_{\mathbb{Z}}(e_1,e_2) = \{\lambda_1 e_1 + \lambda_2 e_2 : \lambda_i \in \mathbb{Z}\}
-\]
-is an additive subgroup but not a vector space over \(\mathbb{R}\), because \(\mathbb{Z}\) is not a field.
-\end{remark}
-
-\subsubsection{Coordinate Spaces}
+\subsection{Coordinate Spaces}
 \marginpar{14 January, 2026}
 \begin{definition}[Coordinate Spaces]
     A coordinate space of dimension \(n\) over a field \(k\) (\(k=\mathbb{R}\) or \(k=\mathbb{C}\)) is defined as
@@ -447,7 +441,7 @@ is an additive subgroup but not a vector space over \(\mathbb{R}\), because \(\m
     \[e_1=\begin{pmatrix}1\\0\\\vdots\\0\end{pmatrix}, \ \ldots \ , e_n=\begin{pmatrix}0\\\vdots\\0\\1\end{pmatrix}.\]
 \end{definition}
 
-\subsubsection{Polynomial Spaces}
+\subsection{Polynomial Spaces}
 \begin{definition}[Polynomial Spaces]
     A polynomial space of degree at most \(n\) over a field \(k\) is
     \[P_n(k) = \{ a_n x^n + \cdots + a_1 x + a_0 : a_i \in k \},\]
@@ -465,7 +459,7 @@ is an additive subgroup but not a vector space over \(\mathbb{R}\), because \(\m
     \[P_0 \subseteq P_1 \subseteq P_2 \subseteq \cdots \subseteq P_\infty.\]
 \end{example}
 
-\subsubsection{Matrix Spaces}
+\subsection{Matrix Spaces}
 \begin{definition}[Matrix Spaces]
     The set of all \(n \times n\) matrices over a field \(k\) is
     \[M_n(k) = \left\{ \begin{pmatrix}
@@ -482,7 +476,7 @@ is an additive subgroup but not a vector space over \(\mathbb{R}\), because \(\m
     \[\begin{pmatrix}1 & 2 \\ 3 & 4\end{pmatrix} = 1\begin{pmatrix}1 & 0 \\ 0 & 0\end{pmatrix} + 2\begin{pmatrix}0 & 1 \\ 0 & 0\end{pmatrix} + 3\begin{pmatrix}0 & 0 \\ 1 & 0\end{pmatrix} + 4\begin{pmatrix}0 & 0 \\ 0 & 1\end{pmatrix} = 1 e_{11} + 2 e_{12} + 3 e_{21} + 4 e_{22}.\]
 \end{example}
 
-\subsubsection{Function Spaces}%to read
+\subsection{Function Spaces}%to read
 \marginpar{16 January, 2026}
 \begin{definition}[Function spaces]
     Let $D$ be a set and $k$ a field. Define
@@ -502,10 +496,24 @@ so the functions span, and linear independence is immediate.
 \paragraph{2. Infinite case}
 If $D$ is infinite, $F(D,k)$ has no finite basis.  
 The family $\{\delta_x : x \in D\}$ is linearly independent but does not span $F(D,k)$.
+\begin{example}[Vector space of functions]
+    Let $D = \{1,2,3\}$ and $k = \mathbb{R}$. Consider the vector space $F(D,\mathbb{R}) = \{ f : D \to \mathbb{R} \}$.\\
+    \textbf{Problem:} Find a basis of $F(D,\mathbb{R})$ and express $f(1)=2, f(2)=-1, f(3)=3$ as a linear combination of the basis functions.\\
+    \textbf{Solution:}\\
+    1. Define the standard (Kronecker delta) functions: 
+    \[\delta_1(j) = \begin{cases}1,& j=1\\0,& j\ne 1\end{cases}, \quad \delta_2(j) = \begin{cases}1,& j=2\\0,& j\ne 2\end{cases}, \quad \delta_3(j) = \begin{cases}1,& j=3\\0,& j\ne 3\end{cases}.\]
+    Then $\{\delta_1,\delta_2,\delta_3\}$ is a basis of $F(D,\mathbb{R})$.\\
+    2. Write $f$ as a linear combination:
+    \[f = f(1)\delta_1 + f(2)\delta_2 + f(3)\delta_3 = 2\delta_1 - 1\delta_2 + 3\delta_3.\]
+    \textbf{Check:} Evaluating at each point:
+    \[f(1) = 2\cdot 1 + (-1)\cdot 0 + 3\cdot 0 = 2, \quad f(2) = 2\cdot 0 + (-1)\cdot 1 + 3\cdot 0 = -1,\]
+    \[\quad f(3) = 2\cdot 0 + (-1)\cdot 0 + 3\cdot 1 = 3.\]
+    Hence the decomposition is correct.
+\end{example}
 
 \subsection{Subspaces}
 \marginpar{January 19, 2026}
-\begin{definition}
+\begin{definition}[Subspace]
     A subspace is a subset of a larger vector space that is itself a vector space, meaning it contains the zero vector and is closed under vector addition and scalar multiplication. Subspaces are essential because they allow focus on smaller, self-contained structures where standard linear algebra operations (like finding spans, bases, and transformations) still hold, with examples including lines through the origin in \(\mathbb{R}^{2}\), the null space of a matrix, or the entire space itself.
 \end{definition}
 \begin{proposition}[Subspace criterion]
@@ -555,34 +563,36 @@ Let $W$ be a vector space and $U,V \subseteq W$ subspaces.
     \[U \cap V = \{w \in W : w \in U \text{ and } w \in V\}.\]
     The intersection of subspaces is a subspace. In particular, the smallest possible intersection is $\{0\}$.
 \end{definition}
-\begin{remark}
-    In general, the union $U \cup V$ is not a subspace unless $U \subseteq V$ or $V \subseteq U$.
-\end{remark}
+\begin{definition}[Union]
+    \[U \cup V = \{ w \in W : w \in U \text{ or } w \in V \}.\]
+    The union of subspaces is not necessarily a subspace. In general, $U \cup V$ is a subspace only if one subspace is contained in the other, i.e., $U \subseteq V$ or $V \subseteq U$.
+\end{definition}
 \begin{definition}[Sum of subspaces]
     \[U + V = \{u+v : u \in U,\, v \in V\}.\]
 \end{definition}
 \begin{proposition}
     If $U$ and $V$ are subspaces of $W$, then $U+V$ is a subspace of $W$.
 \end{proposition}
-\begin{proof}[Proof that $U+V$ is a subspace]
+\begin{proof}
     We apply the subspace criterion.
-    (0) Since $0 \in U$ and $0 \in V$, we have $0 = 0+0 \in U+V$.
-    (1) Let $w_1,w_2 \in U+V$. Then
-    \[w_1=u_1+v_1,\quad w_2=u_2+v_2\]
-    with $u_1,u_2 \in U$ and $v_1,v_2 \in V$. Hence
-    \[w_1+w_2=(u_1+u_2)+(v_1+v_2) \in U+V.\]
-
-    (2) Let $w \in U+V$ and $\lambda \in K$. Then $w=u+v$ and
-    \[\lambda w=\lambda u+\lambda v \in U+V.\]
+    \begin{enumerate}
+        \item Since $0 \in U$ and $0 \in V$, we have $0 = 0+0 \in U+V$.
+        \item Let $w_1,w_2 \in U+V$. Then
+        \[w_1=u_1+v_1,\quad w_2=u_2+v_2,\]
+        with $u_1,u_2 \in U$ and $v_1,v_2 \in V$. Hence
+        \[w_1+w_2=(u_1+u_2)+(v_1+v_2) \in U+V.\]
+        \item Let $w \in U+V$ and $\lambda \in K$. Then $w=u+v$ and
+        \[\lambda w=\lambda u+\lambda v \in U+V.\]
+    \end{enumerate}
 \end{proof}
 \begin{proposition}
     \[U + V = \Span(U \cup V).\]
     Equivalently, $U+V$ is the smallest subspace of $W$ containing both $U$ and $V$.
 \end{proposition}
-\begin{proof}[Proof that $U+V = \Span(U \cup V)$]
-    ($\subseteq$) Let $w \in U+V$. Then $w=u+v$ with $u \in U$, $v \in V$. Since $u,v \in U \cup V$, we have $w \in \Span(U \cup V)$.
+\begin{proof}
+    ($\subseteq$): Let $w \in U+V$. Then $w=u+v$ with $u \in U$, $v \in V$. Since $u,v \in U \cup V$, we have $w \in \Span(U \cup V)$.
 
-    ($\supseteq$) Let $w \in \Span(U \cup V)$. Then
+    ($\supseteq$): Let $w \in \Span(U \cup V)$. Then
     \[w = a_1u_1 + \cdots + a_nu_n + b_1v_1 + \cdots + b_mv_m\]
     with $u_i \in U$, $v_j \in V$. Grouping terms,
     \[w = (a_1u_1 + \cdots + a_nu_n) + (b_1v_1 + \cdots + b_mv_m),\]
@@ -1063,6 +1073,37 @@ The vectors \(e_1,\ldots,e_n\) are linearly independent.
     \item Distributivity of scalar multiplication over field addition: \((\lambda + \mu)v = \lambda v + \mu v\)
 \end{enumerate}
 
+\subsection{Algebraic Structures: Rings, Fields, and Vector Spaces}
+\paragraph{Genealogy of Algebraic Structures.} Conceptually, we can visualize the “family tree” of algebraic structures as follows:
+\begin{center}
+    \begin{tikzpicture}[every node/.style={draw,rectangle,rounded corners,align=center, text width=3cm}, level distance=2cm, sibling distance=6cm]
+        \node (set) {Set $\{ \dots \}$}
+            child {node (ring) {Ring \\ (+, $\times$ within set)}
+                child {node (field) {Field \\ (nonzero elements have inverses)}
+                    child {node (VS) {Vector Space $V$ over a field $F$ \\ (+, scalar $\times$, 0)}} 
+                }
+            };
+        \path (VS.south) ++(-4,-2) node[text width=2cm] (span) {Span \\ (all linear combinations)};
+        \path (VS.south) ++(-1.5,-2) node[text width=2cm](basis) {Basis \\ (LI set that spans $V$)};
+        \path (VS.south) ++(1.5,-2) node[text width=2cm](sub) {Subspaces \\ (subset closed under +, $\times$)};
+        \path (VS.south) ++(4,-2) node[text width=2cm](examples) {Examples \\ (coordinate, polynomial, matrix, function spaces)};
+        \draw (VS.south) -- (span.north);
+        \draw (VS.south) -- (basis.north);
+        \draw (VS.south) -- (sub.north);
+        \draw (VS.south) -- (examples.north);
+    \end{tikzpicture}
+\end{center}
+
+\noindent
+This tree shows how vector spaces arise from fields (which arise from rings), and highlights the main concepts inside a vector space: spans, bases, subspaces, and common examples.
+
+\paragraph{Rings vs Vector Spaces.} Although rings and vector spaces both have addition and a zero element, they differ fundamentally in how multiplication works:
+
+\begin{itemize}
+    \item \textbf{Ring:} A set $R$ with addition and multiplication between elements of $R$. Addition forms an abelian group, multiplication is associative, and distributes over addition. Scalars are elements \emph{inside the set}.
+    \item \textbf{Vector Space:} A set $V$ with addition and multiplication by scalars from a \emph{field} $F$. Addition forms an abelian group, scalar multiplication distributes appropriately. There is no multiplication between vectors themselves; only scalar multiplication is defined.
+\end{itemize}
+
 
 \section{Solutions}
 \begin{solution}[Invertibility]
@@ -1092,11 +1133,9 @@ The vectors \(e_1,\ldots,e_n\) are linearly independent.
     \[\Span(v_1,v_2) = \{xv_1 + yv_2 : x,y \in \mathbb{R}\} = \left\{\begin{pmatrix}3x + y\\x + 3y\end{pmatrix}: x,y \in \mathbb{R}\right\}.\]
 \end{solution}
 \begin{solution}[Span 2]
-    \[u = au_1 + bu_2 + cu_3\]
-    \[\begin{pmatrix}2\\10\\7\\0\end{pmatrix} = a\begin{pmatrix}3\\10\\7\\0\end{pmatrix} + b\begin{pmatrix}1\\3\\-2\\0\end{pmatrix} + c\begin{pmatrix}2\\8\\1\\0\end{pmatrix}\]
-    Solve the following using gaussian elimination:
-    \[\begin{amatrix}{2}3 & 1 & 2 \\  a & b & c\end{amatrix}
-\]
+    Assume $u = a u_1 + b u_2 + c u_3$, with $a,b,c \in \mathbb{R}$. This gives the system of equations
+    \[\begin{amatrix}{3}3 & 1 & 2 & 2 \\ 10 & 3 & 8 & 10 \\ 7 & -2 & 1 & 7\end{amatrix}.\]
+    Solving via Gaussian elimination, we find $a = \frac{2}{21}$, $b = -\frac{46}{21}$, and $c = \frac{41}{21}$. Hence $u \in \Span(u_1,u_2,u_3)$.
 \end{solution}
 \begin{solution}[Subspace Criterion]
     Let $A \in M_n(K)$ be fixed and define

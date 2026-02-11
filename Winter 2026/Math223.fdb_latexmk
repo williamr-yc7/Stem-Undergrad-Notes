@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1770835572.37568 "c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math223.tex" "Math223.pdf" "Math223" 1770835576.46877 0
+["pdflatex"] 1770841961.05162 "c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math223.tex" "Math223.pdf" "Math223" 1770841965.96301 0
   "C:/Users/erenr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1770796485 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/erenr/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk" 1767801684 11548 9ea6db1ff0b947846d8751dabcdcf90a ""
   "C:/Users/erenr/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1767801679 13333486 ad3a4e5807f6f25ced943a60862e7471 ""
@@ -221,11 +221,11 @@
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/tools/indentfirst.sty" 1761901070 1618 30b01152766afcef2ed8f904cfdd3cc6 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
-  "Math223.aux" 1770835575 7727 177b617c655315e1ad6401e4970e5d5d "pdflatex"
-  "Math223.out" 1770835575 7502 ab72dadfa306d56651a2f436ace0acb2 "pdflatex"
-  "Math223.tex" 1770835570 59439 835a3b735c49fb6894cfa94b1f928b6b ""
-  "Math223.toc" 1770835575 4875 059800d56924d8017330743fe115bed3 "pdflatex"
-  "c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math223.tex" 1770835570 59439 835a3b735c49fb6894cfa94b1f928b6b ""
+  "Math223.aux" 1770841965 8073 5df21a8d2389348c52bfc418ae78126e "pdflatex"
+  "Math223.out" 1770841965 7771 8a9004632bc48e752e39b0bc40c61503 "pdflatex"
+  "Math223.tex" 1770841958 62698 5e59a6714fb4b701b8dd2c312ccb064e ""
+  "Math223.toc" 1770841965 5097 7e0e721d86dcff67adc6098016931c22 "pdflatex"
+  "c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math223.tex" 1770841958 62698 5e59a6714fb4b701b8dd2c312ccb064e ""
   (generated)
   "Math223.aux"
   "Math223.log"
