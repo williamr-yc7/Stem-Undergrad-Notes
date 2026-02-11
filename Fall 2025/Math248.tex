@@ -1,3 +1,1239 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{authblk} % Required for author affiliations
+\usepackage{indentfirst} % Indent first paragraph of sections
+\usepackage{amssymb} % For mathematical symbols
+\usepackage{amsthm} % For theorem environments
+\usepackage{amsmath} % For advanced math typesetting
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}{Definition}
+\newtheorem{problem}{Problem}
+\begin{document}
+%------- Title page   -----------
+\title{MATH 248: Honours Vector Calculus}
+\author{William Homier}
+\affil[1]{McGill University Physics, 3600 Rue University, Montréal, QC H3A 2T8, Canada}
+\date{December 1, 2025}
+\setcounter{Maxaffil}{0}
+\renewcommand\Affilfont{\itshape\small}
+\maketitle
+
+%------- Abstract -----------
+\noindent\rule{\textwidth}{0.4pt}
+\thispagestyle{empty}
+\begin{abstract}
+These notes summarize the main topics of MATH 248: Honours Vector Calculus, taught by Prof. Pengfei Guan. The course covers partial derivatives and differentiability in several variables, the Jacobian, extrema and the Hessian, scalar and vector fields, orthogonal curvilinear coordinates, multiple integrals, arc length, surface area, and volume. It also includes line and surface integrals, irrotational and solenoidal fields, Green's theorem, the Divergence theorem, and Stokes' theorem. The notes serve as a compact reference for students in Honours Physics, Computer Science, Physiology, and Engineering.
+\end{abstract}
+\noindent\rule{\textwidth}{0.4pt}
+\clearpage
+
+%------- Table of Contents -----------
+\thispagestyle{empty}
+\hypersetup{
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+\tableofcontents
+\clearpage
+
+%------- introduction -----------
+\setcounter{page}{1}
+\section{Introduction}
+
+MATH 248 is the honours-level introduction to vector calculus. The course focuses on how differentiation and integration extend from one variable to functions of several variables. Core topics include partial derivatives, differentiability, Jacobians, maxima and minima, and the implicit function framework. 
+
+We also study scalar and vector fields, coordinate systems such as polar, cylindrical, and spherical, and geometric quantities like arc length, surface area, and volume. The final part of the course is devoted to line and surface integrals and the main theorems of vector calculus: Green's theorem, the Divergence theorem, and Stokes' theorem.
+
+These notes are written as a compact reference for students taking the course with Prof.~Pengfei Guan. Prerequisites are MATH 133 and MATH 222, and the course is restricted to Honours students in Physics, Computer Science, Physiology, and Engineering. Students who have taken MATH 314 or MATH 358 may not take MATH 248.
+
+\section{Prerequisite knowledge}
+\subsection{Squeeze Theorem}
+The Squeeze Theorem states that if \(f(x) \leq g(x) \leq h(x)\) for all \(x\) in some open interval containing \(c\) (except possibly at \(c\) itself), and if
+\[\lim_{x \to c} f(x) = \lim_{x \to c} h(x) = L,\]
+then
+\[\lim_{x \to c} g(x) = L.\]
+\subsection{Derivatives}
+A derivative is the instantaneous rate of change of a function, essentially telling you its steepness or slope at any single point.
+\begin{theorem}[The Derivative]
+Let \(f : \mathbb{R} \to \mathbb{R}\) be a function. The derivative of \(f\) at a point \(a\) is defined as
+\[f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}.\]
+\end{theorem}
+\begin{theorem}[The Power Rule]
+Let \(n\) be a any number. If \(f(x) = x^n\), then
+\[f'(x) = nx^{n - 1}\] Alternatively, we may express this rule as \[\frac{d}{dx}f(x) = nx^{n - 1}\]
+\end{theorem}
+\begin{theorem}[The Chain Rule]
+Let \(f\) and \(g\) be functions from \(\mathbb{R} \to \mathbb{R}\). \(\forall x \in g\) for which \(g \in C^1\) at \(x\) and \(f \in C^1\) at \(g(x)\), the derivative of the composite function \(
+h = (f \circ g)(x) = f(g(x))\) is given by: \[h'(x) = f'(g(x))\cdot g'(x)\] Alternatively, if y is a function of u, and u is a function of x, then \[\frac{dy}{dx} = \frac{dy}{du} \cdot \frac{du}{dx}\]
+\end{theorem}
+\begin{theorem}[The Quotient Rule]
+Let \(f\) and \(g\) be functions from \(\mathbb{R} \to \mathbb{R}\). If \(h(x) = \frac{f(x)}{g(x)}\), then
+\[h'(x) = \frac{f'(x)g(x) - f(x)g'(x)}{g(x)^2}\]
+\end{theorem}
+\begin{theorem}[The Product Rule]
+Let \(f\) and \(g\) be functions from \(\mathbb{R} \to \mathbb{R}\). If \(h(x) = f(x)g(x)\), then
+\[h'(x) = f'(x)g(x) + f(x)g'(x).\]
+\end{theorem}
+Check out the \ref{Derivatives} for formulas of specific derivatives.
+
+\subsection{Integral}
+An integral is the accumulation of quantities, often representing area under a curve or total change over an interval.
+\begin{theorem}[The Fundamental Theorem of Calculus, Part 1]
+Let \(f : \mathbb{R} \to \mathbb{R}\) and \(f \in C^0(X)\), where \(X \in [a,b]\), and the function \(F(x)\) is defined by \[F(x) = \int_{0}^{x} f(t) dt\] then \(F'(x) = f(x)\) over \((a,b)\).
+\end{theorem}
+\begin{theorem}[The Fundamental Theorem of Calculus, Part 2]
+Let \(f : \mathbb{R} \to \mathbb{R}\) and \(f \in C^0\). Then
+\[\int_{a}^{b} f(x) dx = f(b) - f(a).\]
+\end{theorem}
+\begin{theorem}[Indefinite Integrals, the Power Rule]
+Let \(n\) be any real number except -1. If \(f(x) = x^n\), then
+\[\int f(x) dx = \frac{x^{n + 1}}{n + 1} + C\] where C is the constant of integration.
+\end{theorem}
+\begin{theorem}[U-substitution]
+Let \(n\) be any real number except -1. If \(f(x) = x^n\), then
+\[\int f(x) dx = \frac{x^{n + 1}}{n + 1} + C\] where C is the constant of integration.
+\end{theorem}
+
+\section{Inequalities}
+
+\subsection{AM-GM}
+The Arithmetic Mean - Geometric Mean inequality states that for any non-negative real numbers \(a_1, a_2, \ldots, a_n\),
+\[\frac{a_1 + a_2 + \ldots + a_n}{n} \geq \sqrt[n]{a_1 a_2 \ldots a_n},\]
+with equality if and only if \(a_1 = a_2 = \ldots = a_n\).
+
+\begin{problem}
+Let 1 $\leq$ k be a positive integer, show that:
+\[\lim_{(x,y)\to(0,0)}\frac{x^{k+1}y}{x^{2k} + y^2} = 0\]
+\end{problem}
+\begin{problem}
+Let 1 $\leq$ k be a positive integer, show that:
+\[\lim_{(x,y)\to(0,0)}\frac{xy^{3k+1}}{(x^2 + y^{2k})^2} = 0\]
+\end{problem}
+
+\subsection{Cauchy-Schwarz}
+The Cauchy-Schwarz inequality states that for any vectors \(u\) and \(v\) in an inner product space,
+\[|u \cdot v| \leq \|u\| \|v\|,\]
+with equality if and only if \(u\) and \(v\) are linearly dependent.
+
+\begin{problem}
+Suppose \(f : \mathbb{R}^2 \to \mathbb{R} \) is differentiable and suppose there is \(M > 0 \) such that \(||Df(x)|| \leq M\), \(\forall x \in \mathbb{R}^n\), prove that
+\[|f(x) - f(y)| \leq M||x - y||, \forall x,y \in \mathbb{R}^n\]
+\end{problem}
+
+\subsection{Triangle-inequality}
+The Triangle Inequality states that for any vectors \(u\) and \(v\) in an inner product space,
+\[\|u + v\| \leq \|u\| + \|v\|.\]
+The other form of the triangle inequality states that for any real vectors their subtracting distance is less than or equal to the sum of their individual distances:
+\[\|u - v\| \geq |\|u\| - \|v\||.\]
+
+\noindent
+\begin{problem} Prove that \(||x - y||||x + y|| \leq ||x||^2 - ||y||^2, \forall x,y \in \mathbb{R}^n\)
+\end{problem}
+
+\section{Differentiability}
+For this topic, the class of fall 2025 do not use the epsilon-delta definition of differentiability. Instead, we use the following:
+\begin{theorem}
+\label{differentiation}
+A function \(f : \mathbb{R}^n \to \mathbb{R}^m\) is differentiable at a point \(a \in \mathbb{R}^n\) if there exists a Jacobian matrix \(Df(a)\) such that
+\[\lim_{x \to a} \frac{||f(x) - f(a) - Df(a)(x - a)||}{||x - a||} = 0,\]
+where \(x \in \mathbb{R}^n\) is a variable point approaching \(a\).
+In this case, we call \(Df(a)\) the Jacobian of \(f\) at \(a\).
+\end{theorem}
+\begin{corollary}
+The jacobian matrix \(Df(a)\) (often written as J) is given by
+\[Df(a) = \begin{bmatrix}
+\frac{\partial f_1}{\partial x_1}(a) & \frac{\partial f_1}{\partial x_2}(a) & \ldots & \frac{\partial f_1}{\partial x_n}(a) \\
+\frac{\partial f_2}{\partial x_1}(a) & \frac{\partial f_2}{\partial x_2}(a) & \ldots & \frac{\partial f_2}{\partial x_n}(a) \\
+\vdots & \vdots & \ddots & \vdots \\
+\frac{\partial f_m}{\partial x_1}(a) & \frac{\partial f_m}{\partial x_2}(a) & \ldots & \frac{\partial f_m}{\partial x_n}(a)
+\end{bmatrix}\]
+\end{corollary}
+\noindent To verify the differentiability of a function \(f\) at a point \(a\), proceed as follows:
+\begin{enumerate}
+    \item First, establish the continuity of \(f\) at \(a\), often using path analysis.
+    \item Second, compute the partial derivatives at \(a\), either via the limit definition (especially for functions with nonstandard forms such as \( f(x,y) = \frac{x^7y}{x^4+y^2} \)) or by applying standard differentiation rules when appropriate. 
+    \item Lastly, once continuity and partial derivatives are established, verify differentiability by checking that the limit in Theorem \ref{differentiation} equals zero.
+\end{enumerate}
+\begin{problem} Find if the following function is differentiable at (0,0):
+\[f(x,y) = \begin{cases} \frac{xy^3}{x^4 + y^2} & (x,y) \neq (0,0) \\ 0 & (x,y) = (0,0) \end{cases}\]
+\end{problem}
+
+\noindent
+\begin{problem} Set
+\[f(x,y) = \begin{cases} \frac{x^2y}{x^2 + y^2} & (x,y) \neq (0,0) \\ 0 & (x,y) = (0,0) \end{cases}\]
+Show that \(f\) is continuous and partial derivatives \(\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}\) exist everywhere. Is \(f\) differentiable at (0,0)?
+\end{problem}
+
+\section{Mean Value Theorem}
+The Mean Value Theorem for multivariable functions states:
+\begin{theorem}
+If \(f : \mathbb{R}^n \to \mathbb{R}\) is differentiable on an open convex set containing points \(x\) and \(y\), then there exists a point \(c\) on the line segment between \(x\) and \(y\) such that
+\[f(x) - f(y) = Df(c) \cdot (x - y),\]
+where \(Df(c)\) is the Jacobian matrix of \(f\) at point \(c\). In particular,
+\[|f(x) - f(y)| \leq ||Df(c)|| \cdot ||x-y|| \]
+\end{theorem}
+
+For double integrals, the mean value theorem states:
+\begin{theorem}
+If f(x,y) is continuous on a closed, bounded region D, then there exists a point \((x_0,y_0) \in D\) such that:
+\[\iint_D f(x,y) dV = f(x_0,y_0) \cdot Area(D)\]
+\end{theorem}
+
+For triple integrals, the mean value theorem states:
+\begin{theorem}
+If f(x,y,z) is continuous on a closed, bounded region E, then there exists a point \((x_0,y_0,z_0) \in E\) such that:
+\[\iiint_E f(x,y,z) dV = f(x_0,y_0,z_0) \cdot Volume(E)\]
+\end{theorem}
+
+\section{Higher Order Partial Derivatives}
+\begin{definition}
+For \(f : \Omega \subset \mathbb{R}^n \to \mathbb{R}^m\), we can take partial derivatives repeatedly:
+\[\frac{\partial^2 f}{\partial x_i \partial x_j}, \frac{\partial^3 f}{\partial x_i \partial x_j \partial x_k},...\]
+We say \(f \in C^k(\Omega)\) if all partials up to order \(k\) exist and are continuous in \(\Omega\).
+\end{definition}
+\noindent\textbf{Remark}:\\\\
+\indent \(f \in C^0\) : Continuous \\\\
+\indent \(f \in C^1\) : First derivatives are continuous (Jacobian continuous)\\\\
+\indent \(f \in C^2\) : Second derivatives are continuous (Hessian continuous)
+
+\begin{definition}
+The Hessian matrix of a scalar function \(f : \mathbb{R}^n \to \mathbb{R}\) is the square matrix of second-order partial derivatives of \(f\):
+\[H_f(x) = \begin{bmatrix}
+\frac{\partial^2 f}{\partial x_1^2}(x) & \frac{\partial^2 f}{\partial x_1 \partial x_2}(x) & \ldots & \frac{\partial^2 f}{\partial x_1 \partial x_n}(x) \\
+\frac{\partial^2 f}{\partial x_2 \partial x_1}(x) & \frac{\partial^2 f}{\partial x_2^2}(x) & \ldots & \frac{\partial^2 f}{\partial x_2 \partial x_n}(x) \\
+\vdots & \vdots & \ddots & \vdots \\
+\frac{\partial^2 f}{\partial x_n \partial x_1}(x) & \frac{\partial^2 f}{\partial x_n \partial x_2}(x) & \ldots & \frac{\partial^2 f}{\partial x_n^2}(x)
+\end{bmatrix}\]
+\end{definition}
+\noindent\textbf{Remark} : Yes, the Jacobian matrix is the first derivative and the Hessian is the second derivative of a \(C^2\) function.
+
+\begin{problem} When Hessian of \(f\) in general is symmetric?
+\[f(x,y) = \begin{cases} \frac{xy(x^2 - y^2)}{x^2 + y^2} & (x,y) \neq (0,0) \\ 0 & (x,y) = (0,0) \end{cases}\]
+\end{problem}
+
+\section{Taylor Theorem}
+\begin{theorem}[First-Order Taylor Formula] Let \(f: U \subset \mathbb{R}^n \to \mathbb{R}\) be differnetiable at \(\mathbf{x_0} \in U\). Then 
+\[f(\mathbf{x_0} + \mathbf{h}) = f(\mathbf{x_0}) + \sum_{i=1}^n h_i \frac{\partial f}{\partial x}(\mathbf{x_0}) + R_1(\mathbf{x_0}, \mathbf{h})\]
+where \(R_1(\mathbf{x_0}, \mathbf{h})/||\mathbf{h}||\) \(\rightarrow\) 0 as \(\mathbf{h} \to 0\) in \(\mathbb{R}^n\).
+\end{theorem}
+\begin{theorem}[Second-Order Taylor Formula]
+Let \(f: U \subset \mathbb{R}^n \to \mathbb{R}\) have continuous partial derivatives of third order. Then 
+\[f(\mathbf{x_0} + \mathbf{h}) = f(\mathbf{x_0}) + \sum_{i=1}^n h_i \frac{\partial f}{\partial x}(\mathbf{x_0}) + \frac{1}{2}\sum_{i,j=1}^n h_i h_j \frac{\partial^2 f}{\partial x_i \partial x_j}(\mathbf{x_0}) + R_2(\mathbf{x_0}, \mathbf{h})\]
+where \(R_2(\mathbf{x_0}, \mathbf{h})/||\mathbf{h}||^2\) \(\rightarrow\) 0 as \(\mathbf{h} \to 0\) and the second sum is over all i's and j's between 1 and n (so there are \(n^2\) terms).
+\end{theorem}
+
+\section{Extrema of Real-Valued Functions}
+
+\begin{theorem}[First-Derivative Test]
+Let $f:\mathbb{R}^n \to \mathbb{R}$ be differentiable. If $x_0$ is a local maximum or minimum, then
+\[
+Df(x_0) = 0,
+\]
+i.e., $x_0$ is a \textbf{critical point} of $f$.
+\end{theorem}
+
+\subsection{Extrema in 2D}
+Let $f(x,y)$ be $C^2$ and $(x_0,y_0)$ a critical point. Define the Hessian:
+\[
+H_f(x_0,y_0) = 
+\begin{pmatrix} f_{xx} & f_{xy} \\ f_{yx} & f_{yy} \end{pmatrix}, \quad D = \det(H_f(x_0,y_0)) = f_{xx}f_{yy} - f_{xy}^2.
+\]
+
+\textbf{Classification of critical points:}
+\begin{itemize}
+    \item Positive Definite: $D>0$ and $f_{xx}>0$ $\Rightarrow$ \textbf{strict local minimum}
+    \item Negative Definite: $D>0$ and $f_{xx}<0$ $\Rightarrow$ \textbf{strict local maximum}
+    \item $D<0$ $\Rightarrow$ \textbf{saddle point}
+    \item Semi-Definite: $D=0$ $\Rightarrow$ \textbf{inconclusive}, may be non-strict extremum
+\end{itemize}
+\noindent
+If you end up with a semi-definite Hessian ($D=0$), the test is inconclusive. In that case, you need to examine higher-order derivatives or check the function along specific directions near the critical point to determine whether it is a local minimum, local maximum, or neither. Semi-definite points may correspond to non-strict extrema, a flat region, or a more complicated structure like a ridge or plateau.
+
+\subsection{Extrema in 3D}
+Let $f(x,y,z)$ be $C^2$ and $(x_0,y_0,z_0)$ a critical point. Let
+\[
+H_f(x_0,y_0,z_0) =
+\begin{pmatrix}
+f_{xx} & f_{xy} & f_{xz} \\
+f_{yx} & f_{yy} & f_{yz} \\
+f_{zx} & f_{zy} & f_{zz}
+\end{pmatrix}.
+\]
+
+Check the \textbf{leading principal minors} (determinants of the top-left $k\times k$ submatrices for $k=1,2,3$)\footnote{That is, first check $f_{xx}$, then the determinant of $\begin{pmatrix}f_{xx} & f_{xy}\\f_{yx} & f_{yy}\end{pmatrix}$, and finally the determinant of $\begin{pmatrix}f_{xx} & f_{xy} & f_{xz} \\ f_{yx} & f_{yy} & f_{yz} \\ f_{zx} & f_{zy} & f_{zz}\end{pmatrix}$.}:
+
+\begin{itemize}
+    \item Positive-Definite: All positive $\Rightarrow$ \textbf{strict local minimum}
+    \item Negative-Definite: All negative $\Rightarrow$ \textbf{strict local maximum}
+    \item Mixed signs $\Rightarrow$ \textbf{saddle point}
+    \item Semi-Definite: Any zero $\Rightarrow$ \textbf{inconclusive}, may be non-strict extremum
+\end{itemize}
+
+\noindent
+If the Hessian in 3D (or higher) is semi-definite, the test is inconclusive, and you must examine higher-order derivatives or check the function along specific directions near the critical point to determine the type of extremum, just like in 2D.
+
+\noindent
+\textbf{Remark:} These rules generalize to any dimension. In 2D, the determinant test is the \(2 \times 2\) special case of checking definiteness. Strictness is determined by definiteness: positive/negative definite → strict; semi-definite → non-strict.
+
+\begin{problem}
+    Let \(f(x,y,z) = x^2 + y^2 + z^2 + kyz\).
+    \begin{enumerate}[label=(\alph*)]
+        \item Verify that (0,0,0) is a critical point for \(f\).
+        \item Find all values of \(k\) such that \(f\) has a local minimum at (0, 0, 0).
+    \end{enumerate}
+\end{problem}
+
+\section{Constrained Extrema and Lagrange Multipliers}
+
+\subsection{Lagrange Multipliers Method}  
+To find extrema of a function $f:\mathbb{R}^n \to \mathbb{R}$ subject to a constraint $g:\mathbb{R}^n \to \mathbb{R}$ with $g(x) = c$:  
+\begin{enumerate}
+    \item Let $x_0 \in \mathbb{R}^n$ satisfy the constraint: $g(x_0) = function of constraint$.
+    \item Require the gradient of the constraint to be nonzero: $\nabla g(x_0) \neq 0$.
+    \item If $f$ has a local maximum or minimum at $x_0$ on the constraint surface, there exists a real number $\lambda$ such that
+    \[
+    \nabla f(x_0) = \lambda \nabla g(x_0),
+    \]
+    where $\nabla f(x_0) = \left(\frac{\partial f}{\partial x_1}, \dots, \frac{\partial f}{\partial x_n}\right)_{x_0}$ and $\nabla g(x_0) = \left(\frac{\partial g}{\partial x_1}, \dots, \frac{\partial g}{\partial x_n}\right)_{x_0}$.
+\end{enumerate}
+
+\subsection{Absolute Max/Min on a Region with Boundary}  
+For differentiable $f$ on closed, bounded $D = U \cup \partial U$:  
+\begin{enumerate}
+    \item Find all critical points of $f$ inside $U$.
+    \item Use Lagrange multipliers on the boundary $\partial U$ ($g(x)=function of constraint$).
+    \item Evaluate $f$ at all these points.
+    \item Pick the largest and smallest values.
+\end{enumerate}
+
+\subsection*{Second-Derivative Test for Constrained Extrema (Skip)}
+For constrained extrema of $f$ with constraint $g=c$, assume both are $C^{2}$, $\nabla g(v_{0})\neq 0$, and $\nabla f(v_{0})=\lambda\nabla g(v_{0})$ for some $\lambda$. Define $h=f-\lambda g$. The bordered Hessian at $v_{0}$ is
+
+\[
+H_b=
+\begin{vmatrix}
+0 & -g_x & -g_y \\
+-g_x & h_{xx} & h_{xy} \\
+-g_y & h_{xy} & h_{yy}
+\end{vmatrix}_{v_{0}}.
+\]
+
+Classification:
+\begin{itemize}
+    \item $H_b>0$ gives a local maximum on the constraint curve.
+    \item $H_b<0$ gives a local minimum on the constraint curve.
+    \item $H_b=0$ is inconclusive.
+\end{itemize}
+
+This method was not covered in our course, so exercises requiring it are skipped, but would be good to at least understand it.
+
+\section{Path Integrals and Geometry of Curves}
+
+\subsection{Tangent and Speed}  
+For a curve \(c(t) = (c_1(t), \dots, c_n(t))\), the tangent vector \(c'(t)\) shows the direction the curve is moving at each point. The speed along the curve is the length of the tangent vector, \(\|c'(t)\|\), which tells how fast you move along the curve.
+
+\subsection{Length of a Curve}  
+The length of a curve measures the total distance traveled along it. For \(c(t)\) from \(t = a\) to \(t = b\), the length is
+\[
+L = \int_a^b \|c'(t)\| \, dt.
+\] 
+If the curve is in multiple dimensions, \(c(t) = (c_1(t), \dots, c_n(t))\), the integral becomes
+\[
+L = \int_a^b \sqrt{(c_1'(t))^2 + \dots + (c_n'(t))^2} \, dt.
+\]  
+This formula adds up all the tiny distances along the path.
+
+\subsection{Path Integral}  
+A path integral sums a function \(f\) along the curve while taking into account how far along the curve you are. For a function \(f\) defined along \(c(t)\), the path integral is
+\[
+\int_c f \, ds = \int_a^b f(c(t)) \|c'(t)\| \, dt.
+\]  
+Intuitively, it weights the function \(f\) by the distance traveled along the curve.
+
+\subsection{Arc-Length}  
+The arc length of a curve measures the distance traveled along it from the starting point. For \(c(t) = (x(t), y(t), z(t))\) from \(t_0\) to \(t_1\), the arc length is
+\[
+L = \int_{t_0}^{t_1} \sqrt{(x'(t))^2 + (y'(t))^2 + (z'(t))^2} \, dt.
+\]  
+This gives the total length of the curve in space.
+
+\section{Vector Fields}
+
+\subsection{Vector Fields and Flow Lines}  
+A vector field just gives a vector at every point in space. If you have a curve \(c(t)\), it is a flow line if at every point the vector from the field matches the direction the curve goes:  
+\[
+c'(t) = F(c(t))
+\]  
+In coordinates, this means each component of \(c'(t)\) equals the corresponding component of \(F(c(t))\).  
+
+Example: in 2D, the vector field \(F = -y\mathbf{i} + x\mathbf{j}\) has circles as flow lines.
+
+\subsection{Divergence and Curl}  
+Divergence measures how much a vector field spreads out or compresses at a point, which is also the net flux leaving a tiny volume around that point. For \(F = (F_1, \dots, F_n)\):  
+\[
+\text{div } F = \nabla \cdot F = \frac{\partial F_1}{\partial x_1} + \dots + \frac{\partial F_n}{\partial x_n}.
+\]  
+Curl measures rotation of the field around a point. Place a tiny paddle wheel in the field: if it spins, curl is nonzero; its direction is the axis of rotation. In 3D, for \(F = (F_1, F_2, F_3)\):  
+\[
+\text{curl } F = \nabla \times F = 
+\begin{vmatrix}
+\mathbf{i} & \mathbf{j} & \mathbf{k} \\
+\frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
+F_1 & F_2 & F_3
+\end{vmatrix}.
+\]  
+A field is incompressible if \(\text{div } F = 0\) (no net flux) and irrotational if \(\text{curl } F = 0\). Gradients are always irrotational.
+
+
+\subsection{Rules}  
+For smooth fields, the following always hold: the curl of a gradient is 0, the divergence of a curl is 0, and for a scalar function \(f\) and vector fields \(F, G\):  
+\[\text{div}(fF) = f\,\text{div } F + F \cdot \nabla f, \quad\]
+\[\text{curl}(fF) = f\,\text{curl } F + \nabla f \times F, \quad\]
+\[\text{div}(F \times G) = G \cdot \text{curl } F - F \cdot \text{curl } G.\]
+
+\section{Double Integrals Over Rectangles}
+Let 
+\[
+R = [a,b] \times [c,d] \subset \mathbb{R}^2,
+\]
+and let \(f : R \to \mathbb{R}\) be continuous. The double integral of \(f\) over \(R\) represents the volume under the surface \(z = f(x,y)\) above the rectangle. Since \(R\) is a rectangle, the integral can always be computed as an iterated integral in either order:
+\[
+\iint_R f(x,y)\, dA
+= \int_a^b \int_c^d f(x,y)\, dy\, dx
+= \int_c^d \int_a^b f(x,y)\, dx\, dy.
+\]
+This is the form used to evaluate all double integrals over rectangular regions.
+
+\section{Double Integral Over General Regions}
+
+Let \(D \subset \mathbb{R}^2\) be a bounded region and let \(f : D \to \mathbb{R}\) be continuous.  
+To compute \(\iint_D f\, dA\), we rewrite \(D\) in a form suitable for iterated integration.
+
+A region is \(y\)-simple if
+\[
+D = \{\, a \le x \le b,\ \phi_1(x) \le y \le \phi_2(x) \,\},
+\]
+and \(x\)-simple if
+\[
+D = \{\, c \le y \le d,\ \psi_1(y) \le x \le \psi_2(y) \,\}.
+\]
+
+If \(D\) is \(y\)-simple, then
+\[
+\iint_D f(x,y)\, dA
+= \int_a^b \int_{\phi_1(x)}^{\phi_2(x)} f(x,y)\, dy\, dx.
+\]
+
+If \(D\) is \(x\)-simple, then
+\[
+\iint_D f(x,y)\, dA
+= \int_c^d \int_{\psi_1(y)}^{\psi_2(y)} f(x,y)\, dx\, dy.
+\]
+
+For continuous \(f\), these expressions define the double integral over any such region.
+
+\section{Fubini's Theorem}
+For a continuous function \(f\) on a bounded region \(D \subset \mathbb{R}^2\), the double integral may be computed by integrating one variable at a time.
+
+If \(D\) is \(y\)-simple:
+\[
+\iint_D f(x,y)\, dA
+= \int_a^b \int_{\phi_1(x)}^{\phi_2(x)} f(x,y)\, dy\, dx.
+\]
+
+If \(D\) is \(x\)-simple:
+\[
+\iint_D f(x,y)\, dA
+= \int_c^d \int_{\psi_1(y)}^{\psi_2(y)} f(x,y)\, dx\, dy.
+\]
+
+Fubini's Theorem states that for continuous \(f\), these iterated integrals always exist and give the correct value of \(\iint_D f\, dA\). The choice of order depends only on how the region \(D\) is most easily described.
+
+\section{Change of Variables Formula}
+Let \(D^* \subset \mathbb{R}^2\) and \(D \subset \mathbb{R}^2\) be bounded regions, and let  
+\[
+T(u,v) = (x(u,v),\, y(u,v))
+\]
+be a \(C^1\) map that is one-to-one from \(D^*\) onto \(D\).  
+The Jacobian determinant of \(T\) is
+\[
+\det(JT(u,v)) 
+= \det 
+\begin{pmatrix}
+\frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} \\
+\frac{\partial y}{\partial u} & \frac{\partial y}{\partial v}
+\end{pmatrix}.
+\]
+
+For a continuous function \(f : D \to \mathbb{R}\), the double integral over \(D\) can be rewritten as an integral over \(D^*\) by
+\[
+\iint_D f(x,y)\, dA
+=
+\iint_{D^*} f(x(u,v),\, y(u,v))\, 
+\left| \det(JT(u,v)) \right|\, du\, dv.
+\]
+
+This formula is used to simplify integration by choosing a transformation \(T\) that makes the region or the integrand easier to handle.  Common examples include polar, cylindrical, and other coordinate changes.
+
+\section{Triple Integrals}
+
+Let \(W \subset \mathbb{R}^3\) be a bounded region and let \(f : W \to \mathbb{R}\) be continuous.  
+The triple integral
+\[
+\iiint_W f(x,y,z)\, dV
+\]
+represents the accumulated value of \(f\) over the volume \(W\).  
+To evaluate it, we describe \(W\) in a form that allows iterated integration.
+
+A region is \(z\)-simple if there exists an elementary region \(D \subset \mathbb{R}^2\) and continuous functions \(m(x,y)\) and \(M(x,y)\) such that
+\[
+W = \{(x,y,z) : (x,y)\in D,\ m(x,y) \le z \le M(x,y) \}.
+\]
+In this case,
+\[
+\iiint_W f\, dV
+= \iint_D \left( \int_{m(x,y)}^{M(x,y)} f(x,y,z)\, dz \right) dA.
+\]
+
+Similarly, a region may be \(x\)-simple or \(y\)-simple, allowing integration in any order once the region is written in an appropriate form.  
+Fubini's theorem guarantees that for continuous \(f\), all such iterated integrals exist and equal the value of the triple integral.
+
+\section{Change of Variables for Triple Integrals}
+
+Let \(T : W^* \to W\) be a \(C^1\) map that is one-to-one from a region \(W^* \subset \mathbb{R}^3\) onto a region \(W \subset \mathbb{R}^3\), with
+\[
+T(u,v,w) = (x(u,v,w),\ y(u,v,w),\ z(u,v,w)).
+\]
+The Jacobian determinant of \(T\) is
+\[
+\det(JT(u,v,w))
+=
+\det
+\begin{pmatrix}
+x_u & x_v & x_w \\
+y_u & y_v & y_w \\
+z_u & z_v & z_w
+\end{pmatrix}.
+\]
+
+For a continuous function \(f : W \to \mathbb{R}\), the change of variables formula states:
+\[
+\iiint_W f(x,y,z)\, dV
+=
+\iiint_{W^*}
+f(x(u,v,w),\ y(u,v,w),\ z(u,v,w))
+\left|\det(JT(u,v,w))\right|\, du\, dv\, dw.
+\]
+
+This formula allows triple integrals to be computed in alternative coordinate systems (e.g., cylindrical or spherical) by means of the appropriate Jacobian factor.
+
+\section{Parametric Surfaces}
+Let \(D \subset \mathbb{R}^2\) and let \(\Phi : D \to \mathbb{R}^3\) be a \(C^1\) map,
+\[
+\Phi(u,v) = (x(u,v),\, y(u,v),\, z(u,v)).
+\]
+The image \(S = \Phi(D)\) is a parametrized surface.  
+If \(\Phi_u \times \Phi_v \neq 0\) on \(D\), the surface is regular.  
+The tangent directions at a point are spanned by \(\Phi_u\) and \(\Phi_v\), and the surface area element is determined by the magnitude of their cross product.
+
+The area of a parametrized surface is
+\[
+A(S) = \iint_D \|\Phi_u \times \Phi_v\|\, du\, dv.
+\]
+
+For surfaces that are graphs \(z = g(x,y)\), this reduces to
+\[
+A(S) = \iint_D \sqrt{1 + g_x^2 + g_y^2}\, dA.
+\]
+
+\section{Integrals of Scalar Functions Over Surfaces}
+Let \(S = \Phi(D)\) be a regular parametrized surface and let \(f : S \to \mathbb{R}\) be continuous.  
+The surface integral of \(f\) over \(S\) is computed by pulling back to the parameter domain:
+\[
+\iint_S f\, dS
+=
+\iint_D 
+f(\Phi(u,v))\, \|\Phi_u \times \Phi_v\|\,
+du\, dv.
+\]
+
+For a graph \(z = g(x,y)\),
+\[
+\iint_S f\, dS = 
+\iint_D f(x,y,g(x,y)) \sqrt{1 + g_x^2 + g_y^2}\, dx\, dy.
+\]
+
+This formula defines integration over any regular surface.
+
+\section{Line Integrals}
+Let \(y : [a,b] \to \mathbb{R}^3\) be a \(C^1\) curve and let \(F\) be a vector field defined near the curve.  
+The line integral of \(F\) along \(y\) is
+\[
+\int_C F \cdot ds
+=
+\int_a^b F(y(t)) \cdot y'(t)\, dt.
+\]
+
+If \(T(t) = \dfrac{y'(t)}{\|y'(t)\|}\) is the unit tangent and \(ds = \|y'(t)\| dt\), then
+\[
+\int_C F \cdot ds = \int_C F \cdot T\, ds.
+\]
+
+Line integrals are invariant under reparametrization (up to orientation).  
+Reversing orientation changes the sign of the integral.
+
+If \(F = \nabla f\) is a gradient field, then
+\[
+\int_C F \cdot ds = f(y(b)) - f(y(a)).
+\]
+
+This shows that conservative fields have path-independent line integrals and vanish on closed curves.
+
+\section{Surface Integrals of Vector Fields}
+
+Surface integrals measure the flux of a vector field across an oriented surface.  
+To compute them, we need an orientation and a formula for the surface element coming from a parametrization.
+
+\subsection{Orientation}
+Let a surface be given by a parametrization \(S = \Phi(D)\) with
+\[
+\Phi(u,v) = (x(u,v),\,y(u,v),\,z(u,v)).
+\]
+A normal direction is obtained from the cross product
+\[
+\mathbf{n} = \Phi_u \times \Phi_v.
+\]
+Choosing \(\mathbf{n}\) or \(-\mathbf{n}\) determines the orientation.
+
+If the surface is a graph \(z = g(x,y)\), the standard upward normal gives the useful vector
+\[
+(-g_x,\,-g_y,\,1).
+\]
+
+If the surface is given by \(G(x,y,z)=0\), the normal direction comes from \(\nabla G\).
+
+\subsection{Flux Integral}
+For a vector field \(F\) on an oriented surface \(S\), the flux is
+\[
+\iint_S F \cdot dS.
+\]
+If the surface is parametrized by \(\Phi\), the formula used in problems is
+\[
+\iint_S F \cdot dS
+=
+\iint_D F(\Phi(u,v)) \cdot (\Phi_u \times \Phi_v)\, du\, dv.
+\]
+
+\subsection{Graph Formula}
+If the surface is \(z = g(x,y)\), you will use the formula
+\[
+\iint_S F \cdot dS
+=
+\iint_D F(x,y,g(x,y)) \cdot (-g_x,\,-g_y,\,1)\, dx\, dy.
+\]
+
+This is all that is needed for typical flux computations.
+
+\section{The Integral Theorems of Vector Analysis}
+
+\subsection{Green's Theorem}
+
+Let \(D \subset \mathbb{R}^2\) be a region whose boundary \(\partial D\) is a positively oriented
+(simple, closed, counterclockwise) curve.  
+For a \(C^1\) vector field \(\vec{F} = (P,Q)\), Green's Theorem states
+\[
+\int_{\partial D} P\,dx + Q\,dy
+=
+\iint_D \left( \frac{\partial Q}{\partial x}
+              - \frac{\partial P}{\partial y} \right) dA .
+\]
+
+Equivalent forms frequently used in computations are:
+\[
+A(D)
+=
+\frac{1}{2}\int_{\partial D} (x\,dy - y\,dx),
+\]
+\[
+\int_{\partial D} \vec{F} \cdot d\vec{s}
+=
+\iint_D (\nabla \times \vec{F})\cdot \hat{k} \, dA,
+\]
+\[
+\int_{\partial D} \vec{F}\cdot \hat{n}\, ds
+=
+\iint_D \nabla \cdot \vec{F}\, dA,
+\]
+where the outward normal in the plane is
+\[
+\hat{n}(t) = \frac{(y'(t),\, -x'(t))}{\sqrt{x'(t)^2 + y'(t)^2}}.
+\]
+
+These formulas give circulation and flux relations for planar vector fields.
+
+\begin{problem}
+(Green -- Circulation Form)
+
+Let 
+\[
+\vec{F}(x,y) = (y^3 + e^x,\; x^2 y + \sin y),
+\]
+and let $D$ be the region bounded by the positively oriented curve $\partial D$ given by the ellipse
+\[
+\frac{x^2}{4} + y^2 = 1.
+\]
+
+Compute
+\[
+\int_{\partial D} (P\,dx + Q\,dy)
+\]
+using:
+
+\begin{enumerate}
+    \item The line integral directly along the ellipse.
+    \item Green's theorem using
+    \[
+    \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}.
+    \]
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+(Green -- Flux Form)
+
+Let 
+\[
+\vec{F}(x,y) = (x^3 - xy^2,\; 2x^2 y + y e^{xy}),
+\]
+and let $D$ be the region bounded by the cardioid
+\[
+r = 1 + \cos\theta.
+\]
+
+Compute the outward flux across $\partial D$:
+
+\[
+\int_{\partial D} \vec{F}\cdot \hat{n}\, ds.
+\]
+
+Evaluate this in two ways:
+
+\begin{enumerate}
+    \item Using the planar flux formula 
+    \[
+    \vec{F}\cdot \hat{n}\,ds = P\,dy - Q\,dx
+    \]
+    along the cardioid.
+    \item Using Green's flux form
+    \[
+    \iint_D \left( \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} \right)\, dA.
+    \]
+\end{enumerate}
+\end{problem}
+
+\subsection{Stokes' Theorem}
+
+Let \(S\) be an oriented smooth surface in \(\mathbb{R}^3\) with boundary curve \(\partial S\).  
+If \(\vec{F}\) is \(C^1\), then
+\[
+\iint_S (\nabla \times \vec{F}) \cdot d\vec{S}
+=
+\int_{\partial S} \vec{F} \cdot d\vec{s}.
+\]
+
+The surface orientation must be compatible with the boundary orientation (right-hand rule).  
+The theorem measures the total “circulation” of \(\vec{F}\) along the boundary in terms of curl through the surface.
+
+\begin{problem}
+Let $S$ be the part of the paraboloid 
+\[
+z = 4 - x^2 - y^2
+\]
+above the plane $z = 0$, oriented upward.  
+Let $\partial S$ be its boundary circle.
+
+Let
+\[
+\vec{F}(x,y,z) =
+\big( yz + e^x,\; xz + y^2,\; xy - z \big).
+\]
+
+Compute
+\[
+\iint_S (\nabla \times \vec{F})\cdot d\vec{S}
+\]
+in two ways:
+
+\begin{enumerate}
+    \item Directly by surface integration.
+    \item Using Stokes' theorem via the line integral
+    \[
+    \int_{\partial S} \vec{F}\cdot d\vec{s}.
+    \]
+\end{enumerate}
+\end{problem}
+
+\subsection{Conservative Vector Fields}
+
+On an open, simply connected domain, the following conditions for a vector field \(\vec{F}\) are equivalent:
+
+\begin{enumerate}
+    \item Every simple closed curve satisfies  
+    \[
+    \int_C \vec{F}\cdot d\vec{s} = 0.
+    \]
+
+    \item Line integrals are path-independent:
+    \[
+    \int_{C_1} \vec{F}\cdot d\vec{s}
+    =
+    \int_{C_2} \vec{F}\cdot d\vec{s}
+    \quad \text{whenever } C_1,C_2 \text{ share endpoints}.
+    \]
+
+    \item \(\vec{F}\) is a gradient field:
+    \[
+    \vec{F} = \nabla f.
+    \]
+
+    \item The curl vanishes:
+    \[
+    \nabla \times \vec{F} = 0.
+    \]
+\end{enumerate}
+
+Any vector field satisfying one (and hence all) of these is called *conservative*.
+
+\subsection{Gauss' Divergence Theorem}
+
+Let \(W\subset \mathbb{R}^3\) be a solid region with a closed, outward-oriented boundary surface \(\partial W\).  
+For a \(C^1\) vector field \(\vec{F}\),
+\[
+\iint_{\partial W} \vec{F}\cdot d\vec{s}
+=
+\iiint_W \nabla \cdot \vec{F}\, dV.
+\]
+
+The surface integral measures the net outward flux across the boundary, while the volume integral measures the total divergence inside \(W\).
+
+\begin{problem}
+Let $W$ be the solid bounded by the ellipsoid
+\[
+\frac{x^2}{4} + \frac{y^2}{9} + z^2 = 1.
+\]
+
+Let
+\[
+\vec{F}(x,y,z) =
+\big( x e^{yz},\; y e^{xz},\; z e^{xy} \big).
+\]
+
+Compute the outward flux
+\[
+\iint_{\partial W} \vec{F}\cdot d\vec{S}
+\]
+in two ways:
+
+\begin{enumerate}
+    \item Direct surface integration over the ellipsoid.
+    \item Using the divergence theorem:
+    \[
+    \iiint_W (\nabla\cdot \vec{F})\, dV.
+    \]
+\end{enumerate}
+\end{problem}
+
+\section{Answer key}
+\setcounter{problem}{0}
+\begin{problem}
+Using AM-GM, we can bound the denominator:
+\[x^{2k} + y^2 \geq 2\sqrt{x^{2k}y^2} = 2|x|^k|y|.\]
+Thus,
+\[\left| \frac{x^{k+1}y}{x^{2k} + y^2} \right| \leq \frac{|x|^{k+1}|y|}{2|x|^k|y|} = \frac{|x|}{2}\]
+\[\therefore \lim_{(x,y)\to(0,0)}\frac{x^{k+1}y}{x^{2k} + y^2} = \lim_{(x,y)\to(0,0)}\frac{|x|}{2} = 0\]
+As (x,y) approaches (0,0), \(\frac{|x|}{2}\) approaches 0, so by the Squeeze Theorem, \(\lim_{(x,y) \to (0,0)} f(x,y) = 0.\)
+\end{problem}
+\begin{problem}
+\[|\frac{xy^{3k+1}}{(x^2 + y^{2k})^2}| = |\frac{xy^{2k}y^{k}y}{(x^2+y^{2k})^2}| \leq |\frac{(x^2+y^{2k})y^{2k}y}{2(x^2+y^{2k})^2}| = |\frac{y^{2k}y}{2(x^2+y^{2k})}| \leq |\frac{y^{2k}y}{2y^{2k}}| = \frac{|y|}{2}\]
+By the Squeeze Theorem, \[\lim_{(x,y)\to(0,0)} \frac{xy^{3k+1}}{(x^2 + y^{2k})^2} = \lim_{(x,y)\to(0,0)} \frac{|y|}{2} = 0.\]
+\end{problem}
+
+\begin{problem}
+By the Mean Value Theorem for multivariable functions, there exists a point \(c\) on the line segment between \(x\) and \(y\) such that
+\[f(x) - f(y) = Df(c) \cdot (x - y)\]
+Start by parametrizing the line segment between \(x\) and \(y\):
+\[\gamma(t) = y + t(x - y), t \in [0,1]\]
+Then,
+\[g(t) = f(\gamma(t))\]
+By the chain rule,
+\[g'(t) = Df(\gamma(t)) \cdot \gamma'(t) = Df(\gamma(t)) \cdot (x - y)\]
+Therefore,
+\[f(x) - f(y) = g(1) - g(0) = \int_0^1 g'(t) dt = \int_0^1 Df(\gamma(t)) \cdot (x - y) dt\]
+Taking the absolute value,
+\[|f(x) - f(y)| = |\int_0^1 Df(\gamma(t)) \cdot (x - y) dt| \leq \int_0^1 |Df(\gamma(t)) \cdot (x - y)| dt\]
+Using the Cauchy-Schwarz inequality,
+\[\leq \int_0^1 ||Df(\gamma(t))|| \cdot ||x - y|| dt \leq \int_0^1 M ||x - y|| dt = M ||x - y||\]
+Thus,
+\[|f(x) - f(y)| \leq M ||x - y||\: \ensuremath{\Box}\]
+\end{problem}
+
+\begin{problem}
+\[||x - y||^2 = ||x||^2 + ||y||^2 - 2(x \cdot y)\]
+\[||x - y||^2 = ||x||^2 + ||y||^2 + 2(x \cdot y)\]
+\[||x - y||^2 ||x + y||^2 = (||x||^2 + ||y||^2 - 2(x \cdot y))(||x||^2 + ||y||^2 + 2(x \cdot y))\]
+\[||x - y||^2 ||x + y||^2 =  (||x||^2 + ||y||^2)^2 - 4(x \cdot y)^2\]
+\[||x - y||^2 ||x + y||^2 \leq (||x||^2 + ||y||^2)^2\]
+\[||x - y||||x + y|| \leq ||x||^2 + ||y||^2 \: \ensuremath{\Box}\]
+\end{problem}
+
+\begin{problem}
+First we check for continuity at (0,0) by using path analysis:
+
+\noindent Along the path \(x = 0, y = y\):
+\[\lim_{(x,y) \to (0,0)} f(0,y) = \lim_{y \to 0} \frac{0 \cdot y^3}{0^4 + y^2} = 0\]
+\noindent Along the path \(x = x, y = 0\):
+\[\lim_{(x,y) \to (0,0)} f(x,0) = \lim_{x \to 0} \frac{x \cdot 0^3}{x^4 + 0^2} = 0\]
+\noindent Along the path \(x = x, y = x\):
+\[\lim_{(x,y) \to (0,0)} f(x,x) = \lim_{x \to 0} \frac{x \cdot x^3}{x^4 + x^2} = \lim_{x \to 0} \frac{x^4}{x^4 + x^2} = \lim_{x \to 0} \frac{x^2}{x^2 + 1} = \frac{0^2}{0^2 + 1} = 0\]
+\noindent Along the path \(x = x, y = x^2\), looking at the denominator (\(y^2 \approx x^4 \rightarrow y \approx x^2\)):
+\[\lim_{(x,y) \to (0,0)} f(x,x) = \lim_{x \to 0} \frac{x \cdot (x^2)^3}{x^4 + x^4} = \lim_{x \to 0} \frac{x^7}{2x^4} = \lim_{x \to 0} \frac{x^3}{2} = \frac{0^3}{2} = 0\]
+Since all paths lead to the same limit of 0, \(f\) is continuous at (0,0).
+
+Next, we compute the partial derivatives at (0,0), since this is a suspicious function, we will use the limit definition of partial derivatives:
+\[\frac{\partial f}{\partial x}(0,0) = \lim_{h \to 0} \frac{f(0 + h, 0) - f(0,0)}{h} = \lim_{h \to 0} \frac{0 - 0}{h} = 0\]
+\[\frac{\partial f}{\partial y}(0,0) = \lim_{h \to 0} \frac{f(0, 0 + h) - f(0,0)}{h} = \lim_{h \to 0} \frac{0 - 0}{h} = 0\]
+
+Now we have both partial derivatives at (0,0), to furthermore prove differentiability we check the limit definition:
+\[\lim_{(x,y) \to (0,0)} \frac{||f(x,y) - f(0,0) - Df(0,0)(x,y)||}{||(x,y)-(0,0)||}\]
+\[= \lim_{(x,y) \to (0,0)} \frac{||f(x,y) - 0 - (0,0)(x,y)||}{||(x,y)||}\]
+\[\lim_{(x,y) \to (0,0)} \frac{||f(x,y)||}{||(x,y)||} = \lim_{(x,y) \to (0,0)} \frac{|\frac{x y^3}{x^4 + y^2}|}{\sqrt{x^2 + y^2}}\]
+Using the inequality from section 2.1 (AM-GM):
+\[\lim_{(x,y) \to (0,0)} \frac{|\frac{x y^3}{x^4 + y^2}|}{\sqrt{x^2 + y^2}} \leq \lim_{(x,y) \to (0,0)} \frac{|\frac{x y^3}{y^2}|}{\sqrt{x^2 + y^2}}\]
+\[\lim_{(x,y) \to (0,0)} \frac{|\frac{x y^3}{y^2}|}{\sqrt{x^2 + y^2}} = \lim_{(x,y) \to (0,0)} \frac{|x||y|}{\sqrt{x^2 + y^2}} \]
+\[\lim_{(x,y) \to (0,0)} \frac{|x||y|}{\sqrt{x^2 + y^2}} \leq \lim_{(x,y) \to (0,0)} \frac{(\sqrt{x^2 + y^2})(\sqrt{x^2 + y^2})}{\sqrt{x^2 + y^2}}\]
+\[\lim_{(x,y) \to (0,0)} \sqrt{x^2 + y^2} = \sqrt{0^2 + 0^2} = 0\]
+Thus, by the definition of differentiability, \(f\) is differentiable at (0,0).
+\end{problem}
+
+\begin{problem}
+First we check for continuity at (0,0) by using path analysis:
+
+\noindent Along the path \(x = 0, y = y\):
+\[\lim_{(x,y) \to (0,0)} f(0,y) = \lim_{y \to 0} \frac{0^2 \cdot y}{0^2 + y^2} = 0\]
+\noindent Along the path \(x = x, y = 0\):
+\[\lim_{(x,y) \to (0,0)} f(x,0) = \lim_{x \to 0} \frac{x^2 \cdot 0}{x^2 + 0^2} = 0\]
+\noindent Along the path \(x = x, y = x\):
+\[\lim_{(x,y) \to (0,0)} f(x,x) = \lim_{x \to 0} \frac{x^2 \cdot x}{x^2 + x^2} = \lim_{x \to 0} \frac{x^3}{2x^2} = \lim_{x \to 0} \frac{x}{2} = 0\]
+Since all paths lead to the same limit of 0, \(f\) is continuous at (0,0).
+Next, we compute the partial derivatives at (0,0), since this is a suspicious function, we will use the limit definition of partial derivatives:
+\[\frac{\partial f}{\partial x}(0,0) = \lim_{h \to 0} \frac{f(0 + h, 0) - f(0,0)}{h} = \lim_{h \to 0} \frac{0 - 0}{h} = 0\]
+\[\frac{\partial f}{\partial y}(0,0) = \lim_{h \to 0} \frac{f(0, 0 + h) - f(0,0)}{h} = \lim_{h \to 0} \frac{0 - 0}{h} = 0\]
+Now we have both partial derivatives at (0,0), to furthermore prove differentiability we check the limit definition:
+\[\lim_{(x,y) \to (0,0)} \frac{||f(x,y) - f(0,0) - Df(0,0)(x,y)||}{||(x,y)-(0,0)||}\]
+\[= \lim_{(x,y) \to (0,0)} \frac{||f(x,y) - 0 - (0,0)(x,y)||}{||(x,y)||}\]
+\[\lim_{(x,y) \to (0,0)} \frac{||f(x,y)||}{||(x,y)||} = \lim_{(x,y) \to (0,0)} \frac{|\frac{x^2 y}{x^2 + y^2}|}{\sqrt{x^2 + y^2}}\]
+Using the inequality from section 2.1 (AM-GM):
+\[\lim_{(x,y) \to (0,0)} \frac{|\frac{x^2 y}{x^2 + y^2}|}{\sqrt{x^2 + y^2}} \leq \lim_{(x,y) \to (0,0)} \frac{|\frac{x^2 y}{2\sqrt{x^2y^2}}|}{\sqrt{x^2 + y^2}}\]
+\[\lim_{(x,y) \to (0,0)} \frac{|\frac{x^2 y}{2\sqrt{x^2y^2}}|}{\sqrt{x^2 + y^2}} = \lim_{(x,y) \to (0,0)} \frac{\frac{|x|}{2}}{\sqrt{x^2 + y^2}}\]
+\[\lim_{(x,y) \to (0,0)} \frac{\frac{|x|}{2}}{\sqrt{x^2 + y^2}} \leq \lim_{(x,y) \to (0,0)} \frac{\frac{\sqrt{x^2 + y^2}}{2}}{\sqrt{x^2 + y^2}}\]
+\[\lim_{(x,y) \to (0,0)} \frac{\frac{\sqrt{x^2 + y^2}}{2}}{\sqrt{x^2 + y^2}} = \lim_{(x,y) \to (0,0)} \frac{1}{2} = \frac{1}{2}\]
+\[\therefore \lim_{(x,y) \to (0,0)} \frac{||f(x,y) - f(0,0) - Df(0,0)(x,y)||}{||(x,y)-(0,0)||} \leq \frac{1}{2}\]
+Which means the limit definition is inconclusive. To show that \(f\) is not differentiable at (0,0), we will use path analysis again:
+\noindent Along the path \(y = 0\):
+\[\lim_{(x,y) \to (0,0)} \frac{||f(x,y) - f(0,0) - Df(0,0)(x,y)||}{||(x,y)-(0,0)||} = \lim_{x \to 0} \frac{|\frac{x^2 \cdot 0}{x^2 + 0^2} - 0 - 0|}{\sqrt{x^2 + 0^2}}\]
+\[\lim_{x \to 0} \frac{|\frac{x^2 \cdot 0}{x^2 + 0^2} - 0 - 0|}{\sqrt{x^2 + 0^2}} = \lim_{x \to 0} \frac{0}{|x|} = 0\]
+\noindent Along the path \(y = x\):
+\[\lim_{(x,y) \to (0,0)} \frac{||f(x,y) - f(0,0) - Df(0,0)(x,y)||}{||(x,y)-(0,0)||} = \lim_{x \to 0} \frac{|\frac{x^2 \cdot x}{x^2 + x^2} - 0 - 0|}{\sqrt{x^2 + x^2}}\]
+\[\lim_{x \to 0} \frac{|\frac{x^2 \cdot x}{x^2 + x^2} - 0 - 0|}{\sqrt{x^2 + x^2}} = \lim_{x \to 0} \frac{|\frac{x^3}{2x^2}|}{\sqrt{2} |x|} = \lim_{x \to 0} \frac{|x|}{2\sqrt{2}|x|} = \frac{1}{2\sqrt{2}}\]
+Since the two paths lead to different limits, the limit does not exist and thus \(f\) is not differentiable at (0,0).
+\end{problem}
+
+\begin{problem}
+\end{problem}
+
+\begin{problem}
+\begin{enumerate}[label=(\alph*)]
+    \item \[Df(x,y,z) = (f_x,f_y,f_z) = (2x, 2y + kz, 2z + ky)\] \[Df(0,0,0) = (0, 0, 0)\] Therefore, the point (0,0,0) is a critical point of \(f\)
+    \item \[Hf(x,y,z) = \begin{bmatrix} 2 & 0 & 0 \\ 0 & 2 & k \\ 0 & k & 2 \end{bmatrix}\] Where \(D_1 = (f_xx) > 0\), \(D_2 = det(\begin{bmatrix} 2 & 0 \\ 0 & 2 \end{bmatrix}) = 4 > 0\) and \(D_3 = det(\begin{bmatrix} 2 & 0 & 0 \\ 0 & 2 & k \\ 0 & k & 2 \end{bmatrix}) = 2 (4 - k^2) \geq 0\) \[k \leq \pm 2\] Check the semi-definite case: For k = 2 \[f(x,y,z) = x^2 + y^2 + z^2 + 2yz = x^2 + (y + z)^2 \geq 0\] For k = -2 \[f(x,y,z) = x^2 + y^2 + z^2 - 2yz = x^2 + (y - z)^2 \geq 0\] Therefore, for (0,0,0) to be a local minimum of this function \(f\) k has to be \(-2 \leq k \leq 2\).
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+We compute
+\[
+\int_{\partial D} (P\,dx + Q\,dy)
+\]
+with $P = y^3 + e^x$ and $Q = x^2 y + \sin y$.
+
+\textbf{Green interior method:}
+
+\[
+\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}
+= (2xy) - (3y^2)
+= 2xy - 3y^2.
+\]
+
+Use the substitution $x=2r\cos\theta,\; y = r\sin\theta$ for the ellipse.
+
+Jacobian:
+\[
+dA = 2r\, dr\, d\theta.
+\]
+
+Integral:
+\[
+\iint_D (2xy - 3y^2)\, dA
+= \int_0^{2\pi}\!\int_0^1
+\big(4r^2\cos\theta\sin\theta - 3r^2\sin^2\theta \big)(2r)\, dr\, d\theta.
+\]
+
+Performing the integration yields:
+\[
+\boxed{ -\pi }.
+\]
+
+\textbf{Boundary line-integral method:}
+
+Parametrize ellipse:
+\[
+x = 2\cos t,\qquad y = \sin t.
+\]
+
+Compute:
+\[
+dx = -2\sin t\, dt,\qquad dy = \cos t\, dt.
+\]
+
+Then evaluate
+\[
+\int_0^{2\pi} 
+\left[
+P(x(t),y(t))(-2\sin t)
++
+Q(x(t),y(t))(\cos t)
+\right] dt,
+\]
+which simplifies to the same value:
+\[
+\boxed{-\pi}.
+\]
+\end{problem}
+
+\begin{problem}
+Flux across the cardioid boundary.
+
+\textbf{Green interior method (divergence):}
+
+\[
+P = x^3 - xy^2,\qquad Q = 2x^2 y + y e^{xy}.
+\]
+
+\[
+\frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y}
+= 3x^2 - y^2 + 2x^2 + e^{xy}(1 + xy).
+\]
+
+Switch to polar with $r = 1 + \cos\theta$:
+\[
+x = r\cos\theta,\quad y = r\sin\theta,\quad dA = r\, dr\, d\theta.
+\]
+
+Flux:
+\[
+\Phi = \int_0^{2\pi}\int_0^{1+\cos\theta}
+\left[5r^2\cos^2\theta - r^2\sin^2\theta 
++ e^{r^2\cos\theta\sin\theta}(1 + r^2\cos\theta\sin\theta)\right]
+r\, dr\, d\theta.
+\]
+
+After integration:
+\[
+\boxed{ \Phi = \frac{29\pi}{8} }.
+\]
+
+\textbf{Boundary method:}
+
+Flux formula:
+\[
+\vec{F}\cdot\hat{n}\, ds = P\,dy - Q\,dx.
+\]
+
+Use cardioid parametrization:
+\[
+x = r\cos\theta,\qquad y = r\sin\theta,\qquad r = 1+\cos\theta.
+\]
+
+Compute $dx$, $dy$, plug into
+\[
+\int_0^{2\pi} \big( P\,dy - Q\,dx \big),
+\]
+which evaluates to the same number:
+\[
+\boxed{\frac{29\pi}{8}}.
+\]
+\end{problem}
+
+\begin{problem}
+Let $S$ be $z = 4 - x^2 - y^2$, $z\ge 0$.
+
+\textbf{Curl:}
+
+\[
+\nabla\times \vec{F}
+=
+\begin{pmatrix}
+\partial_y(xy - z) - \partial_z(xz+y^2) \\
+\partial_z(yz + e^x) - \partial_x(xy - z) \\
+\partial_x(xz + y^2) - \partial_y(yz+e^x)
+\end{pmatrix}
+=
+\begin{pmatrix}
+x - x \\ 
+y - y \\
+z - z
+\end{pmatrix}
+=
+\vec{0}.
+\]
+
+Thus
+\[
+\iint_S (\nabla\times F)\cdot dS = 0.
+\]
+
+\textbf{Boundary method (Stokes):}
+
+Boundary circle:
+\[
+x^2 + y^2 = 4,\qquad z = 0.
+\]
+
+Parametrize:
+\[
+\gamma(t) = (2\cos t,\; 2\sin t,\; 0).
+\]
+
+Compute
+\[
+\int_{\partial S} \vec{F}\cdot d\vec{s}.
+\]
+
+Evaluate $\vec{F}$ on $\partial S$:
+\[
+F(2\cos t,2\sin t,0) = (0 + e^{2\cos t},\; 0 + 4\sin^2 t,\; 4\cos t\sin t - 0).
+\]
+
+Then compute:
+\[
+\gamma'(t) = (-2\sin t,\; 2\cos t,\; 0).
+\]
+
+Dot product gives an integrand whose total integral equals:
+\[
+\boxed{0}.
+\]
+
+Agrees with the surface integral.
+\end{problem}
+
+\begin{problem}
+
+\textbf{Divergence:}
+
+\[
+\nabla\cdot \vec{F}
+= e^{yz} + ye^{yz}z + e^{xz} + xe^{xz}z + e^{xy} + xe^{xy}y.
+\]
+
+Inside the ellipsoid, use scaling substitution:
+\[
+x = 2u,\quad y = 3v,\quad z = w,
+\]
+which maps the ellipsoid to the unit ball.
+
+Jacobian:
+\[
+dV = 6\, du\, dv\, dw.
+\]
+
+Divergence becomes:
+\[
+\nabla\cdot \vec{F}(2u,3v,w)
+= e^{3vw} + 3vwe^{3vw} + e^{2uw} + 2uwe^{2uw} + e^{6uv} + 6uv\,e^{6uv}.
+\]
+
+The flux is:
+\[
+\Phi = 6\iiint_{u^2 + v^2 + w^2 \le 1}
+\big(\nabla\cdot \vec{F}\big)(2u,3v,w)\; du\, dv\, dw.
+\]
+
+Symmetry kills all odd terms, leaving:
+\[
+\boxed{\Phi = 6\cdot 4\pi \int_0^1 \left( e^{0} + e^{0} + e^{0} \right) r^2\, dr}
+= 6\cdot 4\pi \cdot 3\cdot \frac{1}{3}
+= 24\pi.
+\]
+
+\textbf{Surface method:}
+
+Normal vector for ellipsoid is proportional to
+\[
+\nabla\left(\frac{x^2}{4} + \frac{y^2}{9} + z^2\right)
+= \left(\frac{x}{2}, \frac{y}{\; \!  \! 9/ ?}??, 2z\right)
+\]
+(normalized accordingly).
+
+Direct flux integration over the ellipsoid yields the same:
+\[
+\boxed{24\pi}.
+\]
+
+\end{problem}
+
+\section{Appendix}
+\subsection{Derivatives}
+\label{Derivatives}
+\subsubsection{Trigonometric Derivatives}
+\begin{tabular}{ll}
+\hline
+Function & Derivative \\
+\hline
+\(\cos(x)\) & \(-\sin(x)\) \\
+\(\sin(x)\) & \(\cos(x)\) \\
+\(\tan(x)\) & \(\sec^{2}(x)\) \\
+\(\sec(x)\) & \(\sec(x)\tan(x)\) \\
+\(\csc(x)\) & \(-\csc(x)\cot(x)\) \\
+\(\cot(x)\) & \(-\csc^{2}(x)\) \\
+\(\cosh(x)\) & \(\sinh(x)\) \\
+\(\sinh(x)\) & \(\cosh(x)\) \\
+\(\tanh(x)\) & \(\text{sech}^{2}(x)\) \\
+\hline
+\end{tabular}
+\subsubsection{Other Derivatives}
+\begin{tabular}{ll}
+\hline
+Function & Derivative \\
+\hline
+\(ln(x)\) & \(\frac{1}{x}\) \\
+\(e^x\) & \(e^x\) \\
+\(a^x, a \in \mathbb{R}\) & \(a^xln(a)\) \\
+\(log_a(f(x))\) & \(\frac{f'(x)}{f(x)ln(a)}\) \\
+\hline
+\end{tabular}
+\section{Useful Links}
+\begin{itemize} 
+    \item csmath. (2021, Jan 7). Vector Fields with Singularities (Lesson 8, Part 3) [Video]. YouTube. \url{https://www.youtube.com/watch?v=QGKtKj3d8Xs}
+\end{itemize}
+
+\end{document}
+\begin{comment}
 ok so for a general question on stoke's (its fine no need to contradict me if im right) these are the usual steps:
 
 for the double int:
@@ -52,3 +1288,4 @@ double int dxdy
 line int method:
 find vector field F
 forgot how to find n_hat tho fuck
+\end{comment}
