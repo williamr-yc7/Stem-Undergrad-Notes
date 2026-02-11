@@ -13,7 +13,7 @@
 
 \begin{document}
 %------- Title page   -----------
-\title{PHYS260: Relativity and Modern Physics}
+\title{PHYS 260: Relativity and Modern Physics}
 \author{William Homier}
 \affil[1]{McGill University Physics, 3600 Rue University, Montréal, QC H3A 2T8, Canada}
 \date{December 1, 2025}
@@ -123,12 +123,115 @@ Some useful trigonometric identities include:
 Special relativity is a theory of physics that describes the behavior of objects moving at high speeds, particularly those approaching the speed of light. It was developed by Albert Einstein in 1905 and is based on two postulates: the laws of physics are the same for all observers in uniform motion relative to one another, and the speed of light in a vacuum is constant and independent of the motion of the source or observer. Special relativity has many important implications, including time dilation, length contraction, and the equivalence of mass and energy (as expressed in the famous equation \(E = mc^2\)). It has been confirmed by numerous experiments and is a fundamental part of modern physics.
 
 \subsection{Spacetime}
+
 \begin{definition}[Spacetime]
-\label{Spacetime}
-A four-dimensional union of space and time.
+A four dimensional structure with space and time as coordinates.
 \end{definition}
-Special relativity is often refered to as a 3D + 1D theory, meaning that it combines three spatial dimensions (length, width, height) with one temporal dimension (time) to form a four-dimensional framework for understanding the behavior of objects in motion.
-\subsection{Consequence of the invariance of the spacetime interval}
+
+\subsubsection{Galilean Geometry}
+
+Classical physics uses separate space and time. Frames \(S\) and \(S'\) with relative speed \(v\) along \(x\) satisfy
+\[
+x' = x - vt,\quad y' = y,\quad z' = z,\quad t' = t.
+\]
+
+\[
+\begin{pmatrix}
+x'\\ y'\\ z'\\ t'
+\end{pmatrix}
+=
+\begin{pmatrix}
+1 & 0 & 0 & -v\\
+0 & 1 & 0 & 0\\
+0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1
+\end{pmatrix}
+\begin{pmatrix}
+x\\ y\\ z\\ t
+\end{pmatrix}.
+\]
+
+Velocity rule:
+\[
+u'_x = u_x - v,\quad u'_y = u_y,\quad u'_z = u_z.
+\]
+
+\subsubsection{Lorentzian Geometry}
+
+Relativity uses a metric that mixes space and time. For events separated by \((\Delta t,\Delta x,\Delta y,\Delta z)\) the invariant interval is
+\[
+s^2 = c^2\Delta t^2 - \Delta x^2 - \Delta y^2 - \Delta z^2.
+\]
+All inertial observers agree on \(s^2\).
+
+\subsubsection{4D Physics Basics}
+
+\begin{definition}[Event]
+A location and a time.
+\end{definition}
+
+\begin{definition}[Reference Frame]
+A coordinate system for events.
+\end{definition}
+
+\begin{definition}[Inertial Reference Frame]
+A frame where free objects keep constant momentum.
+\end{definition}
+
+\begin{definition}[The Principle of Relativity]
+All inertial frames use the same physical laws.
+\end{definition}
+
+\subsection{Consequences of Interval Invariance}
+
+\begin{definition}[Lorentz Factor]
+\[
+\gamma = \frac{1}{\sqrt{1 - \frac{v^2}{c^2}}}
+\]
+with \(\gamma > 1\).
+\end{definition}
+
+Time dilation follows directly from the invariant interval. For motion at speed \(v\),
+\[
+\Delta t = \gamma\,\Delta\tau.
+\]
+
+\begin{definition}[Proper Time]
+Time measured in the frame where the object is at rest (\(\Delta x = 0\)).
+\end{definition}
+
+Length contraction comes from the same invariant relation:
+\[
+L = L_0\sqrt{1 - \frac{v^2}{c^2}} = \frac{L_0}{\gamma}.
+\]
+
+\begin{definition}[Proper Length]
+Length measured in the frame where the object is at rest.
+\end{definition}
+
+\textbf{Length contraction is geometric.} Nothing physically compresses the material; different frames slice spacetime differently.
+
+\subsubsection{Relativity of Simultaneity}
+
+Two events are simultaneous in a frame when \(\Delta t = 0\). Because
+\[
+(\Delta s)^2 = c^2\Delta t^2 - \Delta x^2 - \Delta y^2 - \Delta z^2
+\]
+is invariant, setting \(\Delta t = 0\) in one frame implies \(\Delta t' \ne 0\) in another. Simultaneity depends on the observer.
+
+\subsubsection{Geometric Units}
+
+Define time in meters through \(t_{\text{geom}} = ct\). Light travels one meter of space in one meter of time. Velocities become
+\[
+v_{\text{geom}} = \frac{x}{t_{\text{geom}}} = \frac{v}{c}.
+\]
+
+In these units the Lorentz factor simplifies to
+\[
+\gamma = \frac{1}{\sqrt{1 - v^2}}.
+\]
+
+
 \subsection{Galilen relatibity}
 \subsection{The wave equation}
 \subsection{Solutions to the wave equation}
@@ -166,42 +269,164 @@ Special relativity is often refered to as a 3D + 1D theory, meaning that it comb
 
 \pagebreak
 \subsection{Transforming Maxwell's Equations}
-w=ck: dispersion relation, wave recasting
 
-how to boost in the frame of light?
-if we already know: 
-E'y = gamma(Ey - vBz)
-E = E0 sin(kx - wt) yhat
-B = (E0/c) sin(kx-wt) zhat
-we will get
-E_y' = gamma E_0 sin(kx-wt)(1 - v/c)
+\subsubsection{Doppler Shift and Wave Transformations}
+Consider the dispersion relation $\omega = ck$ for electromagnetic waves. Let us examine how a plane wave transforms when boosting to a frame moving with velocity $v$.
 
-gamma(1-v/c) = sqrt((1-v/c)/(1+v/c))
-E_y' = E0 sqrt((1-v/c)/(1+v/c)) sin(kx-wt)
-we want everytihng in prime, so:
+Given a plane wave:
+\begin{align*}
+\vec{E} &= E_0 \sin(kx - \omega t) \hat{\mathbf{y}} \\
+\vec{B} &= (\frac{E_0}{c}) \sin(kx - \omega t) \hat{\mathbf{z}}
+\end{align*}
 
-x = gamma(x'+vt')
-t = gamma(t' + vx'/c2)
-kx-wt = gamma((k-kv/c)x' - (omega - omegav/c)t') = sqrt((1-v/c)/(1+v/c))(kx' - omegat')
+Using the transformation law $E_y' = \gamma(E_y - vB_z)$, we obtain:
+\[E_y' = \gamma E_0 \sin(kx - \omega t)(1 - v/c)\]
 
-Doppler shifts:
-k' = sqrt((1-v/c)/(1+v/c))k
-omega' = sqrt((1-v/c)/(1+v/c))omega
+Since $\gamma(1 - v/c) = \sqrt{\frac{1 - v/c}{1 + v/c}}$, we have:
+\[E_y' = E_0 \sqrt{\frac{1 - v/c}{1 + v/c}} \sin(kx - \omega t)\]
 
-therefore
-E_y' = E_0 sqrt((1-v/c)/(1+v/c)) sin(k'x' - omega't')
+To express this entirely in primed coordinates, we use the inverse Lorentz transformations:
+\[kx - \omega t = \sqrt{\frac{1 - v/c}{1 + v/c}}(k'x' - \omega' t')\]
 
-omega'/k' = omega/k = c
+This yields the relativistic Doppler shift relations:
+\begin{align*}
+k' &= \sqrt{\frac{1 - v/c}{1 + v/c}} k \\
+\omega' &= \sqrt{\frac{1 - v/c}{1 + v/c}} \omega
+\end{align*}
 
-We want speed of light to be the same in all referance frames, so we therefore also want electromagnetism to account for that. And we can see this is possible cuz of omega'/k' = omega/k = c.
-The amplitude of the wave is different because of E_0 sqrt((1-v/c)/(1+v/c)), and that should be expected the amplitude of a wave is relative to energy, and we know energy changes with different frames as weve seen before. therefore the final answer of if we go to a frame that moves with this light wave would we see frozen light, the answer is NO! There are no solution to maxwells equation that allows us to see a frozen wave, and by frozen we mean not oscillating, you can ofcourse create standing waves, but they would still oscillate up and down
+Therefore, the transformed wave becomes:
+\[E_y' = E_0 \sqrt{\frac{1 - v/c}{1 + v/c}} \sin(k'x' - \omega' t')\]
 
-\textbf{Exercise}: Pick two of the transformation laws that we have previously derived (maybe one of the parallel and one of the perpendicular ones). Show explicitly that by Lorentz transforming the Faraday tensor, we recover the transformation laws. Note: this is a tricky thing to do if you are rusty with your index manipulations so I recommend budgeting some time for this, even if you only have time to do a cursory job before lecture you can come back to it later on while studying for the final. 
+Importantly, the phase velocity remains invariant: $\omega'/k' = \omega/k = c$. This confirms that the speed of light is the same in all reference frames, consistent with special relativity and Maxwell's equations.
+
+The amplitude decreases according to $E_0 \sqrt{\frac{1 - v/c}{1 + v/c}}$, which reflects the frame-dependence of energy. Notably, there is no reference frame in which an electromagnetic wave appears frozen (i.e., non-oscillating). Maxwell's equations do not admit static solutions for light waves. You can, of course, create standing waves in electromagnetism by taking a superposition of different waves, but these waves would still oscillate. This is a fundamental consequence of Maxwell's equations respecting the invariance of the speed of light across all inertial frames.
+
+\subsubsection{The Faraday Tensor}
+In the previous section, we demonstrated how the electric and magnetic fields transform under a boost in the $+x$ direction. The key observation is that field components parallel to the boost direction remain invariant for both $\vec{E}$ and $\vec{B}$, while perpendicular components transform according to:
+\begin{align*}
+\vec{E}'_\perp &= \gamma(\vec{E}_\perp + \mathbf{v} \times \vec{B}_\perp) \\
+\vec{B}'_\perp &= \gamma\left(\vec{B}_\perp - \frac{\mathbf{v}}{c^2} \times \vec{E}_\perp\right)
+\end{align*}
+
+These equations resemble Lorentz transformations but differ fundamentally due to the cross products and mixing of spatial components from different fields. Since $\vec{E}$ and $\vec{B}$ together contain six independent components, they cannot form a four-vector, which has only four components. To properly describe these fields, we use the \textbf{Faraday tensor} (or field strength tensor), denoted $F^{\mu\nu}$:
+
+\[F^{\mu\nu} = \begin{pmatrix} 0 & E_x/c & E_y/c & E_z/c \\ -E_x/c & 0 & B_z & -B_y \\ -E_y/c & -B_z & 0 & B_x \\ -E_z/c & B_y & -B_x & 0 \end{pmatrix}\]
+
+This is an antisymmetric rank-2 tensor with two indices. While four-vectors are rank-1 tensors transforming as $X'^{\mu} = \Lambda^{\mu}_{\nu} X^{\nu}$, a rank-2 tensor transforms as:
+\[F'^{\mu\nu} = \Lambda^{\mu}_{\alpha} \Lambda^{\nu}_{\beta} F^{\alpha\beta}\]
+
+In matrix form: $F' = \Lambda F \Lambda^T$, where $\Lambda$ is the Lorentz transformation matrix (for example of a lorentz transformation matrix check \ref{sec:boosts})
+
+
+\subsubsection{Maxwell's Equations in Tensor Form}
+The electromagnetic field is completely described by two tensors: the Faraday tensor $F^{\mu\nu}$ introduced above, and its dual $G^{\mu\nu}$, which exchanges the roles of electric and magnetic fields:
+
+\[G^{\mu\nu} = \begin{pmatrix} 0 & B_x & B_y & B_z \\ -B_x & 0 & -E_z/c & E_y/c \\ -B_y & E_z/c & 0 & -E_x/c \\ -B_z & -E_y/c & E_x/c & 0 \end{pmatrix}\]
+
+Maxwell's four equations can be elegantly written as:
+\begin{align*}
+\partial_\nu F^{\mu\nu} &= \mu_0 J^\mu \\
+\partial_\nu G^{\mu\nu} &= 0
+\end{align*}
+
+where $\partial_\alpha = \frac{\partial}{\partial x^\alpha}$ denotes the four-derivative, and $J^\mu$ is the four-current:
+\[J^\mu = \begin{pmatrix} c\rho \\ \rho v_x \\ \rho v_y \\ \rho v_z \end{pmatrix}\]
+
+\textbf{Generalization to Curved Spacetime:} In general relativity, where spacetime is curved, Maxwell's equations retain their form with one modification: ordinary derivatives are replaced by covariant derivatives $\nabla_\alpha$:
+\begin{align*}
+\nabla_\nu F^{\mu\nu} &= \mu_0 J^\mu \\
+\nabla_\nu G^{\mu\nu} &= 0
+\end{align*}
+
+The covariant derivative is defined as:
+\[\nabla_\alpha V^\beta = \partial_\alpha V^\beta + \Gamma_{\alpha\eta}^\beta V^\eta\]
+
+Here, $\Gamma_{\alpha\eta}^\beta$ are Christoffel symbols encoding the spacetime curvature. These symbols act as corrections that stitch together small flat patches of spacetime, allowing us to consistently define derivatives on a curved manifold. The remarkable similarity between special and general relativistic forms reflects the equivalence principle.
+\begin{definition}[Equivalence Principle]
+    Locally, in a small patch of spacetime, the laws of physics take on their special relativistic forms (e.g., their flat spacetime forms).
+\end{definition}    
+Any curved spacetime appears flat, so Maxwell's equations maintain their structure. This is analogous to how Earth appears flat to us when we stand on its surface---at small scales, the curvature is imperceptible, and we perceive a locally flat geometry. Similarly, in a small enough region of curved spacetime, the effects of gravity vanish and spacetime looks like flat Minkowski space. The Christoffel symbols vanish in these infinitesimal flat patches, and the covariant derivative reduces to the ordinary derivative.
+\\\par
+\textbf{Exercise}: Pick two of the transformation laws that we have previously derived (maybe one of the parallel and one of the perpendicular ones). Show explicitly that by Lorentz transforming the Faraday tensor, we recover the transformation laws. Note: this is a tricky thing to do if you are rusty with your index manipulations so I recommend budgeting some time for this, even if you only have time to do a cursory job before lecture you can come back to it later on while studying for the final.
 
 \section{Answer Key}
+\textbf{Problem 1}
 
 \section{Appendix}
-\subsection{to organize}
+\subsection{Different Lorentz transformation matrices for different boosts}
+\label{sec:boosts}
+
+A boost mixes only \(t\) with the coordinate of the boost. Perpendicular coordinates stay unchanged. For speed \(v\), set \(\beta=v/c\) and \(\gamma=(1-\beta^{2})^{-1/2}\).
+
+Boost in \(+x\):
+\[
+\Lambda_{+x}=
+\begin{pmatrix}
+\gamma & -\beta\gamma & 0 & 0\\
+-\beta\gamma & \gamma & 0 & 0\\
+0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1
+\end{pmatrix}
+\]
+
+Boost in \(-x\):
+\[
+\Lambda_{-x}=
+\begin{pmatrix}
+\gamma & +\beta\gamma & 0 & 0\\
++\beta\gamma & \gamma & 0 & 0\\
+0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1
+\end{pmatrix}
+\]
+
+Boost in \(+y\):
+\[
+\Lambda_{+y}=
+\begin{pmatrix}
+\gamma & 0 & -\beta\gamma & 0\\
+0 & 1 & 0 & 0\\
+-\beta\gamma & 0 & \gamma & 0\\
+0 & 0 & 0 & 1
+\end{pmatrix}
+\]
+
+Boost in \(-y\):
+\[
+\Lambda_{-y}=
+\begin{pmatrix}
+\gamma & 0 & +\beta\gamma & 0\\
+0 & 1 & 0 & 0\\
++\beta\gamma & 0 & \gamma & 0\\
+0 & 0 & 0 & 1
+\end{pmatrix}
+\]
+
+Boost in \(+z\):
+\[
+\Lambda_{+z}=
+\begin{pmatrix}
+\gamma & 0 & 0 & -\beta\gamma\\
+0 & 1 & 0 & 0\\
+0 & 0 & 1 & 0\\
+-\beta\gamma & 0 & 0 & \gamma
+\end{pmatrix}
+\]
+
+Boost in \(-z\):
+\[
+\Lambda_{-z}=
+\begin{pmatrix}
+\gamma & 0 & 0 & +\beta\gamma\\
+0 & 1 & 0 & 0\\
+0 & 0 & 1 & 0\\
++\beta\gamma & 0 & 0 & \gamma
+\end{pmatrix}
+\]
+
+\end{document}
+
+\begin{comment}
 Barrier ($V>0$) : 
 If ($E>0$):
 \begin{itemize}
@@ -216,6 +441,4 @@ If ($E<0$):
     \item If $E>V$: Classically: it can oscillate inside the well but cannot escape. Quantum: Bound state, wavefunction is localized around the well, decays outside. No transmission the particle is trapped.
     \item If $E<V$: Impossible since $K = E - V(x) < 0$ is not possible.
 \end{itemize}
-
-
-\end{document}
+\end{comment}

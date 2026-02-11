@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1769991610.4833 "c:/Users/erenr/Documents/McGill/Latex Notes/Fall 2025/Phys260.tex" "Phys260.pdf" "Phys260" 1769991612.83169 2
-  "C:/Users/erenr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1768538118 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
+["pdflatex"] 1770796553.22603 "c:/Users/erenr/Documents/McGill/Latex Notes/Fall 2025/Phys260.tex" "Phys260.pdf" "Phys260" 1770796557.38435 2
+  "C:/Users/erenr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1770796485 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/erenr/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk" 1767801684 11548 9ea6db1ff0b947846d8751dabcdcf90a ""
   "C:/Users/erenr/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1767801679 13333486 ad3a4e5807f6f25ced943a60862e7471 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/tcrm1000.tfm" 993062508 1436 c7f957a372ef2fbe93c0982f96625e12 ""
@@ -101,11 +101,11 @@
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/rerunfilecheck/rerunfilecheck.sty" 1751104012 9684 a33a14b82ce60d6e77cb9be689d79ee6 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/tools/indentfirst.sty" 1761901070 1618 30b01152766afcef2ed8f904cfdd3cc6 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
-  "Phys260.aux" 1769991612 6737 fd07c37bd970ace571905fb2e4a9377a "pdflatex"
-  "Phys260.out" 1769991612 9147 6d9150995566df988577d4a9632e4956 "pdflatex"
-  "Phys260.tex" 1769991605 11584 6fbfc39623e9d97a27db7026a0a1911d ""
-  "Phys260.toc" 1769991612 4198 08c71d57231cd1d80bfcb40c25df7366 "pdflatex"
-  "c:/Users/erenr/Documents/McGill/Latex Notes/Fall 2025/Phys260.tex" 1769991605 11584 6fbfc39623e9d97a27db7026a0a1911d ""
+  "Phys260.aux" 1770796556 6737 9da38f8b5a657848f88f93cb99a1552f "pdflatex"
+  "Phys260.out" 1770796556 9147 6d9150995566df988577d4a9632e4956 "pdflatex"
+  "Phys260.tex" 1770796546 11620 157bd36ae3e05baff7c5f263a6484b2e ""
+  "Phys260.toc" 1770796556 4198 08c71d57231cd1d80bfcb40c25df7366 "pdflatex"
+  "c:/Users/erenr/Documents/McGill/Latex Notes/Fall 2025/Phys260.tex" 1770796546 11620 157bd36ae3e05baff7c5f263a6484b2e ""
   (generated)
   "Phys260.aux"
   "Phys260.log"

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  1 FEB 2026 19:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  11 FEB 2026 02:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -283,6 +283,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 Package hyperref Info: Link coloring OFF on input line 14.
+ (Phys260.out) (Phys260.out)
 \@outlinefile=\write3
 \openout3 = `Phys260.out'.
 
@@ -295,14 +296,13 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 23.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{C:/Users/erenr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-No file Phys260.toc.
+{C:/Users/erenr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (Phys260.toc [2
+
+])
 \tf@toc=\write4
 \openout4 = `Phys260.toc'.
 
-[2
-
-]
+ [3]
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
@@ -314,94 +314,31 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has b
 <to be read again> 
                    \relax 
 l.129 \end{definition}
-                       [2] [3] [4]
-Overfull \vbox (179.3604pt too high) has occurred while \output is active []
+                       [2]
+pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.201 \end{definition}
+                       [3] [4] [5]
+Overfull \vbox (144.90208pt too high) has occurred while \output is active []
 
- [5]
-c:/Users/erenr/Documents/McGill/Latex Notes/Fall 2025/Phys260.tex:177: Missing $ inserted.
-<inserted text> 
-                $
-l.177 E_
-        y' = gamma E_0 sin(kx-wt)(1 - v/c)
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
+ [6] [7]
 
-c:/Users/erenr/Documents/McGill/Latex Notes/Fall 2025/Phys260.tex:178: Missing $ inserted.
-<inserted text> 
-                $
-l.178 
-      
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
+LaTeX Warning: Reference `sec:boosts' on page 8 undefined on input line 318.
 
-c:/Users/erenr/Documents/McGill/Latex Notes/Fall 2025/Phys260.tex:180: Missing $ inserted.
-<inserted text> 
-                $
-l.180 E_
-        y' = E0 sqrt((1-v/c)/(1+v/c)) sin(kx-wt)
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
+[8]
+Underfull \hbox (badness 10000) in paragraph at lines 348--349
 
-c:/Users/erenr/Documents/McGill/Latex Notes/Fall 2025/Phys260.tex:182: Missing $ inserted.
-<inserted text> 
-                $
-l.182 
-      
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-
-Overfull \hbox (18.67029pt too wide) in paragraph at lines 179--182
-[]\OT1/cmr/m/n/10 gamma(1-v/c) = sqrt((1-v/c)/(1+v/c)) E$[] = \OML/cmm/m/it/10 E\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 sqrt\OT1/cmr/m/n/10 ((1 \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 v=c\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 (1 + \OML/cmm/m/it/10 v=c\OT1/cmr/m/n/10 ))\OML/cmm/m/it/10 sin\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 kx \OMS/cmsy/m/n/10 ^^@
  []
 
-
-Overfull \hbox (27.11191pt too wide) in paragraph at lines 187--190
-[]\OT1/cmr/m/n/10 Doppler shifts: k' = sqrt((1-v/c)/(1+v/c))k omega' = sqrt((1-v/c)/(1+v/c))omega 
- []
-
-c:/Users/erenr/Documents/McGill/Latex Notes/Fall 2025/Phys260.tex:192: Missing $ inserted.
-<inserted text> 
-                $
-l.192 E_
-        y' = E_0 sqrt((1-v/c)/(1+v/c)) sin(k'x' - omega't')
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-c:/Users/erenr/Documents/McGill/Latex Notes/Fall 2025/Phys260.tex:193: Missing $ inserted.
-<inserted text> 
-                $
-l.193 
-      
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-c:/Users/erenr/Documents/McGill/Latex Notes/Fall 2025/Phys260.tex:197: Missing $ inserted.
-<inserted text> 
-                $
-l.197 ...de of the wave is different because of E_
-                                                  0 sqrt((1-v/c)/(1+v/c)), a...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-c:/Users/erenr/Documents/McGill/Latex Notes/Fall 2025/Phys260.tex:198: Missing $ inserted.
-<inserted text> 
-                $
-l.198 
-      
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-
-Overfull \hbox (1707.8898pt too wide) in paragraph at lines 196--198
-\OT1/cmr/m/n/10 of E$[]\OML/cmm/m/it/10 sqrt\OT1/cmr/m/n/10 ((1 \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 v=c\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 (1 + \OML/cmm/m/it/10 v=c\OT1/cmr/m/n/10 ))\OML/cmm/m/it/10 ; andthatshouldbeexpectedtheamplitudeofawaveisrelativetoenergy; andweknowenergychangeswithdifferentframesasweveseenbefore:thereforethefinalanswerofifwegotoaframethatmoveswiththislightwavewouldweseefrozenlight; theanswerisNO\OT1/cmr/m/n/10 !\OML/cmm/m/it/10 Therearenosolutiontomaxwellsequationthatallowsustoseeafrozenwave; andbyfrozenwemeannotoscillating; youcanofcoursecreatestandingwaves; buttheywouldstilloscillateupanddown$ 
- []
-
-[6] [7] (Phys260.aux)
+[9] [10] (Phys260.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
+
+
+LaTeX Warning: There were undefined references.
 
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
@@ -412,21 +349,21 @@ Package rerunfilecheck Warning: File `Phys260.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `Phys260.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  6D9150995566DF988577D4A9632E4956;9147.
+(rerunfilecheck)             Before: 6D9150995566DF988577D4A9632E4956;9147
+(rerunfilecheck)             After:  19423E12D4DE1AAA6508E354A48A64C8;10826.
  ) 
 Here is how much of TeX's memory you used:
- 9943 strings out of 467871
- 151588 string characters out of 5418377
- 564943 words of memory out of 5000000
- 38638 multiletter control sequences out of 15000+600000
- 639159 words of font info for 83 fonts, out of 8000000 for 9000
+ 10025 strings out of 467871
+ 153011 string characters out of 5418377
+ 568301 words of memory out of 5000000
+ 38693 multiletter control sequences out of 15000+600000
+ 639778 words of font info for 85 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,5n,79p,796b,591s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\erenr\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti9.pfb>
-Output written on Phys260.pdf (9 pages, 269353 bytes).
+ 75i,10n,79p,796b,591s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\erenr\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti9.pfb>
+Output written on Phys260.pdf (13 pages, 332973 bytes).
 PDF statistics:
- 213 PDF objects out of 1000 (max. 8388607)
- 65 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 435 PDF objects out of 1000 (max. 8388607)
+ 84 named destinations out of 1000 (max. 500000)
+ 361 words of extra memory for PDF output out of 10000 (max. 10000000)
 
