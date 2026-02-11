@@ -5,12 +5,12 @@
 \usepackage{amssymb} % For mathematical symbols
 \usepackage{amsthm} % For theorem environments
 \usepackage{amsmath} % For advanced math typesetting
-\usepackage[hidelinks]{hyperref}
+\usepackage{hyperref}
 \usepackage{enumitem}
 \usepackage{pgfplots} % For plots
+\usepackage{tikz} % For drawing shapes
 \usetikzlibrary{arrows.meta,calc}
 \pgfplotsset{compat=1.18} % Set compatibility level
-\usepackage{tikz} % For drawing shapes
 \newtheorem{theorem}{Theorem}
 \newtheorem{corollary}{Corollary}[theorem]
 \newtheorem{lemma}[theorem]{Lemma}
@@ -21,6 +21,9 @@
 \newtheorem{remark}{Remark}
 \newtheorem{proposition}{Proposition}
 \reversemarginpar
+\hypersetup{
+    colorlinks=true,
+}
 \begin{document}
 %------- Title page   -----------
 \title{MATH 223: Linear Algebra}
@@ -42,13 +45,10 @@
 
 %------- Table of Contents -----------
 \thispagestyle{empty}
-\hypersetup{
-    citecolor=black,
-    filecolor=black,
-    linkcolor=black,
-    urlcolor=black
+{
+  \hypersetup{linkcolor=black}
+  \tableofcontents
 }
-\tableofcontents
 \clearpage
 
 %------- introduction -----------
@@ -251,7 +251,7 @@ To determine if an element \(A\) in a set with multiplication \(M\) is invertibl
 \end{example}
 \begin{example}
     Is \(1 + i\) invertible in \(\mathbb{C}\)?\\
-    Solution: Yes, using our previous definition of inverse (\ref{subsec:CO}), we get that \[\frac{1}{1 + i} = \frac{1 - i}{2} \in \mathbb{C}.\]
+    Solution: Yes, using our previous definition of inverse \eqref{subsec:CO}, we get that \[\frac{1}{1 + i} = \frac{1 - i}{2} \in \mathbb{C}.\]
 \end{example}
 \begin{problem}[Invertibility]
     Show that if an inverse of A in \(\mathbb{M}\) exists, then it is unique.
@@ -388,7 +388,7 @@ Thus, \(\operatorname{span}_{\mathbb{C}}(v_1,\ldots,v_n)\) consists of all vecto
 \begin{proposition}
     Every vector \(x=\begin{pmatrix}x_1\\ \vdots \\ x_n\end{pmatrix}\in\mathbb{R}^n\) can be written uniquely as $x = x_1 e_1 + \cdots + x_n e_n.$
 \end{proposition}
-To verify that the standard basis really is a basis, two conditions must be satisfied: it spans \(\mathbb{R}^n\) and is linearly independent. To prove the standard basis is a basis, please refer to the Appendix (\ref{subsec:SB}).
+To verify that the standard basis really is a basis, two conditions must be satisfied: it spans \(\mathbb{R}^n\) and is linearly independent. To prove the standard basis is a basis, please refer to the Appendix \eqref{subsec:SB}.
 
 The standard basis also helps clarify the difference between real and complex vector spaces. In particular, the same vectors can generate very different spans depending on whether the scalars are real or complex.
 \begin{example}[Real vs complex span of the same vectors]
@@ -411,7 +411,7 @@ An abstract vector space generalizes the idea of vectors in \(\mathbb{R}^n\). It
     with addition and scalar multiplication such that
     \[\text{(i) } v_1+v_2\in V, \qquad\text{(ii) } \lambda v\in V, \qquad\text{(iii) } 0\in V,\]
     and satisfying the usual vector space axioms
-    (see the Appendix (\ref{subsec:VSA}) for the complete list).
+    (see the Appendix \eqref{subsec:VSA} for the complete list).
 \end{definition}
 
 \begin{remark}[Span over integers is not a vector space]
@@ -969,7 +969,7 @@ Prove $(e_1,\ldots,e_n,f_1,\ldots,f_m)$ is a basis
 LI: $a_1e_1 + \ldots + a_ne_n + b_1f_1 + \ldots + b_mf_m = 0$
 $w = a_1e_1 + \ldots + a_ne_n = - b_1f_1 - \ldots - b_mf_m$.
 $w \in U$, $w \in U' \implies w \neq 0 \implies a_1e_1 + \ldots a_ne_n = 0 \implies a_i = 0$. $\implies b_1f_1 + \ldots b_nf_n = 0 \implies b_i = 0$.
-Span : v \in U + U' \implies v = u + u'
+$Span : v \in U + U' \implies v = u + u'$
 
 \section{Appendix}
 \subsection{Proof: Standard Basis is a Basis}
