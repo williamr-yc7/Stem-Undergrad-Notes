@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  10 FEB 2026 01:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  12 FEB 2026 15:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -139,12 +139,7 @@ LaTeX Font Info:    ... okay on input line 15.
 LaTeX Font Info:    Trying to load font information for TS1+bch on input line 26.
 (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1bch.fd
 File: ts1bch.fd 2004/10/18 font definitions for TS1/bch.
-)
-Overfull \hbox (2.54755pt too wide) in paragraph at lines 37--38
-[]\OT1/bch/m/n/10.95 I am es-pe-cially drawn to re-search that com-bines ex-per-i-ments, sim-u-la-tions, and fun-da-men-tal physics.
- []
-
-[1
+) [1
 
 {C:/Users/erenr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}] [2] (Goals-Physics.aux)
  ***********
@@ -161,7 +156,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  57i,5n,65p,1248b,187s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/bitstrea/charter/bchb8a.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/bitstrea/charter/bchr8a.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/bitstrea/charter/bchri8a.pfb>
-Output written on Goals-Physics.pdf (2 pages, 53316 bytes).
+Output written on Goals-Physics.pdf (2 pages, 52570 bytes).
 PDF statistics:
  25 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
