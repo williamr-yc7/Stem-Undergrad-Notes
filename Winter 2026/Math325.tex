@@ -799,7 +799,7 @@ where \(c \in \mathbb{R}^n\) is determined by the initial condition \(y(t_0) = y
     y(t_0) = e_i
     \end{cases}
     \]
-    for \(i=1,\dots,n\). Define \(B = \{y_1,\dots,y_n\}\). By uniqueness, any solution \(z \in S\) can be written as a linear combination of the \(y_i\), so \(B\) spans \(S\). Evaluating a linear combination at \(t_0\) shows the \(y_i\) are independent. Hence, \(B\) is a basis and \(\dim S = n\).
+    for \(i=1,\dots,n\). Define \(B = \{y_1,\dots,y_n\}\). By uniqueness, any solution \(z \in S\) can be written as a linear combination of the \(y_i\), so \(B\) spans \(S\). Evaluating a linear combination at \(t_0\) shows the \(y_i\) are independent. Hence, \(B\) is a basis and \(\dim{S} = n\).
 \end{proof}
 
 \marginpar{February 5, 2026}
@@ -1150,14 +1150,14 @@ Assume that $A \in M_n(\mathbb{R})$ does not admit a basis of eigenvectors. Then
     Let $\lambda_0 \in \sigma(A)$.
     \begin{enumerate}
         \item The algebraic multiplicity of $\lambda_0$ is the largest integer $m \geq 1$ such that $(\lambda-\lambda_0)^m$ divides $p(\lambda)$.
-        \item The geometric multiplicity of $\lambda_0$ is the number $dim ker(A-\lambda_0 I)$. In other words, it is the number of linearly independent eigenvectors associated to $\lambda_0$.
+        \item The geometric multiplicity of $\lambda_0$ is the number $\dim{ker(A-\lambda_0 I)}$. In other words, it is the number of linearly independent eigenvectors associated to $\lambda_0$.
     \end{enumerate}
-    The defect of $\lambda_0$ is given by $d_{\lambda_0} = m - dim ker(A-\lambda_0 I) \geq 0$. We call an eigenvalue defective if $d_{\lambda_0} > 0$.
+    The defect of $\lambda_0$ is given by $d_{\lambda_0} = m - \dim{ker(A-\lambda_0 I)} \geq 0$. We call an eigenvalue defective if $d_{\lambda_0} > 0$.
 \end{definition}
 \begin{example}
     Let
     \[A = \begin{pmatrix}1&1\\0&1\end{pmatrix}, \quad p(\lambda) = (\lambda - 1)^2 \implies \sigma{A} = \{1\}.\]
-    We have $m = 2$ and $ker(A-1 I) = <\begin{pmatrix}1\\0\end{pmatrix}>$. So $dim ker(A-1 I) = 1 < 2$. Hence $\lambda_0 = 1$, we have $d_{\lambda_0} = 1 > 0$. Therefore $\lambda_0$ is defective and of defect 1.
+    We have $m = 2$ and $ker(A-1 I) = <\begin{pmatrix}1\\0\end{pmatrix}>$. So $\dim{ker(A-1 I)} = 1 < 2$. Hence $\lambda_0 = 1$, we have $d_{\lambda_0} = 1 > 0$. Therefore $\lambda_0$ is defective and of defect 1.
 \end{example}
 \begin{example}
     Let
@@ -1169,11 +1169,34 @@ Assume that $A \in M_n(\mathbb{R})$ does not admit a basis of eigenvectors. Then
     \[A = \begin{pmatrix}3&1&-2\\-1&5&-2\\-3&3&-2\end{pmatrix}, \quad p(\lambda) = (\lambda + 2)(\lambda - 4)^2.\]
     We have $\ker{A - 4I} = <\begin{pmatrix}1\\1\\0\end{pmatrix},\begin{pmatrix}-2\\0\\1\end{pmatrix}>$. Therefore $\lambda_0 = 4$ and is not defective.
 \end{example}
-\begin{definition}
+\begin{definition}[]
     Let $\lambda \in \sigma(A)$ with algebraic multiplicity $m$. A generalized eigenvector $u$ associated to $\lambda$ satisfies
     \[(A-\lambda I)^mu = 0.\]
 \end{definition}
-
+\begin{theorem}[]
+    $\dim{\ker(A-\lambda I)}^m = m$. Consequently, a matrix $A \in M_n(\mathbb{R})$ always has a basis of generalized eigenvectors.
+\end{theorem}
+Denote by $k_j = \ker(A-\lambda I)^j$ and $\lambda \in \sigma(A)$: $k_0 = \ker(I) - \{0\}$, $k_1 =$ \{eigenvectors associated to $\lambda \in \sigma(A)$\}. $\dim{k_0} = 0 < \dim{k_1} < \dim{k_m} = m$.
+\begin{lemma}
+    Let $k_j \subseteq k_{j+1}$ and let $u \in k_j = \ker{(A-\lambda I)^j} \implies (A-\lambda I)^{j}u = 0 \implies (A-\lambda I)^{j+1}u = 0$.
+    \[\therefore k_0 \subsetneq k_1 \subsetneq k_2 \subsetneq k_3 \subsetneq \cdots \subsetneq k_j = k_{j+1} = \cdots = k_m\]
+\end{lemma}
+\begin{lemma}
+    If for a fixed $j \in \{1,\ldots,m\}$, $k_j = k_{j+1}$, then $k_j = k_{j+1} = k_{j+2} = \cdots = k_m$.
+\end{lemma}
+\begin{proof}
+    Assume that $k_j = k_{j+1}$, knowing $k_{j+1} \subseteq k_{j+2}$ we want to show that $k_{j+1} = k_{j+2}$ from $k_{j+2} \subset k_{j+1}$.
+    Let $w \in k_{j+2}$. Denote $u = (A - \lambda I)w \in k_{j+1} = k_j$. Indeed $(A - \lambda I)^{j+1}u = (A - \lambda I)^{j+2}w = 0$. This implies $(A-\lambda I)^ju = 0 = (A-\lambda I)^{j+1}w = 0 \implies w \in k_{j+1} \implies k_{j+1} = k_{j+2}$.
+\end{proof}
+Algorithm to compute generalized eigenvectors: Assume that we have computed a basis of $k_i$ (with $i \geq 1$) and $\dim{k_i} < m$. Then look for vectors $u \in k_{i+1} \ k_i$ such that $(A-\lambda I)u = w \in k_i$, for all possible vectors in $k_i$.
+\begin{example}
+    Let
+    \[A = \begin{pmatrix}1&1\\0&1\end{pmatrix}, \quad k_0 = \{0\}, \quad k_1 = <\begin{pmatrix}1\\0\end{pmatrix}>, \quad k_2 = ?\]
+    To find $u \in k_2 \ k_1$, we need to solve $(A-I)u = w \in k_1$.
+    \[\begin{pmatrix}0&1\\0&0\end{pmatrix}\begin{pmatrix}a\\b\end{pmatrix} = \begin{pmatrix}1\\0\end{pmatrix}.\]
+    This implies $b=1$ and a is free, pick $a=0$.
+    \[\begin{pmatrix}a\\b\end{pmatrix} = \begin{pmatrix}0\\1\end{pmatrix} \in k_2 \ k_1.\]
+    \[(A-I)^2\begin{pmatrix}0\\1\end{pmatrix} = \begin{pmatrix}0&1\\0&0\end{pmatrix}\begin{pmatrix}0&1\\0&0\end{pmatrix}\begin{pmatrix}0\\1\end{pmatrix} = \begin{pmatrix}0&1\\0&0\end{pmatrix}\begin{pmatrix}0\\1\end{pmatrix} = \begin{pmatrix}0\\0\end{pmatrix}.\]
 
 \section{Second and Higher-Order Scalar Linear Equations}
 \section{Stability, Phase Portraits and Orbits}
