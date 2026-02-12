@@ -1095,11 +1095,14 @@ Consider the system \eqref{eq:ode-system-matrix}. If $A$ has real entries and a 
     \[e^{z} = \sum_{n=0}^{\infty} \frac{z^{n}}{n!}, \quad z \in \mathbb{C}.\]
 \end{definition}
 Using Euler's formula \eqref{eq:EulerFormula}, we expand \eqref{eq:exp-ansatz-complex} as
-\[y(t) = e^{(\alpha+i\beta)t}(u+iv) = e^{\alpha t} e^{i\beta t}(u+iv) = e^{\alpha t}(\cos(\beta t)+i\sin(\beta t))(u+iv).\]
+\[y(t) = e^{(\alpha+i\beta)t}(p+iq) = e^{\alpha t} e^{i\beta t}(p+iq) = e^{\alpha t}(\cos(\beta t)+i\sin(\beta t))(p+iq).\]
 Multiplying and separating real and imaginary parts gives
-\[y(t) = e^{\alpha t}(\cos(\beta t)u-\sin(\beta t)v) + i\,e^{\alpha t}(\sin(\beta t)u+\cos(\beta t)v).\]
+\[y(t) = e^{\alpha t}(\cos(\beta t)p-\sin(\beta t)q) + i\,e^{\alpha t}(\sin(\beta t)p+\cos(\beta t)q).\]
 Taking real and imaginary parts therefore yields two real solutions:
-\[y_1(t)=e^{\alpha t}\big(u\cos(\beta t)-v\sin(\beta t)\big), \qquad y_2(t)=e^{\alpha t}\big(u\sin(\beta t)+v\cos(\beta t)\big).\]
+\begin{equation}
+    \label{eq:exp-ansatz-complex-sol}
+    y_1(t)=e^{\alpha t}\big(p\cos(\beta t)-q\sin(\beta t)\big), \qquad y_2(t)=e^{\alpha t}\big(p\sin(\beta t)+q\cos(\beta t)\big).
+\end{equation}
 \begin{proposition}[Complex conjugate eigenpairs]
     \label{prop:CCE}
     Let $A \in M_n(\mathbb{R})$. If $(\lambda,u)$ is an eigenpair with $\lambda \in \mathbb{C}$, then $(\overline{\lambda},\overline{u})$ is also an eigenpair.
@@ -1135,6 +1138,42 @@ Taking real and imaginary parts therefore yields two real solutions:
         Use $t$ as the independent variable in your answers.
     \end{enumerate}
 \end{problem}
+
+\marginpar{February 12, 2026}
+\begin{proposition}
+    Assume that $\alpha + i\beta \in \sigma(A)$ is an eigenvalue associated to the eigenvector $p + iq$, where  $\beta \neq 0$. Then the functions \textup{\eqref{eq:exp-ansatz-complex-sol}} are real-valued linearly independent solutions of \eqref{eq:ode-system-matrix}.
+\end{proposition}
+\marginpar{Reviewed pages 14-17 from Chapter 3 prof notes}
+\subsubsection{Nondiagonalizable Matrices}%to review
+Assume that $A \in M_n(\mathbb{R})$ does not admit a basis of eigenvectors. Then there are not enough solutions of the form $y(t) = e^{\lambda t}u$ to build the general solution.
+\begin{definition}[Multiplicity of Eigenvalues]
+    Let $\lambda_0 \in \sigma(A)$.
+    \begin{enumerate}
+        \item The algebraic multiplicity of $\lambda_0$ is the largest integer $m \geq 1$ such that $(\lambda-\lambda_0)^m$ divides $p(\lambda)$.
+        \item The geometric multiplicity of $\lambda_0$ is the number $dim ker(A-\lambda_0 I)$. In other words, it is the number of linearly independent eigenvectors associated to $\lambda_0$.
+    \end{enumerate}
+    The defect of $\lambda_0$ is given by $d_{\lambda_0} = m - dim ker(A-\lambda_0 I) \geq 0$. We call an eigenvalue defective if $d_{\lambda_0} > 0$.
+\end{definition}
+\begin{example}
+    Let
+    \[A = \begin{pmatrix}1&1\\0&1\end{pmatrix}, \quad p(\lambda) = (\lambda - 1)^2 \implies \sigma{A} = \{1\}.\]
+    We have $m = 2$ and $ker(A-1 I) = <\begin{pmatrix}1\\0\end{pmatrix}>$. So $dim ker(A-1 I) = 1 < 2$. Hence $\lambda_0 = 1$, we have $d_{\lambda_0} = 1 > 0$. Therefore $\lambda_0$ is defective and of defect 1.
+\end{example}
+\begin{example}
+    Let
+    \[A = \begin{pmatrix}0&1&0&1\\0&-2&-1&-1\\1&1&0&0\\0&1&0&1\end{pmatrix}, \quad p(\lambda) = \lambda^3(\lambda + 1).\]
+    We have $\ker{A} = <\begin{pmatrix}1\\-1\\1\\1\end{pmatrix}>$. Therefore $\lambda_0 = 0$ has defect $= 2$.
+\end{example}
+\begin{example}
+    Let
+    \[A = \begin{pmatrix}3&1&-2\\-1&5&-2\\-3&3&-2\end{pmatrix}, \quad p(\lambda) = (\lambda + 2)(\lambda - 4)^2.\]
+    We have $\ker{A - 4I} = <\begin{pmatrix}1\\1\\0\end{pmatrix},\begin{pmatrix}-2\\0\\1\end{pmatrix}>$. Therefore $\lambda_0 = 4$ and is not defective.
+\end{example}
+\begin{definition}
+    Let $\lambda \in \sigma(A)$ with algebraic multiplicity $m$. A generalized eigenvector $u$ associated to $\lambda$ satisfies
+    \[(A-\lambda I)^mu = 0.\]
+\end{definition}
+
 
 \section{Second and Higher-Order Scalar Linear Equations}
 \section{Stability, Phase Portraits and Orbits}

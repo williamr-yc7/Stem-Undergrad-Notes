@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1770770075.29212 "c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math325.tex" "Math325.pdf" "Math325" 1770770081.43983 0
-  "C:/Users/erenr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1770702763 82507 a9eef8696c92627b87e9975edea03b2a ""
+["pdflatex"] 1770933006.34564 "c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math325.tex" "Math325.pdf" "Math325" 1770933011.13493 0
+  "C:/Users/erenr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1770796485 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/erenr/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk" 1767801684 11548 9ea6db1ff0b947846d8751dabcdcf90a ""
   "C:/Users/erenr/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1767801679 13333486 ad3a4e5807f6f25ced943a60862e7471 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/tcrm1000.tfm" 993062508 1436 c7f957a372ef2fbe93c0982f96625e12 ""
@@ -221,11 +221,11 @@
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/tools/indentfirst.sty" 1761901070 1618 30b01152766afcef2ed8f904cfdd3cc6 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
-  "Math325.aux" 1770770080 7354 2cdfb2eaf7582737f715c4120c336e8f "pdflatex"
-  "Math325.out" 1770770080 8548 ce2e9dea72057f7bf9b4e1881ff31fb7 "pdflatex"
-  "Math325.tex" 1770770071 75502 4a3aafbd650a0e963dbb79acac7e23aa ""
-  "Math325.toc" 1770770080 4257 1947eda4c09f3663c8e982fe1400d05b "pdflatex"
-  "c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math325.tex" 1770770071 75502 4a3aafbd650a0e963dbb79acac7e23aa ""
+  "Math325.aux" 1770933010 7607 ea739696054233f36a84265fb83bef1f "pdflatex"
+  "Math325.out" 1770933010 8749 f9be50cbaea4f3003a67a7d3b9b4685a "pdflatex"
+  "Math325.tex" 1770933005 77952 0f689d652cfab2b6aff28b93acd3066d ""
+  "Math325.toc" 1770933010 4360 26cd51fa29e09c12962ca45cec7a4777 "pdflatex"
+  "c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math325.tex" 1770933005 77952 0f689d652cfab2b6aff28b93acd3066d ""
   (generated)
   "Math325.aux"
   "Math325.log"
