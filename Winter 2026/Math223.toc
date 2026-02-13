@@ -1,0 +1,61 @@
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
+\contentsline {section}{\numberline {2}Prerequisite knowledge}{1}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Notation}{1}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Sets}{1}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}Symbols}{1}{subsubsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.2}Familiarity with $\mathbb {R}^n$}{1}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Polar Coordinates}{2}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Complex Algebra}{2}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Complex Numbers}{2}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Complex Operations}{2}{subsubsection.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.4.3}Complex Conjugate}{3}{subsubsection.2.4.3}%
+\contentsline {subsubsection}{\numberline {2.4.4}Geometric Interpretation of Complex Numbers}{3}{subsubsection.2.4.4}%
+\contentsline {subsubsection}{\numberline {2.4.5}Modulus}{4}{subsubsection.2.4.5}%
+\contentsline {subsubsection}{\numberline {2.4.6}Polar Form of Complex Numbers}{4}{subsubsection.2.4.6}%
+\contentsline {subsubsection}{\numberline {2.4.7}Roots in $\mathbb {C}$}{4}{subsubsection.2.4.7}%
+\contentsline {subsection}{\numberline {2.5}Basic Algebraic structures}{5}{subsection.2.5}%
+\contentsline {subsubsection}{\numberline {2.5.1}Sets with Multiplication}{5}{subsubsection.2.5.1}%
+\contentsline {subsubsection}{\numberline {2.5.2}Invertibility}{5}{subsubsection.2.5.2}%
+\contentsline {subsubsection}{\numberline {2.5.3}Ring}{6}{subsubsection.2.5.3}%
+\contentsline {subsubsection}{\numberline {2.5.4}Field}{6}{subsubsection.2.5.4}%
+\contentsline {section}{\numberline {3}Vector Spaces}{6}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Abstract Vector Spaces}{6}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Vectors}{7}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Vector operations}{7}{subsubsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.3}Span}{7}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Span in \(\mathbb {C}^n\)}{9}{subsubsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.4}Standard Basis}{9}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Coordinate Spaces}{11}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}Polynomial Spaces}{11}{subsection.3.6}%
+\contentsline {subsection}{\numberline {3.7}Matrix Spaces}{11}{subsection.3.7}%
+\contentsline {subsection}{\numberline {3.8}Function Spaces}{12}{subsection.3.8}%
+\contentsline {paragraph}{1. Finite case: standard basis}{12}{section*.2}%
+\contentsline {paragraph}{2. Infinite case}{12}{section*.3}%
+\contentsline {subsection}{\numberline {3.9}Subspaces}{13}{subsection.3.9}%
+\contentsline {subsubsection}{\numberline {3.9.1}Membership in a span}{14}{subsubsection.3.9.1}%
+\contentsline {subsubsection}{\numberline {3.9.2}Operations on subspaces}{14}{subsubsection.3.9.2}%
+\contentsline {subsection}{\numberline {3.10}Direct sums}{15}{subsection.3.10}%
+\contentsline {subsubsection}{\numberline {3.10.1}Analogy with sets}{16}{subsubsection.3.10.1}%
+\contentsline {subsubsection}{\numberline {3.10.2}Direct sums in function spaces}{16}{subsubsection.3.10.2}%
+\contentsline {section}{\numberline {4}Basis and Dimension}{16}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Finite Dimensional Spaces}{16}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Linear Independence}{18}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Basis}{20}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Size of spanning and independent sets}{21}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}Characterizations of a basis}{21}{subsubsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.3}Finding a Basis}{21}{subsubsection.4.3.3}%
+\contentsline {paragraph}{1. Proving a set of vectors is a Basis}{22}{section*.4}%
+\contentsline {paragraph}{2. Transfer (exchange) principle}{22}{section*.5}%
+\contentsline {subsubsection}{\numberline {4.3.4}Direct Sums and Unique Decomposition}{22}{subsubsection.4.3.4}%
+\contentsline {paragraph}{Coordinates relative to a basis}{23}{section*.6}%
+\contentsline {section}{\numberline {5}Linear Transformation}{24}{section.5}%
+\contentsline {section}{\numberline {6}Appendix}{27}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Proof: Standard Basis is a Basis}{27}{subsection.6.1}%
+\contentsline {paragraph}{Claim 1.}{27}{section*.7}%
+\contentsline {paragraph}{Claim 2.}{27}{section*.8}%
+\contentsline {subsection}{\numberline {6.2}Vector Space Axioms}{28}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Algebraic Structures: Rings, Fields, and Vector Spaces}{28}{subsection.6.3}%
+\contentsline {paragraph}{Genealogy of Algebraic Structures.}{28}{section*.9}%
+\contentsline {paragraph}{Rings vs Vector Spaces.}{29}{section*.10}%
+\contentsline {section}{\numberline {7}Solutions}{29}{section.7}%
+\contentsline {section}{\numberline {8}Useful Links}{32}{section.8}%

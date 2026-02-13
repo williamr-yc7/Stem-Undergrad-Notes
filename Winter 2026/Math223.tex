@@ -1078,6 +1078,19 @@ $u_i = $ basis of $U$.
 $T$ extends uniquely to $U$. $T(u) = 0$.
 \[[u]_n = \begin{pmatrix}\lambda_1 \\\vdots\\ \lambda_n\end{pmatrix}\]
 Proof: $u = \lambda_1u_1 + \cdots + \lambda_nu_n$. $T(u) = \lambda_1 T(u_1) + \cdots + \lambda_n T(u_n) = 0$.
+Proof: 2 proofs:
+\begin{enumerate}
+    \item $T$ exists.
+    \item $T$ is unique.
+\end{enumerate}
+Assumptions: $\begin{cases}(u_1,\ldots,u_n) basis \\ T(u_i) = v_i\end{cases}$
+Proof of existence: Find $T$ linear such that $T(u_i) = v_i$. Let $u \in U$. Need to define $T(u)$, $u = \lambda_1 u_1 + \ldots + \lambda_n u_n$. Define $T(u) = \lambda_1 T(u_1) + \cdots + \lambda_n T(u_n) \in V$.
+\begin{enumerate}
+    \item Prove $T(u_i) = v_i$.
+    \item T linear.
+\end{enumerate}
+Proof of $T(u_i) = v_i$: To define $T$ on $u_i$: coordinates of u in basis $u_i = 0u_1 + \ldots + 1u_i + \ldots + 0u_n$. $T(u_i) = 0v_1 + \cdots + 1v_i + \cdots + 0v_n$.
+
 \section{Appendix}
 \subsection{Proof: Standard Basis is a Basis}
 \label{subsec:SB}
