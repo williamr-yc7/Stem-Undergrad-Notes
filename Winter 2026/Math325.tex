@@ -19,6 +19,7 @@
 \newtheorem*{example}{Example}
 \newtheorem{remark}{Remark}
 \newtheorem{proposition}{Proposition}
+\newtheorem{algorithm}{Algorithm}
 \reversemarginpar
 \hypersetup{
     colorlinks=true,
@@ -1141,11 +1142,13 @@ Taking real and imaginary parts therefore yields two real solutions:
 
 \marginpar{February 12, 2026}
 \begin{proposition}
-    Assume that $\alpha + i\beta \in \sigma(A)$ is an eigenvalue associated to the eigenvector $p + iq$, where  $\beta \neq 0$. Then the functions \textup{\eqref{eq:exp-ansatz-complex-sol}} are real-valued linearly independent solutions of \eqref{eq:ode-system-matrix}.
+    Assume that $\lambda = \alpha + i\beta \in \sigma(A)$ is an eigenvalue associated to the eigenvector $u = p + iq$, where  $\beta \neq 0$. Then the functions \textup{\eqref{eq:exp-ansatz-complex-sol}} are real-valued linearly independent solutions of \eqref{eq:ode-system-matrix}.
 \end{proposition}
 \marginpar{Reviewed pages 14-17 from Chapter 3 prof notes}
-\subsubsection{Nondiagonalizable Matrices}%to review
-Assume that $A \in M_n(\mathbb{R})$ does not admit a basis of eigenvectors. Then there are not enough solutions of the form $y(t) = e^{\lambda t}u$ to build the general solution.
+\subsubsection{Nondiagonalizable Matrices}
+\begin{remark}
+    Assume that $A \in M_n(\mathbb{R})$ does not admit a basis of eigenvectors. Then there are not enough solutions of the form $y(t) = e^{\lambda t}u$ to build the general solution.
+\end{remark}
 \begin{definition}[Multiplicity of Eigenvalues]
     Let $\lambda_0 \in \sigma(A)$.
     \begin{enumerate}
@@ -1156,47 +1159,83 @@ Assume that $A \in M_n(\mathbb{R})$ does not admit a basis of eigenvectors. Then
 \end{definition}
 \begin{example}
     Let
-    \[A = \begin{pmatrix}1&1\\0&1\end{pmatrix}, \quad p(\lambda) = (\lambda - 1)^2 \implies \sigma{A} = \{1\}.\]
-    We have $m = 2$ and $ker(A-1 I) = <\begin{pmatrix}1\\0\end{pmatrix}>$. So $\dim{ker(A-1 I)} = 1 < 2$. Hence $\lambda_0 = 1$, we have $d_{\lambda_0} = 1 > 0$. Therefore $\lambda_0$ is defective and of defect 1.
+    \[A=\begin{pmatrix}1&1\\0&1\end{pmatrix}, \quad p(\lambda)=(\lambda-1)^2.\]
+    Hence the spectrum is $\sigma(A)=\{1\}$, so the algebraic multiplicity is \(m=2\). To find the geometric multiplicity, compute the kernel of \(A-I\):
+    \[A-I=\begin{pmatrix}1&1\\0&1\end{pmatrix}-\begin{pmatrix}1&0\\0&1\end{pmatrix}
+    =\begin{pmatrix}0&1\\0&0\end{pmatrix}.\]
+    Solve
+    \[(A-I)x=0, \quad x=\begin{pmatrix}x_1\\x_2\end{pmatrix}.\]
+    Then
+    \[\begin{pmatrix}0&1\\0&0\end{pmatrix}\begin{pmatrix}x_1\\x_2\end{pmatrix}
+    =\begin{pmatrix}x_2\\0\end{pmatrix}
+    =\begin{pmatrix}0\\0\end{pmatrix},\]
+    which gives \(x_2=0\) and \(x_1\) free. Thus
+    \[\ker(A-I)=\left\{\begin{pmatrix}x_1\\0\end{pmatrix}:x_1\in\mathbb{R}\right\}
+    =\operatorname{span}\!\left\{\begin{pmatrix}1\\0\end{pmatrix}\right\}.\]
+    This space is one-dimensional, so $\dim(\ker(A-I))=1$. Therefore the geometric multiplicity is \(1<2\), and the defect is $d_{\lambda_0}=2-1=1>0$. Hence \(\lambda_0=1\) is defective.
 \end{example}
 \begin{example}
     Let
-    \[A = \begin{pmatrix}0&1&0&1\\0&-2&-1&-1\\1&1&0&0\\0&1&0&1\end{pmatrix}, \quad p(\lambda) = \lambda^3(\lambda + 1).\]
-    We have $\ker{A} = <\begin{pmatrix}1\\-1\\1\\1\end{pmatrix}>$. Therefore $\lambda_0 = 0$ has defect $= 2$.
+    \[A=\begin{pmatrix}0&1&0&1\\0&-2&-1&-1\\1&1&0&0\\0&1&0&1\end{pmatrix}, \quad p(\lambda)=\lambda^3(\lambda+1).\]
+    Hence $\sigma(A)=\{0,-1\}$, and the algebraic multiplicity of \(\lambda_0=0\) is \(m=3\). To compute the geometric multiplicity, solve
+    \[Ax=0, \quad x=\begin{pmatrix}x_1\\x_2\\x_3\\x_4\end{pmatrix}.\]
+    Row reduction gives one free parameter, yielding
+    \[\ker(A)=\operatorname{span}\!\left\{\begin{pmatrix}1\\-1\\1\\1\end{pmatrix}\right\}.\]
+    Thus $\dim(\ker A)=1$. Therefore the defect of \(\lambda_0=0\) is $d_{\lambda_0}=3-1=2>0$, so \(\lambda_0\) is defective with defect \(2\).
 \end{example}
 \begin{example}
     Let
-    \[A = \begin{pmatrix}3&1&-2\\-1&5&-2\\-3&3&-2\end{pmatrix}, \quad p(\lambda) = (\lambda + 2)(\lambda - 4)^2.\]
-    We have $\ker{A - 4I} = <\begin{pmatrix}1\\1\\0\end{pmatrix},\begin{pmatrix}-2\\0\\1\end{pmatrix}>$. Therefore $\lambda_0 = 4$ and is not defective.
+    \[A=\begin{pmatrix}3&1&-2\\-1&5&-2\\-3&3&-2\end{pmatrix}, \quad p(\lambda)=(\lambda+2)(\lambda-4)^2.\]
+    Hence \(\sigma(A)=\{-2,4\}\), and the algebraic multiplicity of \(\lambda_0=4\) is \(m=2\). To compute the geometric multiplicity, solve
+    \[(A-4I)x=0, \quad x=\begin{pmatrix}x_1\\x_2\\x_3\end{pmatrix}.\]
+    Row reduction gives two free parameters, yielding
+    \[\ker(A-4I)=\operatorname{span}\!\left\{\begin{pmatrix}1\\1\\0\end{pmatrix},\begin{pmatrix}-2\\0\\1\end{pmatrix}\right\}.\]
+    Thus \(\dim(\ker(A-4I))=2\). Therefore the defect of \(\lambda_0=4\) is \(d_{\lambda_0}=2-2=0\), so \(\lambda_0\) is not defective.
 \end{example}
-\begin{definition}[]
+\begin{definition}[Generalized Eigenvector]
     Let $\lambda \in \sigma(A)$ with algebraic multiplicity $m$. A generalized eigenvector $u$ associated to $\lambda$ satisfies
     \[(A-\lambda I)^mu = 0.\]
 \end{definition}
-\begin{theorem}[]
-    $\dim{\ker(A-\lambda I)}^m = m$. Consequently, a matrix $A \in M_n(\mathbb{R})$ always has a basis of generalized eigenvectors.
+\begin{theorem}[Existence of a Generalized Eigenvector Basis]
+    Let \(\lambda \in \sigma(A)\) have algebraic multiplicity \(m\). Then
+    \[\dim(\ker(A-\lambda I)^m) = m.\] 
+    As a consequence, every matrix \(A \in M_n(\mathbb{R})\) has a basis consisting of generalized eigenvectors.
 \end{theorem}
-Denote by $k_j = \ker(A-\lambda I)^j$ and $\lambda \in \sigma(A)$: $k_0 = \ker(I) - \{0\}$, $k_1 =$ \{eigenvectors associated to $\lambda \in \sigma(A)$\}. $\dim{k_0} = 0 < \dim{k_1} < \dim{k_m} = m$.
+Denote 
+\[k_j = \ker(A-\lambda I)^j, \quad \lambda \in \sigma(A).\] 
+Then 
+\[k_0 = \{0\}, \quad k_1 = \{\text{eigenvectors associated to } \lambda\},\]
+and $\dim(k_0) = 0 < \dim(k_1) < \dim(k_m) = m$.
 \begin{lemma}
-    Let $k_j \subseteq k_{j+1}$ and let $u \in k_j = \ker{(A-\lambda I)^j} \implies (A-\lambda I)^{j}u = 0 \implies (A-\lambda I)^{j+1}u = 0$.
-    \[\therefore k_0 \subsetneq k_1 \subsetneq k_2 \subsetneq k_3 \subsetneq \cdots \subsetneq k_j = k_{j+1} = \cdots = k_m\]
+    For all \(j\), 
+    \[k_j \subseteq k_{j+1}.\] 
+    Indeed, if \(u \in k_j\), then \((A-\lambda I)^j u = 0\) implies \((A-\lambda I)^{j+1} u = 0\). Hence
+    \[k_0 \subsetneq k_1 \subsetneq k_2 \subsetneq \dots \subsetneq k_j = k_{j+1} = \dots = k_m.\]
 \end{lemma}
 \begin{lemma}
-    If for a fixed $j \in \{1,\ldots,m\}$, $k_j = k_{j+1}$, then $k_j = k_{j+1} = k_{j+2} = \cdots = k_m$.
+    If for some \(j \in \{1,\dots,m\}\) we have \(k_j = k_{j+1}\), then 
+    \[k_j = k_{j+1} = k_{j+2} = \dots = k_m.\]
 \end{lemma}
 \begin{proof}
-    Assume that $k_j = k_{j+1}$, knowing $k_{j+1} \subseteq k_{j+2}$ we want to show that $k_{j+1} = k_{j+2}$ from $k_{j+2} \subset k_{j+1}$.
-    Let $w \in k_{j+2}$. Denote $u = (A - \lambda I)w \in k_{j+1} = k_j$. Indeed $(A - \lambda I)^{j+1}u = (A - \lambda I)^{j+2}w = 0$. This implies $(A-\lambda I)^ju = 0 = (A-\lambda I)^{j+1}w = 0 \implies w \in k_{j+1} \implies k_{j+1} = k_{j+2}$.
+    Assume \(k_j = k_{j+1}\). Since \(k_{j+1} \subseteq k_{j+2}\), let \(w \in k_{j+2}\). Set \(u = (A-\lambda I)w \in k_{j+1} = k_j\). Then
+    \[(A-\lambda I)^{j+1} u = (A-\lambda I)^{j+2} w = 0 \implies (A-\lambda I)^j u = 0 \implies (A-\lambda I)^{j+1} w = 0.\]
+    Thus \(w \in k_{j+1}\), so \(k_{j+1} = k_{j+2}\). Iterating this gives the result.
 \end{proof}
-Algorithm to compute generalized eigenvectors: Assume that we have computed a basis of $k_i$ (with $i \geq 1$) and $\dim{k_i} < m$. Then look for vectors $u \in k_{i+1} \ k_i$ such that $(A-\lambda I)u = w \in k_i$, for all possible vectors in $k_i$.
+\begin{algorithm}[Computing Generalized Eigenvectors]
+    Assume we have a basis of \(k_i\) with \(i \ge 1\) and \(\dim(k_i) < m\). To find new vectors in \(k_{i+1} \setminus k_i\), look for \(u \in k_{i+1}\) such that
+    \[(A-\lambda I) u = w \in k_i,\] 
+    for all vectors \(w\) in the basis of \(k_i\).
+\end{algorithm}
 \begin{example}
     Let
-    \[A = \begin{pmatrix}1&1\\0&1\end{pmatrix}, \quad k_0 = \{0\}, \quad k_1 = <\begin{pmatrix}1\\0\end{pmatrix}>, \quad k_2 = ?\]
-    To find $u \in k_2 \ k_1$, we need to solve $(A-I)u = w \in k_1$.
+    \[A = \begin{pmatrix}1&1\\0&1\end{pmatrix}, \quad k_0 = \{0\}, \quad k_1 = \operatorname{span}\left\{\begin{pmatrix}1\\0\end{pmatrix}\right\}, \quad k_2 = ?\]
+    To find \(u \in k_2 \setminus k_1\), solve \((A-I) u = w \in k_1\):
     \[\begin{pmatrix}0&1\\0&0\end{pmatrix}\begin{pmatrix}a\\b\end{pmatrix} = \begin{pmatrix}1\\0\end{pmatrix}.\]
-    This implies $b=1$ and a is free, pick $a=0$.
-    \[\begin{pmatrix}a\\b\end{pmatrix} = \begin{pmatrix}0\\1\end{pmatrix} \in k_2 \ k_1.\]
-    \[(A-I)^2\begin{pmatrix}0\\1\end{pmatrix} = \begin{pmatrix}0&1\\0&0\end{pmatrix}\begin{pmatrix}0&1\\0&0\end{pmatrix}\begin{pmatrix}0\\1\end{pmatrix} = \begin{pmatrix}0&1\\0&0\end{pmatrix}\begin{pmatrix}0\\1\end{pmatrix} = \begin{pmatrix}0\\0\end{pmatrix}.\]
+    This gives \(b=1\) and \(a\) free. Pick \(a=0\):
+    \[\begin{pmatrix}a\\b\end{pmatrix} = \begin{pmatrix}0\\1\end{pmatrix} \in k_2 \setminus k_1.\]
+    Check:
+    \[(A-I)^2 \begin{pmatrix}0\\1\end{pmatrix} = (A-I)\begin{pmatrix}1\\0\end{pmatrix} = \begin{pmatrix}0\\0\end{pmatrix}.\]
+\end{example}
 
 \section{Second and Higher-Order Scalar Linear Equations}
 \section{Stability, Phase Portraits and Orbits}
