@@ -1045,6 +1045,39 @@ Example:
 Definition: $U$,$V$ vector spaces over $K$. $T : U \to V$ transformation. Say T is linear if $T(u + v) = T(u) + T(v)$ and $T(\lambda u) = \lambda T(u)$.
 Proposition: $S$,$T$ are linear, here $S \circ T$ is linear.
 
+\marginpar{February 13, 2026}
+Linear transformations:
+\[T : U \longrightarrow V\]
+\[u \longrightarrow T(u)\]
+Imagine two big circles one is $U$ the othre $V$, in each a small dot $u \in U$ and $v \in V$ and an arrow from $u$ to $v$, and this arrow is $T$.
+T linear:
+\begin{enumerate}
+    \item Additive: $T(u+u') = T(u) + T(u')$
+    \item Scalars: $T(\lambda u) = \lambda T(u)$
+\end{enumerate}
+Main example: $T: \mathbb{R}^n \to \mathbb{R}^n$ (a matrix).
+\[\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix} \to A\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix}\]
+Example 1:
+\[T : \mathbb{R}^2 \to \mathbb{R}^2\]
+\[u \to 2u\]
+\[v \to v\]
+Fix a basis $(u,v)$ of $\mathbb{R}^2$.
+draw the answer
+Example 2:
+\[T : \mathbb{R}^2 \to \mathbb{R}^2\]
+\[u \to u\]
+\[v \to 2v\]
+draw something
+Definition: A linear transformation $T : U \to U$ is called scaling if there exists a basis $(u_1, \ldots, u_n)$ of $U$, $\lambda_1, \ldots, \lambda_n \in k$ such that $T(u_i) = \lambda_i u_i$.
+How to define $T$:
+Proposition: Let $(u_1,\ldots,u_n)$ be a basis of $U$. $v_1,\ldots,v_n$ arbitrary vectors in $V$. There exists a unique linear transformation $T : U \to V$ such that $T(u_i) = v_i$.
+Example:
+\[T: U \to V\]
+\[u_i \to 0\]
+$u_i = $ basis of $U$.
+$T$ extends uniquely to $U$. $T(u) = 0$.
+\[[u]_n = \begin{pmatrix}\lambda_1 \\\vdots\\ \lambda_n\end{pmatrix}\]
+Proof: $u = \lambda_1u_1 + \cdots + \lambda_nu_n$. $T(u) = \lambda_1 T(u_1) + \cdots + \lambda_n T(u_n) = 0$.
 \section{Appendix}
 \subsection{Proof: Standard Basis is a Basis}
 \label{subsec:SB}
