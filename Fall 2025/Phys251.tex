@@ -1,0 +1,144 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{authblk} % Required for author affiliations
+\usepackage{indentfirst} % Indent first paragraph of sections
+\usepackage{amssymb} % For mathematical symbols
+\usepackage{amsthm} % For theorem environments
+\usepackage{amsmath} % For advanced math typesetting
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{pgfplots} % For plots
+\usepackage{tikz} % For drawing shapes
+\pgfplotsset{compat=1.18} % Set compatibility level
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}{Definition}
+\newtheorem{problem}{Problem}
+\newtheorem{solution}{Solution}
+\newtheorem*{example}{Example}
+\newtheorem{remark}{Remark}
+\newtheorem{proposition}{Proposition}
+\newtheorem{algorithm}{Algorithm}
+\reversemarginpar
+\hypersetup{
+    colorlinks=true,
+}
+\begin{document}
+%------- Title page   -----------
+\title{PHYS 251: Honours Classical Mechanics}
+\author{William Homier}
+\affil[1]{McGill University Physics, 3600 Rue University, Montréal, QC H3A 2T8, Canada}
+\date{September \(1^{st}\), 2025}
+\setcounter{Maxaffil}{0}
+\renewcommand\Affilfont{\itshape\small}
+\maketitle
+
+%------- Abstract -----------
+\noindent\rule{\textwidth}{0.4pt}
+\thispagestyle{empty}
+\begin{abstract}
+
+\end{abstract}
+\noindent\rule{\textwidth}{0.4pt}
+\clearpage
+
+%------- Table of Contents -----------
+\thispagestyle{empty}
+{
+  \hypersetup{linkcolor=black}
+  \tableofcontents
+}
+\clearpage
+
+%------- introduction -----------
+\setcounter{page}{1}
+\section{Introduction}
+\section{Prerequisite knowledge}
+
+\marginpar{Week of September 1}
+\section{Mathematical Tools for Mechanics}
+\subsection{Levi-Civita Symbol and Cross Product}
+\begin{definition}[Levi-Civita Symbol]
+    The Levi-Cevita tensor is a tensor that is used to calculate the cross product of two vectors.
+    \[(A \times B)_i = \epsilon_{ijk} A_j B_k,\]
+    where $\epsilon_{ijk}$ is the Levi-Cevita symbol, and is defined to be
+    \[\epsilon_{ijk} = \begin{cases}1\text{, for even permutations of }i,j,k \\ -1\text{, for odd permutations of } i,j,k \\ 0\text{, otherwise}\end{cases}.\]
+\end{definition}
+\begin{problem}[Levi-Civita Symbol]
+    Consider the cross product $\vec{A} \times \vec{B} = \vec{C}$. Show  that the components of $\vec{C}$ obtained with the determinant-based definition of the cross product are the same as those obtained with $C_i = \epsilon_{ijk} A_j B_k$, where $\epsilon_{ijk}$ is the Levi-Civita tensor and the Einstein convention is implied.
+\end{problem}
+
+\subsection{Motion in Polar Coordinates}
+In planar motion it is often convenient to describe position using polar coordinates $(r,\theta)$ instead of $(x,y)$. The relations between Cartesian and polar coordinates are
+\[r^2 = x^2 + y^2, \qquad \tan\theta = \frac{y}{x}.\]
+The associated unit vectors are
+\[\hat{r} = \cos\theta\,\hat{i} + \sin\theta\,\hat{j}, \qquad \hat{\theta} = -\sin\theta\,\hat{i} + \cos\theta\,\hat{j}.\]
+Unlike $\hat{i}$ and $\hat{j}$, these unit vectors depend on time through $\theta(t)$. The position vector is
+\[\vec{r} = r \hat{r}.\]
+Differentiating with respect to time gives the velocity:
+\[\vec{v} = \frac{d\vec{r}}{dt} = \dot{r}\hat{r} + r\dot{\theta}\hat{\theta}.\]
+Differentiating again yields the acceleration:
+\[\vec{a} = (\ddot{r} - r\dot{\theta}^2)\hat{r} + (2\dot{r}\dot{\theta} + r\ddot{\theta})\hat{\theta}.\]
+The radial component $(\ddot{r} - r\dot{\theta}^2)$ contains the centripetal term $-r\dot{\theta}^2$, while the angular component $(2\dot{r}\dot{\theta} + r\ddot{\theta})$ contains the Coriolis term $2\dot{r}\dot{\theta}$ and the tangential term $r\ddot{\theta}$.
+
+\subsection{Uniform Circular Motion as a Special Case}
+Uniform circular motion corresponds to motion with constant radius $r = r_0$ and constant angular velocity $\dot{\theta} = \omega$. In Cartesian coordinates the position is given by \[x = r_0 \cos(\omega t), \quad y = r_0 \sin(\omega t),\] so that \[\vec{r} = x\hat{i} + y\hat{j}.\]
+Differentiating with respect to time gives the velocity, \[\vec{v} = -r_0 \omega \sin(\omega t)\hat{i} + r_0 \omega \cos(\omega t)\hat{j},\] which is always tangent to the circle.
+Differentiating once more yields the acceleration, \[\vec{a} = -r_0 \omega^2 \cos(\omega t)\hat{i} - r_0 \omega^2 \sin(\omega t)\hat{j} = -r_0 \omega^2 \hat{r}.\]
+Thus the acceleration has constant magnitude $r_0\omega^2$ and is directed radially inward. This inward acceleration is the centripetal acceleration required to maintain circular motion.
+
+
+
+\section{Newtonian Mechanics}
+\subsection{Newton's Laws of Motion}
+\begin{definition}[Law of Inertia]
+    An object remains at rest or continues to move at a constant velocity unless acted upon by a net external force.
+\end{definition}
+\begin{definition}[Law of Acceleration]
+    The net force acting on an object is directly proportional to its acceleration and directly proportional to its mass
+    \[F_{net} = ma.\]
+\end{definition}
+\begin{definition}[Law of Action-Reaction]
+    For every action, there is an equal and opposite reaction; if object A exerts a force on object B, object B simultaneously exerts a force of equal magnitude and opposite direction on object A.
+\end{definition}
+\begin{remark}[Momentum Conservation]
+    Newton's third law implies conservation of momentum for an isolated system. When summing the forces over all objects in the system, internal forces occur in equal and opposite pairs and therefore cancel. It is the net internal force on the system that vanishes, not the force acting on each individual object.
+\end{remark}
+\begin{remark}[Free-Body Diagram and Action-Reaction Pairs]
+    Consider a block A resting on block B, with block B on a surface. For block A, the forces are its weight $w_A$ downward and the normal force $N_{BA}$ exerted by block B upward. For block B, the forces are its weight $w_B$ downward, the normal force $N_{AB}$ exerted by block A downward, and the normal force $N$ from the ground upward. The forces $N_{BA}$ and $N_{AB}$ are an action-reaction pair. They are equal in magnitude and opposite in direction, but they act on different bodies. Action-reaction forces never appear in the same free-body diagram.
+\end{remark}
+
+\marginpar{Week of September 8}
+\subsection{Atwood's Machines}
+An Atwood's machine consists of two or more masses connected by a light, inextensible string passing over an ideal pulley. Because the string has fixed length, the motion of the two masses is constrained.
+
+If one mass moves downward by a displacement $x$, the other must move upward by the same amount. Writing the total string length as a constant and differentiating with respect to time gives a velocity constraint, and differentiating again gives an acceleration constraint. This shows that the magnitudes of the accelerations of the two masses are equal.
+
+The essential steps in these problems are:
+\begin{itemize}
+    \item use the string-length constraint to relate accelerations,
+    \item draw separate free-body diagrams for each mass,
+    \item apply $F_{\text{net}} = ma$ to each object.
+\end{itemize}
+
+\subsection{Gravity}
+
+
+
+\section{Appendix}
+
+\section{Solutions}
+\begin{solution}[Levi-Cevita Tensor]
+    Let $\vec{A} = (a_1, a_2, a_3)^T$, $\vec{B} = (b_1, b_2, b_3)^T$ and $\vec{C} = (c_1, c_2, c_3)^T$. Using the determinant-based definition of the cross product, we have
+    \[\vec{A} \times \vec{B} = \begin{vmatrix}\hat{i} & \hat{j} & \hat{k} \\ a_1 & a_2 & a_3 \\ b_1 & b_2 & b_3\end{vmatrix} = \begin{pmatrix}a_2 b_3 - a_3 b_2 \\ a_3 b_1 - a_1 b_3 \\ a_1 b_2 - a_2 b_1\end{pmatrix} = \begin{pmatrix}c_1 \\ c_2 \\ c_3\end{pmatrix}.\]
+    Using the Einstein convention, we have
+    \[c_1 = \epsilon_{123} a_2 b_3 + \epsilon_{132} a_3 b_2 = a_2 b_3 - a_3 b_2,\]
+    \[c_2 = \epsilon_{231} a_3 b_1 + \epsilon_{213} a_1 b_3 = a_3 b_1 - a_1 b_3,\]
+    \[c_3 = \epsilon_{312} a_1 b_2 + \epsilon_{321} a_2 b_1 = a_1 b_2 - a_2 b_1.\]
+    Therefore, the components of $\vec{C}$ obtained with the determinant-based definition of the cross product are the same as those obtained with $C_i = \epsilon_{ijk} A_j B_k$.
+\end{solution}
+
+\section{Useful Links}
+
+\end{document}
