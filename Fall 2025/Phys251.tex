@@ -124,6 +124,89 @@ The essential steps in these problems are:
 
 \subsection{Gravity}
 
+\section{Gravitational Potential Inside a Uniform Solid Sphere}
+
+Consider a solid sphere of radius $R$, total mass $M$, and uniform density $\rho$. We compute the gravitational potential at a point located a distance $r$ from the center, where $r < R$.
+
+\paragraph{Step 1: Split the mass into two regions.}
+
+We divide the sphere into:
+
+\begin{itemize}
+    \item An inner solid sphere of radius $r$,
+    \item An outer spherical shell extending from $r$ to $R$.
+\end{itemize}
+
+By symmetry (shell theorem):
+
+\begin{itemize}
+    \item The inner sphere acts like a point mass located at the center.
+    \item The outer shell produces zero \emph{force}, but still contributes to the potential.
+\end{itemize}
+
+\paragraph{Step 2: Contribution from the inner sphere.}
+
+The density is
+\[
+\rho = \frac{M}{\frac{4}{3}\pi R^3}.
+\]
+
+The mass enclosed within radius $r$ is
+\[
+M_{\text{in}} = \frac{4}{3}\pi r^3 \rho = M \frac{r^3}{R^3}.
+\]
+
+Since we are outside this inner sphere, its contribution to the potential is
+\[
+U_1 = -\frac{G m M_{\text{in}}}{r}
+= - G m M \frac{r^2}{R^3}.
+\]
+
+\paragraph{Step 3: Contribution from the outer shell.}
+
+A thin spherical shell of radius $r'$ and thickness $dr'$ has mass
+\[
+dM = 4\pi r'^2 \rho \, dr'.
+\]
+
+The potential contribution from this shell is
+\[
+dU = -\frac{G m \, dM}{r'}.
+\]
+
+Integrating from $r$ to $R$ gives
+\[
+U_2 = -Gm \int_r^R \frac{4\pi r'^2 \rho}{r'} \, dr'
+= -4\pi G m \rho \int_r^R r' \, dr'.
+\]
+
+Evaluating the integral,
+\[
+U_2 = -2\pi G m \rho (R^2 - r^2).
+\]
+
+Substituting $\rho = \frac{3M}{4\pi R^3}$,
+\[
+U_2 = -\frac{3 G m M}{2 R^3}(R^2 - r^2).
+\]
+
+\paragraph{Step 4: Total potential inside the sphere.}
+
+The total potential is
+\[
+U(r<R) = U_1 + U_2
+= -\frac{G m M}{2 R^3}(3R^2 - r^2).
+\]
+
+\paragraph{Remarks.}
+
+\begin{itemize}
+    \item The potential is finite at $r=0$.
+    \item At $r=R$, this expression matches the exterior result $U = -\frac{G m M}{R}$.
+    \item Inside the sphere, the potential varies quadratically with $r$.
+\end{itemize}
+
+
 
 
 \section{Appendix}
