@@ -54,8 +54,8 @@
 \contentsline {paragraph}{Claim 1.}{27}{section*.7}%
 \contentsline {paragraph}{Claim 2.}{27}{section*.8}%
 \contentsline {subsection}{\numberline {6.2}Vector Space Axioms}{28}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Algebraic Structures: Rings, Fields, and Vector Spaces}{28}{subsection.6.3}%
-\contentsline {paragraph}{Genealogy of Algebraic Structures.}{28}{section*.9}%
+\contentsline {subsection}{\numberline {6.3}Algebraic Structures: Rings, Fields, and Vector Spaces}{29}{subsection.6.3}%
+\contentsline {paragraph}{Genealogy of Algebraic Structures.}{29}{section*.9}%
 \contentsline {paragraph}{Rings vs Vector Spaces.}{29}{section*.10}%
-\contentsline {section}{\numberline {7}Solutions}{29}{section.7}%
-\contentsline {section}{\numberline {8}Useful Links}{32}{section.8}%
+\contentsline {section}{\numberline {7}Solutions}{30}{section.7}%
+\contentsline {section}{\numberline {8}Useful Links}{33}{section.8}%

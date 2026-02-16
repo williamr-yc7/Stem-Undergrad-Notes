@@ -1110,6 +1110,37 @@ The vectors \(e_1,\ldots,e_n\) are linearly independent.
     so \(\lambda_1=\cdots=\lambda_n=0\). Therefore \(e_1,\ldots,e_n\) are linearly independent.
 \end{proof}
 
+\marginpar{February 16, 2026}
+Examples:
+Example 1: The derivative
+\[D : P_n \to P_n, \quad f \to f'\]
+where $D(x^n)=nx^{n-1}$, Linear map:
+\begin{itemize}
+    \item $(f+g)' = f' + g'$
+    \item $(\lambda f)' = \lambda f'$, where $\lambda \in \mathbb{R}$.
+\end{itemize}
+Is $D$ injective? No, $D(1) = 0$. 
+$1, 0 \in P_n$, constant polynomials : $r + 0x + 0x^2+\cdots$. $D(r) = 0$, where $r \in \mathbb{R}$.
+Is $D$ surjective? No, there is no $f$ such that $f' = 1$. $x^n \notin \Im(D)$. $f \in P_n$ such that $D(f) = x^n$. No sinsce every polynomials n in $\Im(D)$ has degree $\leq n-1$.
+\[D(a_0 + a_1x + \cdots + a_nx^n) = a_1 + 2a_2x + \cdots + na_nx^{n-1}.\]
+$D : P_n \to P_n$ is not surjective.
+
+
+Indefinite Integral:
+\[\int : P_\infty \to P_\infty\]
+[Linear]
+Injective? $\int 1 = x$, $deg(f) = n$, $deg(\int f) = n+1$. $\int f = 0$ implies $f=0$. So injective.
+$D(\int f) = f$ not surjective. No $f \in P_\infty$ such that $\int f = 1$.
+Definition: Assume $V = U \oplus U'$, direct sum decomposition of V. $U \intersec U' = \{0\}$, $V \in U + U'$.
+Definition of $P(v)$: Since $V = U \oplus U'$, every $v \in V$ admits a unique sum decomposition $v = u+u'$, by definition $P(v) := u$.
+$P(v)$ is called the projection of $v$ onto $U$ along $U'$ parallel to $U'$.
+Proposition: $P$ is a linear map
+Proof: $\begin{cases}P(v_1 + v_2) = P(v_1) + P(v_2)\\P(\lambda v) = \lambda P(v)\end{cases}$
+\begin{enumerate}
+    \item Prove : $P(v_1 + v_2) = P(v_1) + P(v_2)$.
+    \item $v_1 = u_1+u_1' \in U \oplus U', P(v_1) = u_1$, $v_2 = u_2 + u_2' \in U \oplus U', P(v_2) = u_2$.
+    \item $P(v_1+v_2) = ?$, $v_1 + v_2 = u_1 + u_2 + u_1' + u_2'$, $P(v_1+v_2) = u_1+u_2 = P(v_1+v_2)$.
+\end{enumerate}
 \subsection{Vector Space Axioms}
 \label{subsec:VSA}
 \begin{enumerate}
