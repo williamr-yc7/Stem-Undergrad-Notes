@@ -10,6 +10,7 @@
 \usepackage{pgfplots} % For plots
 \usepackage{tikz} % For drawing shapes
 \usepackage{circuitikz}
+\usepackage{float} % For [H] float option
 \pgfplotsset{compat=1.18} % Set compatibility level
 \newtheorem{theorem}{Theorem}
 \newtheorem{corollary}{Corollary}[theorem]
@@ -63,6 +64,9 @@
 \begin{definition}
     A discretely sampled signal with a sequence of quantized values.
 \end{definition}
+\begin{example}
+    Examples of digital devices and computers include digital clocks, calculators, and modern computers that use binary code to process and store information.
+\end{example}
 \subsubsection{Analogue}
 \begin{definition}
     A continuous signal (e.g., in time) representing (analogous to) some other quantity.
@@ -86,38 +90,29 @@ To be able to describe AC signals effectively, we take the root mean square (RMS
 
 \subsubsection{Waveforms}
 \begin{definition}
-A waveform is a graphical representation of how a signal varies over time, and can take various forms such as a sine wave, square wave, triangle wave, or sawtooth wave.
+    A waveform is a graphical representation of how a signal varies over time, and can take various forms such as a sine wave, square wave, triangle wave, or sawtooth wave.
 \end{definition} 
-
-\paragraph{Direct current (DC).}
+\paragraph{1. Direct current (DC).}
 A direct current is constant in time, so its graph is a horizontal line.
 \begin{center}
-\begin{tikzpicture}[scale=1.1]
-    % Axes
-    \draw[->] (0,0) -- (5,0) node[right] {$t$};
-    \draw[->] (0,0) -- (0,5) node[above] {$I(t)$};
-
-    % DC graph
-    \draw (0,3) -- (5,3);
-\end{tikzpicture}
+    \begin{tikzpicture}[scale=1]
+        \draw[->] (0,0) -- (3,0) node[right] {$t$};
+        \draw[->] (0,0) -- (0,3) node[above] {$I(t)$};
+        \draw (0,1.5) -- (3,1.5);
+    \end{tikzpicture}
 \end{center}
-
-\paragraph{Alternating current (AC).}
-An alternating current varies periodically in time and typically oscillates about zero.
+\paragraph{2. Alternating current (AC).}
+An alternating current varies periodically in time and typically oscillates about zero in a sinusoidal pattern.
 \begin{center}
-\begin{tikzpicture}[scale=1.1]
-    % Axes
-    \draw[->] (0,2.5) -- (6,2.5) node[right] {$t$};
-    \draw[->] (0,0) -- (0,5) node[above] {$I(t)$};
-
-    % AC graph
-    \draw[domain=0:6, samples=400] plot (\x,{sin(8*\x r)+2.5});
-\end{tikzpicture}
+    \begin{tikzpicture}[scale=1]
+        \draw[->] (0,2.5) -- (6,2.5) node[right] {$t$};
+        \draw[->] (0,0) -- (0,5) node[above] {$I(t)$};
+        \draw[domain=0:6, samples=400] plot (\x,{sin(8*\x r)+2.5});
+    \end{tikzpicture}
 \end{center}
-
-\paragraph{Pulsating current (DC + AC).}
+\paragraph{3. Pulsating current (DC + AC).}
 A pulsating current is an alternating current superimposed on a non-zero DC level. This is just a matter of adding a constant DC level to an AC signal so that the signal is either shifted up or down with respect to the zero current level.
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{../Images/Pulsating-direct-current-diagram.svg}
     \caption{Pulsating direct current diagram}
