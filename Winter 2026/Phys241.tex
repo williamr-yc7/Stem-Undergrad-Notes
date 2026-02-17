@@ -135,7 +135,7 @@ A pulsating current is an alternating current superimposed on a non-zero DC leve
     \[y_{total} = \alpha y_1(t) + \beta y_1(t) = H[\alpha x_1(t) + \beta x_2(t)],\]
     where \(\alpha\) and \(\beta\) are constants.
 \end{example}
-\section{Charge and Fields}
+\section{Electricity and Magnetism}
 \subsection{Electric Charge}
 \begin{definition}
     Charge is a fundamental physical property that comes in two types: positive (+) and negative (-) (which cancel). Opposite charges attract and equal amounts of positive and negative charge cancel, so most matter is electrically neutral. Electric charge is conserved, meaning it cannot be created or destroyed, only transferred. It is also quantized, existing in discrete multiples of the elementary charge 
@@ -174,6 +174,18 @@ An electron placed between two charged plates experiences a potential difference
 If the electron is allowed to move freely, this change in electric potential energy is converted into kinetic energy:
 \[\Delta K = -\Delta U.\]
 
+\subsection{Magnetic Field}
+\begin{definition}[Magnetic Field]
+    A magnetic field $\vec B$ is a vector field that exerts a force on moving electric charges and magnetic dipoles. It is produced by moving charges (currents) and intrinsic magnetic moments of particles. The SI unit of the magnetic field is the tesla (T).
+\end{definition}
+
+\subsection{Magnetic Flux}
+\begin{definition}[Magnetic Flux]
+    Magnetic flux $\Phi_B$ through a surface is defined as the surface integral of the magnetic field $\vec B$ over that surface:
+    \[\Phi_B = \int \vec B \cdot d\vec A,\]
+    where $d\vec A$ is an infinitesimal area element of the surface, and the dot product accounts for the angle between the magnetic field and the normal to the surface. The SI unit of magnetic flux is the weber (Wb).
+\end{definition}
+
 \section{Current and Circuits}
 \subsection{Current flow}
 \begin{definition}[Electric Current]
@@ -200,10 +212,10 @@ When the circuit is closed, electrons flow externally from the anode to the cath
 \begin{definition}[Electromotive Force (EMF)]
     Electromotive Force (EMF)\footnote{EMF is the total energy supplied per unit charge by a source. The terminal voltage across a real source is typically less than the EMF due to internal resistance.} is the energy supplied per unit charge by an energy source such as a battery or generator. It represents the work done by the source to move a charge around a complete circuit. EMF is measured in volts (V).
 \end{definition}
-
 To better understand the concept of EMF, consider the following analogy: EMF is like a voltage credit that is then all spent by dropping it over the elements of the circuit. Think of your checking account with two columns: credit (money in) and debit (money spent). EMF is like the "credit" that is then all "spent" by dropping it over the elements of the circuit.
+
 \subsubsection{Faraday's Law}
-\begin{theorem}
+\begin{theorem}[Faraday's Law]
     Faraday's Law states that a changing magnetic flux through a closed loop induces an electromotive force (EMF) in the loop. Mathematically, it is expressed as:
     \[\mathcal{E}_{EMF} = -\frac{d\Phi_B}{dt}\]
     where \(\mathcal{E}_{EMF}\) is the induced EMF, and \(\Phi_B\) is the magnetic flux through a wire loop, defined as:
