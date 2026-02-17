@@ -1237,6 +1237,48 @@ and $\dim(k_0) = 0 < \dim(k_1) < \dim(k_m) = m$.
     \[(A-I)^2 \begin{pmatrix}0\\1\end{pmatrix} = (A-I)\begin{pmatrix}1\\0\end{pmatrix} = \begin{pmatrix}0\\0\end{pmatrix}.\]
 \end{example}
 
+\subsection{Exponential of a Matrix}
+\marginpar{February 17, 2026}
+Let $A \in M_n(\mathbb{R})$. Let $x \in \mathbb{R}$, we can represent $e^x$ as a power series:
+\[e^x = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots = \sum_{k=0}^{\infty} \frac{x^k}{k!}.\]
+Therefore
+\[e^A = I + A + \frac{A^2}{2!} + \frac{A^3}{3!} + \cdots = \sum_{k=0}^{\infty} \frac{A^k}{k!} = \lim_{N \to \infty} \sum_{k=0}^{N} \frac{A^k}{k!}.\]
+\begin{definition}[Induced Matrix Norm]
+    Given any norm $||\cdot||$ on $\mathbb{R}^n$, the induced matrix norm is defined by 
+    \[||A|| = \sup_{x \neq 0} \frac{||Ax||}{||x||} = \sup_{||x|| = 1} ||Ax|| < \infty.\]
+
+    Properties:
+    \[||Ax|| \leq ||A|| \cdot ||x||, \quad \forall x \in \mathbb{R}^n.\]
+\end{definition}
+By definition, if we take two matrices $A,B \in M_n(\mathbb{R})$,
+\[|||AB||| \leq |||A||| \cdot |||B|||.\]\footnote{triple bar is norm for a matrix while double bar is the norm of a vector.}
+Using matrix norms, we have that 
+\[|||\sum_{k=0}^{N} \frac{A^k}{k!}||| \leq \sum_{k=0}^{N} \frac{|||A|||^k}{k!}.\]
+From
+\begin{equation}
+    \label{eq:Triangleinequatlity}
+    ||A+B|| \leq ||A|| + ||B||.
+\end{equation}
+Since the series $\sum_{k=0}^{\infty} \frac{||A||^k}{k!}$ converges (it is the Taylor series for $e^{||A||}$), the sequence of partial sums is bounded and hence converges. $\to_{N \to \infty} e^A < \infty$. Hence, $\forall A \in M_n(\mathbb{R})$, $e^A \in M_n(\mathbb{R})$.
+Property: $e^{A+B} = e^A e^B$ if $AB=BA$.
+Going back to \eqref{eq:ode-system-matrix}, another solution for this is $y(t) = e^{At}c$, where $c \in \mathbb{R}^n$ is a constant vector.
+Given $t \in \mathbb{R}$, $At \in M_n(\mathbb{R})$,
+\[e^{At} = \sum_{k=0}^{\infty}\frac{(At)^k}{k!} = I + tA + 1/2 t^2 A^2 + \cdots \in M_n(\mathbb{R}).\]
+$\implies t \to e^{At}$ is a matrix function.
+\[y(t) = e^{at} \to y(0) = 1 \implies y(t+s) = y(t) + y(s) \implies y(-t) = e^{-at} = (y(t))^{-1} \implies y' = ae^{at} = ay.\]
+Proposition:
+\begin{itemize}
+    \item \[e^{A0} = I.\]
+    \item \[e^{A(t+s)} = e^{At} e^{As}\]
+    \item \[e^{-At} = (e^{At})^{-1}\]
+    \item \[\frac{d}{dt}e^{At} = Ae^{At} = e^{At}A\]
+\end{itemize}
+\[\frac{d}{dt}(e^{At}) = \frac{d}{dt}\sum_{k=0}^{\infty} \frac{A^kt^k}{k!} = \sum_{k=1}^{\infty} \frac{A^kt^{k-1}}{k!} = \sum_{k=1}^{\infty}\frac{A^{k-1}t^{k-1}}{(k-1)!} = A\sum_{j=0}^{\infty}\frac{A^jt^j}{j!} = Ae^{At}.\]
+$\implies x(t) = e^{At}$ is a matrix solution, $det x(0) = 1 \neq 0 \implies e^{At}$ is a fundamental matrix solution.
+$\implies$ The columns of $e^{At}$ form a basis for the solution set $S$ of \eqref{eq:ode-system-matrix}.
+Proposition: The general solution to \eqref{eq:eq:ode-system-matrix} is $y(t) = e^{At}C$, where $C = \begin{pmatrix}C_1\\\vdots\\C_n\end{pmatrix} \in \mathbb{R}^n$. The unique solution satisfying the IVP $\begin{cases}y'=Ay\\y(0)=y_0\end{cases}$ is given by $y(t) = e^{At}y_0$.
+Proof: $e^{At}C$ is the general solution since $e^{At}$ is a fundamental matrix solution. Now, $y(0) = e^{A0}y_0 = Iy_0 = y_0$.
+
 \section{Second and Higher-Order Scalar Linear Equations}
 \section{Stability, Phase Portraits and Orbits}
 \section{Laplace Transform}
