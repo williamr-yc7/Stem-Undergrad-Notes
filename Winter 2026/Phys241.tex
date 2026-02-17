@@ -175,8 +175,13 @@ If the electron is allowed to move freely, this change in electric potential ene
 \[\Delta K = -\Delta U.\]
 
 \subsection{Magnetic Field}
+\subsection{Magnetic Field}
 \begin{definition}[Magnetic Field]
-    A magnetic field $\vec B$ is a vector field that exerts a force on moving electric charges and magnetic dipoles. It is produced by moving charges (currents) and intrinsic magnetic moments of particles. The SI unit of the magnetic field is the tesla (T).
+    A magnetic field $\vec B$ is a vector field produced by moving electric charges (currents) and intrinsic magnetic moments of particles. It exerts a force on moving charges given by the Lorentz force law:
+    \[\vec F = q(\vec v \times \vec B),\]
+    where $q$ is the charge and $\vec v$ is its velocity. The force is perpendicular to both the velocity and the magnetic field. Unlike electric fields, which act on charges whether stationary or moving, magnetic fields act only on moving charges. For a long straight current-carrying wire, the magnitude of the magnetic field at a distance $r$ is
+    \[B = \frac{\mu_0 I}{2\pi r},\]
+    where $\mu_0$ is the permeability of free space and $I$ is the current. The SI unit of magnetic field is the tesla (T).
 \end{definition}
 
 \subsection{Magnetic Flux}
@@ -190,7 +195,10 @@ If the electron is allowed to move freely, this change in electric potential ene
 \subsection{Current flow}
 \begin{definition}[Electric Current]
     Electric current is the flow of electrons through a wire driven by an electric field potential energy difference. Defined as the rate of charge past a point in a circuit
-    \[I = \frac{Q}{t},\]
+    \begin{equation}
+        \label{eq:current}
+        I = \frac{dQ}{dt},
+    \end{equation}
     and is measured in amperes (A), where
     \[1\,\text{A} = 1\,\text{C/s}.\]
 \end{definition}
@@ -218,11 +226,10 @@ To better understand the concept of EMF, consider the following analogy: EMF is 
 \begin{theorem}[Faraday's Law]
     Faraday's Law states that a changing magnetic flux through a closed loop induces an electromotive force (EMF) in the loop. Mathematically, it is expressed as:
     \[\mathcal{E}_{EMF} = -\frac{d\Phi_B}{dt}\]
-    where \(\mathcal{E}_{EMF}\) is the induced EMF, and \(\Phi_B\) is the magnetic flux through a wire loop, defined as:
-    \[\Phi_B = \int B \cdot da\]
+    where \(\mathcal{E}_{EMF}\) is the induced EMF, and \(\Phi_B\) is the magnetic flux through a wire loop. The negative sign indicates that the induced EMF creates a current whose magnetic field opposes the change in flux, as described by Lenz's Law.
 \end{theorem}
 \subsection{Ohm's Law}
-\begin{definition}
+\begin{definition}[Ohm's Law]
     Ohm's Law states that the current \(I\) flowing through a conductor is directly proportional to the voltage \(V\) across it and inversely proportional to its resistance \(R\). Mathematically, it is expressed as:
     \[I = \frac{V}{R}\]
 \end{definition}
@@ -250,27 +257,25 @@ Ohm's Law can be represented graphically using the Ohm's Law Wheel, which illust
     \end{center}
 \end{figure}
 
-\subsection{DC}
-\begin{definition}
+\subsection{Direct Current}
+\begin{definition}[Direct Current (DC)]
     Direct Current (DC) is a form of current where voltage and current are constant over time, could be found in batteries.
 \end{definition}
-\begin{definition}
-    A DC offset is the addition of a constant DC value to an AC signal.  
-    This shifts the entire signal up or down relative to the \(0\,\text{V}\) level, without changing the shape of the AC signal.
+\begin{definition}[DC Offset]
+    A DC offset is the addition of a constant DC value to an AC signal. This shifts the entire signal up or down relative to the \(0\,\text{V}\) level, without changing the shape of the AC signal.
 \end{definition}
 
-\subsection{AC}
-\begin{definition}
+\subsection{Alternating Current}
+\begin{definition}[Alternating Current (AC)]
     Alternating Current (AC) is a form of current that changes over time, often in a sinusoidal manner. AC currents are commonly used in power distribution systems, such as household electrical outlets.
 \end{definition}
 \subsection{Static Circuits and Electronics}
-Consider the variation of electric potential along a conducting wire. 
-If the wire has a small but non-negligible resistance that is uniformly distributed, the potential decreases approximately linearly with distance along the wire, since the voltage drop is proportional to length.
+Consider the variation of electric potential along a conducting wire.\\
+If the wire has a small but non-negligible resistance that is uniformly distributed, the electric potential decreases approximately linearly with distance. This occurs because the voltage drop across a uniform conductor is proportional to its length.
 \begin{center}
 \begin{tikzpicture}
     \draw[->] (0,0) -- (2,0) node[right] {Length along the wire};
     \draw[->] (0,0) -- (0,2) node[above] {Voltage};
-
     \draw[domain=0:2] plot (\x, {1-0.5*\x});
 \end{tikzpicture}
 \end{center}
@@ -279,26 +284,43 @@ In contrast, if a discrete resistor with resistance much larger than that of the
 \begin{tikzpicture}
     \draw[->] (0,0) -- (2,0) node[right] {Length along the wire};
     \draw[->] (0,0) -- (0,2) node[above] {Voltage};
-
     \draw (0,1) -- (1.6,1);
     \draw (1.6,0.1) -- (2,0.1);
     \draw (1.6,1) -- (1.6,0.1);
 \end{tikzpicture}
 \end{center}
 
+\subsection{Circuits}
+Circuits may be classified according to whether they are linear or non-linear, and whether they contain active or passive elements.
+A linear circuit element has a linear (straight-line) relationship between voltage and current, meaning $V \propto I$. In contrast, a non-linear element does not exhibit a straight-line $V$-$I$ relationship.
+\begin{definition}[Passive Linear Circuit]
+A passive linear circuit contains only passive linear elements, such as resistors, capacitors, inductors, and transformers.
+\end{definition}
+\begin{definition}[Active Linear Circuit]
+An active linear circuit contains at least one active element, such as a transistor, operational amplifier, or independent source, while maintaining an overall linear $V$-$I$ relationship.
+\end{definition}
+\begin{definition}[Passive Non-linear Circuit]
+A passive non-linear circuit contains only passive components but includes at least one non-linear element, such as a diode.
+\end{definition}
+\begin{definition}[Active Non-linear Circuit]
+An active non-linear circuit contains at least one active element and at least one non-linear element.
+\end{definition}
+
 \section{Circuit Components}
 \subsection{Resistors}
 \begin{definition}
-    A resistor is a device that opposes the flow of current through it, resulting in a voltage drop across it. Resistors are characterized by their resistance value \(R\), measured in ohms (\(\Omega\)), which quantifies the amount of opposition they provide to the flow of current. According to Ohm's Law, the voltage drop \(V\) across a resistor is directly proportional to the current \(I\) flowing through it:
-    \[V = IR\]
+    A resistor is a device that opposes the flow of current through it, resulting in a voltage drop across it. Resistors are characterized by their resistance value \(R\), measured in ohms (\(\Omega\)), which quantifies the amount of opposition they provide to the flow of current.
 \end{definition}
 When resistors are connected in series, their resistances add together to form a total resistance $R_{tot} = R_1 + R_2 + \cdots + R_n$. In contrast, when resistors are connected in parallel, their resistances add inversely to form a total resistance $\frac{1}{R_{tot}} = \frac{1}{R_1} + \frac{1}{R_2} + \cdots + \frac{1}{R_n}$.
-\begin{figure}
-    \begin{center}
-        \includegraphics[width=0.5\textwidth]{../Images/Parallel_resistors.png}
-        \caption{In all of these examples, the components are wired in parallel.}
-    \end{center}
-\end{figure}
+\begin{example}
+    Look at the following examples of resistors, all of which are connected in parallel.
+    \begin{figure}[h]
+        \begin{center}
+            \includegraphics[width=0.5\textwidth]{../Images/Parallel_resistors.png}
+            \caption{In all of these examples, the components are wired in parallel.}
+        \end{center}
+    \end{figure}
+\end{example}
 \subsubsection{Temperature Dependence}
 The temperature dependence of the resistance of many metals can be modelled by the following equation:
 \[R_T = R_0[1 + \alpha (T - T_0)]\]
@@ -310,18 +332,19 @@ Using Ohm's Law, we can express the power dissipated in terms of the resistance 
 \[P = I^2 R = \frac{(\Delta V)^2}{R}\]
 \subsection{Batteries}
 \marginpar{January 20, 2026}
+\begin{definition}[Battery]
+    A battery converts stored chemical energy into electrical energy by maintaining a potential difference between its terminals. Inside the battery, chemical reactions separate charge, creating an excess of negative charge at the anode and positive charge at the cathode.
+\end{definition}
 \begin{definition}[Ideal Battery]
-    An ideal battery is a theoretical concept that represents a perfect voltage source with no internal resistance. It maintains a constant voltage output regardless of the current drawn from it, meaning that it can supply any amount of current without any voltage drop or loss of energy.
+    An ideal battery is a voltage source with zero internal resistance that maintains a constant voltage regardless of the current drawn.
 \end{definition}
 \begin{definition}[Real Battery]
-    A real battery, on the other hand, has internal resistance that causes a voltage drop when current is drawn from it. This means that the voltage output of a real battery decreases as the current increases, leading to a loss of energy in the form of heat due to the internal resistance.
+    A real battery has internal resistance that causes the voltage output to decreases as the current increases, leading to a loss of energy in the form of heat due to the internal resistance.
 \end{definition}
-The circuit containing a real battery can be modeled as an ideal voltage source \(V_0\) or \(V_{ideal}\) in series with an internal resistance \(r\). The terminal voltage \(V_{terminal}\) of the battery when a current \(I\) is drawn from it can be expressed as:
+The circuit containing a real battery can be modeled as an ideal voltage source \(V_0\) in series with an internal resistance \(r\). The terminal voltage \(V_{terminal}\) of the battery when a current \(I\) is drawn from it can be expressed as:
 \[V_{terminal} = V_{0} - Ir\]
 However, if the circuit contained a resistor \(R\) connected to the battery, the current \(I\) flowing through the circuit can be calculated using Ohm's Law:
-\[V_0 = Ir + IR\]
-
-A battery converts stored chemical energy into electrical energy by maintaining a potential difference between its terminals. Inside the battery, chemical reactions separate charge, creating an excess of negative charge at the anode and positive charge at the cathode.
+\[V_0 = Ir + IR.\]
 \subsection{Ground and Reference}
 \begin{definition}[Circuit ground]
     The reference point in a circuit at which the electric potential is defined to be zero. All voltages $V$ in the circuit are measured relative to this point. It does not have to be physically connected to the Earth. The symbol for circuit ground is \begin{circuitikz}\draw (0,0) node[ground]{};\end{circuitikz}.
@@ -331,6 +354,159 @@ A battery converts stored chemical energy into electrical energy by maintaining 
 \end{definition}
 \begin{definition}[Earth Ground]
     Earth ground is a physical connection to the Earth, typically made using a metal rod or pipe driven into the soil. It is used primarily for safety, allowing fault currents to safely dissipate into the ground.
+\end{definition}
+
+\subsection{Capacitors}
+\begin{definition}[Capacitor]
+    A capacitor is a passive electrical component that stores energy in an electric field between two conductive plates separated by an insulating material (dielectric) or space. The capacitance \(C\) of a capacitor is defined as the ratio of the charge \(Q\) stored on one plate to the voltage \(V\) across the plates (or of the source of the circuit):
+    \begin{equation}
+        \label{eq:capacitance}
+        C = \frac{Q}{V}
+    \end{equation}
+    The SI unit of capacitance is the farad (F).
+\end{definition}
+Capacitance can also be measured in terms of the physical characteristics of the capacitor. For a parallel plate capacitor, the capacitance is given by:
+\[C = \frac{\varepsilon A}{d}\]
+where \(\varepsilon\) is the dielectric constant, \(A\) is the area of the plates, and \(d\) is the distance between the plates.
+
+Capacitors combine oppositely to resistors. In parallel,
+\[C_{tot} = C_1 + C_2 + \cdots + C_n,\]
+while in series,
+\[\frac{1}{C_{tot}} = \frac{1}{C_1} + \frac{1}{C_2} + \cdots + \frac{1}{C_n}.\]
+
+From the definition of capacitance, the voltage-charge relation is
+\[V = \frac{Q}{C}.\]
+
+Because capacitors typically have very low internal resistance, they can charge and discharge much faster than batteries.
+
+\subsubsection{Energy Stored In a Capacitor}
+The energy stored equals the work required to move charge from one plate to the other. Since $V = \frac{Q}{C}$, the work done in charging the capacitor from $0$ to $Q$ is
+\[W = \int_0^Q V \, dQ = \int_0^Q \frac{Q}{C} \, dQ = \frac{1}{2}CV^2.\]
+Thus, the energy stored in a capacitor is
+\[W = \frac{1}{2}CV^2.\]
+
+\subsubsection{Dielectric Insulator}
+\begin{definition}[Dielectric Insulator]
+    A dielectric is an insulating material that permits an electric field but does not conduct charge. When placed between capacitor plates, it increases capacitance by reducing the effective electric field, allowing more charge to be stored for a given voltage. Its permittivity is given by
+    \[\varepsilon = \varepsilon_r \varepsilon_0,\]
+    where $\varepsilon_r$ is the relative permittivity and $\varepsilon_0$ is the permittivity of free space.
+\end{definition}
+
+\subsubsection{Charging a Capacitor}
+For a capacitor, the current-voltage relationship, derived from \eqref{eq:capacitance} and \eqref{eq:current}, is
+\[I = C\frac{dV}{dt},\]
+where $V$ is the voltage across the capacitor. Integrating,
+\[V(t) = \frac{1}{C}\int I\,dt + V_0,\]
+where $V_0$ is the initial voltage. If the current $I$ is constant, then
+\[\frac{dV}{dt} = \frac{I}{C},\]
+so
+\[V(t) = V_0 + \frac{I}{C}t.\]
+Thus, the voltage increases linearly with time, with slope $\frac{I}{C}$ and y-intercept $V_0$.
+\begin{center}
+    \begin{tikzpicture}
+        \draw[->] (0,0) -- (5,0) node[right] {$t$};
+        \draw[->] (0,0) -- (0,4) node[above] {$V$};
+        \draw (0,1) node[left] {$V_0$} -- (0.1,1);
+        \draw (0,1) -- (4,3);
+        \node at (4,2.6) {$\frac{I}{C}$};
+    \end{tikzpicture}
+\end{center}
+
+\subsection{RC Circuit}
+\subsubsection{Charging}
+Consider an initially uncharged capacitor connected in series with a resistor and a constant source $V_0$. Applying Kirchhoff's Voltage Law,
+\[V_0 = v_R(t) + v_C(t) = i(t)R + \frac{1}{C}\int_0^{t} i(\tau)\, d\tau.\]
+Differentiating with respect to time gives
+\[0 = R\frac{di(t)}{dt} + \frac{1}{C}i(t).\]
+Multiplying by $C$,
+\[0 = RC\frac{di(t)}{dt} + i(t).\]
+Solving,
+\[I(t) = \frac{V_0}{R}e^{-t/\tau}, \quad V_C(t) = V_0\left(1 - e^{-t/\tau}\right),\]
+where $\tau = RC$ is the time constant. As $t \to \infty$, the current and the resistor voltage decay exponentially to zero, while the capacitor voltage approaches $V_0$.
+\paragraph{Charging Graphs}
+\begin{center}
+    \begin{tikzpicture}
+        % --- Current ---
+        \begin{scope}
+            \draw[->] (0,0) -- (4,0) node[right] {$t$};
+            \draw[->] (0,0) -- (0,2.8) node[above] {$I$};
+            \draw[domain=0:3.5,smooth,variable=\x] 
+                plot ({\x},{2.5*exp(-\x)});
+        \end{scope}
+        % --- Voltage ---
+        \begin{scope}[xshift=5cm]
+            \draw[->] (0,0) -- (4,0) node[right] {$t$};
+            \draw[->] (0,0) -- (0,2.8) node[above] {$V_C$};
+            \draw[domain=0:3.5,smooth,variable=\x] 
+                plot ({\x},{2.5*(1-exp(-\x))});
+        \end{scope}
+        % --- Charge ---
+        \begin{scope}[xshift=10cm]
+            \draw[->] (0,0) -- (4,0) node[right] {$t$};
+            \draw[->] (0,0) -- (0,2.8) node[above] {$Q$};
+            \draw[domain=0:3.5,smooth,variable=\x] 
+                plot ({\x},{2.5*(1-exp(-\x))});
+        \end{scope}
+    \end{tikzpicture}
+\end{center}
+
+\subsubsection{Discharging}
+If the source is removed and the capacitor initially has voltage $V_0$, the solutions become
+\[I(t) = -\frac{V_0}{R}e^{-t/\tau}, \quad V_C(t) = V_0 e^{-t/\tau}.\]
+Both current and voltage decay exponentially to zero.
+\paragraph{Discharging Graphs}
+\begin{center}
+    \begin{tikzpicture}
+        % --- Current ---
+        \begin{scope}
+            \draw[->] (0,0) -- (4.5,0) node[right] {$t$};
+            \draw[->] (0,0) -- (0,3) node[above] {$I$};
+            \draw[domain=0:4,smooth,variable=\x] plot ({\x},{2.5*exp(-\x)});
+        \end{scope}
+        % --- Voltage ---
+        \begin{scope}[xshift=5cm]
+            \draw[->] (0,0) -- (4.5,0) node[right] {$t$};
+            \draw[->] (0,0) -- (0,3) node[above] {$V_C$};
+            \draw[domain=0:4,smooth,variable=\x] plot ({\x},{2.5*exp(-\x)});
+        \end{scope}
+        % --- Charge ---
+        \begin{scope}[xshift=10cm]
+            \draw[->] (0,0) -- (4.5,0) node[right] {$t$};
+            \draw[->] (0,0) -- (0,3) node[above] {$Q$};
+            \draw[domain=0:4,smooth,variable=\x] plot ({\x},{2.5*exp(-\x)});
+        \end{scope}
+    \end{tikzpicture}
+\end{center}
+
+\subsection{Transformers \& Mutual Inductance}
+\begin{definition}[Transformer]
+    A transformer is a device consisting of two coils of wire, called the primary and secondary, magnetically coupled through a shared core. A changing current in the primary coil induces a voltage in the secondary coil by mutual inductance. The symbol for a transformer is
+    \begin{center}
+        \begin{circuitikz}
+            \draw
+            (0,0) node[transformer] (T) {}
+            (T.A1) -- ++(-1,0)
+            (T.A2) -- ++(-1,0)
+            (T.B1) -- ++(1,0)
+            (T.B2) -- ++(1,0);
+        \end{circuitikz}
+    \end{center}
+\end{definition}
+A transformer typically consists of two coils with $N_1$ and $N_2$ turns wound around a common core, which may be air or a ferromagnetic material to concentrate the magnetic field.
+
+A time-varying current $I_1$ in the primary produces a magnetic field $\vec B$, creating a magnetic flux $\Phi_B$ through the secondary coil. By Faraday's law, a changing magnetic flux induces a voltage in the secondary:
+\[\mathcal{E}_2 = -\frac{d\Phi_B}{dt}.\]
+Since the magnetic flux is proportional to the primary current, the induced voltage is proportional to $\frac{dI_1}{dt}$. The proportionality constant is the mutual inductance $M$:
+\[\mathcal{E}_2 = -M\frac{dI_1}{dt}.\]
+The SI unit of mutual inductance is the henry (H), where
+\[1\,\text{H} = 1\,\frac{\text{V}\cdot\text{s}}{\text{A}}.\]
+The direction of the induced current depends on the relative winding orientation of the coils. Reversing the winding reverses the polarity of the induced voltage.
+
+\subsection{Inductors}
+\begin{definition}[Inductor]
+    An inductor is a passive electrical component that stores energy in a magnetic field created by the flow of current through a coil of wire. The inductance \(L\) of an inductor is defined as the ratio of the magnetic flux \(\Phi\) linking the coil to the current \(I\) flowing through it:
+    \[L = \frac{\Phi}{I}\]
+    The SI unit of inductance is the henry (H).    
 \end{definition}
 
 
