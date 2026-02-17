@@ -54,9 +54,10 @@
 %------- introduction -----------
 \setcounter{page}{1}
 \section{Introduction}
-\section{Prerequisite knowledge}
-\section{Basics \& Voltage, Current and Resistance}
+
+
 \marginpar{January 13, 2026}
+\section{Foundations}
 \subsection{Signal Types}
 \subsubsection{Digital Signal}
 \begin{definition}
@@ -69,20 +70,6 @@
 \begin{example}
     Examples of analogue devices and computers are thermometers, sextants, and tide-predicting machines.
 \end{example}
-\subsection{Circuits}
-\subsubsection{DC}
-\begin{definition}
-    Direct Current (DC) is a form of current where voltage and current are constant over time, could be found in batteries.
-\end{definition}
-\begin{definition}
-    A DC offset is the addition of a constant DC value to an AC signal.  
-    This shifts the entire signal up or down relative to the \(0\,\text{V}\) level, without changing the shape of the AC signal.
-\end{definition}
-
-\subsubsection{AC}
-\begin{definition}
-    Alternating Current (AC) is a form of current that changes over time, often in a sinusoidal manner. AC currents are commonly used in power distribution systems, such as household electrical outlets.
-\end{definition}
 
 \subsection{Waves}
 \subsubsection{Properties of waves}
@@ -154,10 +141,30 @@ A pulsating current is an alternating current superimposed on a non-zero DC leve
 \begin{example}[Scaling]
     \[H[\alpha x(t)] = \alpha H[x(t)]\]
 \end{example}
+
+\section{Charge and Fields}
 \subsection{Electric Charge}
 \begin{definition}
     Charge is a fundamental physical property that comes in two types: positive (+) and negative (-) (which cancel). Positive and negative charge are usually present in matter in exactly equal proportion (so matter is typically electrically neutral). Charge is conserved—can neither be created nor destroyed and is quantized in units of electronic charge $e = 1.6 \times 10^{-19} \text{C}$.
 \end{definition}
+\subsection{Electric Field \& Potential}
+Charge emits an electric field that exerts a force on other charges. The electric field \(\vec{E}\) at a point in space is defined as the force \(\vec{F}\) experienced by a small positive test charge \(q\) placed at that point, divided by the magnitude of the test charge:
+\[\vec{E} = \frac{\vec{F}}{q}\]
+
+It takes work to move a charge against an electric field. The electric potential \(V\) at a point in space is defined as the work needed to move a positive test charge \(W\) per unit charge:
+\[V = \frac{W}{q} = -\int_{\vec{r_1}}^{\vec{r_2}}\vec{E}\cdot d\vec{l}\]
+If the electric field is uniform, this simplifies to
+\[V = -\vec{E}\cdot \vec{d}\]
+where \(\vec{d}\) is the displacement vector from point \(\vec{r_1}\) to point \(\vec{r_2}\).
+\subsection{Potential \& Ground}
+\begin{definition}[Circuit ground]
+    The reference point in a circuit at which the electric potential is defined to be zero. All voltages \(V\) in a circuit are measured relative to this point. The symbol for circuit ground is \begin{circuitikz}\draw (0,0) node[ground]{};\end{circuitikz}, and the symbol for chassis ground is \begin{circuitikz}\draw (2,0) node[sground]{};\end{circuitikz}.
+\end{definition}
+\begin{definition}[Earth ground]
+    The earth ground is a possible reference point, which is literally a metal stake or pipe tapped into the soil.
+\end{definition}
+
+\section{Current and Circuits}
 \subsection{Current flow}
 \begin{definition}[Electric Current]
     Charge per unit time passing a given point in a circuit.
@@ -186,23 +193,6 @@ negatively charged ions. Electrons travel through a circuit
 from the anode to the cathode, releasing the stored
 chemical energy.
 
-\subsection{Electric Field \& Potential}
-Charge emits an electric field that exerts a force on other charges. The electric field \(\vec{E}\) at a point in space is defined as the force \(\vec{F}\) experienced by a small positive test charge \(q\) placed at that point, divided by the magnitude of the test charge:
-\[\vec{E} = \frac{\vec{F}}{q}\]
-
-It takes work to move a charge against an electric field. The electric potential \(V\) at a point in space is defined as the work needed to move a positive test charge \(W\) per unit charge:
-\[V = \frac{W}{q} = -\int_{\vec{r_1}}^{\vec{r_2}}\vec{E}\cdot d\vec{l}\]
-If the electric field is uniform, this simplifies to
-\[V = -\vec{E}\cdot \vec{d}\]
-where \(\vec{d}\) is the displacement vector from point \(\vec{r_1}\) to point \(\vec{r_2}\).
-
-\subsection{Potential \& Ground}
-\begin{definition}[Circuit ground]
-    The reference point in a circuit at which the electric potential is defined to be zero. All voltages \(V\) in a circuit are measured relative to this point. The symbol for circuit ground is \begin{circuitikz}\draw (0,0) node[ground]{};\end{circuitikz}, and the symbol for chassis ground is \begin{circuitikz}\draw (2,0) node[sground]{};\end{circuitikz}.
-\end{definition}
-\begin{definition}[Earth ground]
-    The earth ground is a possible reference point, which is literally a metal stake or pipe tapped into the soil.
-\end{definition}
 \subsection{Electromotive Force}
 \marginpar{January 15, 2026}
 \begin{definition}
@@ -217,7 +207,6 @@ To better understand the concept of EMF, consider the following analogy: EMF is 
     where \(\mathcal{E}_{EMF}\) is the induced EMF, and \(\Phi_B\) is the magnetic flux through a wire loop, defined as:
     \[\Phi_B = \int B \cdot da\]
 \end{theorem}
-
 \subsection{Ohm's Law}
 \begin{definition}
     Ohm's Law states that the current \(I\) flowing through a conductor is directly proportional to the voltage \(V\) across it and inversely proportional to its resistance \(R\). Mathematically, it is expressed as:
@@ -247,6 +236,43 @@ Ohm's Law can be represented graphically using the Ohm's Law Wheel, which illust
     \end{center}
 \end{figure}
 
+\subsection{DC}
+\begin{definition}
+    Direct Current (DC) is a form of current where voltage and current are constant over time, could be found in batteries.
+\end{definition}
+\begin{definition}
+    A DC offset is the addition of a constant DC value to an AC signal.  
+    This shifts the entire signal up or down relative to the \(0\,\text{V}\) level, without changing the shape of the AC signal.
+\end{definition}
+
+\subsection{AC}
+\begin{definition}
+    Alternating Current (AC) is a form of current that changes over time, often in a sinusoidal manner. AC currents are commonly used in power distribution systems, such as household electrical outlets.
+\end{definition}
+\subsection{Static Circuits and Electronics}
+Consider the variation of electric potential along a conducting wire. 
+If the wire has a small but non-negligible resistance that is uniformly distributed, the potential decreases approximately linearly with distance along the wire, since the voltage drop is proportional to length.
+\begin{center}
+\begin{tikzpicture}
+    \draw[->] (0,0) -- (2,0) node[right] {Length along the wire};
+    \draw[->] (0,0) -- (0,2) node[above] {Voltage};
+
+    \draw[domain=0:2] plot (\x, {1-0.5*\x});
+\end{tikzpicture}
+\end{center}
+In contrast, if a discrete resistor with resistance much larger than that of the wire is introduced, nearly all of the voltage drop occurs across the resistor. The potential along the wire remains approximately constant, with a sharp decrease only at the location of the resistor.
+\begin{center}
+\begin{tikzpicture}
+    \draw[->] (0,0) -- (2,0) node[right] {Length along the wire};
+    \draw[->] (0,0) -- (0,2) node[above] {Voltage};
+
+    \draw (0,1) -- (1.6,1);
+    \draw (1.6,0.1) -- (2,0.1);
+    \draw (1.6,1) -- (1.6,0.1);
+\end{tikzpicture}
+\end{center}
+
+\section{Circuit Components}
 \subsection{Resistors}
 \begin{definition}
     A resistor is a device that opposes the flow of current through it, resulting in a voltage drop across it. Resistors are characterized by their resistance value \(R\), measured in ohms (\(\Omega\)), which quantifies the amount of opposition they provide to the flow of current. According to Ohm's Law, the voltage drop \(V\) across a resistor is directly proportional to the current \(I\) flowing through it:
@@ -281,42 +307,7 @@ The circuit containing a real battery can be modeled as an ideal voltage source 
 However, if the circuit contained a resistor \(R\) connected to the battery, the current \(I\) flowing through the circuit can be calculated using Ohm's Law:
 \[V_0 = Ir + IR\]
 
-\subsection{Static Circuits and Electronics}
-Consider the variation of electric potential along a conducting wire. 
-If the wire has a small but non-negligible resistance that is uniformly distributed, the potential decreases approximately linearly with distance along the wire, since the voltage drop is proportional to length.
-\begin{center}
-\begin{tikzpicture}
-    \draw[->] (0,0) -- (2,0) node[right] {Length along the wire};
-    \draw[->] (0,0) -- (0,2) node[above] {Voltage};
 
-    \draw[domain=0:2] plot (\x, {1-0.5*\x});
-\end{tikzpicture}
-\end{center}
-In contrast, if a discrete resistor with resistance much larger than that of the wire is introduced, nearly all of the voltage drop occurs across the resistor. The potential along the wire remains approximately constant, with a sharp decrease only at the location of the resistor.
-\begin{center}
-\begin{tikzpicture}
-    \draw[->] (0,0) -- (2,0) node[right] {Length along the wire};
-    \draw[->] (0,0) -- (0,2) node[above] {Voltage};
-
-    \draw (0,1) -- (1.6,1);
-    \draw (1.6,0.1) -- (2,0.1);
-    \draw (1.6,1) -- (1.6,0.1);
-\end{tikzpicture}
-\end{center}
-
-
-
-\section{Circuit Theory Beyond Electronic}
-\section{Capacitors \& Inductors}
-\section{RC and LR Circuits with AC Driving}
-\section{Impedance}
-\section{RLC Circuits}
-\subsection{Transient Response}
-\subsection{Driven RLC Circuits}
-\subsection{Power Input to RLC and Circuit Network}
-\section{Circuit Networks}
-\section{Fourier Series}
-\section{Fourier Transforms}
 
 
 \section{Appendix}

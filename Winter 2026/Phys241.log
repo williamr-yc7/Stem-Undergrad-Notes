@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  11 FEB 2026 03:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  17 FEB 2026 09:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -596,13 +596,13 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 36.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{C:/Users/erenr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (Phys241.toc [2
-
-])
+{C:/Users/erenr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (Phys241.toc)
 \tf@toc=\write5
 \openout5 = `Phys241.toc'.
 
- [3]
+ [2
+
+]
 Underfull \hbox (badness 10000) in paragraph at lines 59--59
 []\OT1/cmr/m/n/10 January 13,
  []
@@ -611,66 +611,70 @@ Underfull \hbox (badness 10000) in paragraph at lines 59--59
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.95 \end{itemize}
-                   [1
+l.94 \begin{center}
+                    [1
 
 ]
+<../Images/Pulsating-direct-current-diagram.svg.png, id=180, 1284.8pt x 632.3625pt>
+File: ../Images/Pulsating-direct-current-diagram.svg.png Graphic file (type png)
+<use ../Images/Pulsating-direct-current-diagram.svg.png>
+Package pdftex.def Info: ../Images/Pulsating-direct-current-diagram.svg.png  used on input line 122.
+(pdftex.def)             Requested size: 172.5pt x 84.9021pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
 pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.129 \end{center}
-                   [2]
-<../Images/Pulsating-direct-current-diagram.svg.png, id=242, 1284.8pt x 632.3625pt>
-File: ../Images/Pulsating-direct-current-diagram.svg.png Graphic file (type png)
-<use ../Images/Pulsating-direct-current-diagram.svg.png>
-Package pdftex.def Info: ../Images/Pulsating-direct-current-diagram.svg.png  used on input line 135.
-(pdftex.def)             Requested size: 172.5pt x 84.9021pt.
-
-pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.148 ...1(t) = H[\alpha x_1(t) + \beta x_2(t)],\]
-                                                   [3 <../Images/Pulsating-direct-current-diagram.svg.png>] [4]
-Underfull \hbox (badness 10000) in paragraph at lines 207--207
+l.130 \end{definition}
+                       [2] [3 <../Images/Pulsating-direct-current-diagram.svg.png>] [4]
+Underfull \hbox (badness 10000) in paragraph at lines 197--197
 []\OT1/cmr/m/n/10 January 15,
  []
 
-[5] [6]
-<../Images/Ohms-Law-Formula-Wheel.png, id=278, 432.61626pt x 321.2pt>
+[5]
+<../Images/Ohms-Law-Formula-Wheel.png, id=217, 432.61626pt x 321.2pt>
 File: ../Images/Ohms-Law-Formula-Wheel.png Graphic file (type png)
 <use ../Images/Ohms-Law-Formula-Wheel.png>
-Package pdftex.def Info: ../Images/Ohms-Law-Formula-Wheel.png  used on input line 245.
+Package pdftex.def Info: ../Images/Ohms-Law-Formula-Wheel.png  used on input line 234.
 (pdftex.def)             Requested size: 172.5pt x 128.07582pt.
-<../Images/Parallel_resistors.png, id=279, 288.07625pt x 211.28937pt>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[6] [7 <../Images/Ohms-Law-Formula-Wheel.png>]
+<../Images/Parallel_resistors.png, id=232, 288.07625pt x 211.28937pt>
 File: ../Images/Parallel_resistors.png Graphic file (type png)
 <use ../Images/Parallel_resistors.png>
-Package pdftex.def Info: ../Images/Parallel_resistors.png  used on input line 258.
+Package pdftex.def Info: ../Images/Parallel_resistors.png  used on input line 284.
 (pdftex.def)             Requested size: 172.5pt x 126.52312pt.
- [7 <../Images/Ohms-Law-Formula-Wheel.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 272--272
+ [8 <../Images/Parallel_resistors.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 298--298
 []\OT1/cmr/m/n/10 January 20,
  []
 
-[8 <../Images/Parallel_resistors.png>] [9] [10] (Phys241.aux)
+[9] [10] (Phys241.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
 Package rerunfilecheck Info: File `Phys241.out' has not changed.
-(rerunfilecheck)             Checksum: E36E3D721C3ED320875573AA84976768;5375.
+(rerunfilecheck)             Checksum: 4C5A31AE9F097EFA9779AB99A2437FC4;3586.
  ) 
 Here is how much of TeX's memory you used:
- 49719 strings out of 467871
- 1295345 string characters out of 5418377
- 2046856 words of memory out of 5000000
- 77978 multiletter control sequences out of 15000+600000
+ 49699 strings out of 467871
+ 1295065 string characters out of 5418377
+ 2043093 words of memory out of 5000000
+ 77968 multiletter control sequences out of 15000+600000
  639857 words of font info for 85 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,8n,118p,799b,767s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\erenr\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti9.pfb>
-Output written on Phys241.pdf (13 pages, 370597 bytes).
+Output written on Phys241.pdf (12 pages, 359604 bytes).
 PDF statistics:
- 405 PDF objects out of 1000 (max. 8388607)
- 77 named destinations out of 1000 (max. 500000)
- 332 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 349 PDF objects out of 1000 (max. 8388607)
+ 67 named destinations out of 1000 (max. 500000)
+ 252 words of extra memory for PDF output out of 10000 (max. 10000000)
 

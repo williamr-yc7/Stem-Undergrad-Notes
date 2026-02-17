@@ -360,8 +360,6 @@ INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\sym
 OUTPUT Phys241.toc
 INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
 INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmti10.tfm
-INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmti7.tfm
-INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmti7.tfm
 INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcrm1000.tfm
 INPUT ..\Images\Pulsating-direct-current-diagram.svg.png
 INPUT ..\Images\Pulsating-direct-current-diagram.svg.png
@@ -369,6 +367,8 @@ INPUT ..\Images\Pulsating-direct-current-diagram.svg.png
 INPUT ..\Images\Pulsating-direct-current-diagram.svg.png
 INPUT ..\Images\Pulsating-direct-current-diagram.svg.png
 INPUT ..\Images\Pulsating-direct-current-diagram.svg.png
+INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmti7.tfm
+INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmti7.tfm
 INPUT ..\Images\Ohms-Law-Formula-Wheel.png
 INPUT ..\Images\Ohms-Law-Formula-Wheel.png
 INPUT ..\Images\Ohms-Law-Formula-Wheel.png

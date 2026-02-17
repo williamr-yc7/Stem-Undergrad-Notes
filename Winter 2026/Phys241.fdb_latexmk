@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1770796834.95564 "c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Phys241.tex" "Phys241.pdf" "Phys241" 1770796843.64307 0
+["pdflatex"] 1771337089.61817 "c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Phys241.tex" "Phys241.pdf" "Phys241" 1771337096.85727 0
   "../Images/Ohms-Law-Formula-Wheel.png" 1769029882 8385 c5e978fbe5f6991095d6b8d090da3862 ""
   "../Images/Parallel_resistors.png" 1770786710 30374 d13f9bf5b1fa61a7ffd3690f72045336 ""
   "../Images/Pulsating-direct-current-diagram.svg.png" 1768918111 32813 7e351fd9ae204183e9fb141cb122f6f9 ""
@@ -235,11 +235,11 @@
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/tools/indentfirst.sty" 1761901070 1618 30b01152766afcef2ed8f904cfdd3cc6 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
-  "Phys241.aux" 1770796842 5738 2a4f22020b71baaece3dc94d11298395 "pdflatex"
-  "Phys241.out" 1770796842 5375 e36e3d721c3ed320875573aa84976768 "pdflatex"
-  "Phys241.tex" 1770796832 18350 d64f49b5852be6ad6aafaff28a0aead9 ""
-  "Phys241.toc" 1770796842 3329 1b0efa693e4fd14883348aa63e2dfc10 "pdflatex"
-  "c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Phys241.tex" 1770796832 18350 d64f49b5852be6ad6aafaff28a0aead9 ""
+  "Phys241.aux" 1771337095 4439 becf87b57fb1c716936f6378e2e07063 "pdflatex"
+  "Phys241.out" 1771337096 3586 4c5a31ae9f097efa9779ab99a2437fc4 "pdflatex"
+  "Phys241.tex" 1771337078 17976 75a2090f8ed4dda8a6e9662459a71c4c ""
+  "Phys241.toc" 1771337096 2440 e099cb5b74c14a109e9c76e2f7328b44 "pdflatex"
+  "c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Phys241.tex" 1771337078 17976 75a2090f8ed4dda8a6e9662459a71c4c ""
   (generated)
   "Phys241.aux"
   "Phys241.log"
