@@ -2,7 +2,7 @@
 \contentsline {section}{\numberline {2}Foundations}{1}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Signal Types}{1}{subsection.2.1}%
 \contentsline {subsubsection}{\numberline {2.1.1}Digital Signal}{1}{subsubsection.2.1.1}%
-\contentsline {subsubsection}{\numberline {2.1.2}Analogue}{1}{subsubsection.2.1.2}%
+\contentsline {subsubsection}{\numberline {2.1.2}Analogue Signal}{1}{subsubsection.2.1.2}%
 \contentsline {subsection}{\numberline {2.2}Waves}{1}{subsection.2.2}%
 \contentsline {subsubsection}{\numberline {2.2.1}Properties of waves}{1}{subsubsection.2.2.1}%
 \contentsline {subsubsection}{\numberline {2.2.2}Waveforms}{2}{subsubsection.2.2.2}%
@@ -12,20 +12,22 @@
 \contentsline {subsection}{\numberline {2.3}Linear Systems}{3}{subsection.2.3}%
 \contentsline {section}{\numberline {3}Charge and Fields}{3}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Electric Charge}{3}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Electric Field \& Potential}{4}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Potential \& Ground}{4}{subsection.3.3}%
-\contentsline {section}{\numberline {4}Current and Circuits}{4}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Current flow}{4}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Electromotive Force}{5}{subsection.4.2}%
-\contentsline {subsubsection}{\numberline {4.2.1}Faraday's Law}{5}{subsubsection.4.2.1}%
+\contentsline {subsection}{\numberline {3.2}Electric Field}{4}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Electric Potential}{4}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Electric Potential Energy}{4}{subsection.3.4}%
+\contentsline {section}{\numberline {4}Current and Circuits}{5}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Current flow}{5}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Electromotive Force}{6}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Faraday's Law}{6}{subsubsection.4.2.1}%
 \contentsline {subsection}{\numberline {4.3}Ohm's Law}{6}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}DC}{7}{subsection.4.4}%
-\contentsline {subsection}{\numberline {4.5}AC}{7}{subsection.4.5}%
-\contentsline {subsection}{\numberline {4.6}Static Circuits and Electronics}{7}{subsection.4.6}%
+\contentsline {subsection}{\numberline {4.4}DC}{8}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}AC}{8}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}Static Circuits and Electronics}{8}{subsection.4.6}%
 \contentsline {section}{\numberline {5}Circuit Components}{8}{section.5}%
 \contentsline {subsection}{\numberline {5.1}Resistors}{8}{subsection.5.1}%
 \contentsline {subsubsection}{\numberline {5.1.1}Temperature Dependence}{9}{subsubsection.5.1.1}%
 \contentsline {subsubsection}{\numberline {5.1.2}Power Dissipation}{9}{subsubsection.5.1.2}%
-\contentsline {subsection}{\numberline {5.2}Batteries}{9}{subsection.5.2}%
-\contentsline {section}{\numberline {6}Appendix}{10}{section.6}%
-\contentsline {section}{\numberline {7}Useful Links}{10}{section.7}%
+\contentsline {subsection}{\numberline {5.2}Batteries}{10}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Ground and Reference}{10}{subsection.5.3}%
+\contentsline {section}{\numberline {6}Appendix}{11}{section.6}%
+\contentsline {section}{\numberline {7}Useful Links}{11}{section.7}%

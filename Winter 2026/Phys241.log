@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  17 FEB 2026 09:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  17 FEB 2026 13:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -622,7 +622,7 @@ l.94 \end{definition}
                       [1
 
 ]
-<../Images/Pulsating-direct-current-diagram.svg.png, id=179, 1284.8pt x 632.3625pt>
+<../Images/Pulsating-direct-current-diagram.svg.png, id=189, 1284.8pt x 632.3625pt>
 File: ../Images/Pulsating-direct-current-diagram.svg.png Graphic file (type png)
 <use ../Images/Pulsating-direct-current-diagram.svg.png>
 Package pdftex.def Info: ../Images/Pulsating-direct-current-diagram.svg.png  used on input line 117.
@@ -636,63 +636,59 @@ l.121
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.147 \[
-        \vec{E} = \frac{\vec{F}}{q}\] <../Images/Pulsating-direct-current-diagram.svg.png>] [4]
-Underfull \hbox (badness 10000) in paragraph at lines 192--192
+l.148     \[\vec E = \frac{\vec F}{q}.\]
+                                         <../Images/Pulsating-direct-current-diagram.svg.png>] [4]
+Underfull \hbox (badness 10000) in paragraph at lines 199--199
 []\OT1/cmr/m/n/10 January 15,
  []
 
-[5]
-<../Images/Ohms-Law-Formula-Wheel.png, id=217, 432.61626pt x 321.2pt>
+[5] [6]
+<../Images/Ohms-Law-Formula-Wheel.png, id=232, 432.61626pt x 321.2pt>
 File: ../Images/Ohms-Law-Formula-Wheel.png Graphic file (type png)
 <use ../Images/Ohms-Law-Formula-Wheel.png>
-Package pdftex.def Info: ../Images/Ohms-Law-Formula-Wheel.png  used on input line 229.
+Package pdftex.def Info: ../Images/Ohms-Law-Formula-Wheel.png  used on input line 236.
 (pdftex.def)             Requested size: 172.5pt x 128.07582pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[6] [7
+ [7
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.259 \begin{center}
-                     <../Images/Ohms-Law-Formula-Wheel.png>]
-<../Images/Parallel_resistors.png, id=232, 288.07625pt x 211.28937pt>
+l.244 \end{definition}
+                       <../Images/Ohms-Law-Formula-Wheel.png>] [8]
+<../Images/Parallel_resistors.png, id=247, 288.07625pt x 211.28937pt>
 File: ../Images/Parallel_resistors.png Graphic file (type png)
 <use ../Images/Parallel_resistors.png>
-Package pdftex.def Info: ../Images/Parallel_resistors.png  used on input line 279.
+Package pdftex.def Info: ../Images/Parallel_resistors.png  used on input line 286.
 (pdftex.def)             Requested size: 172.5pt x 126.52312pt.
- [8
+ [9
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.285 \[R_T = R_0[1 + \alpha (T - T_0)]\]
-                                          <../Images/Parallel_resistors.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 293--293
+l.298 \[P = I^2 R = \frac{(\Delta V)^2}{R}\]
+                                             <../Images/Parallel_resistors.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 300--300
 []\OT1/cmr/m/n/10 January 20,
  []
 
-[9] [10] (Phys241.aux)
+[10] [11] (Phys241.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
 Package rerunfilecheck Info: File `Phys241.out' has not changed.
-(rerunfilecheck)             Checksum: 4C5A31AE9F097EFA9779AB99A2437FC4;3586.
+(rerunfilecheck)             Checksum: 6253D6705293BA721642294E075DC1B3;3902.
  ) 
 Here is how much of TeX's memory you used:
- 49768 strings out of 467871
- 1296159 string characters out of 5418377
- 2044402 words of memory out of 5000000
- 78033 multiletter control sequences out of 15000+600000
+ 49776 strings out of 467871
+ 1296265 string characters out of 5418377
+ 2045412 words of memory out of 5000000
+ 78035 multiletter control sequences out of 15000+600000
  639857 words of font info for 85 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,8n,118p,799b,767s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\erenr\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti9.pfb>
-Output written on Phys241.pdf (12 pages, 359680 bytes).
+Output written on Phys241.pdf (13 pages, 362354 bytes).
 PDF statistics:
- 349 PDF objects out of 1000 (max. 8388607)
- 67 named destinations out of 1000 (max. 500000)
- 252 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 369 PDF objects out of 1000 (max. 8388607)
+ 73 named destinations out of 1000 (max. 500000)
+ 268 words of extra memory for PDF output out of 10000 (max. 10000000)
 
