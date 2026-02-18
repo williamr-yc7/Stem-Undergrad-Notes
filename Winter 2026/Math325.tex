@@ -1239,10 +1239,12 @@ and $\dim(k_0) = 0 < \dim(k_1) < \dim(k_m) = m$.
 
 \subsection{Exponential of a Matrix}
 \marginpar{February 17, 2026}
-Let $A \in M_n(\mathbb{R})$. Let $x \in \mathbb{R}$, we can represent $e^x$ as a power series:
-\[e^x = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots = \sum_{k=0}^{\infty} \frac{x^k}{k!}.\]
-Therefore
-\[e^A = I + A + \frac{A^2}{2!} + \frac{A^3}{3!} + \cdots = \sum_{k=0}^{\infty} \frac{A^k}{k!} = \lim_{N \to \infty} \sum_{k=0}^{N} \frac{A^k}{k!}.\]
+\begin{definition}[Matrix Exponential]
+    For $A \in M_n(\mathbb{R})$, the exponential of $A$ is defined by the power series
+    \[e^A = \sum_{k=0}^{\infty} \frac{A^k}{k!} = I + A + \frac{A^2}{2!} + \frac{A^3}{3!} + \cdots .\footnote{This definition is motivated by the scalar identity $e^x = \sum_{k=0}^{\infty} \frac{x^k}{k!}$.
+\]}
+\end{definition}
+
 \begin{definition}[Induced Matrix Norm]
     Given any norm $||\cdot||$ on $\mathbb{R}^n$, the induced matrix norm is defined by 
     \[||A|| = \sup_{x \neq 0} \frac{||Ax||}{||x||} = \sup_{||x|| = 1} ||Ax|| < \infty.\]

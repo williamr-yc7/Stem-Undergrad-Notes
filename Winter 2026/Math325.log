@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  18 FEB 2026 13:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  18 FEB 2026 12:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math223.tex"
-(c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math223.tex
+**"c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math325.tex"
+(c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math325.tex
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
 (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
@@ -451,4 +451,431 @@ Package pgfplots: loading complementary utilities for your pgf version...
 \t@pgf@tokb=\toks47
 \t@pgf@tokc=\toks48
 (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/oldpgfcompatib\pgfplotsoldpgfsupp_pgfutil-common-lists.tex)) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/util\pgfplotsutil.code.tex (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/liststructure\pgfplotsliststructure.code.tex) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/liststructure\pgfplotsliststructureext.code.tex) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/liststructure\pgfplotsarray.code.tex
-\
+\c@pgfplotsarray@tmp=\count335
+) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/liststructure\pgfplotsmatrix.code.tex) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/numtable\pgfplotstableshared.code.tex
+\c@pgfplotstable@counta=\count336
+\t@pgfplotstable@a=\toks49
+) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/liststructure\pgfplotsdeque.code.tex) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/util\pgfplotsbinary.code.tex (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/util\pgfplotsbinary.data.code.tex)) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/util\pgfplotsutil.verb.code.tex) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/libs\pgflibrarypgfplots.surfshading.code.tex
+\c@pgfplotslibrarysurf@no=\count337
+ (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/sys\pgflibrarypgfplots.surfshading.pgfsys-pdftex.def))) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/util\pgfplotscolormap.code.tex (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/util\pgfplotscolor.code.tex)) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplotsstackedplots.code.tex) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplotsplothandlers.code.tex (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplotsmeshplothandler.code.tex (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplotsmeshplotimage.code.tex))) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplots.scaling.code.tex) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplotscoordprocessing.code.tex) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplots.errorbars.code.tex) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplots.markers.code.tex) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplotsticks.code.tex) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplots.paths.code.tex) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarydecorations.code.tex (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmoduledecorations.code.tex
+\pgfdecoratedcompleteddistance=\dimen272
+\pgfdecoratedremainingdistance=\dimen273
+\pgfdecoratedinputsegmentcompleteddistance=\dimen274
+\pgfdecoratedinputsegmentremainingdistance=\dimen275
+\pgf@decorate@distancetomove=\dimen276
+\pgf@decorate@repeatstate=\count338
+\pgfdecorationsegmentamplitude=\dimen277
+\pgfdecorationsegmentlength=\dimen278
+)
+\tikz@lib@dec@box=\box67
+) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarydecorations.pathmorphing.code.tex (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/decorations\pgflibrarydecorations.pathmorphing.code.tex)) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarydecorations.pathreplacing.code.tex (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/decorations\pgflibrarydecorations.pathreplacing.code.tex)) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/libs\tikzlibrarypgfplots.contourlua.code.tex)
+\pgfplots@numplots=\count339
+\pgfplots@xmin@reg=\dimen279
+\pgfplots@xmax@reg=\dimen280
+\pgfplots@ymin@reg=\dimen281
+\pgfplots@ymax@reg=\dimen282
+\pgfplots@zmin@reg=\dimen283
+\pgfplots@zmax@reg=\dimen284
+) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryplotmarks.code.tex
+File: tikzlibraryplotmarks.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+ (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibraryplotmarks.code.tex
+File: pgflibraryplotmarks.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)))
+\c@theorem=\count340
+\c@corollary=\count341
+\c@definition=\count342
+\c@problem=\count343
+\c@solution=\count344
+\c@remark=\count345
+\c@proposition=\count346
+\c@algorithm=\count347
+Package hyperref Info: Option `colorlinks' set `true' on input line 26.
+ (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
+File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count348
+)
+No file Math325.aux.
+\openout1 = `Math325.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+(C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count349
+\scratchdimen=\dimen285
+\scratchbox=\box68
+\nofMPsegments=\count350
+\nofMParguments=\count351
+\everyMPshowfont=\toks50
+\MPscratchCnt=\count352
+\MPscratchDim=\dimen286
+\MPnumerator=\count353
+\makeMPintoPDFobject=\count354
+\everyMPtoPDFconversion=\toks51
+) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+))
+Package hyperref Info: Link coloring ON on input line 27.
+\@outlinefile=\write4
+\openout4 = `Math325.out'.
+
+
+Package pgfplots notification 'compat/show suggested version=true': document has been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
+
+LaTeX Font Info:    Trying to load font information for U+msa on input line 36.
+(C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 36.
+ (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [1
+
+{C:/Users/erenr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
+No file Math325.toc.
+\tf@toc=\write5
+\openout5 = `Math325.toc'.
+
+[2
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 71--71
+[]\OT1/cmr/m/n/10 January 06,
+ []
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.87     \[ln(N(t)) = rt + C,\]
+                                [1
+
+]
+pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.122 \end{example}
+                    [2]
+Underfull \hbox (badness 10000) in paragraph at lines 125--125
+[]\OT1/cmr/m/n/10 January 08,
+ []
+
+[3] [4] [5]
+Underfull \hbox (badness 10000) in paragraph at lines 246--246
+[]\OT1/cmr/m/n/10 January 13,
+ []
+
+[6] [7]
+Underfull \hbox (badness 10000) in paragraph at lines 344--344
+[]\OT1/cmr/m/n/10 January 20,
+ []
+
+[8] [9]
+Underfull \hbox (badness 10000) in paragraph at lines 386--386
+[]\OT1/cmr/m/n/10 January 13,
+ []
+
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 436--436
+[]\OT1/cmr/m/n/10 January 15,
+ []
+
+[11]
+
+LaTeX Warning: Reference `pf:picard-convergence' on page 12 undefined on input line 441.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 456--456
+[]\OT1/cmr/m/n/10 January 22,
+ []
+
+[12] [13] [14]
+Underfull \hbox (badness 10000) in paragraph at lines 537--537
+[]\OT1/cmr/m/n/10 January 27,
+ []
+
+[15]
+
+LaTeX Warning: Reference `SeparableODE' on page 16 undefined on input line 595.
+
+[16]
+Underfull \hbox (badness 10000) in paragraph at lines 623--623
+[]\OT1/cmr/m/n/10 January 29,
+ []
+
+
+LaTeX Warning: Reference `SeparableODE' on page 17 undefined on input line 625.
+
+[17]
+
+LaTeX Warning: Reference `SeparableODE' on page 18 undefined on input line 636.
+
+[18]
+Underfull \hbox (badness 10000) in paragraph at lines 682--682
+[]\OT1/cmr/m/n/10 February 3,
+ []
+
+[19] [20]
+Underfull \hbox (badness 10000) in paragraph at lines 734--734
+[]\OT1/cmr/m/n/10 February 3,
+ []
+
+[21]
+
+LaTeX Warning: Reference `POS' on page 22 undefined on input line 775.
+
+[22]
+Underfull \hbox (badness 10000) in paragraph at lines 806--806
+[]\OT1/cmr/m/n/10 February 5,
+ []
+
+
+LaTeX Warning: Reference `eq:ode-system-matrix' on page 23 undefined on input line 813.
+
+
+LaTeX Warning: Reference `eq:ode-system-matrix' on page 23 undefined on input line 822.
+
+[23]
+
+LaTeX Warning: Reference `eq:ode-system-matrix' on page 24 undefined on input line 860.
+
+
+LaTeX Warning: Reference `eq:ode-system-matrix' on page 24 undefined on input line 865.
+
+[24]
+
+LaTeX Warning: Reference `eq:ode-system-matrix' on page 25 undefined on input line 884.
+
+
+LaTeX Warning: Reference `eq:ode-system-matrix' on page 25 undefined on input line 890.
+
+
+Overfull \hbox (18.2366pt too wide) detected at line 898
+\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t[]\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 c[]y[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t[]\OT1/cmr/m/n/10 ) + [] + \OML/cmm/m/it/10 c[]y[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t[]\OT1/cmr/m/n/10 ) = [] [] = \OML/cmm/m/it/10 y[] \OT1/cmr/m/n/10 = [] \OML/cmm/m/it/10 :
+ []
+
+[25]
+Overfull \hbox (2.65837pt too wide) in paragraph at lines 902--902
+[]\OT1/cmr/bx/n/12 Linear ho-mo-ge-neous sys-tems with con-stant co-ef-fi-cients 
+ []
+
+
+LaTeX Warning: Reference `eq:ode-system-matrix' on page 26 undefined on input line 903.
+
+
+LaTeX Warning: Reference `eq:exp-ansatz' on page 26 undefined on input line 909.
+
+
+LaTeX Warning: Reference `eq:exp-ansatz' on page 26 undefined on input line 911.
+
+
+LaTeX Warning: Reference `eq:ode-system-matrix' on page 26 undefined on input line 911.
+
+
+LaTeX Warning: Reference `eq:ode-system-exp-A-2' on page 26 undefined on input line 924.
+
+[26] [27]
+Underfull \hbox (badness 10000) in paragraph at lines 978--978
+[]\OT1/cmr/m/n/10 February 10,
+ []
+
+[28] [29] [30]
+
+LaTeX Warning: Reference `eq:ode-system-matrix' on page 31 undefined on input line 1077.
+
+[31]
+
+LaTeX Warning: Reference `eq:ode-system-matrix' on page 32 undefined on input line 1084.
+
+
+LaTeX Warning: Reference `eq:EulerFormula' on page 32 undefined on input line 1098.
+
+
+LaTeX Warning: Reference `eq:exp-ansatz-complex' on page 32 undefined on input line 1098.
+
+[32]
+
+LaTeX Warning: Reference `prop:CCE' on page 33 undefined on input line 1129.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1143--1143
+[]\OT1/cmr/m/n/10 February 12,
+ []
+
+
+LaTeX Warning: Reference `eq:exp-ansatz-complex-sol' on page 33 undefined on input line 1145.
+
+
+LaTeX Warning: Reference `eq:ode-system-matrix' on page 33 undefined on input line 1145.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1147--1147
+[]\OT1/cmr/m/n/10 Reviewed
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1147--1147
+\OT1/cmr/m/n/10 pages 14-17
+ []
+
+
+Underfull \hbox (badness 4156) in paragraph at lines 1147--1147
+\OT1/cmr/m/n/10 from Chap-ter
+ []
+
+[33] [34] [35]
+Underfull \hbox (badness 10000) in paragraph at lines 1241--1241
+[]\OT1/cmr/m/n/10 February 17,
+ []
+
+
+c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math325.tex:1245: LaTeX Error: Bad math environment delimiter.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1245 \]}
+          
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math325.tex:1245: Missing $ inserted.
+<inserted text> 
+                $
+l.1245 \]}
+          
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math325.tex:1245: Display math should end with $$.
+<to be read again> 
+                   \endgroup 
+l.1245 \]}
+          
+The `$' that I just saw supposedly matches a previous `$$'.
+So I shall assume that you typed `$$' both times.
+
+c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math325.tex:1245: Missing } inserted.
+<inserted text> 
+                }
+l.1245 \]}
+          
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math325.tex:1245: Missing $ inserted.
+<inserted text> 
+                $
+l.1245 \]}
+          
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math325.tex:1245: Display math should end with $$.
+<to be read again> 
+                   \endgroup 
+l.1245 \]}
+          
+The `$' that I just saw supposedly matches a previous `$$'.
+So I shall assume that you typed `$$' both times.
+
+[36]
+c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math325.tex:1245: Extra }, or forgotten \endgroup.
+\H@@footnotetext ...rutbox }\par \color@endgroup }
+                                                  
+l.1245 \]}
+          
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+
+LaTeX Warning: Reference `eq:ode-system-matrix' on page 37 undefined on input line 1266.
+
+
+Overfull \hbox (86.58041pt too wide) detected at line 1270
+\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 e[] \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 y\OT1/cmr/m/n/10 (0) = 1  =[]\OMS/cmsy/m/n/10 )  \OML/cmm/m/it/10 y\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 s\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 y\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ) + \OML/cmm/m/it/10 y\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 s\OT1/cmr/m/n/10 )  =[]\OMS/cmsy/m/n/10 )  \OML/cmm/m/it/10 y\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 ^^@\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 e[] \OT1/cmr/m/n/10 = (\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ))[]  =[]\OMS/cmsy/m/n/10 )  \OML/cmm/m/it/10 y[] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 ae[] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 ay:
+ []
+
+[37]
+
+LaTeX Warning: Reference `eq:ode-system-matrix' on page 38 undefined on input line 1280.
+
+
+LaTeX Warning: Reference `eq:eq:ode-system-matrix' on page 38 undefined on input line 1281.
+
+[38] [39] [40] [41] [42]
+
+LaTeX Warning: Reference `eq:EulerFormula' on page 43 undefined on input line 1453.
+
+[43] [44] (Math325.aux)
+ ***********
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-12-24>
+ ***********
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `Math325.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `Math325.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  FCFFF560FFD67F24B76D6269AA1E7886;8931.
+ ) 
+Here is how much of TeX's memory you used:
+ 30879 strings out of 467871
+ 726904 string characters out of 5418377
+ 1270211 words of memory out of 5000000
+ 59070 multiletter control sequences out of 15000+600000
+ 640216 words of font info for 86 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 99i,11n,118p,897b,723s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+pdfTeX warning (dest): name{Hfootnote.13} has been referenced but does not exist, replaced by a fixed one
+
+ <C:\Users\erenr\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on Math325.pdf (46 pages, 544305 bytes).
+PDF statistics:
+ 589 PDF objects out of 1000 (max. 8388607)
+ 218 named destinations out of 1000 (max. 500000)
+ 13 words of extra memory for PDF output out of 10000 (max. 10000000)
+

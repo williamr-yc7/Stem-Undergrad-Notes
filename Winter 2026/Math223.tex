@@ -1091,25 +1091,6 @@ Proof of existence: Find $T$ linear such that $T(u_i) = v_i$. Let $u \in U$. Nee
 \end{enumerate}
 Proof of $T(u_i) = v_i$: To define $T$ on $u_i$: coordinates of u in basis $u_i = 0u_1 + \ldots + 1u_i + \ldots + 0u_n$. $T(u_i) = 0v_1 + \cdots + 1v_i + \cdots + 0v_n$.
 
-\section{Appendix}
-\subsection{Proof: Standard Basis is a Basis}
-\label{subsec:SB}
-\paragraph{Claim 1.}
-The vectors \(e_1,\ldots,e_n\) span \(\mathbb{R}^n\).
-\begin{proof}
-    We show that any vector in \(\mathbb{R}^n\) can be written as a linear combination of \(e_1,\ldots,e_n\):
-    \[\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix} = \begin{pmatrix}x_1\\0\\\vdots\\0\end{pmatrix} + \begin{pmatrix}0\\x_2\\\vdots\\0\end{pmatrix} + \cdots + \begin{pmatrix}0\\\vdots\\0\\x_n\end{pmatrix} = x_1 e_1 + x_2 e_2 + \cdots + x_n e_n.\]
-\end{proof}
-\paragraph{Claim 2.}
-The vectors \(e_1,\ldots,e_n\) are linearly independent.
-\begin{proof}
-    Suppose
-    \[\lambda_1 e_1 + \cdots + \lambda_n e_n = 0.\]
-    Then
-    \[\begin{pmatrix}\lambda_1\\ \vdots \\ \lambda_n\end{pmatrix} = \begin{pmatrix}0\\ \vdots \\ 0\end{pmatrix},\]
-    so \(\lambda_1=\cdots=\lambda_n=0\). Therefore \(e_1,\ldots,e_n\) are linearly independent.
-\end{proof}
-
 \marginpar{February 16, 2026}
 Examples:
 Example 1: The derivative
@@ -1141,6 +1122,69 @@ Proof: $\begin{cases}P(v_1 + v_2) = P(v_1) + P(v_2)\\P(\lambda v) = \lambda P(v)
     \item $v_1 = u_1+u_1' \in U \oplus U', P(v_1) = u_1$, $v_2 = u_2 + u_2' \in U \oplus U', P(v_2) = u_2$.
     \item $P(v_1+v_2) = ?$, $v_1 + v_2 = u_1 + u_2 + u_1' + u_2'$, $P(v_1+v_2) = u_1+u_2 = P(v_1+v_2)$.
 \end{enumerate}
+
+\marginpar{February 18, 2026}
+Kernel and Image:
+Kernel: $0 \in \ker(T) = \{u \in U: T(u) = 0\}$.
+Image: $0 \in \Im(T) = \{T(u) : u \in U\} \subseteq V$
+Proposition: $\ker(T) \subseteq U$ and $\Im(T) \subseteq V$ are subspaces.
+Proof: Subspace Criterion
+Proposition: $T$ surjective $\iff \Im(T) = V$, obvious by definition of surjective.
+Proposition: $T$ linear $T : U \to V$.
+Statement: $T$ injective $\iff \ker(T) = \{0\}$, linear system.
+Kernel is only useful for $T$ linear. $T = \sin$ is non linear, $\ker(sin) = \{x\in\mathbb{R} : sin(x) = 0\}$, not a subspace.
+Proof: $\ker(T) \neq \{0\}$ then $T$ non-injective $\to$ T injective $\to \ker(T) = \{0\}$. Basically since $[A \implies B] \iff [Not(B) \implies Not(A)]$.
+Assumption: $\ker(T) \neq \{0\}$ which means $\exists u\in \ker(T), u\neq 0$.
+Second proof (converse): If $T$ not injective then $\ker(T) \neq \{0\}$. $T(u) = T(u')$.
+Definition: $\exists u,u' \in U$ s.t $u \neq u'$ and $T(u) = T(u')$.
+Prove that $T(u) = 0$ for some $v\neq 0$.
+\[T(u) - T(u') = 0\]
+\[T(u-u') = 0\] by linearity of T
+$v \neq 0$. We will show $v := u -u'$ $v$ nonzero and verify $T(v) = 0$.
+Example:
+$\Im(P) = U$, $\ker(P) = U'$. $\{v \in V : P(v) = 0\}$. $V = U \oplus U'$, $v = u + u'$, and $P(v) = u \in U$: projection. If $u \in U$ then $P(u) = u$.
+$\Im(P) = U$:
+$\Im(P) \subseteq U$: take $U \in \Im(P)$, $u = P(v) \in U$. Then $u = P(v)$ for some V (det of Im). To compute $P(u)$, write $v = U + U'$, $P(v) = u$.
+$U \subseteq \Im(P)$: $\forall u \in U$, $\exists v : P(v) = u$. $P(v) = u$, take $v=u$, $P(v) = P(u) = u$. $P(v) = u$, $T(u) = 0$.
+
+Example:
+\[A = \begin{pmatrix}1&2\\3&4\end{pmatrix}\]
+\[T_A : \mathbb{R}^2 \to \mathbb{R}^2\]
+\[T_A\begin{pmatrix}x\\y\end{pmatrix} = \begin{pmatrix}x+2y\\3x+4y\end{pmatrix}\]
+Find $\ker(T_A)$.
+\[\ker(T_A) = \{\begin{pmatrix}x\\y\end{pmatrix}\in \mathbb{R}^2 : T_A\begin{pmatrix}x\\y\end{pmatrix} = A\begin{pmatrix}x\\y\end{pmatrix} = \begin{pmatrix}0\\0\end{pmatrix}\}\]
+\[\implies \ker(T_A) = \{\begin{pmatrix}x\\y\end{pmatrix} \in \mathbb{R}^2 : \begin{cases}x+2y = 0\\3x+4y = 0\end{cases}\}\]
+$\begin{pmatrix}x\\y\end{pmatrix} \in \ker(T) \iff \begin{pmatrix}x\\y\end{pmatrix}$ solution to $\begin{cases}x+2y = 0\\3x+4y = 0\end{cases}$. Solve, find $x=y=0$:
+\[\implies \ker(T) = \{\begin{pmatrix}0\\0\end{pmatrix}\}\]
+which implies $T$ is injective.
+
+Example:
+\[A = \begin{pmatrix}1&2&3\\4&5&6\\7&8&9\end{pmatrix}, \quad T_A : \mathbb{R}^3 \to \mathbb{R}^3\]
+\[\ker(T_A) = \{\begin{pmatrix}x\\y\\z\end{pmatrix}: \begin{cases}x+2y+3z=0\\4x+5y+6z=0\\7x+8y+9z=0\end{cases}\}\]
+Basis solution: $\begin{pmatrix}1\\-2\\1\end{pmatrix}$. And $\ker(T_A) = \Span(\begin{pmatrix}1\\-2\\1\end{pmatrix})$.
+
+
+
+
+\section{Appendix}
+\subsection{Proof: Standard Basis is a Basis}
+\label{subsec:SB}
+\paragraph{Claim 1.}
+The vectors \(e_1,\ldots,e_n\) span \(\mathbb{R}^n\).
+\begin{proof}
+    We show that any vector in \(\mathbb{R}^n\) can be written as a linear combination of \(e_1,\ldots,e_n\):
+    \[\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix} = \begin{pmatrix}x_1\\0\\\vdots\\0\end{pmatrix} + \begin{pmatrix}0\\x_2\\\vdots\\0\end{pmatrix} + \cdots + \begin{pmatrix}0\\\vdots\\0\\x_n\end{pmatrix} = x_1 e_1 + x_2 e_2 + \cdots + x_n e_n.\]
+\end{proof}
+\paragraph{Claim 2.}
+The vectors \(e_1,\ldots,e_n\) are linearly independent.
+\begin{proof}
+    Suppose
+    \[\lambda_1 e_1 + \cdots + \lambda_n e_n = 0.\]
+    Then
+    \[\begin{pmatrix}\lambda_1\\ \vdots \\ \lambda_n\end{pmatrix} = \begin{pmatrix}0\\ \vdots \\ 0\end{pmatrix},\]
+    so \(\lambda_1=\cdots=\lambda_n=0\). Therefore \(e_1,\ldots,e_n\) are linearly independent.
+\end{proof}
+
 \subsection{Vector Space Axioms}
 \label{subsec:VSA}
 \begin{enumerate}
