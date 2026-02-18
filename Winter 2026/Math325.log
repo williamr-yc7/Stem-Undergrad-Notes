@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  18 FEB 2026 12:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  18 FEB 2026 16:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -493,8 +493,7 @@ Package hyperref Info: Option `colorlinks' set `true' on input line 26.
  (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count348
-)
-No file Math325.aux.
+) (Math325.aux)
 \openout1 = `Math325.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 27.
@@ -515,7 +514,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 27.
 LaTeX Font Info:    ... okay on input line 27.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 27.
 LaTeX Font Info:    ... okay on input line 27.
-(C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
+ (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count349
 \scratchdimen=\dimen285
@@ -535,6 +534,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 Package hyperref Info: Link coloring ON on input line 27.
+ (Math325.out) (Math325.out)
 \@outlinefile=\write4
 \openout4 = `Math325.out'.
 
@@ -550,14 +550,13 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 36.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{C:/Users/erenr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-No file Math325.toc.
+{C:/Users/erenr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (Math325.toc [2
+
+])
 \tf@toc=\write5
 \openout5 = `Math325.toc'.
 
-[2
-
-]
+ [3]
 Underfull \hbox (badness 10000) in paragraph at lines 71--71
 []\OT1/cmr/m/n/10 January 06,
  []
@@ -579,7 +578,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 125--125
 []\OT1/cmr/m/n/10 January 08,
  []
 
-[3] [4] [5]
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.164 ...n,\\y_n'=G(t,y_1,\dots,y_n).\end{cases}\]
+                                                   [3] [4] [5]
 Underfull \hbox (badness 10000) in paragraph at lines 246--246
 []\OT1/cmr/m/n/10 January 13,
  []
@@ -600,10 +604,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 436--436
  []
 
 [11]
-
-LaTeX Warning: Reference `pf:picard-convergence' on page 12 undefined on input line 441.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 456--456
 []\OT1/cmr/m/n/10 January 22,
  []
@@ -613,23 +613,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 537--537
 []\OT1/cmr/m/n/10 January 27,
  []
 
-[15]
-
-LaTeX Warning: Reference `SeparableODE' on page 16 undefined on input line 595.
-
-[16]
+[15] [16]
 Underfull \hbox (badness 10000) in paragraph at lines 623--623
 []\OT1/cmr/m/n/10 January 29,
  []
 
-
-LaTeX Warning: Reference `SeparableODE' on page 17 undefined on input line 625.
-
-[17]
-
-LaTeX Warning: Reference `SeparableODE' on page 18 undefined on input line 636.
-
-[18]
+[17] [18]
 Underfull \hbox (badness 10000) in paragraph at lines 682--682
 []\OT1/cmr/m/n/10 February 3,
  []
@@ -639,36 +628,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 734--734
 []\OT1/cmr/m/n/10 February 3,
  []
 
-[21]
-
-LaTeX Warning: Reference `POS' on page 22 undefined on input line 775.
-
-[22]
+[21] [22]
 Underfull \hbox (badness 10000) in paragraph at lines 806--806
 []\OT1/cmr/m/n/10 February 5,
  []
 
-
-LaTeX Warning: Reference `eq:ode-system-matrix' on page 23 undefined on input line 813.
-
-
-LaTeX Warning: Reference `eq:ode-system-matrix' on page 23 undefined on input line 822.
-
-[23]
-
-LaTeX Warning: Reference `eq:ode-system-matrix' on page 24 undefined on input line 860.
-
-
-LaTeX Warning: Reference `eq:ode-system-matrix' on page 24 undefined on input line 865.
-
-[24]
-
-LaTeX Warning: Reference `eq:ode-system-matrix' on page 25 undefined on input line 884.
-
-
-LaTeX Warning: Reference `eq:ode-system-matrix' on page 25 undefined on input line 890.
-
-
+[23] [24]
 Overfull \hbox (18.2366pt too wide) detected at line 898
 \OML/cmm/m/it/10 y\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t[]\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 c[]y[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t[]\OT1/cmr/m/n/10 ) + [] + \OML/cmm/m/it/10 c[]y[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t[]\OT1/cmr/m/n/10 ) = [] [] = \OML/cmm/m/it/10 y[] \OT1/cmr/m/n/10 = [] \OML/cmm/m/it/10 :
  []
@@ -678,54 +643,15 @@ Overfull \hbox (2.65837pt too wide) in paragraph at lines 902--902
 []\OT1/cmr/bx/n/12 Linear ho-mo-ge-neous sys-tems with con-stant co-ef-fi-cients 
  []
 
-
-LaTeX Warning: Reference `eq:ode-system-matrix' on page 26 undefined on input line 903.
-
-
-LaTeX Warning: Reference `eq:exp-ansatz' on page 26 undefined on input line 909.
-
-
-LaTeX Warning: Reference `eq:exp-ansatz' on page 26 undefined on input line 911.
-
-
-LaTeX Warning: Reference `eq:ode-system-matrix' on page 26 undefined on input line 911.
-
-
-LaTeX Warning: Reference `eq:ode-system-exp-A-2' on page 26 undefined on input line 924.
-
 [26] [27]
 Underfull \hbox (badness 10000) in paragraph at lines 978--978
 []\OT1/cmr/m/n/10 February 10,
  []
 
-[28] [29] [30]
-
-LaTeX Warning: Reference `eq:ode-system-matrix' on page 31 undefined on input line 1077.
-
-[31]
-
-LaTeX Warning: Reference `eq:ode-system-matrix' on page 32 undefined on input line 1084.
-
-
-LaTeX Warning: Reference `eq:EulerFormula' on page 32 undefined on input line 1098.
-
-
-LaTeX Warning: Reference `eq:exp-ansatz-complex' on page 32 undefined on input line 1098.
-
-[32]
-
-LaTeX Warning: Reference `prop:CCE' on page 33 undefined on input line 1129.
-
-
+[28] [29] [30] [31] [32]
 Underfull \hbox (badness 10000) in paragraph at lines 1143--1143
 []\OT1/cmr/m/n/10 February 12,
  []
-
-
-LaTeX Warning: Reference `eq:exp-ansatz-complex-sol' on page 33 undefined on input line 1145.
-
-
-LaTeX Warning: Reference `eq:ode-system-matrix' on page 33 undefined on input line 1145.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 1147--1147
@@ -747,100 +673,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 1241--1241
 []\OT1/cmr/m/n/10 February 17,
  []
 
-
-c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math325.tex:1245: LaTeX Error: Bad math environment delimiter.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1245 \]}
-          
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math325.tex:1245: Missing $ inserted.
-<inserted text> 
-                $
-l.1245 \]}
-          
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math325.tex:1245: Display math should end with $$.
-<to be read again> 
-                   \endgroup 
-l.1245 \]}
-          
-The `$' that I just saw supposedly matches a previous `$$'.
-So I shall assume that you typed `$$' both times.
-
-c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math325.tex:1245: Missing } inserted.
-<inserted text> 
-                }
-l.1245 \]}
-          
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math325.tex:1245: Missing $ inserted.
-<inserted text> 
-                $
-l.1245 \]}
-          
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math325.tex:1245: Display math should end with $$.
-<to be read again> 
-                   \endgroup 
-l.1245 \]}
-          
-The `$' that I just saw supposedly matches a previous `$$'.
-So I shall assume that you typed `$$' both times.
-
-[36]
-c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math325.tex:1245: Extra }, or forgotten \endgroup.
-\H@@footnotetext ...rutbox }\par \color@endgroup }
-                                                  
-l.1245 \]}
-          
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-
-LaTeX Warning: Reference `eq:ode-system-matrix' on page 37 undefined on input line 1266.
-
-
-Overfull \hbox (86.58041pt too wide) detected at line 1270
+[36] [37]
+Overfull \hbox (86.58041pt too wide) detected at line 1295
 \OML/cmm/m/it/10 y\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 e[] \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 y\OT1/cmr/m/n/10 (0) = 1  =[]\OMS/cmsy/m/n/10 )  \OML/cmm/m/it/10 y\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 s\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 y\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ) + \OML/cmm/m/it/10 y\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 s\OT1/cmr/m/n/10 )  =[]\OMS/cmsy/m/n/10 )  \OML/cmm/m/it/10 y\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 ^^@\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 e[] \OT1/cmr/m/n/10 = (\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ))[]  =[]\OMS/cmsy/m/n/10 )  \OML/cmm/m/it/10 y[] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 ae[] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 ay:
  []
 
-[37]
 
-LaTeX Warning: Reference `eq:ode-system-matrix' on page 38 undefined on input line 1280.
+LaTeX Warning: Reference `eq:eq:ode-system-matrix' on page 38 undefined on input line 1306.
 
-
-LaTeX Warning: Reference `eq:eq:ode-system-matrix' on page 38 undefined on input line 1281.
-
-[38] [39] [40] [41] [42]
-
-LaTeX Warning: Reference `eq:EulerFormula' on page 43 undefined on input line 1453.
-
-[43] [44] (Math325.aux)
+[38] [39] [40] [41] [42] [43] [44] [45] (Math325.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
@@ -849,23 +690,14 @@ L3 programming layer <2025-12-24>
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `Math325.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Math325.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  FCFFF560FFD67F24B76D6269AA1E7886;8931.
+Package rerunfilecheck Info: File `Math325.out' has not changed.
+(rerunfilecheck)             Checksum: FCFFF560FFD67F24B76D6269AA1E7886;8931.
  ) 
 Here is how much of TeX's memory you used:
- 30879 strings out of 467871
- 726904 string characters out of 5418377
+ 30940 strings out of 467871
+ 728083 string characters out of 5418377
  1270211 words of memory out of 5000000
- 59070 multiletter control sequences out of 15000+600000
+ 59119 multiletter control sequences out of 15000+600000
  640216 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,11n,118p,897b,723s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -873,9 +705,9 @@ Here is how much of TeX's memory you used:
 pdfTeX warning (dest): name{Hfootnote.13} has been referenced but does not exist, replaced by a fixed one
 
  <C:\Users\erenr\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Math325.pdf (46 pages, 544305 bytes).
+Output written on Math325.pdf (48 pages, 582767 bytes).
 PDF statistics:
- 589 PDF objects out of 1000 (max. 8388607)
- 218 named destinations out of 1000 (max. 500000)
- 13 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 811 PDF objects out of 1000 (max. 8388607)
+ 222 named destinations out of 1000 (max. 500000)
+ 381 words of extra memory for PDF output out of 10000 (max. 10000000)
 

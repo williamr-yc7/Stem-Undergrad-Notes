@@ -1240,27 +1240,52 @@ and $\dim(k_0) = 0 < \dim(k_1) < \dim(k_m) = m$.
 \subsection{Exponential of a Matrix}
 \marginpar{February 17, 2026}
 \begin{definition}[Matrix Exponential]
-    For $A \in M_n(\mathbb{R})$, the exponential of $A$ is defined by the power series
-    \[e^A = \sum_{k=0}^{\infty} \frac{A^k}{k!} = I + A + \frac{A^2}{2!} + \frac{A^3}{3!} + \cdots .\footnote{This definition is motivated by the scalar identity $e^x = \sum_{k=0}^{\infty} \frac{x^k}{k!}$.
-\]}
+    For $A \in M_n(\mathbb{R})$, the exponential of $A$ is defined by the power series\footnote{This definition is motivated by the scalar identity $e^x = \sum_{k=0}^{\infty} \frac{x^k}{k!}$.}
+    \[e^A = \sum_{k=0}^{\infty} \frac{A^k}{k!} = I + A + \frac{A^2}{2!} + \frac{A^3}{3!} + \cdots .\]
 \end{definition}
-
 \begin{definition}[Induced Matrix Norm]
-    Given any norm $||\cdot||$ on $\mathbb{R}^n$, the induced matrix norm is defined by 
-    \[||A|| = \sup_{x \neq 0} \frac{||Ax||}{||x||} = \sup_{||x|| = 1} ||Ax|| < \infty.\]
-
-    Properties:
-    \[||Ax|| \leq ||A|| \cdot ||x||, \quad \forall x \in \mathbb{R}^n.\]
+    Let $\|\cdot\|$ be a norm on $\mathbb{R}^n$. The induced (operator) matrix norm on $M_n(\mathbb{R})$ is defined by
+    \[\|A\| = \sup_{x \ne 0} \frac{\|Ax\|}{\|x\|} = \sup_{\|x\|=1} \|Ax\|.\]
 \end{definition}
-By definition, if we take two matrices $A,B \in M_n(\mathbb{R})$,
-\[|||AB||| \leq |||A||| \cdot |||B|||.\]\footnote{triple bar is norm for a matrix while double bar is the norm of a vector.}
+\begin{proposition}[Basic Properties]
+    For all $A,B \in M_n(\mathbb{R})$ and all $x \in \mathbb{R}^n$:
+    \[\|Ax\| \leq \|A\| \cdot \|x\|,\]
+    \[|||AB||| \leq |||A||| \cdot |||B|||.\footnote{triple bar is norm for a matrix while double bar is the norm of a vector.}\]
+\end{proposition}
+\begin{proof}
+    By definition,
+    \[\|A\| = \sup_{\|x\|=1} \|Ax\|.\]
+    For any nonzero $x$,
+    \[\|Ax\| = \left\|A\left(\frac{x}{\|x\|}\right)\right\|\|x\| \leq \|A\|\cdot\|x\|.\]
+    For submultiplicativity, let $\|x\|=1$. Then
+    \[\|ABx\|\leq\|A\|c\dot\|Bx\|\leq\|A\|\cdot\|B\|.\]
+    Taking the supremum over all unit vectors $x$ gives
+    \[\|AB\| \leq \|A\|\cdot\|B\|.\]
+\end{proof}
+\begin{proposition}[Convergence]
+    For every $A \in M_n(\mathbb{R})$, the series defining $e^A$ converges absolutely.
+\end{proposition}
+\begin{proof}
+    Using the triangle inequality\footnote{$||A+B|| \leq ||A|| + ||B||$},
+    \[\left\|\sum_{k=0}^{N} \frac{A^k}{k!}\right\| \leq \sum_{k=0}^{N} \frac{\|A\|^k}{k!}.\]
+    Since $\sum_{k=0}^{\infty} \frac{\|A\|^k}{k!} = e^{\|A\|}$ converges, the matrix series converges.
+\end{proof}
+\begin{proposition}[Basic Properties]
+For all $A \in M_n(\mathbb{R})$ and $t,s \in \mathbb{R}$,
+\begin{itemize}
+    \item $e^{A0} = I,$
+    \item $e^{A(t+s)} = e^{At}e^{As},$
+    \item $e^{-At} = (e^{At})^{-1},$
+    \item $\frac{d}{dt} e^{At} = Ae^{At} = e^{At}A$.
+\end{itemize}
+If $AB=BA$, then
+\[e^{A+B} = e^A e^B.\]
+\end{proposition}
+
+
 Using matrix norms, we have that 
 \[|||\sum_{k=0}^{N} \frac{A^k}{k!}||| \leq \sum_{k=0}^{N} \frac{|||A|||^k}{k!}.\]
-From
-\begin{equation}
-    \label{eq:Triangleinequatlity}
-    ||A+B|| \leq ||A|| + ||B||.
-\end{equation}
+
 Since the series $\sum_{k=0}^{\infty} \frac{||A||^k}{k!}$ converges (it is the Taylor series for $e^{||A||}$), the sequence of partial sums is bounded and hence converges. $\to_{N \to \infty} e^A < \infty$. Hence, $\forall A \in M_n(\mathbb{R})$, $e^A \in M_n(\mathbb{R})$.
 Property: $e^{A+B} = e^A e^B$ if $AB=BA$.
 Going back to \eqref{eq:ode-system-matrix}, another solution for this is $y(t) = e^{At}c$, where $c \in \mathbb{R}^n$ is a constant vector.
