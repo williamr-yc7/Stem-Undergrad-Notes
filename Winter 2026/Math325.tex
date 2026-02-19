@@ -500,8 +500,8 @@ A first-order scalar differential equation is an equation involving a single sca
     Using the initial condition \(y(0) = 1\), we find \(C = 4\), giving the final solution:
     \[\therefore y(t) = -3e^t + 4e^{2t}.\]
 \end{example}
-\begin{remark}
-    A quick method to solve a first-order linear equation is
+\begin{remark}[Quick Solution Method]
+    A quick method to solve a first-order linear equation (not presented by the professor) is
     \[y(t) = \frac{\int \mu(t) Q(t)}{\mu(t)}.\]
 \end{remark}
 
@@ -1288,7 +1288,7 @@ and $\dim(k_0) = 0 < \dim(k_1) < \dim(k_m) = m$.
 \begin{proof}[Proof of the Derivative Formula]
     \[\frac{d}{dt} e^{At} = \frac{d}{dt} \sum_{k=0}^{\infty} \frac{A^k t^k}{k!} = \sum_{k=1}^{\infty} \frac{A^k t^{k-1}}{(k-1)!} = A \sum_{k=0}^{\infty} \frac{A^k t^k}{k!} = Ae^{At}.\]
 \end{proof}
-\begin{theorem}[Solution of $y' = Ay$]
+\begin{theorem}[Fundamental Matrix Solution]
     The matrix function $e^{At}$ is a fundamental matrix solution of \eqref{eq:ode-system-matrix}. Hence the general solution is
     \[y(t) = e^{At}C, \quad C \in \mathbb{R}^n.\]
     The unique solution of the initial value problem
@@ -1301,6 +1301,77 @@ and $\dim(k_0) = 0 < \dim(k_1) < \dim(k_m) = m$.
     \[e^{A\cdot0} = I,\]
     so $\det(e^{A0}) = 1 \ne 0$, and $e^{At}$ is invertible for all $t$.
 \end{proof}
+
+\marginpar{February 19, 2026}
+Let $y(t)$ be any fundamental matrix solution of $y' = Ay$. Then there exists an invertible matrix $C \in M_n(\mathbb{R})$ such that%continue
+
+Consider any fundamental matrix solution $y(t) \implies e^{At}=y(t)C$, where $C \in M_n(\mathbb{R})$, $y(t) = (y_1(t),\ldots,y_n(t))$. Denote by $w_j(t)$ the $i$th column of $e^{At}$, $w_j(t) = $ linear combination of the $y_1(t),\ldots,y_n(t) \implies w_j^{(j)} = y(t)C^{(j)}$, where $C^{(j)} = \begin{pmatrix}C_1^{(j)}\\\vdots\\C_n^{(j)}\end{pmatrix}$. Here at $t=0$: $e^{A0} = y(0)C$, implies $C = (y0)^{-1}$, implies $e^{At} = y(t)(y(0))^{-1}$.
+
+Example: Let
+\[A = \begin{pmatrix}1&3\\3&1\end{pmatrix}, \quad \lambda_1 = -2, \lambda_2 = 4, u_1 = \begin{pmatrix}-1\\1\end{pmatrix}, u_2 = \begin{pmatrix}1\\1\end{pmatrix}.\]
+\[\implies y(t) = \begin{pmatrix}-e^{-2t}&e^{4t}\\e^{-2t}&e^{4t}\end{pmatrix}\]
+is a fundamental matrix solution:
+\[y(0) = \begin{pmatrix}-1&1\\1&1\end{pmatrix}, y(0)^{-1} = \frac{1}{2}\begin{pmatrix}-1&1\\1&1\end{pmatrix}.\]
+\[\implies e^{At} = y(t)y(0)^{-1} = \begin{pmatrix}\frac{1}{2}e^{-2t}+\frac{1}{2}e^{4t}&-\frac{1}{2}e^{-2t}+\frac{1}{2}e^{4t}\\-\frac{1}{2}e^{-2t}+\frac{1}{2}e^{4t}&\frac{1}{2}e^{-2t}+\frac{1}{2}e^{4t}\end{pmatrix}.\]
+\[\therefore e^{A0} = I.\]
+$S = \{$y solves \eqref{eq:ode-system-matrix}$\}$. Therefroe if we have $y(0) = y_0$ then the solution is just $y(t) = e^{At}y_0$.
+
+\subsection{Building the Solution Set With $e^{At}$}
+Given any vector $v \in \mathbb{R}^n$, $e^{At}v$ is a solution of \eqref{eq:ode-system-matrix}. Assume that $u$ is an eigenvector associated to $\lambda \in \sigma(A)$.
+\[e^{At}u = u + Aut + \frac{1}{2}A^2 ut^2 + \frac{1}{3!}A^3 ut^3 + \cdots = u(1 + \lambda t + \frac{1}{2}\lambda^2 t^2 + \frac{1}{3!}\lambda^3 t^3 + \cdots) = e^{\lambda t}u.\]
+What if $u$ is a generalized eigenvector associated to $\lambda \in \sigma(A)$? Then
+\[(A-\lambda I)^k u = 0, \, \forall k>j, \, \exists\footnote{"for some"}j.\]
+In this case,
+\[e^{At}u = e^{(A-\lambda I + \lambda I)t}u = e^{\lambda It + (A-\lambda I)t}u = e^{\lambda t}e^{(A-\lambda I)t}u.\]
+Now, $e^{\lambda It} = \sum_{k=0}^{\infty} \frac{\lambda^k t^k}{k!}I = e^{\lambda t}I$ and $e^{(A-\lambda I)t}u = \sum_{k=0}^{\infty} \frac{(A-\lambda I)^k t^k}{k!}u$.
+\[\implies e^{At}u = e^{\lambda t}\sum_{k=0}^{j} \frac{(A-\lambda I)^k t^k}{k!}u,\]
+which is a finite sum.
+Theorem: Any matrix $A\in M_n(\mathbb{R})$ admits a $n$ linearly independent generalized eigenvectors $u_1,u_2,\cdots,u_n$.
+Proposition: The general solution of \eqref{eq:ode-system-matrix} is given by
+\[y(t) = \sum_{i=1}^n c_i e^{At}u_i, \quad c_i \in \mathbb{R},\]
+where the $u_i$ are the generalized eigenvectors of $A$.
+
+Example:
+\[y' = \begin{pmatrix}1&1\\0&1\end{pmatrix}y, \, \sigma(A) = \{1,1\}\]
+\[k_1 = <\begin{pmatrix}1\\0\end{pmatrix}> \subsetneq k_2 = <\begin{pmatrix}1\\0\end{pmatrix},\begin{pmatrix}0\\1\end{pmatrix}>.\]
+$u_2$ solves $(A-I)u_2 = u_1$.
+\[k_0 \subsetneq k_1 \subsetneq k_2 \subsetneq \cdots k_j \subsetneq k_{j+1}.\]
+\[y_1(t) = e^tu_1\]
+\[y_2(t) = e^{At}u_2 = e^te^{(A-I)t}u_2 = e^t(u_2+(A-\lambda I)u_2t+\frac{1}{2}(A-\lambda I)^2t^2+\cdots) = e^t(u_2+tu_1)\]
+\[\implies y_2(t) = e^t(\begin{pmatrix}0\\1\end{pmatrix} + t\begin{pmatrix}1\\0\end{pmatrix}) = e^t\begin{pmatrix}t\\1\end{pmatrix}\]
+Implying the general solution is
+\[y(t) = c_1 e^t\begin{pmatrix}1\\0\end{pmatrix} + c_2 e^t\begin{pmatrix}t\\1\end{pmatrix}.\]
+$\dim(\ker(A-\lambda I)^2) = 2$ implies $u_2 \in k_2 = \ker(A-\lambda I)^2$.
+
+Example:
+\[y' = \begin{pmatrix}2&4\\-1&-2\end{pmatrix}y\]
+\[p(\lambda) = (2-\lambda)(-2-\lambda)+4 = \lambda^2\]
+\[\implies \lambda = 0 \in \sigma(A), m =2\]
+\[Au = 0 \implies u = \begin{pmatrix}-2\\1\end{pmatrix}\]
+\[k_1 = \ker(A) = <\begin{pmatrix}-2\\1\end{pmatrix}>\]
+To find $u_2 \in k_2 \setminus k_1$, solve
+\[\begin{pmatrix}2&4\\-1&-2\end{pmatrix}\begin{pmatrix}a\\b\end{pmatrix} = \begin{pmatrix}-2\\1\end{pmatrix}.\]
+This gives $a=-2b-1$. Pick $b=0$:
+\[\implies u_2 \begin{pmatrix}-1\\0\end{pmatrix}\]
+\[\therefore Au_2 = u_1.\]
+\[\implies y_1(t) = e^{0t}u_1 = \begin{pmatrix}-2\\1\end{pmatrix}\]
+\[\implies y_2(t) = e^{At}u_2 = u_2 + Au_2t + A^2u_2\frac{t^2}{2}+\cdots = u_2 + u_1t = \begin{pmatrix}-1\\0\end{pmatrix}+\begin{pmatrix}-2\\1\end{pmatrix}t = \begin{pmatrix}-1-2t\\t\end{pmatrix}\]
+\[\implies y(t) = c_1\begin{pmatrix}-2\\1\end{pmatrix} + c_2\begin{pmatrix}-1-2t\\t\end{pmatrix}\]
+\[y(t) = \begin{pmatrix}-2&-1-2t\\1&t\end{pmatrix}\]
+The wronskian is $w(t) = \det(y(t)) = -2t + 1 + 2t = 1 \neq 0$.
+
+\subsection{Non-homogeneous systems}
+\begin{equation}
+    \label{eq:non-homogeneous-ode-system-matrix}
+    y'(t) = Ay(t) + r(t)
+\end{equation}
+where $A \in M_n(\mathbb{R})$ and $r: I \to \mathbb{R}^n$ continuous. Assume that $y(t)$ is a fundamental matrix solution of \eqref{eq:ode-system-matrix}. Assume that $y_1(t)$ and $y_2(t)$ are any solutions of \eqref{eq:non-homogeneous-ode-system-matrix}. Define $y(t) = y_2(t) - y_1(t)$. $y'(t) = y_2' - y_1' = Ay_2 + r - (Ay_1 + r) = A(y_2 - y_1) = Ay(t)$. Meaning $y_2 - y_1$ solves \eqref{eq:ode-system-matrix}. Hence there exists $C \in \mathbb{R}^n$ such that $y_2(t) - y_1(t) = Y(t)C$. Implies $y_2(t) = Y(t)C + y_1(t)$.
+
+Theorem: Let $y_p(t)$ be any solution to \eqref{eq:non-homogeneous-ode-system-matrix}. Then the general solution of \eqref{eq:non-homogeneous-ode-system-matrix} is given by
+\[y(t) = Y(t)C + y_p(t).\]
+How to compute $y_p(t)$?
+Look for $y_p(t) = Y(t)C_p(t)$, where $C_p(t)$ is unknown. For $y_p$ to solve \eqref{eq:non-homogeneous-ode-system-matrix} we need $y_p'(t) = Ay_p(t) + r(t) = Y'(t)C_p(t) + Y(t)C_p'(t) = AY(t)C_p(t) + Y(t)C_p'(t) = Ay_p(t) + Y(t)c_p'(t)$, implies $y(t)c_p'(t) = r(t)$, implies $c_p'(t) = y^{-1}(t)r(t) \implies C_p(t) = \int y^{-1}(t)r(t)dt \implies y_p(t) = Y(t) \int Y^{-1}(t)r(t)dt$, implies the general solution to \eqref{eq:non-homogeneous-ode-system-matrix} is 
+\[y(t) = Y(t)C + Y(t) \intY^{-1}(t)r(t)dt = Y(t)[C+\int Y^{-1}(t)r(t)dt], \, C\in \mathbb{R}^n.\]
 
 
 
