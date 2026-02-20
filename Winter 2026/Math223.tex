@@ -1163,7 +1163,30 @@ Example:
 \[\ker(T_A) = \{\begin{pmatrix}x\\y\\z\end{pmatrix}: \begin{cases}x+2y+3z=0\\4x+5y+6z=0\\7x+8y+9z=0\end{cases}\}\]
 Basis solution: $\begin{pmatrix}1\\-2\\1\end{pmatrix}$. And $\ker(T_A) = \Span(\begin{pmatrix}1\\-2\\1\end{pmatrix})$.
 
+\marginpar{February 20, 2026}
+Image of a linear transformation $T : U \to V$ is linear, $\Im(T) = \left\{T(u) : u \in U\right\}$.
+Reminder, for a transformation to be linear $T(\lambda u) = \lambda T(u)$, where $\lambda \in k$.
+Example: $T=T_A$, $T : \mathbb{R}^2 \to \mathbb{R}^2$, $A = \begin{pmatrix}1&2\\3&4\end{pmatrix}$. $T(e_1) = Ae_1 = \begin{pmatrix}1\\3\end{pmatrix}$, $T(e_2) = Ae_2 = \begin{pmatrix}2\\4\end{pmatrix}$. $\Im(T) = \Span(T(e_1),T(e_2)) = \Span(\begin{pmatrix}1\\3\end{pmatrix},\begin{pmatrix}2\\4\end{pmatrix}) = \mathbb{R}^2$.
+Proposition: $(e_1,\ldots,e_n)$ basis of U, $\Im(T) = \Span(T(e_1),\ldots,T(e_n))$.
+Main Idea: $\Im(T) = \{T(u) : \forall u \in U\}$, take $u \in U$, meaning $u = \lambda_1e_1 + \ldots + \lambda_ne_n$, then $T(u) = T(\lambda_1e_1 + \ldots + \lambda_ne_n) = \lambda_1T(e_1) + \cdots + \lambda_nT(e_n) \in \Span(T(e_i))$.
+Proof that $\Im(T) \subseteq \Span(T(e_1),\ldots,T(e_n))$:
+Step 1: Let $v \in \Im(T)$, prove $v \in \Span$.
+Step 2: $\exists u$ such that $v \in T(u)$. Show there exist $\lambda_1, \ldots, \lambda_n$ such that $v = \lambda_1T(e_1) + \cdots + \lambda_nT(e_n)$.
+Step 3: Find $\lambda_1, \ldots, \lambda_n$, e basis. $\exists \lambda_1, \ldots, \lambda_n$ such that $u = \lambda_1e_1 + \cdots + \lambda_ne_n$.
+Apply $T$: $T(u) = \lambda_1T(e_1) + \cdots + \lambda_nT(e_n)$.
 
+Matrix of a transformation:
+dim 1:
+Proposition: $T : \mathbb{R} \to \mathbb{R}$ linear is determined by a single real (1x1 matrix) number
+Propostion: $T: \mathbb{R} \to \mathbb{R}$ linear map $T(x) = T(x-1) = xT(1)-ax$.
+Matrix of $T$ in basis e: denoted $A = [T]_e$, $[T]_e = \left([T(e_1)]_e,\cdots,[T(e_n)]_e\right) = A$.
+To compute matrix of $T: U \to U$ in $e =$ basis of $U$:
+\begin{enumerate}
+    \item Compute coord of $T(e_1)$ in basis $e$.
+    \item Write these coord as columns in $A$.
+\end{enumerate}
+Example: $U = \mathbb{R}^2$, $e =$ std basis,$T: \mathbb{R}^2 \to \mathbb{R}^2$, $[T]_e = \begin{pmatrix}1&2\\3&4\end{pmatrix}$.
+Derivative: Matrix of $D(f) = f'$, $D: P_n \to P_n$, $e = (x^n, x^{n-1}, \ldots, x^1, 1)$.
 
 
 \section{Appendix}
