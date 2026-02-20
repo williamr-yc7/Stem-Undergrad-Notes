@@ -1303,29 +1303,54 @@ and $\dim(k_0) = 0 < \dim(k_1) < \dim(k_m) = m$.
 \end{proof}
 
 \marginpar{February 19, 2026}
-Let $y(t)$ be any fundamental matrix solution of $y' = Ay$. Then there exists an invertible matrix $C \in M_n(\mathbb{R})$ such that%continue
+Let $y(t)$ be any fundamental matrix solution of $y' = Ay$. Then there exists an invertible matrix $C \in M_n(\mathbb{R})$ such that
+\[e^{At} = y(t)C.\]
+If we denote the columns of $e^{At}$ by $w_1(t), \dots, w_n(t)$, each column can be expressed as a linear combination of the columns of $y(t)$:
+\[w_j(t) = y(t) C^{(j)}, \quad C^{(j)} \in \mathbb{R}^n.\]
+Evaluating at $t=0$, we get
+\[e^{A\cdot 0} = I = y(0) C \implies C = y(0)^{-1}.\]
+Hence, in general,
+\[e^{At} = y(t) y(0)^{-1}.\]
 
-Consider any fundamental matrix solution $y(t) \implies e^{At}=y(t)C$, where $C \in M_n(\mathbb{R})$, $y(t) = (y_1(t),\ldots,y_n(t))$. Denote by $w_j(t)$ the $i$th column of $e^{At}$, $w_j(t) = $ linear combination of the $y_1(t),\ldots,y_n(t) \implies w_j^{(j)} = y(t)C^{(j)}$, where $C^{(j)} = \begin{pmatrix}C_1^{(j)}\\\vdots\\C_n^{(j)}\end{pmatrix}$. Here at $t=0$: $e^{A0} = y(0)C$, implies $C = (y0)^{-1}$, implies $e^{At} = y(t)(y(0))^{-1}$.
-
-Example: Let
-\[A = \begin{pmatrix}1&3\\3&1\end{pmatrix}, \quad \lambda_1 = -2, \lambda_2 = 4, u_1 = \begin{pmatrix}-1\\1\end{pmatrix}, u_2 = \begin{pmatrix}1\\1\end{pmatrix}.\]
-\[\implies y(t) = \begin{pmatrix}-e^{-2t}&e^{4t}\\e^{-2t}&e^{4t}\end{pmatrix}\]
-is a fundamental matrix solution:
-\[y(0) = \begin{pmatrix}-1&1\\1&1\end{pmatrix}, y(0)^{-1} = \frac{1}{2}\begin{pmatrix}-1&1\\1&1\end{pmatrix}.\]
-\[\implies e^{At} = y(t)y(0)^{-1} = \begin{pmatrix}\frac{1}{2}e^{-2t}+\frac{1}{2}e^{4t}&-\frac{1}{2}e^{-2t}+\frac{1}{2}e^{4t}\\-\frac{1}{2}e^{-2t}+\frac{1}{2}e^{4t}&\frac{1}{2}e^{-2t}+\frac{1}{2}e^{4t}\end{pmatrix}.\]
-\[\therefore e^{A0} = I.\]
-$S = \{$y solves \eqref{eq:ode-system-matrix}$\}$. Therefroe if we have $y(0) = y_0$ then the solution is just $y(t) = e^{At}y_0$.
+\begin{example}
+    Let
+    \[A = \begin{pmatrix}1 & 3 \\ 3 & 1\end{pmatrix}, \quad \lambda_1 = -2, \, \lambda_2 = 4, \quad u_1 = \begin{pmatrix}-1 \\ 1\end{pmatrix}, \, u_2 = \begin{pmatrix}1 \\ 1\end{pmatrix}.\]
+    A fundamental matrix solution is
+    \[y(t) = \begin{pmatrix}-e^{-2t} & e^{4t} \\ e^{-2t} & e^{4t}\end{pmatrix}, \quad y(0) = \begin{pmatrix}-1 & 1 \\ 1 & 1\end{pmatrix}.\]
+    Compute the inverse:
+    \[y(0)^{-1} = \frac{1}{2} \begin{pmatrix}-1 & 1 \\ 1 & 1\end{pmatrix}.\]
+    Thus, the matrix exponential is
+    \[e^{At} = y(t) y(0)^{-1} = \begin{pmatrix}\frac{1}{2}e^{-2t} + \frac{1}{2}e^{4t} & -\frac{1}{2}e^{-2t} + \frac{1}{2}e^{4t} \\ -\frac{1}{2}e^{-2t} + \frac{1}{2}e^{4t} & \frac{1}{2}e^{-2t} + \frac{1}{2}e^{4t}\end{pmatrix}.\]
+    Verifying at $t=0$:
+    \[e^{A\cdot 0} = I.\]
+    Hence, if $y_0 \in \mathbb{R}^n$ is the initial condition, the solution of \eqref{eq:ode-system-matrix} with $y(0) = y_0$ is
+    \[y(t) = e^{At} y_0.\]
+\end{example}
 
 \subsection{Building the Solution Set With $e^{At}$}
-Given any vector $v \in \mathbb{R}^n$, $e^{At}v$ is a solution of \eqref{eq:ode-system-matrix}. Assume that $u$ is an eigenvector associated to $\lambda \in \sigma(A)$.
-\[e^{At}u = u + Aut + \frac{1}{2}A^2 ut^2 + \frac{1}{3!}A^3 ut^3 + \cdots = u(1 + \lambda t + \frac{1}{2}\lambda^2 t^2 + \frac{1}{3!}\lambda^3 t^3 + \cdots) = e^{\lambda t}u.\]
-What if $u$ is a generalized eigenvector associated to $\lambda \in \sigma(A)$? Then
-\[(A-\lambda I)^k u = 0, \, \forall k>j, \, \exists\footnote{"for some"}j.\]
-In this case,
-\[e^{At}u = e^{(A-\lambda I + \lambda I)t}u = e^{\lambda It + (A-\lambda I)t}u = e^{\lambda t}e^{(A-\lambda I)t}u.\]
-Now, $e^{\lambda It} = \sum_{k=0}^{\infty} \frac{\lambda^k t^k}{k!}I = e^{\lambda t}I$ and $e^{(A-\lambda I)t}u = \sum_{k=0}^{\infty} \frac{(A-\lambda I)^k t^k}{k!}u$.
-\[\implies e^{At}u = e^{\lambda t}\sum_{k=0}^{j} \frac{(A-\lambda I)^k t^k}{k!}u,\]
-which is a finite sum.
+Given any vector $v \in \mathbb{R}^n$, the function $e^{At}v$ is a solution of \eqref{eq:ode-system-matrix}.
+
+\subsubsection{Eigenvectors}
+Assume $u$ is an eigenvector associated to $\lambda \in \sigma(A)$. Then
+\[e^{At}u = \sum_{k=0}^{\infty} \frac{A^k t^k}{k!} u = \sum_{k=0}^{\infty} \frac{\lambda^k t^k}{k!} u = e^{\lambda t} u.\]
+Thus eigenvectors generate solutions of the form $e^{\lambda t}u$.
+
+\subsubsection{Generalized Eigenvectors}
+Suppose $u$ is a generalized eigenvector associated to $\lambda \in \sigma(A)$. Then there exists $j \in \mathbb{N}$ such that
+\[(A - \lambda I)^{j+1} u = 0.\]
+Write
+\[A = (A - \lambda I) + \lambda I.\]
+Since $(A - \lambda I)$ commutes with $\lambda I$,
+\[e^{At} = e^{((A - \lambda I) + \lambda I)t} = e^{\lambda t} e^{(A - \lambda I)t}.\]
+Hence
+\[e^{At}u = e^{\lambda t} \sum_{k=0}^{\infty} \frac{(A - \lambda I)^k t^k}{k!} u.\]
+Because $(A - \lambda I)^k u = 0$ for all $k > j$, the sum is finite:
+\[e^{At}u = e^{\lambda t} \sum_{k=0}^{j} \frac{(A - \lambda I)^k t^k}{k!} u.\]
+
+\begin{theorem}
+Every matrix $A \in M_n(\mathbb{R})$ admits $n$ linearly independent generalized eigenvectors $u_1, \dots, u_n$.
+\end{theorem}
+
 Theorem: Any matrix $A\in M_n(\mathbb{R})$ admits a $n$ linearly independent generalized eigenvectors $u_1,u_2,\cdots,u_n$.
 Proposition: The general solution of \eqref{eq:ode-system-matrix} is given by
 \[y(t) = \sum_{i=1}^n c_i e^{At}u_i, \quad c_i \in \mathbb{R},\]
@@ -1371,7 +1396,7 @@ Theorem: Let $y_p(t)$ be any solution to \eqref{eq:non-homogeneous-ode-system-ma
 \[y(t) = Y(t)C + y_p(t).\]
 How to compute $y_p(t)$?
 Look for $y_p(t) = Y(t)C_p(t)$, where $C_p(t)$ is unknown. For $y_p$ to solve \eqref{eq:non-homogeneous-ode-system-matrix} we need $y_p'(t) = Ay_p(t) + r(t) = Y'(t)C_p(t) + Y(t)C_p'(t) = AY(t)C_p(t) + Y(t)C_p'(t) = Ay_p(t) + Y(t)c_p'(t)$, implies $y(t)c_p'(t) = r(t)$, implies $c_p'(t) = y^{-1}(t)r(t) \implies C_p(t) = \int y^{-1}(t)r(t)dt \implies y_p(t) = Y(t) \int Y^{-1}(t)r(t)dt$, implies the general solution to \eqref{eq:non-homogeneous-ode-system-matrix} is 
-\[y(t) = Y(t)C + Y(t) \intY^{-1}(t)r(t)dt = Y(t)[C+\int Y^{-1}(t)r(t)dt], \, C\in \mathbb{R}^n.\]
+\[y(t) = Y(t)C + Y(t) \int Y^{-1}(t)r(t)dt = Y(t)[C+\int Y^{-1}(t)r(t)dt], \, C\in \mathbb{R}^n.\]
 
 
 
