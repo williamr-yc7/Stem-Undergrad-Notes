@@ -1347,58 +1347,111 @@ Hence
 Because $(A - \lambda I)^k u = 0$ for all $k > j$, the sum is finite:
 \[e^{At}u = e^{\lambda t} \sum_{k=0}^{j} \frac{(A - \lambda I)^k t^k}{k!} u.\]
 
-\begin{theorem}
+\begin{theorem}[Generalized Eigenvector Basis]
 Every matrix $A \in M_n(\mathbb{R})$ admits $n$ linearly independent generalized eigenvectors $u_1, \dots, u_n$.
 \end{theorem}
-
-Theorem: Any matrix $A\in M_n(\mathbb{R})$ admits a $n$ linearly independent generalized eigenvectors $u_1,u_2,\cdots,u_n$.
-Proposition: The general solution of \eqref{eq:ode-system-matrix} is given by
-\[y(t) = \sum_{i=1}^n c_i e^{At}u_i, \quad c_i \in \mathbb{R},\]
-where the $u_i$ are the generalized eigenvectors of $A$.
-
-Example:
-\[y' = \begin{pmatrix}1&1\\0&1\end{pmatrix}y, \, \sigma(A) = \{1,1\}\]
-\[k_1 = <\begin{pmatrix}1\\0\end{pmatrix}> \subsetneq k_2 = <\begin{pmatrix}1\\0\end{pmatrix},\begin{pmatrix}0\\1\end{pmatrix}>.\]
-$u_2$ solves $(A-I)u_2 = u_1$.
-\[k_0 \subsetneq k_1 \subsetneq k_2 \subsetneq \cdots k_j \subsetneq k_{j+1}.\]
-\[y_1(t) = e^tu_1\]
-\[y_2(t) = e^{At}u_2 = e^te^{(A-I)t}u_2 = e^t(u_2+(A-\lambda I)u_2t+\frac{1}{2}(A-\lambda I)^2t^2+\cdots) = e^t(u_2+tu_1)\]
-\[\implies y_2(t) = e^t(\begin{pmatrix}0\\1\end{pmatrix} + t\begin{pmatrix}1\\0\end{pmatrix}) = e^t\begin{pmatrix}t\\1\end{pmatrix}\]
-Implying the general solution is
-\[y(t) = c_1 e^t\begin{pmatrix}1\\0\end{pmatrix} + c_2 e^t\begin{pmatrix}t\\1\end{pmatrix}.\]
-$\dim(\ker(A-\lambda I)^2) = 2$ implies $u_2 \in k_2 = \ker(A-\lambda I)^2$.
-
-Example:
-\[y' = \begin{pmatrix}2&4\\-1&-2\end{pmatrix}y\]
-\[p(\lambda) = (2-\lambda)(-2-\lambda)+4 = \lambda^2\]
-\[\implies \lambda = 0 \in \sigma(A), m =2\]
-\[Au = 0 \implies u = \begin{pmatrix}-2\\1\end{pmatrix}\]
-\[k_1 = \ker(A) = <\begin{pmatrix}-2\\1\end{pmatrix}>\]
+\begin{proposition}
+    The general solution of \eqref{eq:ode-system-matrix} is
+    \[y(t) = \sum_{i=1}^{n} c_i e^{At} u_i, \quad c_i \in \mathbb{R},\]
+    where $u_i$ are generalized eigenvectors of $A$.
+\end{proposition}
+\begin{example}
+Consider
+\[A = \begin{pmatrix}1 & 1 \\ 0 & 1\end{pmatrix}, \quad \sigma(A)=\{1,1\}.\]
+Define the chain of generalized eigenspaces
+\[k_0 \subsetneq k_1 \subsetneq k_2 \subsetneq \cdots \subsetneq k_j \subsetneq k_{j+1},\]
+where
+\[k_m = \ker (A-\lambda I)^m.\]
+Here,
+\[k_1 = \left< \begin{pmatrix}1\\0\end{pmatrix} \right> \subsetneq
+k_2 = \left<\begin{pmatrix}1\\0\end{pmatrix},\begin{pmatrix}0\\1\end{pmatrix}\right>.\]
+Since
+\[\dim(\ker(A-\lambda I)^2)=2,\]
+we choose
+\[u_2 \in k_2 = \ker(A-\lambda I)^2 \quad \text{with } u_2 \notin k_1.\]
+The eigenvector is
+\[u_1 = \begin{pmatrix}1\\0\end{pmatrix},\]
+and $u_2$ satisfies
+\[(A-I)u_2 = u_1.\]
+Take
+\[u_2 = \begin{pmatrix}0\\1\end{pmatrix}.\]
+Then
+\[y_1(t) = e^t u_1,\]
+and
+\[y_2(t) = e^{At}u_2 = e^t(u_2 + t u_1) = e^t \begin{pmatrix}t\\1\end{pmatrix}.\]
+Thus the general solution is
+\[y(t) = c_1 e^t \begin{pmatrix}1\\0\end{pmatrix} + c_2 e^t \begin{pmatrix}t\\1\end{pmatrix}.\]
+\end{example}
+\begin{example}
+Consider
+\[A = \begin{pmatrix}2 & 4 \\ -1 & -2\end{pmatrix}.\]
+The characteristic polynomial is
+\[p(\lambda) = (2-\lambda)(-2-\lambda)+4 = \lambda^2,\]
+so $\lambda=0$ with multiplicity $2$ or $\sigma(A) = \{0,0\}$.
+\[k_1 = \ker(A) = \left< \begin{pmatrix}-2\\1\end{pmatrix} \right>.\]
 To find $u_2 \in k_2 \setminus k_1$, solve
-\[\begin{pmatrix}2&4\\-1&-2\end{pmatrix}\begin{pmatrix}a\\b\end{pmatrix} = \begin{pmatrix}-2\\1\end{pmatrix}.\]
-This gives $a=-2b-1$. Pick $b=0$:
-\[\implies u_2 \begin{pmatrix}-1\\0\end{pmatrix}\]
-\[\therefore Au_2 = u_1.\]
-\[\implies y_1(t) = e^{0t}u_1 = \begin{pmatrix}-2\\1\end{pmatrix}\]
-\[\implies y_2(t) = e^{At}u_2 = u_2 + Au_2t + A^2u_2\frac{t^2}{2}+\cdots = u_2 + u_1t = \begin{pmatrix}-1\\0\end{pmatrix}+\begin{pmatrix}-2\\1\end{pmatrix}t = \begin{pmatrix}-1-2t\\t\end{pmatrix}\]
-\[\implies y(t) = c_1\begin{pmatrix}-2\\1\end{pmatrix} + c_2\begin{pmatrix}-1-2t\\t\end{pmatrix}\]
-\[y(t) = \begin{pmatrix}-2&-1-2t\\1&t\end{pmatrix}\]
-The wronskian is $w(t) = \det(y(t)) = -2t + 1 + 2t = 1 \neq 0$.
+\[A \begin{pmatrix}a\\b\end{pmatrix} = \begin{pmatrix}-2\\1\end{pmatrix}.\]
+This gives $a=-2b-1$. Choosing $b=0$,
+\[u_2 = \begin{pmatrix}-1\\0\end{pmatrix}.\]
+Then
+\[y_1(t)=u_1=\begin{pmatrix}-2\\1\end{pmatrix},\]
+\[y_2(t) = e^{At}u_2 = u_2 + t u_1 = \begin{pmatrix}-1-2t\\t\end{pmatrix}.\]
+Hence
+\[y(t) = c_1 \begin{pmatrix}-2\\1\end{pmatrix} + c_2 \begin{pmatrix}-1-2t\\t\end{pmatrix}.\]
+A fundamental matrix is
+\[Y(t) = \begin{pmatrix}-2 & -1-2t \\ 1 & t\end{pmatrix}.\]
+The Wronskian is
+\[W(t)=\det Y(t)=1\neq0.\]
+\end{example}
 
 \subsection{Non-homogeneous systems}
+Consider
 \begin{equation}
     \label{eq:non-homogeneous-ode-system-matrix}
-    y'(t) = Ay(t) + r(t)
+    y'(t) = Ay(t) + r(t),
 \end{equation}
-where $A \in M_n(\mathbb{R})$ and $r: I \to \mathbb{R}^n$ continuous. Assume that $y(t)$ is a fundamental matrix solution of \eqref{eq:ode-system-matrix}. Assume that $y_1(t)$ and $y_2(t)$ are any solutions of \eqref{eq:non-homogeneous-ode-system-matrix}. Define $y(t) = y_2(t) - y_1(t)$. $y'(t) = y_2' - y_1' = Ay_2 + r - (Ay_1 + r) = A(y_2 - y_1) = Ay(t)$. Meaning $y_2 - y_1$ solves \eqref{eq:ode-system-matrix}. Hence there exists $C \in \mathbb{R}^n$ such that $y_2(t) - y_1(t) = Y(t)C$. Implies $y_2(t) = Y(t)C + y_1(t)$.
+where $A \in M_n(\mathbb{R})$ and $r : I \to \mathbb{R}^n$ is continuous. Let $Y(t)$ be a fundamental matrix solution of the homogeneous system \eqref{eq:ode-system-matrix}. Suppose $y_1(t)$ and $y_2(t)$ are two solutions of \eqref{eq:non-homogeneous-ode-system-matrix}. Define
+\[y(t) = y_2(t) - y_1(t).\]
+Then
+\[y'(t) = y_2'(t) - y_1'(t) = (Ay_2 + r) - (Ay_1 + r) = A(y_2 - y_1) = Ay(t).\]
+Thus $y(t)$ solves the homogeneous system \eqref{eq:ode-system-matrix}.  
+Hence there exists $C \in \mathbb{R}^n$ such that
+\[y_2(t) - y_1(t) = Y(t)C.\]
+Therefore,
+\[y_2(t) = Y(t)C + y_1(t).\]
 
-Theorem: Let $y_p(t)$ be any solution to \eqref{eq:non-homogeneous-ode-system-matrix}. Then the general solution of \eqref{eq:non-homogeneous-ode-system-matrix} is given by
-\[y(t) = Y(t)C + y_p(t).\]
-How to compute $y_p(t)$?
-Look for $y_p(t) = Y(t)C_p(t)$, where $C_p(t)$ is unknown. For $y_p$ to solve \eqref{eq:non-homogeneous-ode-system-matrix} we need $y_p'(t) = Ay_p(t) + r(t) = Y'(t)C_p(t) + Y(t)C_p'(t) = AY(t)C_p(t) + Y(t)C_p'(t) = Ay_p(t) + Y(t)c_p'(t)$, implies $y(t)c_p'(t) = r(t)$, implies $c_p'(t) = y^{-1}(t)r(t) \implies C_p(t) = \int y^{-1}(t)r(t)dt \implies y_p(t) = Y(t) \int Y^{-1}(t)r(t)dt$, implies the general solution to \eqref{eq:non-homogeneous-ode-system-matrix} is 
-\[y(t) = Y(t)C + Y(t) \int Y^{-1}(t)r(t)dt = Y(t)[C+\int Y^{-1}(t)r(t)dt], \, C\in \mathbb{R}^n.\]
+\begin{theorem}[General Solution of Non-homogeneous Systems]
+    Let $y_p(t)$ be any particular solution of
+    \eqref{eq:non-homogeneous-ode-system-matrix}. Then the general solution is
+    \[y(t) = Y(t)C + y_p(t), \quad C \in \mathbb{R}^n.\]
+\end{theorem}
 
+\subsubsection{Variation of Parameters}
+To compute a particular solution, look for
+\[y_p(t) = Y(t) C_p(t),\]
+where $C_p(t)$ is an unknown vector function.
+Differentiate:
+\[y_p'(t) = Y'(t)C_p(t) + Y(t)C_p'(t).\]
+Since $Y'(t) = AY(t)$,
+\[y_p'(t) = AY(t)C_p(t) + Y(t)C_p'(t) = Ay_p(t) + Y(t)C_p'(t).\]
+For $y_p$ to satisfy \eqref{eq:non-homogeneous-ode-system-matrix}, we require
+\[y_p'(t) = Ay_p(t) + r(t).\]
+Thus
+\[Ay_p(t) + Y(t)C_p'(t) = Ay_p(t) + r(t),\]
+which implies
+\[Y(t)C_p'(t) = r(t).\]
 
+Since $Y(t)$ is invertible,
+\[C_p'(t) = Y^{-1}(t) r(t).\]
+Integrating,
+\[C_p(t) = \int Y^{-1}(t) r(t)\, dt.\]
+
+Therefore,
+\[y_p(t) = Y(t) \int Y^{-1}(t) r(t)\, dt.\]
+
+Hence the general solution of
+\eqref{eq:non-homogeneous-ode-system-matrix} is
+\[y(t) = Y(t)C + Y(t) \int Y^{-1}(t) r(t)\, dt = Y(t)\left[ C + \int Y^{-1}(t) r(t)\, dt \right], \quad C \in \mathbb{R}^n.\]
 
 
 
