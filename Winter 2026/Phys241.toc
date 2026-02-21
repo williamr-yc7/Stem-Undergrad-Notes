@@ -1,0 +1,63 @@
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
+\contentsline {section}{\numberline {2}Foundations}{1}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Signal Types}{1}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Digital Signal}{1}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}Analogue Signal}{1}{subsubsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.2}Waves}{1}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Properties of waves}{1}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}Waveforms}{2}{subsubsection.2.2.2}%
+\contentsline {paragraph}{1. Direct current (DC).}{2}{section*.2}%
+\contentsline {paragraph}{2. Alternating current (AC).}{2}{section*.3}%
+\contentsline {paragraph}{3. Pulsating current (DC + AC).}{2}{section*.4}%
+\contentsline {subsection}{\numberline {2.3}Linear Systems}{3}{subsection.2.3}%
+\contentsline {section}{\numberline {3}Electricity and Magnetism}{3}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Electric Charge}{3}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Electric Field}{4}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Electric Potential}{4}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Electric Potential Energy}{4}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Magnetic Field}{5}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}Magnetic Field}{5}{subsection.3.6}%
+\contentsline {subsection}{\numberline {3.7}Magnetic Flux}{5}{subsection.3.7}%
+\contentsline {subsection}{\numberline {3.8}Mutual Inductance}{5}{subsection.3.8}%
+\contentsline {subsubsection}{\numberline {3.8.1}Lenz's Law}{6}{subsubsection.3.8.1}%
+\contentsline {section}{\numberline {4}Electrical Principles}{6}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Current flow}{6}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Electromotive Force}{7}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Faraday's Law}{8}{subsubsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.3}Ohm's Law}{8}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Direct Current}{9}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Alternating Current}{9}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}Static Circuits and Electronics}{10}{subsection.4.6}%
+\contentsline {subsection}{\numberline {4.7}Circuits}{11}{subsection.4.7}%
+\contentsline {section}{\numberline {5}Circuit Components}{11}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Resistors}{11}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {5.1.1}Temperature Dependence}{11}{subsubsection.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.2}Power Dissipation}{12}{subsubsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.2}Batteries}{12}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Ground and Reference}{13}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Capacitors}{13}{subsection.5.4}%
+\contentsline {subsubsection}{\numberline {5.4.1}Energy Stored In a Capacitor}{14}{subsubsection.5.4.1}%
+\contentsline {subsubsection}{\numberline {5.4.2}Dielectric Insulator}{14}{subsubsection.5.4.2}%
+\contentsline {subsubsection}{\numberline {5.4.3}Charging a Capacitor}{14}{subsubsection.5.4.3}%
+\contentsline {subsection}{\numberline {5.5}Transformers \& Mutual Inductance}{15}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.6}Inductors}{17}{subsection.5.6}%
+\contentsline {subsubsection}{\numberline {5.6.1}Energy Storage}{17}{subsubsection.5.6.1}%
+\contentsline {subsubsection}{\numberline {5.6.2}Networks of Inductors}{18}{subsubsection.5.6.2}%
+\contentsline {paragraph}{Inductors in Series}{18}{section*.5}%
+\contentsline {paragraph}{Inductors in Parallel}{18}{section*.6}%
+\contentsline {subsubsection}{\numberline {5.6.3}Solenoid}{19}{subsubsection.5.6.3}%
+\contentsline {section}{\numberline {6}Circuits}{19}{section.6}%
+\contentsline {subsection}{\numberline {6.1}RC Circuit}{19}{subsection.6.1}%
+\contentsline {subsubsection}{\numberline {6.1.1}Charging}{20}{subsubsection.6.1.1}%
+\contentsline {paragraph}{Charging Graphs}{20}{section*.7}%
+\contentsline {subsubsection}{\numberline {6.1.2}Discharging}{21}{subsubsection.6.1.2}%
+\contentsline {paragraph}{Discharging Graphs}{21}{section*.8}%
+\contentsline {subsection}{\numberline {6.2}LR Circuit}{21}{subsection.6.2}%
+\contentsline {section}{\numberline {7}RC and LR Circuits with AC Driving}{23}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Driving Frequency and Time Constant}{23}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}RC Circuit with Square-Wave Input}{23}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Integrator and Differentiator Behaviour (RC)}{24}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}LR Circuit with AC Input}{24}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.5}Frequency Behaviour Summary}{24}{subsection.7.5}%
+\contentsline {section}{\numberline {8}Appendix}{25}{section.8}%
+\contentsline {section}{\numberline {9}Useful Links}{25}{section.9}%

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  21 FEB 2026 15:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  21 FEB 2026 16:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -624,7 +624,7 @@ l.96 \end{definition}
                       [1
 
 ]
-<../Images/Pulsating-direct-current-diagram.svg.png, id=283, 1284.8pt x 632.3625pt>
+<../Images/Pulsating-direct-current-diagram.svg.png, id=323, 1284.8pt x 632.3625pt>
 File: ../Images/Pulsating-direct-current-diagram.svg.png Graphic file (type png)
 <use ../Images/Pulsating-direct-current-diagram.svg.png>
 Package pdftex.def Info: ../Images/Pulsating-direct-current-diagram.svg.png  used on input line 119.
@@ -650,7 +650,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 197--197
  []
 
 [5]
-<../Images/Lenzslaw.png, id=316, 465.74pt x 155.07938pt>
+<../Images/Lenzslaw.png, id=356, 465.74pt x 155.07938pt>
 File: ../Images/Lenzslaw.png Graphic file (type png)
 <use ../Images/Lenzslaw.png>
 Package pdftex.def Info: ../Images/Lenzslaw.png  used on input line 219.
@@ -666,171 +666,149 @@ Underfull \hbox (badness 10000) in paragraph at lines 248--248
  []
 
 [7] [8]
-<../Images/Ohms-Law-Formula-Wheel.png, id=341, 432.61626pt x 321.2pt>
+<../Images/Ohms-Law-Formula-Wheel.png, id=381, 432.61626pt x 321.2pt>
 File: ../Images/Ohms-Law-Formula-Wheel.png Graphic file (type png)
 <use ../Images/Ohms-Law-Formula-Wheel.png>
 Package pdftex.def Info: ../Images/Ohms-Law-Formula-Wheel.png  used on input line 284.
 (pdftex.def)             Requested size: 172.5pt x 128.07582pt.
+<../Images/AC_symbol.png, id=382, 149.05687pt x 51.19125pt>
+File: ../Images/AC_symbol.png Graphic file (type png)
+<use ../Images/AC_symbol.png>
+Package pdftex.def Info: ../Images/AC_symbol.png  used on input line 305.
+(pdftex.def)             Requested size: 172.5pt x 59.24596pt.
  [9
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.304 \begin{center}
-                     <../Images/Ohms-Law-Formula-Wheel.png>] [10]
-<../Images/Parallel_resistors.png, id=360, 288.07625pt x 211.28937pt>
-File: ../Images/Parallel_resistors.png Graphic file (type png)
-<use ../Images/Parallel_resistors.png>
-Package pdftex.def Info: ../Images/Parallel_resistors.png  used on input line 348.
-(pdftex.def)             Requested size: 172.5pt x 126.52312pt.
- [11
+l.307     \end{figure}
+                       <../Images/Ohms-Law-Formula-Wheel.png>] [10
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.359 \[P = \Delta V \cdot I\]
-                               <../Images/Parallel_resistors.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 363--363
+l.336 \begin{definition}
+                        [Passive Linear Circuit] <../Images/AC_symbol.png>]
+<../Images/Parallel_resistors.png, id=399, 288.07625pt x 211.28937pt>
+File: ../Images/Parallel_resistors.png Graphic file (type png)
+<use ../Images/Parallel_resistors.png>
+Package pdftex.def Info: ../Images/Parallel_resistors.png  used on input line 359.
+(pdftex.def)             Requested size: 172.5pt x 126.52312pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 374--374
 []\OT1/cmr/m/n/10 January 20,
  []
 
-[12] [13] [14]
-<../Images/Transformer.png, id=392, 354.32375pt x 277.035pt>
-File: ../Images/Transformer.png Graphic file (type png)
-<use ../Images/Transformer.png>
-Package pdftex.def Info: ../Images/Transformer.png  used on input line 462.
-(pdftex.def)             Requested size: 172.5pt x 134.87329pt.
- [15
+[12
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.474 ...I_1}{dt} = M \omega I_0 \cos(\omega t),\]
-                                                   <../Images/Transformer.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 479--481
+l.387 \[V_0 = Ir + IR.\]
+                         <../Images/Parallel_resistors.png>] [13] [14]
+<../Images/Transformer.png, id=434, 354.32375pt x 277.035pt>
+File: ../Images/Transformer.png Graphic file (type png)
+<use ../Images/Transformer.png>
+Package pdftex.def Info: ../Images/Transformer.png  used on input line 473.
+(pdftex.def)             Requested size: 172.5pt x 134.87329pt.
+ [15]
+Underfull \hbox (badness 10000) in paragraph at lines 490--492
 
  []
 
-<../Images/Solenoid.png, id=399, 314.67563pt x 251.43938pt>
+[16
+pdfTeX warning (ext4): destination with the same identifier (name{figure.6}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.494 \end{remark}
+                   <../Images/Transformer.png>]
+<../Images/Inductor_symbols.png, id=447, 129.98563pt x 274.02374pt>
+File: ../Images/Inductor_symbols.png Graphic file (type png)
+<use ../Images/Inductor_symbols.png>
+Package pdftex.def Info: ../Images/Inductor_symbols.png  used on input line 506.
+(pdftex.def)             Requested size: 103.50105pt x 218.19069pt.
+ [17
+pdfTeX warning (ext4): destination with the same identifier (name{figure.7}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.519 \end{center}
+                   <../Images/Inductor_symbols.png>] [18]
+<../Images/Solenoid.png, id=462, 314.67563pt x 251.43938pt>
 File: ../Images/Solenoid.png Graphic file (type png)
 <use ../Images/Solenoid.png>
-Package pdftex.def Info: ../Images/Solenoid.png  used on input line 501.
+Package pdftex.def Info: ../Images/Solenoid.png  used on input line 544.
 (pdftex.def)             Requested size: 172.5pt x 137.83551pt.
-
-c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Phys241.tex:502: LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.502 \end{center}
-                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Phys241.tex:502: LaTeX Error: \begin{figure} on input line 499 ended by \end{center}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.502 \end{center}
-                  
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Phys241.tex:502: Missing } inserted.
-<inserted text> 
-                }
-l.502 \end{center}
-                  
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-<../Images/RC_circuit.png, id=400, 296.60812pt x 349.80687pt>
+<../Images/RC_circuit.png, id=463, 296.60812pt x 349.80687pt>
 File: ../Images/RC_circuit.png Graphic file (type png)
 <use ../Images/RC_circuit.png>
-Package pdftex.def Info: ../Images/RC_circuit.png  used on input line 514.
+Package pdftex.def Info: ../Images/RC_circuit.png  used on input line 558.
 (pdftex.def)             Requested size: 172.5pt x 203.44324pt.
-
-Overfull \hbox (69.73885pt too wide) in paragraph at lines 553--554
+ [19
+pdfTeX warning (ext4): destination with the same identifier (name{figure.8}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.561     \end{center}
+                       <../Images/Solenoid.png>]
+Overfull \hbox (69.73885pt too wide) in paragraph at lines 597--598
  [] 
  []
 
-
-Overfull \hbox (83.96521pt too wide) in paragraph at lines 581--582
+[20
+pdfTeX warning (ext4): destination with the same identifier (name{figure.9}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.598 \end{center}
+                   <../Images/RC_circuit.png>]
+Overfull \hbox (83.96521pt too wide) in paragraph at lines 625--626
  [] 
  []
 
-<../Images/LR_circuit.png, id=401, 306.14375pt x 337.76187pt>
+<../Images/LR_circuit.png, id=479, 306.14375pt x 337.76187pt>
 File: ../Images/LR_circuit.png Graphic file (type png)
 <use ../Images/LR_circuit.png>
-Package pdftex.def Info: ../Images/LR_circuit.png  used on input line 593.
+Package pdftex.def Info: ../Images/LR_circuit.png  used on input line 638.
 (pdftex.def)             Requested size: 172.5pt x 190.31528pt.
+[21]
+Underfull \hbox (badness 10000) in paragraph at lines 656--656
+[]\OT1/cmr/m/n/10 January 29,
+ []
 
-c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Phys241.tex:613: LaTeX Error: \begin{figure} on input line 499 ended by \end{document}.
+[22
+pdfTeX warning (ext4): destination with the same identifier (name{figure.10}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.656 \marginpar{January 29, 2026}
+                                   <../Images/LR_circuit.png>] [23]
+Overfull \hbox (35.02858pt too wide) in paragraph at lines 730--733
+[]\OT1/cmr/m/n/10 To un-der-stand vi-su-ally in-duc-tors: https://www.youtube.com/shorts/lXk4CQDbr4Q
+ []
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.613 \end{document}
-                    ://www.youtube.com/watch?v=5HI33hSZoH4
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
 
-(Phys241.aux)
+Overfull \hbox (20.16743pt too wide) in paragraph at lines 730--733
+\OT1/cmr/m/n/10 to vi-su-ally un-der-stand ca-pac-i-tors: https://www.youtube.com/shorts/PYrTLQctdwg
+ []
+
+[24] [25] (Phys241.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
+Package rerunfilecheck Info: File `Phys241.out' has not changed.
+(rerunfilecheck)             Checksum: 4F8869A4A52885F5E0C6E2F07100FFDF;8216.
+ ) 
+Here is how much of TeX's memory you used:
+ 50176 strings out of 467871
+ 1305268 string characters out of 5418377
+ 2049634 words of memory out of 5000000
+ 78363 multiletter control sequences out of 15000+600000
+ 639857 words of font info for 85 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 99i,8n,118p,799b,1070s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\erenr\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti9.pfb>
+Output written on Phys241.pdf (28 pages, 864387 bytes).
+PDF statistics:
+ 623 PDF objects out of 1000 (max. 8388607)
+ 145 named destinations out of 1000 (max. 500000)
+ 511 words of extra memory for PDF output out of 10000 (max. 10000000)
 
-
-Package rerunfilecheck Warning: File `Phys241.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Phys241.out':
-(rerunfilecheck)             Before: 45B6F482214C7B5BC7124D9029A91C72;6499
-(rerunfilecheck)             After:  F71BD278D1D215AA2DFB1F39D67FDA58;5560.
-c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Phys241.tex:613: You can't use `\end' in internal vertical mode.
-\enddocument ...cument/end}\deadcycles \z@ \@@end 
-                                                  
-l.613 \end{document}
-                    ://www.youtube.com/watch?v=5HI33hSZoH4
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
-
-c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Phys241.tex:613: LaTeX Error: \begin{figure} on input line 499 ended by \end{document}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.613 \end{document}
-                    ://www.youtube.com/watch?v=5HI33hSZoH4
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Phys241.tex:613: Missing } inserted.
-<inserted text> 
-                }
-l.613 \end{document}
-                    ://www.youtube.com/watch?v=5HI33hSZoH4
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-
-c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Phys241.tex:615: LaTeX Error: \begin{center} on input line 498 ended by \end{document}.
-
-See the LaTeX manual or LaTeX Companion for 

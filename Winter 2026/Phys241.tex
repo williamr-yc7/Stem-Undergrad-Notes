@@ -298,6 +298,17 @@ Ohm's Law can be represented graphically using the Ohm's Law Wheel, which illust
 \begin{definition}[Alternating Current (AC)]
     Alternating Current (AC) is a form of current that changes over time, often in a sinusoidal manner. AC currents are commonly used in power distribution systems, such as household electrical outlets.
 \end{definition}
+In general, an alternating current source is represented in circuit diagrams by a circular source symbol containing a sinusoidal waveform. This indicates that the source provides a time-varying current, typically sinusoidal in form.
+\begin{center}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.5\textwidth]{../Images/AC_symbol.png}
+        \caption{Alternating Current Symbol.}
+    \end{figure}
+\end{center}
+If the current is sinusoidal, it is commonly written as
+\[I(t) = I_0 \sin(\omega t),\]
+where $I_0$ is the amplitude and $\omega$ is the angular frequency.
 \subsection{Static Circuits and Electronics}
 Consider the variation of electric potential along a conducting wire.\\
 If the wire has a small but non-negligible resistance that is uniformly distributed, the electric potential decreases approximately linearly with distance. This occurs because the voltage drop across a uniform conductor is proportional to its length.
@@ -492,9 +503,36 @@ Common circuit symbols for inductors are shown below.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\textwidth]{../Images/Inductor_symbols.png}
+    \includegraphics[width=0.3\textwidth]{../Images/Inductor_symbols.png}
     \caption{Circuit symbols for inductors with different core types.}
 \end{figure}
+\subsubsection{Energy Storage}
+Energy is stored in the magnetic field within the inductor coil. If the voltage applied to the coil were constant, then the current in the coil would rise. 
+\begin{center}
+    \begin{tikzpicture}
+        \draw[->] (0,0) -- (5,0) node[right] {$t$};
+        \draw[->] (0,0) -- (0,4) node[above] {$I$};
+        \draw (0,1) node[left] {$I_0$} -- (0.1,1);
+        \draw (0,1) -- (4,3);
+        \node at (4,2.6) {$\frac{V}{L}$};
+    \end{tikzpicture}
+\end{center}
+The energy stored is the amount of work done by the current, which is given by
+\[W = \int_{0}^{t} V \cdot idt = \int L\frac{di}{dt}i = \frac{1}{2}LI^2.\]
+\subsubsection{Networks of Inductors}
+\paragraph{Inductors in Series}
+When inductors are connected in series, the same current flows through each element. The total voltage across the combination is the sum of the individual voltages:
+\[V_{\text{total}} = \sum_{i=1}^{N} V_i.\]
+Since $V_i = L_i \frac{dI}{dt}$ and the current $I$ is the same in each inductor, we obtain
+\[V_{\text{total}} = \left( \sum_{i=1}^{N} L_i \right) \frac{dI}{dt}.\]
+Thus, the equivalent inductance is
+\[L_{\text{total}} = \sum_{i=1}^{N} L_i.\]
+\paragraph{Inductors in Parallel}
+When inductors are connected in parallel, the voltage across each inductor is the same, while the total current is the sum of the individual currents:
+\[I_{\text{total}} = \sum_{i=1}^{N} I_i.\]
+Using $V = L_i \frac{dI_i}{dt}$ and the fact that the voltage is common to all branches, we obtain
+\[\frac{1}{L_{\text{total}}} = \sum_{i=1}^{N} \frac{1}{L_i}.\]
+These relations are formally similar to those of resistors, but they arise from the voltage-current relation of an inductor.
 \subsubsection{Solenoid}
 \begin{definition}[Solenoid]
     A solenoid is a long cylindrical coil of wire designed to produce a nearly uniform magnetic field inside it when current flows.
@@ -595,6 +633,7 @@ Both current and voltage decay exponentially to zero.
     Consider this circuit, at the moment it is turned on (switch connects to 'A'). If the inductor (coil) was replaced with a short, a current $\frac{V}{R}$ would flow immediately, with all of the voltage drop across the resistance $R$.
     \begin{center}
         \begin{figure}[H]
+            \label{LR-circuit}
             \centering
             \includegraphics[width=0.5\textwidth]{../Images/LR_circuit.png}
             \caption{Visual representation of an LR circuit.}
@@ -605,6 +644,82 @@ Both current and voltage decay exponentially to zero.
 For a single coil,  the voltage-current relationship is
 \[V = L \frac{di}{dt},\]
 where $L$ is called the self-inductance of the coil, or simply the inductance. $L$ depends on the number of turns of wire, and the magnetic properties of the material within the coil. Any current-carrying conductor even a straight wire is surrounded by a magnetic field, and hence has some self-inductance.
+
+When the switch is connected to terminal A in Figure~\eqref{LR-circuit}, the current in the inductor increases according to
+\[I(t) = \frac{V}{R}\left(1 - e^{-\frac{Rt}{L}}\right),\]
+while the voltage across the inductor decreases as
+\[V_L(t) = V e^{-\frac{Rt}{L}}.\]
+The characteristic time constant of the circuit is
+\[\tau = \frac{L}{R}.\]
+
+\section{RC and LR Circuits with AC Driving}
+\marginpar{January 29, 2026}
+\subsection{Driving Frequency and Time Constant}
+For a periodic input signal with period $T$ and angular frequency $\omega$,
+\[\omega = \frac{2\pi}{T} = 2\pi \nu.\]
+The characteristic time constants are:
+\[\tau_{RC} = RC\]
+\[\tau_{LR} = \frac{L}{R}\]
+The circuit behaviour depends on the comparison between $T$ and $\tau$:
+\begin{itemize}
+    \item Low frequency: $T \gg \tau$
+    \item High frequency: $T \ll \tau$
+\end{itemize}
+The key idea is that the response depends on the ratio between the driving period and the circuit time constant.
+
+\subsection{RC Circuit with Square-Wave Input}
+\subsubsection*{Low Frequency ($T \gg \tau$)}
+\begin{itemize}
+    \item Capacitor fully charges and discharges.
+    \item Current similar to pure resistor case.
+    \item Very little voltage remains across the capacitor.
+    \item Capacitor behaves approximately like a short circuit.
+\end{itemize}
+\subsubsection*{High Frequency ($T \ll \tau$)}
+\begin{itemize}
+    \item Capacitor does not have time to charge.
+    \item Voltage dropped mostly across the capacitor.
+    \item Current appears as sharp spikes at switching.
+    \item Capacitor behaves approximately like an open circuit.
+\end{itemize}
+
+\subsection{Integrator and Differentiator Behaviour (RC)}
+For slowly varying signals (low frequency),
+\[V_C(t) \approx \frac{1}{RC} \int V_{in}(t)\, dt\]
+The capacitor acts as an integrator. A square wave input produces a triangle-like voltage output. For rapidly varying signals (high frequency),
+\[V_R(t) \approx RC \frac{dV_{in}}{dt}\]
+The resistor behaves as a \textbf{differentiator}.  
+Sharp transitions in the input produce current spikes.
+
+\subsection{LR Circuit with AC Input}
+The LR circuit is mathematically analogous to the RC circuit.
+\[\tau_{LR} = \frac{L}{R}\]
+\begin{itemize}
+    \item Inductor resists changes in current.
+    \item At low frequency, the inductor behaves approximately like a short circuit.
+    \item At high frequency, the inductor behaves approximately like an open circuit.
+\end{itemize}
+In an LR circuit, current plays a role analogous to voltage in an RC circuit.
+
+\subsection{Frequency Behaviour Summary}
+\begin{center}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    Circuit & Low Frequency ($T \gg \tau$) & High Frequency ($T \ll \tau$) \\
+    \hline
+    RC & Capacitor $\approx$ short & Capacitor $\approx$ open \\
+    \hline
+    LR & Inductor $\approx$ short & Inductor $\approx$ open \\
+    \hline
+    \end{tabular}
+\end{center}
+Important physical facts:
+\begin{itemize}
+    \item A capacitor blocks DC.
+    \item An inductor passes DC (after long time).
+    \item A capacitor resists changes in voltage.
+    \item An inductor resists changes in current.
+\end{itemize}
 
 
 
