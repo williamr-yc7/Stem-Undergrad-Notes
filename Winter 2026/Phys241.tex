@@ -220,7 +220,7 @@ When the magnetic flux is increasing, the induced current is directed opposite t
     \caption{Direction of the induced current according to Lenz's Law.}
 \end{figure}
 
-\section{Current and Circuits}
+\section{Electrical Principles}
 \subsection{Current flow}
 \begin{definition}[Electric Current]
     Electric current is the flow of electrons through a wire driven by an electric field potential energy difference. Defined as the rate of charge past a point in a circuit
@@ -441,7 +441,87 @@ Thus, the voltage increases linearly with time, with slope $\frac{I}{C}$ and y-i
     \end{tikzpicture}
 \end{center}
 
+\subsection{Transformers \& Mutual Inductance}
+\begin{definition}[Transformer]
+    A transformer is a device consisting of two coils of wire, called the primary and secondary, magnetically coupled through a shared core. The main purpose of a transformer is to transfer energy between circuits to change voltage levels. A changing current in the primary coil induces a voltage in the secondary coil by mutual inductance. The symbol for a transformer is
+    \begin{center}
+        \begin{circuitikz}
+            \draw
+            (0,0) node[transformer] (T) {}
+            (T.A1) -- ++(-1,0)
+            (T.A2) -- ++(-1,0)
+            (T.B1) -- ++(1,0)
+            (T.B2) -- ++(1,0);
+        \end{circuitikz}
+    \end{center}
+\end{definition}
+A transformer typically consists of two coils with $N_1$ and $N_2$ turns wound around a common core, which may be air or a ferromagnetic material to concentrate the magnetic field.
+\begin{center}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\textwidth]{../Images/Transformer.png}
+        \caption{Visual representation of a transformer.}
+    \end{figure}
+\end{center}
+A time-varying current $I_1$ in the primary produces a magnetic field $\vec B$, creating a magnetic flux $\Phi_B$ through the secondary coil. By Faraday's law, a changing magnetic flux induces a voltage in the secondary:
+\[\mathcal{E}_2 = -\frac{d\Phi_B}{dt}.\]
+Since the magnetic flux is proportional to the primary current, the induced voltage is proportional to $\frac{dI_1}{dt}$. The proportionality constant is the mutual inductance $M$:
+\[\mathcal{E}_2 = -M\frac{dI_1}{dt}.\]
+The SI unit of mutual inductance is the henry (H), where
+\[1\,\text{H} = 1\,\frac{\text{V}\cdot\text{s}}{\text{A}}.\]
+The direction of the induced current depends on the relative winding orientation of the coils. Reversing the winding reverses the polarity of the induced voltage.\\
+If the primary current is sinusoidal, for example $I_1(t) = I_0 \sin(\omega t)$, then
+\[V_2(t) = M \frac{dI_1}{dt} = M \omega I_0 \cos(\omega t),\]
+so the secondary voltage is also sinusoidal but shifted in phase by $\frac{\pi}{2}$ relative to the current.\\
+For an ideal transformer, energy losses are neglected and power is conserved:
+\[V_1 I_1 = V_2 I_2.\]
+This leads to the transformer relations
+\[\frac{V_1}{V_2} = \frac{N_1}{N_2}, \qquad \frac{I_1}{I_2} = \frac{N_2}{N_1},\]
+where $\frac{N_1}{N_2}$ is the turns ratio in the two coils.\\
+\begin{remark}
+    Long-distance power lines use high-voltage AC because it significantly reduces energy loss during transmission over long distances, as higher voltage means lower current, which in turn minimises heat loss within the power lines due to resistance; this is achieved efficiently with transformers that can easily step up and down AC voltage levels as needed.
+\end{remark}
+
+\subsection{Inductors}
+\begin{definition}[Inductor]
+    An inductor is a passive electrical component that stores energy in a magnetic field created by the flow of current through a coil of wire. The inductance \(L\) of an inductor is defined as the ratio of the magnetic flux \(\Phi\) linking the coil to the current \(I\) flowing through it:
+    \[L = \frac{\Phi}{I}\]
+    The SI unit of inductance is the henry (H).    
+\end{definition}
+Common circuit symbols for inductors are shown below.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{../Images/Inductor_symbols.png}
+    \caption{Circuit symbols for inductors with different core types.}
+\end{figure}
+\subsubsection{Solenoid}
+\begin{definition}[Solenoid]
+    A solenoid is a long cylindrical coil of wire designed to produce a nearly uniform magnetic field inside it when current flows.
+\end{definition}
+For a solenoid of length $l$, cross-sectional area $A = \pi r^2$, number of turns $N$, and core permeability $\mu$, the inductance is
+\[L = \frac{\mu N^2 A}{l}.\]
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{../Images/Solenoid.png}
+    \caption{Schematic representation of a solenoid.}
+\end{figure}
+
+\section{Circuits}
 \subsection{RC Circuit}
+\begin{definition}[RC Circuit]
+    An RC circuit is a circuit consisting of a resistor $R$, a capacitor $C$, and a constant source $V_0$.
+\end{definition}
+\begin{example}
+    An example of an RC circuit is shown in the figure below.
+    \begin{center}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.5\textwidth]{../Images/RC_circuit.png}
+            \caption{Visual representation of an RC circuit.}
+        \end{figure}
+    \end{center}
+\end{example}
 \subsubsection{Charging}
 Consider an initially uncharged capacitor connected in series with a resistor and a constant source $V_0$. Applying Kirchhoff's Voltage Law,
 \[V_0 = v_R(t) + v_C(t) = i(t)R + \frac{1}{C}\int_0^{t} i(\tau)\, d\tau.\]
@@ -507,36 +587,24 @@ Both current and voltage decay exponentially to zero.
     \end{tikzpicture}
 \end{center}
 
-\subsection{Transformers \& Mutual Inductance}
-\begin{definition}[Transformer]
-    A transformer is a device consisting of two coils of wire, called the primary and secondary, magnetically coupled through a shared core. A changing current in the primary coil induces a voltage in the secondary coil by mutual inductance. The symbol for a transformer is
+\subsection{LR Circuit}
+\begin{definition}[LR Circuit]
+    An LR circuit is a circuit in which an inductor is connected in series with a resistor.
+\end{definition}
+\begin{example}
+    Consider this circuit, at the moment it is turned on (switch connects to 'A'). If the inductor (coil) was replaced with a short, a current $\frac{V}{R}$ would flow immediately, with all of the voltage drop across the resistance $R$.
     \begin{center}
-        \begin{circuitikz}
-            \draw
-            (0,0) node[transformer] (T) {}
-            (T.A1) -- ++(-1,0)
-            (T.A2) -- ++(-1,0)
-            (T.B1) -- ++(1,0)
-            (T.B2) -- ++(1,0);
-        \end{circuitikz}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.5\textwidth]{../Images/LR_circuit.png}
+            \caption{Visual representation of an LR circuit.}
+        \end{figure}
     \end{center}
-\end{definition}
-A transformer typically consists of two coils with $N_1$ and $N_2$ turns wound around a common core, which may be air or a ferromagnetic material to concentrate the magnetic field.
-
-A time-varying current $I_1$ in the primary produces a magnetic field $\vec B$, creating a magnetic flux $\Phi_B$ through the secondary coil. By Faraday's law, a changing magnetic flux induces a voltage in the secondary:
-\[\mathcal{E}_2 = -\frac{d\Phi_B}{dt}.\]
-Since the magnetic flux is proportional to the primary current, the induced voltage is proportional to $\frac{dI_1}{dt}$. The proportionality constant is the mutual inductance $M$:
-\[\mathcal{E}_2 = -M\frac{dI_1}{dt}.\]
-The SI unit of mutual inductance is the henry (H), where
-\[1\,\text{H} = 1\,\frac{\text{V}\cdot\text{s}}{\text{A}}.\]
-The direction of the induced current depends on the relative winding orientation of the coils. Reversing the winding reverses the polarity of the induced voltage.
-
-\subsection{Inductors}
-\begin{definition}[Inductor]
-    An inductor is a passive electrical component that stores energy in a magnetic field created by the flow of current through a coil of wire. The inductance \(L\) of an inductor is defined as the ratio of the magnetic flux \(\Phi\) linking the coil to the current \(I\) flowing through it:
-    \[L = \frac{\Phi}{I}\]
-    The SI unit of inductance is the henry (H).    
-\end{definition}
+    The current flow produces a magnetic flux through the coil. Lenz's law says that the coil will attempt to produce a field that opposes the change in B-field. To do this, it induces a voltage V (equal to the battery's voltage) across the coil, with the upper end positive and the lower negative. Therefore, just at the instant the switch is closed, the current flow will be zero.
+\end{example}
+For a single coil,  the voltage-current relationship is
+\[V = L \frac{di}{dt},\]
+where $L$ is called the self-inductance of the coil, or simply the inductance. $L$ depends on the number of turns of wire, and the magnetic properties of the material within the coil. Any current-carrying conductor even a straight wire is surrounded by a magnetic field, and hence has some self-inductance.
 
 
 
@@ -544,5 +612,8 @@ The direction of the induced current depends on the relative winding orientation
 \section{Appendix}
 
 \section{Useful Links}
+To understand visually inductors: https://www.youtube.com/shorts/lXk4CQDbr4Q
+to visually understand capacitors: https://www.youtube.com/shorts/PYrTLQctdwg
+to understand resistors: https://www.youtube.com/watch?v=5HI33hSZoH4
 
 \end{document}

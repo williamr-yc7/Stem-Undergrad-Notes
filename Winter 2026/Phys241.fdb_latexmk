@@ -1,9 +1,12 @@
 # Fdb version 4
-["pdflatex"] 1771658183.22959 "c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Phys241.tex" "Phys241.pdf" "Phys241" 1771658187.91551 0
+["pdflatex"] 1771704892.46772 "c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Phys241.tex" "Phys241.pdf" "Phys241" 1771704906.13242 0
+  "../Images/LR_circuit.png" 1771701639 24315 46b4f77eb62e6c43269b2b4074a2ebda ""
   "../Images/Lenzslaw.png" 1771658010 163082 8f8e0aa02ad7786c7af1fda352c65e92 ""
   "../Images/Ohms-Law-Formula-Wheel.png" 1769029882 8385 c5e978fbe5f6991095d6b8d090da3862 ""
   "../Images/Parallel_resistors.png" 1770786710 30374 d13f9bf5b1fa61a7ffd3690f72045336 ""
   "../Images/Pulsating-direct-current-diagram.svg.png" 1768918111 32813 7e351fd9ae204183e9fb141cb122f6f9 ""
+  "../Images/RC_circuit.png" 1771701425 20113 2620f26624aaf7c15d0ef9751f81ed27 ""
+  "../Images/Transformer.png" 1771699995 152306 7cdd6d99eb32c7c3353d0579d9a50649 ""
   "C:/Users/erenr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1770796485 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/erenr/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk" 1767801684 11548 9ea6db1ff0b947846d8751dabcdcf90a ""
   "C:/Users/erenr/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1767801679 13333486 ad3a4e5807f6f25ced943a60862e7471 ""
@@ -237,11 +240,11 @@
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/tools/indentfirst.sty" 1761901070 1618 30b01152766afcef2ed8f904cfdd3cc6 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
-  "Phys241.aux" 1771658187 7139 cee91df2eb8b90c5e9fe1b630a94ab56 "pdflatex"
-  "Phys241.out" 1771658187 6194 4c46a7391412b4c36cf7be276b8e3a17 "pdflatex"
-  "Phys241.tex" 1771658176 32734 6a39f5f82a8bbbd2bfa288b2682623e3 ""
-  "Phys241.toc" 1771658187 4070 a56f11ea149f0a93c26fef643b6bcd79 "pdflatex"
-  "c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Phys241.tex" 1771658176 32734 6a39f5f82a8bbbd2bfa288b2682623e3 ""
+  "Phys241.aux" 1771704904 7944 6c3718205acb781ef51f05dfe3430f70 "pdflatex"
+  "Phys241.out" 1771704904 6499 4b806dccc6ad48ee602d361af9e0ce34 "pdflatex"
+  "Phys241.tex" 1771704875 36616 ff12b49fe63ef33a57181fbc8ce4b0d0 ""
+  "Phys241.toc" 1771704904 4299 ffe22e417655a54534b0dd22f0ae8d41 "pdflatex"
+  "c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Phys241.tex" 1771704875 36616 ff12b49fe63ef33a57181fbc8ce4b0d0 ""
   (generated)
   "Phys241.aux"
   "Phys241.log"
