@@ -13,6 +13,8 @@
 \usepackage{float} % For [H] float option
 \pgfplotsset{compat=1.18} % Set compatibility level
 \newtheorem{theorem}{Theorem}
+\newtheorem{law}{Law}
+\newtheorem{principle}{Principle}
 \newtheorem{corollary}{Corollary}[theorem]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{definition}{Definition}
@@ -190,6 +192,33 @@ If the electron is allowed to move freely, this change in electric potential ene
     \[\Phi_B = \int \vec B \cdot d\vec A,\]
     where $d\vec A$ is an infinitesimal area element of the surface, and the dot product accounts for the angle between the magnetic field and the normal to the surface. The SI unit of magnetic flux is the weber (Wb).
 \end{definition}
+
+\subsection{Mutual Inductance}
+\marginpar{January 22, 2026}
+\begin{definition}[Mutual Inductance]
+    Mutual inductance is the property of two nearby circuits whereby a time-varying current in one coil induces an electromotive force (EMF) in another through magnetic flux linkage.
+\end{definition}
+If a current $I_1(t)$ flows in the primary coil, it produces a magnetic flux $\Phi_{21}$ through the secondary coil. According to Faraday's law,
+\[\mathcal{E}_2 = -\frac{d\Phi_{21}}{dt}.\]
+The mutual inductance $M$ is defined by
+\[\Phi_{21} = M I_1,\]
+which gives
+\[\mathcal{E}_2 = -M \frac{dI_1}{dt}.\]
+The value of $M$ depends on the number of turns in each coil, their geometry, their separation, and the magnetic permeability of the material between them.
+\subsubsection{Lenz's Law}
+
+\begin{law}[Lenz's Law]
+    The induced current in a circuit flows in a direction such that the magnetic field it produces opposes the change in magnetic flux that generated it.
+\end{law}
+Consider any closed conducting loop. If the magnetic flux through the loop increases, the induced current produces a magnetic field that opposes the increase. If the flux decreases, the induced current produces a field that tends to restore it.
+
+When the magnetic flux is increasing, the induced current is directed opposite to the orientation predicted by the right-hand rule for the increasing field. When the flux is decreasing, the induced current follows the orientation that attempts to reinforce the original field.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{../Images/Lenzslaw.png}
+    \caption{Direction of the induced current according to Lenz's Law.}
+\end{figure}
 
 \section{Current and Circuits}
 \subsection{Current flow}
