@@ -1188,7 +1188,54 @@ To compute matrix of $T: U \to U$ in $e =$ basis of $U$:
 Example: $U = \mathbb{R}^2$, $e =$ std basis,$T: \mathbb{R}^2 \to \mathbb{R}^2$, $[T]_e = \begin{pmatrix}1&2\\3&4\end{pmatrix}$.
 Derivative: Matrix of $D(f) = f'$, $D: P_n \to P_n$, $e = (x^n, x^{n-1}, \ldots, x^1, 1)$.
 
+\marginpar{February 23, 2026}
+Isomorphisms
+\begin{definition}[Isomorphism]
+    A transformation $T: U \to V$ is an isomorphism if
+    \begin{enumerate}
+        \item $T$ is linear.
+        \item $T$ is bijective.
+    \end{enumerate}
+\end{definition}
+To check isomorphism:
+\begin{enumerate}
+    \item Check $T$ is linear.
+    \item Check $\ker(T) = \{0\}$.
+    \item Check $\Im(T) = V$. Basically the vectors $T(e_1), \ldots, T(e_n)$ span $V$, where $e_1, \ldots, e_n$ is a basis of $U$.
+\end{enumerate}
+\begin{theorem}
+    Let $T: V \to V$ is a linear map. $A$ is a matrix in a basis e of V. TFAE:
+    \begin{enumerate}
+        \item $T$ is an isomorphism.
+        \item $A$ is invertible.
+        \item $det(A) \neq 0$.
+    \end{enumerate}
+\end{theorem}
+Another def of isomorphism: $\exists S$ such that $TS=ST=I$. $T : U \to V$, while $S : V \to U$ and therefore $S = T^{-1}$.
+For linear $T: U \to V$. If $\dim(U) \ neq \dim(V) \to $ no isomorphism from $U \to V$.
+We write $U \cong V$ if there exists an isomorphism $T: U \to V$.
+\begin{theorem}
+    $U \cong V \iff \dim(U) = \dim(V)$. $P_8 \cong \mathbb{R}^9 \cong M_3(\mathbb{R})$.
+\end{theorem}
+\begin{corollary}
+    Let $V$ be any vector space. If $dim(V)=n$, then $V \cong K^n$.
+\end{corollary}
+\begin{example}
+    Show $x$ and $x^2$ are LI in $P_2$. Solution: $ax + bx^2 = 0 \to a=b=0$.
+    Proof by isomorphism: transform polynomials into vectors: $\Phi: P_2 \to \mathbb{R}^3$, $f = a+bx+cx^2 \to \begin{pmatrix}a\\b\\c\end{pmatrix}$
+    Just need to prove: $x \to \begin{pmatrix}0\\1\\0\end{pmatrix}$, $x^2 \to \begin{pmatrix}0\\0\\1\end{pmatrix}$. Show $\begin{pmatrix}0\\1\\0\end{pmatrix}, \begin{pmatrix}0\\0\\1\end{pmatrix}$ are linearly independent.
+\end{example}
+\begin{example}[Could be in exam]
+    Let two matrices in $M_2(\mathbb{R})$ be $\begin{pmatrix}2&1\\2&3\end{pmatrix}$ and $\begin{pmatrix}1&2\\0&1\end{pmatrix}$. Show the matrices are linearly independent. Solve by isomorphism:
+    \[\begin{pmatrix}a&b\\c&d\end{pmatrix} \to \begin{pmatrix}a\\b\\c\\d\end{pmatrix}.\]
+\end{example}
+Basic linear transformation: Let $V$ be a vector space. Let $v_1, \ldots, v_n$ be vectors in $V$. $\Phi: K^n \to V$ or $\Phi: \begin{pmatrix}\lambda_1\\\vdots\\\lambda_n\end{pmatrix} \to \lambda_1 v_1 + \cdots + \lambda_n v_n$. $V = Im(\Phi)=span(v_1, \ldots, v_n)$. $Im(\Phi) = \{\lambda_1v_1 + \cdots + \lambda_n v_n \mid \lambda_1, \ldots, \lambda_n \in K\} = span(v_1, \ldots, v_n)$.
 
+Example: $\Phi: \mathbb{R}^4 \to M_2(\mathbb{R})$, $\Phi: \begin{pmatrix}\lambda_1\\\lambda_2\\\lambda_3\\\lambda_4\end{pmatrix} \to \lambda_1v_1 + \cdots + \lambda_4v_4$. $v_1 = e_{11}$, $v_2 = e_{12}$, $v_3 = e_{21}$, $v_4 = e_{22}$.
+
+Theorem: $\Phi: K^n \to V$, $\begin{pmatrix}\lambda_1\\\vdots\\\lambda_n\end{pmatrix} \to \lambda_1v_1 + \cdots + \lambda_n v_n = V$. $\Phi$ is isomorphic $\iff (v_1, \cdots, v_n)$ is a basis for $V$. $[v]_e = \Phi^{-1}(v)$.
+Main basis theorem: $v \in V$, $e = (v_1, \cdots, v_n) \to v_n = \lambda_1v_1 + \cdots + \lambda_nv_n$. where $\lambda_1$ to $\lambda_n$ are unique coordinates. $[v]_e = \begin{pmatrix}\lambda_1\\\vdots\\\lambda_n\end{pmatrix}$.
+Assume $v_1,\cdots,v_n$ basis and $\Phi$ injective, $ker(\Phi)=\{0\}$. Assume $\begin{pmatrix}\lambda_1\\\vdots\\\lambda_n\end{pmatrix} \in les \Phi$. Prove $\lambda_1, \cdots , \lambda_n = 0$. Know: $\Phi\begin{pmatrix}\lambda_1,\vdots,\lambda_n\end{pmatrix} = 0 \to \lambda_1v_1 + \cdots + \lambda_nv_n = 0$.
 \section{Appendix}
 \subsection{Proof: Standard Basis is a Basis}
 \label{subsec:SB}
