@@ -7,6 +7,7 @@
 \usepackage{amsmath} % For advanced math typesetting
 \usepackage{hyperref}
 \usepackage{enumitem}
+\usepackage{float} % Required for H float option
 \usepackage{pgfplots} % For plots
 \usepackage{tikz} % For drawing shapes
 \pgfplotsset{compat=1.18} % Set compatibility level
@@ -61,7 +62,7 @@ No textbooks.
 25\% assignments (2 written assignments 15\%, and 5 webworks 10\%).
 25\% Midterm (February 16 - inclass).
 50\% Final.
-Since its honours you will deal with analysis.
+Since its honours you will deal with analysis. The Midterm is from 4:05 pm to 5:25 pm in MAASS 112, which will include chapters 1, 2, 3 and will be 5 questions long.
 
 \section{Prerequisite knowledge}
 \subsection{Analysis}
@@ -1453,6 +1454,91 @@ Hence the general solution of
 \eqref{eq:non-homogeneous-ode-system-matrix} is
 \[y(t) = Y(t)C + Y(t) \int Y^{-1}(t) r(t)\, dt = Y(t)\left[ C + \int Y^{-1}(t) r(t)\, dt \right], \quad C \in \mathbb{R}^n.\]
 
+\subsection{Mass-Spring Systems}
+\marginpar{February 24, 2026}
+Consider a mass attached to a vertical spring.
+\begin{center}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\textwidth]{../Images/MSS-setup.jpeg}
+    \end{figure}
+\end{center}
+At equilibrium, gravity and the spring force balance:
+\[mg + kL = 0.\]
+\begin{definition}[Hooke's Law]
+    The restoring force exerted by a spring is proportional to its displacement from equilibrium:
+    \[F_s = -kx,\]
+    where $k>0$ is the spring constant.
+\end{definition}
+Let $u(t)$ denote the displacement from equilibrium, with $u>0$ downward. Additional forces include damping $F_d = -\gamma u'(t)$ and an external force $F(t)$. Applying Newton's second law gives
+\[mu''(t) = mg - k(L+u(t)) - \gamma u'(t) + F(t).\]
+Using the equilibrium relation, this simplifies to
+\begin{equation}
+    \label{eq:mass-spring-system}
+    mu''(t) + \gamma u'(t) + ku(t) = F(t).
+\end{equation}
+To express this as a first-order system, set
+\[y_1 = u, \qquad y_2 = u', \qquad y = \begin{pmatrix} y_1 \\ y_2 \end{pmatrix}.\]
+Then
+\[y' = \begin{pmatrix}0 & 1 \\ -\frac{k}{m} & -\frac{\gamma}{m}\end{pmatrix}y + \begin{pmatrix}0 \\\frac{1}{m}F(t)\end{pmatrix}.\]
+We first analyze the homogeneous system $y' = Ay$, where
+\[A = \begin{pmatrix}0 & 1 \\ -\frac{k}{m} & -\frac{\gamma}{m}\end{pmatrix}.\]
+The characteristic polynomial is
+\[p(\lambda) = \det(A - \lambda I) = \lambda^2 + \frac{\gamma}{m}\lambda + \frac{k}{m}.\]
+Thus,
+\[\lambda_{\pm} = \frac{1}{2m}\left(-\gamma \pm \sqrt{\gamma^2 - 4km}\right).\]
+Let $\Delta = \gamma^2 - 4km$.
+\begin{itemize}
+    \item $\Delta > 0$ (Overdamped)
+
+    Two distinct real negative eigenvalues. The solution is
+    \[u(t) = c_1 e^{\lambda_1 t} + c_2 e^{\lambda_2 t},\]
+    which decays to zero without oscillation.
+
+    \item $\Delta = 0$ (Critically damped).  
+
+    A repeated eigenvalue $\lambda = -\frac{\gamma}{2m}$. The solution is
+    \[u(t) = (c_1 + c_2 t)e^{\lambda t},\]
+    which decays to zero as quickly as possible without oscillating.
+
+    \item $\Delta < 0$ (Underdamped).  
+
+    Complex conjugate eigenvalues
+    \[\lambda = -\frac{\gamma}{2m} \pm i\omega, \qquad \omega = \frac{1}{2m}\sqrt{4km - \gamma^2}.\]
+
+    The solution becomes
+    \[u(t) = e^{-\frac{\gamma}{2m}t}\left(c_1 \cos(\omega t) + c_2 \sin(\omega t)\right),\]
+    which represents exponentially decaying oscillations.
+\end{itemize}
+
+\subsection{RLC Circuits}
+Consider a series RLC circuit.
+\begin{center}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\textwidth]{../Images/circuit-ode.jpeg}
+    \end{figure}
+\end{center}
+Let $Q(t)$ denote the charge on the capacitor at time $t$. The current is
+\[I(t) = Q'(t).\]
+\begin{definition}[Kirchhoff's Voltage Law]
+    The sum of the voltage drops across the elements of a closed circuit equals the applied voltage $E(t)$.
+\end{definition}
+Voltage drops across each component:
+\begin{itemize}
+    \item Resistor: $RI(t)$
+    \item Capacitor: $\frac{Q(t)}{C}$
+    \item Inductor: $L I'(t)$
+\end{itemize}
+Applying Kirchhoff's law,
+\[RI + \frac{Q}{C} + LI' = E(t).\]
+Substituting $I = Q'$, we obtain
+\begin{equation}
+    \label{eq:RLC-circuit}
+    LQ''(t) + RQ'(t) + \frac{1}{C}Q(t) = E(t).
+\end{equation}
+This has the same mathematical form as the mass-spring system, with the correspondence
+\[m \leftrightarrow L, \quad \gamma \leftrightarrow R,\quad k \leftrightarrow \frac{1}{C}.\]
 
 
 \section{Second and Higher-Order Scalar Linear Equations}
