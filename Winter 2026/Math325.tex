@@ -350,7 +350,7 @@ Since its honours you will deal with analysis. The Midterm is from 4:05 pm to 5:
 \begin{problem}[Existence and Uniqueness Theorem 2]
     Consider the initial value problem
     \[\begin{cases}y' = t^2+y^2, \\ y(0) = 0,\end{cases}\]
-    Determine the largest value of ε for which the Theorem of Existence and Uniqueness ensures the existence of a solution $y: (-\epsilon,\epsilon) \to \mathbb{R}$.
+    Determine the largest value of $\epsilon$ for which the Theorem of Existence and Uniqueness ensures the existence of a solution $y: (-\epsilon,\epsilon) \to \mathbb{R}$.
 \end{problem}
 \begin{problem}[LLC]
     Consider the initial value problem
@@ -1580,8 +1580,20 @@ This has the same mathematical form as the mass-spring system, with the correspo
     \end{enumerate}
 \end{solution}
 \begin{solution}[Existence and Uniqueness Theorem 2]
-    We write
-    \[f(y,t) = t^2+y^2.\]
+    Let $f(y,t) = t^2+y^2$. This function is continuous and has continuous partial derivatives $\forall(t,y) \in \mathbb{R}^2$, ensuring a unique local solution. To find the guaranteed interval of existence $\epsilon$, we define a rectangular domain $D$ centered at the origin:
+    \[D_{\alpha,\delta} = \{(y,t) : \|y\| \leq \alpha, |t| \leq \delta\}.\]
+    Now we need to bound the function. We find the maximum value $M$ of $|f(t, y)|$ on this domain:
+    \[M = \sup_{(t, y) \in D_{\alpha, \delta}} |t^2 + y^2| = \delta^2 + \alpha^2.\]
+    Now we determine the Existence Interval. According to the theorem, the solution is guaranteed to exist for $|t| \leq \epsilon$, where:
+    \[\epsilon = \min \left(\delta, \frac{\alpha}{M}\right) = \min \left(\delta, \frac{\alpha}{\delta^2 + \alpha^2}\right).\]
+    To find the largest possible value for $\epsilon$, we first maximize $h(\alpha) = \frac{\alpha}{\delta^2 + \alpha^2}$ with respect to $\alpha$ for a fixed $\delta$:
+    \[h'(\alpha) = \frac{(\delta^2 + \alpha^2)(1) - \alpha(2\alpha)}{(\delta^2 + \alpha^2)^2} = \frac{\delta^2 - \alpha^2}{(\delta^2 + \alpha^2)^2}.\]
+    Setting $h'(\alpha) = 0$ gives $\alpha = \delta$.Substituting $\alpha = \delta$ back into our expression for $\epsilon$:
+    \[\epsilon = \min \left( \delta, \frac{\delta}{\delta^2 + \delta^2} \right) = \min \left( \delta, \frac{1}{2\delta} \right).\]
+    The maximum value of this minimum occurs when the two terms are equal:
+    \[\delta = \frac{1}{2\delta} \implies \delta^2 = \frac{1}{2} \implies \delta = \frac{1}{\sqrt{2}}.\]
+    The largest guaranteed interval of existence $\epsilon$ using this rectangular domain is:
+    \[\epsilon = \frac{1}{\sqrt{2}} \approx 0.707.\]
 \end{solution}
 \begin{solution}[LLC]
     We have
