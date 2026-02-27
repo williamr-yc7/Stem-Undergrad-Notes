@@ -181,7 +181,7 @@ Since its honours you will deal with analysis. The Midterm is from 4:05 pm to 5:
 
 \subsubsection{Linearity}
 \begin{definition}[Linearity]
-    A linear Ordinary Differential Equation (ODE) is one where the unknown function (\(y\)) and its derivatives (\(y^{\prime },y^{\prime \prime },\dots \)) appear only to the first power, are not multiplied together, and are not part of special functions like \(\sin (y)\) or \(e^{y}\). Essentially, they are "simple" combinations (addition/subtraction) of \(y\) and its derivatives, potentially multiplied by functions of the independent variable (like \(x\) or \(t\)).
+    A linear Ordinary Differential Equation (ODE) is one where the unknown function (\(y\)) and its derivatives (\(y^{\prime },y^{\prime \prime },\dots \)) appear only to the first power, are not multiplied together, and are not part of special functions like \(\sin (y)\) or \(e^{y}\), but they could be multiplied by functions of the independent variable (like \(x\) or \(t\)).
 \end{definition}
 \begin{example}[Linearity]
     Consider the following ODEs:
@@ -193,6 +193,7 @@ Since its honours you will deal with analysis. The Midterm is from 4:05 pm to 5:
     \end{itemize}
 \end{example}
 \begin{example}[Lorenz system]
+    \label{Lorenzsystem}
     \[\begin{aligned}y_1' &= \sigma (y_2-y_1), \\ y_2' &= \rho y_1 - y_2 - y_1y_3, \\ y_3' &= y_1y_2 - \beta y_3,\end{aligned}\]
     where \(\sigma,\rho,\beta\) are parameters. This is a nonlinear first order system in \(\mathbb{R}^3\).
 \end{example}
@@ -215,23 +216,21 @@ Since its honours you will deal with analysis. The Midterm is from 4:05 pm to 5:
     Here, \(f(y,t) = ky\), which depends only on \(y\) (where \(k\) is a constant), making it autonomous.
 \end{example}
 \begin{remark}
-    The Lorenz system is an example of an autonomous system.
+    The Lorenz system \eqref{Lorenzsystem} is an example of an autonomous system.
 \end{remark} 
 
 \subsubsection{Solutions of ODEs}
 \begin{definition}[Solution of a first order system]
-Let \(f: D\times I \to \mathbb{R}^n\).\footnote{\(f\) takes a state \(y\in D \subset \mathbb{R}^n\) and a time \(t\in I \subset \mathbb{R}\), and outputs a vector in \(\mathbb{R}^n\).}
-A solution of $y'(t)=f(y(t),t)$ on an interval \(J\subset I\) is a differentiable function \(y:J\to D\)(\footnote{\(y(t)\) returns a vector of \(n\) components, so \(y(t)\in\mathbb{R}^n\). The set \(D\) is simply where these values are allowed to live.}) such that
-\[y'(t)=f(y(t),t)\quad \text{for all } t\in J.\]
+    Let \(f: D\times I \to \mathbb{R}^n\).\footnote{\(f\) takes a state \(y\in D \subset \mathbb{R}^n\) and a time \(t\in I \subset \mathbb{R}\), and outputs a vector in \(\mathbb{R}^n\).}
+    A solution of $y'(t)=f(y(t),t)$ on an interval \(J\subset I\) is a differentiable function \(y:J\to D\)\footnote{\(y(t)\) returns a vector of \(n\) components, so \(y(t)\in\mathbb{R}^n\). The set \(D\) is simply where these values are allowed to live.} such that
+    \[y'(t)=f(y(t),t)\quad \text{for all } t\in J.\]
 \end{definition}
-\paragraph{1. Explicit Solutions}
 \begin{example}[Explicit Solution]
     Consider the following ODE
     \[y' + y = 1.\]
     We can verify that \(y(t) = e^{-t} + 1\), and therefore \(y'(t) = -e^{-t}\), is a solution on \(\mathbb{R}\). Indeed,
     \[y' + y = -e^{-t} + (e^{-t} + 1) = 1.\]
 \end{example}
-\paragraph{2. Implicit solutions}
 \begin{example}[Implicit Solution]
     Consider the ODE
     \[y \frac{dy}{dx} = x.\]
@@ -248,14 +247,6 @@ A solution of $y'(t)=f(y(t),t)$ on an interval \(J\subset I\) is a differentiabl
 \begin{definition}[Initial Value Problem (IVP)]
     An initial value problem consists of an ODE together with a condition $y(t_0)=y_0$, where the value of the solution is prescribed at an initial time \(t_0\).
 \end{definition}
-\begin{example}[IVP]
-    Consider the following ODE 
-    \[y' = f(y,t), \quad f : D \times (a,b) \to \mathbb{R}^n.\]
-    Let \(t_0 \in (a,b)\). An initial condition is
-    \[y(t_0) = y_0 \in \mathbb{R}^n.\]
-    An initial value problem (IVP) is
-    \[\begin{cases}y' = f(y,t), \\ y(t_0) = y_0.\end{cases}.\]
-\end{example}
 
 \subsection{Existence and Uniqueness Theorem}
 \subsubsection{Lipschitz continuity}
@@ -358,24 +349,8 @@ A solution of $y'(t)=f(y(t),t)$ on an interval \(J\subset I\) is a differentiabl
 \end{remark}
 \begin{problem}[Existence and Uniqueness Theorem 2]
     Consider the initial value problem
-    \[\begin{cases}y' = y + 1, \\ y(0) = 1,\end{cases} \qquad \text{with } t_0 = 0,\; y_0 = 1.\]
-    Use the Existence and Uniqueness Theorem to determine an interval on which a unique solution is guaranteed to exist. Compute \(\varepsilon\) explicitly using the theorem.
-\end{problem}
-\begin{problem}[Existence and Uniqueness Theorem 3]
-    Consider the initial value problem
-    \[\begin{cases}y' = y^2, \\ y(0) = 1.\end{cases}\]
-    Use the Existence and Uniqueness Theorem to estimate an interval of existence.
-\end{problem}
-\begin{problem}[Existence and Uniqueness Theorem 4]
-    Consider the first order differential equation
-    \[y' + \frac{t}{t^2 - 25}y = \frac{e^t}{t - 9}\]
-    For each of the initial conditions below, determine the largest interval $a < t < b$ on which the existence and uniqueness theorem for first order linear differential equations guarantees the existence of a unique solution.
-    \begin{itemize}
-        \item $y(-7) = -2.1.$
-        \item $y(-1.5) = -3.14.$
-        \item $y(8.5) = 6.4.$
-        \item $y(13) = -0.5.$
-    \end{itemize}
+    \[\begin{cases}y' = t^2+y^2, \\ y(0) = 0,\end{cases}\]
+    Determine the largest value of ε for which the Theorem of Existence and Uniqueness ensures the existence of a solution $y: (-\epsilon,\epsilon) \to \mathbb{R}$.
 \end{problem}
 \begin{problem}[LLC]
     Consider the initial value problem
@@ -1606,71 +1581,7 @@ This has the same mathematical form as the mass-spring system, with the correspo
 \end{solution}
 \begin{solution}[Existence and Uniqueness Theorem 2]
     We write
-    \[f(y,t) = y + 1.\]
-    Since \(f\) is a \(C^1\) function, it is locally Lipschitz in \(y\), and the Existence and Uniqueness Theorem applies.
-    The domain is
-    \[f : D \to \mathbb{R}, \qquad D = \mathbb{R} = (-\infty, +\infty).\]
-    Since \(f\) is defined everywhere, there are no constraints on \(\alpha\) and \(\delta\).
-    Define
-    \[D_{\alpha,\delta} = \{(y,t) : \|y-1\| \le \alpha,\ |t-0| \le \delta\} = [1-\alpha,1+\alpha] \times [-\delta,\delta] \subset \mathbb{R} \times \mathbb{R}.\]
-    Then
-    \[M_{\alpha,\delta} = \sup_{(y,t)\in D_{\alpha,\delta}} \|f(y,t)\| = \sup_{y\in[1-\alpha,1+\alpha]} |y+1| = 2+\alpha.\]
-    The theorem allows us to take
-    \[\varepsilon = \min\!\left(\delta, \frac{\alpha}{2+\alpha}\right).\]
-    Pick \(\alpha = 1\), \(\delta = 1\):
-    \[\varepsilon = \min\!\left(1, \frac{1}{3}\right) = \frac{1}{3}.\]
-    Therefore, there exists a unique solution on \(\left(-\frac{1}{3}, \frac{1}{3}\right)\).
-    Pick \(\alpha = 3\), \(\delta = 2\):
-    \[\varepsilon = \min\!\left(2, \frac{3}{5}\right) = \frac{3}{5}.\]
-    Therefore, there exists a unique solution on \(\left(-\frac{3}{5}, \frac{3}{5}\right)\).
-    Since there are no constraints on \(\alpha\) and \(\delta\), we can make \(\varepsilon\) as large as we want. Hence, the solution exists and is unique on \(\mathbb{R}\).
-    The “maximal” time interval guaranteed by the Existence and Uniqueness Theorem is
-    \[J = (-1,1).\]
-    In Chapter 2 we will see that the explicit solution is
-    \[y(t) = 2e^t - 1.\]
-    In fact, the maximal interval on which the solution is defined is
-    \[J_{\max} = \mathbb{R}.\]
-\end{solution}
-\begin{solution}[Existence and Uniqueness Theorem 3]
-    Since \(f(y)=y^2\) is \(C^1\), it is locally Lipschitz, so a solution exists and is unique locally.
-    On \(D_{\alpha,\delta} = [1-\alpha,1+\alpha] \times [-\delta,\delta]\),
-    \[M_{\alpha,\delta} = \sup_{y \in [1-\alpha,1+\alpha]} |y^2| = (1+\alpha)^2.\]
-    Thus,
-    \[\varepsilon = \min\!\left(\delta, \frac{\alpha}{(1+\alpha)^2}\right).\]
-    Define
-    \[h(\alpha) = \frac{\alpha}{(1+\alpha)^2}, \qquad h'(\alpha) = \frac{1-\alpha}{(1+\alpha)^3}.\]
-    Setting \(h'(\alpha)=0\) gives \(\alpha=1\).
-    Pick \(\alpha=1\), \(\delta = 104073\):
-    \[\varepsilon = \frac{1}{4}.\]
-    Therefore, there exists a unique solution
-    \[y : \left(-\frac14,\frac14\right) \to \mathbb{R}.\]
-    Chapter 2 will show the solution is
-    \[y(t) = \frac{1}{1-t}.\]
-    The vertical asymptote illustrates finite-time blow-up.
-\end{solution}
-\begin{solution}[Existence and Uniqueness Theorem 4]
-    The differential equation is
-    \[y' + \frac{t}{t^2-25}y = \frac{e^t}{t-9}.\]
-    The existence and uniqueness theorem requires the coefficients
-    \[p(t)=\frac{t}{t^2-25}, \qquad g(t)=\frac{e^t}{t-9}\]
-    to be continuous.
-    Discontinuities occur when denominators are zero:
-    \[t^2-25=0 \Rightarrow t=\pm5, \qquad t-9=0 \Rightarrow t=9.\]
-    So the critical points are \(t=-5,\:5,\:9\).
-    \begin{itemize}
-        \item For \(y(-7)=-2.1\): the nearest discontinuity is \(t=-5\).  
-        Largest interval:
-        \[(-\infty,-5).\]
-        \item For \(y(-1.5)=-3.14\): the nearest discontinuities are \(t=-5\) and \(t=5\).  
-        Largest interval:
-        \[(-5,5).\]
-        \item For \(y(8.5)=6.4\): the nearest discontinuities are \(t=5\) and \(t=9\).  
-        Largest interval:
-        \[(5,9).\]
-        \item For \(y(13)=-0.5\): the nearest discontinuity is \(t=9\).  
-        Largest interval:
-        \[(9,\infty).\]
-    \end{itemize}
+    \[f(y,t) = t^2+y^2.\]
 \end{solution}
 \begin{solution}[LLC]
     We have

@@ -49,13 +49,13 @@
 \contentsline {subsubsection}{\numberline {4.3.4}Direct Sums and Unique Decomposition}{22}{subsubsection.4.3.4}%
 \contentsline {paragraph}{Coordinates relative to a basis}{23}{section*.6}%
 \contentsline {section}{\numberline {5}Linear Transformation}{24}{section.5}%
-\contentsline {section}{\numberline {6}Appendix}{29}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Proof: Standard Basis is a Basis}{29}{subsection.6.1}%
-\contentsline {paragraph}{Claim 1.}{29}{section*.7}%
-\contentsline {paragraph}{Claim 2.}{30}{section*.8}%
-\contentsline {subsection}{\numberline {6.2}Vector Space Axioms}{30}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Algebraic Structures: Rings, Fields, and Vector Spaces}{31}{subsection.6.3}%
-\contentsline {paragraph}{Genealogy of Algebraic Structures.}{31}{section*.9}%
-\contentsline {paragraph}{Rings vs Vector Spaces.}{31}{section*.10}%
-\contentsline {section}{\numberline {7}Solutions}{32}{section.7}%
-\contentsline {section}{\numberline {8}Useful Links}{35}{section.8}%
+\contentsline {section}{\numberline {6}Appendix}{32}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Proof: Standard Basis is a Basis}{32}{subsection.6.1}%
+\contentsline {paragraph}{Claim 1.}{32}{section*.7}%
+\contentsline {paragraph}{Claim 2.}{32}{section*.8}%
+\contentsline {subsection}{\numberline {6.2}Vector Space Axioms}{32}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Algebraic Structures: Rings, Fields, and Vector Spaces}{33}{subsection.6.3}%
+\contentsline {paragraph}{Genealogy of Algebraic Structures.}{33}{section*.9}%
+\contentsline {paragraph}{Rings vs Vector Spaces.}{33}{section*.10}%
+\contentsline {section}{\numberline {7}Solutions}{34}{section.7}%
+\contentsline {section}{\numberline {8}Useful Links}{37}{section.8}%

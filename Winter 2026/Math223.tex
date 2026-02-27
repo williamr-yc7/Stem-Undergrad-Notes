@@ -1236,6 +1236,21 @@ Example: $\Phi: \mathbb{R}^4 \to M_2(\mathbb{R})$, $\Phi: \begin{pmatrix}\lambda
 Theorem: $\Phi: K^n \to V$, $\begin{pmatrix}\lambda_1\\\vdots\\\lambda_n\end{pmatrix} \to \lambda_1v_1 + \cdots + \lambda_n v_n = V$. $\Phi$ is isomorphic $\iff (v_1, \cdots, v_n)$ is a basis for $V$. $[v]_e = \Phi^{-1}(v)$.
 Main basis theorem: $v \in V$, $e = (v_1, \cdots, v_n) \to v_n = \lambda_1v_1 + \cdots + \lambda_nv_n$. where $\lambda_1$ to $\lambda_n$ are unique coordinates. $[v]_e = \begin{pmatrix}\lambda_1\\\vdots\\\lambda_n\end{pmatrix}$.
 Assume $v_1,\cdots,v_n$ basis and $\Phi$ injective, $ker(\Phi)=\{0\}$. Assume $\begin{pmatrix}\lambda_1\\\vdots\\\lambda_n\end{pmatrix} \in les \Phi$. Prove $\lambda_1, \cdots , \lambda_n = 0$. Know: $\Phi\begin{pmatrix}\lambda_1,\vdots,\lambda_n\end{pmatrix} = 0 \to \lambda_1v_1 + \cdots + \lambda_nv_n = 0$.
+
+
+\marginpar{February 27, 2026}
+Review of coordinates:
+Let $e = (e_1, \cdots, e_n)$ be a basis of $V$. Any $v \in V$ has coordinates = unique numbers $\lambda_1,\cdots,\lambda_n \in K$, such that $v = \lambda_1e_1 + \cdots + \lambda_ne_n$.
+Write $[v]_e = \begin{pmatrix}\lambda_1,\vdots,\lambda_n\end{pmatrix}$. Example : $v = \begin{pmatrix}1\\1\end{pmatrix}$, $e_1 = \begin{pmatrix}1\\0\end{pmatrix}$, $e_2 = \begin{pmatrix}0\\1\end{pmatrix}$, $[v]_e = \begin{pmatrix}1\\1\end{pmatrix}$, $v=e_1+e_2$.
+$f_1 = e_1$, $f_2 = v$ now basis of $\mathbb{R}^2$, $[v]_f = \begin{pmatrix}0\\1\end{pmatrix}$.
+Example: $f_1 = \begin{pmatrix}0\\1\\2\end{pmatrix}$, $f_2 = \begin{pmatrix}2\\1\\0\end{pmatrix}$ in $\mathbb{R}^3$ for a basis of a subspace $U$ of $dim2$ in $\mathbb{R}^3$.
+Define: $[v]_f = \begin{pmatrix}2\\3\end{pmatrix}$, $[v]_e = ?$, $v = 2f_1 + 3f_2$. Write $f_1$,$f_2$ in a matrix: $Q = \begin{pmatrix}0&2\\1&1\\2&0\end{pmatrix}$ change of coord matrix.
+$Q$ takes f coord to e-coord.
+Definition: Let $e=(e_1,\cdots,e_n)$ be a basis of $V$. Let $f = (f_1,\cdots,f_k)$ be LI in $V$. Let $Q= (f_1, \cdots, f_k)\begin{pmatrix}1\\1\\1\\1\\1\\1\end{pmatrix}$ change of basis from f-coord to e-coord.
+Let $V$ be a vector space, $e=(e_1,\cdots,e_n)$ basis of $V$. Let $f=(f_1,\cdots,f_k)$ basis of $V$. Define $Q = $ change of basis f-coord $\to$ e-coord and $P = $ change of basis e-coord $\to$ f-coord.
+Claim: $P$, $Q$ are invertible $P = Q^{-1}$.
+Example: $f_1 = (1,0)^T$, $f_2 = (1,1)^T$ compute change of basis matrix, $Q = \begin{pmatrix}1&1\\0&1\end{pmatrix}$, f-coord to e-coor we need $P=Q^{-1}$, need to inverse $Q$. $Q$ using isomorphism
+
 \section{Appendix}
 \subsection{Proof: Standard Basis is a Basis}
 \label{subsec:SB}
