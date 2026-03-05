@@ -286,7 +286,18 @@ To determine if an element \(A\) in a set with multiplication \(M\) is invertibl
     \end{enumerate}
 \end{definition}
 \begin{example}
-    The main example of a ring is the set of integers $\mathbb{Z}$.
+    The set of integers $\mathbb{Z}$ with the usual addition and multiplication is a ring. First, $\mathbb{Z}$ is closed under addition and multiplication. If $a,b \in \mathbb{Z}$, then $a+b \in \mathbb{Z}$ and $ab \in \mathbb{Z}$. There is a zero element $0$ such that
+    \[a+0=a \quad \text{for all } a\in\mathbb{Z},\]
+    and every integer has an additive inverse since
+    \[a+(-a)=0.\]
+    Addition is commutative and associative:
+    \[a+(b+c)=(a+b)+c.\]
+    Multiplication is associative and has identity $1$:
+    \[a(bc)=(ab)c,\]
+    \[a\cdot1=a.\]
+    Finally, multiplication distributes over addition:
+    \[(a+b)c=ac+bc.\]
+    Therefore, $(\mathbb{Z},+,\cdot)$ is a ring.
 \end{example}
 
 \subsubsection{Field}
@@ -294,13 +305,16 @@ To determine if an element \(A\) in a set with multiplication \(M\) is invertibl
     A field is a ring \textup{\eqref{def:Ring}} in which every nonzero element has a multiplicative inverse.
 \end{definition}
 \begin{example}
-    Let $F$ be a set with two elements $F = \{0,1\}$ with addition and multiplication defined modulo $2$. The operations are given by
-    \[\begin{array}{c|cc}+ & 0 & 1 \\ \hline 0 & 0 & 1 \\ 1 & 1 & 0\end{array} \qquad \begin{array}{c|cc}\cdot & 0 & 1 \\ \hline 0 & 0 & 0 \\ 1 & 0 & 1\end{array}\]
-    Then $0$ is the additive identity, $1$ is the multiplicative identity, and the only nonzero element $1$ satisfies $1^{-1}=1$. Hence every nonzero element has a multiplicative inverse, so $F$ is a field.
+    The set of rational numbers $\mathbb{Q}$ with the usual addition and multiplication is a field. First, $(\mathbb{Q},+,\cdot)$ is a ring because rational numbers are closed under addition and multiplication, addition is commutative and associative, there is a zero element $0$, and multiplication is associative with identity $1$. In addition, every nonzero element has a multiplicative inverse. If $q \in \mathbb{Q}$ and $q \neq 0$, then there exists $q^{-1}$ such that
+    \[q\cdot q^{-1}=1.\]
+    For example,
+    \[\frac{3}{5}\cdot\frac{5}{3}=1.\]
+    Therefore, $(\mathbb{Q},+,\cdot)$ is a field.
 \end{example}
-\begin{problem}[Field]
-    Construct a field with 2 elements.
-\end{problem}
+\begin{remark}
+    The integers $\mathbb{Z}$ form a ring but not a field because most nonzero elements do not have a multiplicative inverse in $\mathbb{Z}$ (for example, there is no integer $x$ such that $2x=1$).
+\end{remark}
+
 
 \marginpar{January 09, 2026.}
 \section{Vector Spaces}
@@ -1324,20 +1338,6 @@ This tree shows how vector spaces arise from fields (which arise from rings), an
 \begin{solution}[Invertibility 2]
     We can answer this problem with proof by contradiction. Let's
     suppose this matrix is invertible. By definition there exists B = $\begin{pmatrix}a&b\\c&d\end{pmatrix}$ such that $\begin{bmatrix}0&1\\0&0\end{bmatrix}$ $\begin{bmatrix}a&b\\c&d\end{bmatrix}$ = $\begin{bmatrix}1&0\\0&1\end{bmatrix}$.  We can rewrite this equation into: $\begin{bmatrix}a&b\\c&d\end{bmatrix}$ = $\begin{bmatrix}0&1\\0&0\end{bmatrix}^{-1}$. The inverse of our matrix can be rewritten as $\frac{1}{0*0 - 1*0}\begin{bmatrix}0&-1\\0&0\end{bmatrix}$\footnote{Recall that an inverse of a $2 \times 2$ matrix is equal to its determinant multiplied with its conjugate}. But this is undefined since division by 0 is undefined. Therefore, our initial assumption that the matrix is invertible is false, and thus the matrix is not invertible.
-\end{solution}
-\begin{solution}[Field]
-    A field with 2 elements can be constructed as follows:
-    Let \(F = \{0, 1\}\) be a set with two elements. We define addition and multiplication operations on \(F\) as follows:
-    \begin{itemize}
-        \item \(0 + 0 = 0\)
-        \item \(0 + 1 = 1\)
-        \item \(1 + 0 = 1\)
-        \item \(1 + 1 = 0\)
-        \item \(0 \times 0 = 0\)
-        \item \(0 \times 1 = 0\)
-        \item \(1 \times 0 = 0\)
-        \item \(1 \times 1 = 1\)
-    \end{itemize}
 \end{solution}
 \begin{solution}[Span]
     \[\Span(v_1,v_2) = \{xv_1 + yv_2 : x,y \in \mathbb{R}\} = \left\{\begin{pmatrix}3x + y\\x + 3y\end{pmatrix}: x,y \in \mathbb{R}\right\}.\]
