@@ -318,13 +318,14 @@ To determine if an element \(A\) in a set with multiplication \(M\) is invertibl
 
 \marginpar{January 09, 2026.}
 \section{Vector Spaces}
-\subsection{Abstract Vector Spaces}
-A regular vector space like $\mathbb{R}^n$ has concrete vectors you can see as tuples of numbers, while an abstract vector space generalizes this idea: vectors can be anything, as long as addition and scalar multiplication satisfy the vector space axioms.
-\begin{definition}[Vector space over a field]
-    Let $k$ be a field. A vector space over $k$ is a set $V$ with addition and scalar multiplication such that
+\begin{definition}[Vector Space]
+    Let $k$ be a field. A vector space over $k$ (or K-vectorspace) is a set $V$ with addition and scalar multiplication such that
     \[\text{(i) } v_1+v_2\in V, \qquad\text{(ii) } \lambda v\in V, \qquad\text{(iii) } 0\in V,\]
     and satisfying the usual vector space axioms (see Appendix~\ref{subsec:VSA}).\footnote{For this course, the main properties we need to know are closure under addition and scalar multiplication, and the existence of the zero vector.}
 \end{definition}
+\begin{remark}
+We often use the term abstract vector space to emphasize that the elements of $V$ are not restricted to arrows or tuples in $\mathbb{R}^n$, but can be any objects (like functions or tensors) that satisfy the axioms.
+\end{remark}
 
 \subsection{Vectors}
 \subsubsection{Vector operations}
