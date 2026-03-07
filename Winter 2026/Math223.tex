@@ -602,12 +602,12 @@ The family $\{\delta_x : x \in D\}$ is linearly independent but does not span $F
 \end{proposition}
 \begin{problem}[Subspace criterion]
     Let $A \in M_n(k)$ be a fixed matrix. Prove that
-    \[U = \{x \in k^n \mid Ax = \vec{0}\}\]
+    \[U = \{Ax = \vec{0} \mid x \in k^n\}\]
     is a subspace, null space or kernel.
 \end{problem}
 \begin{problem}[Subspace criterion 2]
     Let $A \in M_n(k)$. Show that
-    \[U = \{Ax : x \in K^n\}\]
+    \[U = \{Ax \mid x \in K^n\}\]
     is a subspace of $k^n$. The set $U$ is called the image (or range) of $A$.
 \end{problem}
 \begin{problem}[Subspace criterion 3]
@@ -615,7 +615,7 @@ The family $\{\delta_x : x \in D\}$ is linearly independent but does not span $F
 \end{problem}
 \begin{problem}[Subspace criterion 4]
 Let $V$ be a vector space over $k$ and let $v_1,\dots,v_n \in V$. Show that
-\[\Span(v_1,\dots,v_n) = \{\lambda_1 v_1 + \cdots + \lambda_n v_n : \lambda_1,\dots,\lambda_n \in k\}\]
+\[\Span(v_1,\dots,v_n) = \{\lambda_1 v_1 + \cdots + \lambda_n v_n \mid \lambda_1,\dots,\lambda_n \in k\}\]
 is a subspace of $V$.
 \end{problem}
 
@@ -636,15 +636,32 @@ is a subspace of $V$.
 \subsubsection{Operations on subspaces}
 Let $W$ be a vector space and $U,V \subseteq W$ subspaces.
 \begin{definition}[Intersection]
-    \[U \cap V = \{w \in W : w \in U \text{ and } w \in V\}.\]
+    \[U \cap V = \{w \in W \mid w \in U \text{ and } w \in V\}.\]
     The intersection of subspaces is a subspace. In particular, the smallest possible intersection is $\{0\}$.
 \end{definition}
 \begin{definition}[Union]
-    \[U \cup V = \{ w \in W : w \in U \text{ or } w \in V \}.\]
-    The union of subspaces is not necessarily a subspace. In general, $U \cup V$ is a subspace only if one subspace is contained in the other, i.e., $U \subseteq V$ or $V \subseteq U$.
+    \[U \cup V = \{ w \in W \mid w \in U \text{ or } w \in V \}.\]
+    The union of subspaces is not necessarily a subspace.
 \end{definition}
+\begin{proposition}
+    In general, $U \cup V$ is a subspace of $W$ only if one subspace is contained in the other, i.e., $U \subseteq V$ or $V \subseteq U$.
+\end{proposition}
+\begin{proof}
+    First assume \(U \subseteq V\). Then
+    \[U \cup V = V,\]
+    which is a subspace of \(W\). Similarly, if \(V \subseteq U\), then
+    \[U \cup V = U,\]
+    which is also a subspace. Conversely, suppose neither \(U \subseteq V\) nor \(V \subseteq U\). Then there exist \(u \in U\) with \(u \notin V\), and \(v \in V\) with \(v \notin U\).
+    Thus \(u,v \in U \cup V\). If \(U \cup V\) were a subspace, it would be closed under addition, so
+    \[u+v \in U \cup V.\]
+    If \(u+v \in U\), then since \(U\) is a subspace and \(u \in U\),
+    \[v = (u+v) - u \in U,\]
+    a contradiction. If \(u+v \in V\), then since \(V\) is a subspace and \(v \in V\),
+    \[u = (u+v) - v \in V,\]
+    also a contradiction. Therefore \(u+v \notin U \cup V\), so \(U \cup V\) is not closed under addition. Hence \(U \cup V\) is not a subspace if neither \(U \subseteq V\) nor \(V \subseteq U\).
+\end{proof}
 \begin{definition}[Sum of subspaces]
-    \[U + V = \{u+v : u \in U,\, v \in V\}.\]
+    \[U + V = \{u+v \mid u \in U,\, v \in V\}.\]
 \end{definition}
 \begin{proposition}
     If $U$ and $V$ are subspaces of $W$, then $U+V$ is a subspace of $W$.
@@ -682,18 +699,29 @@ Let $W$ be a vector space and $U,V \subseteq W$ be subspaces.
     We say that $U$ and $V$ are in direct sum if
     \[U \cap V = \{0\}.\]
     In this case, their sum
-    \[U+V=\{u+v : u \in U,\; v \in V\}\]
+    \[U+V=\{u+v \mid u \in U,\; v \in V\}\]
     is denoted by $U \oplus V$.
     We write
     \[W = U \oplus V \iff \begin{cases}W = U+V,\\U \cap V = \{0\}.\end{cases}\]
 \end{definition}
-\begin{remark}
-    To prove $W = U \oplus V$, one must show:
-    \begin{itemize}
-    \item Every $w \in W$ can be written as $w=u+v$ with $u \in U$, $v \in V$.
-    \item If $w \in U$ and $w \in V$, then $w=0$.
-    \end{itemize}
-\end{remark}
+\begin{proof}
+    Assume \(W = U \oplus V\). Then \(W = U+V\) and \(U \cap V = \{0\}\). First, since \(W = U+V\), every \(w \in W\) can be written as
+    \[w = u+v, \quad u \in U,\ v \in V.\]
+    To show uniqueness, suppose
+    \[w = u_1 + v_1 = u_2 + v_2\]
+    with \(u_1,u_2 \in U\) and \(v_1,v_2 \in V\). Then
+    \[u_1 - u_2 = v_2 - v_1.\]
+    Since \(U\) is a subspace, \(u_1-u_2 \in U\). Since \(V\) is a subspace, \(v_2-v_1 \in V\). Hence
+    \[u_1-u_2 \in U \cap V.\]
+    But \(U \cap V = \{0\}\), so
+    \[u_1-u_2 = 0.\]
+    Thus \(u_1 = u_2\), and therefore \(v_1 = v_2\). Hence the decomposition is unique. Conversely, assume every \(w \in W\) can be written uniquely as \(w=u+v\) with \(u \in U\), \(v \in V\). Then clearly \(W = U+V\). To show \(U \cap V = \{0\}\), let \(w \in U \cap V\). Then
+    \[w = w + 0 = 0 + w,\]
+    where \(w \in U\), \(0 \in V\), and \(0 \in U\), \(w \in V\).
+    By uniqueness of the decomposition, we must have
+    \[w = 0.\]
+    Thus \(U \cap V = \{0\}\), so \(W = U \oplus V\).
+\end{proof}
 \subsubsection{Analogy with sets}
 \[\begin{array}{c|c}
 \text{Sets} & \text{Vector spaces} \\
@@ -713,7 +741,7 @@ A \sqcup B,\ A \cap B = \emptyset & U \oplus V,\ U \cap V = \{0\}
 \begin{definition}[Subspace of functions supported on a subset]
     Let $D$ be a set and $A \subseteq D$. Consider the function space $F(D,\mathbb{R})$. Define
     \[U = \{f \in F(D,\mathbb{R}) : f(x)=0\,\forall x \notin A\}.\]
-    Then $U$ is a subspace of $F(D,\mathbb{R})$ (it is closed under addition and scalar multiplication, and contains the zero function). Moreover, $U$ can be naturally identified with $F(A,\mathbb{R})$, since each function in $U$ is completely determined by its values on $A$
+    Then $U$ is a subspace of $F(D,\mathbb{R})$ (it is closed under addition and scalar multiplication, and contains the zero function). Moreover, $U$ can be naturally identified with $F(A,\mathbb{R})$, since each function in $U$ is completely determined by its values on $A$.
 \end{definition}
 \begin{remark}
     Every function in $U$ is completely determined by its values on $A$ and vanishes outside $A$.
@@ -722,10 +750,11 @@ A \sqcup B,\ A \cap B = \emptyset & U \oplus V,\ U \cap V = \{0\}
     Let $D = \{1,2,3,4,5\}$ and $A = \{2,4\}$. Then
     \[U = \{ f \in F(D,\mathbb{R}) : f(1)=f(3)=f(5)=0 \}.\]
     Examples of functions in $U$ include
-    \[f = (0,3,0,-1,0), \quad g = (0,0,0,7,0).\]
+    \[f(1)=0, f(2)=3, f(3)=0, f(4)=-1, f(5)=0,\]
+    \[g(1)=0, g(2)=0, f(3)=0, g(4)=7, g(5)=0.\]
     Each function in $U$ is completely determined by its values on $A$, i.e.,
-    \[f \iff (f(2), f(4)) \in F(A, \mathbb{R}) \cong \mathbb{R}^2.\]
-    Hence $U$ is a 2-dimensional subspace of $F(D, \mathbb{R})$.
+    \[f \iff (f(2), f(4)) \in F(A,\mathbb{R}) \cong \mathbb{R}^2.\]
+    Hence $U$ is a 2-dimensional subspace of $F(D,\mathbb{R})$.
 \end{example}
 
 \section{Basis and Dimension}%to read
@@ -745,43 +774,57 @@ In the second case, $span(v_1,v_2) \subseteq V$. This process can be repeated to
 
 2 cases (2d space plane):
 \begin{itemize}
-    \item $v = v_2 = span(v_1,v_2)$
-    \item $v \neq v_2 \quad \exists v_3 \notin v_2$, where $v_3 = span(v_1,v_2,v_3) \subseteq v$
+    \item If $V = span(v_1, v_2)$, you have a 2D plane.
+    \item If the space is larger than that plane, there must exist a $v_3$ that sticks out of it, meaning $span(v_1, v_2, v_3) \subseteq V$.
 \end{itemize}
 
 2 cases (3d space):
 \begin{itemize}
-    \item $v_3 = v$
-    \item $v_3 \neq v \quad \exists v_4...$
+    \item If $v_3$ covers the whole space ($v_3 = V$), you are in 3D.
+    \item If not, there is a $v_4$, and so on.
 \end{itemize}
-\begin{definition}
-    $V$ is finite dimensional if it can be spanned by finitely many vectors.
-    \[\exists v_1,\ldots,v_n : V = span(v_1,\ldots,v_n).\]
-    $dim V =$ smallest $n$ such that $V = span(v_1,\ldots,v_n)$.
+\begin{definition}[Finite Dimensional Vector Space]
+    A vector space \(V\) over a field $k$ is finite-dimensional if there exists a finite set of vectors \(v_1,\dots,v_n \in V\) such that
+    \[V = \Span(v_1,\dots,v_n).\]
+    The dimension of \(V\) is the minimal such \(n\):
+    \[\dim_kV = \min \{n : V = \Span_k(v_1,\dots,v_n)\}.\]
 \end{definition}
-$dim_kV =$ min $n$ such that $V = span_k(v_1,\ldots,v_n)$.
-\begin{example}
-    $(\mathbb{C}^n,n=1)$
-    $\mathbb{C} = span_{\mathbb{R}}(1,i) = 2$
-    \[x \cdot 1 + y \cdot i\]
-    $M_n(\mathbb{C})$
-    \[A = \begin{pmatrix}
-        z_{11} & z_{12} & \cdots & z_{1n}\\
-        \vdots & \vdots & \ddots & \vdots\\
-        z_{n1} & z_{n2} & \cdots & z_{nn}
-    \end{pmatrix} = \begin{pmatrix}
-        x_{11} + y_{11}i & x_{12} + y_{12}i & \cdots & x_{1n} + y_{1n}i\\
-        \vdots & \vdots & \ddots & \vdots\\
-        x_{n1} + y_{n1}i & x_{n2} + y_{n2}i & \cdots & x_{nn} + y_{nn}i
-    \end{pmatrix}\]
-    First matrix is of $dim_{\mathbb{C}}M_n(\mathbb{C}) = n^2$, and the second matrix is of $dim_{\mathbb{R}}M_n(\mathbb{C}) = 2n^2$.
+\begin{example}[Complex numbers as a real vector space]
+    Consider $\mathbb{C}$ as a vector space over $\mathbb{R}$. A standard basis is
+    \[\{1, i\},\]
+    so $\dim_{\mathbb{R}} \mathbb{C} = 2$. Any $z \in \mathbb{C}$ can be written uniquely as
+    \[z = x \cdot 1 + y \cdot i, \quad x,y \in \mathbb{R}.\]
+    Now consider the space of $n \times n$ complex matrices $M_n(\mathbb{C})$. Each entry $z_{ij} \in \mathbb{C}$ can be written as $z_{ij} = x_{ij} + y_{ij} i$ with $x_{ij},y_{ij} \in \mathbb{R}$. Hence a standard basis over $\mathbb{C}$ consists of the matrices $E_{ij}$ with a 1 in the $(i,j)$-th entry and 0 elsewhere, giving
+    \[\dim_{\mathbb{C}} M_n(\mathbb{C}) = n^2.\]
+    Over $\mathbb{R}$, each $E_{ij}$ splits into two real matrices corresponding to the real and imaginary parts, so
+    \[\dim_{\mathbb{R}} M_n(\mathbb{C}) = 2 n^2.\]
 \end{example}
-\begin{example}[dim $V = \infty$]
-    \[P_{\infty}\]
-    \[v_1 = 1 \quad v_2 = x \quad v_3 = x^2\]
-    $span(v_1) =$ constant polynomials
-    \[V_1 = span(v_1,v_2) = P_1\]
-    \[v_{n+1} = x^n \notin P_{n-1}\]
+
+\begin{example}[Infinite-dimensional space of polynomials]
+Let
+\[
+P_\infty(\mathbb{R}) = \{ a_0 + a_1 x + a_2 x^2 + \cdots : a_i \in \mathbb{R} \}
+\]
+be the space of all polynomials with real coefficients.  
+
+Define the sequence of vectors
+\[
+v_1 = 1, \quad v_2 = x, \quad v_3 = x^2, \quad \dots
+\]
+Then
+\[
+\text{span}\{v_1\} = \text{constant polynomials}, \quad
+\text{span}\{v_1,v_2\} = P_1,
+\]
+and in general
+\[
+v_{n+1} = x^n \notin P_{n-1} = \text{span}\{v_1,\dots,v_n\}.
+\]
+
+Thus $P_\infty(\mathbb{R})$ is **infinite-dimensional**, and a standard basis is
+\[
+\{ 1, x, x^2, x^3, \dots \}.
+\]
 \end{example}
 
 \subsection{Linear Independence}
@@ -824,17 +867,11 @@ $dim_kV =$ min $n$ such that $V = span_k(v_1,\ldots,v_n)$.
 \end{problem}
 
 \marginpar{January 28, 2026}
-\begin{problem}
+\begin{problem}[Linearly independent vectors]
     \[v_1 = \begin{pmatrix}1\\1\\0\end{pmatrix}, \quad v_2 = \begin{pmatrix}1\\3\\2\end{pmatrix}, \quad v_3 = \begin{pmatrix}4\\9\\5\end{pmatrix}.\]
     Are these vectors linearly independent? Are there $x,y,z \in \mathbb{R}$ such that 
     \[xv_1 + yv_2 + zv_3 = 0?\]
 \end{problem}
-\begin{solution}
-    $x,y,z$ not all zero.
-    \[x\begin{pmatrix}1\\1\\0\end{pmatrix} + y\begin{pmatrix}1\\3\\2\end{pmatrix} + z\begin{pmatrix}4\\9\\5\end{pmatrix} = \begin{pmatrix}0\\0\\0\end{pmatrix}\]
-    \[\begin{cases}x + 3y + 4z = 0\\1 + 3y + 9z = 0\\0 + 2y + 5z = 0\end{cases}\]
-    Find a non-trivial solution. $x = 3$, $y = 5$, $z = -2$. Not LI: $3v_1 + 5v_2 - 2v_3 = 0$.
-\end{solution}
 \begin{definition}[Linear Dependence]
     Linearly dependent (LD) just means not LI.
 \end{definition}
@@ -1378,8 +1415,8 @@ The vectors \(e_1,\ldots,e_n\) are linearly independent.
     Solving via Gaussian elimination, we find $a = \frac{2}{21}$, $b = -\frac{46}{21}$, and $c = \frac{41}{21}$. Hence $u \in \Span(u_1,u_2,u_3)$, meaning that $u$ is in the span of $u_1, u_2, u_3$.
 \end{solution}
 \begin{solution}[Subspace Criterion]
-    Let $A \in M_n(K)$ be fixed and define
-    \[U = \{x \in K^n : Ax = \vec{0}\}.\]
+    Let $A \in M_n(k)$ be fixed and define
+    \[U = \{x \in k^n : Ax = \vec{0}\}.\]
     We verify the subspace criterion.
 
     (0) Non-empty:  
@@ -1391,7 +1428,7 @@ The vectors \(e_1,\ldots,e_n\) are linearly independent.
     so $x+y \in U$.
 
     (2) Closed under scalar multiplication:  
-    Let $x \in U$ and $\lambda \in K$. Then
+    Let $x \in U$ and $\lambda \in k$. Then
     \[A(\lambda x) = \lambda Ax = \lambda 0 = 0,\]
     so $\lambda x \in U$.
 
@@ -1404,36 +1441,36 @@ The vectors \(e_1,\ldots,e_n\) are linearly independent.
     Since $A0 = 0$, we have $0 \in U$.
 
     (1) Closed under addition:  
-    Let $y_1,y_2 \in U$. Then there exist $x_1,x_2 \in K^n$ such that
+    Let $y_1,y_2 \in U$. Then there exist $x_1,x_2 \in k^n$ such that
     \[y_1 = Ax_1, \quad y_2 = Ax_2.\]
     Hence,
     \[y_1 + y_2 = Ax_1 + Ax_2 = A(x_1 + x_2) \in U.\]
 
     (2) Closed under scalar multiplication:  
-    Let $y \in U$ and $\lambda \in K$. Then $y = Ax$ for some $x \in K^n$, and
+    Let $y \in U$ and $\lambda \in k$. Then $y = Ax$ for some $x \in k^n$, and
     \[\lambda y = \lambda Ax = A(\lambda x) \in U.\]
 
-    Therefore, by the subspace criterion, $U$ is a subspace of $K^n$. It is called the image of $A$.
+    Therefore, by the subspace criterion, $U$ is a subspace of $k^n$. It is called the image of $A$.
 \end{solution}
 \begin{solution}[Subspace Criterion 3]
-    Let $U \subseteq K$ be a subspace. We show that either $U = \{0\}$ or $U = K$. If $U = \{0\}$, we are done. Otherwise, $U \neq \{0\}$. Then there exists $v \in U$ with $v \neq 0$.
-    We prove that $U = K$. Let $x \in K$ be arbitrary. Since $v \neq 0$, there exists $\lambda \in K$ such that
+    Let $V \subseteq k$ be a subspace. We show that either $V = \{0\}$ or $V = k$. If $V = \{0\}$, we are done. Otherwise, $V \neq \{0\}$. Then there exists $v \in V$ with $v \neq 0$.
+    We prove that $V = k$. Let $x \in k$ be arbitrary. Since $v \neq 0$, there exists $\lambda \in k$ such that
     \[x = \lambda v.\]
-    Because $U$ is closed under scalar multiplication, $\lambda v \in U$, hence $x \in U$. Therefore every $x \in K$ belongs to $U$, so $U = K$. Conclusion: the only subspaces of $K$ are $\{0\}$ and $K$.
+    Because $V$ is closed under scalar multiplication, $\lambda v \in V$, hence $x \in V$. Therefore every $x \in k$ belongs to $V$, so $V = k$. Conclusion: the only subspaces of $k$ are $\{0\}$ and $k$.
 \end{solution}
 \begin{solution}[Subspace Criterion 4]
     We verify the subspace criterion.
-    (0) Non-empty:  
+    (0) Non-empty:
     Taking $\lambda_1=\cdots=\lambda_n=0$ gives
     \[0 = 0v_1 + \cdots + 0v_n \in \Span(v_1,\dots,v_n).\]
-    (1) Closed under addition:  
+    (1) Closed under addition:
     Let $u,v \in \Span(v_1,\dots,v_n)$. Then there exist scalars
-    $a_1,\dots,a_n,b_1,\dots,b_n \in K$ such that
+    $a_1,\dots,a_n,b_1,\dots,b_n \in k$ such that
     \[u = a_1 v_1 + \cdots + a_n v_n, \quad v = b_1 v_1 + \cdots + b_n v_n.\]
     Hence,
     \[u+v = (a_1+b_1)v_1 + \cdots + (a_n+b_n)v_n \in \Span(v_1,\dots,v_n).\]
     (2) Closed under scalar multiplication:  
-    Let $u \in \Span(v_1,\dots,v_n)$ and $\lambda \in K$. Then
+    Let $u \in \Span(v_1,\dots,v_n)$ and $\lambda \in k$. Then
     \[u = a_1 v_1 + \cdots + a_n v_n\]
     for some scalars $a_i$, and
     \[\lambda u = (\lambda a_1)v_1 + \cdots + (\lambda a_n)v_n \in \Span(v_1,\dots,v_n).\]
@@ -1457,21 +1494,27 @@ The vectors \(e_1,\ldots,e_n\) are linearly independent.
     so $v \in \Span(v_1,v_2,v_3)$.
 \end{solution}
 \begin{solution}[Span Membership 2]
-    We seek scalars $x,y,z \in \mathbb{R}$ such that
-    \[f = xf_1 + yf_2 + zf_3.\]
+    We seek scalars $t,y,z \in \mathbb{R}$ such that
+    \[f = tf_1 + yf_2 + zf_3.\]
     Comparing coefficients,
-    \[x(x^2+2x+1) + y(2x^2+5x+4) + z(x^2+3x+6) = 3x^2+5x-5,\]
+    \[t(x^2+2x+1) + y(2x^2+5x+4) + z(x^2+3x+6) = 3x^2+5x-5,\]
     which gives
     \[\begin{cases}
-    x + 2y + z = 3,\\
-    2x + 5y + 3z = 5,\\
-    x + 4y + 6z = -5.
+    t + 2y + z = 3,\\
+    2t + 5y + 3z = 5,\\
+    t + 4y + 6z = -5.
     \end{cases}\]
     Solving,
-    \[x=3,\quad y=1,\quad z=-2.\]
+    \[t=3,\quad y=1,\quad z=-2.\]
     Hence,
     \[f = 3f_1 + f_2 - 2f_3,\]
     and therefore $f \in \Span(f_1,f_2,f_3)$.
+\end{solution}
+\begin{solution}[Linearly independent vectors]
+    $x,y,z$ not all zero.
+    \[x\begin{pmatrix}1\\1\\0\end{pmatrix} + y\begin{pmatrix}1\\3\\2\end{pmatrix} + z\begin{pmatrix}4\\9\\5\end{pmatrix} = \begin{pmatrix}0\\0\\0\end{pmatrix}\]
+    \[\begin{cases}x + 3y + 4z = 0\\1 + 3y + 9z = 0\\0 + 2y + 5z = 0\end{cases}\]
+    Find a non-trivial solution. $x = 3$, $y = 5$, $z = -2$. Not LI: $3v_1 + 5v_2 - 2v_3 = 0$.
 \end{solution}
 
 \section{Useful Links}

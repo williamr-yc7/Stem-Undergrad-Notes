@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  7 MAR 2026 15:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  7 MAR 2026 16:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -664,102 +664,102 @@ Underfull \hbox (badness 10000) in paragraph at lines 622--622
 []\OT1/cmr/m/n/10 January 21,
  []
 
-[16]
-Underfull \hbox (badness 10000) in paragraph at lines 679--679
+[16] [17]
+Underfull \hbox (badness 10000) in paragraph at lines 696--696
 []\OT1/cmr/m/n/10 January 23,
  []
 
-[17] [18]
-Underfull \hbox (badness 10000) in paragraph at lines 732--732
+[18] [19]
+Underfull \hbox (badness 10000) in paragraph at lines 761--761
 []\OT1/cmr/m/n/10 January 26,
  []
 
-[19] [20]
-Underfull \hbox (badness 10000) in paragraph at lines 826--826
+[20] [21]
+Underfull \hbox (badness 10000) in paragraph at lines 869--869
 []\OT1/cmr/m/n/10 January 28,
  []
 
-[21]
-Underfull \hbox (badness 10000) in paragraph at lines 886--886
+[22]
+Underfull \hbox (badness 10000) in paragraph at lines 923--923
 []\OT1/cmr/m/n/10 January 30,
  []
 
-
-Overfull \hbox (14.43977pt too wide) in paragraph at lines 888--890
+[23]
+Overfull \hbox (14.43977pt too wide) in paragraph at lines 925--927
 [][]\OT1/cmr/bx/n/10 Definition 36 \OT1/cmr/m/n/10 (Ba-sis)\OT1/cmr/bx/n/10 . []\OT1/cmr/m/it/10 Let $\OML/cmm/m/it/10 V$ \OT1/cmr/m/it/10 be a vec-tor space. A set of vec-tors $\OML/cmm/m/it/10 B \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 v[]; [] ; v[]\OMS/cmsy/m/n/10 g ^^Z
  []
 
-[22] [23]
-Underfull \hbox (badness 10000) in paragraph at lines 950--950
-[]\OT1/cmr/m/n/10 February 2,
- []
-
 [24]
-Underfull \hbox (badness 10000) in paragraph at lines 989--989
-[]\OT1/cmr/m/n/10 February 4,
+Underfull \hbox (badness 10000) in paragraph at lines 987--987
+[]\OT1/cmr/m/n/10 February 2,
  []
 
 [25]
 Underfull \hbox (badness 10000) in paragraph at lines 1026--1026
-[]\OT1/cmr/m/n/10 February 6,
+[]\OT1/cmr/m/n/10 February 4,
  []
 
 [26]
-Underfull \hbox (badness 10000) in paragraph at lines 1044--1044
+Underfull \hbox (badness 10000) in paragraph at lines 1063--1063
+[]\OT1/cmr/m/n/10 February 6,
+ []
+
+[27]
+Underfull \hbox (badness 10000) in paragraph at lines 1081--1081
 []\OT1/cmr/m/n/10 February 2,
  []
 
 
-Overfull \hbox (20.1277pt too wide) in paragraph at lines 1071--1080
+Overfull \hbox (20.1277pt too wide) in paragraph at lines 1108--1117
 []\OT1/cmr/m/n/10 proof of : Sup-pose $\OML/cmm/m/it/10 U \OMS/cmsy/m/n/10 ^^H \OML/cmm/m/it/10 U[]$ \OT1/cmr/m/n/10 are in di-rect sum in V As-sume: $[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1081--1081
+Underfull \hbox (badness 10000) in paragraph at lines 1118--1118
 []\OT1/cmr/m/n/10 February 11,
  []
 
-[27]
-Underfull \hbox (badness 10000) in paragraph at lines 1124--1124
+[28]
+Underfull \hbox (badness 10000) in paragraph at lines 1161--1161
 []\OT1/cmr/m/n/10 February 13,
  []
 
-[28] [29]
-Underfull \hbox (badness 10000) in paragraph at lines 1170--1170
+[29] [30]
+Underfull \hbox (badness 10000) in paragraph at lines 1207--1207
 []\OT1/cmr/m/n/10 February 16,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1202--1202
+Underfull \hbox (badness 10000) in paragraph at lines 1239--1239
 []\OT1/cmr/m/n/10 February 18,
  []
 
-[30] [31]
-Underfull \hbox (badness 10000) in paragraph at lines 1242--1242
+[31] [32]
+Underfull \hbox (badness 10000) in paragraph at lines 1279--1279
 []\OT1/cmr/m/n/10 February 20,
  []
 
 
-Overfull \hbox (1.09412pt too wide) in paragraph at lines 1243--1253
+Overfull \hbox (1.09412pt too wide) in paragraph at lines 1280--1290
 []\OT1/cmr/m/n/10 Image of a lin-ear trans-for-ma-tion $\OML/cmm/m/it/10 T \OT1/cmr/m/n/10 : \OML/cmm/m/it/10 U \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 V$ \OT1/cmr/m/n/10 is lin-ear, $\OMS/cmsy/m/n/10 =\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 T\OT1/cmr/m/n/10 ) = []$.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1267--1267
+Underfull \hbox (badness 10000) in paragraph at lines 1304--1304
 []\OT1/cmr/m/n/10 February 23,
  []
 
-[32] [33]
-Underfull \hbox (badness 10000) in paragraph at lines 1317--1317
+[33] [34]
+Underfull \hbox (badness 10000) in paragraph at lines 1354--1354
 []\OT1/cmr/m/n/10 February 27,
  []
 
-[34]
-Overfull \hbox (3.26118pt too wide) in paragraph at lines 1349--1349
+[35]
+Overfull \hbox (3.26118pt too wide) in paragraph at lines 1386--1386
 []\OT1/cmr/bx/n/12 Algebraic Struc-tures: Rings, Fields, and Vec-tor Spaces 
  []
 
-[35] [36] [37] [38] (Math223.aux)
+[36] [37] [38] [39] [40] (Math223.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
@@ -768,17 +768,17 @@ Package rerunfilecheck Info: File `Math223.out' has not changed.
 (rerunfilecheck)             Checksum: 371CBABFCDCB419CEA03CAF3EF6B2D7D;8380.
  ) 
 Here is how much of TeX's memory you used:
- 31531 strings out of 467871
- 742488 string characters out of 5418377
+ 31533 strings out of 467871
+ 742507 string characters out of 5418377
  1274211 words of memory out of 5000000
  59664 multiletter control sequences out of 15000+600000
  640216 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,14n,118p,868b,725s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\erenr\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on Math223.pdf (41 pages, 515572 bytes).
+Output written on Math223.pdf (43 pages, 520348 bytes).
 PDF statistics:
- 827 PDF objects out of 1000 (max. 8388607)
- 261 named destinations out of 1000 (max. 500000)
+ 836 PDF objects out of 1000 (max. 8388607)
+ 263 named destinations out of 1000 (max. 500000)
  453 words of extra memory for PDF output out of 10000 (max. 10000000)
 
