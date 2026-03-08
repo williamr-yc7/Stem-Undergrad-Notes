@@ -794,78 +794,40 @@ In the second case, $span(v_1,v_2) \subseteq V$. This process can be repeated to
     \[\{1, i\},\]
     so $\dim_{\mathbb{R}} \mathbb{C} = 2$. Any $z \in \mathbb{C}$ can be written uniquely as
     \[z = x \cdot 1 + y \cdot i, \quad x,y \in \mathbb{R}.\]
-    Now consider the space of $n \times n$ complex matrices $M_n(\mathbb{C})$. Each entry $z_{ij} \in \mathbb{C}$ can be written as $z_{ij} = x_{ij} + y_{ij} i$ with $x_{ij},y_{ij} \in \mathbb{R}$. Hence a standard basis over $\mathbb{C}$ consists of the matrices $E_{ij}$ with a 1 in the $(i,j)$-th entry and 0 elsewhere, giving
+    Now consider the space of $n \times n$ complex matrices $M_n(\mathbb{C})$.
+    \[A = \begin{pmatrix} z_{11} & z_{12} & \cdots & z_{1n}\\ \vdots & \vdots & \ddots & \vdots\\ z_{n1} & z_{n2} & \cdots & z_{nn} \end{pmatrix} = \begin{pmatrix} x_{11} + y_{11}i & x_{12} + y_{12}i & \cdots & x_{1n} + y_{1n}i\\ \vdots & \vdots & \ddots & \vdots\\ x_{n1} + y_{n1}i & x_{n2} + y_{n2}i & \cdots & x_{nn} + y_{nn}i \end{pmatrix}\]
+    Hence a standard basis over $\mathbb{C}$ consists of the matrices $E_{ij}$ with a 1 in the $(i,j)$-th entry and 0 elsewhere, giving
     \[\dim_{\mathbb{C}} M_n(\mathbb{C}) = n^2.\]
     Over $\mathbb{R}$, each $E_{ij}$ splits into two real matrices corresponding to the real and imaginary parts, so
     \[\dim_{\mathbb{R}} M_n(\mathbb{C}) = 2 n^2.\]
 \end{example}
-
 \begin{example}[Infinite-dimensional space of polynomials]
-Let
-\[
-P_\infty(\mathbb{R}) = \{ a_0 + a_1 x + a_2 x^2 + \cdots : a_i \in \mathbb{R} \}
-\]
-be the space of all polynomials with real coefficients.  
-
-Define the sequence of vectors
-\[
-v_1 = 1, \quad v_2 = x, \quad v_3 = x^2, \quad \dots
-\]
-Then
-\[
-\text{span}\{v_1\} = \text{constant polynomials}, \quad
-\text{span}\{v_1,v_2\} = P_1,
-\]
-and in general
-\[
-v_{n+1} = x^n \notin P_{n-1} = \text{span}\{v_1,\dots,v_n\}.
-\]
-
-Thus $P_\infty(\mathbb{R})$ is **infinite-dimensional**, and a standard basis is
-\[
-\{ 1, x, x^2, x^3, \dots \}.
-\]
+    Let
+    \[P_\infty(\mathbb{R}) = \{ a_0 + a_1 x + a_2 x^2 + \cdots : a_i \in \mathbb{R} \}\]
+    be the space of all polynomials with real coefficients. Define the sequence of vectors
+    \[v_1 = 1, \quad v_2 = x, \quad v_3 = x^2, \quad \dots\]
+    Then
+    \[\text{span}\{v_1\} = \text{constant polynomials}, \quad \text{span}\{v_1,v_2\} = P_1,\]
+    and in general
+    \[v_{n+1} = x^n \notin P_{n-1} = \text{span}\{v_1,\dots,v_n\}.\]
+    Thus $P_\infty(\mathbb{R})$ is infinite-dimensional, and a standard basis is
+    \[\{ 1, x, x^2, x^3, \dots \}.\]
 \end{example}
+\begin{problem}[Infinite dimension of $P_{\infty}$]
+    Prove that the vector space $P_{\infty}$ of all polynomials over a field $k$ has infinite dimension.
+\end{problem}
 
 \subsection{Linear Independence}
-\begin{definition}
+\begin{definition}[Linear Independence]
     $v_1,\ldots,v_n$ are linearly independent if $\lambda_1v_1 + \ldots + \lambda_nv_n = 0 \implies \lambda_1 = \ldots = \lambda_n = 0$.
 \end{definition}
 \begin{example}
-    \[e_1 = \begin{pmatrix}
-        1\\0
-    \end{pmatrix} \quad e_2 = \begin{pmatrix}
-        0\\1
-    \end{pmatrix}\]
-    Prove LI.
-    Assume $xe_1 + ye_2 = 0$. Prove $x=y=0$.
-    \[xe_1 + ye_2 = x\begin{pmatrix}
-        1\\0
-    \end{pmatrix} + y\begin{pmatrix}
-        0\\1
-    \end{pmatrix} = \begin{pmatrix}
-        x\\y
-    \end{pmatrix} = 0 \implies x = y = 0.\]
+    Let $V = \mathbb{R}^2$. Define
+    \[e_1 = \begin{pmatrix}1\\0\end{pmatrix} \quad e_2 = \begin{pmatrix}0\\1\end{pmatrix}\]
+    Prove $e_1, e_2$ are linearly independent.\\
+    Assume $xe_1 + ye_2 = 0$, then prove $x = y = 0$.
+    \[xe_1 + ye_2 = x\begin{pmatrix}1\\0\end{pmatrix} + y\begin{pmatrix}0\\1\end{pmatrix} = \begin{pmatrix}x\\y\end{pmatrix} = 0 \implies x = y = 0.\]
 \end{example}
-\begin{proposition}
-    The "standard basis" are both spanning and LI.
-    $(e_1,\ldots,e_n)$ of $k^n$
-    $(1,x,\ldots,x^{n})$ of $P_n$
-    $(e_{11},\ldots,e_{nn})$ of $M_n(k)$
-    $(\delta_1,\ldots,\delta_n)$ of $F(D)$, where $D = \{1,\ldots,n\}$
-\end{proposition}
-\begin{definition}
-    basis $= set(v_1,\ldots,v_n)$ both span and LI.
-    \[dim(\forall) = \#basis\]
-\end{definition}
-\begin{problem}
-    Prove $dim P_{\infty} = \infty$.
-    Assume $dim P_{\infty} < \infty$. Proof by contradiction.
-    $\exists f_1,\ldots,f_n$ polynomials $P_{\infty}=span(f_1,\ldots,f_n)$. Let $d =$ max degree of $f_k$.
-    \[x^{d+1} \notin span(f_1,\ldots,f_n)\]
-    degree $\leq d$.
-\end{problem}
-
 \marginpar{January 28, 2026}
 \begin{problem}[Linearly independent vectors]
     \[v_1 = \begin{pmatrix}1\\1\\0\end{pmatrix}, \quad v_2 = \begin{pmatrix}1\\3\\2\end{pmatrix}, \quad v_3 = \begin{pmatrix}4\\9\\5\end{pmatrix}.\]
@@ -873,7 +835,7 @@ Thus $P_\infty(\mathbb{R})$ is **infinite-dimensional**, and a standard basis is
     \[xv_1 + yv_2 + zv_3 = 0?\]
 \end{problem}
 \begin{definition}[Linear Dependence]
-    Linearly dependent (LD) just means not LI.
+    Linearly dependent (LD) means the opposite of linearly independent(LI).
 \end{definition}
 \begin{proposition}
     $v_1,\ldots,v_n$ are linearly dependent if and only if one vector is in the span of the other vectors.
@@ -887,144 +849,184 @@ Thus $P_\infty(\mathbb{R})$ is **infinite-dimensional**, and a standard basis is
     If one vector $v_1 = 0$ then the family is LD.
 \end{remark}
 \begin{proof}
-    Proof of $\longrightarrow$: Assumption  $\lambda_1v_1 + \cdots + \lambda_nv_n = 0$. Not all $\lambda_i$ are zero, at least one is nonzero, say $\lambda_k \neq 0$.
-    The goal is to write $v_k$ in the span of the other vectors.
-    \[v_k = \frac{-1}{\lambda_k}\sum_{i \neq k} \lambda_iv_i.\]
-    \[v_k \in span(v_1,\ldots,v_k,\ldots,v_n).\]
-
-    Converse: Assume one vector, say $v_k$ is in the span of the other vectors.
-    \[v_k \in span(v_1,\ldots,v_k,\ldots,v_n).\]
-    There exists coefficients $\lambda_1,\ldots,\lambda_n$ such that
-    \[v_k = \lambda_1v_1 + \cdots + \lambda_{k-1}v_{k+-1} + \lambda_{k+1}v_{k+1} + \cdots + \lambda_nv_n.\]
-    LD: non trivial dependency between the $v_i$'s.
+    $(\Rightarrow)$ Assume that the vectors $v_1,\ldots,v_n$ are linearly dependent. Then there exist scalars $\lambda_1,\ldots,\lambda_n$, not all zero, such that
+    \[\lambda_1v_1+\cdots+\lambda_nv_n=0.\]
+    At least one coefficient is nonzero. Suppose $\lambda_k\neq 0$. Solving for $v_k$ gives
+    \[v_k=\frac{-1}{\lambda_k}\sum_{i\ne k}\lambda_i v_i.\]
+    Thus $v_k$ can be written as a linear combination of the remaining vectors, so
+    \[v_k\in \operatorname{span}(v_1,\ldots,v_{k-1},v_{k+1},\ldots,v_n).\]
+    $(\Leftarrow)$ Conversely, assume that for some $k$ we have
+    \[v_k\in \operatorname{span}(v_1,\ldots,v_{k-1},v_{k+1},\ldots,v_n).\]
+    Then there exist scalars $\lambda_i$ such that
+    \[v_k=\sum_{i\ne k}\lambda_i v_i.\]
+    Rewriting gives
+    \[0=\sum_{i\ne k}\lambda_i v_i - v_k.\] 
+    This is a nontrivial linear relation among $v_1,\ldots,v_n$, so the vectors are linearly dependent.
 \end{proof}
 \begin{example}
-    \[V = \mathbb{R}^3\]
-    \[v_1 = \begin{pmatrix}a_1\\0\\0\end{pmatrix}, \quad v_2 = \begin{pmatrix}b_1\\b_2\\0\end{pmatrix}, \quad v_3 = \begin{pmatrix}c_1\\c_2\\c_3\end{pmatrix}.\]
-    LI:
-    \[v_1 = \begin{pmatrix}1\\0\\0\end{pmatrix}, \quad v_2 = \begin{pmatrix}1\\2\\0\end{pmatrix}, \quad v_3 = \begin{pmatrix}1\\2\\3\end{pmatrix}.\]
-    LD:
-    \[v_1 = \begin{pmatrix}1\\0\\0\end{pmatrix}, \quad v_2 = \begin{pmatrix}1\\2\\0\end{pmatrix}, \quad v_3 = \begin{pmatrix}1\\3\\0\end{pmatrix}.\]
-
-    Assume $xv_1 + yv_2 + zv_3 = 0$.
-    \[x\begin{pmatrix}a_1\\0\\0\end{pmatrix} + y\begin{pmatrix}b_1\\b_2\\0\end{pmatrix} + z\begin{pmatrix}c_1\\c_2\\c_3\end{pmatrix}.\]
-
-    \[\begin{cases}
-        a_1x + b_1y + c_1z = 0\\
-        b_2y + c_2z = 0\\
-        c_3z = 0
-    \end{cases}\]
-
-    If $a_1 = 0$. $v_1 = \begin{pmatrix}0\\0\\0\end{pmatrix}$. Answer: LD. Can assume $a_1 \neq 0$.
-    If $b_2 = 0$. $v_1 = \begin{pmatrix}a_1\\0\\0\end{pmatrix}, \quad v_2 = \begin{pmatrix}b_1\\0\\0\end{pmatrix}$. Answer: LD.
+    Let
+    \[V=\mathbb{R}^3.\]
+    Consider the vectors
+    \[v_1=\begin{pmatrix}a_1\\0\\0\end{pmatrix},\quad v_2=\begin{pmatrix}b_1\\b_2\\0\end{pmatrix},\quad v_3=\begin{pmatrix}c_1\\c_2\\c_3\end{pmatrix}.\]
+    To test linear independence, assume
+    \[xv_1+yv_2+zv_3=0.\]
+    Substituting the vectors gives
+    \[x\begin{pmatrix}a_1\\0\\0\end{pmatrix}+y\begin{pmatrix}b_1\\b_2\\0\end{pmatrix}+z\begin{pmatrix}c_1\\c_2\\c_3\end{pmatrix}=\begin{pmatrix}0\\0\\0\end{pmatrix}.\]
+    This yields the system
+    \[\begin{cases}a_1x+b_1y+c_1z=0\\b_2y+c_2z=0\\c_3z=0\end{cases}\]
+    From the third equation, if $c_3\neq0$ then $z=0$. Substituting into the second equation gives $b_2y=0$, so if $b_2\neq0$ then $y=0$. Substituting into the first equation gives $a_1x=0$, so if $a_1\neq0$ then $x=0$. Hence if
+    \[a_1\neq0,\quad b_2\neq0,\quad c_3\neq0,\]
+    the only solution is $x=y=z=0$, so the vectors are linearly independent.
+    Example of linearly independent vectors:
+    \[v_1=\begin{pmatrix}1\\0\\0\end{pmatrix},\quad v_2=\begin{pmatrix}1\\2\\0\end{pmatrix},\quad v_3=\begin{pmatrix}1\\2\\3\end{pmatrix}.\]
+    Example of linearly dependent vectors:
+    \[v_1=\begin{pmatrix}1\\0\\0\end{pmatrix},\quad v_2=\begin{pmatrix}1\\2\\0\end{pmatrix},\quad v_3=\begin{pmatrix}1\\3\\0\end{pmatrix}.
+    \]
+    In the second case, the third coordinate of every vector is zero, so the vectors lie in a $2$-dimensional subspace of $\mathbb{R}^3$, implying linear dependence.
 \end{example}
 
-\subsection{Basis}
-\marginpar{January 30, 2026}
+\subsection{Main Basis Theorem}
+
 \begin{definition}[Basis]
-    Let \(V\) be a vector space. A set of vectors \(B=\{v_1,\ldots,v_k\}\subset V\) is called a basis of \(V\) if
-    \begin{enumerate}
-        \item \(B\) spans \(V\), and
-        \item \(B\) is linearly independent.
-    \end{enumerate}
-    Equivalently, every vector in \(V\) can be written uniquely as a linear combination of the vectors in \(B\).
+    Let $V$ be a vector space over a field $k$. A set of vectors
+    \[(v_1,\ldots,v_n)\]
+    is called a basis of $V$ if it spans $V$, and it is linearly independent.
 \end{definition}
+\begin{remark}
+    If $V$ admits a basis with $n$ vectors, then the dimension of $V$ is
+    \[\dim(V) = n = \#\text{(basis)}.\]
+\end{remark}
+\marginpar{January 30, 2026}
 \begin{example}[Standard basis of $\mathbb{R}^3$]
-    \[e_1 = \begin{pmatrix}1\\0\\0\end{pmatrix}, \quad e_2 = \begin{pmatrix}0\\1\\0\end{pmatrix}, \quad e_3 = \begin{pmatrix}0\\0\\1\end{pmatrix}.\]
-    These vectors form a basis of $\mathbb{R}^3$.
+    The standard basis of $\mathbb{R}^3$ is
+    \[e_1=\begin{pmatrix}1\\0\\0\end{pmatrix},\quad e_2=\begin{pmatrix}0\\1\\0\end{pmatrix},\quad e_3=\begin{pmatrix}0\\0\\1\end{pmatrix}.\]
+    Thus a basis of $\mathbb{R}^3$ is
+    \[\{e_1,e_2,e_3\}=\left\{\begin{pmatrix}1\\0\\0\end{pmatrix},\begin{pmatrix}0\\1\\0\end{pmatrix},\begin{pmatrix}0\\0\\1\end{pmatrix}\right\}.\]
 \end{example}
 \begin{proof}
-    Let $v=\begin{pmatrix}x\\y\\z\end{pmatrix}$. Then
-    \[v = xe_1 + ye_2 + ze_3\]
-    so the set spans $\mathbb{R}^3$.
-    If
-    \[xe_1 + ye_2 + ze_3 = 0 \implies x = y = z = 0,\]
-    hence the vectors are linearly independent.
+    Let
+    \[v=\begin{pmatrix}x\\y\\z\end{pmatrix}\in\mathbb{R}^3.\]
+    Then
+    \[v=xe_1+ye_2+ze_3,\]
+    so $\{e_1,e_2,e_3\}$ spans $\mathbb{R}^3$. Now assume
+    \[xe_1+ye_2+ze_3=\begin{pmatrix}0\\0\\0\end{pmatrix}.\]
+    Comparing coordinates gives $x=0$, $y=0$, and $z=0$. Hence the vectors are linearly independent. Therefore $\{e_1,e_2,e_3\}$ is a basis of $\mathbb{R}^3$.
 \end{proof}
-\begin{proposition}[Common standard bases]
-    \begin{itemize}
-        \item $\mathbb{R}^n$: $(e_1, \ldots, e_n)$
-        \item $M_n(k)$: $e_{ij}$
-        \item $P_n(k)$: $(1,x,\ldots,x^{n})$
-        \item $F(D)$ for finite $D$: $\{\delta_x, x \in D\}$
-    \end{itemize}
-\end{proposition}
-
-\subsubsection{Size of spanning and independent sets}
-For $(v_1,\ldots,v_n) \in \mathbb{R}^3$:
-\begin{itemize}
-    \item If $n < 3$ then the vectors cannot span $\mathbb{R}^3$.
-    \item If $n > 3$ then the vectors cannot be linearly independent.
-\end{itemize}
 \begin{lemma}
-    If $u_1,\ldots,u_n$ span $V$ and $v_1,\ldots,v_m$ are linearly independent in $V$, then
-    \[n \geq m.\]
-    We can conclude, that a spanning set $\geq$ LI set.
+    Let $(v_1,\ldots,v_n)\subset \mathbb{R}^k$.
+    \begin{itemize}
+        \item If $n<k$, the vectors cannot span $\mathbb{R}^k$.
+        \item If $n>k$, the vectors cannot be linearly independent.
+    \end{itemize}
 \end{lemma}
-\subsubsection{Characterizations of a basis}
-\begin{theorem}[Equivalent Conditions]
-    Let $(v_1,\ldots,v_n)$ be vectors in $V$. The following are equivalent:
+\begin{lemma}
+    Let $V$ be a vector space. If $u_1,\ldots,u_n$ span $V$ and $v_1,\ldots,v_m$ are linearly independent in $V$, then
+    \[n \ge m.\]
+    In particular, any spanning set of $V$ must contain at least as many vectors as any linearly independent set.
+\end{lemma}
+\begin{theorem}[Main Basis Theorem]
+    Let $(v_1,\ldots,v_n)$ be vectors in a vector space $V$. The following statements are equivalent:
     \begin{enumerate}
-        \item Basis: $(v_1,\ldots,v_n)$ is a basis.
-        \item Minimal span: It spans $V$ and $n$ is minimal among spanning sets.
-        \item Maximal LI: It is linearly independent and $n$ is maximal among independent sets.
-        \item Coordinates: Every $v\in V$ has a unique representation. \[v = x_1v_1 + \cdots + x_nv_n.\]
+        \item Basis: $(v_1,\ldots,v_n)$ span V and are LI.
+        \item Minimal Span: $(v_1,\ldots,v_n)$ span $V$ and no set of $m<n$ vectors spans $V$.
+        \item Maximal LI: $(v_1,\ldots,v_n)$ are LI and no set of $m>n$ vectors are LI.
+        \item Unique coordinates: Every vectors $v \in V$ can be written as a sum: $v = \sum_{i=1}^{n}\lambda_iv_i$, in a unique way.
     \end{enumerate}
-    The vector
-    \[[v]_e = \begin{pmatrix}x_1\\ \vdots \\ x_n\end{pmatrix}\]
-    is called the coordinate vector of $v$.
 \end{theorem}
+\begin{corollary}[Coordinate Vectors]
+    Every vector $v\in V$ can be written uniquely as
+    \[v = x_1v_1+\cdots+x_nv_n.\]
+    For a vector $v\in V$, the vector
+    \[[v]_e=\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix}\]
+    is called the coordinate vector of $v$ with respect to the basis $(v_1,\ldots,v_n)$.
+\end{corollary}
+\begin{problem}[Coordinate Vectors]
+    Let $X = \{-2, -1, 0, 1, 2\}$ and let $U = \{f \in F(X) : f(-x) - f(x) = 0 \text{ for every } x \in X\}$. Consider the following functions defined on $X$:
+    \[g_1(x) = 1, \quad g_2(x) = \frac{1}{4}x^2(1-x^2), \quad g_3(x) = \frac{1}{3}x^2(4-x^2)\]
+    for every $x \in X$.Prove that $S = (g_1, g_2, g_3)$ is a basis of $U$.Let $g$ be the function defined on $X$ as follows:
+    \[g(2) = g(-2) = 3; \quad g(1) = g(-1) = g(0) = 2.\]
+    Find the coordinate vector $[g]_S$ in the basis $S$.
+\end{problem}
+\begin{problem}[Coordinate Vectors 2]
+    Let $D = \{1, 2, 3\}$, and let $F(D)$ denote the vector space of real-valued functions defined on $D$. Find the coordinates of the function $f(x) = 2x^2 - 3$ in the standard basis.
+\end{problem}
 \begin{corollary}
-    Any two bases of $V$ have the same number of vectors.  
-    This number is the dimension of $V$.
+    If $(e_1,\ldots,e_n)$ and $(f_1,\ldots,f_m)$ are two basis of $V$, then $n=m$.
 \end{corollary}
 \begin{proof}
-    Let $(e_1,\ldots,e_n)$ and $(f_1,\ldots,f_m)$ be bases.
-    Since one spans and the other is linearly independent, the lemma gives
-    $n \geq m$ and $m \geq n$, hence $n=m$.
+    Let $(e_1,\ldots,e_n)$ and $(f_1,\ldots,f_m)$ be bases of $V$. Since $(e_1,\ldots,e_n)$ spans $V$ and $(f_1,\ldots,f_m)$ is linearly independent, the lemma implies $n\ge m$. Reversing the roles of the two bases gives $m\ge n$. Hence $n=m$.
 \end{proof}
 
 \marginpar{February 2, 2026}
-\subsubsection{Finding a Basis}
-Let $(v_1,\ldots,v_n) \in k^m$ and set $U=\Span(v_1,\ldots,v_n)$.
+\subsection{Finding a Basis}
+There are several common methods to find a basis depending on the information given.
+\subsubsection{Extracting a Basis from a Spanning Set}
+Let $v_1,\ldots,v_n\in k^m$ and set $U=\Span(v_1,\ldots,v_n)$.
 \begin{enumerate}
-    \item Put the vectors as rows of a matrix $A$.
-    \item Row reduce $A$ to echelon form $B$.
-    \item The nonzero rows of $B$ form a basis of $U$.
+    \item Put the vectors as columns of a matrix $A$.
+    \item Row reduce $A$ to echelon form.
+    \item The pivot columns correspond to vectors that form a basis of $U$.
 \end{enumerate}
-\paragraph{1. Proving a set of vectors is a Basis}
-Let $V$ be finite dimensional.
+\begin{problem}[Finding a Basis]
+    Let $V$ denote the subspace of $\mathbb{R}^4$ spanned by the following vectors:
+    \[v_1 = \begin{pmatrix} 1 \\ 2 \\ 1 \\ 1 \end{pmatrix}, v_2 = \begin{pmatrix} 2 \\ 1 \\ 3 \\ 2 \end{pmatrix}, v_3 = \begin{pmatrix} 1 \\ 2 \\ 0 \\ 1 \end{pmatrix}, v_4 = \begin{pmatrix} 2 \\ 8 \\ 2 \\ 10 \end{pmatrix}.\]
+    Find a subset of $\{v_1, v_2, v_3, v_4\}$ that forms a basis of $V$. 
+\end{problem}
+\subsubsection{Testing Linear Independence}
+If vectors are linearly independent and they span the space, they form a basis. To test independence solve
+\[a_1v_1+\cdots+a_nv_n=0.\]
+\begin{problem}[Finding a Basis 2]
+    Find a basis of the span of
+    \[\begin{pmatrix} 1 & 2 \\ 1 & 3 \end{pmatrix}, \begin{pmatrix} 2 & 1 \\ 3 & 1 \end{pmatrix}, \begin{pmatrix} 4 & 5 \\ 5 & 7 \end{pmatrix}\]
+    in $M_2(\mathbb{R})$. [Hint: check if the matrices are LI; if not, one is in the span of the other]. 
+\end{problem}
+\subsubsection{Constructing a Basis from the General Form}
+Sometimes a subspace is described by constraints. Writing the general element reveals a basis.
+\begin{problem}[Finding a Basis 3]
+    (1) Show that a matrix $A \in M_2(\mathbb{C})$ is Hermitian if and only if $A$ is of the form $\begin{pmatrix} x & z \\ \bar{z} & y \end{pmatrix}$ for some $x, y \in \mathbb{R}$ and $z \in \mathbb{C}.$\\
+    (2) Find a basis of $U$ (viewed as a real vector space). Note: $U$ is the set of all Hermitian matrices in $M_2(\mathbb{C})$. 
+\end{problem}
+\subsubsection{Bases of Function Spaces}
+If $X$ is a finite set with $n$ elements then $F(X)$ has dimension $n$. A basis can often be constructed by checking linear independence.
+\begin{problem}[Finding a Basis 4]
+    Let $X = \{-2, -1, 0, 1, 2\};$ set $U = \{f \in F(X) : f(-x) - f(x) = 0 \text{ for every } x \in X\}$. Consider the following functions defined on $X$:
+    \[g_1(x) = 1, \quad g_2(x) = \frac{1}{4}x^2(1 - x^2), \quad g_3(x) = \frac{1}{3}x^2(4 - x^2)\]
+    for every $x \in X$. Prove that $S = (g_1, g_2, g_3)$ is a basis of $U$.
+\end{problem}
 
-\textbf{Method 1 (dimension test).}
-\[(v_1,\ldots,v_n)\text{ is a basis} \iff \dim(\Span(v_1,\ldots,v_n)) = n.\]
-Compute the dimension using row reduction.
 
-\textbf{Method 2 (basis criterion when $\dim V=n$).}
-\begin{proposition}
-    Let $\dim V=n$ and $v_1,\ldots,v_n\in V$. The following are equivalent:
+\subsection{Proving a set forms a basis}
+Let $V$ be finite-dimensional.
+\begin{method}[Dimension Test]
+    A list $(v_1,\ldots,v_n)$ is a basis of $V$ if and only if
+    \[\dim(\span(v_1,\ldots,v_n)) = n.\]
+    Compute the dimension using row reduction.
+\end{method}
+\begin{proposition}[Basis Criterion for $n$-dimensional Space]
+    Let $\dim V = n$ and $v_1,\ldots,v_n \in V$. The following are equivalent:
     \begin{enumerate}
         \item $(v_1,\ldots,v_n)$ is a basis,
         \item $(v_1,\ldots,v_n)$ spans $V$,
         \item $(v_1,\ldots,v_n)$ is linearly independent.
     \end{enumerate}
 \end{proposition}
-\begin{proof}[Idea]
-    A spanning set of $n=\dim V$ vectors is minimal, hence linearly independent.
-    An independent set of $n$ vectors is maximal, hence spans.
+\begin{proof}
+    A spanning set of $n = \dim V$ vectors is minimal, hence linearly independent.  
+    An independent set of $n$ vectors is maximal, hence spans $V$.
 \end{proof}
-
-\paragraph{2. Transfer (exchange) principle}
-If
-\[u_1,\ldots,u_n \text{ span } V \quad\text{and}\quad v_1,\ldots,v_n \text{ are linearly independent},\]
-then both lists are bases of $V$.
+\begin{principle}[Transfer / Exchange Principle]
+    If 
+    \[u_1,\ldots,u_n \text{ span } V \quad\text{and}\quad v_1,\ldots,v_n \text{ are linearly independent},\] 
+    then both lists are bases of $V$.
+\end{principle}
 \begin{example}
     In $P_n$,
-    \[(1,x,\ldots,x^n) \text{ spans}, \qquad ((x-a)^0,\ldots,(x-a)^n)\text{ is LI},\]
-    so both are bases.
+    \[(1,x,\ldots,x^n) \text{ spans}, \qquad ((x-a)^0,\ldots,(x-a)^n) \text{ is linearly independent},\]
+    so both are bases of $P_n$.
 \end{example}
 
-\marginpar{February 4, 2026} %not organize
-\subsubsection{Direct Sums and Unique Decomposition}
+\marginpar{February 4, 2026}
+\subsection{Unique sum decompositions}
 Let $W$ be a vector space and $U,V \subseteq W$ subspaces.
 \begin{definition}[Direct Sum]
     The sum of subspaces is
@@ -1048,6 +1050,31 @@ Let $W$ be a vector space and $U,V \subseteq W$ subspaces.
     \[0 = 0+0 = w+(-w),\]
     so uniqueness forces $w=0$.
 \end{proof}
+\begin{theorem}[Basis Concatenation]
+    Suppose $U \oplus U'$ in $V$. Let $(e_1,\ldots,e_n)$ be a basis of $U$ and $(f_1,\ldots,f_m)$ a basis of $U'$. Then 
+    \[(e_1,\ldots,e_n,f_1,\ldots,f_m)\]
+    is a basis of $U \oplus U'$, and 
+    \[\dim(U \oplus U') = \dim U + \dim U'.\]
+\end{theorem}
+\begin{proof}
+    LI: $a_1e_1 + \ldots + a_ne_n + b_1f_1 + \ldots + b_mf_m = 0$.  
+    Set $w = a_1e_1 + \ldots + a_ne_n = - (b_1f_1 + \ldots + b_mf_m) \in U \cap U'$.  
+    Since $U \cap U' = \{0\}$, all $a_i = b_i = 0$.  
+    Span: $v \in U+U' \implies v = u + u'$.
+\end{proof}
+\begin{theorem}[Dimension of Sum of Subspaces]
+    For $U, U' \subset V$,
+    \[\dim(U+U') = \dim U + \dim U' - \dim(U \cap U').\]
+\end{theorem}
+\begin{corollary}
+    If $U \subseteq V$, then $\dim U \leq \dim V$.
+\end{corollary}
+\begin{corollary}
+    If $U \subseteq V$, then $U$ admits a supplement: $\exists U' \subseteq V$ s.t. $V = U \oplus U'$.  
+    Moreover, $\dim V = \dim U + \dim U'$.
+\end{corollary}
+
+\subsection{Coordinates}
 \paragraph{Coordinates relative to a basis}
 If $(e_1,\ldots,e_n)$ is a basis of $V$, every $v\in V$ can be written uniquely as
 \[v=\lambda_1 e_1+\cdots+\lambda_n e_n.\]
@@ -1058,62 +1085,46 @@ is called the coordinate vector of $v$.
     In $\mathbb{R}^3$ with the standard basis,
     \[v=\begin{pmatrix}x\\y\\z\end{pmatrix} \quad\Rightarrow\quad [v]_e=\begin{pmatrix}x\\y\\z\end{pmatrix}.\]
 \end{example}
+\begin{example}
+    \marginpar{February 6, 2026}
+    \[v = \begin{pmatrix}1\\1\end{pmatrix}, f_1 = \begin{pmatrix}2\\1\end{pmatrix}, f_2 = \begin{pmatrix}0\\1\end{pmatrix}.\]  
+    \[[v]_f = \begin{pmatrix}1/2\\1/2\end{pmatrix}\]
+\end{example}
+\begin{example}
+    LL example: Find coordinate of $v = \begin{pmatrix}5\\3\\4\end{pmatrix}$ in basis $f = (f_1,f_2,f_3)$, with 
+    $f_1 = \begin{pmatrix}1\\-1\\0\end{pmatrix}, f_2 = \begin{pmatrix}1\\1\\0\end{pmatrix}, f_3 = \begin{pmatrix}0\\1\\1\end{pmatrix}$.
+    \[\begin{pmatrix}5\\3\\4\end{pmatrix} = x \begin{pmatrix}1\\-1\\0\end{pmatrix} + y \begin{pmatrix}1\\1\\0\end{pmatrix} + z \begin{pmatrix}0\\1\\1\end{pmatrix}\]
+    Find $x,y,z$.
+    \[[v]_f = \begin{pmatrix}x\\y\\z\end{pmatrix} = \begin{pmatrix}3\\2\\4\end{pmatrix} \in \mathbb{R}^3.\]
+\end{example}
+\begin{example}
+    $D = \{0,1,2,3,4\}$, $V = F(D)$, $g(x)=x^2$, $g \in V$. Find coordinate of $g$ in standard basis $\delta = (\delta_0, \delta_1, \delta_2, \delta_3, \delta_4)$. $\dim V = 5$.  
+    \[[g]_\delta = \begin{pmatrix}\lambda_0\\\vdots\\\lambda_4\end{pmatrix}, \quad g = \lambda_0 \delta_0 + \lambda_1 \delta_1 + \lambda_2 \delta_2 + \lambda_3 \delta_3 + \lambda_4 \delta_4.\]
+\end{example}
 
+\subsection{More Basis Theorems}
+\begin{theorem}[Basis Extension]
+    Let $V$ be finite-dimensional, and $v_1,\ldots,v_m$ LI in $V$. Then $v_1,\ldots,v_m$ can be extended to a basis of $V$.
+\end{theorem}
+\begin{proof}
+    Let $U = \span(v_1,\ldots,v_m) \subseteq V$.
+    
+    Step 1:  
+    Case 1: $U = V \implies$ done.  
+    Case 2: $U \neq V \implies \exists v_{m+1} \in V \setminus U$. Then $(v_1,\ldots,v_{m+1})$ is LI. Let $U_{m+1} = \span(v_1,\ldots,v_{m+1})$.
 
-\marginpar{February 6, 2026}
-example:
-\[v = \begin{pmatrix}1\\1\end{pmatrix}, f_1 = \begin{pmatrix}2\\1\end{pmatrix}, f_2 = \begin{pmatrix}0\\1\end{pmatrix}.\]
-\[[v]_f = \begin{pmatrix}1/2\\1/2\end{pmatrix}\]
-LL example: Find coordinate of $v = \begin{pmatrix}5\\3\\4\end{pmatrix}$ in basis $f = (f_1,f_2,f_3)$, with $f_1 = \begin{pmatrix}1\\-1\\0\end{pmatrix}, f_2 = \begin{pmatrix}1\\1\\0\end{pmatrix}, f_3 = \begin{pmatrix}0\\1\\1\end{pmatrix}$.
-\[\begin{pmatrix}5\\3\\4\end{pmatrix} = x \begin{pmatrix}1\\-1\\0\end{pmatrix} + y \begin{pmatrix}1\\1\\0\end{pmatrix} + z \begin{pmatrix}0\\1\\1\end{pmatrix}\]
-Find $x,y,z$.
-\[[v]_f = \begin{pmatrix}x\\y\\z\end{pmatrix} = \begin{pmatrix}3\\2\\4\end{pmatrix} \in \mathbb{R}^3.\]
-Example: $D = \{0,1,2,3,4\}$, $V = F(D)$, $g(x)=x^2$, $g \in V$, find coordinate of y in standard basis $\delta = (\delta_0, \delta_1, \delta_2, \delta_3, \delta_4)$. $dim V = 5$. $[g]_\delta = \begin{pmatrix}\lambda_0\\\vdots\\\lambda_4\end{pmatrix}$, where $g = \lambda_0 \delta_0 + \lambda_1 \delta_1 + \lambda_2 \delta_2 + \lambda_3 \delta_3 + \lambda_4 \delta_4$.
+    Step 2:  
+    Case 1: $U_{m+1} = V \implies$ done.  
+    Case 2: $U_{m+1} \neq V \implies$ continue adding $v_{m+2}$.
 
-Nose Basis theorem: Basis extraction theorem: $v_1,\ldots,v_n$ spans $V$ can extract a basis $\{e_1,\ldots,e_n\}$ from $\{v_1,\ldots,v_n\}$.
-Example: $v_1 = \begin{pmatrix}1\\0\end{pmatrix}, v_2 = \begin{pmatrix}0\\1\end{pmatrix}, v_3 = \begin{pmatrix}1\\1\end{pmatrix}$ spans $\mathbb{R}^3$.
-Proof: Let $\{e_1,\ldots,e_n\} \subseteq \{v_1,\ldots,v_n\}$ be a subset which is spanning with m minimal.
-Claim: $e_1,\ldots,e_m$ is a basis.
-Proof by contradiction: Asumption: $(e_1,\ldots,e_n)$ not LI: 
-Proposition: one vector is in the span of the other $(\lambda_1e_1 + \ldots + \lambda_ne_n = 0)$. $e_k \in span(e_1,e_2,\ldots,e_k,\ldots,e_n)$.
-
-
-\marginpar{February 2, 2026}%to organize
-$V$vector space (finite dimensional) $v_1,\ldots,v_n$ LI set. Can extend $v_1,\ldots,v_n$ to a basis of $V$.
-Proof: $span(v_1,\ldots,v_n) = U \subseteq V$.
-Step 1:
-Case 1: If $U=V \to $ basis (LI + span)
-Case 2: $U \neq V \implies \exists v_{n+1} \in V \ U$
-Claim: ($v_1,\ldots,v_{n+1}$) LI V minus U.
-\[U_{n+1} = span(v_1,\ldots,v_{n+1})\]
-Step 2:
-Case 1: $U_{n+1} = V \implies (v_1,\ldots,v_{n+1})$ is a basis.
-Case 2: $U_{n+1} \neq V \implies $a m add $v_{m+2}$
-
-Step 3:
-\dots
-This stops at $v_n$ for some $n \geq m$, $n = dimV \implies n$ LI vectors in V.
-
-Coronary: $U \subseteq V$, $dim U \leq dim V$ or $U \nsubseteq V$ and $dim U < dim V$.\footnote{$\nsubseteq$ means it is a subset but not equal to.}.
-If for $U \subseteq V$, $U = V \iff dim U = dim V$.
-
-Coronary: $U \subseteq V$. $U$ admits a supplement, meaning there exists a subspace $U' \subseteq V$ such that $V = U \oplus U'$. $dim V = dim U + dim U'$.
-
-Basis concatenation:
-Theorem: Suppose $U \oplus U'$ are in direct sum in V.
-$(e_1,\ldots,e_n)$ basis of U. $(f_1,\ldots,f_m)$ basis of U'.
-$\implies (e_1,\ldots,e_n,f_1,\ldots,f_m)$ is a basis of $U \oplus U'$, which means $dim U \oplus U' = m+n = dim U + dim U'$.
-Theorem: $U, U' \subset V$, $dim U+U' = dim U + dim U' - dim (U \cap U')$.
-
-proof of : Suppose $U \oplus U'$ are in direct sum in V 
-Assume: $\begin{cases}
-    e_1,\ldots,e_n basis of U\\
-    f_1,\ldots,f_m basis of U'\end{cases}$
-Prove $(e_1,\ldots,e_n,f_1,\ldots,f_m)$ is a basis
-LI: $a_1e_1 + \ldots + a_ne_n + b_1f_1 + \ldots + b_mf_m = 0$
-$w = a_1e_1 + \ldots + a_ne_n = - b_1f_1 - \ldots - b_mf_m$.
-$w \in U$, $w \in U' \implies w \neq 0 \implies a_1e_1 + \ldots a_ne_n = 0 \implies a_i = 0$. $\implies b_1f_1 + \ldots b_nf_n = 0 \implies b_i = 0$.
-$Span : v \in U + U' \implies v = u + u'$
+    Step 3: Continue until $v_n$, $n = \dim V$, gives $n$ LI vectors in $V$.
+\end{proof}
+\begin{theorem}[Basis Extraction / Nose Basis Theorem]
+    Let $v_1,\ldots,v_n$ span $V$. Then one can extract a basis $\{e_1,\ldots,e_m\}$ from $\{v_1,\ldots,v_n\}$.
+\end{theorem}
+\begin{example}
+    $v_1 = \begin{pmatrix}1\\0\end{pmatrix}, v_2 = \begin{pmatrix}0\\1\end{pmatrix}, v_3 = \begin{pmatrix}1\\1\end{pmatrix}$ spans $\mathbb{R}^3$.
+\end{example}
 
 \marginpar{February 11, 2026}
 \section{Linear Transformation}
@@ -1510,11 +1521,103 @@ The vectors \(e_1,\ldots,e_n\) are linearly independent.
     \[f = 3f_1 + f_2 - 2f_3,\]
     and therefore $f \in \Span(f_1,f_2,f_3)$.
 \end{solution}
+\begin{solution}[Infinite dimension of $P_{\infty}$]
+    Assume for contradiction that $\dim(P_{\infty}) < \infty$. Then there exist polynomials
+    \[f_1,\ldots,f_n \in P_{\infty}\]
+    such that
+    \[P_{\infty} = \operatorname{span}(f_1,\ldots,f_n).\]
+    Let
+    \[d = \max\{\deg(f_1),\ldots,\deg(f_n)\}.\]
+    Any linear combination of $f_1,\ldots,f_n$ has degree at most $d$. Hence every polynomial in $\operatorname{span}(f_1,\ldots,f_n)$ has degree $\le d$. But the polynomial $x^{d+1}$ has degree $d+1$, so
+    \[x^{d+1} \notin \operatorname{span}(f_1,\ldots,f_n).\]
+    This contradicts the assumption that $P_{\infty} = \operatorname{span}(f_1,\ldots,f_n)$. Therefore $P_{\infty}$ cannot be finite dimensional, and
+    \[\dim(P_{\infty}) = \infty.\]
+\end{solution}
 \begin{solution}[Linearly independent vectors]
     $x,y,z$ not all zero.
     \[x\begin{pmatrix}1\\1\\0\end{pmatrix} + y\begin{pmatrix}1\\3\\2\end{pmatrix} + z\begin{pmatrix}4\\9\\5\end{pmatrix} = \begin{pmatrix}0\\0\\0\end{pmatrix}\]
     \[\begin{cases}x + 3y + 4z = 0\\1 + 3y + 9z = 0\\0 + 2y + 5z = 0\end{cases}\]
     Find a non-trivial solution. $x = 3$, $y = 5$, $z = -2$. Not LI: $3v_1 + 5v_2 - 2v_3 = 0$.
+\end{solution}
+\begin{solution}[Coordinate Vectors]
+    Find the coordinate vector $[g]_S$ for $g$ in the basis $S = (g_1, g_2, g_3)$. Target function $g$: $g(0)=2$, $g(1)=g(-1)=2$, $g(2)=g(-2)=3$.\\
+    Step 1: Set up the Linear Combination\\
+    We need to find $\lambda_1, \lambda_2, \lambda_3$ such that $g = \lambda_1 g_1 + \lambda_2 g_2 + \lambda_3 g_3$. We evaluate this at specific points in $X$:
+    \begin{enumerate}
+        \item At $x=0$:
+        \[g(0) = \lambda_1 g_1(0) + \lambda_2 g_2(0) + \lambda_3 g_3(0)\]
+        \[2 = \lambda_1(1) + \lambda_2(0) + \lambda_3(0) \implies \lambda_1 = 2\]
+        \item At $x=1$:
+        \[g(1) = \lambda_1 g_1(1) + \lambda_2 g_2(1) + \lambda_3 g_3(1)\]
+        \[2 = 2(1) + \lambda_2(\frac{1}{4}(1)(0)) + \lambda_3(\frac{1}{3}(1)(3))\]
+        \[2 = 2 + 0 + \lambda_3(1) \implies \lambda_3 = 0\]
+        \item At $x=2$:
+        \[g(2) = \lambda_1 g_1(2) + \lambda_2 g_2(2) + \lambda_3 g_3(2)\]
+        \[3 = 2(1) + \lambda_2(\frac{1}{4}(4)(-3)) + 0(2)\]
+        \[3 = 2 - 3\lambda_2 \implies 1 = -3\lambda_2 \implies \lambda_2 = -\frac{1}{3}\]
+    \end{enumerate}
+    The final coordinate vector is then $[g]_S = \begin{pmatrix}2\\-1/3\\0\end{pmatrix}$.
+\end{solution}
+\begin{solution}[Coordinate Vectors 2]
+    Step 1: Identify the Standard Basis\\
+    In the space of functions $F(D)$ where $D$ has $n$ elements, the standard basis $e = \{e_1, e_2, e_3\}$ consists of indicator functions:
+    \begin{itemize}
+        \item $e_1(x) = 1$ if $x=1$, else $0$.
+        \item $e_2(x) = 1$ if $x=2$, else $0$.
+        \item $e_3(x) = 1$ if $x=3$, else $0$.
+    \end{itemize}
+    Step 2: Evaluate $f(x)$ at each point in $D$\\
+    The coordinates in the standard basis are simply the values of the function at each point in the domain:
+    \begin{enumerate}
+        \item $f(1)$: $2(1)^2 - 3 = -1$
+        \item $f(2)$: $2(2)^2 - 3 = 8 - 3 = 5$
+        \item $f(3)$: $2(3)^2 - 3 = 18 - 3 = 15$
+    \end{enumerate}
+    The final coordinate vector is $[f]_e=\begin{pmatrix}-1\\5\\15\end{pmatrix}$.
+\end{solution}
+\begin{solution}[Finding a Basis]
+    Construct the Matrix: Place the vectors as columns in a matrix $A$.
+    \[A = \begin{pmatrix} 1 & 2 & 1 & 2 \\ 2 & 1 & 2 & 8 \\ 1 & 3 & 0 & 2 \\ 1 & 2 & 1 & 10 \end{pmatrix}.\]
+    Row Reduction to Echelon Form:
+    \begin{itemize}
+        \item $R_2 \to R_2 - 2R_1$, $R_3 \to R_3 - R_1$, $R_4 \to R_4 - R_1$:
+        \[\begin{pmatrix} 1 & 2 & 1 & 2 \\ 0 & -3 & 0 & 4 \\ 0 & 1 & -1 & 0 \\ 0 & 0 & 0 & 8 \end{pmatrix}\]
+        \item Swap $R_2$ and $R_3$, then $R_3 \to R_3 + 3R_2$:
+        \[\begin{pmatrix} \mathbf{1} & 2 & 1 & 2 \\ 0 & \mathbf{1} & -1 & 0 \\ 0 & 0 & \mathbf{-3} & 4 \\ 0 & 0 & 0 & \mathbf{8} \end{pmatrix}\]
+    \end{itemize}
+    Identify Pivots: There is a pivot in every column (columns 1, 2, 3, and 4). Conclusion: Since all columns are pivot columns, the entire set $\{v_1, v_2, v_3, v_4\}$ is linearly independent and forms a basis for $V$.
+\end{solution}
+\begin{solution}[Finding a Basis 2]
+    Test for Linear Independence: Solve $a_1 M_1 + a_2 M_2 + a_3 M_3 = \mathbf{0}$. This leads to the system:
+    \begin{itemize}
+        \item $a_1 + 2a_2 + 4a_3 = 0$
+        \item $2a_1 + a_2 + 5a_3 = 0$
+        \item $a_1 + 3a_2 + 5a_3 = 0$
+        \item $3a_1 + a_2 + 7a_3 = 0$
+    \end{itemize}
+    Solve the System: From the first two equations, $a_1 = -2a_2 - 4a_3$. Substituting into the second: $2(-2a_2 - 4a_3) + a_2 + 5a_3 = 0 \implies -3a_2 - 3a_3 = 0 \implies a_2 = -a_3$.\\
+    Find the Dependency: If $a_3 = 1$, then $a_2 = -1$ and $a_1 = -2(-1) - 4(1) = -2$.\\
+    Checking $M_3$: $-2M_1 - M_2 + M_3 = 0 \implies M_3 = 2M_1 + M_2$.\\
+    Conclusion: $M_3$ is in the span of $\{M_1, M_2\}$. Since $M_1$ and $M_2$ are not multiples of each other, they are LI.\\
+    Basis: $\mathcal{B} = \left\{ \begin{pmatrix} 1 & 2 \\ 1 & 3 \end{pmatrix}, \begin{pmatrix} 2 & 1 \\ 3 & 1 \end{pmatrix} \right\}$.
+\end{solution}
+\begin{solution}[Finding a Basis 3]
+    Write the General Form: A matrix $A$ is Hermitian if $A = \begin{pmatrix} x & z \\ \bar{z} & y \end{pmatrix}$ for $x, y \in \mathbb{R}$ and $z = a + bi \in \mathbb{C}$.\\
+    Decompose by Real Parameters:
+    \[A = \begin{pmatrix} x & a+bi \\ a-bi & y \end{pmatrix} = x\begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix} + y\begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix} + a\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} + b\begin{pmatrix} 0 & i \\ -i & 0 \end{pmatrix}\]
+    Identify the Basis Vectors: The four matrices above are linearly independent over $\mathbb{R}$.\\
+    Conclusion: A basis for $U$ is:
+    \[\mathcal{B} = \left\{ \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}, \begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix}, \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}, \begin{pmatrix} 0 & i \\ -i & 0 \end{pmatrix} \right\}\]
+\end{solution}
+\begin{solution}[Finding a Basis 4]
+    Dimension Check: $X = \{-2, -1, 0, 1, 2\}$ has 5 elements, so $\dim(F(X)) = 5$. The subspace of even functions $U$ is determined by $f(-2)=f(2)$ and $f(-1)=f(1)$, with $f(0)$ free. This leaves 3 free variables, so $\dim(U) = 3$.\\
+    Test Linear Independence of $S$ by supposing $c_1 g_1 + c_2 g_2 + c_3 g_3 = \mathbf{0}$.
+    \begin{itemize}
+        \item At $x=0$: $c_1(1) + c_2(0) + c_3(0) = 0 \implies c_1 = 0$.
+        \item At $x=1$: $c_2(g_2(1)) + c_3(g_3(1)) = 0$. Note $g_2(1) = 0$ and $g_3(1) = 1$, so $c_3(1) = 0 \implies c_3 = 0$.
+        \item At $x=2$: $c_2(g_2(2)) = 0$. Since $g_2(2) = -3 \ne 0$, then $c_2 = 0$.
+    \end{itemize}
+     Conclusion: Since the 3 vectors are LI and $\dim(U) = 3$, $S$ must be a basis of $U$.
 \end{solution}
 
 \section{Useful Links}
