@@ -1515,11 +1515,55 @@ Substituting $I = Q'$, we obtain
 This has the same mathematical form as the mass-spring system, with the correspondence
 \[m \leftrightarrow L, \quad \gamma \leftrightarrow R,\quad k \leftrightarrow \frac{1}{C}.\]
 
-
-\section{Second and Higher-Order Scalar Linear Equations}
 \section{Stability, Phase Portraits and Orbits}
+\marginpar{March 10, 2026}
+Let $y'(t) = f(y(t))$, $f$ is LLC, and $y_0 \in \mathbb{R}^n$. Denote by
+\[\Gamma_{y_0} = \{y(t) \mid y'(t) = f(y(t)), y(0) = y_0, t \in J_{max}\},\]
+where $J_{max}$ is the maximal time interval on which the solution of the IVP $y'(t) = f(y(t)), y(0) = y_0$ is defined. The set $\Gamma_{y_0}$ is called the orbit of $y_0$, and it is a curve in $\mathbb{R}^n$.
+\begin{definition}[Phase Portrait]
+    The phase portrait is the set of all orbits.
+\end{definition}
+\begin{example}
+    Let $y' = y(1-y)$, since this is a separable ODE, we have
+    \[y(t) = \frac{y_0}{y_0 + (1-y_0)e^{-t}}.\]
+    The phase portrait is the set of all orbits. The orbit of 0 is $\Gamma_0 = \{0\}$. The orbit of 1 is $\Gamma_1 = \{1\}$. For $y_0 \in (0,1)$, $\Gamma_{y_0} = (0,1)$. For $y_0 > 1$, $\Gamma_{y_0} = (1,+\infty)$. For $y_0 < 0$, $\Gamma_{y_0} = (-\infty,0)$. $0,1$ are the equilibrium solutions.
+\end{example}
+\begin{definition}
+    A vector $\tilde{y} \in \mathbb{R}^n$ is called an equilibrium solution (steady state) of the ODE $y' = f(y)$, $f(\tilde{y})=0\in\mathbb{R}^n$.
+\end{definition}
+\begin{example}
+    Let $y'=Ay=f(y)$. The equilibrium solutions are given by $\ker(A) = \{u\mid Au=0\}$. If A is invertible $Ay = 0 \implies y = A^{-1}Ay = 0$. The $0$ is the only equilibrium solution. If A is non-invertible, then $\ker(A)$ contains more.
+\end{example}
+\begin{example}
+    Let $A = \begin{pmatrix}1&-1\\2&-2\end{pmatrix}$, then $Au = 0$:
+    \[\begin{pmatrix}1&-1\\2&-2\end{pmatrix}\begin{pmatrix}a\\b\end{pmatrix} = \begin{pmatrix}0\\0\end{pmatrix}.\]
+    Solving we get $a=b$, which implies $\begin{pmatrix}1\\1\end{pmatrix}\subseteq \ker(A)$.
+    \[\ker(A) = <\begin{pmatrix}1\\1\end{pmatrix}> = \left\{c\begin{pmatrix}1\\1\end{pmatrix} \mid c\in\mathbb{R}\right\}\]
+\end{example}
+\begin{example}
+    Using Newton's 2nd law and trigonometric identities:
+    \[\theta'' + \gamma \theta' + \frac{g}{l}sin(\theta) = 0.\]
+    Let $y_1=\theta$,$y_2=\theta'$, we have:
+    \[\begin{pmatrix}y_1'\\y_2'\end{pmatrix}=\begin{pmatrix}y_2\\-\frac{g}{l}sin(y_1)-\gamma y_2\end{pmatrix}=f(y).\]
+    An equilibrium solution which satisfy $f(y) = 0$ is $y_2=0$ and $sin(y_1)=0$, which implies $y_1=n\pi, n\in\mathbb{Z}$.
+\end{example}
+\begin{definition}
+    An equilibrium solution $\tilde{y}$ of $y'=f(y)$ is stable if $\forall \epsilon >0$, tere exists $\delta = \delta(\epsilon)$ such that for every solution of $y'=f(y)$ with $||y(0) - \tilde{y}|| \leq \delta \implies ||y(t) - \tilde{y}|| \leq \epsilon, \forall t\geq0$. In other words, if one starts close to $\tilde{y}$, then the solution remains close to $\tilde{y}$. 
+    
+    $\tilde{y}$ satisfies $f(\tilde{y})=0$, $\Gamma_{\tilde{y}}=\{\tilde{y}\}$
+    \[(\tilde{y})' = 0 = f(\tilde{y}) \implies \tilde{y}(t) = \tilde{y}, \forall t\in\mathbb{R}\]
+\end{definition}
+\begin{example}
+    Let $y' = -2y$, then $\tilde{y} = 0$, $y(t) = e^{-2t}y(0)$.
+    \[|y(t) - 0| = e^{-2t}|y(0)-0| \leq |y(0)-0| \text{for }t\geq0\]
+    Let $\epsilon > 0$, and $\delta = \epsilon$. Indeed, if $|y(0)| \leq \delta = \epsilon \implies |y(t) - 0| \leq \epsilon, \forall t \geq 0$.
+\end{example}
+
+\dots
+
+$\tilde{y}$ is asymptotically stable if it is stable and there $\alpha > 0$ such that if $||y(0)-\tilde{y}|| \leq \alpha$, then $\lim_{t\to +\infty}||y(t)-\tilde{y}||=0$.
+
 \section{Laplace Transform}
-\section{Power Series Solutions and Numerical Methods}
 
 
 \section{Appendix}
