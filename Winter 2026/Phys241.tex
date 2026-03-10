@@ -61,22 +61,6 @@
 
 \marginpar{January 13, 2026}
 \section{Foundations}
-\subsection{Signal Types}
-\subsubsection{Digital Signal}
-\begin{definition}[Digital Signal]
-    A discretely sampled signal with a sequence of quantized values.
-\end{definition}
-\begin{example}
-    Examples of digital devices and computers include digital clocks, calculators, and modern computers that use binary code to process and store information.
-\end{example}
-\subsubsection{Analogue Signal}
-\begin{definition}[Analogue Signal]
-    A continuous signal (e.g., in time) representing (analogous to) some other quantity.
-\end{definition}
-\begin{example}
-    Examples of analogue devices and computers are thermometers, sextants, and tide-predicting machines.
-\end{example}
-
 \subsection{Waves}
 \subsubsection{Properties of waves}
 To describe waves, considering a sinusoidal wave of the form \(A_psin(2\pi vt)\), we use the following terms
@@ -280,6 +264,7 @@ Finally, the resistance can be expressed in terms of the resistivity of the mate
 
 Ohm's Law can be represented graphically using the Ohm's Law Wheel, which illustrates the relationships between current, voltage, resistance, and conductance. The wheel is a useful tool for quickly finding the value of one electrical property given the values of the other three.
 \begin{figure}[h]
+    \label{Ohmslawformula}
     \begin{center}
         \includegraphics[width=0.5\textwidth]{../Images/Ohms-Law-Formula-Wheel.png}
         \caption{Ohm's Law Wheel and Current Density}
@@ -300,7 +285,7 @@ Ohm's Law can be represented graphically using the Ohm's Law Wheel, which illust
 \end{definition}
 In general, an alternating current source is represented in circuit diagrams by a circular source symbol containing a sinusoidal waveform. This indicates that the source provides a time-varying current, typically sinusoidal in form.
 \begin{center}
-    \begin{figure}
+    \begin{figure}[H]
         \centering
         \includegraphics[width=0.5\textwidth]{../Images/AC_symbol.png}
         \caption{Alternating Current Symbol.}
@@ -452,7 +437,7 @@ Thus, the voltage increases linearly with time, with slope $\frac{I}{C}$ and y-i
     \end{tikzpicture}
 \end{center}
 
-\subsection{Transformers \& Mutual Inductance}
+\subsection{Transformers \& Mutual Inductance (Not Tested)}
 \begin{definition}[Transformer]
     A transformer is a device consisting of two coils of wire, called the primary and secondary, magnetically coupled through a shared core. The main purpose of a transformer is to transfer energy between circuits to change voltage levels. A changing current in the primary coil induces a voltage in the secondary coil by mutual inductance. The symbol for a transformer is
     \begin{center}
@@ -723,12 +708,112 @@ Important physical facts:
 
 
 
-
 \section{Appendix}
+\subsection{Important Equations}
+
+\textbf{Basic Circuit Laws}
+\begin{itemize}
+    \item Ohm's Law: \eqref{Ohmslawformula}
+    \item Real battery: $V_{\text{terminal}} = V_0 - Ir$
+\end{itemize}
+
+\textbf{Equivalent Components}
+\begin{itemize}
+    \item Resistors  
+    Series: $R_{eq} = R_1 + R_2 + \cdots + R_n$  
+    Parallel: $R_{eq} = \frac{1}{\frac{1}{R_1}+\frac{1}{R_2}+\cdots+\frac{1}{R_n}}$
+
+    \item Capacitors  
+    Series: $C_{eq} = \frac{1}{\frac{1}{C_1}+\frac{1}{C_2}+\cdots+\frac{1}{C_n}}$  
+    Parallel: $C_{eq} = C_1 + C_2 + \cdots + C_n$
+
+    \item Inductors  
+    Series: $L_{eq} = L_1 + L_2 + \cdots + L_n$  
+    Parallel: $L_{eq} = \frac{1}{\frac{1}{L_1}+\frac{1}{L_2}+\cdots+\frac{1}{L_n}}$
+\end{itemize}
+
+\textbf{Capacitors}
+\begin{itemize}
+    \item Charge relation: $Q = CV$
+    \item Capacitance: $C = \frac{\epsilon A}{d}$
+    \item Permittivity of free space: $\epsilon_0 = 8.85 \times 10^{-12}$
+\end{itemize}
+
+\textbf{RC Circuits}
+
+Charging:
+\begin{itemize}
+    \item Voltage: $V_c(t) = V(1-e^{-\frac{t}{\tau}})$
+    \item Current: $i(t) = \frac{V}{R}e^{-\frac{t}{\tau}}$
+    \item Charge: $Q(t) = CV(1-e^{-\frac{t}{\tau}})$
+\end{itemize}
+
+Discharging:
+\begin{itemize}
+    \item Voltage: $V_c(t) = V_0 e^{-\frac{t}{\tau}}$
+    \item Current: $I(t) = I_0 e^{-\frac{t}{\tau}}$
+    \item Charge: $Q(t) = Q_0 e^{-\frac{t}{\tau}}$
+\end{itemize}
+
+Stored energy:
+\begin{itemize}
+    \item Capacitor: $W = \frac{1}{2}CV^2$
+\end{itemize}
+
+\textbf{Inductors}
+\begin{itemize}
+    \item Inductor voltage: $V = L\frac{dI}{dt}$
+    \item Inductance: $L = \frac{\mu N A}{l}$
+    \item Permeability of free space: $\mu_0 = 4\pi \times 10^{-7}$
+\end{itemize}
+
+RL Charging:
+\begin{itemize}
+    \item Voltage: $V(t) = V e^{-\frac{t}{\tau}}$
+    \item Current: $i(t) = \frac{V}{R}(1-e^{-\frac{t}{\tau}})$
+\end{itemize}
+
+RL Discharging:
+\begin{itemize}
+    \item Voltage: $V(t) = V_0 e^{-\frac{t}{\tau}}$
+    \item Current: $I(t) = I_0 e^{-\frac{t}{\tau}}$
+\end{itemize}
+
+Stored energy:
+\begin{itemize}
+    \item Inductor: $W = \frac{1}{2}LI^2$
+\end{itemize}
+
+\textbf{Energy Dissipation}
+\begin{itemize}
+    \item Resistor: $U = \int RI^2(t)\,dt$
+\end{itemize}
+
+\textbf{RLC Circuits}
+\begin{itemize}
+    \item Natural frequency: $\omega_0 = \frac{1}{\sqrt{LC}}$
+    \item Damping factor: $\Gamma = \frac{R}{L}$
+\end{itemize}
+
+\textbf{AC Circuits}
+
+Complex current:
+\[
+I = I_0 e^{j(\omega t + \phi_0)} = \tilde{I} e^{j\omega t}
+\]
+
+Impedances:
+\begin{itemize}
+    \item Resistor: $Z_R = R$
+    \item Capacitor: $Z_C = \frac{1}{j\omega C}$
+    \item Inductor: $Z_L = j\omega L$
+\end{itemize}
+
+\textbf{Kirchhoff's law}
 
 \section{Useful Links}
-To understand visually inductors: https://www.youtube.com/shorts/lXk4CQDbr4Q
-to visually understand capacitors: https://www.youtube.com/shorts/PYrTLQctdwg
-to understand resistors: https://www.youtube.com/watch?v=5HI33hSZoH4
+\noindent\textbf{Inductors (visual explanation):}https://www.youtube.com/shorts/lXk4CQDbr4Q\\
+\textbf{Capacitors (visual explanation):}https://www.youtube.com/shorts/PYrTLQctdwg\\
+\textbf{Resistors (introduction):}https://www.youtube.com/watch?v=5HI33hSZoH4\\
 
 \end{document}

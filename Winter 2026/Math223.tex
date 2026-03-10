@@ -20,6 +20,8 @@
 \newtheorem*{example}{Example}
 \newtheorem{remark}{Remark}
 \newtheorem{proposition}{Proposition}
+\newtheorem{method}{Method}
+\newtheorem{principle}{Principle}
 \newcommand{\Span}{\operatorname{span}}
 \newenvironment{amatrix}[1]{%
   \left(\begin{array}{@{}*{#1}{c}|c@{}}
@@ -999,7 +1001,7 @@ If $X$ is a finite set with $n$ elements then $F(X)$ has dimension $n$. A basis 
 Let $V$ be finite-dimensional.
 \begin{method}[Dimension Test]
     A list $(v_1,\ldots,v_n)$ is a basis of $V$ if and only if
-    \[\dim(\span(v_1,\ldots,v_n)) = n.\]
+    \[\dim(\Span(v_1,\ldots,v_n)) = n.\]
     Compute the dimension using row reduction.
 \end{method}
 \begin{proposition}[Basis Criterion for $n$-dimensional Space]
@@ -1107,11 +1109,11 @@ is called the coordinate vector of $v$.
     Let $V$ be finite-dimensional, and $v_1,\ldots,v_m$ LI in $V$. Then $v_1,\ldots,v_m$ can be extended to a basis of $V$.
 \end{theorem}
 \begin{proof}
-    Let $U = \span(v_1,\ldots,v_m) \subseteq V$.
+    Let $U = \Span(v_1,\ldots,v_m) \subseteq V$.
     
     Step 1:  
     Case 1: $U = V \implies$ done.  
-    Case 2: $U \neq V \implies \exists v_{m+1} \in V \setminus U$. Then $(v_1,\ldots,v_{m+1})$ is LI. Let $U_{m+1} = \span(v_1,\ldots,v_{m+1})$.
+    Case 2: $U \neq V \implies \exists v_{m+1} \in V \setminus U$. Then $(v_1,\ldots,v_{m+1})$ is LI. Let $U_{m+1} = \Span(v_1,\ldots,v_{m+1})$.
 
     Step 2:  
     Case 1: $U_{m+1} = V \implies$ done.  

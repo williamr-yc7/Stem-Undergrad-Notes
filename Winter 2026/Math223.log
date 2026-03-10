@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  8 MAR 2026 18:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  8 MAR 2026 20:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -496,43 +496,45 @@ File: tikzlibrarycalc.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \c@solution=\count344
 \c@remark=\count345
 \c@proposition=\count346
-Package hyperref Info: Option `colorlinks' set `true' on input line 32.
+\c@method=\count347
+\c@principle=\count348
+Package hyperref Info: Option `colorlinks' set `true' on input line 34.
  (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count347
+\l__color_backend_stack_int=\count349
 ) (Math223.aux)
 \openout1 = `Math223.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
  (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count348
+\scratchcounter=\count350
 \scratchdimen=\dimen289
 \scratchbox=\box68
-\nofMPsegments=\count349
-\nofMParguments=\count350
+\nofMPsegments=\count351
+\nofMParguments=\count352
 \everyMPshowfont=\toks50
-\MPscratchCnt=\count351
+\MPscratchCnt=\count353
 \MPscratchDim=\dimen290
-\MPnumerator=\count352
-\makeMPintoPDFobject=\count353
+\MPnumerator=\count354
+\makeMPintoPDFobject=\count355
 \everyMPtoPDFconversion=\toks51
 ) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -540,7 +542,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring ON on input line 33.
+Package hyperref Info: Link coloring ON on input line 35.
  (Math223.out) (Math223.out)
 \@outlinefile=\write4
 \openout4 = `Math223.out'.
@@ -548,11 +550,11 @@ Package hyperref Info: Link coloring ON on input line 33.
 
 Package pgfplots notification 'compat/show suggested version=true': document has been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 42.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 44.
 (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 42.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 44.
  (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
@@ -567,223 +569,213 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.102 \begin{center}
+l.104 \begin{center}
                      [1
 
 ]
-Overfull \hbox (17.86923pt too wide) in paragraph at lines 103--112
+Overfull \hbox (17.86923pt too wide) in paragraph at lines 105--114
  [] 
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 133.
+(hyperref)                removing `math shift' on input line 135.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 133.
+(hyperref)                removing `superscript' on input line 135.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 133.
+(hyperref)                removing `math shift' on input line 135.
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.145     \begin{center}
+l.147     \begin{center}
                          [2]
 pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.188 \end{definition}
+l.190 \end{definition}
                        [3]
-Underfull \hbox (badness 10000) in paragraph at lines 196--196
+Underfull \hbox (badness 10000) in paragraph at lines 198--198
 []\OT1/cmr/m/n/10 January 09,
  []
 
 [4]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 248.
+(hyperref)                removing `math shift' on input line 250.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 248.
+(hyperref)                removing `math shift' on input line 250.
 
 [5] [6] [7]
-Underfull \hbox (badness 10000) in paragraph at lines 373--373
+Underfull \hbox (badness 10000) in paragraph at lines 375--375
 []\OT1/cmr/m/n/10 January 09,
  []
 
 [8]
-Underfull \hbox (badness 10000) in paragraph at lines 396--398
+Underfull \hbox (badness 10000) in paragraph at lines 398--400
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 406--406
+Underfull \hbox (badness 10000) in paragraph at lines 408--408
 []\OT1/cmr/m/n/10 January 12,
  []
 
 [9] [10]
-Overfull \hbox (31.30983pt too wide) detected at line 452
+Overfull \hbox (31.30983pt too wide) detected at line 454
 \OML/cmm/m/it/10 u \OT1/cmr/m/n/10 = (2\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 10\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 7\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0)\OML/cmm/m/it/10 ; u[] \OT1/cmr/m/n/10 = (3\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 10\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 7\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0)\OML/cmm/m/it/10 ; u[] \OT1/cmr/m/n/10 = (1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 3\OML/cmm/m/it/10 ; \OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 2\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0)\OML/cmm/m/it/10 ; u[] \OT1/cmr/m/n/10 = (2\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 8\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0);  \OML/cmm/m/it/10 u; u[]; u[]; u[] \OMS/cmsy/m/n/10 2 \U/msb/m/n/10 R[]\OML/cmm/m/it/10 :
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 455.
+(hyperref)                removing `math shift' on input line 457.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 455.
+(hyperref)                removing `superscript' on input line 457.
 
 [11]
-Underfull \hbox (badness 10000) in paragraph at lines 505--505
+Underfull \hbox (badness 10000) in paragraph at lines 507--507
 []\OT1/cmr/m/n/10 14 Jan-uary,
  []
 
 [12] [13]
-Overfull \hbox (3.90337pt too wide) detected at line 552
+Overfull \hbox (3.90337pt too wide) detected at line 554
 [] \OT1/cmr/m/n/10 = 1 [] + 2 [] + 3 [] + 4 [] = 1\OML/cmm/m/it/10 e[] \OT1/cmr/m/n/10 + 2\OML/cmm/m/it/10 e[] \OT1/cmr/m/n/10 + 3\OML/cmm/m/it/10 e[] \OT1/cmr/m/n/10 + 4\OML/cmm/m/it/10 e[]:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 556--556
+Underfull \hbox (badness 10000) in paragraph at lines 558--558
 []\OT1/cmr/m/n/10 16 Jan-uary,
  []
 
 [14]
-Underfull \hbox (badness 10000) in paragraph at lines 591--591
+Underfull \hbox (badness 10000) in paragraph at lines 593--593
 []\OT1/cmr/m/n/10 January 19,
  []
 
 [15]
-Underfull \hbox (badness 10000) in paragraph at lines 622--622
+Underfull \hbox (badness 10000) in paragraph at lines 624--624
 []\OT1/cmr/m/n/10 January 21,
  []
 
 [16] [17]
-Underfull \hbox (badness 10000) in paragraph at lines 696--696
+Underfull \hbox (badness 10000) in paragraph at lines 698--698
 []\OT1/cmr/m/n/10 January 23,
  []
 
 [18] [19]
-Underfull \hbox (badness 10000) in paragraph at lines 761--761
+Underfull \hbox (badness 10000) in paragraph at lines 763--763
 []\OT1/cmr/m/n/10 January 26,
  []
 
 [20] [21]
-Underfull \hbox (badness 10000) in paragraph at lines 831--831
+Underfull \hbox (badness 10000) in paragraph at lines 833--833
 []\OT1/cmr/m/n/10 January 28,
  []
 
 [22] [23]
-Underfull \hbox (badness 10000) in paragraph at lines 899--899
+Underfull \hbox (badness 10000) in paragraph at lines 901--901
 []\OT1/cmr/m/n/10 January 30,
  []
 
 [24]
-Overfull \hbox (2.57953pt too wide) in paragraph at lines 937--938
+Overfull \hbox (2.57953pt too wide) in paragraph at lines 939--940
 [][]\OT1/cmr/bx/n/10 Corollary 4.1 \OT1/cmr/m/n/10 (Co-or-di-nate Vec-tors)\OT1/cmr/bx/n/10 . []\OT1/cmr/m/it/10 Ev-ery vec-tor $\OML/cmm/m/it/10 v \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 V$ \OT1/cmr/m/it/10 can be writ-ten uniquely
  []
 
 [25]
-Underfull \hbox (badness 10000) in paragraph at lines 960--960
+Underfull \hbox (badness 10000) in paragraph at lines 962--962
 []\OT1/cmr/m/n/10 February 2,
  []
 
 [26] [27]
-Underfull \hbox (badness 10000) in paragraph at lines 1029--1029
+Underfull \hbox (badness 10000) in paragraph at lines 1030--1030
 []\OT1/cmr/m/n/10 February 4,
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 1066--1066
+[28]
+Underfull \hbox (badness 10000) in paragraph at lines 1091--1091
 []\OT1/cmr/m/n/10 February 6,
  []
 
-[28]
-Underfull \hbox (badness 10000) in paragraph at lines 1084--1084
-[]\OT1/cmr/m/n/10 February 2,
- []
-
 [29]
-Overfull \hbox (20.1277pt too wide) in paragraph at lines 1111--1120
-[]\OT1/cmr/m/n/10 proof of : Sup-pose $\OML/cmm/m/it/10 U \OMS/cmsy/m/n/10 ^^H \OML/cmm/m/it/10 U[]$ \OT1/cmr/m/n/10 are in di-rect sum in V As-sume: $[]$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1128--1128
+Underfull \hbox (badness 10000) in paragraph at lines 1131--1131
 []\OT1/cmr/m/n/10 February 11,
  []
 
 [30]
-Underfull \hbox (badness 10000) in paragraph at lines 1171--1171
+Underfull \hbox (badness 10000) in paragraph at lines 1174--1174
 []\OT1/cmr/m/n/10 February 13,
  []
 
 [31] [32]
-Underfull \hbox (badness 10000) in paragraph at lines 1217--1217
+Underfull \hbox (badness 10000) in paragraph at lines 1220--1220
 []\OT1/cmr/m/n/10 February 16,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1249--1249
+Underfull \hbox (badness 10000) in paragraph at lines 1252--1252
 []\OT1/cmr/m/n/10 February 18,
  []
 
 [33] [34]
-Underfull \hbox (badness 10000) in paragraph at lines 1289--1289
+Underfull \hbox (badness 10000) in paragraph at lines 1292--1292
 []\OT1/cmr/m/n/10 February 20,
  []
 
 
-Overfull \hbox (1.09412pt too wide) in paragraph at lines 1290--1300
+Overfull \hbox (1.09412pt too wide) in paragraph at lines 1293--1303
 []\OT1/cmr/m/n/10 Image of a lin-ear trans-for-ma-tion $\OML/cmm/m/it/10 T \OT1/cmr/m/n/10 : \OML/cmm/m/it/10 U \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 V$ \OT1/cmr/m/n/10 is lin-ear, $\OMS/cmsy/m/n/10 =\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 T\OT1/cmr/m/n/10 ) = []$.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1314--1314
+Underfull \hbox (badness 10000) in paragraph at lines 1317--1317
 []\OT1/cmr/m/n/10 February 23,
  []
 
 [35] [36]
-Underfull \hbox (badness 10000) in paragraph at lines 1364--1364
+Underfull \hbox (badness 10000) in paragraph at lines 1367--1367
 []\OT1/cmr/m/n/10 February 27,
  []
 
 [37]
-Overfull \hbox (3.26118pt too wide) in paragraph at lines 1396--1396
+Overfull \hbox (3.26118pt too wide) in paragraph at lines 1399--1399
 []\OT1/cmr/bx/n/12 Algebraic Struc-tures: Rings, Fields, and Vec-tor Spaces 
  []
 
 [38] [39] [40]
-Overfull \hbox (13.05048pt too wide) in paragraph at lines 1524--1525
+Overfull \hbox (13.05048pt too wide) in paragraph at lines 1527--1528
 [][]\OT1/cmr/bx/n/10 Solution 12 \OT1/cmr/m/n/10 (In-fi-nite di-men-sion of $\OML/cmm/m/it/10 P[]$\OT1/cmr/m/n/10 )\OT1/cmr/bx/n/10 . []\OT1/cmr/m/it/10 As-sume for con-tra-dic-tion that $[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 P[]\OT1/cmr/m/n/10 ) \OML/cmm/m/it/10 <
  []
 
-[41] [42] [43] (Math223.aux)
+[41] [42] [43] [44] [45] (Math223.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
 Package rerunfilecheck Info: File `Math223.out' has not changed.
-(rerunfilecheck)             Checksum: 120698E26816A1F1464AD2871AC79A39;10132.
+(rerunfilecheck)             Checksum: BEF5755AFB1CE4B0C89AC70718A70B8D;9343.
  ) 
 Here is how much of TeX's memory you used:
- 31567 strings out of 467871
- 742925 string characters out of 5418377
- 1275211 words of memory out of 5000000
- 59673 multiletter control sequences out of 15000+600000
- 640216 words of font info for 86 fonts, out of 8000000 for 9000
+ 31591 strings out of 467871
+ 743178 string characters out of 5418377
+ 1274211 words of memory out of 5000000
+ 59688 multiletter control sequences out of 15000+600000
+ 640835 words of font info for 88 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,14n,118p,868b,725s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\erenr\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on Math223.pdf (46 pages, 541078 bytes).
+Output written on Math223.pdf (48 pages, 542060 bytes).
 PDF statistics:
- 910 PDF objects out of 1000 (max. 8388607)
- 288 named destinations out of 1000 (max. 500000)
- 525 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 909 PDF objects out of 1000 (max. 8388607)
+ 295 named destinations out of 1000 (max. 500000)
+ 493 words of extra memory for PDF output out of 10000 (max. 10000000)
 
