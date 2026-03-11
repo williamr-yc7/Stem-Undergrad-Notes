@@ -35,28 +35,28 @@
 \contentsline {subsection}{\numberline {5.3}Ground and Reference}{13}{subsection.5.3}%
 \contentsline {subsection}{\numberline {5.4}Capacitors}{13}{subsection.5.4}%
 \contentsline {subsubsection}{\numberline {5.4.1}Energy Stored In a Capacitor}{14}{subsubsection.5.4.1}%
-\contentsline {subsubsection}{\numberline {5.4.2}Dielectric Insulator}{14}{subsubsection.5.4.2}%
+\contentsline {subsubsection}{\numberline {5.4.2}Dielectric Insulator}{15}{subsubsection.5.4.2}%
 \contentsline {subsubsection}{\numberline {5.4.3}Charging a Capacitor}{15}{subsubsection.5.4.3}%
 \contentsline {subsection}{\numberline {5.5}Transformers \& Mutual Inductance (Not Tested)}{15}{subsection.5.5}%
 \contentsline {subsection}{\numberline {5.6}Inductors}{17}{subsection.5.6}%
-\contentsline {subsubsection}{\numberline {5.6.1}Energy Storage}{17}{subsubsection.5.6.1}%
+\contentsline {subsubsection}{\numberline {5.6.1}Energy Storage}{18}{subsubsection.5.6.1}%
 \contentsline {subsubsection}{\numberline {5.6.2}Networks of Inductors}{18}{subsubsection.5.6.2}%
 \contentsline {paragraph}{Inductors in Series}{18}{section*.5}%
-\contentsline {paragraph}{Inductors in Parallel}{18}{section*.6}%
+\contentsline {paragraph}{Inductors in Parallel}{19}{section*.6}%
 \contentsline {subsubsection}{\numberline {5.6.3}Solenoid}{19}{subsubsection.5.6.3}%
-\contentsline {section}{\numberline {6}Circuits}{19}{section.6}%
-\contentsline {subsection}{\numberline {6.1}RC Circuit}{19}{subsection.6.1}%
-\contentsline {subsubsection}{\numberline {6.1.1}Charging}{20}{subsubsection.6.1.1}%
-\contentsline {paragraph}{Charging Graphs}{20}{section*.7}%
+\contentsline {section}{\numberline {6}Circuits}{20}{section.6}%
+\contentsline {subsection}{\numberline {6.1}RC Circuit}{20}{subsection.6.1}%
+\contentsline {subsubsection}{\numberline {6.1.1}Charging}{21}{subsubsection.6.1.1}%
+\contentsline {paragraph}{Charging Graphs}{21}{section*.7}%
 \contentsline {subsubsection}{\numberline {6.1.2}Discharging}{21}{subsubsection.6.1.2}%
 \contentsline {paragraph}{Discharging Graphs}{21}{section*.8}%
-\contentsline {subsection}{\numberline {6.2}LR Circuit}{21}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.2}LR Circuit}{22}{subsection.6.2}%
 \contentsline {section}{\numberline {7}RC and LR Circuits with AC Driving}{23}{section.7}%
 \contentsline {subsection}{\numberline {7.1}Driving Frequency and Time Constant}{23}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}RC Circuit with Square-Wave Input}{23}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.2}RC Circuit with Square-Wave Input}{24}{subsection.7.2}%
 \contentsline {subsection}{\numberline {7.3}Integrator and Differentiator Behaviour (RC)}{24}{subsection.7.3}%
 \contentsline {subsection}{\numberline {7.4}LR Circuit with AC Input}{24}{subsection.7.4}%
-\contentsline {subsection}{\numberline {7.5}Frequency Behaviour Summary}{24}{subsection.7.5}%
+\contentsline {subsection}{\numberline {7.5}Frequency Behaviour Summary}{25}{subsection.7.5}%
 \contentsline {section}{\numberline {8}Appendix}{25}{section.8}%
 \contentsline {subsection}{\numberline {8.1}Important Concepts}{25}{subsection.8.1}%
-\contentsline {section}{\numberline {9}Useful Links}{27}{section.9}%
+\contentsline {section}{\numberline {9}Useful Links}{28}{section.9}%

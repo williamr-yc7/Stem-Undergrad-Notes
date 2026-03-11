@@ -167,7 +167,7 @@ If the electron is allowed to move freely, this change in electric potential ene
     \[\vec F = q(\vec v \times \vec B),\]
     where $q$ is the charge and $\vec v$ is its velocity. The force is perpendicular to both the velocity and the magnetic field. Unlike electric fields, which act on charges whether stationary or moving, magnetic fields act only on moving charges. For a long straight current-carrying wire, the magnitude of the magnetic field at a distance $r$ is
     \[B = \frac{\mu_0 I}{2\pi r},\]
-    where $\mu_0$ is the permeability of free space and $I$ is the current. The SI unit of magnetic field is the tesla (T).
+    where $\mu_0$ is the permeability of free space\footnote{The permeability of free space is $\mu_0 = 4\pi \times 10^{-7}\,\text{T·m/A}$.} and $I$ is the current. The SI unit of magnetic field is the tesla (T).
 \end{definition}
 
 \subsection{Magnetic Flux}
@@ -375,6 +375,8 @@ When current flows through a resistor, electrical energy is converted into heat 
 \[P = \Delta V \cdot I\]
 Using Ohm's Law, we can express the power dissipated in terms of the resistance \(R\) and either the voltage drop \(\Delta V\) or the current \(I\):
 \[P = I^2 R = \frac{(\Delta V)^2}{R}\]
+The total energy dissipated over time is
+\[U = \int RI^2(t)\,dt.\]
 \subsection{Batteries}
 \marginpar{January 20, 2026}
 \begin{definition}[Battery]
@@ -412,7 +414,9 @@ However, if the circuit contained a resistor \(R\) connected to the battery, the
 \end{definition}
 Capacitance can also be measured in terms of the physical characteristics of the capacitor. For a parallel plate capacitor, the capacitance is given by:
 \[C = \frac{\varepsilon A}{d}\]
-where \(\varepsilon\) is the dielectric constant, \(A\) is the area of the plates, and \(d\) is the distance between the plates.
+where \(\varepsilon\) is the dielectric constant, \(A\) is the area of the plates, and \(d\) is the distance between the plates.\\
+The permittivity of free space is
+\[\varepsilon_0 = 8.85 \times 10^{-12}\, \text{F/m}.\]
 
 Capacitors combine oppositely to resistors. In parallel,
 \[C_{tot} = C_1 + C_2 + \cdots + C_n,\]
@@ -736,7 +740,7 @@ Important physical facts:
     \item Ohm's Law: \eqref{Ohmslawformula}
     \item Real battery: $V_{\text{terminal}} = V_0 - Ir$
 \end{itemize}
-Voltage of a battery = voltage for the entire circuit.
+The voltage supplied by the battery represents the total potential difference applied to the circuit.
 
 \textbf{Equivalent Components}
 \begin{itemize}
@@ -768,7 +772,7 @@ Charging:
     \item Current: $i(t) = \frac{V}{R}e^{-\frac{t}{\tau}}$
     \item Charge: $Q(t) = CV(1-e^{-\frac{t}{\tau}})$
 \end{itemize}
-At $t=0$, capacitors acts like a short circuit. While at $t=\infty$, capacitors acts like an open circuit.
+At $t=0$, the capacitor behaves like a short circuit. As $t \rightarrow \infty$, it behaves like an open circuit.
 
 Discharging:
 \begin{itemize}
@@ -791,14 +795,14 @@ Stored energy:
 
 RL Charging:
 \begin{itemize}
-    \item Voltage: $V(t) = V e^{-\frac{t}{\tau}}$
+    \item Voltage: $V_L(t) = V e^{-\frac{t}{\tau}}$
     \item Current: $i(t) = \frac{V}{R}(1-e^{-\frac{t}{\tau}})$
 \end{itemize}
-At $t=0$, inductors acts like an open circuit, meaning no current goes through the inductor's branch. While at $t=\infty$, inductors acts like a short circuit.
+At $t=0$, an inductor behaves like an open circuit. As $t \rightarrow \infty$, it behaves like a short circuit.
 
 RL Discharging:
 \begin{itemize}
-    \item Voltage: $V(t) = V_0 e^{-\frac{t}{\tau}}$
+    \item Voltage: $V_L(t) = V_0 e^{-\frac{t}{\tau}}$
     \item Current: $I(t) = I_0 e^{-\frac{t}{\tau}}$
 \end{itemize}
 
@@ -821,9 +825,7 @@ Stored energy:
 \textbf{AC Circuits}
 
 Complex current:
-\[
-I = I_0 e^{j(\omega t + \phi_0)} = \tilde{I} e^{j\omega t}
-\]
+\[ I = I_0 e^{j(\omega t + \phi_0)} = \tilde{I} e^{j\omega t} \]
 
 Impedances:
 \begin{itemize}
@@ -832,35 +834,59 @@ Impedances:
     \item Inductor: $Z_L = j\omega L$
 \end{itemize}
 
-\textbf{Kirchhoff's law}
+\textbf{Kirchhoff's Law}
 \begin{itemize}
     \item Kirchhoff's Law: \eqref{klawformula}
 \end{itemize}
 
-\textbf{Miscelleneous}
-Transient: When you turn a circuit on, this par is the messy start up that dies away (usually $e^{-\frac{t}{\tau}}$).
-Steady-state: what the circuit does forever after it settles down.
+\textbf{Miscellaneous}
+
+Transient: The short initial response when a circuit is switched on, typically involving terms like $e^{-\frac{t}{\tau}}$.
+
+Steady-state: The long-term behavior of the circuit after transients vanish.
+
 Filtering rule:
 \begin{itemize}
-    \item Low Pass: Blocks fast signals (high $f$) and lets slow one through. Usually an RC circuit with output across capacitor. And in an LR its when the signal goes through an inductor first.
-    \item High-Pass: Blocks slow/DC signals and lets fast ones through. Usually in an LR circuit where the resistor is put before an inductor or on an RC with output across resistor (capacitor before resistor).
+    \item Low-pass filter: Blocks high-frequency signals and allows low-frequency signals to pass. Often an RC circuit with output across the capacitor or an LR circuit where the inductor appears first in the signal path.
+    \item High-pass filter: Blocks low-frequency or DC signals and allows high-frequency signals to pass. Commonly an RC circuit with output across the resistor or an LR circuit where the resistor precedes the inductor.
 \end{itemize}
-Water analogy: Resistor is friction/damping, it sucks energy out. Inductor is the inertia/mass, it hates changing current. Capacitor is like a spring, it stores energy and pushes back.
-Phase shifts (ICE vs ELI): In a capacitor, current leads voltage (ICE), and in an inductor, voltage leads current (ELI).
-Damping Cases: In an RLC circuit, "Damping" is just how much friction (R) you have compared to the "bounciness" (L or C).
-Underdamped: Lots of singing/oscillations before it stops.
-Overdamped: No ringing; it just slowly crowls to a stop.
-Critically damped: The fastest way to get to 0 without ringing.
-Integrator: its a circuit where output $\alpha$ to area under input, when you have $\frac{1}{j \omega}$
-Differentiator: output is input's rate of change, found when you have $j\omega$.
-Complex impedance $z$: This is the most important. Use it like the way you do for resistance ($V=IZ$).
-Decibels (dB) for Bode plots: This is how we measure "Gain" (how much signal gets through).
-Gain in dB = $20\log_{10}(\frac{V_{out}}{V_{in}})$
-$-3dB$ point: This is the "cutoff" where signal is half-power.
-The cutoff frequency $(w_C)$: The "Corner" of the Bode plot.
-RC circuit: $w_C = \frac{1}{RC}$
-LR circuit: $w_C = \frac{R}{L}$
-Tip: If you see a circuit with sine wave input, don't use ODE. Immediately replace $L$ and $C$ with their $z$ formula and solve it like a simple resistor divider.
+
+Water analogy:  
+Resistor behaves like friction and dissipates energy.  
+Inductor behaves like inertia and resists changes in current.  
+Capacitor behaves like a spring and stores electrical energy.
+
+Phase shifts (ICE vs ELI):  
+In a capacitor, current leads voltage (ICE).  
+In an inductor, voltage leads current (ELI).
+
+Damping cases in an RLC circuit:
+\begin{itemize}
+    \item Underdamped: Oscillatory behavior before settling.
+    \item Overdamped: No oscillations; the system slowly approaches equilibrium.
+    \item Critically damped: The fastest return to equilibrium without oscillations.
+\end{itemize}
+
+Integrator: Circuit where the output is proportional to the integral of the input, associated with $\frac{1}{j\omega}$.
+
+Differentiator: Circuit where the output corresponds to the rate of change of the input, associated with $j\omega$.
+
+Complex impedance $Z$: Treat impedance like resistance when solving AC circuits, using $V = IZ$.
+
+Decibels (dB) for Bode plots: Used to measure gain.
+\[
+\text{Gain (dB)} = 20\log_{10}\left(\frac{V_{out}}{V_{in}}\right)
+\]
+
+$-3\,\text{dB}$ point: The cutoff where the signal power is reduced by half.
+
+Cutoff frequency $(\omega_c)$:
+\begin{itemize}
+    \item RC circuit: $\omega_c = \frac{1}{RC}$
+    \item LR circuit: $\omega_c = \frac{R}{L}$
+\end{itemize}
+
+Tip: For sinusoidal inputs, replace $L$ and $C$ with their impedance expressions and analyze the circuit using standard algebra instead of solving differential equations.
 
 \section{Useful Links}
 \noindent\textbf{Inductors (visual explanation):}https://www.youtube.com/shorts/lXk4CQDbr4Q\\
