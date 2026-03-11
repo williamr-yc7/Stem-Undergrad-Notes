@@ -331,6 +331,26 @@ A passive non-linear circuit contains only passive components but includes at le
 An active non-linear circuit contains at least one active element and at least one non-linear element.
 \end{definition}
 
+\subsection{Kirchhoff's Laws}
+
+\begin{definition}[Kirchhoff's Voltage Law]
+    Kirchhoff's Voltage Law (KVL) states that the algebraic sum of all potential differences around any closed loop in a circuit is equal to zero.
+\end{definition}
+KVL allows us to determine the potential difference between two points in a circuit by accounting for the voltage changes across each component along the path.
+
+\begin{figure}[H]
+    \label{klawformula}
+    \centering
+    \includegraphics[width=0.65\textwidth]{../Images/kirchhoffrule.jpg}
+    \caption{Each resistor and voltage source is traversed from $a$ to $b$. The corresponding potential changes across each element are indicated. (The script $\mathcal{E}$ denotes the emf.)}
+\end{figure}
+
+Another common circuit element is the inductor. In the context of KVL, the voltage across an inductor is included in the loop equation in the same way as the voltage across resistors or capacitors.
+
+\begin{definition}[Kirchhoff's Current Law]
+    The Kirchhoff's Current Law states that the sum of the currents entering a node is equal to the sum of the currents leaving the node.
+\end{definition}
+
 \section{Circuit Components}
 \subsection{Resistors}
 \begin{definition}
@@ -709,13 +729,14 @@ Important physical facts:
 
 
 \section{Appendix}
-\subsection{Important Equations}
+\subsection{Important Concepts}
 
 \textbf{Basic Circuit Laws}
 \begin{itemize}
     \item Ohm's Law: \eqref{Ohmslawformula}
     \item Real battery: $V_{\text{terminal}} = V_0 - Ir$
 \end{itemize}
+Voltage of a battery = voltage for the entire circuit.
 
 \textbf{Equivalent Components}
 \begin{itemize}
@@ -747,6 +768,7 @@ Charging:
     \item Current: $i(t) = \frac{V}{R}e^{-\frac{t}{\tau}}$
     \item Charge: $Q(t) = CV(1-e^{-\frac{t}{\tau}})$
 \end{itemize}
+At $t=0$, capacitors acts like a short circuit. While at $t=\infty$, capacitors acts like an open circuit.
 
 Discharging:
 \begin{itemize}
@@ -772,6 +794,7 @@ RL Charging:
     \item Voltage: $V(t) = V e^{-\frac{t}{\tau}}$
     \item Current: $i(t) = \frac{V}{R}(1-e^{-\frac{t}{\tau}})$
 \end{itemize}
+At $t=0$, inductors acts like an open circuit, meaning no current goes through the inductor's branch. While at $t=\infty$, inductors acts like a short circuit.
 
 RL Discharging:
 \begin{itemize}
@@ -810,6 +833,34 @@ Impedances:
 \end{itemize}
 
 \textbf{Kirchhoff's law}
+\begin{itemize}
+    \item Kirchhoff's Law: \eqref{klawformula}
+\end{itemize}
+
+\textbf{Miscelleneous}
+Transient: When you turn a circuit on, this par is the messy start up that dies away (usually $e^{-\frac{t}{\tau}}$).
+Steady-state: what the circuit does forever after it settles down.
+Filtering rule:
+\begin{itemize}
+    \item Low Pass: Blocks fast signals (high $f$) and lets slow one through. Usually an RC circuit with output across capacitor. And in an LR its when the signal goes through an inductor first.
+    \item High-Pass: Blocks slow/DC signals and lets fast ones through. Usually in an LR circuit where the resistor is put before an inductor or on an RC with output across resistor (capacitor before resistor).
+\end{itemize}
+Water analogy: Resistor is friction/damping, it sucks energy out. Inductor is the inertia/mass, it hates changing current. Capacitor is like a spring, it stores energy and pushes back.
+Phase shifts (ICE vs ELI): In a capacitor, current leads voltage (ICE), and in an inductor, voltage leads current (ELI).
+Damping Cases: In an RLC circuit, "Damping" is just how much friction (R) you have compared to the "bounciness" (L or C).
+Underdamped: Lots of singing/oscillations before it stops.
+Overdamped: No ringing; it just slowly crowls to a stop.
+Critically damped: The fastest way to get to 0 without ringing.
+Integrator: its a circuit where output $\alpha$ to area under input, when you have $\frac{1}{j \omega}$
+Differentiator: output is input's rate of change, found when you have $j\omega$.
+Complex impedance $z$: This is the most important. Use it like the way you do for resistance ($V=IZ$).
+Decibels (dB) for Bode plots: This is how we measure "Gain" (how much signal gets through).
+Gain in dB = $20\log_{10}(\frac{V_{out}}{V_{in}})$
+$-3dB$ point: This is the "cutoff" where signal is half-power.
+The cutoff frequency $(w_C)$: The "Corner" of the Bode plot.
+RC circuit: $w_C = \frac{1}{RC}$
+LR circuit: $w_C = \frac{R}{L}$
+Tip: If you see a circuit with sine wave input, don't use ODE. Immediately replace $L$ and $C$ with their $z$ formula and solve it like a simple resistor divider.
 
 \section{Useful Links}
 \noindent\textbf{Inductors (visual explanation):}https://www.youtube.com/shorts/lXk4CQDbr4Q\\
