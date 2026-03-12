@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1773178080.83744 "c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math325.tex" "Math325.pdf" "Math325" 1773180383.01049 2
+["pdflatex"] 1773347694.47948 "c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math325.tex" "Math325.pdf" "Math325" 1773347699.47029 0
   "../Images/MSS-setup.jpeg" 1771967647 175284 23355f99136cc6b96c514f0ec06940ab ""
   "../Images/circuit-ode.jpeg" 1771971481 297056 d82c58391ad4225b66d9ad02a986cbc2 ""
   "C:/Users/erenr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1770796485 82507 a9eef8696c92627b87e9975edea03b2a ""
@@ -225,10 +225,11 @@
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/tools/indentfirst.sty" 1761901070 1618 30b01152766afcef2ed8f904cfdd3cc6 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
-  "Math325.aux" 1773178078 8477 a55eee80333d79128cd376faae95cef0 "pdflatex"
-  "Math325.out" 1773178078 9558 b9703605d2c8fa9cc9fb4a0d45659cff "pdflatex"
-  "Math325.tex" 1773178062 95746 2e2617b202072710531f2dd1bb5eb4cd ""
-  "c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math325.tex" 1773178062 95746 2e2617b202072710531f2dd1bb5eb4cd ""
+  "Math325.aux" 1773347698 8477 41b800cdb34be1579cef612baca5f039 "pdflatex"
+  "Math325.out" 1773347698 9558 b9703605d2c8fa9cc9fb4a0d45659cff "pdflatex"
+  "Math325.tex" 1773347686 97550 76ff878efa564324ec6ca7ff74212348 ""
+  "Math325.toc" 1773347698 4759 eb4b6b211e8ff254b2b3cb3737f24559 "pdflatex"
+  "c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math325.tex" 1773347686 97550 76ff878efa564324ec6ca7ff74212348 ""
   (generated)
   "Math325.aux"
   "Math325.log"
@@ -236,5 +237,3 @@
   "Math325.pdf"
   "Math325.toc"
   (rewritten before read)
-  "Math325.aux"
-  "Math325.out"

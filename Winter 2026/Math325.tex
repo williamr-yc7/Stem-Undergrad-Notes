@@ -1563,6 +1563,24 @@ where $J_{max}$ is the maximal time interval on which the solution of the IVP $y
 
 $\tilde{y}$ is asymptotically stable if it is stable and there $\alpha > 0$ such that if $||y(0)-\tilde{y}|| \leq \alpha$, then $\lim_{t\to +\infty}||y(t)-\tilde{y}||=0$.
 
+\marginpar{March 12, 2026}
+\begin{example}
+    Let $y' = y(1-y)$, and $r=k=1$ (logistic equation). Let us show (using the definition) that $\tilde{y} = 0$ is an unstable equilibrium solution. Let $\epsilon = \frac{1}{2}$, pick $\delta >0$, and smaller than 1. Choose the initial condition to be $y(0) = \delta$. The solution of the IVP is given by
+    \[y(t) = \frac{\delta}{\delta + (1-\delta)e^{-t}}.\]
+    Clearly, $|y(0)-0| = \delta$. There exists $T = T(\delta)$ such that $y(T) \geq \frac{1}{2}$, that is $|y(T) - 0| \geq \epsilon = \frac{1}{2} \implies 0$ is unstable. Let us now show that $\tilde{y} = 1$ is an asymptotically stable equilibrium solution. Let $\epsilon > 0$. For any $y_0 > 0$, the solution is
+    \[y(t) = \frac{y_0}{y_0 + (1-y_0)e^{-t}}.\]
+    \[y(t) - \tilde{y}| = |\frac{y_0}{y_0 + (1-y_0)e^{-t}} - 1| = |\frac{(y_0-1)e^{-t}}{y_0 + (1-y_0)e^{-t}}| = |\frac{y_0 -1}{y_0e^t + (1-y_0)}| \leq |y_0 - 1|\]
+    But $y_0 e^t + (1-y_0) = y_0(e^t-1) + 1 \geq 1$ only since $e^t - 1 \geq 0$ for $t \geq 0$. For every $t \geq 0$, $|y(t) - \tilde{y}| \leq |y(0) - \tilde{y}| \leq \delta = \epsilon$, this implies that $\tilde{y} = 1$ is stable.
+\end{example}
+\begin{example}
+    Let $y' = Ay$, and
+    \[A = \begin{pmatrix}-3/2&1/2\\1/2&-3/2\end{pmatrix}.\]
+    Since $det(A) \neq 0 \implies \ker(A) = \left\{\begin{pmatrix}0\\0\end{pmatrix}\right\} \implies \tilde{y} = \begin{pmatrix}0\\0\end{pmatrix}$ is the only equilibrium solution. Let us compute $e^{At} \implies y(t) = e^{At}y_0$. Compute $y(t) = \begin{pmatrix}-e^{-2t}&e^{-t}\\e^{-2t}&e^{-t}\end{pmatrix} \implies e^{At} = y(t)y^{-1}(0) = \frac{1}{2}\begin{pmatrix}e^{-2t}+e^{-t}&-e^{-2t}+e^{-t}\\-e^{-2t}+e^{-t}&e^{-2t}+e^{-t}\end{pmatrix}$. The unique solution to the IVP is $y(t) = e^{At}y_0$. 
+    
+    Let us show that 0 is asymptotically stable. Let $\epsilon > 0$. Choose the sup norm on $\mathbb{R}^2$.
+    
+\end{example}
+
 \section{Laplace Transform}
 
 
