@@ -1559,7 +1559,7 @@ where $J_{max}$ is the maximal time interval on which the solution of the IVP $y
     Let $\epsilon > 0$, and $\delta = \epsilon$. Indeed, if $|y(0)| \leq \delta = \epsilon \implies |y(t) - 0| \leq \epsilon, \forall t \geq 0$.
 \end{example}
 
-\dots
+$\tilde{y}$ is unstable if $\exists \epsilon > 0$ such that for every $\delta >0$ (small enough), then there exists $T>0$, such that there is a solution $y(t)$ with $||y(0)-\tilde{y}|| \leq \delta$ and $||(y(T) - \tilde{y})|| > \epsilon$.
 
 $\tilde{y}$ is asymptotically stable if it is stable and there $\alpha > 0$ such that if $||y(0)-\tilde{y}|| \leq \alpha$, then $\lim_{t\to +\infty}||y(t)-\tilde{y}||=0$.
 
@@ -1578,8 +1578,24 @@ $\tilde{y}$ is asymptotically stable if it is stable and there $\alpha > 0$ such
     Since $det(A) \neq 0 \implies \ker(A) = \left\{\begin{pmatrix}0\\0\end{pmatrix}\right\} \implies \tilde{y} = \begin{pmatrix}0\\0\end{pmatrix}$ is the only equilibrium solution. Let us compute $e^{At} \implies y(t) = e^{At}y_0$. Compute $y(t) = \begin{pmatrix}-e^{-2t}&e^{-t}\\e^{-2t}&e^{-t}\end{pmatrix} \implies e^{At} = y(t)y^{-1}(0) = \frac{1}{2}\begin{pmatrix}e^{-2t}+e^{-t}&-e^{-2t}+e^{-t}\\-e^{-2t}+e^{-t}&e^{-2t}+e^{-t}\end{pmatrix}$. The unique solution to the IVP is $y(t) = e^{At}y_0$. 
     
     Let us show that 0 is asymptotically stable. Let $\epsilon > 0$. Choose the sup norm on $\mathbb{R}^2$.
-    
+    \[||x||_\infty = max\{|x_1|,|x_2|\}\]
+    \[||y(t) - 0||_\infty = ||e^{At}y(0)||_\infty\]
+    Recall that given $M \in M_n(\mathbb{R})$, the induced sup matrix norm
+    \[||M||_\infty = \max_{||x||_\infty = 1}||Mx||_\infty = \max_{1\leq i \leq n}\sum_{j=1}^{n}|M_{i,j}|\]
+    this is the max of the sum of the absolute value of each row.
+    \[\implies ||Mx||_\infty \leq ||M||_\infty \cdot ||x||_\infty\]
+    Here,
+    \[||e^{At}||_\infty = e^{-t}\max\left\{\frac{1}{2}|e^{-t}+1|+\frac{1}{2}|e^{-t}+1|+\frac{1}{2}|e^{-t}+1|+\frac{1}{2}|e^{-t}+1|\right\} \leq 2e^{-t}\]
 \end{example}
+\begin{example}
+    Let $y' = Ay$, and
+    \[A = \begin{pmatrix}-3/2&1/2\\1/2&-3/2\end{pmatrix}.\]
+    \[\implies ||y(t)||_\infty \leq 2e^{-t}||y(0)|| \leq 2e^{-t}\delta = e^{-t}\epsilon \leq \epsilon, \forall t\geq 0\]
+    Pick $\delta = \delta(\epsilon) = \frac{\epsilon}{2}$, this implies $\begin{pmatrix}0\\0\end{pmatrix}$ is stable. Pick any $\alpha>0$. If $||y(0)||_\infty \leq \alpha$, then $||y(t)||_\infty \leq 2e^{-t} ||y(0)||_\infty = 2\alpha e^{-t} \implies \lim_{t \to +\infty}y(t) = \begin{pmatrix}0\\0\end{pmatrix} \implies 0$ is asymptotically stable.
+\end{example}
+
+\subsection{Phase Portaits of Planar Linear Systems}
+
 
 \section{Laplace Transform}
 
