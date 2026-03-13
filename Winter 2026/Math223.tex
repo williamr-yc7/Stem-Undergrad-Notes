@@ -1377,6 +1377,19 @@ Let $V$ be a vector space, $e=(e_1,\cdots,e_n)$ basis of $V$. Let $f=(f_1,\cdots
 Claim: $P$, $Q$ are invertible $P = Q^{-1}$.
 Example: $f_1 = (1,0)^T$, $f_2 = (1,1)^T$ compute change of basis matrix, $Q = \begin{pmatrix}1&1\\0&1\end{pmatrix}$, f-coord to e-coor we need $P=Q^{-1}$, need to inverse $Q$. $Q$ using isomorphism
 
+
+\marginpar{March 13, 2026}
+Change if basis formula
+\[B=PAQ\]
+where $B$ and $A$ are matrix of T in some basis and $P = Q^{-1}$.
+Typically: $A=[T]_e$, A is given, e and f are also given, $B = [T]_f$ find $B$.
+Example: $e=(e_1,e_2)$, the standard basis in $\mathbb{R}^2$, $f=(f_1,f_2)$ be a new basis $f_1 = \begin{pmatrix}1\\3\end{pmatrix}, f_2 = \begin{pmatrix}2\\5\end{pmatrix}$, $T: \mathbb{R}^2 \to \mathbb{R}^2$, $T: \begin{pmatrix}x\\y\end{pmatrix} \to \begin{pmatrix}2x-7y\\4x-3y\end{pmatrix}$, and $A = \begin{pmatrix}2&-7\\4&-3\end{pmatrix}$. Find $[T]_f$. Use $B=PAQ$.
+Diagonalization
+Eigenvalues: Def: $\lambda \in K$ is an eigenvalue of $T$ if there exists $v \neq 0$ such that $Tv = \lambda v$, where $v$ is the eigenvector. $E_\lambda$ is the eigenspace, $E_\lambda = \{v \in V \mid Tv = \lambda v\}$.
+Proposition: $E_\lambda$ is a subspace of V.
+Proposition: $\lambda_1 \neq \lambda_2$ then $E_{\lambda_1} \cap E_{\lambda_2} = \{0\}$.
+Proof: $v \in E_{\lambda_1} \cap E_{\lambda_2} \implies Tv = \lambda_1 v = \lambda_2 v = \lambda_1 \lambda_2 v = 0$.
+
 \section{Appendix}
 \subsection{Proof: Standard Basis is a Basis}
 \label{subsec:SB}
