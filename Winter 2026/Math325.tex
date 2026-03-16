@@ -64,8 +64,85 @@ No textbooks.
 50\% Final.
 Since its honours you will deal with analysis. The Midterm is from 4:05 pm to 5:25 pm in MAASS 112, which will include chapters 1, 2, 3 and will be 5 questions long.
 
-\section{Prerequisite knowledge}
-\subsection{Analysis}
+\section{Prerequisite Knowledge}
+\subsection{Real Analysis}
+\subsubsection{Norms}
+\begin{definition}[Norm]
+    A norm $\|\cdot\|$ on $\mathbb{R}^n$ is a way of measuring the 
+    ``size'' or ``length'' of a vector $x \in \mathbb{R}^n$. It must satisfy:
+    \begin{itemize}
+        \item $\|x\| \geq 0$, and $\|x\| = 0$ only if $x = 0$,
+        \item $\|\alpha x\| = |\alpha|\,\|x\|$ for any scalar $\alpha$,
+        \item $\|x + y\| \leq \|x\| + \|y\|$ \quad (triangle inequality).
+    \end{itemize}
+\end{definition}
+\begin{example}
+    The three most common norms on $\mathbb{R}^n$ are:
+    \begin{itemize}
+        \item \textbf{Euclidean norm:} $\|x\|_2 = \sqrt{x_1^2 + \cdots + x_n^2}$ 
+        (standard geometric length),
+        \item \textbf{Supremum norm:} $\|x\|_\infty = \max\{|x_1|,\ldots,|x_n|\}$ 
+        (size of the largest component),
+        \item \textbf{$\ell^1$ norm:} $\|x\|_1 = |x_1| + \cdots + |x_n|$ 
+        (sum of all components, also called the taxicab norm).
+    \end{itemize}
+\end{example}
+\begin{remark}
+    In this course, any norm can be used unless stated otherwise. The choice 
+    of norm does not affect whether a solution exists or is unique.
+\end{remark}
+
+\subsubsection{Sequences and Convergence}
+\begin{definition}[Cauchy Sequence]
+    A sequence of vectors $\{x_k\} \subset \mathbb{R}^n$ is called a Cauchy 
+    sequence if its terms eventually get arbitrarily close to one another:
+    for every $\varepsilon > 0$, there exists $N \in \mathbb{N}$ such that
+    \[\|x_m - x_n\| < \varepsilon \quad \text{for all } m, n \geq N.\]
+\end{definition}
+\begin{theorem}
+    Every Cauchy sequence in $\mathbb{R}^n$ converges to a point in $\mathbb{R}^n$.
+\end{theorem}
+\begin{remark}
+    This is the key fact used in Picard iteration: we show that the sequence 
+    of approximate solutions $\{y_k\}$ is Cauchy, and therefore it must 
+    converge to an actual solution.
+\end{remark}
+
+\subsubsection{Uniform Convergence}
+\begin{definition}[Uniform Convergence]
+    A sequence of functions $f_k : J \to \mathbb{R}^n$ converges 
+    \emph{uniformly} to $f : J \to \mathbb{R}^n$ if
+    \[\lim_{k \to \infty} \sup_{t \in J} \|f_k(t) - f(t)\| = 0.\]
+    In plain terms: the approximation error $\|f_k(t) - f(t)\|$ becomes 
+    small \emph{simultaneously} for all $t \in J$, not just pointwise.
+\end{definition}
+\begin{theorem}
+    If $f_k \to f$ uniformly on $J$ and each $f_k$ is continuous, then $f$ 
+    is also continuous. Moreover,
+    \[\lim_{k\to\infty}\int_J f_k(t)\,dt = \int_J f(t)\,dt.\]
+\end{theorem}
+\begin{remark}
+    The second statement says that for uniformly convergent sequences, 
+    you can swap the limit and the integral. This is used in the Picard 
+    iteration proof to pass the limit inside the integral and confirm that 
+    the limit function actually solves the IVP.
+\end{remark}
+
+\subsubsection{The Mean Value Inequality}
+\begin{theorem}[Mean Value Inequality]
+    Let $U \subseteq \mathbb{R}^n$ be open and $f : U \to \mathbb{R}^n$ 
+    be $C^1$. For any compact set $K \subset U$ and all $x, y \in K$,
+    \[\|f(y) - f(x)\| \leq \left(\sup_{z \in K}\|Df(z)\|\right)\|y - x\|,\]
+    where $Df$ denotes the Jacobian matrix of $f$.
+\end{theorem}
+\begin{remark}
+    This generalizes the familiar scalar fact $|f(b)-f(a)| \leq 
+    \sup|f'|\cdot|b-a|$ to higher dimensions. Its main consequence for 
+    this course is that any $C^1$ function is locally Lipschitz: on a 
+    compact set $K$, the sup of $\|Df\|$ is finite, providing a Lipschitz 
+    constant. This is why the hypothesis ``$f$ is $C^1$'' is often used 
+    as a sufficient condition for the Existence and Uniqueness Theorem.
+\end{remark}
 
 \section{Intro, Classification, Theorem of Existence \& Uniqueness}
 \subsection{Intro}
@@ -73,51 +150,31 @@ Since its honours you will deal with analysis. The Midterm is from 4:05 pm to 5:
 \begin{definition}[Differential Equation]
     A differential equation (DE) is a relation that involves an unknown function and some of its derivatives.
 \end{definition}
-\begin{example}[Motion under gravity and linear drag]
-    Imagine a ball of mass \(m\) falling, subject to gravity and air resistance (drag). Denote by \(v(t)\) the velocity of the ball at time \(t\). Let the downward direction be positive. We know the force of gravity is given by \(F_g = mg\), where \(g\) is the acceleration due to gravity. The drag force is given by \(F_d = -\lambda v\), where \(\lambda\) is the drag coefficient and \(\lambda \geq 0\). According to Newton's second law\footnote{\(\sum_{i} F_i = ma\)}, the net force acting on the ball is equal to its mass times its acceleration
-    \[m\frac{dv}{dt} = mg - \lambda v.\]
-    Let \(y(t)\) be the position, meaning \(v(t) = \frac{dy}{dt}\). Then, we can rewrite the above equation as
-    \[my'' + \lambda y' = mg.\]
-\end{example}
-\begin{example}[The Malthusian Growth Model]
-    Denote by \(N(t)\) the size of a given population at time t. In an "unconstraint" environment, it is reasonable to assume that the rate of change of the number of individuals is proportional to the number of individuals present. This assumption leads to the following differential equation:
-    \[\frac{dN}{dt} = rN,\]
-    where \(r\) is called the growth rate (if \(r > 0\)), and decay rate (if \(r < 0\)). Assume that \(N > 0\). Using the chain rule and assuming that \(N(t)\) satisfies \(N' = rN\)
-    \[\frac{dN}{N} = rdt,\]
-    integrate both sides
-    \[ln(N(t)) = rt + C,\]
-    where \(C\) is the constant of integration. Exponentiating both sides, we obtain
-    \[N(t) = e^Ce^{rt} = ke^{rt},\]
-    where \(\{k > 0 | k \in \mathbb{R}\}\) is the initial population size at time \(t = 0\).\\
-    Assume that an initial population (condition) is given:
-    \[N(0) = N_0 (fixed),\]
-    we therefore get that \(k = N_0\), and the unique solution that satisfies the initial condition is
-    \[N(t) = N_0e^{rt}.\]
-\end{example}
-\begin{example}[The Logistic Equation]
-    Now assume that our growth rate depends on the population size \(N(t)\) itself, therefore we get that
-    \[\frac{dN}{dt} = R(N)N.\]
-    Denote by K the number of individual that the environment can carry. K is called the carrying capacity\footnote{maximum population size that the environment can sustain indefinitely.} of the environment. If \(N < K\), we want growth \((R(N) > 0)\) and if \(N > K\), we want decay \((R(N) < 0)\).
-    Let's pick the simplest function \(R(N)\) that satisfies \(R(0) = r\), \(R(K) = 0\) and is linear. We get that
-    \[R(N) = r(1 - \frac{N}{K}).\]
-    Therefore, our differential equation becomes
-    \[\frac{dN}{dt} = \frac{r}{K}(K - N(t))N(t).\]
-    This is called the logistic equation.
-\end{example}
 \begin{definition}[Ordinary Differential Equation]
     An ordinary differential equation (ODE) is a differential equation whose unknown function depends on one independent variable only.
 \end{definition}
-\begin{example} Examples of ODEs
-    \begin{itemize}
-        \item \(y''(t) + y'(t) + 2y(t) = sin(t)\)
-        \item \(N'(t) = rN(t)\)
-        \item \(mv'(t) = mg - \lambda v(t)\)
-        \item \(y'(x) + 3y(x) = e^x\)
-    \end{itemize}
-\end{example}
 \begin{definition}[Partial Differential Equation]
     A partial differential equation (PDE) is a differential equation whose unknown function depends on more than one independent variable. \textbf{Will not be taught in this course.}
 \end{definition}
+
+\begin{example}[Motion under gravity and linear drag]
+    A ball of mass $m$ falls subject to gravity and linear air resistance. Let $v(t)$ be its velocity (positive downward). The net force gives
+    \[m\frac{dv}{dt} = mg - \lambda v,\]
+    where $\lambda \geq 0$ is the drag coefficient. Writing $v = y'$, this becomes the second-order ODE
+    \[my'' + \lambda y' = mg.\]
+\end{example}
+\begin{example}[The Malthusian Growth Model]
+    Let $N(t)$ be a population size. Assuming the rate of change is 
+    proportional to the current population,
+    \[\frac{dN}{dt} = rN,\]
+    where $r$ is the growth rate ($r>0$) or decay rate ($r<0$). Separating variables and applying the initial condition $N(0)=N_0$ gives the unique solution
+    \[N(t) = N_0 e^{rt}.\]
+\end{example}
+\begin{example}[The Logistic Equation]
+    If the growth rate depends on the population itself, with carrying capacity $K$, the simplest choice $R(N) = r(1-N/K)$ gives
+    \[\frac{dN}{dt} = rN\!\left(1 - \frac{N}{K}\right),\]
+    called the logistic equation. It models growth when $N < K$ and decay when $N > K$.
+\end{example}
 \begin{example}[Heat Equation]
     The Heat Equation is an example of a PDE. Let \(u = u(x,t)\), \(\frac{\partial u}{\partial t} = \frac{\partial^2 u}{\partial x^2}\). This PDE denotes the temperature of a body at time t and at position x.
 \end{example}
@@ -129,13 +186,10 @@ Since its honours you will deal with analysis. The Midterm is from 4:05 pm to 5:
     The order of an ODE is the order of the highest derivative that appears in the equation.
 \end{definition}
 \begin{example}
-    \(N' = rN\) (first order ODE)
-\end{example}
-\begin{example}
-    \(y''(t) + 2y'(t) = e^t\) (second order ODE)
+    $N' = rN$ is first order. \quad $y'' + 2y' = e^t$ is second order.
 \end{example}
 
-\subsubsection{Dimension of the State}
+\subsubsection{Scalar vs.\ System}
 \begin{definition}[Scalar ODE]
     A scalar ODE has one unknown function.
 \end{definition}
@@ -181,7 +235,7 @@ Since its honours you will deal with analysis. The Midterm is from 4:05 pm to 5:
 
 \subsubsection{Linearity}
 \begin{definition}[Linearity]
-    A linear Ordinary Differential Equation (ODE) is one where the unknown function (\(y\)) and its derivatives (\(y^{\prime },y^{\prime \prime },\dots \)) appear only to the first power, are not multiplied together, and are not part of special functions like \(\sin (y)\) or \(e^{y}\), but they could be multiplied by functions of the independent variable (like \(x\) or \(t\)).
+    An ODE is linear if the unknown function and its derivatives appear only to the first power, are not multiplied together, and are not composed with nonlinear functions. They may be multiplied by functions of the independent variable.
 \end{definition}
 \begin{example}[Linearity]
     Consider the following ODEs:
@@ -217,32 +271,21 @@ Since its honours you will deal with analysis. The Midterm is from 4:05 pm to 5:
 \end{example}
 \begin{remark}
     The Lorenz system \eqref{Lorenzsystem} is an example of an autonomous system.
-\end{remark} 
+\end{remark}
 
-\subsubsection{Solutions of ODEs}
-\begin{definition}[Solution of a first order system]
-    Let \(f: D\times I \to \mathbb{R}^n\).\footnote{\(f\) takes a state \(y\in D \subset \mathbb{R}^n\) and a time \(t\in I \subset \mathbb{R}\), and outputs a vector in \(\mathbb{R}^n\).}
-    A solution of $y'(t)=f(y(t),t)$ on an interval \(J\subset I\) is a differentiable function \(y:J\to D\)\footnote{\(y(t)\) returns a vector of \(n\) components, so \(y(t)\in\mathbb{R}^n\). The set \(D\) is simply where these values are allowed to live.} such that
-    \[y'(t)=f(y(t),t)\quad \text{for all } t\in J.\]
+\subsection{Solutions and Initial Value Problems}
+\begin{definition}[Solution]
+    A solution of $y'(t) = f(y(t), t)$ on an interval $J$ is a 
+    differentiable function $y : J \to D$ such that
+    \[y'(t) = f(y(t), t) \quad \forall\, t \in J.\]
 \end{definition}
 \begin{example}[Explicit Solution]
-    Consider the following ODE
-    \[y' + y = 1.\]
-    We can verify that \(y(t) = e^{-t} + 1\), and therefore \(y'(t) = -e^{-t}\), is a solution on \(\mathbb{R}\). Indeed,
+    Consider the following ODE $y' + y = 1$. We can verify that \(y(t) = e^{-t} + 1\), and therefore \(y'(t) = -e^{-t}\), is a solution on \(\mathbb{R}\). Indeed,
     \[y' + y = -e^{-t} + (e^{-t} + 1) = 1.\]
 \end{example}
 \begin{example}[Implicit Solution]
-    Consider the ODE
-    \[y \frac{dy}{dx} = x.\]
-    This is a nonautonomous, nonlinear, first-order scalar ODE. Separating variables gives
-    \[ydy = xdx.\]
-    Integrating,
-    \[\frac{1}{2}y^2 = \frac{1}{2}x^2 + C,\]
-    or equivalently, the implicit solution
-    \[x^2 - y^2 = C, \quad C \in \mathbb{R}.\]
+    Consider the ODE $y \frac{dy}{dx} = x$. This is a nonautonomous, nonlinear, first-order scalar ODE. Separating $y\,dy = x\,dx$ and integrating gives the implicit solution $x^2 - y^2 = C, \quad C \in \mathbb{R}$.
 \end{example}
-
-\subsection{Initial Value Problems}
 \marginpar{January 13, 2026}
 \begin{definition}[Initial Value Problem (IVP)]
     An initial value problem consists of an ODE together with a condition $y(t_0)=y_0$, where the value of the solution is prescribed at an initial time \(t_0\).
@@ -250,12 +293,16 @@ Since its honours you will deal with analysis. The Midterm is from 4:05 pm to 5:
 
 \subsection{Existence and Uniqueness Theorem}
 \subsubsection{Lipschitz continuity}
-\begin{definition}[Lipschitz continuity]
-    Let \(D \subseteq \mathbb{R}^n\) and let \(||\cdot||\) be a norm on \(\mathbb{R}^n\).
-    A function \(f : D \to \mathbb{R}^n\) is Lipschitz continuous if there exists \(L \ge 0\) such that
+\begin{definition}[Lipschitz Continuity]
+    A function $f : D \to \mathbb{R}^n$ is Lipschitz continuous on $D \subseteq \mathbb{R}^n$ if there exists $L \geq 0$ such that
     \[z||f(y_1) - f(y_2)|| \le L||y_1 - y_2|| \quad \forall y_1,y_2 \in D, z \in \mathbb{R}.\]
-    The smallest such \(L\) is called the Lipschitz constant and is denoted \(Lip(f)\).
+    The smallest such $L$ is called the Lipschitz constant, denoted $\mathrm{Lip}(f)$.
 \end{definition}
+\begin{remark}[How to find a Lipschitz constant]
+    If $f$ is differentiable on $D \subset \mathbb{R}$ and 
+    $|f'(y)| \leq M$ for all $y \in D$, then $f$ is Lipschitz with 
+    $\mathrm{Lip}(f) = M$.
+\end{remark}
 \begin{example}
     Let \(f(y) = 4y - 5\), \(D = \mathbb{R}\), and \(||\cdot|| = |\cdot|\).
     Then
@@ -273,15 +320,6 @@ Since its honours you will deal with analysis. The Midterm is from 4:05 pm to 5:
     Thus \(f\) is Lipschitz on \(D_\delta\) with
     \[Lip(f) = \frac{1}{(\delta - 1)^2}.\]
 \end{example}
-\begin{remark}[How to choose a Lipschitz constant]
-    If \(f\) is differentiable on \(D \subset \mathbb{R}\) and its derivative satisfies
-    \[m \le f'(y) \le M \quad \text{for all } y \in D,\]
-    then
-    \[|f'(y)| \le \max\{|m|,|M|\} \quad \text{for all } y \in D,\]
-    and \(f\) is Lipschitz on \(D\) with Lipschitz constant
-    \[L = \max\{|m|,|M|\}.\]
-    In practice, the Lipschitz constant is any uniform bound on \(|f'|\).
-\end{remark}
 \begin{example}
     Suppose \(f\) is differentiable and satisfies
     \[-4 \le f'(y) \le 9 \quad \text{for all } y \in \mathbb{R}.\]
@@ -1517,88 +1555,130 @@ This has the same mathematical form as the mass-spring system, with the correspo
 
 \section{Stability, Phase Portraits and Orbits}
 \marginpar{March 10, 2026}
-Let $y'(t) = f(y(t))$, $f$ is LLC, and $y_0 \in \mathbb{R}^n$. Denote by
-\[\Gamma_{y_0} = \{y(t) \mid y'(t) = f(y(t)), y(0) = y_0, t \in J_{max}\},\]
-where $J_{max}$ is the maximal time interval on which the solution of the IVP $y'(t) = f(y(t)), y(0) = y_0$ is defined. The set $\Gamma_{y_0}$ is called the orbit of $y_0$, and it is a curve in $\mathbb{R}^n$.
+
+Let $y'(t) = f(y(t))$, $f$ locally Lipschitz, and $y_0 \in \mathbb{R}^n$. Denote by
+\[
+\Gamma_{y_0} = \{y(t) \mid y'(t) = f(y(t)),\ y(0) = y_0,\ t \in J_{\max}\},
+\]
+the \emph{orbit} of $y_0$, where $J_{\max}$ is the maximal interval of existence. The orbit is a curve in $\mathbb{R}^n$.
+
+%------- 5.1 -------
+\subsection{Orbits and Phase Portraits}
+
 \begin{definition}[Phase Portrait]
-    The phase portrait is the set of all orbits.
+    The phase portrait is the collection of all orbits of the system $y' = f(y)$.
 \end{definition}
+
 \begin{example}
-    Let $y' = y(1-y)$, since this is a separable ODE, we have
+    Let $y' = y(1-y)$. Since this is a separable ODE, the solution is
     \[y(t) = \frac{y_0}{y_0 + (1-y_0)e^{-t}}.\]
-    The phase portrait is the set of all orbits. The orbit of 0 is $\Gamma_0 = \{0\}$. The orbit of 1 is $\Gamma_1 = \{1\}$. For $y_0 \in (0,1)$, $\Gamma_{y_0} = (0,1)$. For $y_0 > 1$, $\Gamma_{y_0} = (1,+\infty)$. For $y_0 < 0$, $\Gamma_{y_0} = (-\infty,0)$. $0,1$ are the equilibrium solutions.
+    The orbits are:
+    \begin{itemize}
+        \item $\Gamma_0 = \{0\}$,
+        \item $\Gamma_1 = \{1\}$,
+        \item $\Gamma_{y_0} = (0,1)$ for $y_0 \in (0,1)$,
+        \item $\Gamma_{y_0} = (1,+\infty)$ for $y_0 > 1$,
+        \item $\Gamma_{y_0} = (-\infty,0)$ for $y_0 < 0$.
+    \end{itemize}
+    The values $0$ and $1$ are the equilibrium solutions.
 \end{example}
-\begin{definition}
-    A vector $\tilde{y} \in \mathbb{R}^n$ is called an equilibrium solution (steady state) of the ODE $y' = f(y)$, $f(\tilde{y})=0\in\mathbb{R}^n$.
+
+%------- 5.2 -------
+\subsection{Equilibrium Solutions}
+
+\begin{definition}[Equilibrium Solution]
+    A vector $\tilde{y} \in \mathbb{R}^n$ is called an \emph{equilibrium solution} (or steady state) of $y' = f(y)$ if $f(\tilde{y}) = 0$. Since $\tilde{y}' = 0 = f(\tilde{y})$, the solution satisfying $y(0) = \tilde{y}$ is constant: $\tilde{y}(t) = \tilde{y}$ for all $t \in \mathbb{R}$, and its orbit is the single point $\Gamma_{\tilde{y}} = \{\tilde{y}\}$.
 \end{definition}
+
 \begin{example}
-    Let $y'=Ay=f(y)$. The equilibrium solutions are given by $\ker(A) = \{u\mid Au=0\}$. If A is invertible $Ay = 0 \implies y = A^{-1}Ay = 0$. The $0$ is the only equilibrium solution. If A is non-invertible, then $\ker(A)$ contains more.
+    For the linear system $y' = Ay$, equilibrium solutions satisfy $Au = 0$, i.e.\ they lie in $\ker(A)$.
+    \begin{itemize}
+        \item If $A$ is invertible, then $\ker(A) = \{0\}$, so $\tilde{y} = 0$ is the only equilibrium.
+        \item If $A$ is not invertible, $\ker(A)$ contains more equilibria.
+    \end{itemize}
 \end{example}
+
 \begin{example}
-    Let $A = \begin{pmatrix}1&-1\\2&-2\end{pmatrix}$, then $Au = 0$:
-    \[\begin{pmatrix}1&-1\\2&-2\end{pmatrix}\begin{pmatrix}a\\b\end{pmatrix} = \begin{pmatrix}0\\0\end{pmatrix}.\]
-    Solving we get $a=b$, which implies $\begin{pmatrix}1\\1\end{pmatrix}\subseteq \ker(A)$.
-    \[\ker(A) = <\begin{pmatrix}1\\1\end{pmatrix}> = \left\{c\begin{pmatrix}1\\1\end{pmatrix} \mid c\in\mathbb{R}\right\}\]
+    Let $A = \begin{pmatrix}1&-1\\2&-2\end{pmatrix}$. Solving $Au = 0$ gives $a = b$, so
+    \[\ker(A) = \left\langle\begin{pmatrix}1\\1\end{pmatrix}\right\rangle = \left\{c\begin{pmatrix}1\\1\end{pmatrix} \;\middle|\; c\in\mathbb{R}\right\}.\]
+    Every point on this line is an equilibrium solution.
 \end{example}
-\begin{example}
-    Using Newton's 2nd law and trigonometric identities:
-    \[\theta'' + \gamma \theta' + \frac{g}{l}sin(\theta) = 0.\]
-    Let $y_1=\theta$,$y_2=\theta'$, we have:
-    \[\begin{pmatrix}y_1'\\y_2'\end{pmatrix}=\begin{pmatrix}y_2\\-\frac{g}{l}sin(y_1)-\gamma y_2\end{pmatrix}=f(y).\]
-    An equilibrium solution which satisfy $f(y) = 0$ is $y_2=0$ and $sin(y_1)=0$, which implies $y_1=n\pi, n\in\mathbb{Z}$.
+
+\begin{example}[Nonlinear Pendulum]
+    From Newton's second law,
+    \[\theta'' + \gamma\theta' + \frac{g}{l}\sin(\theta) = 0.\]
+    Setting $y_1 = \theta$, $y_2 = \theta'$, the system becomes
+    \[\begin{pmatrix}y_1'\\y_2'\end{pmatrix} = \begin{pmatrix}y_2\\-\tfrac{g}{l}\sin(y_1) - \gamma y_2\end{pmatrix} =: f(y).\]
+    Equilibria satisfy $f(y) = 0$: we need $y_2 = 0$ and $\sin(y_1) = 0$, giving
+    \[y_1 = n\pi,\quad n \in \mathbb{Z}.\]
 \end{example}
-\begin{definition}
-    An equilibrium solution $\tilde{y}$ of $y'=f(y)$ is stable if $\forall \epsilon >0$, tere exists $\delta = \delta(\epsilon)$ such that for every solution of $y'=f(y)$ with $||y(0) - \tilde{y}|| \leq \delta \implies ||y(t) - \tilde{y}|| \leq \epsilon, \forall t\geq0$. In other words, if one starts close to $\tilde{y}$, then the solution remains close to $\tilde{y}$. 
-    
-    $\tilde{y}$ satisfies $f(\tilde{y})=0$, $\Gamma_{\tilde{y}}=\{\tilde{y}\}$
-    \[(\tilde{y})' = 0 = f(\tilde{y}) \implies \tilde{y}(t) = \tilde{y}, \forall t\in\mathbb{R}\]
+
+%------- 5.3 -------
+\subsection{Stability}
+
+\subsubsection{Definitions}
+
+\begin{definition}[Stable Equilibrium]
+    An equilibrium $\tilde{y}$ of $y' = f(y)$ is \emph{stable} if for every $\epsilon > 0$ there exists $\delta = \delta(\epsilon) > 0$ such that every solution with $\|y(0) - \tilde{y}\| \leq \delta$ satisfies
+    \[\|y(t) - \tilde{y}\| \leq \epsilon \quad \forall\, t \geq 0.\]
+    Intuitively: solutions that start close to $\tilde{y}$ remain close for all future time.
 \end{definition}
-\begin{example}
-    Let $y' = -2y$, then $\tilde{y} = 0$, $y(t) = e^{-2t}y(0)$.
-    \[|y(t) - 0| = e^{-2t}|y(0)-0| \leq |y(0)-0| \text{for }t\geq0\]
-    Let $\epsilon > 0$, and $\delta = \epsilon$. Indeed, if $|y(0)| \leq \delta = \epsilon \implies |y(t) - 0| \leq \epsilon, \forall t \geq 0$.
-\end{example}
 
-$\tilde{y}$ is unstable if $\exists \epsilon > 0$ such that for every $\delta >0$ (small enough), then there exists $T>0$, such that there is a solution $y(t)$ with $||y(0)-\tilde{y}|| \leq \delta$ and $||(y(T) - \tilde{y})|| > \epsilon$.
+\begin{definition}[Unstable Equilibrium]
+    An equilibrium $\tilde{y}$ is \emph{unstable} if it is not stable: there exists $\epsilon > 0$ such that for every $\delta > 0$, there is a solution $y(t)$ with $\|y(0) - \tilde{y}\| \leq \delta$ and a time $T > 0$ for which $\|y(T) - \tilde{y}\| > \epsilon$.
+\end{definition}
 
-$\tilde{y}$ is asymptotically stable if it is stable and there $\alpha > 0$ such that if $||y(0)-\tilde{y}|| \leq \alpha$, then $\lim_{t\to +\infty}||y(t)-\tilde{y}||=0$.
+\begin{definition}[Asymptotic Stability]
+    An equilibrium $\tilde{y}$ is \emph{asymptotically stable} if it is stable and there exists $\alpha > 0$ such that
+    \[\|y(0) - \tilde{y}\| \leq \alpha \implies \lim_{t \to +\infty} \|y(t) - \tilde{y}\| = 0.\]
+\end{definition}
 
+\subsubsection{Examples}
 \marginpar{March 12, 2026}
-\begin{example}
-    Let $y' = y(1-y)$, and $r=k=1$ (logistic equation). Let us show (using the definition) that $\tilde{y} = 0$ is an unstable equilibrium solution. Let $\epsilon = \frac{1}{2}$, pick $\delta >0$, and smaller than 1. Choose the initial condition to be $y(0) = \delta$. The solution of the IVP is given by
-    \[y(t) = \frac{\delta}{\delta + (1-\delta)e^{-t}}.\]
-    Clearly, $|y(0)-0| = \delta$. There exists $T = T(\delta)$ such that $y(T) \geq \frac{1}{2}$, that is $|y(T) - 0| \geq \epsilon = \frac{1}{2} \implies 0$ is unstable. Let us now show that $\tilde{y} = 1$ is an asymptotically stable equilibrium solution. Let $\epsilon > 0$. For any $y_0 > 0$, the solution is
-    \[y(t) = \frac{y_0}{y_0 + (1-y_0)e^{-t}}.\]
-    \[y(t) - \tilde{y}| = |\frac{y_0}{y_0 + (1-y_0)e^{-t}} - 1| = |\frac{(y_0-1)e^{-t}}{y_0 + (1-y_0)e^{-t}}| = |\frac{y_0 -1}{y_0e^t + (1-y_0)}| \leq |y_0 - 1|\]
-    But $y_0 e^t + (1-y_0) = y_0(e^t-1) + 1 \geq 1$ only since $e^t - 1 \geq 0$ for $t \geq 0$. For every $t \geq 0$, $|y(t) - \tilde{y}| \leq |y(0) - \tilde{y}| \leq \delta = \epsilon$, this implies that $\tilde{y} = 1$ is stable.
-\end{example}
-\begin{example}
-    Let $y' = Ay$, and
-    \[A = \begin{pmatrix}-3/2&1/2\\1/2&-3/2\end{pmatrix}.\]
-    Since $det(A) \neq 0 \implies \ker(A) = \left\{\begin{pmatrix}0\\0\end{pmatrix}\right\} \implies \tilde{y} = \begin{pmatrix}0\\0\end{pmatrix}$ is the only equilibrium solution. Let us compute $e^{At} \implies y(t) = e^{At}y_0$. Compute $y(t) = \begin{pmatrix}-e^{-2t}&e^{-t}\\e^{-2t}&e^{-t}\end{pmatrix} \implies e^{At} = y(t)y^{-1}(0) = \frac{1}{2}\begin{pmatrix}e^{-2t}+e^{-t}&-e^{-2t}+e^{-t}\\-e^{-2t}+e^{-t}&e^{-2t}+e^{-t}\end{pmatrix}$. The unique solution to the IVP is $y(t) = e^{At}y_0$. 
-    
-    Let us show that 0 is asymptotically stable. Let $\epsilon > 0$. Choose the sup norm on $\mathbb{R}^2$.
-    \[||x||_\infty = max\{|x_1|,|x_2|\}\]
-    \[||y(t) - 0||_\infty = ||e^{At}y(0)||_\infty\]
-    Recall that given $M \in M_n(\mathbb{R})$, the induced sup matrix norm
-    \[||M||_\infty = \max_{||x||_\infty = 1}||Mx||_\infty = \max_{1\leq i \leq n}\sum_{j=1}^{n}|M_{i,j}|\]
-    this is the max of the sum of the absolute value of each row.
-    \[\implies ||Mx||_\infty \leq ||M||_\infty \cdot ||x||_\infty\]
-    Here,
-    \[||e^{At}||_\infty = e^{-t}\max\left\{\frac{1}{2}|e^{-t}+1|+\frac{1}{2}|e^{-t}+1|+\frac{1}{2}|e^{-t}+1|+\frac{1}{2}|e^{-t}+1|\right\} \leq 2e^{-t}\]
-\end{example}
-\begin{example}
-    Let $y' = Ay$, and
-    \[A = \begin{pmatrix}-3/2&1/2\\1/2&-3/2\end{pmatrix}.\]
-    \[\implies ||y(t)||_\infty \leq 2e^{-t}||y(0)|| \leq 2e^{-t}\delta = e^{-t}\epsilon \leq \epsilon, \forall t\geq 0\]
-    Pick $\delta = \delta(\epsilon) = \frac{\epsilon}{2}$, this implies $\begin{pmatrix}0\\0\end{pmatrix}$ is stable. Pick any $\alpha>0$. If $||y(0)||_\infty \leq \alpha$, then $||y(t)||_\infty \leq 2e^{-t} ||y(0)||_\infty = 2\alpha e^{-t} \implies \lim_{t \to +\infty}y(t) = \begin{pmatrix}0\\0\end{pmatrix} \implies 0$ is asymptotically stable.
+
+\begin{example}[Stable equilibrium]
+    Let $y' = -2y$. The unique equilibrium is $\tilde{y} = 0$, and the solution is $y(t) = e^{-2t}y(0)$. For $t \geq 0$,
+    \[|y(t) - 0| = e^{-2t}|y(0)| \leq |y(0)|.\]
+    Given $\epsilon > 0$, choose $\delta = \epsilon$. Then $|y(0)| \leq \delta$ implies $|y(t)| \leq \epsilon$ for all $t \geq 0$, so $\tilde{y} = 0$ is stable.
 \end{example}
 
-\subsection{Phase Portaits of Planar Linear Systems}
-Let \eqref{eq:ode-system-matrix}, $A \in M_2(\mathbb{R})$, and assume $det(A) \neq 0$.
+\begin{example}[Logistic equation]
+    Let $y' = y(1-y)$. The equilibria are $\tilde{y} = 0$ and $\tilde{y} = 1$.
+
+    \textbf{$\tilde{y} = 0$ is unstable.} Take $\epsilon = \tfrac{1}{2}$ and any $0 < \delta < 1$. Choose $y(0) = \delta$; the solution is
+    \[y(t) = \frac{\delta}{\delta + (1-\delta)e^{-t}}.\]
+    There exists $T = T(\delta)$ such that $y(T) \geq \tfrac{1}{2}$, so $|y(T) - 0| \geq \epsilon$. Hence $\tilde{y} = 0$ is unstable.
+
+    \textbf{$\tilde{y} = 1$ is asymptotically stable.} For any $y_0 > 0$,
+    \[|y(t) - 1| = \left|\frac{(y_0-1)e^{-t}}{y_0 + (1-y_0)e^{-t}}\right| = \frac{|y_0-1|}{y_0 e^t + (1-y_0)} \leq |y_0 - 1|,\]
+    since $y_0(e^t - 1) + 1 \geq 1$ for $t \geq 0$. Choosing $\delta = \epsilon$ gives stability. Moreover, as $t \to +\infty$ the numerator $|y_0 - 1|e^{-t} \to 0$, so $y(t) \to 1$ and $\tilde{y} = 1$ is asymptotically stable.
+\end{example}
+
+\begin{example}[Linear system]
+    Let $y' = Ay$ with
+    \[A = \begin{pmatrix}-\tfrac{3}{2} & \tfrac{1}{2} \\ \tfrac{1}{2} & -\tfrac{3}{2}\end{pmatrix}.\]
+    Since $\det(A) \neq 0$, the only equilibrium is $\tilde{y} = 0$. 
+    
+    A fundamental matrix solution is
+    \[Y(t) = \begin{pmatrix}-e^{-2t} & e^{-t} \\ e^{-2t} & e^{-t}\end{pmatrix},\]
+    giving
+    \[e^{At} = Y(t)Y(0)^{-1} = \frac{1}{2}\begin{pmatrix}e^{-2t}+e^{-t} & -e^{-2t}+e^{-t} \\ -e^{-2t}+e^{-t} & e^{-2t}+e^{-t}\end{pmatrix}.\]
+    Using the induced sup-norm $\|x\|_\infty = \max\{|x_1|,|x_2|\}$ and the corresponding matrix norm
+    \[\|M\|_\infty = \max_{1 \leq i \leq n}\sum_{j=1}^{n}|M_{ij}|,\]
+    one checks that $\|e^{At}\|_\infty \leq 2e^{-t}$. Therefore
+    \[\|y(t)\|_\infty = \|e^{At}y(0)\|_\infty \leq 2e^{-t}\|y(0)\|_\infty.\]
+    \textbf{Stability:} given $\epsilon > 0$, choose $\delta = \tfrac{\epsilon}{2}$. Then $\|y(0)\|_\infty \leq \delta$ implies $\|y(t)\|_\infty \leq 2e^{-t}\delta \leq \epsilon$ for all $t \geq 0$.
+
+    \textbf{Asymptotic stability:} for any $\alpha > 0$, if $\|y(0)\|_\infty \leq \alpha$ then $\|y(t)\|_\infty \leq 2\alpha e^{-t} \to 0$ as $t \to +\infty$. Hence $\tilde{y} = 0$ is asymptotically stable.
+\end{example}
+
+%------- 5.4 -------
+\subsection{Phase Portraits of Planar Linear Systems}
+
+Let \eqref{eq:ode-system-matrix} hold with $A \in M_2(\mathbb{R})$ and $\det(A) \neq 0$.
 \begin{enumerate}
-    \item A is diagonalizable with real eigenvalues and the general solution is
-    \[y(t) = c_1e^{\lambda_1t}u_1+c_2e^{\lambda_2t}u_2\]
+    \item $A$ is diagonalizable with real eigenvalues. The general solution is
+    \[y(t) = c_1 e^{\lambda_1 t}u_1 + c_2 e^{\lambda_2 t}u_2.\]
 \end{enumerate}
 
 \section{Laplace Transform}
