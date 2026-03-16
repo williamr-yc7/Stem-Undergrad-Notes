@@ -129,6 +129,7 @@ Since its honours you will deal with analysis. The Midterm is from 4:05 pm to 5:
 \end{remark}
 
 \subsubsection{The Mean Value Inequality}
+\label{MVI}
 \begin{theorem}[Mean Value Inequality]
     Let $U \subseteq \mathbb{R}^n$ be open and $f : U \to \mathbb{R}^n$ 
     be $C^1$. For any compact set $K \subset U$ and all $x, y \in K$,
@@ -328,16 +329,15 @@ Since its honours you will deal with analysis. The Midterm is from 4:05 pm to 5:
     so \(f\) is Lipschitz on \(\mathbb{R}\) with Lipschitz constant \(L = 9\).
 \end{example}
 
-
 \subsubsection{Local Lipschitz continuity}
 \begin{definition}[Locally Lipschitz]
-    Let \(D \subseteq \mathbb{R}^n\) be open. A function \(f : D \to \mathbb{R}^n\) is called locally Lipschitz if, around every point in \(D\), there is some neighborhood where \(f\) is Lipschitz.
-    Equivalently, for every compact set \(K \subset D\), there exists a constant \(L > 0\) such that
-    \[\|f(y_1) - f(y_2)\| \le L \|y_1 - y_2\| \quad \text{for all } y_1, y_2 \in K.\]
+    Let $D \subseteq \mathbb{R}^n$ be open. A function $f : D \to \mathbb{R}^n$ is \emph{locally Lipschitz} if for every compact set $K \subset D$ there exists $L > 0$ such that
+    \[\|f(y_1) - f(y_2)\| \leq L\|y_1 - y_2\| \quad \forall\, y_1, y_2 \in K.\]
 \end{definition}
 \begin{remark}
-    Lipschitz continuity and local Lipschitz continuity are not the same.
-    \[\text{Lipschitz} \;\Rightarrow\; \text{locally Lipschitz}, \qquad \text{but not conversely.}\]
+    Lipschitz $\Rightarrow$ locally Lipschitz, but not conversely.  
+    Any $C^1$ function is locally Lipschitz (by the Mean Value 
+    Inequality from Section \eqref{MVI}).
 \end{remark}
 \begin{example}[Locally Lipschitz but not Lipschitz]
     \[f(y) = y^2 \in \mathbb{R}.\]
@@ -353,26 +353,58 @@ Since its honours you will deal with analysis. The Midterm is from 4:05 pm to 5:
     The derivative is unbounded near \(y = 0\), so no Lipschitz constant exists even locally. Hence \(f\) is not locally Lipschitz.
 \end{example}
 
-\subsubsection{Existence and Uniqueness Theorem}
+\subsubsection{Integral Form of the IVP}
+\marginpar{January 13, 2026}
+\begin{lemma}
+    A function \(y\) solves the IVP if and only if
+    \[y(t) = y_0 + \int_{t_0}^{t} f(y(s),s)ds.\]
+\end{lemma}
+\begin{proof}
+    If \(y' = f(y,t)\) and \(y(t_0) = y_0\), then by the Fundamental Theorem of Calculus,
+    \[y(t) = y_0 + \int_{t_0}^{t} f(y(s),s)ds.\]
+    Conversely, differentiating the right-hand side gives
+    \[y'(t) = f(y(t),t), \quad y(t_0) = y_0.\]
+\end{proof}
+
+\subsubsection{Picard operator}
+The integral form motivates defining the following operator. Since $(y_0, t_0) \in D \times (a,b)$ and the set is open, choose $\alpha, \delta > 0$ such that
+\[D_{\alpha,\delta} = \{(y,t) : \|y-y_0\| \leq \alpha,\; |t-t_0| \leq \delta\} \subset D \times (a,b),\]
+and set
+\[M_{\alpha,\delta} = \sup_{(y,t)\in D_{\alpha,\delta}}\|f(y,t)\| < +\infty, \qquad \varepsilon = \min\!\left(\delta,\frac{\alpha}{M_{\alpha,\delta}}\right), \qquad J = (t_0-\varepsilon, t_0+\varepsilon).\]
+\begin{definition}[Picard Operator]
+    For any $y : J \to \mathbb{R}^n$ with $y(t_0) = y_0$ and 
+    $(y(t),t) \in D_{\alpha,\delta}$ for all $t \in J$, define
+    \[T(y)(t) = y_0 + \int_{t_0}^{t} f(y(s),s)\, ds.\]
+    A function $y$ solves the IVP if and only if $T(y) = y$, i.e.\ 
+    $y$ is a \emph{fixed point} of $T$.
+\end{definition}
+\begin{lemma}[Invariance]
+    If \(y(t_0)=y_0\) and \((y(t),t) \in D_{\alpha,\delta}\) \(\forall t \in J\), then \(T(y)(t_0)=y_0\) and \((T(y)(t),t) \in D_{\alpha,\delta}\) for all \(t \in J\).\footnote{Basically, If a function stays inside the box, then applying $T$ keeps it inside the box.}
+\end{lemma}
+\begin{proof}
+    Clearly \(T(y)(t_0)=y_0\). For \(t \in J\),
+    \[\|T(y)(t) - y_0\| \leq \int_{t_0}^{t} \|f(y(s),s)\|ds \leq M_{\alpha,\delta}|t - t_0| \leq M_{\alpha,\delta}\epsilon \leq \alpha.\]
+    Hence \((T(y)(t),t) \in D_{\alpha,\delta}\).
+\end{proof}
+\begin{example}[Picard operator]
+    Consider the IVP $y' = y$, $y(0) = 1$. It's integral form is $y(t) = 1 + \int_0^t y(s)ds$. Start with the simplest function that satisfies the initial condition: $y_0(t) = 1$. Now iterate:
+    \[y_1 = T(y_0) = 1 + \int_0^t 1ds = 1 + t,\]
+    \[y_2 = T(y_1) = 1 + \int_0^t (1+s)ds = 1+t+\frac{t^2}{2},\]
+    \[y_3 = T(y_2) = 1 + t + \frac{t^2}{2} + \frac{t^3}{6}.\]
+    Each step adds to the next power of t. We can express this relation as
+    \[y(t) = \sum_{k=0}^\infty \frac{t^k}{k!} = e^t.\]
+    Indeed, $T(y)(t) = 1 + \int_0^t e^s ds = e^t$, so $T(y)=y$. Therefore, $T$ is an operator that maps a function to a new one, and only the true solution is a fixed point of $T$.
+\end{example}
+
+\subsubsection{Statement of the Theorem}
+\label{EUT}
 \begin{theorem}[Existence and Uniqueness]
-    Let \(D \subseteq \mathbb{R}^n\) be open and let \((a,b)\) be an open interval containing \(t_0\). Consider the IVP
-    \[\begin{cases}y' = f(y,t), \\ y(t_0) = y_0.\end{cases}\]
-    Assume \(f : D \times (a,b) \to \mathbb{R}^n\) is continuous and locally Lipschitz in \(y\).\footnote{\(D \times (a,b)\) denotes the set of all pairs \((y,t)\) with \(y \in D \subset \mathbb{R}^n\) and \(t \in (a,b)\), i.e., all allowed state-time inputs of \(f\).}
-    If \(y_0 \in D\), then there exists an open interval \(J\) containing \(t_0\) on which a solution exists.
-    Moreover, this solution is unique on \(J\).
+    Let $D \subseteq \mathbb{R}^n$ be open and $(a,b)$ an open interval containing $t_0$. Suppose $f : D \times (a,b) \to \mathbb{R}^n$\,\footnote{\(D \times (a,b)\) denotes the set of all pairs \((y,t)\) with \(y \in D \subset \mathbb{R}^n\) and \(t \in (a,b)\), i.e., all allowed state-time inputs of \(f\).} is continuous and locally Lipschitz in $y$. If $y_0 \in D$, then the IVP
+    \[\begin{cases}y' = f(y,t),\\y(t_0) = y_0\end{cases}\]
+    has a unique solution on some open interval $J$ containing $t_0$.
 \end{theorem}
-\begin{problem}[Existence and Uniqueness Theorem]
-    Consider the IVP
-    \[\begin{cases}y' = \sqrt{1+y^2}+t^2 \\ y(1) = 0.\end{cases}\]
-    \begin{enumerate}
-        \item Identify $f(y,t)$.
-        \item Decide whether the hypotheses of the Existence and Uniqueness Theorem are satisfied.
-        \item State clearly what the theorem guarantees about solutions near $t = 1$.
-    \end{enumerate}
-    Do not solve the ODE. Simply analyze it.
-\end{problem}
 \marginpar{January 20, 2026}
-\begin{remark}[How \(\varepsilon\) is chosen in the theorem]\footnote{In this course, you are only expected to determine \(\varepsilon\) from the theorem, and not to justify the construction further.}
+\begin{remark}[Choosing $\varepsilon$]
     To apply the Existence and Uniqueness Theorem, we choose \(\varepsilon\) so that the solution remains inside the domain \(D \times (a,b)\).
     Consider the IVP
     \[\begin{cases}y' = f(y,t), \\ y(t_0) = y_0.\end{cases}\]
@@ -385,7 +417,7 @@ Since its honours you will deal with analysis. The Midterm is from 4:05 pm to 5:
     Then one may take
     \[\varepsilon = \min\!\left(\delta, \frac{\alpha}{M_{\alpha,\delta}}\right).\]
 \end{remark}
-\begin{problem}[Existence and Uniqueness Theorem 2]
+\begin{problem}[Existence and Uniqueness Theorem]
     Consider the initial value problem
     \[\begin{cases}y' = t^2+y^2, \\ y(0) = 0,\end{cases}\]
     Determine the largest value of $\epsilon$ for which the Theorem of Existence and Uniqueness ensures the existence of a solution $y: (-\epsilon,\epsilon) \to \mathbb{R}$.
@@ -396,66 +428,13 @@ Since its honours you will deal with analysis. The Midterm is from 4:05 pm to 5:
     Investigate existence and uniqueness.
 \end{problem}
 
-\subsubsection{Integral form of solutions}
-\marginpar{January 13, 2026}
-\begin{lemma}
-    A function \(y\) solves the IVP if and only if
-    \[y(t) = y_0 + \int_{t_0}^{t} f(y(s),s)ds.\]
-\end{lemma}
-\begin{proof}
-    If \(y' = f(y,t)\) and \(y(t_0) = y_0\), then by the Fundamental Theorem of Calculus,
-    \[y(t) - y(t_0) = \int_{t_0}^{t} f(y(s),s)ds,\]
-    so
-    \[y(t) = y_0 + \int_{t_0}^{t} f(y(s),s)ds.\]
-    Conversely, differentiating the right-hand side gives
-    \[y'(t) = f(y(t),t), \quad y(t_0) = y_0.\]
-\end{proof}
-
-\subsubsection{Picard operator}
-Let \((y_0,t_0) \in D \times (a,b)\). Since this set is open, \(\exists\alpha,\delta > 0\) such that
-\[D_{\alpha,\delta} = \{(y,t) : ||y - y_0|| \leq \alpha, |t - t_0| \leq \delta\} \subset D \times (a,b).\]
-Define
-\[M_{\alpha,\delta} = \sup_{(y,t) \in D_{\alpha,\delta}} ||f(y,t)|| < +\infty.\footnote{The supremum (sup) is the smallest upper bound of a set. Unlike a maximum, it need not be attained. If the largest value is achieved, then sup = max. For example, on $[0,1]$ we have $\sup=\max=1$, while on $(0,1)$ the sup is $1$ but no maximum exists.}\]
-Let
-\[\epsilon = \min\left(\delta, \frac{\alpha}{M_{\alpha,\delta}}\right), \quad J = (t_0 - \epsilon, t_0 + \epsilon).\]
-\begin{definition}[Picard Operator]
-    For any function \(y : J \to \mathbb{R}^n\) such that \(y(t_0)=y_0\) and \((y(t),t) \in D_{\alpha,\delta}\), \(\forall t \in J\), define  
-    \[T(y)(t) = y_0 + \int_{t_0}^{t} f(y(s),s)ds.\]
-    The map \(T\) is called the Picard operator.
-\end{definition}
-\begin{example}[Picard operator]
-    Consider the IVP $y' = y$, $y(0) = 1$. It's integral form is $y(t) = 1 + \int_0^t y(s)ds$. Define the Picard operator by
-    \[T(y)(t) = 1 + \int_0^t y(s)ds.\]
-    Start with the simplest function that satisfies the initial condition: $y_0(t) = 1$. Now iterate:
-    \[y_1 = T(y_0) = 1 + \int_0^t 1ds = 1 + t,\]
-    \[y_2 = T(y_1) = 1 + \int_0^t (1+s)ds = 1+t+\frac{t^2}{2},\]
-    \[y_3 = T(y_2) = 1 + t + \frac{t^2}{2} + \frac{t^3}{6}.\]
-    Each step adds to the next power of t. We can express this relation as
-    \[y(t) = \sum_{k=0}^\infty \frac{t^k}{k!} = e^t.\]
-    Indeed, $T(y)(t) = 1 + \int_0^t e^s ds = e^t$, so $T(y)=y$. Therefore, $T$ is an operator that maps a function to a new one, and only the true solution is a fixed point of $T$.
-\end{example}
-\begin{remark}
-    The operator \(T\) takes a function \(y(t)\) and produces a new one. A function \(y\) solves the IVP if and only if \(T(y) = y\), i.e., \(y\) is a fixed point of \(T\).
-\end{remark}
-\begin{lemma}[Invariant Properties]
-    If \(y(t_0)=y_0\) and \((y(t),t) \in D_{\alpha,\delta}\) \(\forall t \in J\), then \(T(y)(t_0)=y_0\) and \((T(y)(t),t) \in D_{\alpha,\delta}\) \(\forall t \in J\).
-\end{lemma}\footnote{Basically, If a function stays inside the box, then applying $T$ keeps it inside the box.}
-\begin{proof}
-    Clearly \(T(y)(t_0)=y_0\). For \(t \in J\),
-    \[\|T(y)(t) - y_0\| \le \int_{t_0}^{t} \|f(y(s),s)\|ds \le M_{\alpha,\delta}|t - t_0| \le M_{\alpha,\delta}\epsilon \le \alpha.\]
-    Hence \((T(y)(t),t) \in D_{\alpha,\delta}\).
-\end{proof}
-
 \subsubsection{Picard Iteration and Existence}
 \marginpar{January 15, 2026}
-Define $y_0(t) = y_0$ (constant function), which clearly satisfies $y(t_0) = y_0$ (*1) and $(y(t), t) \in D_{\alpha, \delta} \forall t \in J$ (*2).
-For $k \geq 1$, define
-\[y_k(t) = T(y_{k-1})(t) = y_0 + \int_{t_0}^{t} f(y_{k-1}(s),s)ds.\]
-The Picard iterations converge uniformly to a function $y : J \to \mathbb{R}^n$ which satisfies (*1) and (*2), and is a solution of the IVP.
-To see the proof, refer to (\ref{pf:picard-convergence}).
-\begin{remark}
-    Picard iteration is a way to build a solution to an initial value problem step by step. You start with the simplest function that satisfies the initial condition, usually a constant $y_0(t) = y_0$. Then you repeatedly apply the Picard operator, which takes your current guess and “corrects” it by integrating the slope $f(y,t)$ over time. Each iteration produces a slightly better approximation, and as you repeat this process, the sequence of functions converges to the true solution. The final function still starts at the right initial value, stays within the allowed region, and satisfies the differential equation. In essence, Picard iteration turns solving a differential equation into a sequence of manageable approximations that gradually reveal the solution.
-\end{remark}
+Define $y_0(t) \equiv y_0$ (constant). For $k \geq 1$ set
+\[y_k(t) = T(y_{k-1})(t) = y_0 + \int_{t_0}^{t} f(y_{k-1}(s), s)\, ds.\]
+By the invariance lemma, each $y_k$ stays inside $D_{\alpha,\delta}$. 
+
+The sequence $\{y_k\}$ is Cauchy in $\mathbb{R}^n$ (see Appendix~\ref{pf:picard-convergence}) and therefore converges uniformly to a function $y: J \to \mathbb{R}^n$ which satisfies the integral equation, hence solves the IVP.
 
 \subsubsection{Uniqueness}
 \begin{proof}[Proof of Uniqueness]
@@ -468,51 +447,36 @@ To see the proof, refer to (\ref{pf:picard-convergence}).
 
 \section{First-Order Scalar Equation}
 \marginpar{January 22, 2026}
-A first-order scalar differential equation is an equation involving a single scalar function $y(t)$ and its first derivative $y'$, generally expressed as
+A first-order scalar ODE involves a single unknown function $y(t)$ 
+and its first derivative:
 \[y' = f(y,t).\]
+We study three main classes: linear, separable, and exact equations.
 \subsection{First Order Linear Equations}
 \begin{definition}[First Order Linear Equation]
-    A first-order linear equation is of the form
-    \[a_0(t)y' + a_1(t)y = g(t),\]
-    where $a_0, a_1, g$ are functions of $t$ and $a_0(t) \neq 0$.
+    A first-order linear equation has the form
+    \[a_0(t)y' + a_1(t)y = g(t), \quad a_0(t) \neq 0.\]
     Dividing by $a_0(t)$ gives the standard form
-    \[y' + P(t)y = Q(t), \quad P(t) = \frac{a_1(t)}{a_0(t)}, \quad Q(t) = \frac{g(t)}{a_0(t)}.\]
+    \[y' + P(t)y = Q(t).\]
 \end{definition}
 
 \subsubsection{Integrating Factor Method}
-\begin{definition}[Integrating Factor]
-    An integrating factor is a function $\mu(t)$ such that
-    \[\mu(t)y' + \mu(t)P(t)y = \mu(t)Q(t).\]
-\end{definition}
-\begin{proposition}
-    Consider the first-order linear equation
-    \[y' + P(t)y = Q(t).\]
-    We multiply the equation by a function $\mu(t)$ to be determined:
-    \[\mu y' + \mu P(t)y = \mu Q(t).\]
-    We require that the left-hand side be the derivative of a product:
-    \[\mu y' + \mu P(t)y = \frac{d}{dt}\big(\mu(t)y(t)\big). \tag{*}\]
-    The condition (*) holds provided that
-    \[\mu'(t) = \mu(t)P(t).\]
-    Solving for $\mu$,
-    \[ln|\mu(t)| = \int P(t)dt + C, \quad C \in \mathbb{R}\]
-    \[\implies |\mu(t)| = e^{C}e^{\int P(t)dt}\]
-    \[\therefore \mu(t) = C_1e^{\int P(t)dt}, \quad C_1 = \pm e^{C}.\]
-    We can therefore say choose $\mu(t) = e^{\int P(t)dt}$ (integrating factor).
-    This is the general solution of the first order linear equation.
-\end{proposition}
+To solve $y' + P(t)y = Q(t)$, multiply both sides by a function $\mu(t)$ chosen so that the left-hand side becomes an exact derivative:
+\[\mu y' + \mu P(t)y = \frac{d}{dt}(\mu y).\]
+This requires $\mu'(t) = \mu(t)P(t)$, which gives
+\[\mu(t) = e^{\int P(t)\,dt}.\]
+The equation then becomes
+\[\frac{d}{dt}(\mu y) = \mu Q(t),\]
+and integrating both sides yields
+\[y(t) = \frac{1}{\mu(t)}\left(\int \mu(t)Q(t)\,dt + C\right), \quad C \in \mathbb{R}.\]
 \begin{example}
-    Solve the first-order linear equation 
-    \[y' - 2y = 3e^t.\] 
-    First, identify the functions $P(t) = -2, \quad Q(t) = 3e^t$. 
-    Next, compute the integrating factor $\mu(t) = e^{\int P(t) dt} = e^{-2t}$.
-    Multiply through by \(\mu(t)\) to rewrite the left-hand side as a derivative:
-    \[e^{-2t}(y' - 2y) = e^{-2t}3e^{t}.\]
-    \[\implies \frac{d}{dt}(e^{-2t}y) = 3e^{-t}.\]
-    Integrate both sides with respect to \(t\) and solve for $y(t)$
-    \[e^{-2t}y = \int 3e^{-t} dt + C = -3e^{-t} + C.\] 
-    \[\implies y(t) = e^{2t}(-3e^{-t} + C) = -3e^t + Ce^{2t}.\] 
-    Using the initial condition \(y(0) = 1\), we find \(C = 4\), giving the final solution:
-    \[\therefore y(t) = -3e^t + 4e^{2t}.\]
+    Solve $y' - 2y = 3e^t$ with $y(0) = 1$.\\
+    Here $P(t) = -2$, $Q(t) = 3e^t$, so $\mu(t) = e^{-2t}$. 
+    Multiplying through:
+    \[\frac{d}{dt}(e^{-2t}y) = 3e^{-t}.\]
+    Integrating:
+    \[e^{-2t}y = -3e^{-t} + C \implies y(t) = -3e^t + Ce^{2t}.\]
+    Applying $y(0) = 1$ gives $C = 4$, so
+    \[y(t) = -3e^t + 4e^{2t}.\]
 \end{example}
 \begin{remark}[Quick Solution Method]
     A quick method to solve a first-order linear equation (not presented by the professor) is
@@ -521,234 +485,159 @@ A first-order scalar differential equation is an equation involving a single sca
 
 \subsubsection{Existence and Uniqueness for First Order Linear Equations}
 \begin{theorem}[Existence \& Uniqueness]
-    Let there be a first-order linear IVP of the form
-    \[y' + P(t)y = Q(t), \quad y(t_0) = y_0.\]
-    If \(P\) and \(Q\) are continuous on an interval containing \(t_0\), there exists a unique solution on that interval.
+    If $P$ and $Q$ are continuous on an open interval containing $t_0$, then the IVP
+    \[y' + P(t)y = Q(t), \quad y(t_0) = y_0\]
+    has a unique solution on that entire interval.
 \end{theorem}
-This theorem guarantees that any first-order linear equation we solve, including real-world applications like falling objects or mixing problems, has a unique solution on the interval where \(P\) and \(Q\) are continuous.
+\begin{remark}
+    Unlike the general E\&U theorem from Chapter~\eqref{EUT}, this result gives a global solution on the full interval where $P$ and $Q$ are continuous, not just locally.
+\end{remark}
 \begin{example}
-    \[\begin{cases}
-        y' + \frac{1}{t-1}y = \frac{1}{\cos t} \\
-        y(0) = 1
-    \end{cases}\]
-    Maximal interval: \(J_{max} = (-\frac{\pi}{2}, 1)\)
-\end{example}
-
-\subsection{Applications}
-\begin{example}[Falling Object with Air Resistance]
-    Consider an object falling under gravity while experiencing air resistance proportional to its velocity. The differential equation is
-    \[v' + \frac{\gamma}{m}v = g.\]
-    Using the integrating factor \(\mu(t) = e^{\frac{\gamma}{m}t}\), we rewrite the equation as
-    \[\frac{d}{dt}(\mu v) = g\mu \implies v = \frac{gm}{\gamma} + Ce^{-\frac{\gamma}{m}t}.\]
-    Applying the initial condition \(v(0) = \frac{gm}{\gamma}\) gives \(C = 0\), so the velocity reaches a constant terminal value:
-    \[v(t) = \frac{gm}{\gamma}.\]
-\end{example}
-\begin{example}[Mixing Problem]
-    A tank initially contains 100 L of brine with \(y_0\) g of dissolved salt. Pure salt solution enters at 50 g/L at rate \(R\) L/s, and the well-mixed solution leaves at the same rate. Let \(y(t)\) be the amount of salt at time \(t\). The equation is
-    \[y' = 50R - \frac{R}{100}y \implies y' + \frac{R}{100}y = 50R, \quad y(0) = y_0.\]
-    Using the integrating factor \(\mu(t) = e^{\frac{R}{100}t}\), we solve:
-    \[y(t) = 5000 + (y_0 - 5000)e^{-\frac{R}{100}t}.\]
-    The solution shows that over time the salt concentration approaches a stable threshold of 5000 g.
+    For the IVP
+    \[\begin{cases}y' + \dfrac{1}{t-1}y = \dfrac{1}{\cos t},\\y(0) = 1,\end{cases}\]
+    $P(t)$ is discontinuous at $t = 1$ and $Q(t)$ is discontinuous 
+    at $t = \pm\frac{\pi}{2}$. The largest interval containing 
+    $t_0 = 0$ on which both are continuous is
+    \[J_{\max} = \left(-\frac{\pi}{2},\, 1\right).\]
 \end{example}
 
 \subsection{Separable Equations}
 \marginpar{January 27, 2026}
 \begin{definition}
-    Let \(f(x,y)\) be a function of two variables. Then \(f\) is separable if there exist two functions \(f_1(x)\) and \(f_2(y)\) such that \(f(x,y) = f_1(x)f_2(y)\).
+    The ODE $\frac{dy}{dx} = f(x,y)$ is \emph{separable} if $f(x,y) = f_1(x)f_2(y)$ for some functions $f_1$ and $f_2$.
 \end{definition}
 \begin{example}
-    This following ODE is separable
-    \[\frac{dy}{dx} = -\frac{x}{y}\]
-    \[f_1(x) = x,\quad f_2(y) = -\frac{1}{y}\]
-\end{example}
-\begin{example}
-    The following ODE
-    \[\frac{dy}{dx} = x^2 + y^2\]
-    is not separable because it is not in the form \(f_1(x) \cdot f_2(y)\).
+    $\dfrac{dy}{dx} = -\dfrac{x}{y}$ is separable with $f_1(x) = x$, $f_2(y) = -\dfrac{1}{y}$.\\
+    $\dfrac{dy}{dx} = x^2 + y^2$ is not separable.
 \end{example}
 
-\subsubsection{General Method for Separable Equations}
-Defining the general form of a separable ODE to be
-\[\frac{dy}{dx} = f_1(x)f_2(y).\]
-We can rewrite as
+\subsubsection{General Method}
+Writing the separable ODE as
 \begin{equation}
     \label{SeparableODE}
     M(x) + N(y)\frac{dy}{dx} = 0,
 \end{equation}
-where $M(x) = -f_1(x)$ and $N(y) = \frac{1}{f_2(y)}$.
-
-Consider $H_1(x)$ and $H_2(y)$ as antiderivatives of $M(x)$ and $N(y)$, respectively.  
-Using the Chain Rule,
-\[\frac{d}{dx}H_2(y(x)) = H_2'(y)\frac{dy}{dx}.\] 
-The ODE can be written as
-\[H_1'(x) + H_2'(y)\frac{dy}{dx} = 0 \implies \frac{d}{dx}(H_1(x) + H_2(y(x))) = 0.\] 
-Therefore,
-\[H_1(x) + H_2(y(x)) = C,\]
-which is the implicit general solution.
-
-In integral form, the solution is
-\[\int \frac{dy}{f_2(y)} = \int f_1(x) dx + C, \quad C \in \mathbb{R},\]
-which provides a systematic way to solve any separable equation by integrating the $x$-part and $y$-part separately.
-
+where $M(x) = -f_1(x)$ and $N(y) = \frac{1}{f_2(y)}$, and letting $H_1$, $H_2$ be antiderivatives of $M$, $N$ respectively, the chain rule gives
+\[\frac{d}{dx}(H_1(x) + H_2(y(x))) = 0,\]
+so the implicit general solution is
+\[H_1(x) + H_2(y) = C, \quad C \in \mathbb{R},\]
+or equivalently in integral form,
+\[\int \frac{dy}{f_2(y)} = \int f_1(x)\,dx + C.\]
 \begin{example}[Logistic Equation]
-    Consider the logistic equation
-    \[\frac{dN}{dt} = rN\Big(1 - \frac{N}{K}\Big).\]
-    This ODE is separable. Using partial fractions:
-    \[\frac{K}{N(K-N)} = \frac{1}{N} + \frac{1}{N-K},\]
-    so
-    \[\int \frac{dN}{N} + \int \frac{dN}{N-K} = \int r dt \implies \ln|\frac{N}{N-K}| = rt + C.\]
-    Solving for $N(t)$ gives
-    \[N(t) = \frac{KN_0}{N_0 + (K-N_0)e^{-rt}},\]
-    where $N_0 = N(0)$.  
-
-    This shows that $N(t)$ approaches the carrying capacity $K$ as $t \to \infty$, with special cases $N_0 = 0 \implies N(t) = 0$ and $N_0 = K \implies N(t) = K$ for all $t$.
-\end{example}
-
-\subsection{Potential Functions and Integral Curves}
-\begin{definition}[Potential Function]
-    A potential function is a function $\Psi(x,y)$ whose level curves define the solutions of a differential equation. For separable equations, we can take
-    \begin{equation}
-        \Psi(x,y) = H_1(x) + H_2(y),
-    \end{equation}
-    where $H_1$ and $H_2$ are antiderivatives of $M(x)$ and $N(y)$ from \textup{\eqref{SeparableODE}}.
-\end{definition}
-\begin{definition}[Level Curve]
-    A level curve of a potential function is a curve along which the potential function is constant:
-    \[\Psi(x,y) = C.\]
-    These curves are tangent to the vector field defined by the ODE and represent the general solution in implicit form.
-\end{definition}
-\begin{definition}[Integral Curve]
-    An integral curve is a level curve of the potential function that passes through a specific initial condition $(x_0, y_0)$.  
-    This gives the unique solution curve corresponding to that initial condition.
-\end{definition}
-An integral curve is a geometric object that contains (possibly many) solutions. The unique integral curve that contains the initial condition $y(x_0) = y_0$ is defined by
-\[\Gamma_{(x_0,y_0)} = \{(x,y) | \Psi(x,y) = \Psi(x_0,y_0) = C(x_0,y_0)\},\]
-and in the separable case,
-\[\frac{d}{dx}\Big[\int f_1(x)dx + \int \frac{dy}{f_2(y)}\Big] = 0.\]
-\begin{remark}
-    For a separable equation, the general solution $\Psi(x,y) = C$ describes all possible solution curves, and picking a particular $C$ gives the integral curve passing through a given point.
-\end{remark}
-\begin{example}
-    Consider the separable differential equation
-    \[\frac{dy}{dx} = -\frac{x}{y}, \qquad y \neq 0.\]
-    Separating variables gives $y\,dy = -x\,dx.$ Integrating both sides,
-    \[\int y\,dy + \int x\,dx = C \quad \implies \quad \frac{y^2}{2} + \frac{x^2}{2} = C.\]
-    Define the potential function $\Psi(x,y) = \frac{x^2}{2} + \frac{y^2}{2}.$ The general solution is given implicitly by the level curves $\Psi(x,y) = C,$ which are circles centered at the origin. These level curves are the integral curves of the differential equation. For the initial condition $y(0) = 2$, $\Psi(0,2) = 2$, so the unique integral curve is
-    \[\frac{x^2}{2} + \frac{y^2}{2} = 2 \quad \implies \quad y(x) = \sqrt{4 - x^2}, \qquad J_{\text{max}} = (-2,2).\]
+    The logistic equation
+    \[\frac{dN}{dt} = rN\!\left(1 - \frac{N}{K}\right)\]
+    is separable. Using partial fractions,
+    \[\int\frac{dN}{N} + \int\frac{dN}{N-K} = \int r\,dt \implies \ln\left|\frac{N}{N-K}\right| = rt + C.\]
+    Solving with $N(0) = N_0$ gives
+    \[N(t) = \frac{KN_0}{N_0 + (K-N_0)e^{-rt}}.\]
+    As $t\to\infty$, $N(t)\to K$ (the carrying capacity), provided $N_0 \neq 0$.
 \end{example}
 
 \subsection{Exact Equations}
 \marginpar{January 29, 2026}
-\begin{definition}[Exact Equation]
-    The first-order ODE \textup{\eqref{SeparableODE}} is called \emph{exact} on a domain $D$ if there exists a function $\Psi(x,y)$ (a potential function) such that
-    \[\frac{\partial \Psi}{\partial x} = M \quad \text{and} \quad \frac{\partial \Psi}{\partial y} = N \qquad \forall (x,y)\in D.\]
-    In this case, $d\Psi = M\,dx + N\,dy$, so along any solution $y(x)$ we have
-    \[\frac{d}{dx}\big(\Psi(x,y(x))\big) = 0.\]
-    Hence $\Psi$ is constant along solutions, and the general solution is given implicitly by
-    \[\Psi(x,y) = C,\]
-    whose level curves are the integral curves of the ODE.
+\subsubsection{Potential Functions and Integral Curves}
+\begin{definition}[Potential Function]
+    A function $\Psi(x,y)$ is a potential function for the equation \eqref{SeparableODE} if
+    \[\frac{\partial\Psi}{\partial x} = M \quad \text{and} \quad \frac{\partial\Psi}{\partial y} = N.\]
+    The general solution is then given implicitly by the level curves
+    \[\Psi(x,y) = C.\]
+\end{definition}
+\begin{definition}[Integral Curve]
+    An integral curve is the level curve of $\Psi$ passing through a specific initial condition $(x_0,y_0)$:
+    \[\Gamma_{(x_0,y_0)} = \{(x,y)\mid \Psi(x,y) = \Psi(x_0,y_0)\}.\]
 \end{definition}
 
+\begin{remark}
+    For a separable equation, the general solution $\Psi(x,y) = C$ describes all possible solution curves, and picking a particular $C$ gives the integral curve passing through a given point.
+\end{remark}
+\begin{example}
+    For $\frac{dy}{dx} = -\frac{x}{y}$, $y \neq 0$, separating gives $y\,dy + x\,dx = 0$, so the potential function is
+    \[\Psi(x,y) = \frac{x^2}{2} + \frac{y^2}{2}.\]
+    The general solution is the family of circles $x^2+y^2 = C$. For $y(0)=2$, $\Psi(0,2)=2$, so the unique integral curve is
+    \[y(x) = \sqrt{4-x^2}, \quad J_{\max} = (-2,2).\]
+\end{example}
+
+\subsubsection{Definition and Exactness Criterion}
+\begin{definition}[Exact Equation]
+    The equation \eqref{SeparableODE} is exact on a domain $D$ if there exists a potential function $\Psi$ such that $\Psi_x = M$ and $\Psi_y = N$. Along any solution $y(x)$,
+    \[\frac{d}{dx}\Psi(x,y(x)) = 0,\]
+    so $\Psi$ is constant along solutions.
+\end{definition}
 \begin{theorem}
-    Let $D \subset \mathbb{R}^2$ be an open, simply connected domain\footnote{Meaning there are no holes in the domain.} in the plane. Suppose $M$, $N$, and their partial derivatives $M_y = \frac{\partial M}{\partial y}$ and $N_x = \frac{\partial N}{\partial x}$ are continuous on $D$.
-    Then the first-order equation \textup{\eqref{SeparableODE}} is exact on $D$ if and only if $M_y(x,y) = N_x(x,y)$ for all $(x,y)\in D$.
+    Let $D\subset\mathbb{R}^2$ be open and simply connected\footnote{Meaning there are no holes in the domain.}. Suppose $M$, $N$, $M_y$, $N_x$ are continuous on $D$. Then \eqref{SeparableODE} is exact on $D$ if and only if
+    \[M_y(x,y) = N_x(x,y) \quad \forall\,(x,y)\in D.\]
 \end{theorem}
 \begin{proof}
-    ($\Rightarrow$) Suppose the equation is exact. Then there exists a potential function $\Psi(x,y)$ such that
-    \[M = \Psi_x, \qquad N = \Psi_y.\]
-    Differentiating,
-    \[M_y = (\Psi_x)_y = \Psi_{xy}, \qquad N_x = (\Psi_y)_x = \Psi_{yx}.\]
-    Since mixed partial derivatives are equal for $C^2$ functions,
-    \[\Psi_{xy} = \Psi_{yx},\]
-    hence $M_y = N_x$.
+    ($\Rightarrow$) Suppose it is exact, then $M = \Psi_x$ and $N = \Psi_y$, so $M_y = \Psi_{xy} = \Psi_{yx} = N_x$ by equality of mixed partials.
 
-    ($\Leftarrow$) Conversely, if $M_y = N_x$ on a simply connected domain $D$ and the partial derivatives are continuous, then there exists a function $\Psi$ such that $\Psi_x = M$ and $\Psi_y = N$. Thus the equation is exact.\footnote{The construction is shown for rectangles in the notes; the general case follows similarly.}
+    ($\Leftarrow$) If $M_y = N_x$ on a simply connected domain and 
+    partials are continuous, one can construct $\Psi$ with 
+    $\Psi_x = M$ and $\Psi_y = N$ explicitly by integration.\footnote{The construction is shown for rectangles in the notes; the general case follows similarly.}
 \end{proof}
 \begin{example}
-    Solve the differential equation
-    \[y\cos x + 2x e^{y} + (\sin x + x^{2} e^{y} - 1)\frac{dy}{dx} = 0.\]
-    Write it in the form $M(x,y)\,dx + N(x,y)\,dy = 0$, where
-    \[M(x,y) = y\cos x + 2x e^{y}, \qquad N(x,y) = \sin x + x^{2} e^{y} - 1.\]
-    Since $M, N$ and their partial derivatives are continuous on 
-    $\mathbb{R}^2$, we test exactness:
-    \[M_y = \cos x + 2x e^{y}, \qquad N_x = \cos x + 2x e^{y}.\]
-    Thus $M_y = N_x$, so the equation is exact. Hence there exists a potential function $\Psi$ such that
-    \[\Psi_x = M, \qquad \Psi_y = N.\]
-    Integrate $\Psi_x = M$ with respect to $x$:
-    \[\Psi(x,y) = \int (y\cos x + 2x e^{y})\,dx + c(y) = y\sin x + x^{2} e^{y} + c(y),\]
-    where $c(y)$ depends only on $y$. Differentiate with respect to $y$:
-    \[\Psi_y = \sin x + x^{2} e^{y} + c'(y).\]
-    Set this equal to $N$:
-    \[\sin x + x^{2} e^{y} + c'(y) = \sin x + x^{2} e^{y} - 1,\]
-    giving
-    \[c'(y) = -1 \quad \Rightarrow \quad c(y) = -y.\]
-    Therefore the potential function is
-    \[\Psi(x,y) = y\sin x + x^{2} e^{y} - y,\]
-    and the general solution is given implicitly by
-    \[\Psi(x,y) = C.\]
+    Solve
+    \[y\cos x + 2xe^y + (\sin x + x^2e^y - 1)\,\frac{dy}{dx} = 0.\]
+
+    Identify $M = y\cos x + 2xe^y$ and $N = \sin x + x^2e^y - 1$. Check:
+    \[M_y = \cos x + 2xe^y = N_x. \quad \checkmark\]
+    So the equation is exact. Integrate $\Psi_x = M$ in $x$:
+    \[\Psi = y\sin x + x^2e^y + c(y).\]
+    Differentiate in $y$ and match with $N$:
+    \[\Psi_y = \sin x + x^2e^y + c'(y) = \sin x + x^2e^y - 1 
+    \implies c'(y) = -1 \implies c(y) = -y.\]
+    The general solution is
+    \[\Psi(x,y) = y\sin x + x^2e^y - y = C.\]
 \end{example}
 \begin{remark}
-    Every separable equation is exact on a simply connected domain.
-    Indeed, a separable equation can be written as
-    \[M(x)\,dx + N(y)\,dy = 0,\]
-    where $M$ depends only on $x$ and $N$ only on $y$. Hence
-    \[M_y = 0 = N_x,\]
-    so the exactness condition $M_y = N_x$ is automatically satisfied.
+    Every separable equation is exact on a simply connected domain. Writing $M(x)\,dx + N(y)\,dy = 0$ gives $M_y = 0 = N_x$ automatically, so exactness always holds. The potential function is simply $\Psi(x,y) = H_1(x) + H_2(y)$.
 \end{remark}
 
-\subsubsection{Integrating Factors for Exact Equations}
+\subsubsection{Integrating Factors for Non-Exact Equations}
 \marginpar{February 3, 2026}
-Consider the first-order equation
-\begin{equation}
-    M(x,y)\,dx + N(x,y)\,dy = 0,
-\end{equation}
-and suppose it is not exact, so that $M_y \neq N_x$. We try to multiply the equation by a function $\mu(x,y)$ (the integrating factor) to obtain
-\[\mu(x,y)M(x,y)\,dx + \mu(x,y)N(x,y)\,dy = 0.\]
-Our goal is to choose $\mu$ so that this new equation is exact.
-Hence we require $(\mu M)_y = (\mu N)_x$. Using the product rule,
-\[(\mu M)_y = \mu_y M + \mu M_y, \qquad (\mu N)_x = \mu_x N + \mu N_x.\]
-Therefore $\mu$ must satisfy
+If $M_y \neq N_x$, we seek a function $\mu(x,y)$ such that $\mu M\,dx + \mu N\,dy = 0$ is exact. The condition $(\mu M)_y = (\mu N)_x$ expands to
 \[\mu_y M + \mu M_y = \mu_x N + \mu N_x.\]
-This is generally a partial differential equation for $\mu$.
 
-To simplify, we often look for integrating factors that depend on only
-one variable.
-
-\textbf{Case 1:} $\mu = \mu(x)$.
-
-Then $\mu_y = 0$, and the condition becomes
-\[\mu M_y = \mu' N + \mu N_x.\]
-Rearranging,
-\[\mu' = \mu \frac{N_x - M_y}{N}.\]
-If the quantity $\frac{N_x - M_y}{N}$ depends only on $x$, this is a separable ODE for $\mu(x)$, which we can solve. After finding $\mu$, multiplying the original equation by $\mu$ makes it exact.
+\textbf{Case: $\mu = \mu(x)$ only.} Then $\mu_y = 0$ and the condition reduces to
+\[\frac{d\mu}{dx} = \mu\,\frac{M_y - N_x}{N}.\]
+If $\frac{M_y - N_x}{N}$ depends only on $x$, this is a separable ODE for $\mu(x)$ that can be solved directly.
 \begin{example}
     Solve
     \[(3xy + y^2)\,dx + (x^2 + xy)\,dy = 0.\]
-    Identify
-    \[M(x,y) = 3xy + y^2, \qquad N(x,y) = x^2 + xy.\]
-    Test exactness:
-    \[M_y = 3x + 2y, \qquad N_x = 2x + y.\]
-    Since $M_y \ne N_x$, the equation is not exact. Therefore we seek an integrating factor $\mu(x,y)$ that makes the equation exact. Compute
-    \[\frac{M_y - N_x}{N} = \frac{(3x+2y)-(2x+y)}{x^2+xy} = \frac{x+y}{x(x+y)}
-    = \frac{1}{x}.\]
-    This depends only on $x$, so we can solve the ODE for $\mu(x)$.
-    \[\frac{d\mu}{dx} = \mu \frac{1}{x}.\]
-    Solving this not so difficult ODE, we find that $\mu(x) = x$. Going back to our original equation, multiply by $x$:
-    \[(3x^2y + xy^2)\,dx + (x^3 + x^2y)\,dy = 0.\]
-    We identify
-    \[M = 3x^2y + xy^2, \qquad N = x^3 + x^2y,\]
-    and
-    \[M_y = 3x^2 + 2xy, \qquad N_x = 3x^2 + 2xy,\]
-    so the equation is exact since $M_y = N_x$. We have to now find a potential function. Integrate $M$ with respect to $x$:
-    \[\Psi(x,y) = \int (3x^2y + xy^2)\,dx + c(y) = x^3y + \frac{x^2y^2}{2} + c(y).\]
-    Differentiate:
-    \[\Psi_y = x^3 + x^2y + c'(y).\]
-    Matching with $N$ gives $c'(y)=0$, so $c(y)=0$. Therefore the general implicit solution is
-    \[\Psi(x,y) = x^3y + \frac{x^2y^2}{2} = C.\]
+
+    Here $M_y = 3x+2y$ and $N_x = 2x+y$, so $M_y \neq N_x$. Compute:
+    \[\frac{M_y - N_x}{N} = \frac{x+y}{x(x+y)} = \frac{1}{x},\]
+    which depends only on $x$. Solving $\frac{d\mu}{dx} = \frac{\mu}{x}$ gives $\mu(x) = x$. Multiplying through by $x$:
+    \[(3x^2y+xy^2)\,dx + (x^3+x^2y)\,dy = 0.\]
+    Now $M_y = 3x^2+2xy = N_x$. \checkmark \; Integrating:
+    \[\Psi = \int(3x^2y+xy^2)\,dx = x^3y + \frac{x^2y^2}{2} + c(y).\]
+    Matching $\Psi_y = N$ gives $c'(y) = 0$, so the general solution is
+    \[x^3y + \frac{x^2y^2}{2} = C.\]
+\end{example}
+
+\subsection{Applications}
+\begin{example}[Falling Object with Air Resistance]
+    An object of mass $m$ falls under gravity with damping 
+    $\gamma > 0$. Setting $v(0) = 0$, the equation
+    \[v' + \frac{\gamma}{m}v = g\]
+    has integrating factor $\mu = e^{\frac{\gamma}{m}t}$, giving
+    \[v(t) = \frac{gm}{\gamma}\left(1 - e^{-\frac{\gamma}{m}t}
+    \right).\]
+    As $t\to\infty$, the velocity approaches the terminal value 
+    $v_\infty = \frac{gm}{\gamma}$.
+\end{example}
+\begin{example}[Mixing Problem]
+    A tank holds 100 L of brine with $y_0$ g of salt. Pure salt 
+    solution enters at 50 g/L at rate $R$ L/s, and the well-mixed 
+    solution exits at the same rate. The salt amount $y(t)$ satisfies
+    \[y' + \frac{R}{100}y = 50R, \quad y(0) = y_0.\]
+    Using integrating factor $\mu = e^{\frac{R}{100}t}$,
+    \[y(t) = 5000 + (y_0-5000)e^{-\frac{R}{100}t}.\]
+    Regardless of $y_0$, the salt amount converges to 5000 g as 
+    $t\to\infty$.
 \end{example}
 
 
-\section{Systems of Linear Equations}
+\section{Systems of Linear Equations} %Need to claud ai
 \marginpar{February 3, 2026}
 Many problems involve several unknown functions that evolve together and influence one another. Instead of a single differential equation, we therefore study systems of first-order linear ODEs. Writing the unknown functions as a vector allows us to treat the entire system using matrix algebra and apply the tools of linear algebra (matrices, eigenvalues, and fundamental matrices).
 
@@ -1729,19 +1618,6 @@ Let \eqref{eq:ode-system-matrix} hold with $A \in M_2(\mathbb{R})$ and $\det(A) 
     \end{cases}\]
 \end{solution}
 \begin{solution}[Existence and Uniqueness Theorem]
-    We have the IVP
-    \[\begin{cases}y' = \sqrt{1 + y^2} + t^2 \\ y(1) = 0\end{cases}\]
-    \begin{enumerate}
-        \item The function is simply $f(y,t) = \sqrt{1 + y^2} + t^2$.
-        \item Check the hypotheses:
-        \begin{itemize}
-            \item $f$ is continuous $\forall y \in \mathbb{R},\:t \in \mathbb{R}$ because square root of $1 + y^2$ and $t^2$ are continuous everywhere.
-            \item Check local Lipschitz in $y$: $\frac{\partial f}{\partial y} = \frac{y}{\sqrt{1 + y^2}}$, which is continuous $\forall y$, and $|\frac{y}{\sqrt{1 + y^2}}| \leq 1$. Therefore $f$ is locally (and globally, but E \& U only cares about local Lipschitz) Lipschitz in $y$ with $Lip(f) = 1$. So the hypotheses of E \& U th. are satisfied in $\mathbb{R} \times \mathbb{R}$.
-        \end{itemize}
-        \item Since $f$ is continuous and locally Lipschitz in $y$, and since $y(1) = 0$ with $0 \in \mathbb{R}$, the Existence and Uniqueness Theorem guarantees that there exists an open interval $J$ containing $t = 1$ on which a solution exists, and this solution is unique on $J$.
-    \end{enumerate}
-\end{solution}
-\begin{solution}[Existence and Uniqueness Theorem 2]
     Let $f(y,t) = t^2+y^2$. This function is continuous and has continuous partial derivatives $\forall(t,y) \in \mathbb{R}^2$, ensuring a unique local solution. To find the guaranteed interval of existence $\epsilon$, we define a rectangular domain $D$ centered at the origin:
     \[D_{\alpha,\delta} = \{(y,t) : \|y\| \leq \alpha, |t| \leq \delta\}.\]
     Now we need to bound the function. We find the maximum value $M$ of $|f(t, y)|$ on this domain:
