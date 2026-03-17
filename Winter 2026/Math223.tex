@@ -1,16 +1,16 @@
 \documentclass{article}
-\usepackage{graphicx} % Required for inserting images
-\usepackage{authblk} % Required for author affiliations
-\usepackage{indentfirst} % Indent first paragraph of sections
-\usepackage{amssymb} % For mathematical symbols
-\usepackage{amsthm} % For theorem environments
-\usepackage{amsmath} % For advanced math typesetting
+\usepackage{graphicx}
+\usepackage{authblk}
+\usepackage{indentfirst}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsmath}
 \usepackage{hyperref}
 \usepackage{enumitem}
-\usepackage{pgfplots} % For plots
-\usepackage{tikz} % For drawing shapes
+\usepackage{pgfplots}
+\usepackage{tikz}
 \usetikzlibrary{arrows.meta,calc}
-\pgfplotsset{compat=1.18} % Set compatibility level
+\pgfplotsset{compat=1.18}
 \newtheorem{theorem}{Theorem}
 \newtheorem{corollary}{Corollary}[theorem]
 \newtheorem{lemma}[theorem]{Lemma}
@@ -33,7 +33,8 @@
     colorlinks=true,
 }
 \begin{document}
-%------- Title page   -----------
+
+%------- Title page -----------
 \title{MATH 223: Linear Algebra}
 \author{William Homier}
 \affil[1]{McGill University Physics, 3600 Rue University, Montréal, QC H3A 2T8, Canada}
@@ -46,7 +47,6 @@
 \noindent\rule{\textwidth}{0.4pt}
 \thispagestyle{empty}
 \begin{abstract}
-
 \end{abstract}
 \noindent\rule{\textwidth}{0.4pt}
 \clearpage
@@ -59,12 +59,18 @@
 }
 \clearpage
 
-%------- introduction -----------
+%------- Introduction -----------
 \setcounter{page}{1}
 \section{Introduction}
 
-\section{Prerequisite knowledge}
+% ============================================================
+\section{Prerequisite Knowledge}
+% ============================================================
+
+% -----------------------------------------------------------
 \subsection{Introduction to Proof}
+% -----------------------------------------------------------
+
 \subsubsection{Direct Proof}
 The basic idea of a direct proof of $P \implies Q$ is:
 \begin{enumerate}
@@ -74,31 +80,36 @@ The basic idea of a direct proof of $P \implies Q$ is:
 \begin{example}
     An integer number $n$ is odd if and only if there exists an integer $k$ such that $n=2k+1$.
     \begin{proof}
-        Assume $a,b$ are consecutive integers, meaning $b = a + 1$. So 
-        \[a+b = a+(a+1) = 2a+1\]
+        Assume $a,b$ are consecutive integers, meaning $b = a + 1$. So
+        \[a+b = a+(a+1) = 2a+1.\]
         Thus $b$ is odd if and only if $a$ is odd.
     \end{proof}
 \end{example}
 
 \subsubsection{Proof by Contradiction}
-The idea here is that a proposition is either true or false, but not both. We get a contradiction when we can show a statement is both true and false, showing our initial assumptions are inconsistent. We use this to show $P \implies Q$ by assuming both $P$ and not $Q$ are simultaneously true and deriving a contradiction. Hopefully, we have either proved or assumed $P$ to be true so that by default, not $Q$ is false.
-
+The idea is that a proposition is either true or false, but not both. We get a contradiction when we can show a statement is both true and false, showing our initial assumptions are inconsistent. We use this to show $P \implies Q$ by assuming both $P$ and not $Q$ are simultaneously true and deriving a contradiction.
 \begin{example}
     An integer number $n$ is odd if and only if there exists an integer $k$ such that $n=2k+1$.
     \begin{proof}
-        Assume $a$ and $b$ are consecutive integers. Assume that $(a+b)$ is not odd. If $(a+b)$ is not odd, then no integer $k$ such that $(a+b)=2k+1$. But $a+b = a+(a+1)=2a+1$. Shown that $(a+b) \neq 2k+1$ but $(a+b)=2a+1$, showing a contradiction.        
+        Assume $a$ and $b$ are consecutive integers. Assume that $(a+b)$ is not odd. If $(a+b)$ is not odd, then no integer $k$ such that $(a+b)=2k+1$. But $a+b = a+(a+1)=2a+1$. We have shown that $(a+b) \neq 2k+1$ but $(a+b)=2a+1$, a contradiction.
     \end{proof}
 \end{example}
 
 \subsubsection{Proof by Contrapositive}
-The idea behind a proof by contrapositive is to prove $P \implies Q$ by treating it the other way around meaning proving not $Q \implies$ not $P$.
+The idea is to prove $P \implies Q$ by instead proving not $Q \implies$ not $P$.
 \begin{example}
     If $n^2$ is even, then $n$ is even.
     \begin{proof}
-        To prove this statement, we need to follow the proof by contrapositive, which states that we need to show if $n$ is not even, $n^2$ is not even too. Assume $n$ is odd, $\exists k_1 \in \mathbb{Z}, n = 2k_1+1$. So $n^2 = (2k_1+1)^2 = 4k_1^2+4k_1+1=2(2k_1^2+2k_1)+1$. Let $k_2 = 2k_1^2+2k_1$. So $n^2 = 2k_2 + 1$. Thus $n^2$ is odd.
+        We show the contrapositive: if $n$ is odd, then $n^2$ is odd. Assume $n$ is odd, $\exists k_1 \in \mathbb{Z}, n = 2k_1+1$. So
+        \[n^2 = (2k_1+1)^2 = 4k_1^2+4k_1+1=2(2k_1^2+2k_1)+1.\]
+        Let $k_2 = 2k_1^2+2k_1$. Then $n^2 = 2k_2 + 1$, so $n^2$ is odd.
     \end{proof}
 \end{example}
+
+% -----------------------------------------------------------
 \subsection{Notation}
+% -----------------------------------------------------------
+
 \subsubsection{Sets}
 Sets are a grouping of objects.
 \begin{center}
@@ -112,9 +123,9 @@ Sets are a grouping of objects.
         $\mathbb{C}$ & The set of all complex numbers & \(\mathbb{C} = \{x + iy\:|\:x,y \in \mathbb{R}\:and\:i \subseteq \sqrt{-1}\}\).\\
     \end{tabular}
 \end{center}
-
 We have the following relationships between sets:
-\[\mathbb{N} \subseteq \mathbb{Z} \subseteq \mathbb{Q} \subseteq \mathbb{R} \subseteq \mathbb{C}\]
+\[\mathbb{N} \subseteq \mathbb{Z} \subseteq \mathbb{Q} \subseteq \mathbb{R} \subseteq \mathbb{C}.\]
+
 \subsubsection{Symbols}
 \begin{center}
     \begin{tabular}{c|l}
@@ -128,81 +139,64 @@ We have the following relationships between sets:
         $\emptyset$ & empty set \\
         $\Rightarrow$ & implies \\
         $\Leftrightarrow$ & if and only if \\
-        $\cong$ & is isomorphic to
+        $\cong$ & is isomorphic to\footnotemark
     \end{tabular}
-\end{center}\footnote{is isomorphic to = structurally the same as...}
+\end{center}
+\footnotetext{is isomorphic to = structurally the same as.}
 
-\subsection{Familiarity with $\mathbb{R}^n$}
+\subsubsection{$\mathbb{R}^n$}
 \begin{definition}[$\mathbb{R}^n$]
-Let \(n \in \mathbb{N}\). The Cartesian product of \(n\) copies of \(\mathbb{R}\) is called \(\mathbb{R}^n\).
-\[\mathbb{R}^n = \{\begin{pmatrix}x_1\\\ldots\\x_n\end{pmatrix} : x_1, \ldots, x_n \in \mathbb{R}\}\]
+Let \(n \in \mathbb{N}\). The Cartesian product of \(n\) copies of \(\mathbb{R}\) is called \(\mathbb{R}^n\):
+\[\mathbb{R}^n = \left\{\begin{pmatrix}x_1\\\ldots\\x_n\end{pmatrix} : x_1, \ldots, x_n \in \mathbb{R}\right\}.\]
 \end{definition}
 
-\subsection{Polar Coordinates}
-\begin{definition}[Polar coordinates]
-    Instead of describing a point by \((x,y)\), we may describe it using polar coordinates \((r,\theta)\), where \(r\) is the distance to the origin and \(\theta\) is the angle with the positive \(x\)-axis.
-\end{definition}
-\begin{example}
-    Consider the point \((x,y)\), where \(x = r \cos(\theta)\:and\:y = r \sin(\theta)\). We can define \((r,\theta)\) as follows:
-    \begin{center}
-        \begin{tikzpicture}[scale=1.3]
-            \draw[->] (-1.4,0)--(1.4,0) node[right]{$x$};
-            \draw[->] (0,-1.4)--(0,1.4) node[above]{$y$};
-            \coordinate (Z) at (0.9,0.5);
-            \draw[fill] (Z) circle(0.02) node[above right] {$(x,y)$};
-            \draw (0,0) -- (Z) node[midway, above] {$r$};
-            \draw[dashed] (Z) -- (0.9,0);
-            \draw[dashed] (Z) -- (0,0.5);
-            \draw (0.4,0) arc (0:29:0.4);
-            \node at (0.45,0.12) {$\theta$};
-        \end{tikzpicture}
-    \end{center}
-\end{example}
+% -----------------------------------------------------------
+\subsection{Complex Numbers}
+% -----------------------------------------------------------
 
-\subsection{Complex Algebra}
-\subsubsection{Complex Numbers}
+\subsubsection{Definition and the Fundamental Theorem of Algebra}
 \begin{definition}[Complex Number]
     A complex number is of the form: \(z = x + iy\) where \(x,y \in \mathbb{R}\) and \(i\) is the imaginary unit \(i = \sqrt{-1}\).
 \end{definition}
 \begin{theorem}[Fundamental Theorem of Algebra]
-    The FTA states that any non-constant, single-variable polynomial\footnote{Polynomial is a function such as: \(f = a_n x^n + a_{n-1}x^{n-1} + ... + a_1 x + a_0\) where \(a_i \in \mathbb{R}\) or \(\mathbb{C}\) and \(n \in \mathbb{N}\).} with complex coefficients has at least one root in \(\mathbb{C}\).
+    The FTA states that any non-constant, single-variable polynomial\footnote{A polynomial is a function such as $f = a_n x^n + a_{n-1}x^{n-1} + \cdots + a_1 x + a_0$ where $a_i \in \mathbb{R}$ or $\mathbb{C}$ and $n \in \mathbb{N}$.} with complex coefficients has at least one root in $\mathbb{C}$.
 \end{theorem}
 \begin{remark}
-    If we have a polynomial \(f\) of degree \(n\), then it has \(n\) roots, where each root can have a multiplicity\footnote{The multiplicity of a root represents how many times the root occurs in the polynomial.}.
+    If we have a polynomial $f$ of degree $n$, then it has $n$ roots, where each root can have a multiplicity\footnote{The multiplicity of a root represents how many times the root occurs in the polynomial.}.
 \end{remark}
 \begin{example}
-    If we have a polynomial \((x-1)^2\), it has a degree of 2 but only one root, which is 1, with a multiplicity of 2.
+    $(x-1)^2$ has degree 2 but only one root, which is 1, with multiplicity 2.
 \end{example}
-We can factorize a polynomial in the form of \(f = a_n x^n + ... + a_1 x + a_0\) into a linear factor: \(f = a(x - z_1)(x - z_2)...(x - z_n)\) where \(z_i\) are the roots of \(f\) in \(\mathbb{C}\). Therefore, the FTA implies that \(f\) has a root \(f(z) = a(z-z) = 0\).
-\subsubsection{Complex Operations}
+We can factorize a polynomial $f = a_n x^n + \cdots + a_1 x + a_0$ as $f = a(x - z_1)(x - z_2)\cdots(x - z_n)$, where $z_i$ are the roots of $f$ in $\mathbb{C}$.
+
+\subsubsection{Arithmetic Operations}
 \label{subsec:CO}
-We can define operations on complex numbers as follows:
+We define the following operations on complex numbers $z = x+iy$ and $z' = x'+iy'$:
 \begin{itemize}
-    \item Addition: \(z + z' = (x + x') + i(y + y')\), where \(x,x',y,y' \in \mathbb{R}\).
-    \item Multiplication: \(zz' = (x + iy)(x' + iy') = (xx' - yy') + i(xy' + yx')\).
-    \item Inverse: \(\frac{1}{z} = \frac{\overline{z}}{z\overline{z}} = \frac{x - iy}{x^2 + y^2} = \frac{x}{x^2 + y^2} + i\frac{-y}{x^2 + y^2}\)
+    \item Addition: \(z + z' = (x + x') + i(y + y')\).
+    \item Multiplication: \(zz' = (xx' - yy') + i(xy' + yx')\).
+    \item Inverse: \(\dfrac{1}{z} = \dfrac{\overline{z}}{z\overline{z}} = \dfrac{x - iy}{x^2 + y^2} = \dfrac{x}{x^2 + y^2} + i\dfrac{-y}{x^2 + y^2}\).
 \end{itemize}
-Multiplying by a complex number \(z\) corresponds geometrically to
-\[\begin{cases}\text{a rotation by some angle } \theta,\\\text{a rescaling by the factor } |z|.\end{cases}\]
+Multiplying by a complex number $z$ corresponds geometrically to:
+\[\begin{cases}\text{a rotation by angle } \theta,\\\text{a rescaling by factor } |z|.\end{cases}\]
+
 \subsubsection{Complex Conjugate}
 \begin{definition}[Complex Conjugate]
-    A complex conjugate is a way to "flip" the imaginary part of a complex number. For example, if we have a complex number \(z = x + iy\), then the complex conjugate of \(z\) is \(\overline{z} = x - iy\).
+    For $z = x + iy$, the complex conjugate is $\overline{z} = x - iy$.
 \end{definition}
-Some basic properties of complex conjugates are:
+Basic properties:
 \begin{itemize}
-    \item \(\overline{z} = z\)
-    \item \(\overline{z + z'} = \overline{z} + \overline{z'}\)
-    \item \(\overline{z \cdot z'} = \overline{z} \cdot \overline{z'}\)
+    \item $\overline{\overline{z}} = z$
+    \item $\overline{z + z'} = \overline{z} + \overline{z'}$
+    \item $\overline{z \cdot z'} = \overline{z} \cdot \overline{z'}$
 \end{itemize}
 
+\subsubsection{Geometric Interpretation and Modulus}
 \marginpar{January 09, 2026.}
-\subsubsection{Geometric Interpretation of Complex Numbers}
 \begin{definition}[Geometric interpretation]
-    Every complex number \(z = x + iy\) can be identified with a point \((x,y)\) in the plane, called the complex plane.
+    Every complex number $z = x + iy$ is identified with a point $(x,y)$ in the complex plane:
+    \[\mathbb{C} = \{x + iy \mid x,y \in \mathbb{R}\}.\]
 \end{definition}
-We define the complex plane as:
-\[\mathbb{C} = \{x + iy \mid x,y \in \mathbb{R}\}.\]
-
 \begin{center}
     \begin{tikzpicture}[scale=1]
     \draw[->] (-2,0) -- (2,0) node[right] {$\Re$};
@@ -216,216 +210,195 @@ We define the complex plane as:
     \node[below left] at (0,0) {$0$};
     \end{tikzpicture}
 \end{center}
-We can rewrite the definition of the unit circle as follows:
-\[S' = \{(x,y) \in \mathbb{R}^2 : x^2 + y^2 = 1\} = \{ z \in \mathbb{C} : |z| = 1\},\]
-where \(S'\) is the unit circle in the complex plane.
-
-\subsubsection{Modulus}
 \begin{definition}[Modulus]
-    The modulus of a complex number \(z\) is defined by
+    The modulus of $z$ is
     \[|z| = \sqrt{z\overline{z}} = \sqrt{x^2 + y^2}.\]
-    Geometrically, \(|z|\) is the distance from the origin to the point \((x,y)\). Recall $r$ in polar coordinates, which is the same as \(|z|\).
+    Geometrically, $|z|$ is the distance from the origin to $(x,y)$.
 \end{definition}
+The unit circle in the complex plane can be written as:
+\[S^1 = \{(x,y) \in \mathbb{R}^2 : x^2 + y^2 = 1\} = \{ z \in \mathbb{C} : |z| = 1\}.\]
 
-\subsubsection{Polar Form of Complex Numbers}
+\subsubsection{Polar Coordinates and Polar Form}
+\begin{definition}[Polar coordinates]
+    Instead of $(x,y)$, a point can be described by polar coordinates $(r,\theta)$, where $r$ is the distance to the origin and $\theta$ is the angle with the positive $x$-axis.
+\end{definition}
+\begin{center}
+    \begin{tikzpicture}[scale=1.3]
+        \draw[->] (-1.4,0)--(1.4,0) node[right]{$x$};
+        \draw[->] (0,-1.4)--(0,1.4) node[above]{$y$};
+        \coordinate (Z) at (0.9,0.5);
+        \draw[fill] (Z) circle(0.02) node[above right] {$(x,y)$};
+        \draw (0,0) -- (Z) node[midway, above] {$r$};
+        \draw[dashed] (Z) -- (0.9,0);
+        \draw[dashed] (Z) -- (0,0.5);
+        \draw (0.4,0) arc (0:29:0.4);
+        \node at (0.45,0.12) {$\theta$};
+    \end{tikzpicture}
+\end{center}
+So $x = r\cos\theta$ and $y = r\sin\theta$, with $r = |z|$.
 \begin{definition}[Euler's formula]
     \begin{equation}
         \label{eq:EulerFormula}
-        e^{i\theta} = \cos\theta + i\sin\theta
+        e^{i\theta} = \cos\theta + i\sin\theta.
     \end{equation}
 \end{definition}
 \begin{definition}[Polar and exponential form]
-    If $z=x+iy$ with $r=\sqrt{x^2+y^2}$, then
-    \[x=r\cos\theta, \quad y=r\sin\theta,\]
-    so
+    If $z=x+iy$ with $r=\sqrt{x^2+y^2}$, then $x=r\cos\theta$, $y=r\sin\theta$, so
     \[z=r(\cos\theta+i\sin\theta)=re^{i\theta}.\]
 \end{definition}
 \begin{definition}[Multiplication in polar form]
-    \[z = re^{i\theta}, \quad z' = r'e^{i\theta'}, \quad zz' = rr'e^{i(\theta + \theta')}.\]
+    \[z = re^{i\theta}, \quad z' = r'e^{i\theta'} \implies zz' = rr'e^{i(\theta + \theta')}.\]
 \end{definition}
 \begin{example}
-    \[(1 + i)^{32} = (\sqrt{2}e^{i\pi/4})^{32} = (\sqrt{2})^{32} e^{i8\pi} = 2^{16}(\cos 8\pi + i \sin 8\pi) = 2^{16}.\]
+    \[(1 + i)^{32} = (\sqrt{2}\,e^{i\pi/4})^{32} = 2^{16}\,e^{i8\pi} = 2^{16}(\cos 8\pi + i \sin 8\pi) = 2^{16}.\]
 \end{example}
 
 \subsubsection{Roots in $\mathbb{C}$}
-\begin{definition}[\(n^{\text{th}}\) roots in $\mathbb{C}$]
-    For any complex number $z$, an $n^{\text{th}}$ root of $z$ is a complex number $w$ such that
-    \[w^n = z.\]
+\begin{definition}[$n^{\text{th}}$ roots]
+    For $z \in \mathbb{C}$, an $n^{\text{th}}$ root of $z$ is $w \in \mathbb{C}$ with $w^n = z$.
 \end{definition}
 \begin{example}
-    If \(z = re^{i\theta}\), then any solution of \(w^n = z\) must satisfy
-    \[w_k = r^{1/n} e^{i(\theta + 2\pi k)/n}, \quad k = 0,1,2,\dots,n-1,\]
-    where the $n^{\text{th}}$ roots of $z$ are equally spaced on a circle of radius $r^{1/n}$ centered at the origin.
+    If $z = re^{i\theta}$, the solutions of $w^n = z$ are
+    \[w_k = r^{1/n} e^{i(\theta + 2\pi k)/n}, \quad k = 0,1,\ldots,n-1.\]
+    They are equally spaced on a circle of radius $r^{1/n}$ centered at the origin.
 \end{example}
 \begin{definition}[Roots of unity]
-The \(n^{\text{th}}\) roots of unity are the solutions of a special case where $z = 1$.
+    The $n^{\text{th}}$ roots of unity are solutions of $w^n = 1$:
+    \[w_k = e^{i2\pi k/n}, \quad k = 0,1,\ldots,n-1.\]
+    They lie on the unit circle and are equally spaced.
 \end{definition}
-\begin{example}
-    If $z = 1$, then any solution of $w^n = z$ must satisfy
-    \[w_k = e^{i2\pi k/n}, \quad k = 0,1,2,\dots,n-1.\]
-    Geometrically, they lie on the unit circle and are equally spaced.
-\end{example}
 
-\subsubsection{Hermitian}
+\subsubsection{Hermitian Matrices}
 \begin{definition}[Hermitian Matrix]
-    A complex square matrix $A \in M_n(\mathbb{C})$ is called Hermitian if it is equal to its conjugate transpose:
-    \[A = A^\ast\]
-    where $A^\ast = \overline{A}^T$.
+    A matrix $A \in M_n(\mathbb{C})$ is Hermitian if $A = A^\ast$, where $A^\ast = \overline{A}^T$. Equivalently,
+    \[a_{ij} = \overline{a_{ji}} \quad \text{for all } i,j.\]
 \end{definition}
-Equivalently, a matrix $A=(a_{ij})$ is Hermitian if
-\[a_{ij} = \overline{a_{ji}} \quad \text{for all } i,j.\]
 \begin{example}
-    \[A = \begin{pmatrix}2 & 1+i \\ 1-i & 3\end{pmatrix}\]
-    is Hermitian since
-    \[A^\ast = \begin{pmatrix}2 & 1+i \\ 1-i & 3\end{pmatrix} = A.\]
+    $A = \begin{pmatrix}2 & 1+i \\ 1-i & 3\end{pmatrix}$ is Hermitian since $A^\ast = A$.
 \end{example}
 \begin{remark}
-    All eigenvalues of a Hermitian matrix are real and eigenvectors corresponding to distinct eigenvalues are orthogonal.
+    All eigenvalues of a Hermitian matrix are real, and eigenvectors corresponding to distinct eigenvalues are orthogonal.
 \end{remark}
 \begin{problem}[Hermitian Matrix]
     Let $A,B \in M_n(\mathbb{C})$. Prove that $(AB)^\ast = B^\ast A^\ast$.
 \end{problem}
 
-\subsection{Basic Algebraic structures}
+% -----------------------------------------------------------
+\subsection{Basic Algebraic Structures}
+% -----------------------------------------------------------
+
 \subsubsection{Sets with Multiplication}
 \begin{definition}[Set with multiplication]
-A set $M$ is called a set with multiplication if you can multiply any two elements of $M$, and the result is still in $M$.
-In other words, for any $a,b \in M$, the product $ab$ is also in $M$.
+    A set $M$ is a set with multiplication if for any $a,b \in M$, the product $ab \in M$.
 \end{definition}
 \begin{example}
-    An example of a set with multiplication is the set of all \(2 \times 2\) complex matrices: \(M = M_2(\mathbb{C})\). Another example is the nonzero set of all real numbers \(\mathbb{R}\) with ordinary multiplication: \(\mathbb{R}^* = \mathbb{R} \setminus \{0\}\).
-\end{example}
-\begin{example}
-Let $M = \mathbb{R}$.  
-If $a,b \in \mathbb{R}$, then $ab \in \mathbb{R}$.  
-So the real numbers $\mathbb{R}$ form a set with multiplication.
+    $M_2(\mathbb{C})$ (all $2\times 2$ complex matrices) and $\mathbb{R}^* = \mathbb{R}\setminus\{0\}$ are sets with multiplication.
 \end{example}
 
 \subsubsection{Invertibility}
-\begin{definition}[Condition for Invertibility]
-    Let \(A \in M\) be an \(n \times n\) matrix, and suppose that there exists an \(n \times n\) matrix \(B\) such that \(AB = I_n\) or \(BA = I_n\). Where \(I_n\) is the \(n \times n\) identity matrix\footnote{An identity matrix is a square matrix with 1s on its main diagonal and 0s everywhere else. It represents no change in linear transformations, and it's used in finding matrix inverses.}$\begin{bmatrix}1&0&0\\0&\ldots&0\\0&0&1\end{bmatrix}$. Then A is invertible, and \(B\) is called the inverse of \(A\) and is denoted by \(B = A^{-1}\).
+\begin{definition}[Invertibility]
+    Let $A \in M_n(k)$. If there exists $B \in M_n(k)$ with $AB = I_n$ or $BA = I_n$, then $A$ is invertible and $B = A^{-1}$. Here $I_n$ is the $n\times n$ identity matrix\footnote{The identity matrix has 1s on its diagonal and 0s elsewhere.}.
 \end{definition}
 \begin{remark}
-    If \(A\) is invertible, then \(A^{-1}\) exists and is unique\footnote{Unique means there is exactly one such element.}.
+    If $A$ is invertible, $A^{-1}$ is unique\footnote{Unique: there is exactly one such element.}.
 \end{remark}
-
-To determine if an element \(A\) in a set with multiplication \(M\) is invertible, we can use the following examples:
 \begin{example}
-    Let \(M = \mathbb{Z} = \{...-2,-1,0,1,2,...\}\) and \(A = 2\). Is \(A\) invertible in \(M\)?\\
-    Solution: No, because \(\frac{1}{2} \notin \mathbb{Z}\).
+    $2 \in \mathbb{Z}$ is \emph{not} invertible since $\tfrac{1}{2} \notin \mathbb{Z}$, but $2 \in \mathbb{R}$ is invertible since $\tfrac{1}{2} \in \mathbb{R}$.
 \end{example}
 \begin{example}
-    Let \(M = \mathbb{R}\) and \(A = 2\), is \(A\) invertible in \(M\)?\\
-    Solution: Yes, because \(\frac{1}{2} \in \mathbb{R}\).
-\end{example}
-\begin{example}
-    Is \(1 + i\) invertible in \(\mathbb{C}\)?\\
-    Solution: Yes, using our previous definition of inverse \eqref{subsec:CO}, we get that \[\frac{1}{1 + i} = \frac{1 - i}{2} \in \mathbb{C}.\]
+    $1+i \in \mathbb{C}$ is invertible: $\dfrac{1}{1+i} = \dfrac{1-i}{2} \in \mathbb{C}$ (using the formula from \eqref{subsec:CO}).
 \end{example}
 \begin{problem}[Invertibility]
-    Show that if an inverse of A in \(\mathbb{M}\) exists, then it is unique.
+    Show that if an inverse of $A$ in $M$ exists, then it is unique.
 \end{problem}
 \begin{problem}[Invertibility 2]
-    Let \(K\) be a field. Prove that this matrix $\begin{bmatrix}0&1\\0&0\end{bmatrix}$ \(\in M_2(K)\) is not invertible.
+    Let $K$ be a field. Prove that $\begin{bmatrix}0&1\\0&0\end{bmatrix} \in M_2(K)$ is not invertible.
 \end{problem}
 
-\subsubsection{Ring}
+\subsubsection{Rings}
 \begin{definition}[Ring]
     \label{def:Ring}
-    A ring is a set $R$ where you can add and multiply elements, and the following are true:
-
+    A ring is a set $R$ with addition and multiplication satisfying:
     \begin{enumerate}
-        \item You can add any two elements and stay in $R$. There is a zero, every element has a negative, and addition is commutative\footnote{Property which focuses on changing order of addition, i.e $a + b = b + a$.} and associative\footnote{Property which focuses on changing grouping of addition, i.e $a + (b + c) = (a + b) + c$.}.
-        \item You can multiply any two elements and stay in $R$. Multiplication is associative, and there is a $1$.
-        \item Multiplication distributes over addition:
-        \[a(b+c) = ab + ac \quad \text{and} \quad (a+b)c = ac + bc.\]
+        \item $(R,+)$ is a commutative\footnote{$a+b=b+a$.} and associative\footnote{$a+(b+c)=(a+b)+c$.} group with zero and additive inverses.
+        \item Multiplication is associative with identity $1$.
+        \item Distributivity: $a(b+c)=ab+ac$ and $(a+b)c=ac+bc$.
     \end{enumerate}
 \end{definition}
 \begin{example}
-    The set of integers $\mathbb{Z}$ with the usual addition and multiplication is a ring. First, $\mathbb{Z}$ is closed under addition and multiplication. If $a,b \in \mathbb{Z}$, then $a+b \in \mathbb{Z}$ and $ab \in \mathbb{Z}$. There is a zero element $0$ such that
-    \[a+0=a \quad \text{for all } a\in\mathbb{Z},\]
-    and every integer has an additive inverse since
-    \[a+(-a)=0.\]
-    Addition is commutative and associative:
-    \[a+(b+c)=(a+b)+c.\]
-    Multiplication is associative and has identity $1$:
-    \[a(bc)=(ab)c,\]
-    \[a\cdot1=a.\]
-    Finally, multiplication distributes over addition:
-    \[(a+b)c=ac+bc.\]
-    Therefore, $(\mathbb{Z},+,\cdot)$ is a ring.
+    $(\mathbb{Z},+,\cdot)$ is a ring: it is closed under addition and multiplication, has zero element and additive inverses, multiplication is associative with identity 1, and multiplication distributes over addition.
 \end{example}
 
-\subsubsection{Field}
+\subsubsection{Fields}
 \begin{definition}[Field]
-    A field is a ring \textup{\eqref{def:Ring}} in which every nonzero element has a multiplicative inverse.
+    A field is a ring \eqref{def:Ring} in which every nonzero element has a multiplicative inverse.
 \end{definition}
 \begin{example}
-    The set of rational numbers $\mathbb{Q}$ with the usual addition and multiplication is a field. First, $(\mathbb{Q},+,\cdot)$ is a ring because rational numbers are closed under addition and multiplication, addition is commutative and associative, there is a zero element $0$, and multiplication is associative with identity $1$. In addition, every nonzero element has a multiplicative inverse. If $q \in \mathbb{Q}$ and $q \neq 0$, then there exists $q^{-1}$ such that
-    \[q\cdot q^{-1}=1.\]
-    For example,
-    \[\frac{3}{5}\cdot\frac{5}{3}=1.\]
-    Therefore, $(\mathbb{Q},+,\cdot)$ is a field.
+    $(\mathbb{Q},+,\cdot)$ is a field: it is a ring, and every nonzero $q \in \mathbb{Q}$ has $q^{-1} \in \mathbb{Q}$ with $q\cdot q^{-1} = 1$.
 \end{example}
 \begin{remark}
-    The integers $\mathbb{Z}$ form a ring but not a field because most nonzero elements do not have a multiplicative inverse in $\mathbb{Z}$ (for example, there is no integer $x$ such that $2x=1$).
+    $\mathbb{Z}$ is a ring but not a field: for example, there is no integer $x$ with $2x=1$.
 \end{remark}
 
-
+% ============================================================
 \marginpar{January 09, 2026.}
 \section{Vector Spaces}
+% ============================================================
+
 \begin{definition}[Vector Space]
-    Let $k$ be a field. A vector space over $k$ (or K-vectorspace) is a set $V$ with addition and scalar multiplication which satisfies the following axioms
+    Let $k$ be a field. A vector space over $k$ is a set $V$ with addition and scalar multiplication satisfying:
     \begin{enumerate}
         \item Closure under addition: $v_1+v_2\in V$
-        \item Commutativity of addition: \(v_1 + v_2 = v_2 + v_1\)
-        \item Associativity of addition: \((v_1 + v_2) + v_3 = v_1 + (v_2 + v_3)\)
-        \item Identity Element of Addition: There exists a zero vector $0 \in V$ such that $v+0=v$
-        \item Existence of additive inverses: \(\forall v \in V, \exists -v \in V\) with \(v + (-v) = 0\)
+        \item Commutativity: $v_1 + v_2 = v_2 + v_1$
+        \item Associativity: $(v_1 + v_2) + v_3 = v_1 + (v_2 + v_3)$
+        \item Zero vector: $\exists\, 0 \in V$ with $v+0=v$
+        \item Additive inverses: $\forall v \in V,\, \exists\, {-v} \in V$ with $v+(-v)=0$
         \item Closure under scalar multiplication: $\lambda v\in V$
-        \item Compatibility of scalar multiplication with field multiplication: \(\lambda(\mu v) = (\lambda\mu)v\)
-        \item Identity element of scalar multiplication: \(1 v = v\)
-        \item Distributivity of scalar multiplication over vector addition: \(\lambda(v_1 + v_2) = \lambda v_1 + \lambda v_2\)
-        \item Distributivity of scalar multiplication over field addition: \((\lambda + \mu)v = \lambda v + \mu v\)
+        \item Compatibility: $\lambda(\mu v) = (\lambda\mu)v$
+        \item Identity: $1\cdot v = v$
+        \item Distributivity over vectors: $\lambda(v_1 + v_2) = \lambda v_1 + \lambda v_2$
+        \item Distributivity over scalars: $(\lambda + \mu)v = \lambda v + \mu v$
     \end{enumerate}
 \end{definition}
 \begin{remark}
-    We often use the term abstract vector space to emphasize that the elements of $V$ are not restricted to arrows\footnote{An arrow is a function or mapping between two sets.} or tuples\footnote{A tuple is an ordered sequence where duplicates are allowed, whereas a set is an unordered collection of unique elements.} in $\mathbb{R}^n$, but can be any objects (like functions or tensors) that satisfy the axioms.
+    We often say \emph{abstract} vector space to emphasize that elements of $V$ can be any objects (functions, tensors, matrices, etc.) satisfying these axioms — not just arrows or tuples in $\mathbb{R}^n$.
 \end{remark}
 
-\subsection{Vectors}
-\subsubsection{Vector operations}
-Vector operations are defined as follows:\\
+% -----------------------------------------------------------
+\subsection{Vectors and Linear Combinations}
+% -----------------------------------------------------------
+
+Vector operations in $\mathbb{R}^n$ are defined component-wise:
 \begin{itemize}
-    \item Addition: \(\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix} + \begin{pmatrix}y_1\\\vdots\\y_n\end{pmatrix} = \begin{pmatrix}x_1 + y_1\\\vdots\\x_n + y_n\end{pmatrix}\).
-    \item Scalar multiplication: \(\lambda \begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix} = \begin{pmatrix}\lambda x_1\\\vdots\\\lambda x_n\end{pmatrix}\), where $\lambda \in \mathbb{R}$.
+    \item Addition: $\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix} + \begin{pmatrix}y_1\\\vdots\\y_n\end{pmatrix} = \begin{pmatrix}x_1+y_1\\\vdots\\x_n+y_n\end{pmatrix}$.
+    \item Scalar multiplication: $\lambda\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix} = \begin{pmatrix}\lambda x_1\\\vdots\\\lambda x_n\end{pmatrix}$, where $\lambda \in \mathbb{R}$.
 \end{itemize}
 \begin{definition}[Linear combination]
-    A linear combination of vectors \(v_1, \ldots, v_n\) is a vector \(v\) of the form \(v = \lambda_1v_1 + \ldots + \lambda_nv_n\), where \(\lambda_1, \ldots, \lambda_n \in \mathbb{R}\).
+    A linear combination of $v_1,\ldots,v_n$ is $v = \lambda_1v_1+\cdots+\lambda_nv_n$ for scalars $\lambda_i \in k$.
 \end{definition}
 
-\subsection{Span}
+% -----------------------------------------------------------
+\subsection{Span and Standard Basis}
+% -----------------------------------------------------------
 \marginpar{January 12, 2026.}
+
+\subsubsection{Span}
 \begin{definition}[Span]
-    Let \(A \subset \mathbb{R}^n\). The span of \(A\), denoted \(\Span(A)\), is the set of all linear combinations of elements of \(A\). In particular, if \(A=\{v_1,\ldots,v_k\}\) (where \(k\) is the number of vectors in the set), then
+    Let $A \subset \mathbb{R}^n$. The span of $A$ is the set of all linear combinations of elements of $A$. If $A=\{v_1,\ldots,v_k\}$, then
     \[\Span(A) = \{\lambda_1 v_1+\cdots+\lambda_k v_k : \lambda_i \in \mathbb{R}\}.\]
 \end{definition}
-When working in \(\mathbb{R}^n\), the span describes all points you can reach by scaling and adding the given vectors. Depending on the vectors, the span can be a line (if the vectors are dependent), a plane, or a higher-dimensional subspace.
+The span describes all points reachable by scaling and adding the given vectors: it can be a line, plane, or higher-dimensional subspace depending on the vectors.
 \begin{remark}
-    If \(A=\{v\}\subset \mathbb{R}^2\) with \(v\neq 0\), then
-    \[\Span(v)=\{\lambda v : \lambda \in \mathbb{R}\}.\]
-    This set consists of all scalar multiples of \(v\), which form a line in the direction of \(v\). In particular, taking \(\lambda=0\) gives \(0\in\Span(v)\), so the line passes through the origin.
+    If $A=\{v\}\subset \mathbb{R}^2$ with $v\neq 0$, then $\Span(v) = \{\lambda v : \lambda \in \mathbb{R}\}$ is the line through the origin in the direction of $v$.
 \end{remark}
-
 \begin{example}
-    Let \(A = \begin{pmatrix}1\\1\end{pmatrix}\). Then $\Span(A) = \left\{ t\begin{pmatrix}1\\1\end{pmatrix} \mid t \in \mathbb{R} \right\},$ which is a line in \(\mathbb{R}^2\).
+    $\Span\!\begin{pmatrix}1\\1\end{pmatrix} = \left\{t\begin{pmatrix}1\\1\end{pmatrix}\mid t \in \mathbb{R}\right\}$ is a line in $\mathbb{R}^2$.
 \end{example}
 \begin{problem}[Span]
-    Let \(v_1 = \begin{pmatrix}3\\1\end{pmatrix}\), \(v_2 = \begin{pmatrix}1\\3\end{pmatrix}\). Find $\Span(v_1,v_2)$.
+    Let $v_1 = \begin{pmatrix}3\\1\end{pmatrix}$, $v_2 = \begin{pmatrix}1\\3\end{pmatrix}$. Find $\Span(v_1,v_2)$.
 \end{problem}
-Span is a generalization of lines in \(\mathbb{R}^2\). For example, let $v_1$ and $v_2$ be two linearly independent vectors in \(\mathbb{R}^2\).
-Any vector in \(\Span(v_1,v_2)\) has the form \(\lambda_1 v_1+\lambda_2 v_2\). Geometrically, this can be illustrated as the
-sum of two scaled vectors.
+
+For two linearly independent vectors $v_1, v_2 \in \mathbb{R}^2$, any vector in $\Span(v_1,v_2)$ has the form $\lambda_1 v_1 + \lambda_2 v_2$:
 \begin{center}
     \begin{tikzpicture}[scale=1, >=Stealth]
         \draw[->] (-0.5,0) -- (5,0);
@@ -439,7 +412,7 @@ sum of two scaled vectors.
         \draw[->, thick] (0,0) -- ($(v1)+(v2)$) node[above right] {$\lambda_1 v_1+\lambda_2 v_2\in \Span(v_1,v_2)$};
     \end{tikzpicture}
 \end{center}
-Furthermore, if \(v_1,v_2\) are linearly dependent such that $v_1 = \lambda v_2$, where $\lambda \in \mathbb{R}$ and $\lambda \neq 0$, then \(\Span(v_1,v_2)\) is a line in \(\mathbb{R}^2\) and $span(v_1) = span(v_2)$. Geometrically, this is a straight line through the origin in the direction of \(v_1\) (and \(v_2\)).
+If $v_1$ and $v_2$ are linearly dependent ($v_1 = \lambda v_2$), then $\Span(v_1,v_2)$ is just a line:
 \begin{center}
     \begin{tikzpicture}[scale=1.1, >=Stealth]
         \draw[->] (-3,0) -- (3,0);
@@ -450,281 +423,168 @@ Furthermore, if \(v_1,v_2\) are linearly dependent such that $v_1 = \lambda v_2$
     \end{tikzpicture}
 \end{center}
 \begin{problem}[Span 2]
-    Determine whether or not the first vector is in the span of the others. If so, write it as a linear combination of the other.
-    \[u = (2, 10, 7, 0), u_1 = (3, 10, 7, 0), u_2 = (1, 3, -2, 0), u_3 =(2, 8, 1, 0); \quad u, u_1, u_2, u_3 \in \mathbb{R}^4.\]
+    Determine whether the first vector is in the span of the others. If so, write it as a linear combination.
+    \[u = (2,10,7,0),\quad u_1 = (3,10,7,0),\quad u_2 = (1,3,-2,0),\quad u_3 = (2,8,1,0);\quad u,u_i \in \mathbb{R}^4.\]
 \end{problem}
 
-\subsubsection{Span in \(\mathbb{C}^n\)}
-\begin{definition}[Span in $\mathbb{C}^n$]
-    The span over \(\mathbb{C}\) of vectors \(v_1,\ldots,v_n \in \mathbb{C}^n\) is
+\subsubsection{Span in $\mathbb{C}^n$}
+\begin{definition}[Span over $\mathbb{C}$]
     \[\Span_{\mathbb{C}}(v_1,\ldots,v_n) = \{\lambda_1 v_1 + \cdots + \lambda_n v_n : \lambda_i \in \mathbb{C}\}.\]
 \end{definition}
 \begin{example}
-    Let
-    \[v_1=\begin{pmatrix}1\\0\end{pmatrix}, \quad v_2=\begin{pmatrix}0\\i\end{pmatrix} \in \mathbb{C}^2.\]
-    Find $\Span_{\mathbb{C}}(v_1,v_2)$. For \(\lambda_1,\lambda_2 \in \mathbb{C}\),
-    \[\lambda_1 v_1+\lambda_2 v_2 = \lambda_1\begin{pmatrix}1\\0\end{pmatrix} + \lambda_2\begin{pmatrix}0\\i\end{pmatrix} = \begin{pmatrix}\lambda_1\\ i\lambda_2\end{pmatrix}.\]
-    Since \(\lambda_1\) is arbitrary and \(i\lambda_2\) can represent any complex number, every vector in \(\mathbb{C}^2\) can be written in this form. Hence
-    \[\Span_{\mathbb{C}}(v_1,v_2) = \mathbb{C}^2.\]
+    Let $v_1=\begin{pmatrix}1\\0\end{pmatrix}$, $v_2=\begin{pmatrix}0\\i\end{pmatrix} \in \mathbb{C}^2$. Then $\lambda_1v_1+\lambda_2v_2 = \begin{pmatrix}\lambda_1\\i\lambda_2\end{pmatrix}$. Since $\lambda_1$ and $i\lambda_2$ can be any complex number, $\Span_{\mathbb{C}}(v_1,v_2) = \mathbb{C}^2$.
 \end{example}
 
-\subsection{Standard Basis}
-\begin{definition}[Standard basis of \(\mathbb{R}^n\)]
-    The standard basis of \(\mathbb{R}^n\) is the set \(\{e_1,\ldots,e_n\}\), where each vector \(e_i\) has a \(1\) in the \(i\)-th coordinate and \(0\) in all other coordinates:
-    \[e_1=\begin{pmatrix}1\\0\\\vdots\\0\end{pmatrix},\;e_2=\begin{pmatrix}0\\1\\\vdots\\0\end{pmatrix},\;\ldots,\;e_n=\begin{pmatrix}0\\0\\\vdots\\1\end{pmatrix}.\]
-    Equivalently, the vectors \(e_1,\ldots,e_n\) are the columns of the \(n \times n\) identity matrix $I_n$.
+\subsubsection{Standard Basis}
+\begin{definition}[Standard basis of $\mathbb{R}^n$]
+    The standard basis is $\{e_1,\ldots,e_n\}$, where $e_i$ has a 1 in the $i$-th coordinate and 0 elsewhere:
+    \[e_1=\begin{pmatrix}1\\0\\\vdots\\0\end{pmatrix},\quad e_2=\begin{pmatrix}0\\1\\\vdots\\0\end{pmatrix},\quad\ldots,\quad e_n=\begin{pmatrix}0\\0\\\vdots\\1\end{pmatrix}.\]
+    Equivalently, $e_1,\ldots,e_n$ are the columns of $I_n$.
 \end{definition}
 \begin{proposition}
-    Every vector \(x=\begin{pmatrix}x_1\\ \vdots \\ x_n\end{pmatrix}\in\mathbb{R}^n\) can be written uniquely as $x = x_1 e_1 + \cdots + x_n e_n.$
+    Every $x\in\mathbb{R}^n$ can be written uniquely as $x = x_1e_1+\cdots+x_ne_n$.\footnote{To verify the standard basis is indeed a basis, see Appendix \eqref{subsec:SB}.}
 \end{proposition}
-\begin{remark}
-    To verify that the standard basis of \(\mathbb{R}^n\) is indeed a basis of \(\mathbb{R}^n\), we must check two properties: it spans \(\mathbb{R}^n\) and it is linearly independent.\footnote{To prove the standard basis is a basis, please refer to the Appendix \eqref{subsec:SB}.}
-\end{remark}
 
-The standard basis also helps clarify the difference between real and complex vector spaces. In particular, the same vectors can generate very different spans depending on whether the scalars are real or complex.
-\begin{example}[Real vs complex span of the same vectors]
-    Let
-    \[e_1=\begin{pmatrix}1\\0\end{pmatrix},\quad
-    e_2=\begin{pmatrix}0\\1\end{pmatrix}.\]
-    \textbf{Over \(\mathbb{C}\):}
-    Using complex scalars, any vector in \(\mathbb{C}^2\) can be written as
-    \[\lambda_1 e_1 + \lambda_2 e_2 = \begin{pmatrix}\lambda_1 \\ \lambda_2\end{pmatrix}, \quad \lambda_1,\lambda_2 \in \mathbb{C}.\]
-    Thus \(\Span_{\mathbb{C}}(e_1,e_2) = \mathbb{C}^2\), and only 2 vectors are needed:
-    \[\dim_{\mathbb{C}} \mathbb{C}^2 = 2.\]
-    \textbf{Over \(\mathbb{R}\):}  
-    Now only real scalars are allowed. Then
-    \[a_1 e_1 + a_2 e_2 = \begin{pmatrix}a_1 \\ a_2\end{pmatrix}, \quad a_1,a_2 \in \mathbb{R}.\]
-    Thus $\Span_{\mathbb{R}}(e_1,e_2) = \mathbb{R}^2$, and only 2 vectors are needed: $\dim_{\mathbb{R}} \mathbb{R}^2 = 2$.\\
-    However, the standard basis of \(\mathbb{R}^2\) is not enough to span \(\mathbb{C}^2\), since it cannot produce vectors with imaginary parts. To span all of \(\mathbb{C}^2\) over \(\mathbb{R}\), we also need
-    \[i e_1 = \begin{pmatrix}i\\0\end{pmatrix}, \quad i e_2 = \begin{pmatrix}0\\i\end{pmatrix}.\]
-    Now any vector in \(\mathbb{C}^2\) can be expressed as a real linear combination of the 4 vectors
-    \[ae_1 + be_2 + c(i e_1) + d(i e_2) = \begin{pmatrix}a+ci\\b+di\end{pmatrix}, \quad a,b,c,d\in\mathbb{R}.\]
-    Thus $\Span_{\mathbb{R}}(e_1,e_2,i e_1,i e_2) = \mathbb{C}^2$ and therefore
-    \[\dim_{\mathbb{R}} \mathbb{C}^2 = 4.\]
+The standard basis also clarifies the difference between real and complex vector spaces — the same vectors generate very different spans depending on the scalar field.
+\begin{example}[Real vs complex span]
+    Using $e_1,e_2$ in $\mathbb{C}^2$: over $\mathbb{C}$, $\Span_{\mathbb{C}}(e_1,e_2) = \mathbb{C}^2$ with $\dim_{\mathbb{C}}\mathbb{C}^2 = 2$. Over $\mathbb{R}$, $e_1,e_2$ cannot produce vectors with imaginary parts. To span $\mathbb{C}^2$ over $\mathbb{R}$, we also need $ie_1, ie_2$, giving
+    \[\dim_{\mathbb{R}}\mathbb{C}^2 = 4.\]
 \end{example}
 
-\subsection{Coordinate Spaces}
+% -----------------------------------------------------------
+\subsection{Examples of Vector Spaces}
+% -----------------------------------------------------------
 \marginpar{14 January, 2026}
-\begin{definition}[Coordinate Spaces]
-    A coordinate space of dimension \(n\) over a field \(k\) (\(k=\mathbb{R}\) or \(k=\mathbb{C}\)) is defined as
-    \[k^n = \left\{\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix} \mid x_i \in k\right\}.\]
-    The standard basis for a coordinate space is $\{e_1,\ldots,e_n\}$, where
-    \[e_1=\begin{pmatrix}1\\0\\\vdots\\0\end{pmatrix}, \ \ldots \ , e_n=\begin{pmatrix}0\\\vdots\\0\\1\end{pmatrix}.\]
-    The dimension of \(k^n\) is $\dim{k^n} = n$.
+
+\subsubsection{Coordinate Spaces}
+\begin{definition}[Coordinate space]
+    \[k^n = \left\{\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix} \mid x_i \in k\right\}, \quad \dim k^n = n.\]
+    Standard basis: $\{e_1,\ldots,e_n\}$.
 \end{definition}
 
-\subsection{Polynomial Spaces}
-\begin{definition}[Polynomial Spaces]
-    A polynomial space of degree at most \(n\) over a field \(k\) is
-    \[P_n(k) = \{ a_n x^n + \cdots + a_1 x + a_0 \mid a_i \in k \},\]
-    which forms a vector space over \(k\) with standard basis $\{1, x, x^2, \ldots, x^n\}$. Under the identification \(P_n(k)\cong k^{n+1}\), these basis elements have coordinate vectors
-    \[1 \leftrightarrow \begin{pmatrix}1\\0\\\vdots\\0\end{pmatrix},\quad x \leftrightarrow \begin{pmatrix}0\\1\\\vdots\\0\end{pmatrix},\quad \ldots,\quad x^n \leftrightarrow \begin{pmatrix}0\\\vdots\\0\\1\end{pmatrix}.\]
-    The dimension of \(P_n(k)\) is $\dim{P_n(k)} = n+1$.
+\subsubsection{Polynomial Spaces}
+\begin{definition}[Polynomial space]
+    \[P_n(k) = \{a_nx^n+\cdots+a_1x+a_0 \mid a_i \in k\}, \quad \dim P_n(k) = n+1.\]
+    Standard basis: $\{1,x,x^2,\ldots,x^n\}$, with $P_n(k)\cong k^{n+1}$.
 \end{definition}
 \begin{example}
-    Examples of polynomials in these spaces are
-    \[1 + x^2 \in P_2(\mathbb{R}), \qquad 1 + i x^3 \in P_3(\mathbb{C}).\]
-    In each case the degree of the polynomial satisfies \(\deg(f)\le n\).
+    $1+x^2 \in P_2(\mathbb{R})$, $1+ix^3 \in P_3(\mathbb{C})$.
 \end{example}
 \begin{remark}
-    All polynomials over \(k\) form the space
-    \[P_\infty(k)=\{a_nx^n+\cdots+a_1x+a_0 : a_i\in k,\ n\ge0\},\]
-    which is an infinite-dimensional vector space over \(k\).
-\end{remark}
-\begin{remark}
-    The polynomial spaces form a nested sequence
-    \[P_0(k) \subseteq P_1(k) \subseteq P_2(k) \subseteq \cdots \subseteq P_\infty(k).\]
+    The space of all polynomials $P_\infty(k) = \{a_0+a_1x+\cdots : a_i \in k\}$ is infinite-dimensional, and the spaces form a nested sequence
+    \[P_0(k) \subseteq P_1(k) \subseteq \cdots \subseteq P_\infty(k).\]
 \end{remark}
 
-\subsection{Matrix Spaces}
-\begin{definition}[Matrix Spaces]
-    The set of all \(n \times n\) matrices over a field \(k\) is
-    \[M_n(k) = \left\{ \begin{pmatrix}
-    a_{11} & \cdots & a_{1n} \\
-    \vdots & \ddots & \vdots \\
-    a_{n1} & \cdots & a_{nn}
-    \end{pmatrix} \mid a_{ij} \in k \right\},\]
-    which forms a vector space over \(k\).
-    A standard basis for \(M_n(k)\) is the set of matrices \(\{e_{ij} : 1 \le i,j \le n\}\), where \(e_{ij}\) has a 1 in the \((i,j)\)-th entry and 0 elsewhere. For example,
-    \[e_{11}=\begin{pmatrix}1 & 0 & \cdots & 0\\0 & 0 & \cdots & 0\\\vdots & \vdots & \ddots & \vdots\\0 & 0 & \cdots & 0\end{pmatrix},\quad e_{12}=\begin{pmatrix}0 & 1 & \cdots & 0\\0 & 0 & \cdots & 0\\\vdots & \vdots & \ddots & \vdots\\0 & 0 & \cdots & 0\end{pmatrix},\quad e_{21}=\begin{pmatrix}0 & 0 & \cdots & 0\\1 & 0 & \cdots & 0\\\vdots & \vdots & \ddots & \vdots\\0 & 0 & \cdots & 0\end{pmatrix}.\]
-    The dimension of \(M_n(k)\) is \(\dim M_n(k)=n^2\).
+\subsubsection{Matrix Spaces}
+\begin{definition}[Matrix space]
+    \[M_n(k) = \left\{\begin{pmatrix}a_{11}&\cdots&a_{1n}\\\vdots&\ddots&\vdots\\a_{n1}&\cdots&a_{nn}\end{pmatrix}\mid a_{ij}\in k\right\}, \quad \dim M_n(k) = n^2.\]
+    Standard basis: $\{e_{ij} : 1\le i,j\le n\}$, where $e_{ij}$ has a 1 in the $(i,j)$-th entry and 0 elsewhere.
 \end{definition}
-\begin{example}[Matrix Spaces]
-    For \(M_2(\mathbb{R})\),
-    \[\begin{pmatrix}1 & 2 \\ 3 & 4\end{pmatrix} = 1\begin{pmatrix}1 & 0 \\ 0 & 0\end{pmatrix} + 2\begin{pmatrix}0 & 1 \\ 0 & 0\end{pmatrix} + 3\begin{pmatrix}0 & 0 \\ 1 & 0\end{pmatrix} + 4\begin{pmatrix}0 & 0 \\ 0 & 1\end{pmatrix} = 1 e_{11} + 2 e_{12} + 3 e_{21} + 4 e_{22}.\]
+\begin{example}
+    In $M_2(\mathbb{R})$: $\begin{pmatrix}1&2\\3&4\end{pmatrix} = 1e_{11}+2e_{12}+3e_{21}+4e_{22}$.
 \end{example}
 
-\subsection{Function Spaces}
+\subsubsection{Function Spaces}
 \marginpar{16 January, 2026}
-\begin{definition}[Function spaces]
+\begin{definition}[Function space]
     Let $D$ be a set and $k$ a field. Define
-    \[F(D,k) = \{ f : D \to k \}.\]
-    With pointwise operations
-    \[(f+g)(x) = f(x)+g(x), \quad (\lambda f)(x) = \lambda f(x),\]
-    $F(D,k)$ is a vector space over $k$.
+    \[F(D,k) = \{f : D \to k\},\]
+    with pointwise operations $(f+g)(x)=f(x)+g(x)$ and $(\lambda f)(x)=\lambda f(x)$. This is a vector space over $k$.
 \end{definition}
-A function \(f \in F(D,k)\) is completely determined by its values on \(D\). If \(D=\{1,\dots,n\}\), this gives \(n\) numbers \(f(1),\dots,f(n)\). To construct a basis, we introduce functions that isolate each of these values.
-\paragraph{1. Finite case}
-Assume $D = \{1,\dots,n\}$. For each $i \in D$, define the Kronecker delta function
-\[\delta_i(j) = \begin{cases}1, & i=j,\\0, & i \ne j.\end{cases}\]
-Then $\{\delta_1,\dots,\delta_n\}$ is a basis of $F(D,k)$. Moreover, every $f \in F(D,k)$ can be written uniquely as
-\[f = \sum_{i=1}^n f(i)\,\delta_i.\]
-Indeed, evaluating at $j$ gives
-\[\sum_{i=1}^n f(i)\delta_i(j) = f(j),\]
-since \(\delta_i(j)=0\) unless \(i=j\). Hence the functions span, and linear independence follows by evaluating a linear relation at each point of \(D\). Therefore
-\[\dim F(D,k)=n.\]
-\paragraph{2. Infinite case}
-If $D$ is infinite, $F(D,k)$ has no finite basis.  
-The family $\{\delta_x : x \in D\}$ is linearly independent but does not span $F(D,k)$.
-\begin{example}[Vector space of functions]
-    Let $D = \{1,2,3\}$ and $k = \mathbb{R}$. Consider the vector space $F(D,\mathbb{R}) = \{ f : D \to \mathbb{R} \}$. Find a basis of $F(D,\mathbb{R})$ and express $f(1)=2, f(2)=-1, f(3)=3$ as a linear combination of the basis functions.\\
-    1. Define the standard (Kronecker delta) functions: 
-    \[\delta_1(j) = \begin{cases}1,& j=1\\0,& j\ne 1\end{cases}, \quad \delta_2(j) = \begin{cases}1,& j=2\\0,& j\ne 2\end{cases}, \quad \delta_3(j) = \begin{cases}1,& j=3\\0,& j\ne 3\end{cases}.\]
-    Then $\{\delta_1,\delta_2,\delta_3\}$ is a basis of $F(D,\mathbb{R})$.\\
-    2. Write $f$ as a linear combination:
-    \[f = f(1)\delta_1 + f(2)\delta_2 + f(3)\delta_3 = 2\delta_1 - 1\delta_2 + 3\delta_3.\]
-    3. Evaluating at each point:
-    \[f(1) = 2\cdot 1 + (-1)\cdot 0 + 3\cdot 0 = 2, \quad f(2) = 2\cdot 0 + (-1)\cdot 1 + 3\cdot 0 = -1,\]
-    \[\quad f(3) = 2\cdot 0 + (-1)\cdot 0 + 3\cdot 1 = 3.\]
-    Hence the decomposition is correct.
+
+\paragraph{Finite case.} If $D=\{1,\ldots,n\}$, define the Kronecker delta functions
+\[\delta_i(j) = \begin{cases}1, & i=j,\\ 0, & i\ne j.\end{cases}\]
+Then $\{\delta_1,\ldots,\delta_n\}$ is a basis of $F(D,k)$ and every $f$ can be written uniquely as $f = \sum_{i=1}^n f(i)\,\delta_i$. Hence $\dim F(D,k) = n$.
+
+\paragraph{Infinite case.} If $D$ is infinite, $F(D,k)$ has no finite basis; $\{\delta_x : x\in D\}$ is linearly independent but does not span.
+
+\begin{example}
+    Let $D=\{1,2,3\}$, $k=\mathbb{R}$, and $f$ with $f(1)=2$, $f(2)=-1$, $f(3)=3$. The standard basis is $\{\delta_1,\delta_2,\delta_3\}$ and $f = 2\delta_1 - \delta_2 + 3\delta_3$.
 \end{example}
 
+% -----------------------------------------------------------
 \subsection{Subspaces}
+% -----------------------------------------------------------
 \marginpar{January 19, 2026}
+
+\subsubsection{Definition and the Subspace Criterion}
 \begin{definition}[Subspace]
-    A subspace is a subset of a larger vector space that is itself a vector space. A subspace of $V$ is a subset $U$ of $V$ which is a vector space (over the same field $k$) with respect to the operations of addition and scalar multiplication induced from $V$.
+    A subspace of $V$ is a subset $U \subseteq V$ that is itself a vector space over the same field $k$.
 \end{definition}
 \begin{proposition}[Subspace criterion]
-    Let $V$ be a vector space over a field $k$ and let $U \subseteq V$. Then $U$ is a vector subspace of $V$ if and only if:
+    $U \subseteq V$ is a subspace if and only if:
     \begin{enumerate}
-    \item $0 \in U$,
-    \item $u,v \in U \Rightarrow u+v \in U$,
-    \item $u \in U,\ \lambda \in k \Rightarrow \lambda u \in U$.
+        \item $0 \in U$,
+        \item $u,v \in U \Rightarrow u+v \in U$,
+        \item $u \in U,\,\lambda \in k \Rightarrow \lambda u \in U$.
     \end{enumerate}
 \end{proposition}
 \begin{problem}[Subspace criterion]
-    Let $A \in M_n(k)$ be a fixed matrix. Prove that
-    \[U = \{Ax = \vec{0} \mid x \in k^n\}\]
-    is a subspace, null space or kernel.
+    Let $A \in M_n(k)$. Prove that $U = \{x \in k^n : Ax = \vec{0}\}$ is a subspace (the null space or kernel of $A$).
 \end{problem}
 \begin{problem}[Subspace criterion 2]
-    Let $A \in M_n(k)$. Show that
-    \[U = \{Ax \mid x \in K^n\}\]
-    is a subspace of $k^n$. The set $U$ is called the image (or range) of $A$.
+    Let $A \in M_n(k)$. Show that $U = \{Ax \mid x \in k^n\}$ is a subspace of $k^n$ (the image of $A$).
 \end{problem}
 \begin{problem}[Subspace criterion 3]
-    Let $V = k$, viewed as a vector space over $k$. Show that the only subspaces of $V$ are $\{0\}$ and $V$ itself.
+    Let $V = k$, viewed as a vector space over $k$. Show that the only subspaces are $\{0\}$ and $V$ itself.
 \end{problem}
 \begin{problem}[Subspace criterion 4]
-Let $V$ be a vector space over $k$ and let $v_1,\dots,v_n \in V$. Show that
-\[\Span(v_1,\dots,v_n) = \{\lambda_1 v_1 + \cdots + \lambda_n v_n \mid \lambda_1,\dots,\lambda_n \in k\}\]
-is a subspace of $V$.
+    Let $v_1,\ldots,v_n \in V$. Show that $\Span(v_1,\ldots,v_n)$ is a subspace of $V$.
 \end{problem}
 
+\subsubsection{Membership in a Span}
 \marginpar{January 21, 2026}
-\subsubsection{Membership in a span}
 \begin{problem}[Span membership]
-    Let
-    \[v=\begin{pmatrix}3\\5\\-5\end{pmatrix},\quad v_1=\begin{pmatrix}1\\2\\1\end{pmatrix},\; v_2=\begin{pmatrix}2\\5\\4\end{pmatrix},\;
-    v_3=\begin{pmatrix}1\\3\\6\end{pmatrix}.\]
-    Decide whether $v \in \Span(v_1,v_2,v_3)$.
+    Let $v=\begin{pmatrix}3\\5\\-5\end{pmatrix}$, $v_1=\begin{pmatrix}1\\2\\1\end{pmatrix}$, $v_2=\begin{pmatrix}2\\5\\4\end{pmatrix}$, $v_3=\begin{pmatrix}1\\3\\6\end{pmatrix}$. Decide whether $v \in \Span(v_1,v_2,v_3)$.
 \end{problem}
 \begin{problem}[Span membership 2]
-    Let
-    \[f = 3x^2 + 5x - 5,\quad f_1 = x^2 + 2x + 1,\; f_2 = 2x^2 + 5x + 4,\; f_3 = x^2 + 3x + 6.\]
-    Decide whether $f \in \Span(f_1,f_2,f_3)$.
+    Let $f=3x^2+5x-5$, $f_1=x^2+2x+1$, $f_2=2x^2+5x+4$, $f_3=x^2+3x+6$. Decide whether $f \in \Span(f_1,f_2,f_3)$.
 \end{problem}
 
-\subsubsection{Operations on subspaces}
+\subsubsection{Operations on Subspaces}
 Let $W$ be a vector space and $U,V \subseteq W$ subspaces.
 \begin{definition}[Intersection]
     \[U \cap V = \{w \in W \mid w \in U \text{ and } w \in V\}.\]
-    The intersection of subspaces is a subspace. In particular, the smallest possible intersection is $\{0\}$.
+    The intersection of subspaces is a subspace; the smallest possible is $\{0\}$.
 \end{definition}
 \begin{definition}[Union]
-    \[U \cup V = \{ w \in W \mid w \in U \text{ or } w \in V \}.\]
-    The union of subspaces is not necessarily a subspace.
+    \[U \cup V = \{w \in W \mid w \in U \text{ or } w \in V\}.\]
+    The union of subspaces is \emph{not} necessarily a subspace.
 \end{definition}
 \begin{proposition}
-    In general, $U \cup V$ is a subspace of $W$ only if one subspace is contained in the other, i.e., $U \subseteq V$ or $V \subseteq U$.
+    $U \cup V$ is a subspace of $W$ if and only if $U \subseteq V$ or $V \subseteq U$.
 \end{proposition}
 \begin{proof}
-    First assume \(U \subseteq V\). Then
-    \[U \cup V = V,\]
-    which is a subspace of \(W\). Similarly, if \(V \subseteq U\), then
-    \[U \cup V = U,\]
-    which is also a subspace. Conversely, suppose neither \(U \subseteq V\) nor \(V \subseteq U\). Then there exist \(u \in U\) with \(u \notin V\), and \(v \in V\) with \(v \notin U\).
-    Thus \(u,v \in U \cup V\). If \(U \cup V\) were a subspace, it would be closed under addition, so
-    \[u+v \in U \cup V.\]
-    If \(u+v \in U\), then since \(U\) is a subspace and \(u \in U\),
-    \[v = (u+v) - u \in U,\]
-    a contradiction. If \(u+v \in V\), then since \(V\) is a subspace and \(v \in V\),
-    \[u = (u+v) - v \in V,\]
-    also a contradiction. Therefore \(u+v \notin U \cup V\), so \(U \cup V\) is not closed under addition. Hence \(U \cup V\) is not a subspace if neither \(U \subseteq V\) nor \(V \subseteq U\).
+    If $U \subseteq V$, then $U \cup V = V$, a subspace. Conversely, if neither contains the other, pick $u \in U\setminus V$ and $v \in V\setminus U$. If $U \cup V$ were a subspace, $u+v \in U\cup V$. If $u+v \in U$, then $v = (u+v)-u \in U$, a contradiction. If $u+v \in V$, then $u = (u+v)-v \in V$, also a contradiction.
 \end{proof}
 \begin{definition}[Sum of subspaces]
-    \[U + V = \{u+v \mid u \in U,\, v \in V\}.\]
+    \[U + V = \{u+v \mid u \in U,\,v \in V\}.\]
 \end{definition}
 \begin{proposition}
     If $U$ and $V$ are subspaces of $W$, then $U+V$ is a subspace of $W$.
 \end{proposition}
 \begin{proof}
-    We apply the subspace criterion.
-    \begin{enumerate}
-        \item Since $0 \in U$ and $0 \in V$, we have $0 = 0+0 \in U+V$.
-        \item Let $w_1,w_2 \in U+V$. Then
-        \[w_1=u_1+v_1,\quad w_2=u_2+v_2,\]
-        with $u_1,u_2 \in U$ and $v_1,v_2 \in V$. Hence
-        \[w_1+w_2=(u_1+u_2)+(v_1+v_2) \in U+V.\]
-        \item Let $w \in U+V$ and $\lambda \in K$. Then $w=u+v$ and
-        \[\lambda w=\lambda u+\lambda v \in U+V.\]
-    \end{enumerate}
+    Apply the subspace criterion: $0=0+0\in U+V$; if $w_1=u_1+v_1$ and $w_2=u_2+v_2$ then $w_1+w_2=(u_1+u_2)+(v_1+v_2)\in U+V$; for $\lambda\in K$, $\lambda w=\lambda u+\lambda v\in U+V$.
 \end{proof}
 \begin{proposition}
-    \[U + V = \Span(U \cup V).\]
-    Equivalently, $U+V$ is the smallest subspace of $W$ containing both $U$ and $V$.
+    $U+V = \Span(U\cup V)$, i.e., $U+V$ is the smallest subspace containing both $U$ and $V$.
 \end{proposition}
 \begin{proof}
-    ($\subseteq$): Let $w \in U+V$. Then $w=u+v$ with $u \in U$, $v \in V$. Since $u,v \in U \cup V$, we have $w \in \Span(U \cup V)$.
-
-    ($\supseteq$): Let $w \in \Span(U \cup V)$. Then
-    \[w = a_1u_1 + \cdots + a_nu_n + b_1v_1 + \cdots + b_mv_m\]
-    with $u_i \in U$, $v_j \in V$. Grouping terms,
-    \[w = (a_1u_1 + \cdots + a_nu_n) + (b_1v_1 + \cdots + b_mv_m),\]
-    so $w \in U+V$.
+    ($\subseteq$): Any $u+v \in U+V$ with $u,v\in U\cup V$ lies in $\Span(U\cup V)$.\\
+    ($\supseteq$): Any $w\in\Span(U\cup V)$ can be grouped as a sum of a $U$-part and a $V$-part, so $w\in U+V$.
 \end{proof}
 
-\subsection{Direct sums}
+\subsubsection{Direct Sums}
 \marginpar{January 23, 2026}
-Let $W$ be a vector space and $U,V \subseteq W$ be subspaces.
 \begin{definition}[Direct sum]
-    We say that $U$ and $V$ are in direct sum if
-    \[U \cap V = \{0\}.\]
-    In this case, their sum
-    \[U+V=\{u+v \mid u \in U,\; v \in V\}\]
-    is denoted by $U \oplus V$.
-    We write
-    \[W = U \oplus V \iff \begin{cases}W = U+V,\\U \cap V = \{0\}.\end{cases}\]
+    We say $U$ and $V$ are in direct sum if $U\cap V = \{0\}$, and write $U\oplus V$ for their sum. We write
+    \[W = U\oplus V \iff \begin{cases}W = U+V,\\ U\cap V = \{0\}.\end{cases}\]
 \end{definition}
 \begin{proof}
-    Assume \(W = U \oplus V\). Then \(W = U+V\) and \(U \cap V = \{0\}\). First, since \(W = U+V\), every \(w \in W\) can be written as
-    \[w = u+v, \quad u \in U,\ v \in V.\]
-    To show uniqueness, suppose
-    \[w = u_1 + v_1 = u_2 + v_2\]
-    with \(u_1,u_2 \in U\) and \(v_1,v_2 \in V\). Then
-    \[u_1 - u_2 = v_2 - v_1.\]
-    Since \(U\) is a subspace, \(u_1-u_2 \in U\). Since \(V\) is a subspace, \(v_2-v_1 \in V\). Hence
-    \[u_1-u_2 \in U \cap V.\]
-    But \(U \cap V = \{0\}\), so
-    \[u_1-u_2 = 0.\]
-    Thus \(u_1 = u_2\), and therefore \(v_1 = v_2\). Hence the decomposition is unique. Conversely, assume every \(w \in W\) can be written uniquely as \(w=u+v\) with \(u \in U\), \(v \in V\). Then clearly \(W = U+V\). To show \(U \cap V = \{0\}\), let \(w \in U \cap V\). Then
-    \[w = w + 0 = 0 + w,\]
-    where \(w \in U\), \(0 \in V\), and \(0 \in U\), \(w \in V\).
-    By uniqueness of the decomposition, we must have
-    \[w = 0.\]
-    Thus \(U \cap V = \{0\}\), so \(W = U \oplus V\).
+    $W=U\oplus V$ iff every $w\in W$ decomposes \emph{uniquely} as $w=u+v$. Uniqueness follows since $u_1-u_2 = v_2-v_1 \in U\cap V = \{0\}$ forces $u_1=u_2$. Conversely, if decompositions are unique and $w\in U\cap V$, then $0 = w+(-w) = 0+0$ forces $w=0$.
 \end{proof}
-\subsubsection{Analogy with sets}
+
+\paragraph{Analogy with sets.}
 \[\begin{array}{c|c}
 \text{Sets} & \text{Vector spaces} \\
 \hline
@@ -732,921 +592,544 @@ A \cap B & U \cap V \\
 A \cup B & U + V \\
 A \sqcup B,\ A \cap B = \emptyset & U \oplus V,\ U \cap V = \{0\}
 \end{array}\]
-\begin{example}[Analogy with disjoint sets]
-    Let
-    \[D=\{1,2,3,4,5\},\quad A=\{1,2,3\},\quad B=\{4,5\}.\]
-    Then
-    \[D = A \sqcup B.\]
-\end{example}
 
-\subsubsection{Direct sums in function spaces}
-\begin{definition}[Subspace of functions supported on a subset]
-    Let $D$ be a set and $A \subseteq D$. Consider the function space $F(D,\mathbb{R})$. Define
-    \[U = \{f \in F(D,\mathbb{R}) : f(x)=0\,\forall x \notin A\}.\]
-    Then $U$ is a subspace of $F(D,\mathbb{R})$ (it is closed under addition and scalar multiplication, and contains the zero function). Moreover, $U$ can be naturally identified with $F(A,\mathbb{R})$, since each function in $U$ is completely determined by its values on $A$.
+\paragraph{Direct sums in function spaces.}
+\begin{definition}[Support on a subset]
+    Let $A \subseteq D$. Define $U = \{f \in F(D,\mathbb{R}) : f(x)=0\;\forall x\notin A\}$. Then $U \cong F(A,\mathbb{R})$ is a subspace of $F(D,\mathbb{R})$.
 \end{definition}
-\begin{remark}
-    Every function in $U$ is completely determined by its values on $A$ and vanishes outside $A$.
-\end{remark}
-\begin{example}[Functions supported on a subset]
-    Let $D = \{1,2,3,4,5\}$ and $A = \{2,4\}$. Then
-    \[U = \{ f \in F(D,\mathbb{R}) : f(1)=f(3)=f(5)=0 \}.\]
-    Examples of functions in $U$ include
-    \[f(1)=0, f(2)=3, f(3)=0, f(4)=-1, f(5)=0,\]
-    \[g(1)=0, g(2)=0, f(3)=0, g(4)=7, g(5)=0.\]
-    Each function in $U$ is completely determined by its values on $A$, i.e.,
-    \[f \iff (f(2), f(4)) \in F(A,\mathbb{R}) \cong \mathbb{R}^2.\]
-    Hence $U$ is a 2-dimensional subspace of $F(D,\mathbb{R})$.
+\begin{example}
+    Let $D=\{1,2,3,4,5\}$, $A=\{2,4\}$. Then $U = \{f : f(1)=f(3)=f(5)=0\}$ is a 2-dimensional subspace, with each $f\in U$ determined by $(f(2),f(4))$.
 \end{example}
 
-\section{Basis and Dimension}%to read
+% ============================================================
+\section{Basis and Dimension}
+% ============================================================
 \marginpar{January 26, 2026}
+
+% -----------------------------------------------------------
 \subsection{Finite Dimensional Spaces}
-Let V be a vector space over a field k. Then there are two possibilities:
-\begin{itemize}
-    \item The zero vector space: $V = \{0\}$
-    \item The non-zero vector space: $V \neq \{0\}$
-\end{itemize}
-In the second case, there exists a non-zero vector $v_1 \in V$ such that $v_1 \neq 0$. Then $span(v_1)$ is a subspace of $V$, and there are two possibilities:
-\begin{itemize}
-    \item $V = span(v_1)$, i.e., $v_1$ is a generator of $V$.
-    \item $V \neq span(v_1)$, i.e., there exists a $v_2 \in V$ such that $v_2 \notin span(v_1)$.
-\end{itemize}
-In the second case, $span(v_1,v_2) \subseteq V$. This process can be repeated to obtain a sequence of vectors $v_1,v_2,\ldots,v_n$ such that $span(v_1,\ldots,v_n) \subseteq V$. The maximum number of linearly independent vectors in $V$ is called the dimension of $V$, denoted by $\dim V$.
+% -----------------------------------------------------------
+Let $V$ be a vector space over a field $k$. Either $V = \{0\}$, or there exists $v_1 \neq 0$ in $V$. In the latter case, either $V = \Span(v_1)$, or there exists $v_2 \notin \Span(v_1)$, and so on. The maximum number of linearly independent vectors is the dimension of $V$.
 
-2 cases (2d space plane):
-\begin{itemize}
-    \item If $V = span(v_1, v_2)$, you have a 2D plane.
-    \item If the space is larger than that plane, there must exist a $v_3$ that sticks out of it, meaning $span(v_1, v_2, v_3) \subseteq V$.
-\end{itemize}
-
-2 cases (3d space):
-\begin{itemize}
-    \item If $v_3$ covers the whole space ($v_3 = V$), you are in 3D.
-    \item If not, there is a $v_4$, and so on.
-\end{itemize}
-\begin{definition}[Finite Dimensional Vector Space]
-    A vector space \(V\) over a field $k$ is finite-dimensional if there exists a finite set of vectors \(v_1,\dots,v_n \in V\) such that
-    \[V = \Span(v_1,\dots,v_n).\]
-    The dimension of \(V\) is the minimal such \(n\):
-    \[\dim_kV = \min \{n : V = \Span_k(v_1,\dots,v_n)\}.\]
+\begin{definition}[Finite dimensional vector space]
+    $V$ is finite-dimensional if $\exists$ a finite set $v_1,\ldots,v_n \in V$ with $V = \Span(v_1,\ldots,v_n)$. Its dimension is
+    \[\dim_k V = \min\{n : V = \Span_k(v_1,\ldots,v_n)\}.\]
 \end{definition}
-\begin{example}[Complex numbers as a real vector space]
-    Consider $\mathbb{C}$ as a vector space over $\mathbb{R}$. A standard basis is
-    \[\{1, i\},\]
-    so $\dim_{\mathbb{R}} \mathbb{C} = 2$. Any $z \in \mathbb{C}$ can be written uniquely as
-    \[z = x \cdot 1 + y \cdot i, \quad x,y \in \mathbb{R}.\]
-    Now consider the space of $n \times n$ complex matrices $M_n(\mathbb{C})$.
-    \[A = \begin{pmatrix} z_{11} & z_{12} & \cdots & z_{1n}\\ \vdots & \vdots & \ddots & \vdots\\ z_{n1} & z_{n2} & \cdots & z_{nn} \end{pmatrix} = \begin{pmatrix} x_{11} + y_{11}i & x_{12} + y_{12}i & \cdots & x_{1n} + y_{1n}i\\ \vdots & \vdots & \ddots & \vdots\\ x_{n1} + y_{n1}i & x_{n2} + y_{n2}i & \cdots & x_{nn} + y_{nn}i \end{pmatrix}\]
-    Hence a standard basis over $\mathbb{C}$ consists of the matrices $E_{ij}$ with a 1 in the $(i,j)$-th entry and 0 elsewhere, giving
-    \[\dim_{\mathbb{C}} M_n(\mathbb{C}) = n^2.\]
-    Over $\mathbb{R}$, each $E_{ij}$ splits into two real matrices corresponding to the real and imaginary parts, so
-    \[\dim_{\mathbb{R}} M_n(\mathbb{C}) = 2 n^2.\]
+\begin{example}[$\mathbb{C}$ as a real vector space]
+    $\dim_{\mathbb{R}}\mathbb{C} = 2$ (basis $\{1,i\}$). For $M_n(\mathbb{C})$: $\dim_{\mathbb{C}} M_n(\mathbb{C}) = n^2$ and $\dim_{\mathbb{R}} M_n(\mathbb{C}) = 2n^2$.
 \end{example}
-\begin{example}[Infinite-dimensional space of polynomials]
-    Let
-    \[P_\infty(\mathbb{R}) = \{ a_0 + a_1 x + a_2 x^2 + \cdots : a_i \in \mathbb{R} \}\]
-    be the space of all polynomials with real coefficients. Define the sequence of vectors
-    \[v_1 = 1, \quad v_2 = x, \quad v_3 = x^2, \quad \dots\]
-    Then
-    \[\text{span}\{v_1\} = \text{constant polynomials}, \quad \text{span}\{v_1,v_2\} = P_1,\]
-    and in general
-    \[v_{n+1} = x^n \notin P_{n-1} = \text{span}\{v_1,\dots,v_n\}.\]
-    Thus $P_\infty(\mathbb{R})$ is infinite-dimensional, and a standard basis is
-    \[\{ 1, x, x^2, x^3, \dots \}.\]
+\begin{example}[$P_\infty$ is infinite-dimensional]
+    Since $x^{n+1} \notin P_n = \Span\{1,x,\ldots,x^n\}$ for all $n$, the space $P_\infty(\mathbb{R})$ requires arbitrarily many basis vectors.
 \end{example}
-\begin{problem}[Infinite dimension of $P_{\infty}$]
-    Prove that the vector space $P_{\infty}$ of all polynomials over a field $k$ has infinite dimension.
+\begin{problem}[Infinite dimension of $P_\infty$]
+    Prove that $P_\infty$ over any field $k$ has infinite dimension.
 \end{problem}
 
+% -----------------------------------------------------------
 \subsection{Linear Independence}
-\begin{definition}[Linear Independence]
-    $v_1,\ldots,v_n$ are linearly independent if $\lambda_1v_1 + \ldots + \lambda_nv_n = 0 \implies \lambda_1 = \ldots = \lambda_n = 0$.
+% -----------------------------------------------------------
+
+\begin{definition}[Linear independence]
+    Vectors $v_1,\ldots,v_n$ are linearly independent (LI) if
+    \[\lambda_1v_1+\cdots+\lambda_nv_n = 0 \implies \lambda_1 = \cdots = \lambda_n = 0.\]
+\end{definition}
+\begin{definition}[Linear dependence]
+    Linearly dependent (LD) is the negation of LI: there exist scalars, not all zero, with $\lambda_1v_1+\cdots+\lambda_nv_n=0$.
 \end{definition}
 \begin{example}
-    Let $V = \mathbb{R}^2$. Define
-    \[e_1 = \begin{pmatrix}1\\0\end{pmatrix} \quad e_2 = \begin{pmatrix}0\\1\end{pmatrix}\]
-    Prove $e_1, e_2$ are linearly independent.\\
-    Assume $xe_1 + ye_2 = 0$, then prove $x = y = 0$.
-    \[xe_1 + ye_2 = x\begin{pmatrix}1\\0\end{pmatrix} + y\begin{pmatrix}0\\1\end{pmatrix} = \begin{pmatrix}x\\y\end{pmatrix} = 0 \implies x = y = 0.\]
+    $e_1=\begin{pmatrix}1\\0\end{pmatrix}$, $e_2=\begin{pmatrix}0\\1\end{pmatrix}$ are LI: $xe_1+ye_2 = \begin{pmatrix}x\\y\end{pmatrix}=0 \implies x=y=0$.
 \end{example}
-\marginpar{January 28, 2026}
-\begin{problem}[Linearly independent vectors]
-    \[v_1 = \begin{pmatrix}1\\1\\0\end{pmatrix}, \quad v_2 = \begin{pmatrix}1\\3\\2\end{pmatrix}, \quad v_3 = \begin{pmatrix}4\\9\\5\end{pmatrix}.\]
-    Are these vectors linearly independent? Are there $x,y,z \in \mathbb{R}$ such that 
-    \[xv_1 + yv_2 + zv_3 = 0?\]
-\end{problem}
-\begin{definition}[Linear Dependence]
-    Linearly dependent (LD) means the opposite of linearly independent(LI).
-\end{definition}
 \begin{proposition}
-    $v_1,\ldots,v_n$ are linearly dependent if and only if one vector is in the span of the other vectors.
+    $v_1,\ldots,v_n$ are LD if and only if one vector lies in the span of the others.
 \end{proposition}
-\begin{example}
-    \[3v_1 + 5v_2 - 2v_3 = 0\]
-    As we can see, $v_1$ is in the span of $v_2$ and $v_3$.
-    \[v_1 = \frac{1}{3}(-5v_2+2v_3)\]
-\end{example}
-\begin{remark}
-    If one vector $v_1 = 0$ then the family is LD.
-\end{remark}
 \begin{proof}
-    $(\Rightarrow)$ Assume that the vectors $v_1,\ldots,v_n$ are linearly dependent. Then there exist scalars $\lambda_1,\ldots,\lambda_n$, not all zero, such that
-    \[\lambda_1v_1+\cdots+\lambda_nv_n=0.\]
-    At least one coefficient is nonzero. Suppose $\lambda_k\neq 0$. Solving for $v_k$ gives
-    \[v_k=\frac{-1}{\lambda_k}\sum_{i\ne k}\lambda_i v_i.\]
-    Thus $v_k$ can be written as a linear combination of the remaining vectors, so
-    \[v_k\in \operatorname{span}(v_1,\ldots,v_{k-1},v_{k+1},\ldots,v_n).\]
-    $(\Leftarrow)$ Conversely, assume that for some $k$ we have
-    \[v_k\in \operatorname{span}(v_1,\ldots,v_{k-1},v_{k+1},\ldots,v_n).\]
-    Then there exist scalars $\lambda_i$ such that
-    \[v_k=\sum_{i\ne k}\lambda_i v_i.\]
-    Rewriting gives
-    \[0=\sum_{i\ne k}\lambda_i v_i - v_k.\] 
-    This is a nontrivial linear relation among $v_1,\ldots,v_n$, so the vectors are linearly dependent.
+    ($\Rightarrow$) If $\lambda_1v_1+\cdots+\lambda_nv_n=0$ with some $\lambda_k\neq0$, then $v_k = \frac{-1}{\lambda_k}\sum_{i\neq k}\lambda_iv_i$.\\
+    ($\Leftarrow$) If $v_k = \sum_{i\neq k}\lambda_iv_i$, rearranging gives a nontrivial relation.
 \end{proof}
+\begin{remark}
+    If any vector $v_i = 0$, the family is LD.
+\end{remark}
 \begin{example}
-    Let
-    \[V=\mathbb{R}^3.\]
-    Consider the vectors
-    \[v_1=\begin{pmatrix}a_1\\0\\0\end{pmatrix},\quad v_2=\begin{pmatrix}b_1\\b_2\\0\end{pmatrix},\quad v_3=\begin{pmatrix}c_1\\c_2\\c_3\end{pmatrix}.\]
-    To test linear independence, assume
-    \[xv_1+yv_2+zv_3=0.\]
-    Substituting the vectors gives
-    \[x\begin{pmatrix}a_1\\0\\0\end{pmatrix}+y\begin{pmatrix}b_1\\b_2\\0\end{pmatrix}+z\begin{pmatrix}c_1\\c_2\\c_3\end{pmatrix}=\begin{pmatrix}0\\0\\0\end{pmatrix}.\]
-    This yields the system
-    \[\begin{cases}a_1x+b_1y+c_1z=0\\b_2y+c_2z=0\\c_3z=0\end{cases}\]
-    From the third equation, if $c_3\neq0$ then $z=0$. Substituting into the second equation gives $b_2y=0$, so if $b_2\neq0$ then $y=0$. Substituting into the first equation gives $a_1x=0$, so if $a_1\neq0$ then $x=0$. Hence if
-    \[a_1\neq0,\quad b_2\neq0,\quad c_3\neq0,\]
-    the only solution is $x=y=z=0$, so the vectors are linearly independent.
-    Example of linearly independent vectors:
-    \[v_1=\begin{pmatrix}1\\0\\0\end{pmatrix},\quad v_2=\begin{pmatrix}1\\2\\0\end{pmatrix},\quad v_3=\begin{pmatrix}1\\2\\3\end{pmatrix}.\]
-    Example of linearly dependent vectors:
-    \[v_1=\begin{pmatrix}1\\0\\0\end{pmatrix},\quad v_2=\begin{pmatrix}1\\2\\0\end{pmatrix},\quad v_3=\begin{pmatrix}1\\3\\0\end{pmatrix}.
-    \]
-    In the second case, the third coordinate of every vector is zero, so the vectors lie in a $2$-dimensional subspace of $\mathbb{R}^3$, implying linear dependence.
+    For $v_1=\begin{pmatrix}a_1\\0\\0\end{pmatrix}$, $v_2=\begin{pmatrix}b_1\\b_2\\0\end{pmatrix}$, $v_3=\begin{pmatrix}c_1\\c_2\\c_3\end{pmatrix}$, if $a_1,b_2,c_3\neq0$ then $v_1,v_2,v_3$ are LI (solved by back-substitution). If $c_3=0$, all vectors lie in a 2D subspace and are LD.
 \end{example}
+\begin{problem}[Linear independence]
+    \marginpar{January 28, 2026}
+    Let $v_1=\begin{pmatrix}1\\1\\0\end{pmatrix}$, $v_2=\begin{pmatrix}1\\3\\2\end{pmatrix}$, $v_3=\begin{pmatrix}4\\9\\5\end{pmatrix}$. Are these LI?
+\end{problem}
 
-\subsection{Main Basis Theorem}
+% -----------------------------------------------------------
+\subsection{Basis}
+% -----------------------------------------------------------
 
+\subsubsection{Definition and the Main Basis Theorem}
 \begin{definition}[Basis]
-    Let $V$ be a vector space over a field $k$. A set of vectors
-    \[(v_1,\ldots,v_n)\]
-    is called a basis of $V$ if it spans $V$, and it is linearly independent.
+    $(v_1,\ldots,v_n)$ is a basis of $V$ if it spans $V$ and is linearly independent.
 \end{definition}
 \begin{remark}
-    If $V$ admits a basis with $n$ vectors, then the dimension of $V$ is
-    \[\dim(V) = n = \#\text{(basis)}.\]
+    If $V$ has a basis of $n$ vectors, then $\dim V = n$.
 \end{remark}
 \marginpar{January 30, 2026}
 \begin{example}[Standard basis of $\mathbb{R}^3$]
-    The standard basis of $\mathbb{R}^3$ is
-    \[e_1=\begin{pmatrix}1\\0\\0\end{pmatrix},\quad e_2=\begin{pmatrix}0\\1\\0\end{pmatrix},\quad e_3=\begin{pmatrix}0\\0\\1\end{pmatrix}.\]
-    Thus a basis of $\mathbb{R}^3$ is
-    \[\{e_1,e_2,e_3\}=\left\{\begin{pmatrix}1\\0\\0\end{pmatrix},\begin{pmatrix}0\\1\\0\end{pmatrix},\begin{pmatrix}0\\0\\1\end{pmatrix}\right\}.\]
+    $\{e_1,e_2,e_3\}$ is a basis of $\mathbb{R}^3$: it spans (any $v=xe_1+ye_2+ze_3$) and is LI (setting to zero gives $x=y=z=0$).
 \end{example}
-\begin{proof}
-    Let
-    \[v=\begin{pmatrix}x\\y\\z\end{pmatrix}\in\mathbb{R}^3.\]
-    Then
-    \[v=xe_1+ye_2+ze_3,\]
-    so $\{e_1,e_2,e_3\}$ spans $\mathbb{R}^3$. Now assume
-    \[xe_1+ye_2+ze_3=\begin{pmatrix}0\\0\\0\end{pmatrix}.\]
-    Comparing coordinates gives $x=0$, $y=0$, and $z=0$. Hence the vectors are linearly independent. Therefore $\{e_1,e_2,e_3\}$ is a basis of $\mathbb{R}^3$.
-\end{proof}
 \begin{lemma}
-    Let $(v_1,\ldots,v_n)\subset \mathbb{R}^k$.
-    \begin{itemize}
-        \item If $n<k$, the vectors cannot span $\mathbb{R}^k$.
-        \item If $n>k$, the vectors cannot be linearly independent.
-    \end{itemize}
+    For $(v_1,\ldots,v_n)\subset \mathbb{R}^k$: if $n<k$ the vectors cannot span $\mathbb{R}^k$; if $n>k$ they cannot be LI.
 \end{lemma}
 \begin{lemma}
-    Let $V$ be a vector space. If $u_1,\ldots,u_n$ span $V$ and $v_1,\ldots,v_m$ are linearly independent in $V$, then
-    \[n \ge m.\]
-    In particular, any spanning set of $V$ must contain at least as many vectors as any linearly independent set.
+    If $u_1,\ldots,u_n$ span $V$ and $v_1,\ldots,v_m$ are LI in $V$, then $n\ge m$.
 \end{lemma}
 \begin{theorem}[Main Basis Theorem]
-    Let $(v_1,\ldots,v_n)$ be vectors in a vector space $V$. The following statements are equivalent:
+    $(v_1,\ldots,v_n)$ in $V$ are equivalent:
     \begin{enumerate}
-        \item Basis: $(v_1,\ldots,v_n)$ span V and are LI.
-        \item Minimal Span: $(v_1,\ldots,v_n)$ span $V$ and no set of $m<n$ vectors spans $V$.
-        \item Maximal LI: $(v_1,\ldots,v_n)$ are LI and no set of $m>n$ vectors are LI.
-        \item Unique coordinates: Every vectors $v \in V$ can be written as a sum: $v = \sum_{i=1}^{n}\lambda_iv_i$, in a unique way.
+        \item \textbf{Basis}: they span $V$ and are LI.
+        \item \textbf{Minimal span}: they span $V$ and no $m<n$ vectors span $V$.
+        \item \textbf{Maximal LI}: they are LI and no $m>n$ vectors are LI.
+        \item \textbf{Unique coordinates}: every $v\in V$ writes uniquely as $v = \sum_{i=1}^n\lambda_iv_i$.
     \end{enumerate}
 \end{theorem}
-\begin{corollary}[Coordinate Vectors]
-    Every vector $v\in V$ can be written uniquely as
-    \[v = x_1v_1+\cdots+x_nv_n.\]
-    For a vector $v\in V$, the vector
-    \[[v]_e=\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix}\]
-    is called the coordinate vector of $v$ with respect to the basis $(v_1,\ldots,v_n)$.
+\begin{corollary}[Coordinate vectors]
+    For basis $(v_1,\ldots,v_n)$ of $V$, every $v=x_1v_1+\cdots+x_nv_n$ uniquely, and $[v]_e = \begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix}$ is the coordinate vector of $v$.
 \end{corollary}
-\begin{problem}[Coordinate Vectors]
-    Let $X = \{-2, -1, 0, 1, 2\}$ and let $U = \{f \in F(X) : f(-x) - f(x) = 0 \text{ for every } x \in X\}$. Consider the following functions defined on $X$:
-    \[g_1(x) = 1, \quad g_2(x) = \frac{1}{4}x^2(1-x^2), \quad g_3(x) = \frac{1}{3}x^2(4-x^2)\]
-    for every $x \in X$.Prove that $S = (g_1, g_2, g_3)$ is a basis of $U$.Let $g$ be the function defined on $X$ as follows:
-    \[g(2) = g(-2) = 3; \quad g(1) = g(-1) = g(0) = 2.\]
-    Find the coordinate vector $[g]_S$ in the basis $S$.
-\end{problem}
-\begin{problem}[Coordinate Vectors 2]
-    Let $D = \{1, 2, 3\}$, and let $F(D)$ denote the vector space of real-valued functions defined on $D$. Find the coordinates of the function $f(x) = 2x^2 - 3$ in the standard basis.
-\end{problem}
 \begin{corollary}
-    If $(e_1,\ldots,e_n)$ and $(f_1,\ldots,f_m)$ are two basis of $V$, then $n=m$.
+    Any two bases of $V$ have the same number of vectors. Hence $\dim V$ is well-defined.
 \end{corollary}
 \begin{proof}
-    Let $(e_1,\ldots,e_n)$ and $(f_1,\ldots,f_m)$ be bases of $V$. Since $(e_1,\ldots,e_n)$ spans $V$ and $(f_1,\ldots,f_m)$ is linearly independent, the lemma implies $n\ge m$. Reversing the roles of the two bases gives $m\ge n$. Hence $n=m$.
+    If $(e_1,\ldots,e_n)$ and $(f_1,\ldots,f_m)$ are both bases, the two-way spanning/independence argument gives $n\ge m$ and $m\ge n$.
 \end{proof}
 
+\subsubsection{Finding a Basis}
 \marginpar{February 2, 2026}
-\subsection{Finding a Basis}
-There are several common methods to find a basis depending on the information given.
-\subsubsection{Extracting a Basis from a Spanning Set}
-Let $v_1,\ldots,v_n\in k^m$ and set $U=\Span(v_1,\ldots,v_n)$.
+There are several methods depending on how the space is described.
+
+\paragraph{Method 1: Extracting from a spanning set.}
+Given $v_1,\ldots,v_n\in k^m$ spanning $U=\Span(v_1,\ldots,v_n)$:
 \begin{enumerate}
-    \item Put the vectors as columns of a matrix $A$.
-    \item Row reduce $A$ to echelon form.
-    \item The pivot columns correspond to vectors that form a basis of $U$.
+    \item Put the vectors as columns in a matrix $A$.
+    \item Row reduce to echelon form.
+    \item The pivot columns correspond to a basis of $U$.
 \end{enumerate}
 \begin{problem}[Finding a Basis]
-    Let $V$ denote the subspace of $\mathbb{R}^4$ spanned by the following vectors:
-    \[v_1 = \begin{pmatrix} 1 \\ 2 \\ 1 \\ 1 \end{pmatrix}, v_2 = \begin{pmatrix} 2 \\ 1 \\ 3 \\ 2 \end{pmatrix}, v_3 = \begin{pmatrix} 1 \\ 2 \\ 0 \\ 1 \end{pmatrix}, v_4 = \begin{pmatrix} 2 \\ 8 \\ 2 \\ 10 \end{pmatrix}.\]
-    Find a subset of $\{v_1, v_2, v_3, v_4\}$ that forms a basis of $V$. 
+    Let $V$ be the subspace of $\mathbb{R}^4$ spanned by $v_1=\begin{pmatrix}1\\2\\1\\1\end{pmatrix}$, $v_2=\begin{pmatrix}2\\1\\3\\2\end{pmatrix}$, $v_3=\begin{pmatrix}1\\2\\0\\1\end{pmatrix}$, $v_4=\begin{pmatrix}2\\8\\2\\10\end{pmatrix}$. Find a subset forming a basis of $V$.
 \end{problem}
-\subsubsection{Testing Linear Independence}
-If vectors are linearly independent and they span the space, they form a basis. To test independence solve
-\[a_1v_1+\cdots+a_nv_n=0.\]
+
+\paragraph{Method 2: Testing linear independence.}
+Solve $a_1v_1+\cdots+a_nv_n=0$. If the only solution is the trivial one, the vectors are LI.
 \begin{problem}[Finding a Basis 2]
-    Find a basis of the span of
-    \[\begin{pmatrix} 1 & 2 \\ 1 & 3 \end{pmatrix}, \begin{pmatrix} 2 & 1 \\ 3 & 1 \end{pmatrix}, \begin{pmatrix} 4 & 5 \\ 5 & 7 \end{pmatrix}\]
-    in $M_2(\mathbb{R})$. [Hint: check if the matrices are LI; if not, one is in the span of the other]. 
+    Find a basis of the span of $\begin{pmatrix}1&2\\1&3\end{pmatrix}$, $\begin{pmatrix}2&1\\3&1\end{pmatrix}$, $\begin{pmatrix}4&5\\5&7\end{pmatrix}$ in $M_2(\mathbb{R})$.
 \end{problem}
-\subsubsection{Constructing a Basis from the General Form}
-Sometimes a subspace is described by constraints. Writing the general element reveals a basis.
+
+\paragraph{Method 3: Constructing from the general form.}
+When a subspace is defined by constraints, write the general element to reveal a basis.
 \begin{problem}[Finding a Basis 3]
-    (1) Show that a matrix $A \in M_2(\mathbb{C})$ is Hermitian if and only if $A$ is of the form $\begin{pmatrix} x & z \\ \bar{z} & y \end{pmatrix}$ for some $x, y \in \mathbb{R}$ and $z \in \mathbb{C}.$\\
-    (2) Find a basis of $U$ (viewed as a real vector space). Note: $U$ is the set of all Hermitian matrices in $M_2(\mathbb{C})$. 
+    (1) Show $A\in M_2(\mathbb{C})$ is Hermitian iff $A=\begin{pmatrix}x&z\\\bar{z}&y\end{pmatrix}$ for $x,y\in\mathbb{R}$, $z\in\mathbb{C}$.\\
+    (2) Find a basis of the set $U$ of all Hermitian matrices in $M_2(\mathbb{C})$, viewed as a real vector space.
 \end{problem}
-\subsubsection{Bases of Function Spaces}
-If $X$ is a finite set with $n$ elements then $F(X)$ has dimension $n$. A basis can often be constructed by checking linear independence.
+
+\paragraph{Method 4: Bases of function spaces.}
+If $X$ is a finite set with $n$ elements, $\dim F(X)=n$; check linear independence by evaluating at points.
 \begin{problem}[Finding a Basis 4]
-    Let $X = \{-2, -1, 0, 1, 2\};$ set $U = \{f \in F(X) : f(-x) - f(x) = 0 \text{ for every } x \in X\}$. Consider the following functions defined on $X$:
-    \[g_1(x) = 1, \quad g_2(x) = \frac{1}{4}x^2(1 - x^2), \quad g_3(x) = \frac{1}{3}x^2(4 - x^2)\]
-    for every $x \in X$. Prove that $S = (g_1, g_2, g_3)$ is a basis of $U$.
+    Let $X=\{-2,-1,0,1,2\}$, $U=\{f\in F(X):f(-x)=f(x)\;\forall x\}$. With $g_1(x)=1$, $g_2(x)=\frac{1}{4}x^2(1-x^2)$, $g_3(x)=\frac{1}{3}x^2(4-x^2)$, prove $S=(g_1,g_2,g_3)$ is a basis of $U$.
 \end{problem}
 
-
-\subsection{Proving a set forms a basis}
-Let $V$ be finite-dimensional.
-\begin{method}[Dimension Test]
-    A list $(v_1,\ldots,v_n)$ is a basis of $V$ if and only if
-    \[\dim(\Span(v_1,\ldots,v_n)) = n.\]
-    Compute the dimension using row reduction.
+\subsubsection{Proving a Set Forms a Basis}
+\begin{method}[Dimension test]
+    $(v_1,\ldots,v_n)$ is a basis of $V$ iff $\dim(\Span(v_1,\ldots,v_n)) = n$.
 \end{method}
-\begin{proposition}[Basis Criterion for $n$-dimensional Space]
-    Let $\dim V = n$ and $v_1,\ldots,v_n \in V$. The following are equivalent:
-    \begin{enumerate}
-        \item $(v_1,\ldots,v_n)$ is a basis,
-        \item $(v_1,\ldots,v_n)$ spans $V$,
-        \item $(v_1,\ldots,v_n)$ is linearly independent.
-    \end{enumerate}
+\begin{proposition}[Basis criterion]
+    If $\dim V = n$, then for $v_1,\ldots,v_n \in V$, the following are equivalent: (1) basis, (2) spans $V$, (3) LI.
 \end{proposition}
 \begin{proof}
-    A spanning set of $n = \dim V$ vectors is minimal, hence linearly independent.  
-    An independent set of $n$ vectors is maximal, hence spans $V$.
+    A spanning set of $n=\dim V$ vectors is minimal, hence LI. An independent set of $n$ vectors is maximal, hence spans $V$.
 \end{proof}
-\begin{principle}[Transfer / Exchange Principle]
-    If 
-    \[u_1,\ldots,u_n \text{ span } V \quad\text{and}\quad v_1,\ldots,v_n \text{ are linearly independent},\] 
-    then both lists are bases of $V$.
+\begin{principle}[Transfer/Exchange principle]
+    If $u_1,\ldots,u_n$ span $V$ and $v_1,\ldots,v_n$ are LI, then both lists are bases of $V$.
 \end{principle}
 \begin{example}
-    In $P_n$,
-    \[(1,x,\ldots,x^n) \text{ spans}, \qquad ((x-a)^0,\ldots,(x-a)^n) \text{ is linearly independent},\]
-    so both are bases of $P_n$.
+    In $P_n$: $(1,x,\ldots,x^n)$ spans and $((x-a)^0,\ldots,(x-a)^n)$ is LI, so both are bases of $P_n$.
 \end{example}
 
-\marginpar{February 4, 2026}
-\subsection{Unique sum decompositions}
-Let $W$ be a vector space and $U,V \subseteq W$ subspaces.
-\begin{definition}[Direct Sum]
-    The sum of subspaces is
-    \[U+V=\{u+v : u\in U,\, v\in V\}.\]
-    We say the sum is direct, written $U \oplus V$, if
-    \[U \cap V = \{0\}.\]
+% -----------------------------------------------------------
+\subsection{Coordinates and Change of Basis}
+% -----------------------------------------------------------
+\marginpar{February 4--6, 2026}
+
+\subsubsection{Coordinate Vectors}
+If $(e_1,\ldots,e_n)$ is a basis of $V$, every $v\in V$ writes uniquely as $v=\lambda_1e_1+\cdots+\lambda_ne_n$, and
+\[[v]_e = \begin{pmatrix}\lambda_1\\\vdots\\\lambda_n\end{pmatrix}.\]
+\begin{example}
+    In $\mathbb{R}^3$ with the standard basis, $[v]_e = v$ itself. For $v=\begin{pmatrix}5\\3\\4\end{pmatrix}$ in basis $f_1=\begin{pmatrix}1\\-1\\0\end{pmatrix}$, $f_2=\begin{pmatrix}1\\1\\0\end{pmatrix}$, $f_3=\begin{pmatrix}0\\1\\1\end{pmatrix}$, solving gives $[v]_f = \begin{pmatrix}3\\2\\4\end{pmatrix}$.
+\end{example}
+\begin{problem}[Coordinate vectors]
+    Let $X=\{-2,-1,0,1,2\}$, $U=\{f\in F(X):f(-x)=f(x)\}$, with basis $S=(g_1,g_2,g_3)$ as above. Find $[g]_S$ for $g$ with $g(\pm2)=3$, $g(\pm1)=g(0)=2$.
+\end{problem}
+\begin{problem}[Coordinate vectors 2]
+    Let $D=\{1,2,3\}$. Find the coordinates of $f(x)=2x^2-3$ in the standard basis of $F(D)$.
+\end{problem}
+
+\subsubsection{Direct Sum Decompositions and Dimension Formulas}
+\begin{theorem}[Basis concatenation]
+    If $V = U\oplus U'$ with bases $(e_1,\ldots,e_n)$ and $(f_1,\ldots,f_m)$ respectively, then $(e_1,\ldots,e_n,f_1,\ldots,f_m)$ is a basis of $V$ and $\dim(U\oplus U') = \dim U + \dim U'$.
+\end{theorem}
+\begin{proof}
+    LI: $\sum a_ie_i + \sum b_jf_j = 0$ gives $w = \sum a_ie_i = -\sum b_jf_j \in U\cap U' = \{0\}$, forcing all $a_i=b_j=0$. Span: every $v\in U+U'$ writes $v=u+u'$.
+\end{proof}
+\begin{theorem}[Dimension of sum]
+    \[\dim(U+U') = \dim U + \dim U' - \dim(U\cap U').\]
+\end{theorem}
+\begin{corollary}
+    If $U\subseteq V$, then $\dim U \le \dim V$.
+\end{corollary}
+\begin{corollary}
+    If $U\subseteq V$, then $U$ admits a complement: $\exists\, U'\subseteq V$ with $V = U\oplus U'$ and $\dim V = \dim U + \dim U'$.
+\end{corollary}
+
+% -----------------------------------------------------------
+\subsection{Basis Extension and Extraction}
+% -----------------------------------------------------------
+\marginpar{February 11, 2026}
+
+\begin{theorem}[Basis extension]
+    Let $V$ be finite-dimensional and $v_1,\ldots,v_m$ LI in $V$. Then they can be extended to a basis of $V$.
+\end{theorem}
+\begin{proof}
+    Set $U=\Span(v_1,\ldots,v_m)$. If $U=V$, done. Otherwise pick $v_{m+1}\in V\setminus U$; this gives a larger LI set. Repeat until the span equals $V$, which happens after at most $\dim V - m$ steps.
+\end{proof}
+\begin{theorem}[Basis extraction]
+    If $v_1,\ldots,v_n$ span $V$, one can extract a basis from this list.
+\end{theorem}
+
+% ============================================================
+\section{Linear Transformations}
+% ============================================================
+
+% -----------------------------------------------------------
+\subsection{Functions: Basic Definitions}
+% -----------------------------------------------------------
+
+Let $U$ and $V$ be sets. A transformation $T: U \to V$ assigns to each $u \in U$ a unique element $T(u) \in V$. The set $U$ is the domain, $V$ the codomain, and $\operatorname{Im}(T) = \{T(u) : u \in U\} \subseteq V$ is the image.
+
+\begin{definition}[Injective, surjective, bijective]
+\hfill
+\begin{itemize}
+    \item $T$ is \textbf{surjective} if $\operatorname{Im}(T) = V$.
+    \item $T$ is \textbf{injective} if $T(u) = T(u') \implies u = u'$.
+    \item $T$ is \textbf{bijective} if it is both injective and surjective.
+\end{itemize}
 \end{definition}
+\begin{example}
+    $f: \mathbb{R}\to\mathbb{R}$, $x\mapsto x^3$ is bijective. $f: \mathbb{R}\to\mathbb{R}$, $x\mapsto x^2$ is neither injective nor surjective.
+\end{example}
+\begin{example}
+    $z\mapsto z^2$ on $\mathbb{C}$: not injective since $(-1)^2 = 1^2$, but surjective since every $w\in\mathbb{C}$ has a square root.
+\end{example}
+
+\subsubsection{Composition and Inverses}
+Given $T: U\to V$ and $S: V\to W$, the composition $R = S\circ T : U\to W$ is defined by $R(u) = S(T(u))$.
+\begin{example}
+    $g = \sin\circ(x^2) : \mathbb{R}\xrightarrow{x^2}\mathbb{R}\xrightarrow{\sin}\mathbb{R}$, so $g(x)=\sin(x^2)$.
+\end{example}
 \begin{proposition}
-    The following are equivalent:
+    $T: U\to V$ is bijective $\iff$ $T$ has an inverse $S: V\to U$ with $ST = \operatorname{id}_U$ and $TS = \operatorname{id}_V$.
+\end{proposition}
+
+% -----------------------------------------------------------
+\subsection{Linear Maps}
+% -----------------------------------------------------------
+
+\begin{definition}[Linear transformation]
+    Let $U,V$ be vector spaces over $k$. A map $T: U\to V$ is \textbf{linear} if:
     \begin{enumerate}
-        \item $U \oplus V$ (i.e.\ $U \cap V = \{0\}$),
-        \item every $w \in U+V$ can be written uniquely as $w=u+v$ with $u\in U$, $v\in V$.
+        \item Additive: $T(u+u') = T(u)+T(u')$,
+        \item Scalar: $T(\lambda u) = \lambda T(u)$ for all $\lambda\in k$.
     \end{enumerate}
+\end{definition}
+
+\subsubsection{Main Examples of Linear Maps}
+
+\paragraph{Matrix transformations.} The primary example is $T_A: \mathbb{R}^n\to\mathbb{R}^n$, $T_A(x) = Ax$ for a fixed $A\in M_n(\mathbb{R})$:
+\[A = \begin{pmatrix}1&2\\3&4\end{pmatrix} \implies T_A\begin{pmatrix}x\\y\end{pmatrix} = \begin{pmatrix}x+2y\\3x+4y\end{pmatrix}.\]
+
+\paragraph{Scaling.}
+\begin{definition}[Scaling transformation]
+    $T: U\to U$ is called scaling if there exists a basis $(u_1,\ldots,u_n)$ and scalars $\lambda_1,\ldots,\lambda_n\in k$ such that $T(u_i)=\lambda_iu_i$ for all $i$.
+\end{definition}
+
+\paragraph{The derivative.}
+\[D: P_n\to P_n, \quad f\mapsto f', \quad D(x^k)=kx^{k-1}.\]
+$D$ is linear: $(f+g)'=f'+g'$ and $(\lambda f)'=\lambda f'$. $D$ is not injective ($D(1)=0$) and not surjective ($x^n \notin \operatorname{Im}(D)$ since every polynomial in $\operatorname{Im}(D)$ has degree $\leq n-1$).
+
+\paragraph{The indefinite integral.}
+\[\int: P_\infty \to P_\infty \quad \text{[linear, injective, not surjective]}.\]
+Injective: if $\int f = 0$ then $f = 0$ (degree of $\int f$ exceeds degree of $f$). Not surjective: no $f\in P_\infty$ satisfies $\int f = 1$.
+
+\paragraph{Projection.}
+Suppose $V = U\oplus U'$. Every $v\in V$ writes uniquely as $v=u+u'$. Define $P(v):=u$.
+\begin{proposition}
+    The projection $P: V\to U$ along $U'$ is linear.
 \end{proposition}
 \begin{proof}
-    ($\Rightarrow$) Suppose $w=u_1+v_1=u_2+v_2$. Then
-    \[u_1-u_2 = v_2-v_1 \in U \cap V = \{0\},\]
-    so $u_1=u_2$ and $v_1=v_2$.
-
-    ($\Leftarrow$) If decomposition is unique and $w\in U\cap V$, then
-    \[0 = 0+0 = w+(-w),\]
-    so uniqueness forces $w=0$.
+    Write $v_1=u_1+u_1'$ and $v_2=u_2+u_2'$. Then $v_1+v_2=(u_1+u_2)+(u_1'+u_2')$, so $P(v_1+v_2)=u_1+u_2=P(v_1)+P(v_2)$. Scalar case is analogous.
 \end{proof}
-\begin{theorem}[Basis Concatenation]
-    Suppose $U \oplus U'$ in $V$. Let $(e_1,\ldots,e_n)$ be a basis of $U$ and $(f_1,\ldots,f_m)$ a basis of $U'$. Then 
-    \[(e_1,\ldots,e_n,f_1,\ldots,f_m)\]
-    is a basis of $U \oplus U'$, and 
-    \[\dim(U \oplus U') = \dim U + \dim U'.\]
-\end{theorem}
+
+\subsubsection{Defining a Linear Map by its Action on a Basis}
+\begin{proposition}
+    Let $(u_1,\ldots,u_n)$ be a basis of $U$ and $v_1,\ldots,v_n$ arbitrary vectors in $V$. There exists a unique linear $T: U\to V$ with $T(u_i)=v_i$.
+\end{proposition}
 \begin{proof}
-    LI: $a_1e_1 + \ldots + a_ne_n + b_1f_1 + \ldots + b_mf_m = 0$.  
-    Set $w = a_1e_1 + \ldots + a_ne_n = - (b_1f_1 + \ldots + b_mf_m) \in U \cap U'$.  
-    Since $U \cap U' = \{0\}$, all $a_i = b_i = 0$.  
-    Span: $v \in U+U' \implies v = u + u'$.
+    \textit{Existence}: for any $u=\lambda_1u_1+\cdots+\lambda_nu_n$, define $T(u)=\lambda_1v_1+\cdots+\lambda_nv_n$. Linearity follows from uniqueness of coordinates.\\
+    \textit{Uniqueness}: any linear $T$ with $T(u_i)=v_i$ is forced on all $u$ by linearity.
 \end{proof}
-\begin{theorem}[Dimension of Sum of Subspaces]
-    For $U, U' \subset V$,
-    \[\dim(U+U') = \dim U + \dim U' - \dim(U \cap U').\]
-\end{theorem}
-\begin{corollary}
-    If $U \subseteq V$, then $\dim U \leq \dim V$.
-\end{corollary}
-\begin{corollary}
-    If $U \subseteq V$, then $U$ admits a supplement: $\exists U' \subseteq V$ s.t. $V = U \oplus U'$.  
-    Moreover, $\dim V = \dim U + \dim U'$.
-\end{corollary}
+\begin{proposition}
+    If $S,T$ are linear, then $S\circ T$ is linear.
+\end{proposition}
 
-\subsection{Coordinates}
-\paragraph{Coordinates relative to a basis}
-If $(e_1,\ldots,e_n)$ is a basis of $V$, every $v\in V$ can be written uniquely as
-\[v=\lambda_1 e_1+\cdots+\lambda_n e_n.\]
-The vector
-\[[v]_e=\begin{pmatrix}\lambda_1\\ \vdots\\ \lambda_n\end{pmatrix}\]
-is called the coordinate vector of $v$.
-\begin{example}
-    In $\mathbb{R}^3$ with the standard basis,
-    \[v=\begin{pmatrix}x\\y\\z\end{pmatrix} \quad\Rightarrow\quad [v]_e=\begin{pmatrix}x\\y\\z\end{pmatrix}.\]
-\end{example}
-\begin{example}
-    \marginpar{February 6, 2026}
-    \[v = \begin{pmatrix}1\\1\end{pmatrix}, f_1 = \begin{pmatrix}2\\1\end{pmatrix}, f_2 = \begin{pmatrix}0\\1\end{pmatrix}.\]  
-    \[[v]_f = \begin{pmatrix}1/2\\1/2\end{pmatrix}\]
-\end{example}
-\begin{example}
-    LL example: Find coordinate of $v = \begin{pmatrix}5\\3\\4\end{pmatrix}$ in basis $f = (f_1,f_2,f_3)$, with 
-    $f_1 = \begin{pmatrix}1\\-1\\0\end{pmatrix}, f_2 = \begin{pmatrix}1\\1\\0\end{pmatrix}, f_3 = \begin{pmatrix}0\\1\\1\end{pmatrix}$.
-    \[\begin{pmatrix}5\\3\\4\end{pmatrix} = x \begin{pmatrix}1\\-1\\0\end{pmatrix} + y \begin{pmatrix}1\\1\\0\end{pmatrix} + z \begin{pmatrix}0\\1\\1\end{pmatrix}\]
-    Find $x,y,z$.
-    \[[v]_f = \begin{pmatrix}x\\y\\z\end{pmatrix} = \begin{pmatrix}3\\2\\4\end{pmatrix} \in \mathbb{R}^3.\]
-\end{example}
-\begin{example}
-    $D = \{0,1,2,3,4\}$, $V = F(D)$, $g(x)=x^2$, $g \in V$. Find coordinate of $g$ in standard basis $\delta = (\delta_0, \delta_1, \delta_2, \delta_3, \delta_4)$. $\dim V = 5$.  
-    \[[g]_\delta = \begin{pmatrix}\lambda_0\\\vdots\\\lambda_4\end{pmatrix}, \quad g = \lambda_0 \delta_0 + \lambda_1 \delta_1 + \lambda_2 \delta_2 + \lambda_3 \delta_3 + \lambda_4 \delta_4.\]
-\end{example}
-
-\subsection{More Basis Theorems}
-\begin{theorem}[Basis Extension]
-    Let $V$ be finite-dimensional, and $v_1,\ldots,v_m$ LI in $V$. Then $v_1,\ldots,v_m$ can be extended to a basis of $V$.
-\end{theorem}
-\begin{proof}
-    Let $U = \Span(v_1,\ldots,v_m) \subseteq V$.
-    
-    Step 1:  
-    Case 1: $U = V \implies$ done.  
-    Case 2: $U \neq V \implies \exists v_{m+1} \in V \setminus U$. Then $(v_1,\ldots,v_{m+1})$ is LI. Let $U_{m+1} = \Span(v_1,\ldots,v_{m+1})$.
-
-    Step 2:  
-    Case 1: $U_{m+1} = V \implies$ done.  
-    Case 2: $U_{m+1} \neq V \implies$ continue adding $v_{m+2}$.
-
-    Step 3: Continue until $v_n$, $n = \dim V$, gives $n$ LI vectors in $V$.
-\end{proof}
-\begin{theorem}[Basis Extraction / Nose Basis Theorem]
-    Let $v_1,\ldots,v_n$ span $V$. Then one can extract a basis $\{e_1,\ldots,e_m\}$ from $\{v_1,\ldots,v_n\}$.
-\end{theorem}
-\begin{example}
-    $v_1 = \begin{pmatrix}1\\0\end{pmatrix}, v_2 = \begin{pmatrix}0\\1\end{pmatrix}, v_3 = \begin{pmatrix}1\\1\end{pmatrix}$ spans $\mathbb{R}^3$.
-\end{example}
-
-\marginpar{February 11, 2026}
-\section{Linear Transformation}
-Today general trans/function/map
-$U$,$V$ are sets where $U$ is the domain and $V$ is the codomain. $u \in U$ and $T(u) \in V$. Image of $T = Im(T) = \{T(u) : u \in U\} \subseteq V$.
-Example:
-$sin : \mathbb{R} \to \mathbb{R}$, $x \to sin(x)$. $Im(sin) = (-1,1)$. $F(D)$ is a vector space with D set, codomain $K = \mathbb{R} or \mathbb{C}$.
-Definition: $T : U \to V$, $u \to T(u)$ is surjective, if $\Im(T) = V$.
-Definition: $T : U \to V$, $u \to T(u)$ is injective, if you have $u$ and $v$ where $u \neq v$, but $T(u) = T(v)$.
-Injective: if $u,v \in U$ satisfy $T(u) = T(v)$, then $u = v$.
-Example: $x^3$ is injective.
-Definition: $T$ is a bijection if it is both injective and surjective.
-Example: $x^3$ is bijective whilst $x^2$ is not.
-More precisely: $f : \mathbb{R} \to \mathbb{R}$ $x \to x^2$ is not injective nor surjective.
-Example: $y : \mathbb{C} \to \mathbb{C}$ $z \to z^2$ injective? $(-1)^2 = (1)^2$. surjective? $z^2 = w$ where $w \in \mathbb{C}$ is any complex number. Fix w, solve for z, $g(z) = w$.
-Composition of transformations:
-    \[R: \longrightarrow T \longrightarrow V \longrightarrow S \longrightarrow W\]
-    \[u \longrightarrow T(u) \longrightarrow S(T(u))\]
-    Composition:
-    \[R: U \longrightarrow W\]
-    \[u \longrightarrow S(T(u))\]
-\[g : \mathbb{R} \xrightarrow[A]{x^2} \mathbb{R} \xrightarrow[B]{sin} \mathbb{R}\]
-\[g = sin(x^2)\]
-\[R : U \xrightarrow[]{T} V \xrightarrow[]{S} W\]
-\[R(u) = S(T(u))\]
-\[R = S \circ T\]
-($\circ$) is called composition.
-A inverse = a matrix B such that $AB = Id$ and $BA = Id$.
-Proposition: $T : U \to V$ is bjective $\iff$ T admits an inverse, $\exists S$ such that $\begin{cases}ST = id\\TS = id\end{cases}$.
-Let $U$ be a vector space:
-\[T: U \longrightarrow U \text{Id transformation}\]
-\[u \longrightarrow u\]
-\[U = \mathbb{R}^n\]
-\[T\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix} = \begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix}\]
-Example: $U = \mathbb{R}^n$, $V = \mathbb{R}^n$, $A \in M_n(\mathbb{R})$, $T_A : u \to v$, $T_A = $ trans with A.
-\[\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix} \to A\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix}\]
-Example:
-\[A = \begin{pmatrix}1&2\\3&4\end{pmatrix}\]
-\[A\begin{pmatrix}x\\y\end{pmatrix}\]
-\[T : \mathbb{R}^2 \longrightarrow \mathbb{R}^2\]
-\[\begin{pmatrix}x\\y\end{pmatrix} \to \begin{pmatrix}x+2y\\3x+4y\end{pmatrix}\]
-Definition: $U$,$V$ vector spaces over $K$. $T : U \to V$ transformation. Say T is linear if $T(u + v) = T(u) + T(v)$ and $T(\lambda u) = \lambda T(u)$.
-Proposition: $S$,$T$ are linear, here $S \circ T$ is linear.
-
-\marginpar{February 13, 2026}
-Linear transformations:
-\[T : U \longrightarrow V\]
-\[u \longrightarrow T(u)\]
-Imagine two big circles one is $U$ the othre $V$, in each a small dot $u \in U$ and $v \in V$ and an arrow from $u$ to $v$, and this arrow is $T$.
-T linear:
-\begin{enumerate}
-    \item Additive: $T(u+u') = T(u) + T(u')$
-    \item Scalars: $T(\lambda u) = \lambda T(u)$
-\end{enumerate}
-Main example: $T: \mathbb{R}^n \to \mathbb{R}^n$ (a matrix).
-\[\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix} \to A\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix}\]
-Example 1:
-\[T : \mathbb{R}^2 \to \mathbb{R}^2\]
-\[u \to 2u\]
-\[v \to v\]
-Fix a basis $(u,v)$ of $\mathbb{R}^2$.
-draw the answer
-Example 2:
-\[T : \mathbb{R}^2 \to \mathbb{R}^2\]
-\[u \to u\]
-\[v \to 2v\]
-draw something
-Definition: A linear transformation $T : U \to U$ is called scaling if there exists a basis $(u_1, \ldots, u_n)$ of $U$, $\lambda_1, \ldots, \lambda_n \in k$ such that $T(u_i) = \lambda_i u_i$.
-How to define $T$:
-Proposition: Let $(u_1,\ldots,u_n)$ be a basis of $U$. $v_1,\ldots,v_n$ arbitrary vectors in $V$. There exists a unique linear transformation $T : U \to V$ such that $T(u_i) = v_i$.
-Example:
-\[T: U \to V\]
-\[u_i \to 0\]
-$u_i = $ basis of $U$.
-$T$ extends uniquely to $U$. $T(u) = 0$.
-\[[u]_n = \begin{pmatrix}\lambda_1 \\\vdots\\ \lambda_n\end{pmatrix}\]
-Proof: $u = \lambda_1u_1 + \cdots + \lambda_nu_n$. $T(u) = \lambda_1 T(u_1) + \cdots + \lambda_n T(u_n) = 0$.
-Proof: 2 proofs:
-\begin{enumerate}
-    \item $T$ exists.
-    \item $T$ is unique.
-\end{enumerate}
-Assumptions: $\begin{cases}(u_1,\ldots,u_n) basis \\ T(u_i) = v_i\end{cases}$
-Proof of existence: Find $T$ linear such that $T(u_i) = v_i$. Let $u \in U$. Need to define $T(u)$, $u = \lambda_1 u_1 + \ldots + \lambda_n u_n$. Define $T(u) = \lambda_1 T(u_1) + \cdots + \lambda_n T(u_n) \in V$.
-\begin{enumerate}
-    \item Prove $T(u_i) = v_i$.
-    \item T linear.
-\end{enumerate}
-Proof of $T(u_i) = v_i$: To define $T$ on $u_i$: coordinates of u in basis $u_i = 0u_1 + \ldots + 1u_i + \ldots + 0u_n$. $T(u_i) = 0v_1 + \cdots + 1v_i + \cdots + 0v_n$.
-
-\marginpar{February 16, 2026}
-Examples:
-Example 1: The derivative
-\[D : P_n \to P_n, \quad f \to f'\]
-where $D(x^n)=nx^{n-1}$, Linear map:
-\begin{itemize}
-    \item $(f+g)' = f' + g'$
-    \item $(\lambda f)' = \lambda f'$, where $\lambda \in \mathbb{R}$.
-\end{itemize}
-Is $D$ injective? No, $D(1) = 0$. 
-$1, 0 \in P_n$, constant polynomials : $r + 0x + 0x^2+\cdots$. $D(r) = 0$, where $r \in \mathbb{R}$.
-Is $D$ surjective? No, there is no $f$ such that $f' = 1$. $x^n \notin \Im(D)$. $f \in P_n$ such that $D(f) = x^n$. No sinsce every polynomials n in $\Im(D)$ has degree $\leq n-1$.
-\[D(a_0 + a_1x + \cdots + a_nx^n) = a_1 + 2a_2x + \cdots + na_nx^{n-1}.\]
-$D : P_n \to P_n$ is not surjective.
-
-
-Indefinite Integral:
-\[\int : P_\infty \to P_\infty\]
-[Linear]
-Injective? $\int 1 = x$, $deg(f) = n$, $deg(\int f) = n+1$. $\int f = 0$ implies $f=0$. So injective.
-$D(\int f) = f$ not surjective. No $f \in P_\infty$ such that $\int f = 1$.
-Definition: Assume $V = U \oplus U'$, direct sum decomposition of V. $U \cap U' = \{0\}$, $V \in U + U'$.
-Definition of $P(v)$: Since $V = U \oplus U'$, every $v \in V$ admits a unique sum decomposition $v = u+u'$, by definition $P(v) := u$.
-$P(v)$ is called the projection of $v$ onto $U$ along $U'$ parallel to $U'$.
-Proposition: $P$ is a linear map
-Proof: $\begin{cases}P(v_1 + v_2) = P(v_1) + P(v_2)\\P(\lambda v) = \lambda P(v)\end{cases}$
-\begin{enumerate}
-    \item Prove : $P(v_1 + v_2) = P(v_1) + P(v_2)$.
-    \item $v_1 = u_1+u_1' \in U \oplus U', P(v_1) = u_1$, $v_2 = u_2 + u_2' \in U \oplus U', P(v_2) = u_2$.
-    \item $P(v_1+v_2) = ?$, $v_1 + v_2 = u_1 + u_2 + u_1' + u_2'$, $P(v_1+v_2) = u_1+u_2 = P(v_1+v_2)$.
-\end{enumerate}
-
+% -----------------------------------------------------------
+\subsection{Kernel and Image}
+% -----------------------------------------------------------
 \marginpar{February 18, 2026}
-Kernel and Image:
-Kernel: $0 \in \ker(T) = \{u \in U: T(u) = 0\}$.
-Image: $0 \in \Im(T) = \{T(u) : u \in U\} \subseteq V$
-Proposition: $\ker(T) \subseteq U$ and $\Im(T) \subseteq V$ are subspaces.
-Proof: Subspace Criterion
-Proposition: $T$ surjective $\iff \Im(T) = V$, obvious by definition of surjective.
-Proposition: $T$ linear $T : U \to V$.
-Statement: $T$ injective $\iff \ker(T) = \{0\}$, linear system.
-Kernel is only useful for $T$ linear. $T = \sin$ is non linear, $\ker(sin) = \{x\in\mathbb{R} : sin(x) = 0\}$, not a subspace.
-Proof: $\ker(T) \neq \{0\}$ then $T$ non-injective $\to$ T injective $\to \ker(T) = \{0\}$. Basically since $[A \implies B] \iff [Not(B) \implies Not(A)]$.
-Assumption: $\ker(T) \neq \{0\}$ which means $\exists u\in \ker(T), u\neq 0$.
-Second proof (converse): If $T$ not injective then $\ker(T) \neq \{0\}$. $T(u) = T(u')$.
-Definition: $\exists u,u' \in U$ s.t $u \neq u'$ and $T(u) = T(u')$.
-Prove that $T(u) = 0$ for some $v\neq 0$.
-\[T(u) - T(u') = 0\]
-\[T(u-u') = 0\] by linearity of T
-$v \neq 0$. We will show $v := u -u'$ $v$ nonzero and verify $T(v) = 0$.
-Example:
-$\Im(P) = U$, $\ker(P) = U'$. $\{v \in V : P(v) = 0\}$. $V = U \oplus U'$, $v = u + u'$, and $P(v) = u \in U$: projection. If $u \in U$ then $P(u) = u$.
-$\Im(P) = U$:
-$\Im(P) \subseteq U$: take $U \in \Im(P)$, $u = P(v) \in U$. Then $u = P(v)$ for some V (det of Im). To compute $P(u)$, write $v = U + U'$, $P(v) = u$.
-$U \subseteq \Im(P)$: $\forall u \in U$, $\exists v : P(v) = u$. $P(v) = u$, take $v=u$, $P(v) = P(u) = u$. $P(v) = u$, $T(u) = 0$.
 
-Example:
-\[A = \begin{pmatrix}1&2\\3&4\end{pmatrix}\]
-\[T_A : \mathbb{R}^2 \to \mathbb{R}^2\]
-\[T_A\begin{pmatrix}x\\y\end{pmatrix} = \begin{pmatrix}x+2y\\3x+4y\end{pmatrix}\]
-Find $\ker(T_A)$.
-\[\ker(T_A) = \{\begin{pmatrix}x\\y\end{pmatrix}\in \mathbb{R}^2 : T_A\begin{pmatrix}x\\y\end{pmatrix} = A\begin{pmatrix}x\\y\end{pmatrix} = \begin{pmatrix}0\\0\end{pmatrix}\}\]
-\[\implies \ker(T_A) = \{\begin{pmatrix}x\\y\end{pmatrix} \in \mathbb{R}^2 : \begin{cases}x+2y = 0\\3x+4y = 0\end{cases}\}\]
-$\begin{pmatrix}x\\y\end{pmatrix} \in \ker(T) \iff \begin{pmatrix}x\\y\end{pmatrix}$ solution to $\begin{cases}x+2y = 0\\3x+4y = 0\end{cases}$. Solve, find $x=y=0$:
-\[\implies \ker(T) = \{\begin{pmatrix}0\\0\end{pmatrix}\}\]
-which implies $T$ is injective.
-
-Example:
-\[A = \begin{pmatrix}1&2&3\\4&5&6\\7&8&9\end{pmatrix}, \quad T_A : \mathbb{R}^3 \to \mathbb{R}^3\]
-\[\ker(T_A) = \{\begin{pmatrix}x\\y\\z\end{pmatrix}: \begin{cases}x+2y+3z=0\\4x+5y+6z=0\\7x+8y+9z=0\end{cases}\}\]
-Basis solution: $\begin{pmatrix}1\\-2\\1\end{pmatrix}$. And $\ker(T_A) = \Span(\begin{pmatrix}1\\-2\\1\end{pmatrix})$.
-
-\marginpar{February 20, 2026}
-Image of a linear transformation $T : U \to V$ is linear, $\Im(T) = \left\{T(u) : u \in U\right\}$.
-Reminder, for a transformation to be linear $T(\lambda u) = \lambda T(u)$, where $\lambda \in k$.
-Example: $T=T_A$, $T : \mathbb{R}^2 \to \mathbb{R}^2$, $A = \begin{pmatrix}1&2\\3&4\end{pmatrix}$. $T(e_1) = Ae_1 = \begin{pmatrix}1\\3\end{pmatrix}$, $T(e_2) = Ae_2 = \begin{pmatrix}2\\4\end{pmatrix}$. $\Im(T) = \Span(T(e_1),T(e_2)) = \Span(\begin{pmatrix}1\\3\end{pmatrix},\begin{pmatrix}2\\4\end{pmatrix}) = \mathbb{R}^2$.
-Proposition: $(e_1,\ldots,e_n)$ basis of U, $\Im(T) = \Span(T(e_1),\ldots,T(e_n))$.
-Main Idea: $\Im(T) = \{T(u) : \forall u \in U\}$, take $u \in U$, meaning $u = \lambda_1e_1 + \ldots + \lambda_ne_n$, then $T(u) = T(\lambda_1e_1 + \ldots + \lambda_ne_n) = \lambda_1T(e_1) + \cdots + \lambda_nT(e_n) \in \Span(T(e_i))$.
-Proof that $\Im(T) \subseteq \Span(T(e_1),\ldots,T(e_n))$:
-Step 1: Let $v \in \Im(T)$, prove $v \in \Span$.
-Step 2: $\exists u$ such that $v \in T(u)$. Show there exist $\lambda_1, \ldots, \lambda_n$ such that $v = \lambda_1T(e_1) + \cdots + \lambda_nT(e_n)$.
-Step 3: Find $\lambda_1, \ldots, \lambda_n$, e basis. $\exists \lambda_1, \ldots, \lambda_n$ such that $u = \lambda_1e_1 + \cdots + \lambda_ne_n$.
-Apply $T$: $T(u) = \lambda_1T(e_1) + \cdots + \lambda_nT(e_n)$.
-
-Matrix of a transformation:
-dim 1:
-Proposition: $T : \mathbb{R} \to \mathbb{R}$ linear is determined by a single real (1x1 matrix) number
-Propostion: $T: \mathbb{R} \to \mathbb{R}$ linear map $T(x) = T(x-1) = xT(1)-ax$.
-Matrix of $T$ in basis e: denoted $A = [T]_e$, $[T]_e = \left([T(e_1)]_e,\cdots,[T(e_n)]_e\right) = A$.
-To compute matrix of $T: U \to U$ in $e =$ basis of $U$:
-\begin{enumerate}
-    \item Compute coord of $T(e_1)$ in basis $e$.
-    \item Write these coord as columns in $A$.
-\end{enumerate}
-Example: $U = \mathbb{R}^2$, $e =$ std basis,$T: \mathbb{R}^2 \to \mathbb{R}^2$, $[T]_e = \begin{pmatrix}1&2\\3&4\end{pmatrix}$.
-Derivative: Matrix of $D(f) = f'$, $D: P_n \to P_n$, $e = (x^n, x^{n-1}, \ldots, x^1, 1)$.
-
-\marginpar{February 23, 2026}
-Isomorphisms
-\begin{definition}[Isomorphism]
-    A transformation $T: U \to V$ is an isomorphism if
-    \begin{enumerate}
-        \item $T$ is linear.
-        \item $T$ is bijective.
-    \end{enumerate}
+\begin{definition}[Kernel and image]
+    \[\ker(T) = \{u\in U : T(u)=0\}, \qquad \operatorname{Im}(T) = \{T(u) : u\in U\}\subseteq V.\]
 \end{definition}
-To check isomorphism:
-\begin{enumerate}
-    \item Check $T$ is linear.
-    \item Check $\ker(T) = \{0\}$.
-    \item Check $\Im(T) = V$. Basically the vectors $T(e_1), \ldots, T(e_n)$ span $V$, where $e_1, \ldots, e_n$ is a basis of $U$.
-\end{enumerate}
+\begin{proposition}
+    $\ker(T)\subseteq U$ and $\operatorname{Im}(T)\subseteq V$ are subspaces.
+\end{proposition}
+\begin{proposition}
+    $T$ is injective $\iff$ $\ker(T)=\{0\}$.
+\end{proposition}
+\begin{proof}
+    ($\Leftarrow$) If $\ker(T)=\{0\}$ and $T(u)=T(u')$, then $T(u-u')=0$, so $u-u'=0$.\\
+    ($\Rightarrow$) Contrapositive: if $\exists u\neq0$ with $T(u)=0$, then $T(u)=T(0)$ with $u\neq0$.
+\end{proof}
+\begin{remark}
+    The kernel is only useful for linear $T$. For example, $\ker(\sin)=\{k\pi : k\in\mathbb{Z}\}$ is not a subspace.
+\end{remark}
+\begin{proposition}
+    If $(e_1,\ldots,e_n)$ is a basis of $U$, then $\operatorname{Im}(T)=\Span(T(e_1),\ldots,T(e_n))$.
+\end{proposition}
+\begin{proof}
+    Any $v=T(u)=T(\lambda_1e_1+\cdots+\lambda_ne_n) = \lambda_1T(e_1)+\cdots+\lambda_nT(e_n)\in\Span(T(e_i))$.
+\end{proof}
+
+\subsubsection{Examples of Kernel and Image}
+\begin{example}
+    For the projection $P: V\to U$ along $U'$: $\operatorname{Im}(P)=U$ and $\ker(P)=U'$.
+\end{example}
+\begin{example}
+    $A=\begin{pmatrix}1&2\\3&4\end{pmatrix}$, $T_A:\mathbb{R}^2\to\mathbb{R}^2$. Solving $\begin{cases}x+2y=0\\3x+4y=0\end{cases}$ gives $x=y=0$, so $\ker(T_A)=\{0\}$ and $T_A$ is injective.
+\end{example}
+\begin{example}
+    $A=\begin{pmatrix}1&2&3\\4&5&6\\7&8&9\end{pmatrix}$. Row reduction gives $\ker(T_A)=\Span\begin{pmatrix}1\\-2\\1\end{pmatrix}$.
+\end{example}
+
+% -----------------------------------------------------------
+\subsection{Matrix of a Linear Transformation}
+% -----------------------------------------------------------
+\marginpar{February 20, 2026}
+
+\begin{definition}[Matrix of $T$ in basis $e$]
+    Let $e=(e_1,\ldots,e_n)$ be a basis of $U$. The matrix of $T: U\to U$ in basis $e$ is
+    \[[T]_e = \bigl([T(e_1)]_e,\ldots,[T(e_n)]_e\bigr).\]
+    The columns are the coordinate vectors of the images of the basis vectors.
+\end{definition}
+\begin{example}
+    For $T=T_A$ on $\mathbb{R}^2$ with the standard basis, $[T]_e = A$.
+\end{example}
+\begin{example}[Derivative matrix]
+    $D: P_n\to P_n$ in basis $e=(x^n,x^{n-1},\ldots,x,1)$: compute $D(x^k)=kx^{k-1}$ and write its coordinates as columns.
+\end{example}
+
+% -----------------------------------------------------------
+\subsection{Isomorphisms}
+% -----------------------------------------------------------
+\marginpar{February 23, 2026}
+
+\begin{definition}[Isomorphism]
+    $T: U\to V$ is an isomorphism if it is linear and bijective.
+\end{definition}
+To check: verify $T$ is linear, $\ker(T)=\{0\}$, and $\operatorname{Im}(T)=V$.
 \begin{theorem}
-    Let $T: V \to V$ is a linear map. $A$ is a matrix in a basis e of V. TFAE:
+    For $T: V\to V$ with matrix $A$ in basis $e$, the following are equivalent:
     \begin{enumerate}
         \item $T$ is an isomorphism.
         \item $A$ is invertible.
-        \item $det(A) \neq 0$.
+        \item $\det(A)\neq0$.
     \end{enumerate}
 \end{theorem}
-Another def of isomorphism: $\exists S$ such that $TS=ST=I$. $T : U \to V$, while $S : V \to U$ and therefore $S = T^{-1}$.
-For linear $T: U \to V$. If $\dim(U) \ neq \dim(V) \to $ no isomorphism from $U \to V$.
-We write $U \cong V$ if there exists an isomorphism $T: U \to V$.
 \begin{theorem}
-    $U \cong V \iff \dim(U) = \dim(V)$. $P_8 \cong \mathbb{R}^9 \cong M_3(\mathbb{R})$.
+    $U\cong V \iff \dim U = \dim V$. In particular, every $n$-dimensional space is isomorphic to $k^n$.
 \end{theorem}
-\begin{corollary}
-    Let $V$ be any vector space. If $dim(V)=n$, then $V \cong K^n$.
-\end{corollary}
 \begin{example}
-    Show $x$ and $x^2$ are LI in $P_2$. Solution: $ax + bx^2 = 0 \to a=b=0$.
-    Proof by isomorphism: transform polynomials into vectors: $\Phi: P_2 \to \mathbb{R}^3$, $f = a+bx+cx^2 \to \begin{pmatrix}a\\b\\c\end{pmatrix}$
-    Just need to prove: $x \to \begin{pmatrix}0\\1\\0\end{pmatrix}$, $x^2 \to \begin{pmatrix}0\\0\\1\end{pmatrix}$. Show $\begin{pmatrix}0\\1\\0\end{pmatrix}, \begin{pmatrix}0\\0\\1\end{pmatrix}$ are linearly independent.
+    $P_8\cong\mathbb{R}^9\cong M_3(\mathbb{R})$ since all have dimension 9.
 \end{example}
-\begin{example}[Could be in exam]
-    Let two matrices in $M_2(\mathbb{R})$ be $\begin{pmatrix}2&1\\2&3\end{pmatrix}$ and $\begin{pmatrix}1&2\\0&1\end{pmatrix}$. Show the matrices are linearly independent. Solve by isomorphism:
-    \[\begin{pmatrix}a&b\\c&d\end{pmatrix} \to \begin{pmatrix}a\\b\\c\\d\end{pmatrix}.\]
+
+\subsubsection{The Canonical Isomorphism}
+\begin{definition}[Coordinate map]
+    Given vectors $v_1,\ldots,v_n\in V$, define $\Phi: k^n\to V$ by
+    \[\Phi\begin{pmatrix}\lambda_1\\\vdots\\\lambda_n\end{pmatrix} = \lambda_1v_1+\cdots+\lambda_nv_n.\]
+    Then $\operatorname{Im}(\Phi)=\Span(v_1,\ldots,v_n)$.
+\end{definition}
+\begin{theorem}
+    $\Phi$ is an isomorphism $\iff$ $(v_1,\ldots,v_n)$ is a basis for $V$. In this case, $[v]_e = \Phi^{-1}(v)$.
+\end{theorem}
+\begin{example}[Using isomorphism to prove LI]
+    To show $x$ and $x^2$ are LI in $P_2$, use $\Phi: P_2\to\mathbb{R}^3$, $a+bx+cx^2\mapsto(a,b,c)^T$, and verify $\begin{pmatrix}0\\1\\0\end{pmatrix}$, $\begin{pmatrix}0\\0\\1\end{pmatrix}$ are LI in $\mathbb{R}^3$.
 \end{example}
-Basic linear transformation: Let $V$ be a vector space. Let $v_1, \ldots, v_n$ be vectors in $V$. $\Phi: K^n \to V$ or $\Phi: \begin{pmatrix}\lambda_1\\\vdots\\\lambda_n\end{pmatrix} \to \lambda_1 v_1 + \cdots + \lambda_n v_n$. $V = Im(\Phi)=span(v_1, \ldots, v_n)$. $Im(\Phi) = \{\lambda_1v_1 + \cdots + \lambda_n v_n \mid \lambda_1, \ldots, \lambda_n \in K\} = span(v_1, \ldots, v_n)$.
+\begin{example}[Exam-style]
+    Show $\begin{pmatrix}2&1\\2&3\end{pmatrix}$ and $\begin{pmatrix}1&2\\0&1\end{pmatrix}$ are LI using the isomorphism $\begin{pmatrix}a&b\\c&d\end{pmatrix}\mapsto\begin{pmatrix}a\\b\\c\\d\end{pmatrix}$.
+\end{example}
 
-Example: $\Phi: \mathbb{R}^4 \to M_2(\mathbb{R})$, $\Phi: \begin{pmatrix}\lambda_1\\\lambda_2\\\lambda_3\\\lambda_4\end{pmatrix} \to \lambda_1v_1 + \cdots + \lambda_4v_4$. $v_1 = e_{11}$, $v_2 = e_{12}$, $v_3 = e_{21}$, $v_4 = e_{22}$.
+% -----------------------------------------------------------
+\subsection{Change of Basis}
+% -----------------------------------------------------------
+\marginpar{February 27 -- March 13, 2026}
 
-Theorem: $\Phi: K^n \to V$, $\begin{pmatrix}\lambda_1\\\vdots\\\lambda_n\end{pmatrix} \to \lambda_1v_1 + \cdots + \lambda_n v_n = V$. $\Phi$ is isomorphic $\iff (v_1, \cdots, v_n)$ is a basis for $V$. $[v]_e = \Phi^{-1}(v)$.
-Main basis theorem: $v \in V$, $e = (v_1, \cdots, v_n) \to v_n = \lambda_1v_1 + \cdots + \lambda_nv_n$. where $\lambda_1$ to $\lambda_n$ are unique coordinates. $[v]_e = \begin{pmatrix}\lambda_1\\\vdots\\\lambda_n\end{pmatrix}$.
-Assume $v_1,\cdots,v_n$ basis and $\Phi$ injective, $ker(\Phi)=\{0\}$. Assume $\begin{pmatrix}\lambda_1\\\vdots\\\lambda_n\end{pmatrix} \in les \Phi$. Prove $\lambda_1, \cdots , \lambda_n = 0$. Know: $\Phi\begin{pmatrix}\lambda_1,\vdots,\lambda_n\end{pmatrix} = 0 \to \lambda_1v_1 + \cdots + \lambda_nv_n = 0$.
+\subsubsection{Change of Basis Matrix}
+Let $e=(e_1,\ldots,e_n)$ and $f=(f_1,\ldots,f_n)$ be two bases of $V$. Define:
+\begin{itemize}
+    \item $Q$: change of basis matrix from $f$-coordinates to $e$-coordinates. Its columns are $[f_1]_e,\ldots,[f_n]_e$.
+    \item $P = Q^{-1}$: change from $e$-coordinates to $f$-coordinates.
+\end{itemize}
+\begin{example}
+    $f_1=(1,0)^T$, $f_2=(1,1)^T$ gives $Q=\begin{pmatrix}1&1\\0&1\end{pmatrix}$. Then $P=Q^{-1}=\begin{pmatrix}1&-1\\0&1\end{pmatrix}$.
+\end{example}
 
+\subsubsection{Change of Basis Formula}
+\begin{theorem}[Change of basis]
+    If $A=[T]_e$ and $B=[T]_f$, then
+    \[B = PAQ, \quad P = Q^{-1}.\]
+\end{theorem}
+\begin{example}
+    $e=$ standard basis of $\mathbb{R}^2$, $f_1=\begin{pmatrix}1\\3\end{pmatrix}$, $f_2=\begin{pmatrix}2\\5\end{pmatrix}$, $T:\begin{pmatrix}x\\y\end{pmatrix}\mapsto\begin{pmatrix}2x-7y\\4x-3y\end{pmatrix}$, $A=\begin{pmatrix}2&-7\\4&-3\end{pmatrix}$. Find $[T]_f$ using $B=PAQ$.
+\end{example}
 
-\marginpar{February 27, 2026}
-Review of coordinates:
-Let $e = (e_1, \cdots, e_n)$ be a basis of $V$. Any $v \in V$ has coordinates = unique numbers $\lambda_1,\cdots,\lambda_n \in K$, such that $v = \lambda_1e_1 + \cdots + \lambda_ne_n$.
-Write $[v]_e = \begin{pmatrix}\lambda_1,\vdots,\lambda_n\end{pmatrix}$. Example : $v = \begin{pmatrix}1\\1\end{pmatrix}$, $e_1 = \begin{pmatrix}1\\0\end{pmatrix}$, $e_2 = \begin{pmatrix}0\\1\end{pmatrix}$, $[v]_e = \begin{pmatrix}1\\1\end{pmatrix}$, $v=e_1+e_2$.
-$f_1 = e_1$, $f_2 = v$ now basis of $\mathbb{R}^2$, $[v]_f = \begin{pmatrix}0\\1\end{pmatrix}$.
-Example: $f_1 = \begin{pmatrix}0\\1\\2\end{pmatrix}$, $f_2 = \begin{pmatrix}2\\1\\0\end{pmatrix}$ in $\mathbb{R}^3$ for a basis of a subspace $U$ of $dim2$ in $\mathbb{R}^3$.
-Define: $[v]_f = \begin{pmatrix}2\\3\end{pmatrix}$, $[v]_e = ?$, $v = 2f_1 + 3f_2$. Write $f_1$,$f_2$ in a matrix: $Q = \begin{pmatrix}0&2\\1&1\\2&0\end{pmatrix}$ change of coord matrix.
-$Q$ takes f coord to e-coord.
-Definition: Let $e=(e_1,\cdots,e_n)$ be a basis of $V$. Let $f = (f_1,\cdots,f_k)$ be LI in $V$. Let $Q= (f_1, \cdots, f_k)\begin{pmatrix}1\\1\\1\\1\\1\\1\end{pmatrix}$ change of basis from f-coord to e-coord.
-Let $V$ be a vector space, $e=(e_1,\cdots,e_n)$ basis of $V$. Let $f=(f_1,\cdots,f_k)$ basis of $V$. Define $Q = $ change of basis f-coord $\to$ e-coord and $P = $ change of basis e-coord $\to$ f-coord.
-Claim: $P$, $Q$ are invertible $P = Q^{-1}$.
-Example: $f_1 = (1,0)^T$, $f_2 = (1,1)^T$ compute change of basis matrix, $Q = \begin{pmatrix}1&1\\0&1\end{pmatrix}$, f-coord to e-coor we need $P=Q^{-1}$, need to inverse $Q$. $Q$ using isomorphism
+% -----------------------------------------------------------
+\subsection{Eigenvalues and Diagonalization}
+% -----------------------------------------------------------
+\marginpar{March 13--16, 2026}
 
+\subsubsection{Eigenvalues and Eigenvectors}
+\begin{definition}[Eigenvalue and eigenvector]
+    $\lambda\in k$ is an eigenvalue of $T$ if $\exists\, v\neq0$ with $Tv=\lambda v$; $v$ is an eigenvector. The eigenspace is
+    \[E_\lambda = \{v\in V : Tv=\lambda v\}.\]
+\end{definition}
+\begin{proposition}
+    $E_\lambda$ is a subspace of $V$.
+\end{proposition}
+\begin{proposition}
+    If $\lambda_1\neq\lambda_2$, then $E_{\lambda_1}\cap E_{\lambda_2}=\{0\}$.
+\end{proposition}
+\begin{proof}
+    If $v\in E_{\lambda_1}\cap E_{\lambda_2}$, then $\lambda_1 v=Tv=\lambda_2 v$, so $(\lambda_1-\lambda_2)v=0$. Since $\lambda_1\neq\lambda_2$, we get $v=0$.
+\end{proof}
 
-\marginpar{March 13, 2026}
-Change if basis formula
-\[B=PAQ\]
-where $B$ and $A$ are matrix of T in some basis and $P = Q^{-1}$.
-Typically: $A=[T]_e$, A is given, e and f are also given, $B = [T]_f$ find $B$.
-Example: $e=(e_1,e_2)$, the standard basis in $\mathbb{R}^2$, $f=(f_1,f_2)$ be a new basis $f_1 = \begin{pmatrix}1\\3\end{pmatrix}, f_2 = \begin{pmatrix}2\\5\end{pmatrix}$, $T: \mathbb{R}^2 \to \mathbb{R}^2$, $T: \begin{pmatrix}x\\y\end{pmatrix} \to \begin{pmatrix}2x-7y\\4x-3y\end{pmatrix}$, and $A = \begin{pmatrix}2&-7\\4&-3\end{pmatrix}$. Find $[T]_f$. Use $B=PAQ$.
-Diagonalization
-Eigenvalues: Def: $\lambda \in K$ is an eigenvalue of $T$ if there exists $v \neq 0$ such that $Tv = \lambda v$, where $v$ is the eigenvector. $E_\lambda$ is the eigenspace, $E_\lambda = \{v \in V \mid Tv = \lambda v\}$.
-Proposition: $E_\lambda$ is a subspace of V.
-Proposition: $\lambda_1 \neq \lambda_2$ then $E_{\lambda_1} \cap E_{\lambda_2} = \{0\}$.
-Proof: $v \in E_{\lambda_1} \cap E_{\lambda_2} \implies Tv = \lambda_1 v = \lambda_2 v = \lambda_1 \lambda_2 v = 0$.
+\subsubsection{The Characteristic Polynomial}
+\begin{definition}[Characteristic polynomial]
+    \[\chi(\lambda) = \det(\lambda\, \mathrm{Id} - A).\]
+\end{definition}
+\begin{theorem}
+    $\lambda$ is an eigenvalue of $A$ $\iff$ $\lambda$ is a root of $\chi$.
+\end{theorem}
 
-\marginpar{March 16, 2026}
-Def: $T$ scaling if there exist a basis $e=(e_1,\ldots,e_)$ and scalars $\lambda_1,\ldots,\lambda_n$ such that $T(e_i) = \lambda_ie_i$.
-Proposition: $TX = AX$ is scaling $\iff$ A is diagonalizable.
-How to diagonalize a matrix: 2 steps:
-1) Find eigenvalues by computing $X = $ characteristic polynomial
-2) Find eigenvectors, write them as a column in a change of basis matrix P (if diaganalizable).
-characteristic polynomial: $X(\lambda) = det(\lambda Id - A)$
-Theorem: $\lambda$ eigenvalue of A $\iff$ root of $X$
+\subsubsection{Diagonalization}
+\begin{definition}[Diagonalizable]
+    $T$ (or its matrix $A$) is diagonalizable if $\exists$ a basis $e=(e_1,\ldots,e_n)$ and scalars $\lambda_1,\ldots,\lambda_n$ with $T(e_i)=\lambda_ie_i$ (i.e., $T$ is a scaling map).
+\end{definition}
+\begin{proposition}
+    $T_A:\mathbb{R}^n\to\mathbb{R}^n$ is scaling $\iff$ $A$ is diagonalizable.
+\end{proposition}
 
+\paragraph{How to diagonalize $A$.}
+\begin{enumerate}
+    \item Compute $\chi(\lambda)=\det(\lambda\,\mathrm{Id}-A)$ and find its roots (the eigenvalues).
+    \item For each eigenvalue $\lambda_i$, find $\ker(\lambda_i\,\mathrm{Id}-A)$ to get eigenvectors.
+    \item If there are $n$ linearly independent eigenvectors, write them as columns of $P$; then $P^{-1}AP$ is diagonal.
+\end{enumerate}
 
-
+% ============================================================
 \section{Appendix}
+% ============================================================
+
 \subsection{Proof: Standard Basis is a Basis}
 \label{subsec:SB}
-\paragraph{Claim 1.}
-The vectors \(e_1,\ldots,e_n\) span \(\mathbb{R}^n\).
+\paragraph{Claim 1.} $e_1,\ldots,e_n$ span $\mathbb{R}^n$.
 \begin{proof}
-    We show that any vector in \(\mathbb{R}^n\) can be written as a linear combination of \(e_1,\ldots,e_n\):
-    \[\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix} = \begin{pmatrix}x_1\\0\\\vdots\\0\end{pmatrix} + \begin{pmatrix}0\\x_2\\\vdots\\0\end{pmatrix} + \cdots + \begin{pmatrix}0\\\vdots\\0\\x_n\end{pmatrix} = x_1 e_1 + x_2 e_2 + \cdots + x_n e_n.\]
+    $\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix} = x_1e_1+\cdots+x_ne_n$.
 \end{proof}
-\paragraph{Claim 2.}
-The vectors \(e_1,\ldots,e_n\) are linearly independent.
+\paragraph{Claim 2.} $e_1,\ldots,e_n$ are linearly independent.
 \begin{proof}
-    Suppose
-    \[\lambda_1 e_1 + \cdots + \lambda_n e_n = 0.\]
-    Then
-    \[\begin{pmatrix}\lambda_1\\ \vdots \\ \lambda_n\end{pmatrix} = \begin{pmatrix}0\\ \vdots \\ 0\end{pmatrix},\]
-    so \(\lambda_1=\cdots=\lambda_n=0\). Therefore \(e_1,\ldots,e_n\) are linearly independent.
+    $\lambda_1e_1+\cdots+\lambda_ne_n=0 \implies \begin{pmatrix}\lambda_1\\\vdots\\\lambda_n\end{pmatrix}=0 \implies \lambda_i=0$.
 \end{proof}
 
 \subsection{Algebraic Structures: Rings, Fields, and Vector Spaces}
-\paragraph{Rings vs Vector Spaces.} Although rings and vector spaces both have addition and a zero element, they differ fundamentally in how multiplication works:
-
 \begin{itemize}
-    \item \textbf{Ring:} A set $R$ with addition and multiplication between elements of $R$. Addition forms an abelian group, multiplication is associative, and distributes over addition. Scalars are elements \emph{inside the set}.
-    \item \textbf{Vector Space:} A set $V$ with addition and multiplication by scalars from a \emph{field} $F$. Addition forms an abelian group, scalar multiplication distributes appropriately. There is no multiplication between vectors themselves; only scalar multiplication is defined.
+    \item \textbf{Ring}: scalars come from inside the set itself; no scalar-vector distinction.
+    \item \textbf{Vector space}: scalars come from an external field $F$; multiplication between vectors is not defined, only scalar multiplication.
 \end{itemize}
 
-
+% ============================================================
 \section{Solutions}
+% ============================================================
+
 \begin{solution}[Hermitian Matrix]
-    This follows by the rule $(AB)^T = B^TA^T$ and $\overline{AB} = \overline{A}\overline{B}$:
-    \[(AB)^\ast = (\overline{AB})^T = (\overline{A}\overline{B})^T = \overline{B}^T\overline{A}^T = B^\ast A^\ast.\]
+    $(AB)^\ast = (\overline{AB})^T = (\overline{A}\,\overline{B})^T = \overline{B}^T\overline{A}^T = B^\ast A^\ast$.
 \end{solution}
 \begin{solution}[Invertibility]
-    Suppose \(B\) and \(B'\) are both inverses of \(A\). Then
-    \[B = B I = B(AB') = (BA)B' = I B' = B'.\]
-    Therefore, \(B = B'\), so the inverse is unique.
+    Suppose $B$ and $B'$ are both inverses of $A$. Then $B = BI = B(AB') = (BA)B' = IB' = B'$.
 \end{solution}
 \begin{solution}[Invertibility 2]
-    We can answer this problem with proof by contradiction. Let's
-    suppose this matrix is invertible. By definition there exists B = $\begin{pmatrix}a&b\\c&d\end{pmatrix}$ such that $\begin{bmatrix}0&1\\0&0\end{bmatrix}$ $\begin{bmatrix}a&b\\c&d\end{bmatrix}$ = $\begin{bmatrix}1&0\\0&1\end{bmatrix}$.  We can rewrite this equation into: $\begin{bmatrix}a&b\\c&d\end{bmatrix}$ = $\begin{bmatrix}0&1\\0&0\end{bmatrix}^{-1}$. The inverse of our matrix can be rewritten as $\frac{1}{0*0 - 1*0}\begin{bmatrix}0&-1\\0&0\end{bmatrix}$\footnote{Recall that an inverse of a $2 \times 2$ matrix is equal to its determinant multiplied with its conjugate}. But this is undefined since division by 0 is undefined. Therefore, our initial assumption that the matrix is invertible is false, and thus the matrix is not invertible.
+    Suppose the matrix is invertible. Then $\det\begin{bmatrix}0&1\\0&0\end{bmatrix} = 0\cdot0-1\cdot0 = 0$, but an invertible matrix must have nonzero determinant. Contradiction.
 \end{solution}
 \begin{solution}[Span]
-    \[\Span(v_1,v_2) = \{xv_1 + yv_2 : x,y \in \mathbb{R}\} = \left\{\begin{pmatrix}3x + y\\x + 3y\end{pmatrix}: x,y \in \mathbb{R}\right\}.\]
+    $\Span(v_1,v_2) = \left\{\begin{pmatrix}3x+y\\x+3y\end{pmatrix}: x,y\in\mathbb{R}\right\}$.
 \end{solution}
 \begin{solution}[Span 2]
-    Assume $u = a u_1 + b u_2 + c u_3$, with $a,b,c \in \mathbb{R}$. This gives the system of equations
-    \[\begin{amatrix}{3}3 & 1 & 2 & 2 \\ 10 & 3 & 8 & 10 \\ 7 & -2 & 1 & 7\end{amatrix}.\]
-    Solving via Gaussian elimination, we find $a = \frac{2}{21}$, $b = -\frac{46}{21}$, and $c = \frac{41}{21}$. Hence $u \in \Span(u_1,u_2,u_3)$, meaning that $u$ is in the span of $u_1, u_2, u_3$.
+    Setting up $u=au_1+bu_2+cu_3$ gives the augmented matrix $\begin{amatrix}{3}3&1&2&2\\10&3&8&10\\7&-2&1&7\end{amatrix}$. Gaussian elimination gives $a=\frac{2}{21}$, $b=-\frac{46}{21}$, $c=\frac{41}{21}$, so $u\in\Span(u_1,u_2,u_3)$.
 \end{solution}
-\begin{solution}[Subspace Criterion]
-    Let $A \in M_n(k)$ be fixed and define
-    \[U = \{x \in k^n : Ax = \vec{0}\}.\]
-    We verify the subspace criterion.
-
-    (0) Non-empty:  
-    Since $A0 = 0$, we have $0 \in U$.
-
-    (1) Closed under addition:  
-    Let $x,y \in U$. Then $Ax = 0$ and $Ay = 0$. Hence
-    \[A(x+y) = Ax + Ay = 0 + 0 = 0,\]
-    so $x+y \in U$.
-
-    (2) Closed under scalar multiplication:  
-    Let $x \in U$ and $\lambda \in k$. Then
-    \[A(\lambda x) = \lambda Ax = \lambda 0 = 0,\]
-    so $\lambda x \in U$.
-
-    Therefore, by the subspace criterion, $U$ is a subspace of $K^n$. It is called the null space (kernel) of $A$.
+\begin{solution}[Subspace criterion]
+    $U=\{x\in k^n:Ax=0\}$. Check: $A0=0$ so $0\in U$; if $Ax=Ay=0$ then $A(x+y)=0$; if $Ax=0$ then $A(\lambda x)=0$. So $U$ is a subspace (the null space of $A$).
 \end{solution}
-\begin{solution}[Subspace Criterion 2]
-    We verify the subspace criterion.
-
-    (0) Non-empty:  
-    Since $A0 = 0$, we have $0 \in U$.
-
-    (1) Closed under addition:  
-    Let $y_1,y_2 \in U$. Then there exist $x_1,x_2 \in k^n$ such that
-    \[y_1 = Ax_1, \quad y_2 = Ax_2.\]
-    Hence,
-    \[y_1 + y_2 = Ax_1 + Ax_2 = A(x_1 + x_2) \in U.\]
-
-    (2) Closed under scalar multiplication:  
-    Let $y \in U$ and $\lambda \in k$. Then $y = Ax$ for some $x \in k^n$, and
-    \[\lambda y = \lambda Ax = A(\lambda x) \in U.\]
-
-    Therefore, by the subspace criterion, $U$ is a subspace of $k^n$. It is called the image of $A$.
+\begin{solution}[Subspace criterion 2]
+    $U=\{Ax:x\in k^n\}$. Check: $A0=0$; $Ax_1+Ax_2=A(x_1+x_2)$; $\lambda Ax = A(\lambda x)$. So $U$ is a subspace (the image of $A$).
 \end{solution}
-\begin{solution}[Subspace Criterion 3]
-    Let $V \subseteq k$ be a subspace. We show that either $V = \{0\}$ or $V = k$. If $V = \{0\}$, we are done. Otherwise, $V \neq \{0\}$. Then there exists $v \in V$ with $v \neq 0$.
-    We prove that $V = k$. Let $x \in k$ be arbitrary. Since $v \neq 0$, there exists $\lambda \in k$ such that
-    \[x = \lambda v.\]
-    Because $V$ is closed under scalar multiplication, $\lambda v \in V$, hence $x \in V$. Therefore every $x \in k$ belongs to $V$, so $V = k$. Conclusion: the only subspaces of $k$ are $\{0\}$ and $k$.
+\begin{solution}[Subspace criterion 3]
+    If $V\neq\{0\}$, pick $v\in V$, $v\neq0$. For any $x\in k$, write $x=\lambda v$ for $\lambda=x/v\in k$. By closure under scalar multiplication, $x\in V$. Hence $V=k$.
 \end{solution}
-\begin{solution}[Subspace Criterion 4]
-    We verify the subspace criterion.
-    (0) Non-empty:
-    Taking $\lambda_1=\cdots=\lambda_n=0$ gives
-    \[0 = 0v_1 + \cdots + 0v_n \in \Span(v_1,\dots,v_n).\]
-    (1) Closed under addition:
-    Let $u,v \in \Span(v_1,\dots,v_n)$. Then there exist scalars
-    $a_1,\dots,a_n,b_1,\dots,b_n \in k$ such that
-    \[u = a_1 v_1 + \cdots + a_n v_n, \quad v = b_1 v_1 + \cdots + b_n v_n.\]
-    Hence,
-    \[u+v = (a_1+b_1)v_1 + \cdots + (a_n+b_n)v_n \in \Span(v_1,\dots,v_n).\]
-    (2) Closed under scalar multiplication:  
-    Let $u \in \Span(v_1,\dots,v_n)$ and $\lambda \in k$. Then
-    \[u = a_1 v_1 + \cdots + a_n v_n\]
-    for some scalars $a_i$, and
-    \[\lambda u = (\lambda a_1)v_1 + \cdots + (\lambda a_n)v_n \in \Span(v_1,\dots,v_n).\]
-    Therefore, $\Span(v_1,\dots,v_n)$ is a subspace of $V$.
+\begin{solution}[Subspace criterion 4]
+    $0=0v_1+\cdots+0v_n\in\Span$; sums and scalar multiples of linear combinations are linear combinations. Hence $\Span(v_1,\ldots,v_n)$ is a subspace.
 \end{solution}
-\begin{solution}[Span Membership]
-    We look for scalars $x,y,z \in \mathbb{R}$ such that
-    \[xv_1 + yv_2 + zv_3 = v.\]
-    That is,
-    \[x\begin{pmatrix}1\\2\\1\end{pmatrix} + y\begin{pmatrix}2\\5\\4\end{pmatrix} + z\begin{pmatrix}1\\3\\6\end{pmatrix} = \begin{pmatrix}3\\5\\-5\end{pmatrix}.\]
-    This gives the system
-    \[\begin{cases}
-    x + 2y + z = 3,\\
-    2x + 5y + 3z = 5,\\
-    x + 4y + 6z = -5.
-    \end{cases}\]
-    Solving, we obtain
-    \[x=3,\quad y=1,\quad z=-2.\]
-    Therefore,
-    \[v = 3v_1 + v_2 - 2v_3,\]
-    so $v \in \Span(v_1,v_2,v_3)$.
+\begin{solution}[Span membership]
+    Solve $xv_1+yv_2+zv_3=v$: the system gives $x=3$, $y=1$, $z=-2$, so $v=3v_1+v_2-2v_3\in\Span(v_1,v_2,v_3)$.
 \end{solution}
-\begin{solution}[Span Membership 2]
-    We seek scalars $t,y,z \in \mathbb{R}$ such that
-    \[f = tf_1 + yf_2 + zf_3.\]
-    Comparing coefficients,
-    \[t(x^2+2x+1) + y(2x^2+5x+4) + z(x^2+3x+6) = 3x^2+5x-5,\]
-    which gives
-    \[\begin{cases}
-    t + 2y + z = 3,\\
-    2t + 5y + 3z = 5,\\
-    t + 4y + 6z = -5.
-    \end{cases}\]
-    Solving,
-    \[t=3,\quad y=1,\quad z=-2.\]
-    Hence,
-    \[f = 3f_1 + f_2 - 2f_3,\]
-    and therefore $f \in \Span(f_1,f_2,f_3)$.
+\begin{solution}[Span membership 2]
+    Comparing coefficients gives the same system as above: $t=3$, $y=1$, $z=-2$, so $f=3f_1+f_2-2f_3$.
 \end{solution}
-\begin{solution}[Infinite dimension of $P_{\infty}$]
-    Assume for contradiction that $\dim(P_{\infty}) < \infty$. Then there exist polynomials
-    \[f_1,\ldots,f_n \in P_{\infty}\]
-    such that
-    \[P_{\infty} = \operatorname{span}(f_1,\ldots,f_n).\]
-    Let
-    \[d = \max\{\deg(f_1),\ldots,\deg(f_n)\}.\]
-    Any linear combination of $f_1,\ldots,f_n$ has degree at most $d$. Hence every polynomial in $\operatorname{span}(f_1,\ldots,f_n)$ has degree $\le d$. But the polynomial $x^{d+1}$ has degree $d+1$, so
-    \[x^{d+1} \notin \operatorname{span}(f_1,\ldots,f_n).\]
-    This contradicts the assumption that $P_{\infty} = \operatorname{span}(f_1,\ldots,f_n)$. Therefore $P_{\infty}$ cannot be finite dimensional, and
-    \[\dim(P_{\infty}) = \infty.\]
+\begin{solution}[Infinite dimension of $P_\infty$]
+    If $\dim P_\infty < \infty$, some $f_1,\ldots,f_n$ span $P_\infty$. Let $d=\max\deg(f_i)$. Then every polynomial in $\Span(f_1,\ldots,f_n)$ has degree $\leq d$, but $x^{d+1}\notin\Span$. Contradiction.
 \end{solution}
-\begin{solution}[Linearly independent vectors]
-    $x,y,z$ not all zero.
-    \[x\begin{pmatrix}1\\1\\0\end{pmatrix} + y\begin{pmatrix}1\\3\\2\end{pmatrix} + z\begin{pmatrix}4\\9\\5\end{pmatrix} = \begin{pmatrix}0\\0\\0\end{pmatrix}\]
-    \[\begin{cases}x + 3y + 4z = 0\\1 + 3y + 9z = 0\\0 + 2y + 5z = 0\end{cases}\]
-    Find a non-trivial solution. $x = 3$, $y = 5$, $z = -2$. Not LI: $3v_1 + 5v_2 - 2v_3 = 0$.
+\begin{solution}[Linear independence]
+    $3v_1+5v_2-2v_3=0$ (with $x=3,y=5,z=-2$), so the vectors are not LI.
 \end{solution}
-\begin{solution}[Coordinate Vectors]
-    Find the coordinate vector $[g]_S$ for $g$ in the basis $S = (g_1, g_2, g_3)$. Target function $g$: $g(0)=2$, $g(1)=g(-1)=2$, $g(2)=g(-2)=3$.\\
-    Step 1: Set up the Linear Combination\\
-    We need to find $\lambda_1, \lambda_2, \lambda_3$ such that $g = \lambda_1 g_1 + \lambda_2 g_2 + \lambda_3 g_3$. We evaluate this at specific points in $X$:
-    \begin{enumerate}
-        \item At $x=0$:
-        \[g(0) = \lambda_1 g_1(0) + \lambda_2 g_2(0) + \lambda_3 g_3(0)\]
-        \[2 = \lambda_1(1) + \lambda_2(0) + \lambda_3(0) \implies \lambda_1 = 2\]
-        \item At $x=1$:
-        \[g(1) = \lambda_1 g_1(1) + \lambda_2 g_2(1) + \lambda_3 g_3(1)\]
-        \[2 = 2(1) + \lambda_2(\frac{1}{4}(1)(0)) + \lambda_3(\frac{1}{3}(1)(3))\]
-        \[2 = 2 + 0 + \lambda_3(1) \implies \lambda_3 = 0\]
-        \item At $x=2$:
-        \[g(2) = \lambda_1 g_1(2) + \lambda_2 g_2(2) + \lambda_3 g_3(2)\]
-        \[3 = 2(1) + \lambda_2(\frac{1}{4}(4)(-3)) + 0(2)\]
-        \[3 = 2 - 3\lambda_2 \implies 1 = -3\lambda_2 \implies \lambda_2 = -\frac{1}{3}\]
-    \end{enumerate}
-    The final coordinate vector is then $[g]_S = \begin{pmatrix}2\\-1/3\\0\end{pmatrix}$.
+\begin{solution}[Coordinate vectors]
+    Evaluating at $x=0,1,2$: $\lambda_1=2$, $\lambda_3=0$, $\lambda_2=-\frac{1}{3}$. So $[g]_S=\begin{pmatrix}2\\-1/3\\0\end{pmatrix}$.
 \end{solution}
-\begin{solution}[Coordinate Vectors 2]
-    Step 1: Identify the Standard Basis\\
-    In the space of functions $F(D)$ where $D$ has $n$ elements, the standard basis $e = \{e_1, e_2, e_3\}$ consists of indicator functions:
-    \begin{itemize}
-        \item $e_1(x) = 1$ if $x=1$, else $0$.
-        \item $e_2(x) = 1$ if $x=2$, else $0$.
-        \item $e_3(x) = 1$ if $x=3$, else $0$.
-    \end{itemize}
-    Step 2: Evaluate $f(x)$ at each point in $D$\\
-    The coordinates in the standard basis are simply the values of the function at each point in the domain:
-    \begin{enumerate}
-        \item $f(1)$: $2(1)^2 - 3 = -1$
-        \item $f(2)$: $2(2)^2 - 3 = 8 - 3 = 5$
-        \item $f(3)$: $2(3)^2 - 3 = 18 - 3 = 15$
-    \end{enumerate}
-    The final coordinate vector is $[f]_e=\begin{pmatrix}-1\\5\\15\end{pmatrix}$.
+\begin{solution}[Coordinate vectors 2]
+    Evaluate: $f(1)=-1$, $f(2)=5$, $f(3)=15$. So $[f]_e=\begin{pmatrix}-1\\5\\15\end{pmatrix}$.
 \end{solution}
 \begin{solution}[Finding a Basis]
-    Construct the Matrix: Place the vectors as columns in a matrix $A$.
-    \[A = \begin{pmatrix} 1 & 2 & 1 & 2 \\ 2 & 1 & 2 & 8 \\ 1 & 3 & 0 & 2 \\ 1 & 2 & 1 & 10 \end{pmatrix}.\]
-    Row Reduction to Echelon Form:
-    \begin{itemize}
-        \item $R_2 \to R_2 - 2R_1$, $R_3 \to R_3 - R_1$, $R_4 \to R_4 - R_1$:
-        \[\begin{pmatrix} 1 & 2 & 1 & 2 \\ 0 & -3 & 0 & 4 \\ 0 & 1 & -1 & 0 \\ 0 & 0 & 0 & 8 \end{pmatrix}\]
-        \item Swap $R_2$ and $R_3$, then $R_3 \to R_3 + 3R_2$:
-        \[\begin{pmatrix} \mathbf{1} & 2 & 1 & 2 \\ 0 & \mathbf{1} & -1 & 0 \\ 0 & 0 & \mathbf{-3} & 4 \\ 0 & 0 & 0 & \mathbf{8} \end{pmatrix}\]
-    \end{itemize}
-    Identify Pivots: There is a pivot in every column (columns 1, 2, 3, and 4). Conclusion: Since all columns are pivot columns, the entire set $\{v_1, v_2, v_3, v_4\}$ is linearly independent and forms a basis for $V$.
+    Row reducing the matrix with $v_1,v_2,v_3,v_4$ as columns yields four pivots; all four vectors are LI and form a basis of $V$.
 \end{solution}
 \begin{solution}[Finding a Basis 2]
-    Test for Linear Independence: Solve $a_1 M_1 + a_2 M_2 + a_3 M_3 = \mathbf{0}$. This leads to the system:
-    \begin{itemize}
-        \item $a_1 + 2a_2 + 4a_3 = 0$
-        \item $2a_1 + a_2 + 5a_3 = 0$
-        \item $a_1 + 3a_2 + 5a_3 = 0$
-        \item $3a_1 + a_2 + 7a_3 = 0$
-    \end{itemize}
-    Solve the System: From the first two equations, $a_1 = -2a_2 - 4a_3$. Substituting into the second: $2(-2a_2 - 4a_3) + a_2 + 5a_3 = 0 \implies -3a_2 - 3a_3 = 0 \implies a_2 = -a_3$.\\
-    Find the Dependency: If $a_3 = 1$, then $a_2 = -1$ and $a_1 = -2(-1) - 4(1) = -2$.\\
-    Checking $M_3$: $-2M_1 - M_2 + M_3 = 0 \implies M_3 = 2M_1 + M_2$.\\
-    Conclusion: $M_3$ is in the span of $\{M_1, M_2\}$. Since $M_1$ and $M_2$ are not multiples of each other, they are LI.\\
-    Basis: $\mathcal{B} = \left\{ \begin{pmatrix} 1 & 2 \\ 1 & 3 \end{pmatrix}, \begin{pmatrix} 2 & 1 \\ 3 & 1 \end{pmatrix} \right\}$.
+    Solving $a_1M_1+a_2M_2+a_3M_3=0$ gives $a_3=1$, $a_2=-1$, $a_1=-2$, so $M_3=2M_1+M_2$. Basis: $\left\{\begin{pmatrix}1&2\\1&3\end{pmatrix},\begin{pmatrix}2&1\\3&1\end{pmatrix}\right\}$.
 \end{solution}
 \begin{solution}[Finding a Basis 3]
-    Write the General Form: A matrix $A$ is Hermitian if $A = \begin{pmatrix} x & z \\ \bar{z} & y \end{pmatrix}$ for $x, y \in \mathbb{R}$ and $z = a + bi \in \mathbb{C}$.\\
-    Decompose by Real Parameters:
-    \[A = \begin{pmatrix} x & a+bi \\ a-bi & y \end{pmatrix} = x\begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix} + y\begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix} + a\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} + b\begin{pmatrix} 0 & i \\ -i & 0 \end{pmatrix}\]
-    Identify the Basis Vectors: The four matrices above are linearly independent over $\mathbb{R}$.\\
-    Conclusion: A basis for $U$ is:
-    \[\mathcal{B} = \left\{ \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}, \begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix}, \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}, \begin{pmatrix} 0 & i \\ -i & 0 \end{pmatrix} \right\}\]
+    Decomposing $A=\begin{pmatrix}x&a+bi\\a-bi&y\end{pmatrix}$ gives basis $\left\{\begin{pmatrix}1&0\\0&0\end{pmatrix},\begin{pmatrix}0&0\\0&1\end{pmatrix},\begin{pmatrix}0&1\\1&0\end{pmatrix},\begin{pmatrix}0&i\\-i&0\end{pmatrix}\right\}$.
 \end{solution}
 \begin{solution}[Finding a Basis 4]
-    Dimension Check: $X = \{-2, -1, 0, 1, 2\}$ has 5 elements, so $\dim(F(X)) = 5$. The subspace of even functions $U$ is determined by $f(-2)=f(2)$ and $f(-1)=f(1)$, with $f(0)$ free. This leaves 3 free variables, so $\dim(U) = 3$.\\
-    Test Linear Independence of $S$ by supposing $c_1 g_1 + c_2 g_2 + c_3 g_3 = \mathbf{0}$.
-    \begin{itemize}
-        \item At $x=0$: $c_1(1) + c_2(0) + c_3(0) = 0 \implies c_1 = 0$.
-        \item At $x=1$: $c_2(g_2(1)) + c_3(g_3(1)) = 0$. Note $g_2(1) = 0$ and $g_3(1) = 1$, so $c_3(1) = 0 \implies c_3 = 0$.
-        \item At $x=2$: $c_2(g_2(2)) = 0$. Since $g_2(2) = -3 \ne 0$, then $c_2 = 0$.
-    \end{itemize}
-     Conclusion: Since the 3 vectors are LI and $\dim(U) = 3$, $S$ must be a basis of $U$.
+    $\dim U=3$ (three free values: $f(0),f(1),f(2)$). Evaluating at $x=0,1,2$ forces $c_1=c_3=c_2=0$, so $S$ is LI. Since $|S|=\dim U=3$, $S$ is a basis.
 \end{solution}
 
 \section{Useful Links}
-Proofs: https://www.youtube.com/watch?v=V5tUc-J124s
+Proofs: \url{https://www.youtube.com/watch?v=V5tUc-J124s}
 
 \end{document}
