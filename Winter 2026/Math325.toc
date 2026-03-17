@@ -33,29 +33,31 @@
 \contentsline {subsubsection}{\numberline {4.3.3}Integrating Factors for Non-Exact Equations}{15}{subsubsection.4.3.3}%
 \contentsline {subsection}{\numberline {4.4}Applications}{16}{subsection.4.4}%
 \contentsline {section}{\numberline {5}Systems of Linear Equations}{16}{section.5}%
-\contentsline {subsection}{\numberline {5.1}From higher order scalar ODEs to linear systems}{17}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Theory of First Order Linear Systems}{17}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Structure of the Solution Space}{18}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Linear homogeneous systems with constant coefficients}{21}{subsection.5.4}%
-\contentsline {subsubsection}{\numberline {5.4.1}Complex eigenvalues and real-valued solutions}{27}{subsubsection.5.4.1}%
-\contentsline {subsubsection}{\numberline {5.4.2}Nondiagonalizable Matrices}{29}{subsubsection.5.4.2}%
-\contentsline {subsection}{\numberline {5.5}Exponential of a Matrix}{32}{subsection.5.5}%
-\contentsline {subsection}{\numberline {5.6}Building the Solution Set With $e^{At}$}{34}{subsection.5.6}%
-\contentsline {subsubsection}{\numberline {5.6.1}Eigenvectors}{34}{subsubsection.5.6.1}%
-\contentsline {subsubsection}{\numberline {5.6.2}Generalized Eigenvectors}{34}{subsubsection.5.6.2}%
-\contentsline {subsection}{\numberline {5.7}Non-homogeneous systems}{37}{subsection.5.7}%
-\contentsline {subsubsection}{\numberline {5.7.1}Variation of Parameters}{37}{subsubsection.5.7.1}%
-\contentsline {subsection}{\numberline {5.8}Mass-Spring Systems}{38}{subsection.5.8}%
-\contentsline {subsection}{\numberline {5.9}RLC Circuits}{40}{subsection.5.9}%
-\contentsline {section}{\numberline {6}Stability, Phase Portraits and Orbits}{41}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Orbits and Phase Portraits}{41}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Equilibrium Solutions}{41}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Stability}{42}{subsection.6.3}%
-\contentsline {subsubsection}{\numberline {6.3.1}Definitions}{42}{subsubsection.6.3.1}%
-\contentsline {subsubsection}{\numberline {6.3.2}Examples}{42}{subsubsection.6.3.2}%
-\contentsline {subsection}{\numberline {6.4}Phase Portraits of Planar Linear Systems}{43}{subsection.6.4}%
-\contentsline {section}{\numberline {7}Laplace Transform}{44}{section.7}%
-\contentsline {section}{\numberline {8}Appendix}{44}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Picard Iterations Convergence}{44}{subsection.8.1}%
-\contentsline {section}{\numberline {9}Solutions}{45}{section.9}%
-\contentsline {section}{\numberline {10}Useful Links}{48}{section.10}%
+\contentsline {subsection}{\numberline {5.1}Reduction to First-Order Systems}{16}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Existence, Uniqueness, and Solution Structure}{17}{subsection.5.2}%
+\contentsline {subsubsection}{\numberline {5.2.1}Matrix Solutions and the Wronskian}{18}{subsubsection.5.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.2}Recovering the Coefficient Matrix and Solving IVPs}{18}{subsubsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.3}Homogeneous Systems with Constant Coefficients}{19}{subsection.5.3}%
+\contentsline {subsubsection}{\numberline {5.3.1}Diagonalizable Case: Real Eigenvalues}{19}{subsubsection.5.3.1}%
+\contentsline {subsubsection}{\numberline {5.3.2}Diagonalizable Case: Complex Eigenvalues}{21}{subsubsection.5.3.2}%
+\contentsline {subsubsection}{\numberline {5.3.3}Nondiagonalizable Matrices and Generalized Eigenvectors}{21}{subsubsection.5.3.3}%
+\contentsline {subsection}{\numberline {5.4}The Matrix Exponential}{23}{subsection.5.4}%
+\contentsline {subsubsection}{\numberline {5.4.1}Computing $e^{At}$ from a Fundamental Matrix}{24}{subsubsection.5.4.1}%
+\contentsline {subsubsection}{\numberline {5.4.2}Action of $e^{At}$ on Eigenvectors and Generalized Eigenvectors}{24}{subsubsection.5.4.2}%
+\contentsline {subsection}{\numberline {5.5}Non-Homogeneous Systems}{25}{subsection.5.5}%
+\contentsline {subsubsection}{\numberline {5.5.1}Variation of Parameters}{25}{subsubsection.5.5.1}%
+\contentsline {subsection}{\numberline {5.6}Applications}{26}{subsection.5.6}%
+\contentsline {subsubsection}{\numberline {5.6.1}Mass-Spring Systems}{26}{subsubsection.5.6.1}%
+\contentsline {subsubsection}{\numberline {5.6.2}RLC Circuits}{27}{subsubsection.5.6.2}%
+\contentsline {section}{\numberline {6}Stability, Phase Portraits and Orbits}{27}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Orbits and Phase Portraits}{27}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Equilibrium Solutions}{28}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Stability}{29}{subsection.6.3}%
+\contentsline {subsubsection}{\numberline {6.3.1}Definitions}{29}{subsubsection.6.3.1}%
+\contentsline {subsubsection}{\numberline {6.3.2}Examples}{29}{subsubsection.6.3.2}%
+\contentsline {subsection}{\numberline {6.4}Phase Portraits of Planar Linear Systems}{30}{subsection.6.4}%
+\contentsline {section}{\numberline {7}Laplace Transform}{31}{section.7}%
+\contentsline {section}{\numberline {8}Appendix}{31}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Picard Iterations Convergence}{31}{subsection.8.1}%
+\contentsline {section}{\numberline {9}Solutions}{32}{section.9}%
+\contentsline {section}{\numberline {10}Useful Links}{35}{section.10}%

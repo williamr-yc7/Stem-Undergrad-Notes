@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1773685223.9776 "c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math325.tex" "Math325.pdf" "Math325" 1773685227.79933 0
+["pdflatex"] 1773778678.12021 "c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math325.tex" "Math325.pdf" "Math325" 1773778689.16218 0
   "../Images/MSS-setup.jpeg" 1771967647 175284 23355f99136cc6b96c514f0ec06940ab ""
   "../Images/circuit-ode.jpeg" 1771971481 297056 d82c58391ad4225b66d9ad02a986cbc2 ""
   "C:/Users/erenr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1770796485 82507 a9eef8696c92627b87e9975edea03b2a ""
@@ -43,7 +43,6 @@
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb" 1247596667 36554 b67dc2cfa451409e100b3fcf5f506509 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb" 1247596667 30251 6afa5cb1d0204815a708a080681d4674 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1247596667 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
-  "C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb" 1247596667 36741 0ee9e374ec3e30da87cdfb0ea3575226 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb" 1247596667 37912 07513ec114ac737ab54cea0152f4424b ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb" 1247596666 37166 8ab3487cbe3ab49ebce74c29ea2418db ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb" 1247596667 36281 c355509802a035cadc5f15869451dcee ""
@@ -63,7 +62,6 @@
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti7.pfb" 1247596667 36607 d654cb3f2bc54f57509240071db3bffa ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti9.pfb" 1247596667 36310 f5ddc6715cc60deb16d9db5ded6a9391 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex7.pfb" 1247596670 30457 bc0868ebece724ed7c3d37e3d9bff7bd ""
-  "C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex8.pfb" 1247596670 30273 87a352d78b6810ae5cfdc68d2fb827b2 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb" 1247596673 31764 459c573c03a4949a528c2cc7f557e217 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1247596673 34694 870c211f62cb72718a00e353f14f254d ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/context/base/mkii/supp-pdf.mkii" 1580390158 71627 94eb9990bed73c364d7f53f960cc8c5b ""
@@ -225,11 +223,11 @@
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/tools/indentfirst.sty" 1761901070 1618 30b01152766afcef2ed8f904cfdd3cc6 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
-  "Math325.aux" 1773685227 9940 ae83affd08822bf8c5141146cba7e36b "pdflatex"
-  "Math325.out" 1773685227 11206 14e7e72c7d61baf12f4ae8362903b792 "pdflatex"
-  "Math325.tex" 1773685220 90923 58c530231b3b7c1c128e9e93e3b3d979 ""
-  "Math325.toc" 1773685227 5686 7820d70b6e0b425c86753d74e372ab72 "pdflatex"
-  "c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math325.tex" 1773685220 90923 58c530231b3b7c1c128e9e93e3b3d979 ""
+  "Math325.aux" 1773778687 10137 8f4a2717fba751e9718dd36cb9c14982 "pdflatex"
+  "Math325.out" 1773778687 12097 5118f5cdc62942617cd6872e2ca55cf5 "pdflatex"
+  "Math325.tex" 1773778675 73999 daec7e43294483a46a9fc34967021e8e ""
+  "Math325.toc" 1773778687 6014 9d38e69fc28dac01870d5174ab1b123f "pdflatex"
+  "c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math325.tex" 1773778675 73999 daec7e43294483a46a9fc34967021e8e ""
   (generated)
   "Math325.aux"
   "Math325.log"

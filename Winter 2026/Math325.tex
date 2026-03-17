@@ -637,810 +637,709 @@ If $\frac{M_y - N_x}{N}$ depends only on $x$, this is a separable ODE for $\mu(x
 \end{example}
 
 
-\section{Systems of Linear Equations} %Need to claud ai
+\section{Systems of Linear Equations}
 \marginpar{February 3, 2026}
-Many problems involve several unknown functions that evolve together and influence one another. Instead of a single differential equation, we therefore study systems of first-order linear ODEs. Writing the unknown functions as a vector allows us to treat the entire system using matrix algebra and apply the tools of linear algebra (matrices, eigenvalues, and fundamental matrices).
+
+Many problems involve several unknown functions evolving together. 
+Instead of a single ODE, we study systems of first-order linear ODEs, 
+treating the unknowns as a vector and applying matrix algebra.
 
 We consider systems of the form
 \begin{equation}
     \label{eq:ode-system}
     y'(t) = A(t)y(t) + r(t), \quad t \in Q,
 \end{equation}
-where $y(t)$ is the unknown vector, $A(t)$ is a matrix of coefficients, $r(t)$ is a forcing term, and $Q \subseteq \mathbb{R}$. Explicitly,
-\[y(t) = \begin{pmatrix}y_1(t)\\\vdots\\y_n(t)\end{pmatrix} \in \mathbb{R}^n, \quad A(t) \in M_n(\mathbb{R}), \quad
-r(t) = \begin{pmatrix}r_1(t)\\\vdots\\r_n(t)\end{pmatrix},\]
+where
+\[y(t) = \begin{pmatrix}y_1(t)\\\vdots\\y_n(t)\end{pmatrix} \in 
+\mathbb{R}^n, \quad A(t) \in M_n(\mathbb{R}), \quad
+r(t) = \begin{pmatrix}r_1(t)\\\vdots\\r_n(t)\end{pmatrix}.\]
 
-\subsection{From higher order scalar ODEs to linear systems}
+%------- 3.1 -------
+\subsection{Reduction to First-Order Systems}
+
+Any $n$th-order scalar ODE can be written as a first-order system 
+by introducing new variables for each derivative.
+
 \begin{example}
-    Convert the third order equation
-    \[y''' - 2y'' + 4y' - 5y = \sin t + t^3\]
-    into a first order system.
-    Let
-    \[y_1 = y, \quad y_2 = y', \quad y_3 = y''.\]
-    Then
-    \[\begin{pmatrix}y_1'\\y_2'\\y_3'\end{pmatrix} = \begin{pmatrix}0 & 1 & 0\\0 & 0 & 1\\5 & -4 & 2\end{pmatrix}\begin{pmatrix}y_1\\y_2\\y_3\end{pmatrix} + \begin{pmatrix}0\\0\\\sin t + t^3\end{pmatrix}.\]
-    Thus the equation is written in the form \(y' = Ay + r\), with \(J_{\max}=\mathbb{R}\).
+    Convert $y''' - 2y'' + 4y' - 5y = \sin t + t^3$ into a 
+    first-order system. Set $y_1 = y$, $y_2 = y'$, $y_3 = y''$:
+    \[\begin{pmatrix}y_1'\\y_2'\\y_3'\end{pmatrix} = 
+    \begin{pmatrix}0&1&0\\0&0&1\\5&-4&2\end{pmatrix}
+    \begin{pmatrix}y_1\\y_2\\y_3\end{pmatrix} + 
+    \begin{pmatrix}0\\0\\\sin t + t^3\end{pmatrix},\]
+    which is in the form $y' = Ay + r$ with $J_{\max} = \mathbb{R}$.
 \end{example}
 
-\subsection{Theory of First Order Linear Systems}
-\begin{theorem}[Existence and uniqueness]
-    If every entry of \(A(t)\) and \(r(t)\) is continuous on an interval \(Q\), then for any
-    \[t_0 \in Q, \quad y_0 \in \mathbb{R}^n,\]
-    the IVP
-    \[\begin{cases}y'(t) = A(t)y(t) + r(t), \\ y(t_0) = y_0\end{cases}\]
-    has a unique solution on all of \(Q\). Hence \(J_{\max}=Q\).
+%------- 3.2 -------
+\subsection{Existence, Uniqueness, and Solution Structure}
+
+\begin{theorem}[Existence and Uniqueness]
+    If every entry of $A(t)$ and $r(t)$ is continuous on $Q$, then 
+    for any $t_0 \in Q$ and $y_0 \in \mathbb{R}^n$, the IVP
+    \[\begin{cases}y'(t) = A(t)y(t) + r(t),\\ y(t_0) = y_0\end{cases}\]
+    has a unique solution on all of $Q$. Hence $J_{\max} = Q$.
 \end{theorem}
+
 \begin{definition}
-    If \(r(t)=0\), the system is homogeneous. Otherwise it is non-homogeneous.
+    If $r(t) = 0$, the system is \emph{homogeneous}; otherwise it 
+    is \emph{non-homogeneous}.
 \end{definition}
 
-For a homogeneous system 
+We now focus on the homogeneous system
 \begin{equation}
-    \label{eq:ode-system-homogeneous}
-    y'(t)=A(t)y(t),
+    \label{eq:ode-system-matrix}
+    y'(t) = A(t)y(t).
 \end{equation}
-the set of all solutions forms a vector space: it contains the zero function, and any linear combination of solutions is also a solution (\ref{POS}). To describe this space concretely, we select \(n\) linearly independent solutions; arranging them as the columns of a matrix gives a fundamental matrix, which allows every solution to be expressed as a linear combination of these columns.
 
-The non-homogeneous system \(y' = A(t)y + r(t)\) can be solved using a fundamental matrix \(\Phi(t)\) of the homogeneous system:
-\[y(t) = \Phi(t) c + \Phi(t) \int_{t_0}^t \Phi(s)^{-1} r(s)ds,\]
-where \(c \in \mathbb{R}^n\) is determined by the initial condition \(y(t_0) = y_0\).
-
-\subsection{Structure of the Solution Space}
-\begin{definition}[Linear Independence]
-    Functions \(y_1, \dots, y_n\) in the solution set \(S\)\footnote{\(y_1, \dots, y_n\) are solutions of \(y' = A(t)y\)} are linearly independent if
-    \[c_1 y_1(t) + \cdots + c_n y_n(t) = 0 \quad \forall t \in Q \implies c_1 = \cdots = c_n = 0.\]
-\end{definition}
-\begin{theorem}[Solution Set]
-    The solution set \(S\) is an \(n\)-dimensional vector subspace of \(C^1(Q)\).
-\end{theorem}
-\begin{proof}To prove that $S$ is a vector space of dimension \(n\), we show the following:
-    \textbf{Step 1: Vector space.} If \(y_1,y_2 \in S\) and \(\alpha_1,\alpha_2 \in \mathbb{R}\),
-    \[
-    (\alpha_1 y_1 + \alpha_2 y_2)' = \alpha_1 y_1' + \alpha_2 y_2' = A(t)(\alpha_1 y_1 + \alpha_2 y_2),
-    \]
-    so any linear combination is in \(S\), and the zero function is also in \(S\).
-
-    \textbf{Step 2: Construct a basis.} Let \(e_1,\dots,e_n\) be the standard basis of \(\mathbb{R}^n\), and let \(y_i\) be the unique solution of
-    \[
-    \begin{cases}
-    y' = A(t)y, \\ 
-    y(t_0) = e_i
-    \end{cases}
-    \]
-    for \(i=1,\dots,n\). Define \(B = \{y_1,\dots,y_n\}\). By uniqueness, any solution \(z \in S\) can be written as a linear combination of the \(y_i\), so \(B\) spans \(S\). Evaluating a linear combination at \(t_0\) shows the \(y_i\) are independent. Hence, \(B\) is a basis and \(\dim{S} = n\).
-\end{proof}
-
-\marginpar{February 5, 2026}
-\begin{definition}[Matrix Solution]
-    A matrix solution $y(t)$ of the equation
-    \begin{equation}
-        \label{eq:ode-system-matrix}
-        y' = A(t)y
-    \end{equation}
-    is an $n \times n$ matrix function whose columns are solutions to \textup{\eqref{eq:ode-system-matrix}}.
-\end{definition}
 \begin{definition}[Principle of Superposition]
     \label{POS}
-    The principle of superposition states that if \(y_1(t), \dots, y_n(t)\) are solutions of \(y' = A(t)y\), then any linear combination of these solutions is also a solution.
+    If $y_1(t), \dots, y_n(t)$ are solutions of 
+    \eqref{eq:ode-system-matrix}, then any linear combination 
+    is also a solution.
 \end{definition}
-By the POS (principle of superposition), for any fixed vector
-\[C = \begin{pmatrix}C_1\\C_2\\\vdots\\C_n\end{pmatrix} \in \mathbb{R}^n, \quad y(t)c = c_1 y_1(t) + c_2 y_2(t) + \cdots + c_n y_n(t) \in S.\]
-\begin{proposition}
-    Let $y(t)$ be a matrix solution of \textup{\eqref{eq:ode-system-matrix}}. Either
-    \[\det(y(t)) \neq 0 \quad \forall t \in Q\]
-    or
-    \[\det(y(t)) = 0.\]
-\end{proposition}
-\begin{proof}
-    Assume there exists $t_0 \in Q$ such that $\det(y(t_0)) = 0$. Then $y(t_0)$ is not invertible. Hence, by linear algebra, there exists a nonzero vector $v \in \mathbb{R}^n$ such that
-    \[y(t_0)v = 0.\]
-    Define
-    \[y_1(t) := y(t)v.\]
-    Since each column of $y(t)$ is a solution of $y' = A(t)y$, any linear combination of the columns is also a solution. Therefore $y_1(t)$ is a solution, i.e. $y_1 \in S$.
-    Also define the zero solution
-    \[y_2(t) := 0,\text{\footnote{":=" means 'is defined to be'}}\]
-    which satisfies $y_2' = A(t)y_2$, so $y_2 \in S$. Now,
-    \[y_1(t_0) = y(t_0)v = 0 = y_2(t_0).\]
-    Thus $y_1$ and $y_2$ are two solutions with the same initial condition. By the existence and uniqueness theorem,
-    \[y_1(t) = y_2(t) \quad \text{for all } t \in Q.\]
-    Hence
-    \[y(t)v = 0 \quad \text{for all } t.\]
-    Therefore the columns of $y(t)$ are linearly dependent for every $t$, which implies
-    \[\det(y(t)) = 0 \quad \text{for all } t \in Q.\]
-\end{proof}
-\begin{definition}[Wronskian]
-    \[w(t) = w(y_1,\ldots,y_n)(t) = \det(y(t))\]
-    is called the Wronskian of $y_1,\ldots,y_n$.
-\end{definition}
-\begin{example}[Wronskian]
-    Let
-    \[y_1(t) = \begin{pmatrix}cos(2t)\\-sin(2t)\end{pmatrix}, \quad y_2(t) = \begin{pmatrix}-2sin(2t)\\-2cos(2t)\end{pmatrix},\]
-    Compute the Wronskian to determine whether the functions $y_1(t)$ and $y_2(t)$ are linearly independent.
-    \[W(t) = \det\begin{pmatrix}cos(2t) & -2sin(2t)\\-sin(2t) & -2cos(2t)\end{pmatrix} = -2.\]
-    Therefore $y_1(t)$ and $y_2(t)$ are linearly independent since $W(t) \neq 0$.
-\end{example}
-\begin{definition}[Fundamental Matrix Solution]
-    A matrix solution with nonvanishing\footnote{Nonvanishing in this context means not equal to zero.} Wronskian is called a fundamental matrix solution.
-\end{definition}
-\begin{proposition}[Recovering the coefficient matrix]
-    \label{prop:recover-A}
-    Let $\Phi(t)$ be a fundamental matrix solution of the homogeneous system \textup{\eqref{eq:ode-system-matrix}} on an interval $Q$. Then $\Phi(t)$ is invertible for all $t \in Q$, and
-    \[A(t) = \Phi'(t)\,\Phi(t)^{-1}.\]
-    In particular, if $A(t) = A$ is constant, then the right-hand side is independent of $t$.
-\end{proposition}
-\begin{proof}
-    Since $\Phi(t)$ is a matrix solution, its columns satisfy \textup{\eqref{eq:ode-system-matrix}}, hence
-    \[\Phi'(t) = A(t)\Phi(t).\]
-    Because $\Phi(t)$ is a fundamental matrix, $\det \Phi(t) \neq 0$ for all $t \in Q$, so $\Phi(t)$ is invertible. Multiplying both sides on the right by $\Phi(t)^{-1}$ gives
-    \[A(t) = \Phi'(t)\Phi(t)^{-1}.\]
-\end{proof}
-\begin{example}
-    Suppose the general solution of a linear system is given by
-    \[y(t) = \begin{pmatrix}e^{2t} & 0 \\ 0 & e^{-t}\end{pmatrix}\begin{pmatrix}c_1 \\ c_2\end{pmatrix}.\]
-    Then a fundamental matrix is
-    \[\Phi(t) = \begin{pmatrix}e^{2t} & 0 \\ 0 & e^{-t}\end{pmatrix}.\]
-    Differentiating,
-    \[\Phi'(t) = \begin{pmatrix}2e^{2t} & 0 \\ 0 & -e^{-t}\end{pmatrix},\]
-    and since
-    \[\Phi(t)^{-1} = \begin{pmatrix}e^{-2t} & 0 \\ 0 & e^{t}
-    \end{pmatrix},\]
-    we obtain
-    \[A = \Phi'(t)\Phi(t)^{-1} = \begin{pmatrix}2 & 0 \\ 0 & -1\end{pmatrix}.\]
-\end{example}
-\begin{theorem}[Liouville's formula]
-    Let $y(t)$ be a matrix solution to \textup{\eqref{eq:ode-system-matrix}} satisfying the initial condition $y(t_0) = y_0 \in M_n(\mathbb{R})$. Then
-    \[\det(y(t)) = \det(y_0)e^{\int_{t_0}^t \operatorname{tr}(A(s))\,ds}.\]
-    Here,
-    \[\operatorname{tr}(M) = \text{sum of the diagonal entries of } M \in M_n(\mathbb{R}).\]
-\end{theorem}
-\begin{remark}
-    For the homogeneous system \textup{\eqref{eq:ode-system-matrix}}, the goal is to find $n$ linearly independent solutions
-    \[y_1, y_2, \ldots, y_n\]
-    such that $W(t_0) \neq 0$.
-\end{remark}
-Since $y_1,\ldots,y_n$ are linearly independent, they form a basis for the solution space. Therefore every solution has the form
-\[y(t) = c_1 y_1(t) + c_2 y_2(t) + \cdots + c_n y_n(t), \qquad c_1,\ldots,c_n \in \mathbb{R}.\]
-Given an initial condition
-\[y(t_0) = y_0 \in \mathbb{R}^n,\]
-\[y(t_0) = c_1 y_1(t_0) + \cdots + c_n y_n(t_0) = \begin{pmatrix}| & | & | \\ y_1(t_0) & y_2(t_0) & y_n(t_0) \\ | & | & |\end{pmatrix}\begin{pmatrix}c_1\\c_2\\\vdots\\c_n\end{pmatrix} = y_0 = \begin{pmatrix}y_0'\\y_0''\\\vdots\\y_0^{(n)}\end{pmatrix}.\]
-The unique $(c_1,\ldots,c_n)$ is given by
-\[\begin{pmatrix}c_1\\c_2\\\vdots\\c_n\end{pmatrix} = \begin{pmatrix}| & | \\y_1(t_0) & y_n(t_0) \\| & |\end{pmatrix}^{-1}\begin{pmatrix}y_0'\\y_0''\\\vdots\\y_0^{(n)}\end{pmatrix}.\]
 
-\subsection{Linear homogeneous systems with constant coefficients}
-Consider \eqref{eq:ode-system-matrix}, where $A \in M_n(\mathbb{R})$ with constant entries. We look for solutions of the form
+\begin{definition}[Linear Independence]
+    Solutions $y_1, \dots, y_n$ of \eqref{eq:ode-system-matrix} 
+    are linearly independent if
+    \[c_1 y_1(t) + \cdots + c_n y_n(t) = 0 \;\; \forall\, t \in Q 
+    \implies c_1 = \cdots = c_n = 0.\]
+\end{definition}
+
+\begin{theorem}[Solution Space]
+    The solution set $S$ of \eqref{eq:ode-system-matrix} is an 
+    $n$-dimensional vector subspace of $C^1(Q)$.
+\end{theorem}
+
+\begin{proof}
+    \textbf{Step 1: Vector space.} If $y_1, y_2 \in S$ and 
+    $\alpha_1, \alpha_2 \in \mathbb{R}$,
+    \[(\alpha_1 y_1 + \alpha_2 y_2)' = \alpha_1 y_1' + 
+    \alpha_2 y_2' = A(t)(\alpha_1 y_1 + \alpha_2 y_2),\]
+    so any linear combination is in $S$, and the zero function 
+    is in $S$.
+
+    \textbf{Step 2: Basis of dimension $n$.} Let $e_1,\dots,e_n$ 
+    be the standard basis of $\mathbb{R}^n$, and let $y_i$ be the 
+    unique solution of
+    \[\begin{cases}y' = A(t)y,\\ y(t_0) = e_i\end{cases}\]
+    for $i = 1,\dots,n$. By uniqueness, every $z \in S$ is a linear 
+    combination of the $y_i$, so $\{y_1,\dots,y_n\}$ spans $S$. 
+    Evaluating at $t_0$ shows they are independent. Hence 
+    $\dim S = n$.
+\end{proof}
+
+\subsubsection{Matrix Solutions and the Wronskian}
+
+\begin{definition}[Matrix Solution]
+    A matrix solution of \eqref{eq:ode-system-matrix} is an 
+    $n \times n$ matrix whose columns are solutions of 
+    \eqref{eq:ode-system-matrix}.
+\end{definition}
+
+\begin{proposition}
+    Let $y(t)$ be a matrix solution of \eqref{eq:ode-system-matrix}. 
+    Either $\det(y(t)) \neq 0$ for all $t \in Q$, or 
+    $\det(y(t)) = 0$ for all $t \in Q$.
+\end{proposition}
+
+\begin{proof}
+    Suppose $\det(y(t_0)) = 0$ for some $t_0$. Then there exists a 
+    nonzero $v \in \mathbb{R}^n$ such that $y(t_0)v = 0$. Define 
+    $y_1(t) = y(t)v$; since each column of $y(t)$ is a solution, 
+    $y_1 \in S$. Also define $y_2(t) = 0 \in S$. Since 
+    $y_1(t_0) = 0 = y_2(t_0)$, uniqueness gives $y_1(t) = y_2(t)$ 
+    for all $t$, so $y(t)v = 0$ for all $t$. Hence the columns of 
+    $y(t)$ are linearly dependent and $\det(y(t)) = 0$ for all 
+    $t \in Q$.
+\end{proof}
+
+\begin{definition}[Wronskian]
+    The Wronskian of $y_1,\ldots,y_n$ is
+    \[W(t) = W(y_1,\ldots,y_n)(t) = \det(y(t)).\]
+\end{definition}
+
+\begin{example}
+    Let $y_1(t) = \begin{pmatrix}\cos 2t\\-\sin 2t\end{pmatrix}$, 
+    $y_2(t) = \begin{pmatrix}-2\sin 2t\\-2\cos 2t\end{pmatrix}$.
+    \[W(t) = \det\begin{pmatrix}\cos 2t & -2\sin 2t\\
+    -\sin 2t & -2\cos 2t\end{pmatrix} = -2 \neq 0,\]
+    so $y_1$ and $y_2$ are linearly independent.
+\end{example}
+
+\begin{definition}[Fundamental Matrix Solution]
+    A matrix solution with nonvanishing Wronskian is called a 
+    \emph{fundamental matrix solution}.
+\end{definition}
+
+\begin{theorem}[Liouville's Formula]
+    Let $y(t)$ be a matrix solution of \eqref{eq:ode-system-matrix} 
+    with $y(t_0) = y_0$. Then
+    \[\det(y(t)) = \det(y_0)\,e^{\int_{t_0}^t \operatorname{tr}
+    (A(s))\,ds},\]
+    where $\operatorname{tr}(M)$ denotes the sum of the diagonal 
+    entries of $M$.
+\end{theorem}
+
+\subsubsection{Recovering the Coefficient Matrix and Solving IVPs}
+
+\begin{proposition}[Recovering $A$]
+    \label{prop:recover-A}
+    Let $\Phi(t)$ be a fundamental matrix solution of 
+    \eqref{eq:ode-system-matrix}. Then $\Phi(t)$ is invertible for 
+    all $t \in Q$ and
+    \[A(t) = \Phi'(t)\,\Phi(t)^{-1}.\]
+\end{proposition}
+
+\begin{proof}
+    Since $\Phi'(t) = A(t)\Phi(t)$ and $\det\Phi(t) \neq 0$, 
+    multiplying on the right by $\Phi(t)^{-1}$ gives the result.
+\end{proof}
+
+\begin{example}
+    Given $\Phi(t) = \begin{pmatrix}e^{2t}&0\\0&e^{-t}\end{pmatrix}$,
+    \[\Phi'(t) = \begin{pmatrix}2e^{2t}&0\\0&-e^{-t}\end{pmatrix}, 
+    \quad \Phi(t)^{-1} = \begin{pmatrix}e^{-2t}&0\\0&e^t
+    \end{pmatrix},\]
+    so $A = \Phi'(t)\Phi(t)^{-1} = \begin{pmatrix}2&0\\0&-1
+    \end{pmatrix}$.
+\end{example}
+
+Since $y_1,\ldots,y_n$ are linearly independent, the general 
+solution is
+\[y(t) = c_1 y_1(t) + \cdots + c_n y_n(t).\]
+Given $y(t_0) = y_0$, the constants $c = (c_1,\ldots,c_n)^T$ 
+are uniquely determined by
+\[\begin{pmatrix}|&&|\\ y_1(t_0)&\cdots&y_n(t_0)\\|&&|
+\end{pmatrix}c = y_0 \implies c = \Phi(t_0)^{-1} y_0.\]
+
+%------- 3.3 -------
+\subsection{Homogeneous Systems with Constant Coefficients}
+\label{sec:const-coeff}
+
+Consider \eqref{eq:ode-system-matrix} with $A \in M_n(\mathbb{R})$ 
+constant. We look for solutions of the form
 \begin{equation}
     \label{eq:exp-ansatz}
-    y(t) = e^{\lambda t}u
+    y(t) = e^{\lambda t}u,
 \end{equation}
-where $u$ is a constant vector.\footnote{Recall the analogous scalar case $a_0 y^{(n)} + a_1 y^{(n-1)} + \cdots + a_{n-1} y' + a_n y = 0$, where we look for solutions of the form $e^{rt}$.}
-Differentiating \eqref{eq:exp-ansatz} gives
-\[y'(t) = \frac{d}{dt}(e^{\lambda t}u) = e^{\lambda t} (\lambda u),\]
-and substituting \eqref{eq:exp-ansatz} into the differential equation \eqref{eq:ode-system-matrix} gives
-\[y'(t) = Ay = A(e^{\lambda t} u) = e^{\lambda t}(Au).\]
-Hence if we combine both equations, we get
-\begin{equation}
-    \label{eq:ode-system-exp-A-2}
-    e^{\lambda t}(\lambda u) = e^{\lambda t}(Au) \implies Au = \lambda u.
-\end{equation}
-In other words, $\lambda$ is an eigenvalue of $A$ and $u$ is a corresponding eigenvector.
+where $u$ is a constant vector. Substituting into 
+\eqref{eq:ode-system-matrix},
+\[e^{\lambda t}(\lambda u) = e^{\lambda t}(Au) \implies Au = 
+\lambda u.\]
+So $\lambda$ must be an eigenvalue of $A$ and $u$ a corresponding 
+eigenvector.
+
 \begin{definition}[Kernel]
-    Given a matrix $A \in M_n(\mathbb{C})$, define
-    \[\ker A = \{u \mid Au = 0\},\]
-    called the kernel (or null space) of $A$.
+    $\ker A = \{u \mid Au = 0\}$ is the kernel (null space) of $A$.
 \end{definition}
-Equation \eqref{eq:ode-system-exp-A-2} is equivalent to
-\[Au - \lambda u = 0 \iff (A - \lambda I)u = 0,\]
-where $I$ is the identity matrix in $M_n(\mathbb{R})$.
-\begin{definition}[Characteristic Polynomial]
-    Let $A \in M_n(\mathbb{R})$. The characteristic polynomial of $A$, denoted $p(\lambda)$, is defined to be
-    \[p(\lambda) = \det(A - \lambda I)\]
+
+\begin{definition}[Characteristic Polynomial, Eigenvalue, Spectrum]
+    The \emph{characteristic polynomial} of $A \in M_n(\mathbb{R})$ 
+    is $p(\lambda) = \det(A - \lambda I)$. An \emph{eigenvalue} is a 
+    root of $p(\lambda)$, and the \emph{spectrum} is
+    \[\sigma(A) = \{\lambda \mid p(\lambda) = 0\}.\]
 \end{definition}
-\begin{definition}[Eigenvalue]
-    An eigenvalue of $A$ is a root of $p(\lambda)$.
+
+\subsubsection{Diagonalizable Case: Real Eigenvalues}
+
+\begin{definition}[Diagonalizable Matrix]
+    $A \in M_n(\mathbb{R})$ is \emph{diagonalizable} if there exists 
+    an invertible $P$ such that $P^{-1}AP$ is diagonal.
 \end{definition}
-\begin{definition}[Spectrum]
-    The set
-    \[\sigma(A) = \{\lambda \mid p(\lambda) = 0\}\]
-    is called the spectrum of $A$.
-\end{definition}
-\begin{example}
-    Consider
-    \[y' = Ay, \qquad y = \begin{pmatrix}y_1\\y_2\end{pmatrix}, \qquad A = \begin{pmatrix}1 & 3\\ 3 & 1\end{pmatrix}.\]
-    To solve the system, we first find the eigenvalues and eigenvectors of $A$. Define the characteristic polynomial to be
-    \[p(\lambda) = \det(A - \lambda I) = \begin{vmatrix}1-\lambda & 3\\3 & 1-\lambda\end{vmatrix} = (1-\lambda)^2 - 9.\]
-    Solving $(1-\lambda)^2 - 9 = 0$, gives us two eigenvalues $\lambda_1 = -2$ and $\lambda_2 = 4$. Hence the spectrum of $A$ is
-    \[\sigma(A) = \{-2,4\}.\]
-    To find the eigenvectors, we need to solve $(A-\lambda I)u = 0$.
 
-    For $\lambda_1 = -2$:
-    \[(A-\lambda I)u_1 = 0 \implies \begin{pmatrix}3 & 3\\ 3 & 3\end{pmatrix}\begin{pmatrix}a\\b\end{pmatrix} = \begin{pmatrix}0\\0\end{pmatrix} \implies b = -a.\]
-    You can pick any values of $a$, and $b$ is the negative of $a$; choose $a=1$:
-    \[u_1 = \begin{pmatrix}1\\-1\end{pmatrix}.\]
-
-    For $\lambda_2 = 4$, solving $(A-4I)u_2=0$ similarly yields
-    \[u_2 = \begin{pmatrix}1\\1\end{pmatrix}.\]
-
-    Each eigenpair $(\lambda,u)$ produces a solution of the system of the form $y(t)=e^{\lambda t}u$. Hence
-    \[y_1(t) = c_1e^{-2t}\begin{pmatrix}1\\-1\end{pmatrix} \in S, \qquad y_2(t) = c_2e^{4t}\begin{pmatrix}1\\1\end{pmatrix} \in S,\]
-    where $c_1$ and $c_2$ are arbitrary constants that will be determined when applying the initial condition to form the general solution.
-
-    To ensure that these solutions form a complete basis for the solution space, we check their linear independence using the Wronskian. The wronskian of $y_1$ and $y_2$ is
-    \[w(t) = \det\begin{pmatrix}e^{-2t} & e^{4t}\\- e^{-2t} & e^{4t}\end{pmatrix}.\]
-    Evaluating at $t=0$,
-    \[w(0) = \begin{vmatrix}1 & 1\\-1 & 1\end{vmatrix} = 2 \neq 0,\]
-    so $y_1$ and $y_2$ are linearly independent. Therefore they form a basis of the solution space,
-    \[S = \langle \{y_1,y_2\} \rangle,\]
-    and the general solution is
-    \[y(t) = c_1 e^{-2t}\begin{pmatrix}1\\-1\end{pmatrix} +
-    c_2 e^{4t}\begin{pmatrix}1\\1\end{pmatrix} = \begin{pmatrix}e^{-2t} & e^{4t} \\ -e^{-2t} & e^{4t}\end{pmatrix}\begin{pmatrix}c_1\\c_2\end{pmatrix}\]
-
-    If we set an initial condition such as $y(0) = \begin{pmatrix}1\\2\end{pmatrix}$, then we can solve for $c_1$ and $c_2$:
-    \[y(0) = \begin{pmatrix}1\\2\end{pmatrix} = c_1\begin{pmatrix}-1\\1\end{pmatrix} + c_2 \begin{pmatrix}1\\1\end{pmatrix} = \begin{pmatrix}-1&1\\1&1\end{pmatrix}\begin{pmatrix}c_1\\c_2\end{pmatrix}\]
-    \[\implies \begin{pmatrix}c_1\\c_2\end{pmatrix} = \begin{pmatrix}-1&1\\1&1\end{pmatrix}^{-1}\begin{pmatrix}1\\2\end{pmatrix} = \begin{pmatrix}-1/2&1/2\\1/2&1/2\end{pmatrix}\begin{pmatrix}1\\2\end{pmatrix} = \begin{pmatrix}1/2\\3/2\end{pmatrix}.\]
-    Therefore, the general solution of the system with the initial condition is
-    \[y(t) = \frac{1}{2}e^{-2t}\begin{pmatrix}-1\\1\end{pmatrix} + \frac{3}{2}e^{4t}\begin{pmatrix}-1\\1\end{pmatrix},\]
-    which is the unique solution satisfying $y(0) = \begin{pmatrix}1\\2\end{pmatrix}$.
-\end{example}
-
-\marginpar{February 10, 2026}
-\begin{example}[3 by 3 system]
-    Consider the system
-    \[y' = Ay, \quad A - \lambda I = \begin{pmatrix}3-\lambda & 1 & -2 \\ -1 & 5-\lambda & -2 \\ -3 & 3 & -2-\lambda\end{pmatrix}.\]
-    \textbf{Step 1: Find eigenvalues.}\\
-    The characteristic polynomial is
-    \[p(\lambda) = \det(A - \lambda I) = -(\lambda+2)(\lambda-4)^2 = 0,\]
-    giving eigenvalues $\lambda_1 = -2$ and $\lambda_2 = \lambda_3 = 4$.\\
-    \textbf{Step 2: Find eigenvectors.}\\
-    For $\lambda_1 = -2$, solve
-    \[(A + 2I) u_1 = 0.\]
-    A solution is $u_1 = \begin{pmatrix}1\\1\\3\end{pmatrix}$, yielding $y_1(t) = e^{-2t} u_1$.\\
-    For $\lambda = 4$, solve
-    \[(A - 4I) u = 0.\]
-    If we do Gaussian elimination (row reduction), we find that $a = b - 2c$, so $b$ and $c$ are free variables. Thus
-    \[\begin{pmatrix}a\\b\\c\end{pmatrix} = b\begin{pmatrix}1\\1\\0\end{pmatrix} + c\begin{pmatrix}-2\\0\\1\end{pmatrix}.\]
-    Since every solution is a linear combination of these two vectors, they span the solution space (the kernel).
-    A basis for the kernel is
-    \[\ker(A-4I) = \text{span}\left\{\begin{pmatrix}1\\1\\0\end{pmatrix}, \begin{pmatrix}-2\\0\\1\end{pmatrix}\right\}.\]
-    This gives the eigenvectors
-    \[u_2 = \begin{pmatrix}1\\1\\0\end{pmatrix}, \quad u_3 = \begin{pmatrix}-2\\0\\1\end{pmatrix},\]
-    giving
-    \[y_2(t) = e^{4t} u_2, \quad y_3(t) = e^{4t} u_3.\]
-    \textbf{Step 3: Verify linear independence.}\\
-    The Wronskian at $t=0$ is
-    \[W(0) = \det\begin{pmatrix}1 & 1 & -2 \\ 1 & 1 & 0 \\ 3 & 0 & 1\end{pmatrix} = 6 \neq 0,\]
-    so the solutions are linearly independent.\\
-    \textbf{Step 4: General solution.}\\
-    Therefore, the general solution is
-    \[y(t) = c_1 e^{-2t} \begin{pmatrix}1\\1\\3\end{pmatrix} + c_2 e^{4t} \begin{pmatrix}1\\1\\0\end{pmatrix} + c_3 e^{4t} \begin{pmatrix}-2\\0\\1\end{pmatrix}.\]
-\end{example}
-\begin{definition}[Diagonalizable matrices]
-    A matrix $A \in M_n(\mathbb{R})$ is diagonalizable if there exists an invertible matrix $P$ such that $P^{-1}AP$ is a diagonal matrix.
-\end{definition}
 \begin{theorem}[Diagonalization]
-    Let $A \in M_n(\mathbb{R})$ and assume that all eigenvalues of A are real and distinct, then A is diagonalizable.
-\end{theorem}
-\begin{proof}
-    Denote by $\lambda_1,\ldots,\lambda_n$ the real, distinct eigenvalues of $A$.  
-    For each eigenvalue $\lambda_i$, let $u_i \in \mathbb{R}^n$ be a corresponding eigenvector, so
-    \[Au_i = \lambda_iu_i.\]
-    Since the eigenvalues are distinct, a standard result from linear algebra states that the eigenvectors $u_1,\ldots,u_n$ are linearly independent. Therefore they form a basis of $\mathbb{R}^n$.
-    Let $P$ be the matrix
-    \[P = \begin{bmatrix}u_1&u_2&\ldots&u_n\end{bmatrix},\]
-    whose columns are these eigenvectors. Because the columns are linearly independent, $P$ is invertible.
-    Now observe how $A$ acts on the columns of $P$. For the $i$th standard basis vector $e_i$,
-    \[APe_i = Au_i = \lambda_i u_i.\]
-    Thus multiplying by $A$ simply scales the $i$th column of $P$ by $\lambda_i$. This means that multiplying $P$ on the right by the diagonal matrix
-    \[D=\operatorname{diag}(\lambda_1,\ldots,\lambda_n)\]
-    has exactly the same effect, since $PD$ also scales the $i$th column by $\lambda_i$. Hence
-    \[AP = PD.\]
-    Finally, multiplying on the left by $P^{-1}$ gives
-    \[P^{-1}AP = D,\]
-    so $A$ is similar to the diagonal matrix $D$, and therefore diagonalizable.
-\end{proof}
-\begin{theorem}[Diagonalization 2]
-    A is diagonalizable if and only if it has a basis of eigenvectors.
-\end{theorem}
-\begin{example}
-    Let
-    \[A = \begin{pmatrix}3&-1&-2\\-1&5&-2\\-3&3&-2\end{pmatrix}\]
-    Find the basis of eigenvectors of $A$.\\
-    \textbf{Step 1: Find the eigenvalues.}\\
-    Compute the characteristic polynomial:
-    \[p(\lambda) = \det(A-\lambda I)=-(\lambda+2)(\lambda-4)^2.\]
-    Hence the eigenvalues are $\lambda=-2$ and $\lambda=4$ (with multiplicity $2$).\\
-    \textbf{Step 2: Find eigenvectors.}\\
-    For $\lambda=-2$, solve $(A+2I)u=0$.  
-    Row reduction gives one free variable, so the eigenspace is one-dimensional.  
-    A basis vector is
-    \[u_1=\begin{pmatrix}1\\1\\3\end{pmatrix}.\]
-    For $\lambda=4$, solve $(A-4I)u=0$.  
-    Row reduction gives two free variables, so the eigenspace is two-dimensional.  
-    A convenient basis is
-    \[u_2=\begin{pmatrix}1\\1\\0\end{pmatrix}, \quad u_3=\begin{pmatrix}-2\\0\\1\end{pmatrix}.\]
-    \textbf{Step 3: Form a basis.}\\
-    Thus the eigenvectors
-    \[\{u_1,u_2,u_3\} = \left\{\begin{pmatrix}1\\1\\3\end{pmatrix}, \begin{pmatrix}1\\1\\0\end{pmatrix}, \begin{pmatrix}-2\\0\\1\end{pmatrix}\right\}\]
-    are linearly independent and form a basis of $\mathbb{R}^3$. Since $A$ has a basis of eigenvectors, it is diagonalizable.
-\end{example}
-\begin{example}
-    Let
-    \[A = \begin{pmatrix}1&1\\0&1\end{pmatrix}\]
-    \textbf{Step 1: Find the eigenvalues.}\\
-    Since $A$ is upper triangular, the eigenvalues are the diagonal entries. Thus
-    \[\lambda_1=\lambda_2=1.\]
-    \textbf{Step 2: Find the eigenvectors.}\\
-    Solve
-    \[(A-I)u=0.\]
-    Then
-    \[A-I=\begin{pmatrix}0&1\\0&0\end{pmatrix}.\]
-    Let $u=(a,b)^T$. The system gives $b=0$, while $a$ is free. Hence every eigenvector has the form
-    \[u = a\begin{pmatrix}1\\0\end{pmatrix}.\]
-    \textbf{Step 3: Describe the eigenspace.}\\
-    Therefore the eigenspace is
-    \[\text{span}\left\{\begin{pmatrix}1\\0\end{pmatrix}\right\},\]
-    which is one-dimensional. Although the eigenvalue has multiplicity $2$, we only get one independent eigenvector. Hence there is not enough to form a basis of $\mathbb{R}^2$, and $A$ is not diagonalizable.
-\end{example}
-\begin{theorem}[General solution via diagonalization]
-    Let $A \in M_n(\mathbb{R})$ and consider the system \textup{\eqref{eq:ode-system-matrix}}.
-    If $A$ is diagonalizable with eigenvalues $\lambda_1,\ldots,\lambda_n$ and corresponding eigenvectors $u_1,\ldots,u_n$ (possibly complex), then the general solution is
-    \[y(t) = \sum_{i=1}^n c_i e^{\lambda_i t} u_i,\]
-    where $c_1,\ldots,c_n$ are constants.
+    $A$ is diagonalizable if and only if it has a basis of 
+    eigenvectors. In particular, if all eigenvalues of $A$ are real 
+    and distinct, then $A$ is diagonalizable.
 \end{theorem}
 
-\subsubsection{Complex eigenvalues and real-valued solutions}
-Consider the system \eqref{eq:ode-system-matrix}. If $A$ has real entries and a complex eigenpair $(\lambda,u)$ with $\lambda=\alpha+i\beta$ and $u=p+iq$ (where $p,q\in\mathbb{R}^n$), then a complex solution is
+\begin{proof}
+    Let $\lambda_1,\ldots,\lambda_n$ be real distinct eigenvalues 
+    with eigenvectors $u_1,\ldots,u_n$. Distinct eigenvalues imply 
+    the eigenvectors are linearly independent, so they form a basis 
+    of $\mathbb{R}^n$. Let $P = [u_1 \cdots u_n]$. Then
+    \[AP = PD, \quad D = \operatorname{diag}(\lambda_1,\ldots,
+    \lambda_n),\]
+    so $P^{-1}AP = D$.
+\end{proof}
+
+\begin{theorem}[General Solution via Diagonalization]
+    If $A$ is diagonalizable with eigenpairs 
+    $(\lambda_i, u_i)_{i=1}^n$, the general solution of 
+    \eqref{eq:ode-system-matrix} is
+    \[y(t) = \sum_{i=1}^n c_i e^{\lambda_i t} u_i.\]
+\end{theorem}
+
+\begin{example}[$2\times 2$ system]
+    Let $y' = Ay$ with $A = \begin{pmatrix}1&3\\3&1\end{pmatrix}$.
+
+    \textbf{Eigenvalues:} $p(\lambda) = (1-\lambda)^2 - 9 = 0$ gives 
+    $\lambda_1 = -2$, $\lambda_2 = 4$, so $\sigma(A) = \{-2, 4\}$.
+
+    \textbf{Eigenvectors:} For $\lambda_1 = -2$: $(A+2I)u = 0$ gives 
+    $u_1 = \begin{pmatrix}1\\-1\end{pmatrix}$. For $\lambda_2 = 4$: 
+    $u_2 = \begin{pmatrix}1\\1\end{pmatrix}$.
+
+    \textbf{Wronskian:} $W(0) = \begin{vmatrix}1&1\\-1&1
+    \end{vmatrix} = 2 \neq 0$, so the solutions are independent.
+
+    \textbf{General solution:}
+    \[y(t) = c_1 e^{-2t}\begin{pmatrix}1\\-1\end{pmatrix} + 
+    c_2 e^{4t}\begin{pmatrix}1\\1\end{pmatrix}.\]
+
+    \textbf{With} $y(0) = \begin{pmatrix}1\\2\end{pmatrix}$:
+    \[\begin{pmatrix}c_1\\c_2\end{pmatrix} = 
+    \begin{pmatrix}1&1\\-1&1\end{pmatrix}^{-1}
+    \begin{pmatrix}1\\2\end{pmatrix} = 
+    \begin{pmatrix}1/2 & -1/2\\1/2&1/2\end{pmatrix}
+    \begin{pmatrix}1\\2\end{pmatrix} = 
+    \begin{pmatrix}-1/2\\3/2\end{pmatrix}.\]
+\end{example}
+
+\begin{example}[$3\times 3$ system]
+    \marginpar{February 10, 2026}
+    Let $y' = Ay$ with 
+    $A = \begin{pmatrix}3&1&-2\\-1&5&-2\\-3&3&-2\end{pmatrix}$.
+
+    \textbf{Eigenvalues:} $p(\lambda) = -(\lambda+2)(\lambda-4)^2$, 
+    so $\lambda_1 = -2$ and $\lambda_2 = \lambda_3 = 4$.
+
+    \textbf{Eigenvectors:}
+    For $\lambda_1 = -2$: $(A+2I)u = 0$ gives 
+    $u_1 = \begin{pmatrix}1\\1\\3\end{pmatrix}$.
+    For $\lambda = 4$: row reduction of $(A-4I)u = 0$ yields two 
+    free variables ($b$ and $c$ free, $a = b-2c$), giving
+    \[u_2 = \begin{pmatrix}1\\1\\0\end{pmatrix}, \quad 
+    u_3 = \begin{pmatrix}-2\\0\\1\end{pmatrix}.\]
+    Since $\dim\ker(A-4I) = 2 =$ algebraic multiplicity, $A$ is 
+    diagonalizable.
+
+    \textbf{Wronskian:} $W(0) = \det\begin{pmatrix}1&1&-2\\1&1&0\\
+    3&0&1\end{pmatrix} = 6 \neq 0$.
+
+    \textbf{General solution:}
+    \[y(t) = c_1 e^{-2t}\begin{pmatrix}1\\1\\3\end{pmatrix} + 
+    c_2 e^{4t}\begin{pmatrix}1\\1\\0\end{pmatrix} + 
+    c_3 e^{4t}\begin{pmatrix}-2\\0\\1\end{pmatrix}.\]
+\end{example}
+
+\begin{example}[Non-diagonalizable]
+    Let $A = \begin{pmatrix}1&1\\0&1\end{pmatrix}$. Since $A$ is 
+    upper triangular, $\lambda_1 = \lambda_2 = 1$ (multiplicity 2). 
+    Solving $(A-I)u = 0$ gives only one independent eigenvector 
+    $u = \begin{pmatrix}1\\0\end{pmatrix}$, so $A$ is 
+    \emph{not} diagonalizable.
+\end{example}
+
+\subsubsection{Diagonalizable Case: Complex Eigenvalues}
+
+If $A \in M_n(\mathbb{R})$ has a complex eigenpair 
+$(\lambda, u)$ with $\lambda = \alpha + i\beta$ and 
+$u = p + iq$, then a complex solution is
 \begin{equation}
     \label{eq:exp-ansatz-complex}
-    y(t)=e^{(\alpha+i\beta)t}(p+iq).
+    y(t) = e^{(\alpha+i\beta)t}(p+iq).
 \end{equation}
+
 \begin{definition}[Euler's Formula]
-    Let $x \in \mathbb{R}$. Then the Euler's formula is
     \begin{equation}
         \label{eq:EulerFormula}
-        e^{ix} = \cos(x) + i\sin(x).
+        e^{ix} = \cos x + i\sin x, \quad x \in \mathbb{R}.
     \end{equation}
-    This identity follows from the complex exponential power series
-    \[e^{z} = \sum_{n=0}^{\infty} \frac{z^{n}}{n!}, \quad z \in \mathbb{C}.\]
 \end{definition}
-Using Euler's formula \eqref{eq:EulerFormula}, we expand \eqref{eq:exp-ansatz-complex} as
-\[y(t) = e^{(\alpha+i\beta)t}(p+iq) = e^{\alpha t} e^{i\beta t}(p+iq) = e^{\alpha t}(\cos(\beta t)+i\sin(\beta t))(p+iq).\]
-Multiplying and separating real and imaginary parts gives
-\[y(t) = e^{\alpha t}(\cos(\beta t)p-\sin(\beta t)q) + i\,e^{\alpha t}(\sin(\beta t)p+\cos(\beta t)q).\]
-Taking real and imaginary parts therefore yields two real solutions:
+
+Expanding \eqref{eq:exp-ansatz-complex} using Euler's formula and 
+separating real and imaginary parts yields two real solutions:
 \begin{equation}
     \label{eq:exp-ansatz-complex-sol}
-    y_1(t)=e^{\alpha t}\big(p\cos(\beta t)-q\sin(\beta t)\big), \qquad y_2(t)=e^{\alpha t}\big(p\sin(\beta t)+q\cos(\beta t)\big).
+    y_1(t) = e^{\alpha t}(p\cos\beta t - q\sin\beta t), \qquad 
+    y_2(t) = e^{\alpha t}(p\sin\beta t + q\cos\beta t).
 \end{equation}
-\begin{proposition}[Complex conjugate eigenpairs]
+
+\begin{proposition}[Complex Conjugate Eigenpairs]
     \label{prop:CCE}
-    Let $A \in M_n(\mathbb{R})$. If $(\lambda,u)$ is an eigenpair with $\lambda \in \mathbb{C}$, then $(\overline{\lambda},\overline{u})$ is also an eigenpair.
+    Let $A \in M_n(\mathbb{R})$. If $(\lambda, u)$ is an eigenpair 
+    with $\lambda \in \mathbb{C}$, then $(\bar\lambda, \bar u)$ is 
+    also an eigenpair.
 \end{proposition}
+
 \begin{proof}
-    From $Au=\lambda u$, take complex conjugates:
-    \[\overline{Au}=\overline{\lambda u}.\]
-    Since $A$ is real, $\overline{A}=A$, so
-    \[A\overline{u}=\overline{\lambda}\,\overline{u}.\]
+    From $Au = \lambda u$, taking conjugates and using 
+    $\bar A = A$ gives $A\bar u = \bar\lambda\,\bar u$.
 \end{proof}
+
+\begin{proposition}
+    \marginpar{February 12, 2026}
+    If $\lambda = \alpha + i\beta \in \sigma(A)$ with $\beta \neq 0$ 
+    and eigenvector $u = p + iq$, then the functions 
+    \eqref{eq:exp-ansatz-complex-sol} are real-valued linearly 
+    independent solutions of \eqref{eq:ode-system-matrix}.
+\end{proposition}
+
 \begin{example}
-    Let
-    \[A = \begin{pmatrix}2&-1\\1&2\end{pmatrix}\]
-    \textbf{Step 1: Find the eigenvalues.}\\
-    Define the characteristic polynomial to be
-    \[p(\lambda) = \begin{vmatrix}2-\lambda & -1 \\ 1 & 2-\lambda\end{vmatrix} = (\lambda-2)^2+1 = 0\]
-    Giving us two possible eigenvalues $\lambda_1 = 2 + i$ and $\lambda_2 = 2 - i$.\\
-    \textbf{Step 2: Find the eigenvectors.}\\
-    Solve $(A-\lambda_1 I)u=0$. Then
-    \[A-(2+i)I=\begin{pmatrix}-i&-1\\1&-i\end{pmatrix}.\]
-    Let $u=(a,b)^T$. The system gives $b=ia$, so taking $a=1$ we obtain
-    \[u_1=\begin{pmatrix}1\\ i\end{pmatrix}.\]
-    By the proposition \eqref{prop:CCE}, the second eigenvector is
-    \[u_2=\overline{u_1}=\begin{pmatrix}1\\-i\end{pmatrix}.\]
+    Let $A = \begin{pmatrix}2&-1\\1&2\end{pmatrix}$.
+
+    \textbf{Eigenvalues:} $p(\lambda) = (\lambda-2)^2 + 1 = 0$ 
+    gives $\lambda_1 = 2+i$, $\lambda_2 = 2-i$.
+
+    \textbf{Eigenvector for $\lambda_1 = 2+i$:} 
+    $(A-(2+i)I)u = 0$ gives $b = ia$, so taking $a=1$:
+    \[u_1 = \begin{pmatrix}1\\i\end{pmatrix} = 
+    \underbrace{\begin{pmatrix}1\\0\end{pmatrix}}_{p} + 
+    i\underbrace{\begin{pmatrix}0\\1\end{pmatrix}}_{q}.\]
+    By Proposition~\ref{prop:CCE}, $u_2 = \bar u_1 = 
+    \begin{pmatrix}1\\-i\end{pmatrix}$.
 \end{example}
-\begin{problem}[Complex eigenvalues and real-valued solutions]
-    Consider the linear system
-    \[\vec y'= \begin{pmatrix}-3 & -2\\5 & 3\end{pmatrix}\vec y\]
+
+\begin{problem}[Complex eigenvalues]
+    Let $\vec{y}' = \begin{pmatrix}-3&-2\\5&3\end{pmatrix}\vec{y}$.
     \begin{enumerate}[label=(\alph*)]
-        \item Find the eigenvalues and eigenvectors for the coefficient matrix.
-        \item Find the real-valued solution to the initial value problem.
-        \[\begin{cases}y_1' = -3y_1-2y_2, \quad y_1(0) = 7 \\ y_2' = 5y_1+3y_2, \quad y_2(0) = -15\end{cases}\]
-        Use $t$ as the independent variable in your answers.
+        \item Find the eigenvalues and eigenvectors.
+        \item Find the real-valued solution to the IVP with 
+        $y_1(0) = 7$, $y_2(0) = -15$.
     \end{enumerate}
 \end{problem}
 
-\marginpar{February 12, 2026}
-\begin{proposition}
-    Assume that $\lambda = \alpha + i\beta \in \sigma(A)$ is an eigenvalue associated to the eigenvector $u = p + iq$, where  $\beta \neq 0$. Then the functions \textup{\eqref{eq:exp-ansatz-complex-sol}} are real-valued linearly independent solutions of \eqref{eq:ode-system-matrix}.
-\end{proposition}
-\marginpar{Reviewed pages 14-17 from Chapter 3 prof notes}
-\subsubsection{Nondiagonalizable Matrices}
+\subsubsection{Nondiagonalizable Matrices and Generalized Eigenvectors}
+
 \begin{remark}
-    Assume that $A \in M_n(\mathbb{R})$ does not admit a basis of eigenvectors. Then there are not enough solutions of the form $y(t) = e^{\lambda t}u$ to build the general solution.
+    If $A$ does not admit a basis of eigenvectors, there are not 
+    enough solutions of the form $e^{\lambda t}u$ to span the 
+    solution space.
 \end{remark}
-\begin{definition}[Multiplicity of Eigenvalues]
+
+\begin{definition}[Algebraic and Geometric Multiplicity]
     Let $\lambda_0 \in \sigma(A)$.
     \begin{enumerate}
-        \item The algebraic multiplicity of $\lambda_0$ is the largest integer $m \geq 1$ such that $(\lambda-\lambda_0)^m$ divides $p(\lambda)$.
-        \item The geometric multiplicity of $\lambda_0$ is the number $\dim{ker(A-\lambda_0 I)}$. In other words, it is the number of linearly independent eigenvectors associated to $\lambda_0$.
+        \item The \emph{algebraic multiplicity} $m$ is the largest 
+        integer such that $(\lambda - \lambda_0)^m$ divides 
+        $p(\lambda)$.
+        \item The \emph{geometric multiplicity} is 
+        $\dim\ker(A - \lambda_0 I)$ (the number of independent 
+        eigenvectors for $\lambda_0$).
     \end{enumerate}
-    The defect of $\lambda_0$ is given by $d_{\lambda_0} = m - \dim{ker(A-\lambda_0 I)} \geq 0$. We call an eigenvalue defective if $d_{\lambda_0} > 0$.
+    The \emph{defect} is $d_{\lambda_0} = m - \dim\ker(A-\lambda_0 I) 
+    \geq 0$. We call $\lambda_0$ \emph{defective} if 
+    $d_{\lambda_0} > 0$.
 \end{definition}
+
 \begin{example}
-    Let
-    \[A=\begin{pmatrix}1&1\\0&1\end{pmatrix}, \quad p(\lambda)=(\lambda-1)^2.\]
-    Hence the spectrum is $\sigma(A)=\{1\}$, so the algebraic multiplicity is \(m=2\). To find the geometric multiplicity, compute the kernel of \(A-I\):
-    \[A-I=\begin{pmatrix}1&1\\0&1\end{pmatrix}-\begin{pmatrix}1&0\\0&1\end{pmatrix}
-    =\begin{pmatrix}0&1\\0&0\end{pmatrix}.\]
-    Solve
-    \[(A-I)x=0, \quad x=\begin{pmatrix}x_1\\x_2\end{pmatrix}.\]
-    Then
-    \[\begin{pmatrix}0&1\\0&0\end{pmatrix}\begin{pmatrix}x_1\\x_2\end{pmatrix}
-    =\begin{pmatrix}x_2\\0\end{pmatrix}
-    =\begin{pmatrix}0\\0\end{pmatrix},\]
-    which gives \(x_2=0\) and \(x_1\) free. Thus
-    \[\ker(A-I)=\left\{\begin{pmatrix}x_1\\0\end{pmatrix}:x_1\in\mathbb{R}\right\}
-    =\operatorname{span}\!\left\{\begin{pmatrix}1\\0\end{pmatrix}\right\}.\]
-    This space is one-dimensional, so $\dim(\ker(A-I))=1$. Therefore the geometric multiplicity is \(1<2\), and the defect is $d_{\lambda_0}=2-1=1>0$. Hence \(\lambda_0=1\) is defective.
+    Let $A = \begin{pmatrix}1&1\\0&1\end{pmatrix}$, 
+    $p(\lambda) = (\lambda-1)^2$. Algebraic multiplicity $m=2$; 
+    $\ker(A-I) = \operatorname{span}\!\left\{
+    \begin{pmatrix}1\\0\end{pmatrix}\right\}$ has dimension 1. 
+    Defect $= 1 > 0$, so $\lambda_0 = 1$ is defective.
 \end{example}
+
 \begin{example}
-    Let
-    \[A=\begin{pmatrix}0&1&0&1\\0&-2&-1&-1\\1&1&0&0\\0&1&0&1\end{pmatrix}, \quad p(\lambda)=\lambda^3(\lambda+1).\]
-    Hence $\sigma(A)=\{0,-1\}$, and the algebraic multiplicity of \(\lambda_0=0\) is \(m=3\). To compute the geometric multiplicity, solve
-    \[Ax=0, \quad x=\begin{pmatrix}x_1\\x_2\\x_3\\x_4\end{pmatrix}.\]
-    Row reduction gives one free parameter, yielding
-    \[\ker(A)=\operatorname{span}\!\left\{\begin{pmatrix}1\\-1\\1\\1\end{pmatrix}\right\}.\]
-    Thus $\dim(\ker A)=1$. Therefore the defect of \(\lambda_0=0\) is $d_{\lambda_0}=3-1=2>0$, so \(\lambda_0\) is defective with defect \(2\).
+    Let $A = \begin{pmatrix}0&1&0&1\\0&-2&-1&-1\\1&1&0&0\\
+    0&1&0&1\end{pmatrix}$, $p(\lambda) = \lambda^3(\lambda+1)$. 
+    For $\lambda_0 = 0$: algebraic multiplicity $m=3$, 
+    $\ker A = \operatorname{span}\!\left\{
+    \begin{pmatrix}1\\-1\\1\\1\end{pmatrix}\right\}$ has dimension 1. 
+    Defect $= 2$.
 \end{example}
+
 \begin{example}
-    Let
-    \[A=\begin{pmatrix}3&1&-2\\-1&5&-2\\-3&3&-2\end{pmatrix}, \quad p(\lambda)=(\lambda+2)(\lambda-4)^2.\]
-    Hence \(\sigma(A)=\{-2,4\}\), and the algebraic multiplicity of \(\lambda_0=4\) is \(m=2\). To compute the geometric multiplicity, solve
-    \[(A-4I)x=0, \quad x=\begin{pmatrix}x_1\\x_2\\x_3\end{pmatrix}.\]
-    Row reduction gives two free parameters, yielding
-    \[\ker(A-4I)=\operatorname{span}\!\left\{\begin{pmatrix}1\\1\\0\end{pmatrix},\begin{pmatrix}-2\\0\\1\end{pmatrix}\right\}.\]
-    Thus \(\dim(\ker(A-4I))=2\). Therefore the defect of \(\lambda_0=4\) is \(d_{\lambda_0}=2-2=0\), so \(\lambda_0\) is not defective.
+    For $A = \begin{pmatrix}3&1&-2\\-1&5&-2\\-3&3&-2\end{pmatrix}$, 
+    $p(\lambda) = (\lambda+2)(\lambda-4)^2$. For $\lambda_0 = 4$: 
+    $m = 2$, $\dim\ker(A-4I) = 2$. Defect $= 0$, so 
+    $\lambda_0 = 4$ is \emph{not} defective.
 \end{example}
+
 \begin{definition}[Generalized Eigenvector]
-    Let $\lambda \in \sigma(A)$ with algebraic multiplicity $m$. A generalized eigenvector $u$ associated to $\lambda$ satisfies
-    \[(A-\lambda I)^mu = 0.\]
+    Let $\lambda \in \sigma(A)$ with algebraic multiplicity $m$. 
+    A \emph{generalized eigenvector} satisfies 
+    $(A - \lambda I)^m u = 0$.
 \end{definition}
-\begin{theorem}[Existence of a Generalized Eigenvector Basis]
-    Let \(\lambda \in \sigma(A)\) have algebraic multiplicity \(m\). Then
-    \[\dim(\ker(A-\lambda I)^m) = m.\] 
-    As a consequence, every matrix \(A \in M_n(\mathbb{R})\) has a basis consisting of generalized eigenvectors.
-\end{theorem}
-Denote 
-\[k_j = \ker(A-\lambda I)^j, \quad \lambda \in \sigma(A).\] 
-Then 
-\[k_0 = \{0\}, \quad k_1 = \{\text{eigenvectors associated to } \lambda\},\]
-and $\dim(k_0) = 0 < \dim(k_1) < \dim(k_m) = m$.
-\begin{lemma}
-    For all \(j\), 
-    \[k_j \subseteq k_{j+1}.\] 
-    Indeed, if \(u \in k_j\), then \((A-\lambda I)^j u = 0\) implies \((A-\lambda I)^{j+1} u = 0\). Hence
-    \[k_0 \subsetneq k_1 \subsetneq k_2 \subsetneq \dots \subsetneq k_j = k_{j+1} = \dots = k_m.\]
-\end{lemma}
-\begin{lemma}
-    If for some \(j \in \{1,\dots,m\}\) we have \(k_j = k_{j+1}\), then 
-    \[k_j = k_{j+1} = k_{j+2} = \dots = k_m.\]
-\end{lemma}
-\begin{proof}
-    Assume \(k_j = k_{j+1}\). Since \(k_{j+1} \subseteq k_{j+2}\), let \(w \in k_{j+2}\). Set \(u = (A-\lambda I)w \in k_{j+1} = k_j\). Then
-    \[(A-\lambda I)^{j+1} u = (A-\lambda I)^{j+2} w = 0 \implies (A-\lambda I)^j u = 0 \implies (A-\lambda I)^{j+1} w = 0.\]
-    Thus \(w \in k_{j+1}\), so \(k_{j+1} = k_{j+2}\). Iterating this gives the result.
-\end{proof}
-\begin{algorithm}[Computing Generalized Eigenvectors]
-    Assume we have a basis of \(k_i\) with \(i \ge 1\) and \(\dim(k_i) < m\). To find new vectors in \(k_{i+1} \setminus k_i\), look for \(u \in k_{i+1}\) such that
-    \[(A-\lambda I) u = w \in k_i,\] 
-    for all vectors \(w\) in the basis of \(k_i\).
-\end{algorithm}
-\begin{example}
-    Let
-    \[A = \begin{pmatrix}1&1\\0&1\end{pmatrix}, \quad k_0 = \{0\}, \quad k_1 = \operatorname{span}\left\{\begin{pmatrix}1\\0\end{pmatrix}\right\}, \quad k_2 = ?\]
-    To find \(u \in k_2 \setminus k_1\), solve \((A-I) u = w \in k_1\):
-    \[\begin{pmatrix}0&1\\0&0\end{pmatrix}\begin{pmatrix}a\\b\end{pmatrix} = \begin{pmatrix}1\\0\end{pmatrix}.\]
-    This gives \(b=1\) and \(a\) free. Pick \(a=0\):
-    \[\begin{pmatrix}a\\b\end{pmatrix} = \begin{pmatrix}0\\1\end{pmatrix} \in k_2 \setminus k_1.\]
-    Check:
-    \[(A-I)^2 \begin{pmatrix}0\\1\end{pmatrix} = (A-I)\begin{pmatrix}1\\0\end{pmatrix} = \begin{pmatrix}0\\0\end{pmatrix}.\]
-\end{example}
-
-\subsection{Exponential of a Matrix}
-\marginpar{February 17, 2026}
-\begin{definition}[Matrix Exponential]
-    For $A \in M_n(\mathbb{R})$, the exponential of $A$ is defined by the power series\footnote{This definition is motivated by the scalar identity $e^x = \sum_{k=0}^{\infty} \frac{x^k}{k!}$.}
-    \[e^A = \sum_{k=0}^{\infty} \frac{A^k}{k!} = I + A + \frac{A^2}{2!} + \frac{A^3}{3!} + \cdots .\]
-\end{definition}
-\begin{definition}[Induced Matrix Norm]
-    Let $\|\cdot\|$ be a norm on $\mathbb{R}^n$. The induced (operator) matrix norm on $M_n(\mathbb{R})$ is defined by
-    \[\|A\| = \sup_{x \ne 0} \frac{\|Ax\|}{\|x\|} = \sup_{\|x\|=1} \|Ax\|.\]
-\end{definition}
-\begin{proposition}[Basic Properties]
-    For all $A,B \in M_n(\mathbb{R})$ and all $x \in \mathbb{R}^n$:
-    \[\|Ax\| \leq \|A\| \cdot \|x\|,\]
-    \[|||AB||| \leq |||A||| \cdot |||B|||.\footnote{triple bar is norm for a matrix while double bar is the norm of a vector.}\]
-\end{proposition}
-\begin{proof}
-    By definition,
-    \[\|A\| = \sup_{\|x\|=1} \|Ax\|.\]
-    For any nonzero $x$,
-    \[\|Ax\| = \left\|A\left(\frac{x}{\|x\|}\right)\right\|\|x\| \leq \|A\|\cdot\|x\|.\]
-    For submultiplicativity, let $\|x\|=1$. Then
-    \[\|ABx\|\leq\|A\|c\dot\|Bx\|\leq\|A\|\cdot\|B\|.\]
-    Taking the supremum over all unit vectors $x$ gives
-    \[\|AB\| \leq \|A\|\cdot\|B\|.\]
-\end{proof}
-\begin{proposition}[Convergence]
-    For every $A \in M_n(\mathbb{R})$, the series defining $e^A$ converges absolutely.
-\end{proposition}
-\begin{proof}
-    Using the triangle inequality\footnote{$||A+B|| \leq ||A|| + ||B||$},
-    \[|||\sum_{k=0}^{N} \frac{A^k}{k!}||| \leq \sum_{k=0}^{N} \frac{|||A|||^k}{k!}.\]
-    Since $\sum_{k=0}^{\infty} \frac{\|A\|^k}{k!} = e^{\|A\|}$ converges, the matrix series converges.
-\end{proof}
-\begin{proposition}[Basic Properties]
-    For all $A \in M_n(\mathbb{R})$ and $t,s \in \mathbb{R}$,
-    \begin{itemize}
-        \item $e^{A\cdot0} = I,$
-        \item $e^{A(t+s)} = e^{At}e^{As},$
-        \item $e^{-At} = (e^{At})^{-1},$
-        \item $\frac{d}{dt} e^{At} = Ae^{At} = e^{At}A$.
-    \end{itemize}
-    If $AB=BA$, then
-    \[e^{A+B} = e^A e^B.\]
-\end{proposition}
-\begin{proof}[Proof of the Derivative Formula]
-    \[\frac{d}{dt} e^{At} = \frac{d}{dt} \sum_{k=0}^{\infty} \frac{A^k t^k}{k!} = \sum_{k=1}^{\infty} \frac{A^k t^{k-1}}{(k-1)!} = A \sum_{k=0}^{\infty} \frac{A^k t^k}{k!} = Ae^{At}.\]
-\end{proof}
-\begin{theorem}[Fundamental Matrix Solution]
-    The matrix function $e^{At}$ is a fundamental matrix solution of \eqref{eq:ode-system-matrix}. Hence the general solution is
-    \[y(t) = e^{At}C, \quad C \in \mathbb{R}^n.\]
-    The unique solution of the initial value problem
-    \[\begin{cases}y' = Ay,\\y(0) = y_0\end{cases}\]
-    is
-    \[y(t) = e^{At}y_0.\]
-\end{theorem}
-\begin{proof}
-    Since $\frac{d}{dt} e^{At} = Ae^{At}$, each column of $e^{At}$ satisfies the system. Moreover,
-    \[e^{A\cdot0} = I,\]
-    so $\det(e^{A0}) = 1 \ne 0$, and $e^{At}$ is invertible for all $t$.
-\end{proof}
-
-\marginpar{February 19, 2026}
-Let $y(t)$ be any fundamental matrix solution of $y' = Ay$. Then there exists an invertible matrix $C \in M_n(\mathbb{R})$ such that
-\[e^{At} = y(t)C.\]
-If we denote the columns of $e^{At}$ by $w_1(t), \dots, w_n(t)$, each column can be expressed as a linear combination of the columns of $y(t)$:
-\[w_j(t) = y(t) C^{(j)}, \quad C^{(j)} \in \mathbb{R}^n.\]
-Evaluating at $t=0$, we get
-\[e^{A\cdot 0} = I = y(0) C \implies C = y(0)^{-1}.\]
-Hence, in general,
-\[e^{At} = y(t) y(0)^{-1}.\]
-
-\begin{example}
-    Let
-    \[A = \begin{pmatrix}1 & 3 \\ 3 & 1\end{pmatrix}, \quad \lambda_1 = -2, \, \lambda_2 = 4, \quad u_1 = \begin{pmatrix}-1 \\ 1\end{pmatrix}, \, u_2 = \begin{pmatrix}1 \\ 1\end{pmatrix}.\]
-    A fundamental matrix solution is
-    \[y(t) = \begin{pmatrix}-e^{-2t} & e^{4t} \\ e^{-2t} & e^{4t}\end{pmatrix}, \quad y(0) = \begin{pmatrix}-1 & 1 \\ 1 & 1\end{pmatrix}.\]
-    Compute the inverse:
-    \[y(0)^{-1} = \frac{1}{2} \begin{pmatrix}-1 & 1 \\ 1 & 1\end{pmatrix}.\]
-    Thus, the matrix exponential is
-    \[e^{At} = y(t) y(0)^{-1} = \begin{pmatrix}\frac{1}{2}e^{-2t} + \frac{1}{2}e^{4t} & -\frac{1}{2}e^{-2t} + \frac{1}{2}e^{4t} \\ -\frac{1}{2}e^{-2t} + \frac{1}{2}e^{4t} & \frac{1}{2}e^{-2t} + \frac{1}{2}e^{4t}\end{pmatrix}.\]
-    Verifying at $t=0$:
-    \[e^{A\cdot 0} = I.\]
-    Hence, if $y_0 \in \mathbb{R}^n$ is the initial condition, the solution of \eqref{eq:ode-system-matrix} with $y(0) = y_0$ is
-    \[y(t) = e^{At} y_0.\]
-\end{example}
-
-\subsection{Building the Solution Set With $e^{At}$}
-Given any vector $v \in \mathbb{R}^n$, the function $e^{At}v$ is a solution of \eqref{eq:ode-system-matrix}.
-
-\subsubsection{Eigenvectors}
-Assume $u$ is an eigenvector associated to $\lambda \in \sigma(A)$. Then
-\[e^{At}u = \sum_{k=0}^{\infty} \frac{A^k t^k}{k!} u = \sum_{k=0}^{\infty} \frac{\lambda^k t^k}{k!} u = e^{\lambda t} u.\]
-Thus eigenvectors generate solutions of the form $e^{\lambda t}u$.
-
-\subsubsection{Generalized Eigenvectors}
-Suppose $u$ is a generalized eigenvector associated to $\lambda \in \sigma(A)$. Then there exists $j \in \mathbb{N}$ such that
-\[(A - \lambda I)^{j+1} u = 0.\]
-Write
-\[A = (A - \lambda I) + \lambda I.\]
-Since $(A - \lambda I)$ commutes with $\lambda I$,
-\[e^{At} = e^{((A - \lambda I) + \lambda I)t} = e^{\lambda t} e^{(A - \lambda I)t}.\]
-Hence
-\[e^{At}u = e^{\lambda t} \sum_{k=0}^{\infty} \frac{(A - \lambda I)^k t^k}{k!} u.\]
-Because $(A - \lambda I)^k u = 0$ for all $k > j$, the sum is finite:
-\[e^{At}u = e^{\lambda t} \sum_{k=0}^{j} \frac{(A - \lambda I)^k t^k}{k!} u.\]
 
 \begin{theorem}[Generalized Eigenvector Basis]
-Every matrix $A \in M_n(\mathbb{R})$ admits $n$ linearly independent generalized eigenvectors $u_1, \dots, u_n$.
+    If $\lambda \in \sigma(A)$ has algebraic multiplicity $m$, then
+    $\dim\ker(A-\lambda I)^m = m$. Consequently, every 
+    $A \in M_n(\mathbb{R})$ has a basis of generalized eigenvectors.
 \end{theorem}
+
+Denote $k_j = \ker(A-\lambda I)^j$. Then
+\[k_0 = \{0\} \subsetneq k_1 \subsetneq k_2 \subsetneq 
+\cdots \subsetneq k_m.\]
+
+\begin{lemma}
+    $k_j \subseteq k_{j+1}$ for all $j$. Moreover, if 
+    $k_j = k_{j+1}$ for some $j$, then 
+    $k_j = k_{j+1} = \cdots = k_m$.
+\end{lemma}
+
+\begin{proof}
+    The inclusion is immediate. For the second part: assume 
+    $k_j = k_{j+1}$ and let $w \in k_{j+2}$. Setting 
+    $u = (A-\lambda I)w \in k_{j+1} = k_j$ gives 
+    $(A-\lambda I)^{j+1}u = (A-\lambda I)^{j+2}w = 0$, hence 
+    $(A-\lambda I)^j u = 0$, so $(A-\lambda I)^{j+1}w = 0$, meaning 
+    $w \in k_{j+1}$. Iterate to get the result.
+\end{proof}
+
+\begin{algorithm}[Computing Generalized Eigenvectors]
+    Given a basis of $k_i$ with $\dim(k_i) < m$, find 
+    $u \in k_{i+1} \setminus k_i$ by solving
+    $(A - \lambda I)u = w$ for each basis vector $w \in k_i$.
+\end{algorithm}
+
+\begin{example}
+    For $A = \begin{pmatrix}1&1\\0&1\end{pmatrix}$: 
+    $k_1 = \operatorname{span}\!\left\{
+    \begin{pmatrix}1\\0\end{pmatrix}\right\}$. To find 
+    $u \in k_2 \setminus k_1$, solve
+    \[\begin{pmatrix}0&1\\0&0\end{pmatrix}
+    \begin{pmatrix}a\\b\end{pmatrix} = 
+    \begin{pmatrix}1\\0\end{pmatrix}.\]
+    This gives $b=1$, $a$ free. Pick $a=0$: 
+    $u_2 = \begin{pmatrix}0\\1\end{pmatrix}$.
+    Check: $(A-I)^2 u_2 = (A-I)\begin{pmatrix}1\\0\end{pmatrix} = 0$. 
+    \checkmark
+\end{example}
+
+%------- 3.4 -------
+\subsection{The Matrix Exponential}
+\marginpar{February 17, 2026}
+
+\begin{definition}[Matrix Exponential]
+    For $A \in M_n(\mathbb{R})$,
+    \[e^A = \sum_{k=0}^{\infty} \frac{A^k}{k!} = I + A + 
+    \frac{A^2}{2!} + \cdots\]
+\end{definition}
+
+\begin{definition}[Induced Matrix Norm]
+    \[\|A\| = \sup_{x \neq 0}\frac{\|Ax\|}{\|x\|} = 
+    \sup_{\|x\|=1}\|Ax\|.\]
+\end{definition}
+
+\begin{proposition}[Norm Properties]
+    For all $A, B \in M_n(\mathbb{R})$ and $x \in \mathbb{R}^n$:
+    \[\|Ax\| \leq \|A\|\cdot\|x\|, \qquad 
+    \|AB\| \leq \|A\|\cdot\|B\|.\]
+\end{proposition}
+
+\begin{proof}
+    For any nonzero $x$: $\|Ax\| = \|A(x/\|x\|)\|\cdot\|x\| 
+    \leq \|A\|\cdot\|x\|$. For submultiplicativity, let $\|x\|=1$:
+    $\|ABx\| \leq \|A\|\cdot\|Bx\| \leq \|A\|\cdot\|B\|$. Take the 
+    supremum over unit vectors.
+\end{proof}
+
+\begin{proposition}[Convergence]
+    The series defining $e^A$ converges absolutely for every 
+    $A \in M_n(\mathbb{R})$.
+\end{proposition}
+
+\begin{proof}
+    By the triangle inequality, 
+    $\|\sum_{k=0}^N A^k/k!\| \leq \sum_{k=0}^N \|A\|^k/k!$, 
+    which converges to $e^{\|A\|}$.
+\end{proof}
+
+\begin{proposition}[Basic Properties]
+    For all $A \in M_n(\mathbb{R})$ and $t, s \in \mathbb{R}$:
+    \[e^{A\cdot 0} = I, \quad e^{A(t+s)} = e^{At}e^{As}, \quad 
+    e^{-At} = (e^{At})^{-1}, \quad \frac{d}{dt}e^{At} = Ae^{At} 
+    = e^{At}A.\]
+    If $AB = BA$, then $e^{A+B} = e^A e^B$.
+\end{proposition}
+
+\begin{proof}[Proof of the derivative formula]
+    \[\frac{d}{dt}e^{At} = \frac{d}{dt}\sum_{k=0}^\infty 
+    \frac{A^k t^k}{k!} = \sum_{k=1}^\infty \frac{A^k t^{k-1}}
+    {(k-1)!} = A\sum_{k=0}^\infty \frac{A^k t^k}{k!} = Ae^{At}.\]
+\end{proof}
+
+\begin{theorem}[Fundamental Matrix Solution]
+    $e^{At}$ is a fundamental matrix solution of 
+    \eqref{eq:ode-system-matrix}. The general solution is 
+    $y(t) = e^{At}C$, and the unique solution to the IVP 
+    $y(0) = y_0$ is $y(t) = e^{At}y_0$.
+\end{theorem}
+
+\begin{proof}
+    $\frac{d}{dt}e^{At} = Ae^{At}$ shows each column satisfies 
+    the system. $e^{A\cdot 0} = I$ implies $\det(e^{A\cdot 0}) = 
+    1 \neq 0$, so $e^{At}$ is invertible.
+\end{proof}
+
+\subsubsection{Computing $e^{At}$ from a Fundamental Matrix}
+\marginpar{February 19, 2026}
+
+Let $Y(t)$ be any fundamental matrix solution of $y' = Ay$. Since 
+$e^{At}$ is also a fundamental matrix, there exists invertible 
+$C$ such that $e^{At} = Y(t)C$. Evaluating at $t=0$:
+\[I = Y(0)C \implies C = Y(0)^{-1}, \quad \therefore \quad 
+e^{At} = Y(t)\,Y(0)^{-1}.\]
+
+\begin{example}
+    For $A = \begin{pmatrix}1&3\\3&1\end{pmatrix}$ with 
+    $\lambda_1=-2$, $u_1=\begin{pmatrix}-1\\1\end{pmatrix}$ and 
+    $\lambda_2=4$, $u_2=\begin{pmatrix}1\\1\end{pmatrix}$:
+    \[Y(t) = \begin{pmatrix}-e^{-2t}&e^{4t}\\e^{-2t}&e^{4t}
+    \end{pmatrix}, \quad Y(0)^{-1} = \frac{1}{2}
+    \begin{pmatrix}-1&1\\1&1\end{pmatrix},\]
+    \[e^{At} = Y(t)Y(0)^{-1} = \begin{pmatrix}
+    \frac{1}{2}(e^{-2t}+e^{4t}) & \frac{1}{2}(-e^{-2t}+e^{4t})\\
+    \frac{1}{2}(-e^{-2t}+e^{4t}) & \frac{1}{2}(e^{-2t}+e^{4t})
+    \end{pmatrix}.\]
+    Verify: $e^{A\cdot 0} = I$. \checkmark
+\end{example}
+
+\subsubsection{Action of $e^{At}$ on Eigenvectors and Generalized 
+Eigenvectors}
+
+\textbf{Eigenvectors.} If $Au = \lambda u$, then
+\[e^{At}u = \sum_{k=0}^\infty \frac{A^k t^k}{k!}u = 
+\sum_{k=0}^\infty \frac{\lambda^k t^k}{k!}u = e^{\lambda t}u.\]
+
+\textbf{Generalized eigenvectors.} If $(A-\lambda I)^{j+1}u=0$, 
+write $A = (A-\lambda I) + \lambda I$. Since these terms commute,
+\[e^{At}u = e^{\lambda t}e^{(A-\lambda I)t}u = 
+e^{\lambda t}\sum_{k=0}^{j}\frac{(A-\lambda I)^k t^k}{k!}u,\]
+a finite sum since $(A-\lambda I)^k u = 0$ for $k > j$.
+
 \begin{proposition}
     The general solution of \eqref{eq:ode-system-matrix} is
-    \[y(t) = \sum_{i=1}^{n} c_i e^{At} u_i, \quad c_i \in \mathbb{R},\]
-    where $u_i$ are generalized eigenvectors of $A$.
+    \[y(t) = \sum_{i=1}^n c_i\, e^{At}u_i, \quad c_i \in \mathbb{R},\]
+    where $u_1,\ldots,u_n$ are $n$ linearly independent generalized 
+    eigenvectors of $A$.
 \end{proposition}
+
 \begin{example}
-Consider
-\[A = \begin{pmatrix}1 & 1 \\ 0 & 1\end{pmatrix}, \quad \sigma(A)=\{1,1\}.\]
-Define the chain of generalized eigenspaces
-\[k_0 \subsetneq k_1 \subsetneq k_2 \subsetneq \cdots \subsetneq k_j \subsetneq k_{j+1},\]
-where
-\[k_m = \ker (A-\lambda I)^m.\]
-Here,
-\[k_1 = \left< \begin{pmatrix}1\\0\end{pmatrix} \right> \subsetneq
-k_2 = \left<\begin{pmatrix}1\\0\end{pmatrix},\begin{pmatrix}0\\1\end{pmatrix}\right>.\]
-Since
-\[\dim(\ker(A-\lambda I)^2)=2,\]
-we choose
-\[u_2 \in k_2 = \ker(A-\lambda I)^2 \quad \text{with } u_2 \notin k_1.\]
-The eigenvector is
-\[u_1 = \begin{pmatrix}1\\0\end{pmatrix},\]
-and $u_2$ satisfies
-\[(A-I)u_2 = u_1.\]
-Take
-\[u_2 = \begin{pmatrix}0\\1\end{pmatrix}.\]
-Then
-\[y_1(t) = e^t u_1,\]
-and
-\[y_2(t) = e^{At}u_2 = e^t(u_2 + t u_1) = e^t \begin{pmatrix}t\\1\end{pmatrix}.\]
-Thus the general solution is
-\[y(t) = c_1 e^t \begin{pmatrix}1\\0\end{pmatrix} + c_2 e^t \begin{pmatrix}t\\1\end{pmatrix}.\]
-\end{example}
-\begin{example}
-Consider
-\[A = \begin{pmatrix}2 & 4 \\ -1 & -2\end{pmatrix}.\]
-The characteristic polynomial is
-\[p(\lambda) = (2-\lambda)(-2-\lambda)+4 = \lambda^2,\]
-so $\lambda=0$ with multiplicity $2$ or $\sigma(A) = \{0,0\}$.
-\[k_1 = \ker(A) = \left< \begin{pmatrix}-2\\1\end{pmatrix} \right>.\]
-To find $u_2 \in k_2 \setminus k_1$, solve
-\[A \begin{pmatrix}a\\b\end{pmatrix} = \begin{pmatrix}-2\\1\end{pmatrix}.\]
-This gives $a=-2b-1$. Choosing $b=0$,
-\[u_2 = \begin{pmatrix}-1\\0\end{pmatrix}.\]
-Then
-\[y_1(t)=u_1=\begin{pmatrix}-2\\1\end{pmatrix},\]
-\[y_2(t) = e^{At}u_2 = u_2 + t u_1 = \begin{pmatrix}-1-2t\\t\end{pmatrix}.\]
-Hence
-\[y(t) = c_1 \begin{pmatrix}-2\\1\end{pmatrix} + c_2 \begin{pmatrix}-1-2t\\t\end{pmatrix}.\]
-A fundamental matrix is
-\[Y(t) = \begin{pmatrix}-2 & -1-2t \\ 1 & t\end{pmatrix}.\]
-The Wronskian is
-\[W(t)=\det Y(t)=1\neq0.\]
+    For $A = \begin{pmatrix}1&1\\0&1\end{pmatrix}$, $\sigma(A) = 
+    \{1\}$. From the generalized eigenvector computation above, 
+    $u_1 = \begin{pmatrix}1\\0\end{pmatrix}$ (eigenvector) and 
+    $u_2 = \begin{pmatrix}0\\1\end{pmatrix}$ (generalized). Then
+    \[y_1(t) = e^t u_1, \qquad y_2(t) = e^{At}u_2 = 
+    e^t(u_2 + tu_1) = e^t\begin{pmatrix}t\\1\end{pmatrix},\]
+    giving the general solution
+    \[y(t) = c_1 e^t\begin{pmatrix}1\\0\end{pmatrix} + 
+    c_2 e^t\begin{pmatrix}t\\1\end{pmatrix}.\]
 \end{example}
 
-\subsection{Non-homogeneous systems}
-Consider
-\begin{equation}
-    \label{eq:non-homogeneous-ode-system-matrix}
-    y'(t) = Ay(t) + r(t),
-\end{equation}
-where $A \in M_n(\mathbb{R})$ and $r : I \to \mathbb{R}^n$ is continuous. Let $Y(t)$ be a fundamental matrix solution of the homogeneous system \eqref{eq:ode-system-matrix}. Suppose $y_1(t)$ and $y_2(t)$ are two solutions of \eqref{eq:non-homogeneous-ode-system-matrix}. Define
-\[y(t) = y_2(t) - y_1(t).\]
-Then
-\[y'(t) = y_2'(t) - y_1'(t) = (Ay_2 + r) - (Ay_1 + r) = A(y_2 - y_1) = Ay(t).\]
-Thus $y(t)$ solves the homogeneous system \eqref{eq:ode-system-matrix}.  
-Hence there exists $C \in \mathbb{R}^n$ such that
-\[y_2(t) - y_1(t) = Y(t)C.\]
-Therefore,
-\[y_2(t) = Y(t)C + y_1(t).\]
+\begin{example}
+    For $A = \begin{pmatrix}2&4\\-1&-2\end{pmatrix}$: 
+    $p(\lambda) = \lambda^2$, so $\sigma(A) = \{0\}$ with 
+    multiplicity 2. 
+    $k_1 = \ker A = \left\langle\begin{pmatrix}-2\\1
+    \end{pmatrix}\right\rangle$.
+    Solve $Au_2 = u_1$ for $u_2 \in k_2\setminus k_1$: choosing 
+    $b=0$ gives $u_2 = \begin{pmatrix}-1\\0\end{pmatrix}$. Then
+    \[y_1(t) = \begin{pmatrix}-2\\1\end{pmatrix}, \qquad 
+    y_2(t) = u_2 + tu_1 = 
+    \begin{pmatrix}-1-2t\\t\end{pmatrix},\]
+    \[y(t) = c_1\begin{pmatrix}-2\\1\end{pmatrix} + 
+    c_2\begin{pmatrix}-1-2t\\t\end{pmatrix}, \quad W(t) = 
+    \det\begin{pmatrix}-2&-1-2t\\1&t\end{pmatrix} = 1 \neq 0.\]
+\end{example}
 
-\begin{theorem}[General Solution of Non-homogeneous Systems]
-    Let $y_p(t)$ be any particular solution of
-    \eqref{eq:non-homogeneous-ode-system-matrix}. Then the general solution is
+%------- 3.5 -------
+\subsection{Non-Homogeneous Systems}
+
+Consider $y'(t) = Ay(t) + r(t)$ with $r: I \to \mathbb{R}^n$ 
+continuous. If $y_1(t)$ and $y_2(t)$ are two solutions, then 
+$y_2 - y_1$ solves the homogeneous system, so there exists 
+$C \in \mathbb{R}^n$ with $y_2(t) - y_1(t) = Y(t)C$.
+
+\begin{theorem}[General Solution]
+    Let $y_p(t)$ be any particular solution of 
+    \eqref{eq:non-homogeneous-ode-system-matrix}. Then the general 
+    solution is
     \[y(t) = Y(t)C + y_p(t), \quad C \in \mathbb{R}^n.\]
 \end{theorem}
 
 \subsubsection{Variation of Parameters}
-To compute a particular solution, look for
-\[y_p(t) = Y(t) C_p(t),\]
-where $C_p(t)$ is an unknown vector function.
-Differentiate:
-\[y_p'(t) = Y'(t)C_p(t) + Y(t)C_p'(t).\]
-Since $Y'(t) = AY(t)$,
-\[y_p'(t) = AY(t)C_p(t) + Y(t)C_p'(t) = Ay_p(t) + Y(t)C_p'(t).\]
-For $y_p$ to satisfy \eqref{eq:non-homogeneous-ode-system-matrix}, we require
-\[y_p'(t) = Ay_p(t) + r(t).\]
-Thus
-\[Ay_p(t) + Y(t)C_p'(t) = Ay_p(t) + r(t),\]
-which implies
-\[Y(t)C_p'(t) = r(t).\]
 
-Since $Y(t)$ is invertible,
-\[C_p'(t) = Y^{-1}(t) r(t).\]
-Integrating,
-\[C_p(t) = \int Y^{-1}(t) r(t)\, dt.\]
+Look for a particular solution $y_p(t) = Y(t)C_p(t)$, where 
+$C_p(t)$ is unknown. Differentiating and substituting into 
+\eqref{eq:non-homogeneous-ode-system-matrix}:
+\[AY(t)C_p + Y(t)C_p' = AY(t)C_p + r(t) \implies 
+Y(t)C_p'(t) = r(t).\]
+Since $Y(t)$ is invertible, $C_p'(t) = Y^{-1}(t)r(t)$, giving
+\[y_p(t) = Y(t)\int Y^{-1}(t)\,r(t)\,dt.\]
+The general solution is therefore
+\[y(t) = Y(t)\!\left[C + \int Y^{-1}(t)\,r(t)\,dt\right], 
+\quad C \in \mathbb{R}^n.\]
 
-Therefore,
-\[y_p(t) = Y(t) \int Y^{-1}(t) r(t)\, dt.\]
+%------- 3.6 -------
+\subsection{Applications}
 
-Hence the general solution of
-\eqref{eq:non-homogeneous-ode-system-matrix} is
-\[y(t) = Y(t)C + Y(t) \int Y^{-1}(t) r(t)\, dt = Y(t)\left[ C + \int Y^{-1}(t) r(t)\, dt \right], \quad C \in \mathbb{R}^n.\]
-
-\subsection{Mass-Spring Systems}
+\subsubsection{Mass-Spring Systems}
 \marginpar{February 24, 2026}
-Consider a mass attached to a vertical spring.
+
 \begin{center}
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.5\textwidth]{../Images/MSS-setup.jpeg}
     \end{figure}
 \end{center}
-At equilibrium, gravity and the spring force balance:
-\[mg + kL = 0.\]
+
+At equilibrium, $mg + kL = 0$.
+
 \begin{definition}[Hooke's Law]
-    The restoring force exerted by a spring is proportional to its displacement from equilibrium:
-    \[F_s = -kx,\]
-    where $k>0$ is the spring constant.
+    The restoring spring force is $F_s = -kx$, where $k > 0$ is 
+    the spring constant.
 \end{definition}
-Let $u(t)$ denote the displacement from equilibrium, with $u>0$ downward. Additional forces include damping $F_d = -\gamma u'(t)$ and an external force $F(t)$. Applying Newton's second law gives
-\[mu''(t) = mg - k(L+u(t)) - \gamma u'(t) + F(t).\]
-Using the equilibrium relation, this simplifies to
+
+Let $u(t)$ be the displacement from equilibrium ($u > 0$ 
+downward), with damping $F_d = -\gamma u'$ and external force 
+$F(t)$. Newton's second law and the equilibrium relation give
 \begin{equation}
     \label{eq:mass-spring-system}
-    mu''(t) + \gamma u'(t) + ku(t) = F(t).
+    mu'' + \gamma u' + ku = F(t).
 \end{equation}
-To express this as a first-order system, set
-\[y_1 = u, \qquad y_2 = u', \qquad y = \begin{pmatrix} y_1 \\ y_2 \end{pmatrix}.\]
-Then
-\[y' = \begin{pmatrix}0 & 1 \\ -\frac{k}{m} & -\frac{\gamma}{m}\end{pmatrix}y + \begin{pmatrix}0 \\\frac{1}{m}F(t)\end{pmatrix}.\]
-We first analyze the homogeneous system $y' = Ay$, where
-\[A = \begin{pmatrix}0 & 1 \\ -\frac{k}{m} & -\frac{\gamma}{m}\end{pmatrix}.\]
-The characteristic polynomial is
-\[p(\lambda) = \det(A - \lambda I) = \lambda^2 + \frac{\gamma}{m}\lambda + \frac{k}{m}.\]
-Thus,
-\[\lambda_{\pm} = \frac{1}{2m}\left(-\gamma \pm \sqrt{\gamma^2 - 4km}\right).\]
-Let $\Delta = \gamma^2 - 4km$.
+As a first-order system with 
+$y = \begin{pmatrix}u\\u'\end{pmatrix}$:
+\[y' = \begin{pmatrix}0&1\\-k/m&-\gamma/m\end{pmatrix}y + 
+\begin{pmatrix}0\\F(t)/m\end{pmatrix}.\]
+The characteristic polynomial of the homogeneous part is
+\[p(\lambda) = \lambda^2 + \frac{\gamma}{m}\lambda + \frac{k}{m}, 
+\qquad \lambda_\pm = \frac{-\gamma \pm \sqrt{\gamma^2-4km}}{2m}.\]
+Setting $\Delta = \gamma^2 - 4km$:
 \begin{itemize}
-    \item $\Delta > 0$ (Overdamped)
-
-    Two distinct real negative eigenvalues. The solution is
-    \[u(t) = c_1 e^{\lambda_1 t} + c_2 e^{\lambda_2 t},\]
-    which decays to zero without oscillation.
-
-    \item $\Delta = 0$ (Critically damped).  
-
-    A repeated eigenvalue $\lambda = -\frac{\gamma}{2m}$. The solution is
-    \[u(t) = (c_1 + c_2 t)e^{\lambda t},\]
-    which decays to zero as quickly as possible without oscillating.
-
-    \item $\Delta < 0$ (Underdamped).  
-
-    Complex conjugate eigenvalues
-    \[\lambda = -\frac{\gamma}{2m} \pm i\omega, \qquad \omega = \frac{1}{2m}\sqrt{4km - \gamma^2}.\]
-
-    The solution becomes
-    \[u(t) = e^{-\frac{\gamma}{2m}t}\left(c_1 \cos(\omega t) + c_2 \sin(\omega t)\right),\]
-    which represents exponentially decaying oscillations.
+    \item \textbf{Overdamped} ($\Delta > 0$): two distinct real 
+    negative eigenvalues,
+    \[u(t) = c_1 e^{\lambda_1 t} + c_2 e^{\lambda_2 t} 
+    \to 0 \text{ without oscillation.}\]
+    \item \textbf{Critically damped} ($\Delta = 0$): repeated 
+    eigenvalue $\lambda = -\gamma/(2m)$,
+    \[u(t) = (c_1 + c_2 t)e^{\lambda t} \to 0 \text{ as fast 
+    as possible without oscillating.}\]
+    \item \textbf{Underdamped} ($\Delta < 0$): complex eigenvalues 
+    $\lambda = -\frac{\gamma}{2m} \pm i\omega$ with 
+    $\omega = \frac{\sqrt{4km-\gamma^2}}{2m}$,
+    \[u(t) = e^{-\frac{\gamma}{2m}t}(c_1\cos\omega t + 
+    c_2\sin\omega t), \text{ exponentially decaying oscillations.}\]
 \end{itemize}
 
-\subsection{RLC Circuits}
-Consider a series RLC circuit.
+\subsubsection{RLC Circuits}
+
 \begin{center}
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.5\textwidth]{../Images/circuit-ode.jpeg}
     \end{figure}
 \end{center}
-Let $Q(t)$ denote the charge on the capacitor at time $t$. The current is
-\[I(t) = Q'(t).\]
+
+Let $Q(t)$ be the capacitor charge and $I(t) = Q'(t)$ the current.
+
 \begin{definition}[Kirchhoff's Voltage Law]
-    The sum of the voltage drops across the elements of a closed circuit equals the applied voltage $E(t)$.
+    The sum of voltage drops around a closed circuit equals the 
+    applied voltage $E(t)$.
 \end{definition}
-Voltage drops across each component:
-\begin{itemize}
-    \item Resistor: $RI(t)$
-    \item Capacitor: $\frac{Q(t)}{C}$
-    \item Inductor: $L I'(t)$
-\end{itemize}
-Applying Kirchhoff's law,
-\[RI + \frac{Q}{C} + LI' = E(t).\]
-Substituting $I = Q'$, we obtain
+
+The voltage drops are: resistor $RI$, capacitor $Q/C$, inductor 
+$LI'$. Applying Kirchhoff's law and substituting $I = Q'$:
 \begin{equation}
     \label{eq:RLC-circuit}
-    LQ''(t) + RQ'(t) + \frac{1}{C}Q(t) = E(t).
+    LQ'' + RQ' + \frac{1}{C}Q = E(t).
 \end{equation}
-This has the same mathematical form as the mass-spring system, with the correspondence
-\[m \leftrightarrow L, \quad \gamma \leftrightarrow R,\quad k \leftrightarrow \frac{1}{C}.\]
+This is mathematically identical to \eqref{eq:mass-spring-system} 
+under the correspondence
+\[m \leftrightarrow L, \quad \gamma \leftrightarrow R, \quad 
+k \leftrightarrow \frac{1}{C}.\]
 
 \section{Stability, Phase Portraits and Orbits}
 \marginpar{March 10, 2026}
@@ -1569,6 +1468,13 @@ Let \eqref{eq:ode-system-matrix} hold with $A \in M_2(\mathbb{R})$ and $\det(A) 
     \item $A$ is diagonalizable with real eigenvalues. The general solution is
     \[y(t) = c_1 e^{\lambda_1 t}u_1 + c_2 e^{\lambda_2 t}u_2.\]
 \end{enumerate}
+
+\marginpar{March 17, 2026}
+Let \eqref{eq:ode-system-matrix}, and $A \in M_2(\mathbb{R})$, and $A$ has complex eigenvalues $\lambda=\alpha+i\beta$. From Chapter 3, the general solution $y(t) = c_1e^{\alpha t}(cos(\beta t)u - sin(\beta t)v) + c_2e^{\alpha t}(sin(\beta t)u + cos(\beta t)v)$. Given $c_1,c_2$, it is possible to obtain $v_1,v_2 \in \mathbb{R}^2$ perpendicular such that $y(t) = e^{\alpha t}cos(\beta t)v_1 + e^{\alpha t}sin(\beta t)v_2$.
+If $\alpha = 0$: $y(t) = cos(\beta t)v_1 + sin(\beta t)v_2$, $0$ is called a stable center (closed curve (ellipse)).
+If $\alpha > 0$, $0$ is called an unstable spiral point.
+If $\alpha < 0$, $0$ is called an asymptotically stable spiral point.
+Example: $y'=\begin{pmatrix}-1&6\\-\frac{3}{2}&-1\end{pmatrix}y$ and $\sigma(A) = \{-1\pm 3i\}$.
 
 \section{Laplace Transform}
 
