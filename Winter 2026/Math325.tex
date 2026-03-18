@@ -10,6 +10,7 @@
 \usepackage{float} % Required for H float option
 \usepackage{pgfplots} % For plots
 \usepackage{tikz} % For drawing shapes
+\usepackage{transparent}
 \pgfplotsset{compat=1.18} % Set compatibility level
 \newtheorem{theorem}{Theorem}
 \newtheorem{corollary}{Corollary}[theorem]
@@ -1462,51 +1463,125 @@ the \emph{orbit} of $y_0$, where $J_{\max}$ is the maximal interval of existence
 
 %------- 5.4 -------
 \subsection{Phase Portraits of Planar Linear Systems}
+\marginpar{March 10, 2026}
 
-Let \eqref{eq:ode-system-matrix} hold with $A \in M_2(\mathbb{R})$ and $\det(A) \neq 0$.
-\begin{enumerate}
-    \item $A$ is diagonalizable with real eigenvalues. The general solution is
-    \[y(t) = c_1 e^{\lambda_1 t}u_1 + c_2 e^{\lambda_2 t}u_2.\]
-\end{enumerate}
+Let \eqref{eq:ode-system-matrix} hold with $A \in M_2(\mathbb{R})$ 
+and $\det(A) \neq 0$. We classify the phase portrait by the 
+eigenstructure of $A$.
 
+\subsubsection{Real Eigenvalues: Diagonalizable Case}
+
+The general solution is
+\[y(t) = c_1 e^{\lambda_1 t}u_1 + c_2 e^{\lambda_2 t}u_2.\]
+
+\subsubsection{Complex Eigenvalues}
 \marginpar{March 17, 2026}
-Let \eqref{eq:ode-system-matrix}, and $A \in M_2(\mathbb{R})$, and $A$ has complex eigenvalues $\lambda=\alpha+i\beta$. From Chapter 3, the general solution $y(t) = c_1e^{\alpha t}(cos(\beta t)u - sin(\beta t)v) + c_2e^{\alpha t}(sin(\beta t)u + cos(\beta t)v)$. Given $c_1,c_2$, it is possible to obtain $v_1,v_2 \in \mathbb{R}^2$ perpendicular such that $y(t) = e^{\alpha t}cos(\beta t)v_1 + e^{\alpha t}sin(\beta t)v_2$.
-If $\alpha = 0$: $y(t) = cos(\beta t)v_1 + sin(\beta t)v_2$, $0$ is called a stable center (closed curve (ellipse)).
-If $\alpha > 0$, $0$ is called an unstable spiral point.
-If $\alpha < 0$, $0$ is called an asymptotically stable spiral point.
-Example: $y'=\begin{pmatrix}-1&6\\-\frac{3}{2}&-1\end{pmatrix}y$ and $\sigma(A) = \{-1\pm 3i\}$. $A\begin{pmatrix}1\\0\end{pmatrix}=\begin{pmatrix}-1\\-3/2\end{pmatrix}$.
-If A is non diagonalizable $det A \neq 0$, $\sigma(A) = \{\lambda,\lambda\}$, $ker(A-\lambda I) = <u>$. Denote by $v$ a generalized eigenvector. $\implies y(t) = C_1e6{\lambda t}u+C_2e^{\lambda t}(v+tu)$.
-\begin{example}[Love Affairs]
-    Romeo \& juliette. Let $R(t)$ be the love $>0$/hate $<0$ that Romeo feels toward Juliet at time t. Let $J(t)$ be the love $>0$/hate $<0$ that Juliet feels toward Romeo at time t.
-    In this story, Juliet reacts negatively to Romeo's advances/interest. We assume in this story that Romeo echoes Juliet's feelings, meaning if she likes him, he likes her even more. Same for the hate.
-    \[\frac{dR}{dt} = \alpha J(t), \quad \alpha>0\]
-    \[\frac{dJ}{dt} = -\beta R(t), \quad \beta>0\]
-    Rewrite this asa matrix equation:
-    \[\begin{pmatrix}R'\\J'\end{pmatrix} = \begin{pmatrix}0&\alpha\\-\beta&0\end{pmatrix}\begin{pmatrix}R\\J\end{pmatrix}.\]
-    \[p(\lambda) = \lambda^2 + \alpha\beta = 0 \implies \lambda = \pm i\sqrt{\alpha\beta}\]
 
-    Try a new method:
-    \[\begin{cases}\frac{dR}{dt}=aR(t)+bJ(t)\\ \frac{dJ}{dt}=cR(t)+dJ(t)\end{cases}\]
-    where if $a<0$ means Romeo is cautious and $a>0$ Romeo is hyping himself up.
-    Let us assume that both Romeo and Juliet echoes each other's feelings exactly the same and that they are cautious the same way. $a<0<b$. We have
-    \[A=\begin{pmatrix}a&b\\b&a\end{pmatrix}, |A-\lambda I| = (a-\lambda)^2 - b^2 = 0 \implies \lambda = a \pm b\]
-    \[\lambda_1 = a-b<0 \to u_1=\begin{pmatrix}1\\-1\end{pmatrix}\]
-    \[\lambda_2 = a+b \to u_2 = \begin{pmatrix}1\\1\end{pmatrix}\]
-    \[y(t) = c_1e^{(a-b)t}\begin{pmatrix}1\\-1\end{pmatrix} + c_2e^{(a+b)t}\begin{pmatrix}1\\1\end{pmatrix}.\]
-    If $\lambda_2 < 0$, $a<b$, $|a| > |b|$, the $|a|$ means too much caution vs will to open your heart.
+Suppose $A$ has complex eigenvalues $\lambda = \alpha + i\beta$ 
+with $\beta \neq 0$. From Chapter~3, the general solution is
+\[y(t) = c_1 e^{\alpha t}(\cos(\beta t)\,p - \sin(\beta t)\,q) 
++ c_2 e^{\alpha t}(\sin(\beta t)\,p + \cos(\beta t)\,q),\]
+where $p = \mathrm{Re}(u)$ and $q = \mathrm{Im}(u)$. 
+Given constants $c_1, c_2$, there exist $v_1, v_2 \in \mathbb{R}^2$ 
+perpendicular such that
+\[y(t) = e^{\alpha t}\cos(\beta t)\,v_1 + 
+e^{\alpha t}\sin(\beta t)\,v_2.\]
+The nature of the equilibrium $\tilde{y} = 0$ depends on $\alpha$:
+\begin{itemize}
+    \item $\alpha = 0$: $y(t) = \cos(\beta t)v_1 + \sin(\beta t)v_2$ 
+    traces a closed ellipse. The origin is called a 
+    \emph{stable center}.
+    \item $\alpha > 0$: orbits spiral outward. The origin is called 
+    an \emph{unstable spiral point}.
+    \item $\alpha < 0$: orbits spiral inward. The origin is called 
+    an \emph{asymptotically stable spiral point}.
+\end{itemize}
+
+\begin{example}
+    Let $y' = \begin{pmatrix}-1&6\\-3/2&-1\end{pmatrix}y$ with 
+    $\sigma(A) = \{-1 \pm 3i\}$. Since $\alpha = -1 < 0$, the 
+    origin is an asymptotically stable spiral point. Note that
+    \[A\begin{pmatrix}1\\0\end{pmatrix} = 
+    \begin{pmatrix}-1\\-3/2\end{pmatrix}.\]
 \end{example}
 
+\subsubsection{Repeated Eigenvalue: Non-Diagonalizable Case}
+
+If $\det(A) \neq 0$, $\sigma(A) = \{\lambda, \lambda\}$, and 
+$\ker(A - \lambda I) = \langle u \rangle$ (only one independent 
+eigenvector), let $v$ be the generalized eigenvector satisfying 
+$(A - \lambda I)v = u$. Then the general solution is
+\[y(t) = C_1 e^{\lambda t}u + C_2 e^{\lambda t}(v + tu).\]
+
+\begin{example}[Love Affairs]
+    Let $R(t)$ denote the love ($>0$) or hate ($<0$) that Romeo 
+    feels toward Juliet, and $J(t)$ the same for Juliet toward Romeo.
+    In this story, Romeo echoes Juliet's feelings (the more she 
+    loves/hates him, the more he loves/hates her), while Juliet 
+    reacts negatively to Romeo's interest. This gives
+    \[\frac{dR}{dt} = \alpha J, \quad \alpha > 0, \qquad 
+    \frac{dJ}{dt} = -\beta R, \quad \beta > 0,\]
+    or in matrix form,
+    \[\begin{pmatrix}R'\\J'\end{pmatrix} = 
+    \begin{pmatrix}0&\alpha\\-\beta&0\end{pmatrix}
+    \begin{pmatrix}R\\J\end{pmatrix}.\]
+    The characteristic polynomial is $p(\lambda) = \lambda^2 + 
+    \alpha\beta = 0$, giving $\lambda = \pm i\sqrt{\alpha\beta}$. 
+    Since $\alpha = 0$, the origin is a \emph{stable center}: 
+    their relationship oscillates forever without settling.
+
+    \textbf{Extended model.} Now suppose both Romeo and Juliet 
+    echo each other's feelings equally and are equally cautious. 
+    With $a < 0 < b$:
+    \[A = \begin{pmatrix}a&b\\b&a\end{pmatrix}, \qquad 
+    p(\lambda) = (a-\lambda)^2 - b^2 = 0 \implies 
+    \lambda = a \pm b.\]
+    The eigenpairs are
+    \[\lambda_1 = a - b < 0, \quad u_1 = \begin{pmatrix}1\\-1
+    \end{pmatrix}; \qquad \lambda_2 = a + b, \quad 
+    u_2 = \begin{pmatrix}1\\1\end{pmatrix}.\]
+    The general solution is
+    \[y(t) = c_1 e^{(a-b)t}\begin{pmatrix}1\\-1\end{pmatrix} + 
+    c_2 e^{(a+b)t}\begin{pmatrix}1\\1\end{pmatrix}.\]
+    If $\lambda_2 = a + b < 0$, i.e.\ $|a| > |b|$, both 
+    eigenvalues are negative and the origin is asymptotically 
+    stable: both feelings decay to zero. This corresponds to 
+    excessive caution ($|a|$ large) overpowering the willingness 
+    to open up ($|b|$ small). If $\lambda_2 > 0$, i.e.\ $|b| > |a|$,
+    the relationship grows without bound along the $u_2$ direction.
+\end{example}
+
+%------- 5.5 -------
 \subsection{Stability Theory for Linear Systems}
-Let \eqref{eq:ode-system-matrix}, $A \in M_n(\mathbb{R})$, $det A \neq 0$. $\implies \tilde{y} = 0 \in \mathbb{R}^n$ is the only equilibrium solution.
-\begin{theorem}
-    1) If $Re(\lambda) < 0$ for all $\lambda \in \sigma(A)$, then 0 is asymptotically stable.
-    2) If $\exists\lambda_0 \in \sigma(A)$ such that $Re(\lambda_0)>0$, then 0 is unstable.
+
+Let \eqref{eq:ode-system-matrix} hold with $A \in M_n(\mathbb{R})$ 
+and $\det(A) \neq 0$, so that $\tilde{y} = 0 \in \mathbb{R}^n$ is 
+the only equilibrium solution.
+
+\begin{theorem}[Stability via Eigenvalues]\leavevmode
+   \begin{enumerate}
+        \item If $\mathrm{Re}(\lambda) < 0$ for all 
+        $\lambda \in \sigma(A)$, then $0$ is asymptotically stable.
+        \item If there exists $\lambda_0 \in \sigma(A)$ with 
+        $\mathrm{Re}(\lambda_0) > 0$, then $0$ is unstable.
+    \end{enumerate}
 \end{theorem}
-Proof:
-1) In this case, $\exists C>0$, such that $||e^{At}|| \leq Ce^{-\gamma t}$.
-Note that $y(t) = e^{At}y_0$ is the unique solution to \eqref{eq:ode-system-matrix} $y(0) = y_0$
-\[||y(t) = ||e^{At}y_0|| \leq ||e^{At}||||y_0|| \leq Ce^{-\gamma t}||y_0||.\]
-Let $\epsilon >0$ and $\delta = \frac{\epsilon}{C}$. If $||y_0|| < \delta  = \epsilon/C \implies ||y(t)|| < \epsilon, \quad \forall t\geq 0$.
+
+\begin{proof}
+    \textbf{(1)} Under this hypothesis, there exist constants 
+    $C > 0$ and $\gamma > 0$ such that $\|e^{At}\| \leq 
+    Ce^{-\gamma t}$. The unique solution of \eqref{eq:ode-system-matrix} 
+    with $y(0) = y_0$ is $y(t) = e^{At}y_0$, so
+    \[\|y(t)\| = \|e^{At}y_0\| \leq \|e^{At}\|\cdot\|y_0\| \leq 
+    Ce^{-\gamma t}\|y_0\|.\]
+    \textbf{Stability:} given $\epsilon > 0$, choose 
+    $\delta = \epsilon/C$. Then $\|y_0\| < \delta$ implies 
+    $\|y(t)\| \leq Ce^{-\gamma t}\cdot\frac{\epsilon}{C} \leq 
+    \epsilon$ for all $t \geq 0$/\\
+    \textbf{Asymptotic stability:} for any $\alpha > 0$, if 
+    $\|y_0\| \leq \alpha$ then $\|y(t)\| \leq C\alpha e^{-\gamma t} 
+    \to 0$ as $t \to +\infty$.
+\end{proof}
 
 \section{Laplace Transform}
 
