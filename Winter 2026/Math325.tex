@@ -297,7 +297,7 @@ Since its honours you will deal with analysis. The Midterm is from 4:05 pm to 5:
 \subsubsection{Lipschitz continuity}
 \begin{definition}[Lipschitz Continuity]
     A function $f : D \to \mathbb{R}^n$ is Lipschitz continuous on $D \subseteq \mathbb{R}^n$ if there exists $L \geq 0$ such that
-    \[z||f(y_1) - f(y_2)|| \le L||y_1 - y_2|| \quad \forall y_1,y_2 \in D, z \in \mathbb{R}.\]
+    \[||f(y_1) - f(y_2)|| \le L||y_1 - y_2|| \quad \forall y_1,y_2 \in D.\]
     The smallest such $L$ is called the Lipschitz constant, denoted $\mathrm{Lip}(f)$.
 \end{definition}
 \begin{remark}[How to find a Lipschitz constant]
@@ -338,7 +338,7 @@ Since its honours you will deal with analysis. The Midterm is from 4:05 pm to 5:
 \begin{remark}
     Lipschitz $\Rightarrow$ locally Lipschitz, but not conversely.  
     Any $C^1$ function is locally Lipschitz (by the Mean Value 
-    Inequality from Section \eqref{MVI}).
+    Inequality from Section~\ref{MVI}).
 \end{remark}
 \begin{example}[Locally Lipschitz but not Lipschitz]
     \[f(y) = y^2 \in \mathbb{R}.\]
@@ -491,7 +491,7 @@ and integrating both sides yields
     has a unique solution on that entire interval.
 \end{theorem}
 \begin{remark}
-    Unlike the general E\&U theorem from Chapter~\eqref{EUT}, this result gives a global solution on the full interval where $P$ and $Q$ are continuous, not just locally.
+    Unlike the general E\&U theorem from Chapter~\ref{EUT}, this result gives a global solution on the full interval where $P$ and $Q$ are continuous, not just locally.
 \end{remark}
 \begin{example}
     For the IVP
@@ -1239,8 +1239,12 @@ a finite sum since $(A-\lambda I)^k u = 0$ for $k > j$.
 %------- 3.5 -------
 \subsection{Non-Homogeneous Systems}
 
-Consider $y'(t) = Ay(t) + r(t)$ with $r: I \to \mathbb{R}^n$ 
-continuous. If $y_1(t)$ and $y_2(t)$ are two solutions, then 
+Consider
+\begin{equation}
+    \label{eq:non-homogeneous-ode-system-matrix}
+    y'(t) = Ay(t) + r(t),
+\end{equation}
+with $r: I \to \mathbb{R}^n$ continuous. If $y_1(t)$ and $y_2(t)$ are two solutions, then 
 $y_2 - y_1$ solves the homogeneous system, so there exists 
 $C \in \mathbb{R}^n$ with $y_2(t) - y_1(t) = Y(t)C$.
 
@@ -1577,7 +1581,7 @@ the only equilibrium solution.
     \textbf{Stability:} given $\epsilon > 0$, choose 
     $\delta = \epsilon/C$. Then $\|y_0\| < \delta$ implies 
     $\|y(t)\| \leq Ce^{-\gamma t}\cdot\frac{\epsilon}{C} \leq 
-    \epsilon$ for all $t \geq 0$/\\
+    \epsilon$ for all $t \geq 0$.\\
     \textbf{Asymptotic stability:} for any $\alpha > 0$, if 
     $\|y_0\| \leq \alpha$ then $\|y(t)\| \leq C\alpha e^{-\gamma t} 
     \to 0$ as $t \to +\infty$.
