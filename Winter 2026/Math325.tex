@@ -1562,15 +1562,12 @@ Let \eqref{eq:ode-system-matrix} hold with $A \in M_n(\mathbb{R})$
 and $\det(A) \neq 0$, so that $\tilde{y} = 0 \in \mathbb{R}^n$ is 
 the only equilibrium solution.
 
-\begin{theorem}[Stability via Eigenvalues]\leavevmode
+\begin{theorem}[Stability via Eigenvalues]Let $A \in M_n(\mathbb{R})$ be invertible
    \begin{enumerate}
-        \item If $\mathrm{Re}(\lambda) < 0$ for all 
-        $\lambda \in \sigma(A)$, then $0$ is asymptotically stable.
-        \item If there exists $\lambda_0 \in \sigma(A)$ with 
-        $\mathrm{Re}(\lambda_0) > 0$, then $0$ is unstable.
+        \item If $\mathrm{Re}(\lambda) < 0$ for all $\lambda \in \sigma(A)$, then $0$ is an asymptotically stable equilibrium solution of \eqref{eq:ode-system-matrix}.
+        \item If there exists $\lambda_0 \in \sigma(A)$ with $\mathrm{Re}(\lambda_0) > 0$, then $0$ is unstable.
     \end{enumerate}
 \end{theorem}
-
 \begin{proof}
     \textbf{(1)} Under this hypothesis, there exist constants 
     $C > 0$ and $\gamma > 0$ such that $\|e^{At}\| \leq 
@@ -1586,6 +1583,18 @@ the only equilibrium solution.
     $\|y_0\| \leq \alpha$ then $\|y(t)\| \leq C\alpha e^{-\gamma t} 
     \to 0$ as $t \to +\infty$.
 \end{proof}
+
+\marginpar{March 19, 2026}
+Let $u\pm iv$ the eigenvector associated to $\lambda_0 = \alpha_0 + i\beta_0$, where $\alpha_0 > 0$. Then $y(t) = Ce^{\alpha_0 t}(\cos(\beta_0 t)u - \sin(\beta_0 t)v)$ is a solution. Let $\delta > 0$ be any small number and pick $C = \frac{\delta}{||u||}$, then $||y(0)|| = ||\frac{\delta}{||u||}u|| = \delta$. Let $\epsilon = 1$. $\exists T = T(\delta)$ such that $||y(T)|| \geq \epsilon = 1$ since $\alpha_0 > 0$.
+\subsection{Linear Control Theory}
+Study ODEs of the form $y'=Ay+By$, where $By$ is the controller.
+\subsection{Stability Theory for Nonlinear Systems}
+Consider a nonlinear system $y'=f(y)$, $f: D\to\mathbb{R}^n, D \subseteq \mathbb{R}^n$ open. An equilibrium solution (critical point) is a vector $\tilde{y} \in\mathbb{R}^n$ such that $f(\tilde{y}) = 0$. Consider $y$ close to $\tilde{y}$ in $\mathbb{R}^n$ and expand $f(y)$ around $\tilde{y}$: $f(y) = f(\tilde{y})(y-\tilde{y}) +$ higher order terms $(0||y-\tilde{y}||^2) \approx 0+Df(\tilde{y})(y-\tilde{y})$. Let $z = y-\tilde{y}$ (translate $\tilde{y}$ to 0). Then $z'=y'=f(y) \approx Df(\tilde{y})(y-\tilde{y}) = Df(\tilde{y})z$. The solutions of $y'=f(y)$ close to $y=\tilde{y}$ are the same solutions of $z'=Df(\tilde{y})z$ (Linearization of $f$ at $\tilde{y}$) close to 0.
+Theorem: Let $f: D \to \mathbb{R}^n$ be a $C^1$ function and let $\tilde{y} \in D$ be an equilibrium solution. (1) If $Re(\lambda) <0, \forall \lambda \in \sigma(Df(\tilde{y}))$, then $\tilde{y}$ is asymptotically stable. (2) If $Re(\lambda_0) > 0, \exists \lambda_0 \in \sigma(Df(\tilde{y}))$, then $\tilde{y}$ is unstable.
+Definition: We say that $\tilde{y}$ is a hyperbolic equilibrium solution if $Re(\lambda) \neq 0, \forall \lambda \in \sigma(Df(\tilde{y}))$.
+Theorem Hartman-Grobman: Near a hyperbolic equilibrium solution $\tilde{y}$, the solution of $y'=f(y)$ have the same qualitative structure as the solutions of the linearization $y'=Df(\tilde{y})y$ close to 0.
+Example: $y'=f(y)=\begin{pmatrix}-2y_1-y_1^3-y_1y_2^2\\-3y_2+y_1^2y_2+y_2^3\end{pmatrix}$. Since $f\begin{pmatrix}0\\0\end{pmatrix}=\begin{pmatrix}0\\0\end{pmatrix}\implies \tilde{y} = \begin{pmatrix}0\\0\end{pmatrix}$ is an equilibrium solution. $Df(y) = \begin{pmatrix}-2-3y_1^2-y_2^2&-2y_1y_2\\2y_1y_2&-3+y_1^2+3y_2^2\end{pmatrix}$. Lets evaluate $Df\begin{pmatrix}0\\0\end{pmatrix} = \begin{pmatrix}-2&0\\0&-3\end{pmatrix}$, therefore $\tilde{y} = \begin{pmatrix}0\\0\end{pmatrix}$ is hyperbolic. Note that since $Re(\lambda) <0$ for all $\lambda \in \sigma(Df(0,0))$, then $\begin{pmatrix}0\\0\end{pmatrix}$ is asymptotically stable.
+
 
 \section{Laplace Transform}
 

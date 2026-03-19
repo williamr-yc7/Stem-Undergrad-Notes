@@ -355,7 +355,7 @@ So $x = r\cos\theta$ and $y = r\sin\theta$, with $r = |z|$.
     \end{enumerate}
 \end{definition}
 \begin{remark}
-    We often say \emph{abstract} vector space to emphasize that elements of $V$ can be any objects (functions, tensors, matrices, etc.) satisfying these axioms — not just arrows or tuples in $\mathbb{R}^n$.
+    We often say \emph{abstract} vector space to emphasize that elements of $V$ can be any objects (functions, tensors, matrices, etc.) satisfying these axioms --- not just arrows or tuples in $\mathbb{R}^n$.
 \end{remark}
 
 % -----------------------------------------------------------
@@ -446,7 +446,7 @@ If $v_1$ and $v_2$ are linearly dependent ($v_1 = \lambda v_2$), then $\Span(v_1
     Every $x\in\mathbb{R}^n$ can be written uniquely as $x = x_1e_1+\cdots+x_ne_n$.\footnote{To verify the standard basis is indeed a basis, see Appendix \eqref{subsec:SB}.}
 \end{proposition}
 
-The standard basis also clarifies the difference between real and complex vector spaces — the same vectors generate very different spans depending on the scalar field.
+The standard basis also clarifies the difference between real and complex vector spaces --- the same vectors generate very different spans depending on the scalar field.
 \begin{example}[Real vs complex span]
     Using $e_1,e_2$ in $\mathbb{C}^2$: over $\mathbb{C}$, $\Span_{\mathbb{C}}(e_1,e_2) = \mathbb{C}^2$ with $\dim_{\mathbb{C}}\mathbb{C}^2 = 2$. Over $\mathbb{R}$, $e_1,e_2$ cannot produce vectors with imaginary parts. To span $\mathbb{C}^2$ over $\mathbb{R}$, we also need $ie_1, ie_2$, giving
     \[\dim_{\mathbb{R}}\mathbb{C}^2 = 4.\]
@@ -596,6 +596,9 @@ Let $W$ be a vector space and $U,V \subseteq W$ subspaces.
     We say $U$ and $V$ are in direct sum if $U\cap V = \{0\}$, and write $U\oplus V$ for their sum. We write
     \[W = U\oplus V \iff \begin{cases}W = U+V,\\ U\cap V = \{0\}.\end{cases}\]
 \end{definition}
+\begin{proof}
+    $W=U\oplus V$ iff every $w\in W$ decomposes \emph{uniquely} as $w=u+v$. Uniqueness follows since $u_1-u_2 = v_2-v_1 \in U\cap V = \{0\}$ forces $u_1=u_2$. Conversely, if decompositions are unique and $w\in U\cap V$, then $0 = w+(-w) = 0+0$ forces $w=0$.
+\end{proof}
 \begin{proof}
     $W=U\oplus V$ iff every $w\in W$ decomposes \emph{uniquely} as $w=u+v$. Uniqueness follows since $u_1-u_2 = v_2-v_1 \in U\cap V = \{0\}$ forces $u_1=u_2$. Conversely, if decompositions are unique and $w\in U\cap V$, then $0 = w+(-w) = 0+0$ forces $w=0$.
 \end{proof}
@@ -815,6 +818,9 @@ If $(e_1,\ldots,e_n)$ is a basis of $V$, every $v\in V$ writes uniquely as $v=\l
 \begin{proof}
     Set $U=\Span(v_1,\ldots,v_m)$. If $U=V$, done. Otherwise pick $v_{m+1}\in V\setminus U$; this gives a larger LI set. Repeat until the span equals $V$, which happens after at most $\dim V - m$ steps.
 \end{proof}
+\begin{proof}
+    Set $U=\Span(v_1,\ldots,v_m)$. If $U=V$, done. Otherwise pick $v_{m+1}\in V\setminus U$; this gives a larger LI set. Repeat until the span equals $V$, which happens after at most $\dim V - m$ steps.
+\end{proof}
 \begin{theorem}[Basis extraction]
     If $v_1,\ldots,v_n$ span $V$, one can extract a basis from this list.
 \end{theorem}
@@ -931,6 +937,9 @@ Suppose $V = U\oplus U'$. Every $v\in V$ writes uniquely as $v=u+u'$. Define $P(
 \begin{proof}
     Any $v=T(u)=T(\lambda_1e_1+\cdots+\lambda_ne_n) = \lambda_1T(e_1)+\cdots+\lambda_nT(e_n)\in\Span(T(e_i))$.
 \end{proof}
+\begin{proof}
+    Any $v=T(u)=T(\lambda_1e_1+\cdots+\lambda_ne_n) = \lambda_1T(e_1)+\cdots+\lambda_nT(e_n)\in\Span(T(e_i))$.
+\end{proof}
 
 \subsubsection{Examples of Kernel and Image}
 \begin{example}
@@ -1022,29 +1031,36 @@ To check: verify $T$ is linear, $\ker(T)=\{0\}$, and $\operatorname{Im}(T)=V$.
 \marginpar{February 27 -- March 13, 2026}
 
 \subsubsection{Change of Basis Matrix}
-Let $e=(e_1,\ldots,e_n)$ and $f=(f_1,\ldots,f_n)$ be two bases of $V$. Define:
+Let $e=(e_1,\ldots,e_n)$ and $f=(f_1,\ldots,f_n)$ be two bases of $V$, and let $M_e$ and $M_f$ denote the matrices whose columns are the basis vectors of $e$ and $f$ written in standard coordinates. The change of basis matrices are:
 \begin{itemize}
-    \item $Q$: change of basis matrix from $f$-coordinates to $e$-coordinates. Its columns are $[f_1]_e,\ldots,[f_n]_e$.
-    \item $P = Q^{-1}$: change from $e$-coordinates to $f$-coordinates.
+    \item $Q = M_e^{-1}M_f$: converts $f$-coordinates to $e$-coordinates.
+    \item $P = M_f^{-1}M_e = Q^{-1}$: converts $e$-coordinates to $f$-coordinates.
 \end{itemize}
-\begin{example}
-    $f_1=(1,0)^T$, $f_2=(1,1)^T$ gives $Q=\begin{pmatrix}1&1\\0&1\end{pmatrix}$. Then $P=Q^{-1}=\begin{pmatrix}1&-1\\0&1\end{pmatrix}$.
+\begin{remark}
+    When $e$ is the standard basis, $M_e = I$ so $M_e^{-1} = I$, and the formulas simplify to $Q = M_f$ (just put the $f$-vectors as columns) and $P = M_f^{-1}$. This is the special case you will see most often in examples where $e$ is standard.
+\end{remark}
+\begin{example}[Building $Q$ when neither basis is standard]
+    Let $e=\left(\begin{pmatrix}1\\1\end{pmatrix},\begin{pmatrix}1\\0\end{pmatrix}\right)$ and $f=\left(\begin{pmatrix}2\\1\end{pmatrix},\begin{pmatrix}1\\1\end{pmatrix}\right)$. Find $Q$.
+    \[M_e = \begin{pmatrix}1&1\\1&0\end{pmatrix}, \quad M_f = \begin{pmatrix}2&1\\1&1\end{pmatrix}, \quad M_e^{-1} = \begin{pmatrix}0&1\\1&-1\end{pmatrix}.\]
+    \[Q = M_e^{-1}M_f = \begin{pmatrix}0&1\\1&-1\end{pmatrix}\begin{pmatrix}2&1\\1&1\end{pmatrix} = \begin{pmatrix}1&1\\1&0\end{pmatrix}, \quad P = Q^{-1} = \begin{pmatrix}0&1\\1&-1\end{pmatrix}.\]
 \end{example}
-
 \subsubsection{Change of Basis Formula}
 \begin{theorem}[Change of basis]
     If $A=[T]_e$ and $B=[T]_f$, then
     \[B = PAQ, \quad P = Q^{-1}.\]
 \end{theorem}
+\begin{remark}[The $P^{-1}MP$ shortcut]
+    Since $P = Q^{-1}$, the formula $B = PAQ$ is exactly the same as $B = Q^{-1}AQ$, i.e., the $P^{-1}MP$ formula. In practice: build $Q$ (columns = new basis vectors, or $M_e^{-1}M_f$ in general), then compute $Q^{-1}AQ$.
+\end{remark}
 \begin{example}[Full change of basis computation]
     Let $e$ be the standard basis of $\mathbb{R}^2$, $f_1=\begin{pmatrix}1\\3\end{pmatrix}$, $f_2=\begin{pmatrix}2\\5\end{pmatrix}$, and $T:\begin{pmatrix}x\\y\end{pmatrix}\mapsto\begin{pmatrix}2x-7y\\4x-3y\end{pmatrix}$, so $A=[T]_e=\begin{pmatrix}2&-7\\4&-3\end{pmatrix}$. Find $[T]_f$.\\
-    \textbf{Step 1: Build $Q$.} The columns of $Q$ are the $f$-basis vectors in $e$-coordinates (which are just themselves since $e$ is the standard basis):
+    \textbf{Step 1: Build $Q$ ($f$-coords $\to$ $e$-coords).} Place the new basis vectors as columns --- since $e$ is standard, $Q = M_f$:
     \[Q=\begin{pmatrix}1&2\\3&5\end{pmatrix}.\]
-    \textbf{Step 2: Find $P=Q^{-1}$.} For a $2\times2$ matrix, $\begin{pmatrix}a&b\\c&d\end{pmatrix}^{-1}=\frac{1}{ad-bc}\begin{pmatrix}d&-b\\-c&a\end{pmatrix}$:
+    \textbf{Step 2: Find $P=Q^{-1}$ ($e$-coords $\to$ $f$-coords).}
     \[P=Q^{-1}=\frac{1}{5-6}\begin{pmatrix}5&-2\\-3&1\end{pmatrix}=\begin{pmatrix}-5&2\\3&-1\end{pmatrix}.\]
-    \textbf{Step 3: Compute $B=PAQ$.}
-    \[AQ=\begin{pmatrix}2&-7\\4&-3\end{pmatrix}\begin{pmatrix}1&2\\3&5\end{pmatrix}=\begin{pmatrix}2-21&4-35\\4-9&8-15\end{pmatrix}=\begin{pmatrix}-19&-31\\-5&-7\end{pmatrix}.\]
-    \[B=P(AQ)=\begin{pmatrix}-5&2\\3&-1\end{pmatrix}\begin{pmatrix}-19&-31\\-5&-7\end{pmatrix}=\begin{pmatrix}95-10&155-14\\-57+5&-93+7\end{pmatrix}=\begin{pmatrix}85&141\\-52&-86\end{pmatrix}.\]
+    \textbf{Step 3: Compute $B=Q^{-1}AQ=PAQ$.} Intuitively: $Q$ converts the input from $f$-coords to $e$-coords, $A$ applies $T$ in $e$-coords, then $P=Q^{-1}$ converts the output back to $f$-coords.
+    \[AQ=\begin{pmatrix}2&-7\\4&-3\end{pmatrix}\begin{pmatrix}1&2\\3&5\end{pmatrix}=\begin{pmatrix}-19&-31\\-5&-7\end{pmatrix},\]
+    \[B=P(AQ)=\begin{pmatrix}-5&2\\3&-1\end{pmatrix}\begin{pmatrix}-19&-31\\-5&-7\end{pmatrix}=\begin{pmatrix}85&141\\-52&-86\end{pmatrix}.\]
     So $[T]_f=\begin{pmatrix}85&141\\-52&-86\end{pmatrix}$.
 \end{example}
 
@@ -1070,7 +1086,7 @@ Let $e=(e_1,\ldots,e_n)$ and $f=(f_1,\ldots,f_n)$ be two bases of $V$. Define:
 
 \subsubsection{The Characteristic Polynomial}
 \begin{definition}[Characteristic polynomial]
-    \[\chi(\lambda) = \det(\lambda\, \mathrm{Id} - A).\]
+    \[\chi(\lambda) = \det(A - \lambda\,\mathrm{Id}).\]
 \end{definition}
 \begin{theorem}
     $\lambda$ is an eigenvalue of $A$ $\iff$ $\lambda$ is a root of $\chi$.
@@ -1086,24 +1102,96 @@ Let $e=(e_1,\ldots,e_n)$ and $f=(f_1,\ldots,f_n)$ be two bases of $V$. Define:
 
 \paragraph{How to diagonalize $A$.}
 \begin{enumerate}
-    \item Compute $\chi(\lambda)=\det(\lambda\,\mathrm{Id}-A)$ and find its roots (the eigenvalues).
-    \item For each eigenvalue $\lambda_i$, find $\ker(\lambda_i\,\mathrm{Id}-A)$ to get eigenvectors.
+    \item Compute $\chi(\lambda)=\det(A-\lambda\,\mathrm{Id})$ and find its roots (the eigenvalues).
+    \item For each eigenvalue $\lambda_i$, find $\ker(A-\lambda_i\,\mathrm{Id})$ to get eigenvectors.
     \item If there are $n$ linearly independent eigenvectors, write them as columns of $P$; then $P^{-1}AP$ is diagonal.
 \end{enumerate}
-\begin{example}[Full diagonalization of a $2\times2$ matrix]
-    Diagonalize $A=\begin{pmatrix}4&1\\2&3\end{pmatrix}$ over $\mathbb{R}$.\\
-    \textbf{Step 1: Characteristic polynomial.}
-    \[\chi(\lambda)=\det\begin{pmatrix}\lambda-4&-1\\-2&\lambda-3\end{pmatrix}=(\lambda-4)(\lambda-3)-(-1)(-2)=\lambda^2-7\lambda+10=(\lambda-5)(\lambda-2).\]
-    Eigenvalues: $\lambda_1=5$, $\lambda_2=2$.\\
-    \textbf{Step 2: Eigenvectors.}\\
-    For $\lambda_1=5$: solve $(5I-A)v=0$:
-    \[\begin{pmatrix}1&-1\\-2&2\end{pmatrix}\begin{pmatrix}x\\y\end{pmatrix}=0 \implies x=y, \quad v_1=\begin{pmatrix}1\\1\end{pmatrix}.\]
-    For $\lambda_2=2$: solve $(2I-A)v=0$:
-    \[\begin{pmatrix}-2&-1\\-2&-1\end{pmatrix}\begin{pmatrix}x\\y\end{pmatrix}=0 \implies 2x+y=0, \quad v_2=\begin{pmatrix}1\\-2\end{pmatrix}.\]
-    \textbf{Step 3: Form $P$ and verify.}
-    \[P=\begin{pmatrix}1&1\\1&-2\end{pmatrix}, \quad P^{-1}=\frac{1}{-3}\begin{pmatrix}-2&-1\\-1&1\end{pmatrix}=\begin{pmatrix}\frac{2}{3}&\frac{1}{3}\\\frac{1}{3}&-\frac{1}{3}\end{pmatrix}.\]
-    \[P^{-1}AP=\begin{pmatrix}5&0\\0&2\end{pmatrix}.\]
-    The diagonal entries are exactly the eigenvalues.
+\begin{example}[Diagonalization of a $4\times4$ matrix]
+    Diagonalize $A=\begin{pmatrix}5&-2&0&0\\0&3&0&0\\0&0&1&2\\0&0&2&4\end{pmatrix}$.\\
+    \textbf{Characteristic polynomial.} $A$ is block diagonal, so $\det(A-\lambda I)$ splits into two $2\times2$ determinants:
+    \[\chi(\lambda)=\det\begin{pmatrix}5-\lambda&-2\\0&3-\lambda\end{pmatrix}\cdot\det\begin{pmatrix}1-\lambda&2\\2&4-\lambda\end{pmatrix}=(5-\lambda)(3-\lambda)\cdot\bigl[(1-\lambda)(4-\lambda)-4\bigr].\]
+    The second factor simplifies: $(1-\lambda)(4-\lambda)-4 = \lambda^2-5\lambda = \lambda(\lambda-5)$. Therefore:
+    \[\chi(\lambda) = -\lambda(\lambda-3)(\lambda-5)^2.\]
+    Eigenvalues: $\lambda=0$ (AM$=1$), $\lambda=3$ (AM$=1$), $\lambda=5$ (AM$=2$).\\
+    \textbf{Eigenvectors.}\\
+    For $\lambda=5$ (AM$=2$): row reduce $A-5I=\begin{pmatrix}0&-2&0&0\\0&-2&0&0\\0&0&-4&2\\0&0&2&-1\end{pmatrix}$. This gives $v_2=0$ and $v_4=2v_3$, with $v_1,v_3$ free:
+    \[E_5 = \Span\!\begin{pmatrix}1\\0\\0\\0\end{pmatrix}\!,\begin{pmatrix}0\\0\\1\\2\end{pmatrix},\quad \text{GM}=2=\text{AM}.\checkmark\]
+    For $\lambda=3$: row reduce $A-3I$. Gives $v_1=v_2$, $v_3=v_4=0$: $E_3=\Span\begin{pmatrix}1\\1\\0\\0\end{pmatrix}$.\\
+    For $\lambda=0$: solve $Av=0$. Gives $v_1=v_2=0$, $v_3=-2v_4$: $E_0=\Span\begin{pmatrix}0\\0\\-2\\1\end{pmatrix}$.\\
+    Since GM$=$AM for all eigenvalues, $A$ is diagonalizable:
+    \[P=\begin{pmatrix}1&0&1&0\\0&0&1&0\\0&1&0&-2\\0&2&0&1\end{pmatrix},\quad P^{-1}AP=\begin{pmatrix}5&0&0&0\\0&5&0&0\\0&0&3&0\\0&0&0&0\end{pmatrix}.\]
+\end{example}
+
+\subsubsection{Algebraic and Geometric Multiplicity}
+\marginpar{March 18, 2026}
+\begin{definition}[Algebraic and geometric multiplicity]
+    For an eigenvalue $\lambda$ of $A$:
+    \begin{itemize}
+        \item The \textbf{algebraic multiplicity} (AM) of $\lambda$ is its exponent as a root of $\chi(\lambda)$.
+        \item The \textbf{geometric multiplicity} (GM) of $\lambda$ is $\dim E_\lambda = \dim\ker(A-\lambda\,\mathrm{Id})$.
+    \end{itemize}
+\end{definition}
+\begin{theorem}[AM-GM inequality]
+    For every eigenvalue $\lambda$:
+    \[1 \le \mathrm{GM}(\lambda) \le \mathrm{AM}(\lambda).\]
+    $A$ is diagonalizable $\iff$ $\mathrm{GM}(\lambda) = \mathrm{AM}(\lambda)$ for every eigenvalue $\lambda$, i.e.,
+    \[V = E_{\lambda_1} \oplus E_{\lambda_2} \oplus \cdots \oplus E_{\lambda_k}.\]
+\end{theorem}
+\begin{remark}
+    In particular, if $A$ has $n$ distinct eigenvalues (all AM $= 1$), then $A$ is automatically diagonalizable.
+\end{remark}
+\begin{example}[$3\times3$ diagonalization]
+    Let $A=\begin{pmatrix}1&0&2\\3&4&3\\2&0&1\end{pmatrix}$. Is $A$ diagonalizable? If so, find $Q$ such that $A=QDQ^{-1}$.
+
+    \textbf{Step 1: Characteristic polynomial.} Expanding along the second column:
+    \[\chi(\lambda) = \det\begin{pmatrix}1-\lambda&0&2\\3&4-\lambda&3\\2&0&1-\lambda\end{pmatrix} = (4-\lambda)\det\begin{pmatrix}1-\lambda&2\\2&1-\lambda\end{pmatrix}.\]
+    \[= (4-\lambda)\bigl((1-\lambda)^2-4\bigr) = (\lambda-4)(\lambda-3)(\lambda+1).\]
+    Three distinct eigenvalues $\lambda_1=4$, $\lambda_2=3$, $\lambda_3=-1 \implies A$ is diagonalizable.
+
+    \textbf{Step 2: Why does $Q$ diagonalize $A$?} Let $f=(f_1,f_2,f_3)$ be the eigenbasis. In this basis, $T$ acts by scaling each $f_i$ by its eigenvalue:
+    \[T(f_1)=4f_1 \leftrightarrow \begin{pmatrix}4\\0\\0\end{pmatrix},\quad T(f_2)=3f_2 \leftrightarrow \begin{pmatrix}0\\3\\0\end{pmatrix},\quad T(f_3)=-f_3 \leftrightarrow \begin{pmatrix}0\\0\\-1\end{pmatrix},\]
+    so $[T]_f = D = \begin{pmatrix}4&0&0\\0&3&0\\0&0&-1\end{pmatrix}$. The matrix $Q$ is the change of basis from $f$ to the standard basis, i.e., $Q=(f_1,f_2,f_3)$ with eigenvectors as columns.
+
+    \textbf{Step 3: Find eigenvectors.}\\
+    For $\lambda_1=4$: $E_4 = \ker(A-4I) = \ker\!\left(\begin{pmatrix}1&0&2\\3&4&3\\2&0&1\end{pmatrix}-\begin{pmatrix}4&0&0\\0&4&0\\0&0&4\end{pmatrix}\right) = \ker\begin{pmatrix}-3&0&2\\3&0&3\\2&0&-3\end{pmatrix}$,
+    giving $f_1=\begin{pmatrix}0\\1\\0\end{pmatrix}$.\\
+    For $\lambda_2=3$: $\ker(A-3I)$ gives $f_2=\begin{pmatrix}1\\-6\\1\end{pmatrix}$.\\
+    For $\lambda_3=-1$: $\ker(A+I)$ gives $f_3=\begin{pmatrix}-1\\0\\1\end{pmatrix}$.
+
+    \textbf{Step 4: Assemble $Q$.}
+    \[Q = \begin{pmatrix}0&1&-1\\1&-6&0\\0&1&1\end{pmatrix}, \quad D = \begin{pmatrix}4&0&0\\0&3&0\\0&0&-1\end{pmatrix}, \quad A = QDQ^{-1}.\]
+\end{example}
+
+% -----------------------------------------------------------
+\subsection{Inner Product Spaces}
+% -----------------------------------------------------------
+\marginpar{March 18, 2026}
+
+An inner product space is a vector space $V$ equipped with an inner product — a way to measure length, angle, and perpendicularity. The motivating example is $V=\mathbb{R}^n$ (Euclidean space), where $\|v\| = \sqrt{x_1^2+\cdots+x_n^2} = \sqrt{\langle v,v\rangle}$. Positive definiteness ensures $\|v\|=0 \implies v=0$: indeed $\sqrt{x_1^2+\cdots+x_n^2}=0 \implies x_1^2=\cdots=x_n^2=0 \implies x_1=\cdots=x_n=0$.
+
+\begin{definition}[Inner product]
+    Let $V$ be a real vector space. An inner product on $V$ is a map $\langle\cdot,\cdot\rangle : V\times V \to \mathbb{R}$ satisfying:
+    \begin{enumerate}
+        \item \textbf{Linearity on the left}: $\langle v_1+v_2,w\rangle = \langle v_1,w\rangle + \langle v_2,w\rangle$ and $\langle\lambda v,w\rangle = \lambda\langle v,w\rangle$.
+        \item \textbf{Symmetry}: $\langle u,v\rangle = \langle v,u\rangle$.
+        \item \textbf{Positive definiteness}: $\langle v,v\rangle \ge 0$, and $\langle v,v\rangle = 0 \iff v=0$.
+    \end{enumerate}
+    A vector space with an inner product is called an \textbf{inner product space}.
+\end{definition}
+\begin{remark}
+    By symmetry, linearity on the left implies linearity on the right: $\langle u,v_1+v_2\rangle = \langle u,v_1\rangle+\langle u,v_2\rangle$.
+\end{remark}
+\begin{remark}[Analogy with real multiplication]
+    The inner product generalizes ordinary multiplication on $\mathbb{R}$: the map $(x,y)\mapsto xy$ satisfies $(x_1+x_2)y = x_1y+x_2y$, $(\lambda x)y = \lambda(xy)$, and $xy=yx$, which are exactly the three inner product axioms.
+\end{remark}
+\begin{proof}[Proof that inner products are linear on the right]
+    \[\langle u,v_1+v_2\rangle = \langle v_1+v_2,u\rangle = \langle v_1,u\rangle+\langle v_2,u\rangle = \langle u,v_1\rangle+\langle u,v_2\rangle.\qed\]
+\end{proof}
+\begin{definition}[Norm]
+    The norm induced by an inner product is $\|v\| = \sqrt{\langle v,v\rangle}$.
+\end{definition}
+\begin{example}[Standard inner product on $\mathbb{R}^n$]
+    For $v=(x_1,\ldots,x_n)^T$ and $w=(y_1,\ldots,y_n)^T$, the dot product $\langle v,w\rangle = x_1y_1+\cdots+x_ny_n$ is an inner product. The induced norm is $\|v\| = \sqrt{x_1^2+\cdots+x_n^2}$, and positive definiteness holds since $\|v\|=0 \implies x_i=0$ for all $i$.
 \end{example}
 
 % ============================================================
