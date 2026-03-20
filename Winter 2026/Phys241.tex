@@ -28,25 +28,31 @@
     colorlinks=true,
 }
 \begin{document}
-%------- Title page   -----------
+
+% ============================================================
+%  Title page
+% ============================================================
 \title{PHYS 241: Signal Processing}
 \author{William Homier}
-\affil[1]{McGill University Physics, 3600 Rue University, Montréal, QC H3A 2T8, Canada}
+\affil[1]{McGill University Physics, 3600 Rue University, Montr\'{e}al, QC H3A 2T8, Canada}
 \date{January \(6^{th}\), 2026}
 \setcounter{Maxaffil}{0}
 \renewcommand\Affilfont{\itshape\small}
 \maketitle
 
-%------- Abstract -----------
+% ============================================================
+%  Abstract
+% ============================================================
 \noindent\rule{\textwidth}{0.4pt}
 \thispagestyle{empty}
 \begin{abstract}
-
 \end{abstract}
 \noindent\rule{\textwidth}{0.4pt}
 \clearpage
 
-%------- Table of Contents -----------
+% ============================================================
+%  Table of Contents
+% ============================================================
 \thispagestyle{empty}
 {
   \hypersetup{linkcolor=black}
@@ -54,30 +60,39 @@
 }
 \clearpage
 
-%------- introduction -----------
+% ============================================================
 \setcounter{page}{1}
+
+% ============================================================
+%  1. INTRODUCTION
+% ============================================================
 \section{Introduction}
 
-
+% ============================================================
+%  2. FOUNDATIONS
+% ============================================================
 \marginpar{January 13, 2026}
 \section{Foundations}
+
+% ------- 2.1 Waves -------
 \subsection{Waves}
-\subsubsection{Properties of waves}
-To describe waves, considering a sinusoidal wave of the form \(A_psin(2\pi vt)\), we use the following terms
+
+\subsubsection{Properties of Waves}
+To describe waves, considering a sinusoidal wave of the form \(A_p\sin(2\pi\nu t)\), we use the following terms:
 \begin{itemize}
-    \item Peak amplitude (\(A_p\)): maximum value of the wave from its equilibrium position .
-    \item Peak-to-peak amplitude: total height of the wave from its maximum to its minimum value (i.e., \(2A_p\)).
-    \item Frequency (\(v\)): number of cycles per second (Hz).
-    \item Time (\(t\)): time variable.
+    \item \textbf{Peak amplitude} (\(A_p\)): maximum value of the wave from its equilibrium position.
+    \item \textbf{Peak-to-peak amplitude}: total height of the wave from its maximum to its minimum value (i.e., \(2A_p\)).
+    \item \textbf{Frequency} (\(\nu\)): number of cycles per second (Hz).
+    \item \textbf{Time} (\(t\)): time variable.
 \end{itemize}
-To be able to describe AC signals effectively, we take the root mean square (RMS) amplitude \(\frac{A_p}{\sqrt{2}}\) of values such as current and voltage. This is because the mean value of an AC signal is zero, and the RMS is a more meaningful measure of the signal's amplitude as it gives a positive value that is proportional to the energy in the signal.
-\[I_{RMS} = \frac{I_p}{\sqrt{2}}\]
-\[V_{RMS} = \frac{V_p}{\sqrt{2}}\]
+To describe AC signals effectively, we take the root mean square (RMS) amplitude \(\frac{A_p}{\sqrt{2}}\) of values such as current and voltage. This is because the mean value of an AC signal is zero, and the RMS is a more meaningful measure of the signal's amplitude as it gives a positive value that is proportional to the energy in the signal.
+\[I_{\text{RMS}} = \frac{I_p}{\sqrt{2}}, \qquad V_{\text{RMS}} = \frac{V_p}{\sqrt{2}}.\]
 
 \subsubsection{Waveforms}
 \begin{definition}[Waveform]
     A waveform is a graphical representation of how a signal varies over time, and can take various forms such as a sine wave, square wave, triangle wave, or sawtooth wave.
-\end{definition} 
+\end{definition}
+
 \paragraph{1. Direct current (DC).}
 A direct current is constant in time, so its graph is a horizontal line.
 \begin{center}
@@ -87,6 +102,7 @@ A direct current is constant in time, so its graph is a horizontal line.
         \draw (0,1.5) -- (3,1.5);
     \end{tikzpicture}
 \end{center}
+
 \paragraph{2. Alternating current (AC).}
 An alternating current varies periodically in time and typically oscillates about zero in a sinusoidal pattern.
 \begin{center}
@@ -96,15 +112,17 @@ An alternating current varies periodically in time and typically oscillates abou
         \draw[domain=0:6, samples=400] plot (\x,{sin(8*\x r)+2.5});
     \end{tikzpicture}
 \end{center}
+
 \paragraph{3. Pulsating current (DC + AC).}
 A pulsating current is an alternating current superimposed on a non-zero DC level. This is just a matter of adding a constant DC level to an AC signal so that the signal is either shifted up or down with respect to the zero current level.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{../Images/Pulsating-direct-current-diagram.svg}
-    \caption{Pulsating direct current diagram}
+    \caption{Pulsating direct current diagram.}
     \label{fig:pulsating-direct-current-diagram}
 \end{figure}
 
+% ------- 2.2 Linear Systems -------
 \subsection{Linear Systems}
 
 \begin{definition}[Linear System]
@@ -114,41 +132,53 @@ A pulsating current is an alternating current superimposed on a non-zero DC leve
     \[H[\alpha x(t)] = \alpha H[x(t)],\]
     for all inputs $x_1(t), x_2(t)$ and constant $\alpha$.
 \end{definition}
+
 \begin{example}
     Consider two inputs $x_1(t)$ and $x_2(t)$ to a linear system producing outputs $y_1(t) = H[x_1(t)]$ and $y_2(t) = H[x_2(t)]$, where $H$ is some transformation function.
 
     A linear transformation must satisfy:
-    \[y_{total} = \alpha y_1(t) + \beta y_1(t) = H[\alpha x_1(t) + \beta x_2(t)],\]
+    \[y_{\text{total}} = \alpha y_1(t) + \beta y_2(t) = H[\alpha x_1(t) + \beta x_2(t)],\]
     where \(\alpha\) and \(\beta\) are constants.
 \end{example}
-\section{Electricity and Magnetism}
+
+% ============================================================
+%  3. ELECTROMAGNETIC THEORY
+% ============================================================
+\section{Electromagnetic Theory}
+
+% ------- 3.1 Electric Charge -------
 \subsection{Electric Charge}
 \begin{definition}
-    Charge is a fundamental physical property that comes in two types: positive (+) and negative (-) (which cancel). Opposite charges attract and equal amounts of positive and negative charge cancel, so most matter is electrically neutral. Electric charge is conserved, meaning it cannot be created or destroyed, only transferred. It is also quantized, existing in discrete multiples of the elementary charge 
-    \[e = 1.6 \times 10^{-19} \,[\text{C}\,],\]
+    Charge is a fundamental physical property that comes in two types: positive (+) and negative (--) (which cancel). Opposite charges attract and equal amounts of positive and negative charge cancel, so most matter is electrically neutral. Electric charge is conserved, meaning it cannot be created or destroyed, only transferred. It is also quantized, existing in discrete multiples of the elementary charge
+    \[e = 1.6 \times 10^{-19}\,\text{C},\]
     where the coulomb (C) is the SI unit of charge.
 \end{definition}
+
+% ------- 3.2 Electric Field -------
 \subsection{Electric Field}
 \begin{definition}[Electric Field]
-    The electric field $\vec E$ is a vector field produced by electric charges. It describes the force that a charge would experience at any point in space. Quantitatively, the electric field at a point is defined as the force $\vec F$ acting on a small positive test charge $q$ placed at that point, divided by the magnitude of the charge:
-    \[\vec E = \frac{\vec F}{q}.\]
+    The electric field $\vec{E}$ is a vector field produced by electric charges. It describes the force that a charge would experience at any point in space. Quantitatively, the electric field at a point is defined as the force $\vec{F}$ acting on a small positive test charge $q$ placed at that point, divided by the magnitude of the charge:
+    \[\vec{E} = \frac{\vec{F}}{q}.\]
 \end{definition}
-The direction of $\vec E$ is the direction of the force on a positive test charge. Its SI units are newtons per coulomb (N/C), which are equivalent to volts per meter (V/m).
+The direction of $\vec{E}$ is the direction of the force on a positive test charge. Its SI units are newtons per coulomb (N/C), which are equivalent to volts per meter (V/m).
 
+% ------- 3.3 Electric Potential -------
 \subsection{Electric Potential}
 \begin{definition}[Electric Potential]
-    The electric potential $V(\vec r)$ at a point is the electric potential energy per unit charge:
-    \[V = \frac{U}{q}\]
-    It is a scalar quantity with units of volts (V) that represents the work done per unit charge to move a positive test charge from a reference point (often taken at infinity) to the point $\vec r$, without changing its kinetic energy. It is defined relative to a reference point $\vec r_0$ by
-    \[V(\vec r) - V(\vec r_0) = -\int_{\vec r_0}^{\vec r} \vec E \cdot d\vec l\]
-    where $\vec E$ is the electric field. The electric field is related to the potential by
-    \[\vec E = -\nabla V.\]
+    The electric potential $V(\vec{r})$ at a point is the electric potential energy per unit charge:
+    \[V = \frac{U}{q}.\]
+    It is a scalar quantity with units of volts (V) that represents the work done per unit charge to move a positive test charge from a reference point (often taken at infinity) to the point $\vec{r}$, without changing its kinetic energy. It is defined relative to a reference point $\vec{r}_0$ by
+    \[V(\vec{r}) - V(\vec{r}_0) = -\int_{\vec{r}_0}^{\vec{r}} \vec{E} \cdot d\vec{l},\]
+    where $\vec{E}$ is the electric field. The electric field is related to the potential by
+    \[\vec{E} = -\nabla V.\]
 \end{definition}
+
 \begin{example}[Uniform Electric Field]
-    If $\vec E$ is uniform, the potential difference between two points separated by $\vec d$ is
-    \[\Delta V = -\vec E \cdot \vec d.\]
+    If $\vec{E}$ is uniform, the potential difference between two points separated by $\vec{d}$ is
+    \[\Delta V = -\vec{E} \cdot \vec{d}.\]
 \end{example}
 
+% ------- 3.4 Electric Potential Energy -------
 \subsection{Electric Potential Energy}
 \begin{definition}[Electric Potential Energy]
     Electric potential energy $U$ is the energy a charge possesses due to its position in an electric field. For a charge $q$ at a point where the electric potential is $V$, the potential energy is
@@ -156,41 +186,40 @@ The direction of $\vec E$ is the direction of the force on a positive test charg
     and is measured in joules (J). Since electric potential is defined relative to a reference point, the potential energy is also defined relative to that same reference.
 \end{definition}
 An electron placed between two charged plates experiences a potential difference $\Delta V$. The change in its electric potential energy is
-\[\Delta U = q \Delta V.\]
+\[\Delta U = q\,\Delta V.\]
 If the electron is allowed to move freely, this change in electric potential energy is converted into kinetic energy:
 \[\Delta K = -\Delta U.\]
 
-\subsection{Magnetic Field}
+% ------- 3.5 Magnetic Field -------
 \subsection{Magnetic Field}
 \begin{definition}[Magnetic Field]
-    A magnetic field $\vec B$ is a vector field produced by moving electric charges (currents) and intrinsic magnetic moments of particles. It exerts a force on moving charges given by the Lorentz force law:
-    \[\vec F = q(\vec v \times \vec B),\]
-    where $q$ is the charge and $\vec v$ is its velocity. The force is perpendicular to both the velocity and the magnetic field. Unlike electric fields, which act on charges whether stationary or moving, magnetic fields act only on moving charges. For a long straight current-carrying wire, the magnitude of the magnetic field at a distance $r$ is
+    A magnetic field $\vec{B}$ is a vector field produced by moving electric charges (currents) and intrinsic magnetic moments of particles. It exerts a force on moving charges given by the Lorentz force law:
+    \[\vec{F} = q(\vec{v} \times \vec{B}),\]
+    where $q$ is the charge and $\vec{v}$ is its velocity. The force is perpendicular to both the velocity and the magnetic field. Unlike electric fields, which act on charges whether stationary or moving, magnetic fields act only on moving charges. For a long straight current-carrying wire, the magnitude of the magnetic field at a distance $r$ is
     \[B = \frac{\mu_0 I}{2\pi r},\]
-    where $\mu_0$ is the permeability of free space\footnote{The permeability of free space is $\mu_0 = 4\pi \times 10^{-7}\,\text{T·m/A}$.} and $I$ is the current. The SI unit of magnetic field is the tesla (T).
+    where $\mu_0$ is the permeability of free space\footnote{The permeability of free space is $\mu_0 = 4\pi \times 10^{-7}\,\mathrm{T} \cdot \mathrm{m/A}$.} and $I$ is the current. The SI unit of magnetic field is the tesla (T).
 \end{definition}
 
+% ------- 3.6 Magnetic Flux -------
 \subsection{Magnetic Flux}
 \begin{definition}[Magnetic Flux]
-    Magnetic flux $\Phi_B$ through a surface is defined as the surface integral of the magnetic field $\vec B$ over that surface:
-    \[\Phi_B = \int \vec B \cdot d\vec A,\]
-    where $d\vec A$ is an infinitesimal area element of the surface, and the dot product accounts for the angle between the magnetic field and the normal to the surface. The SI unit of magnetic flux is the weber (Wb).
+    Magnetic flux $\Phi_B$ through a surface is defined as the surface integral of the magnetic field $\vec{B}$ over that surface:
+    \[\Phi_B = \int \vec{B} \cdot d\vec{A},\]
+    where $d\vec{A}$ is an infinitesimal area element of the surface, and the dot product accounts for the angle between the magnetic field and the normal to the surface. The SI unit of magnetic flux is the weber (Wb).
 \end{definition}
 
-\subsection{Mutual Inductance}
+% ------- 3.7 Electromagnetic Induction -------
 \marginpar{January 22, 2026}
-\begin{definition}[Mutual Inductance]
-    Mutual inductance is the property of two nearby circuits whereby a time-varying current in one coil induces an electromotive force (EMF) in another through magnetic flux linkage.
-\end{definition}
-If a current $I_1(t)$ flows in the primary coil, it produces a magnetic flux $\Phi_{21}$ through the secondary coil. According to Faraday's law,
-\[\mathcal{E}_2 = -\frac{d\Phi_{21}}{dt}.\]
-The mutual inductance $M$ is defined by
-\[\Phi_{21} = M I_1,\]
-which gives
-\[\mathcal{E}_2 = -M \frac{dI_1}{dt}.\]
-The value of $M$ depends on the number of turns in each coil, their geometry, their separation, and the magnetic permeability of the material between them.
-\subsubsection{Lenz's Law}
+\subsection{Electromagnetic Induction}
 
+\subsubsection{Faraday's Law}
+\begin{theorem}[Faraday's Law]
+    Faraday's Law states that a changing magnetic flux through a closed loop induces an electromotive force (EMF) in the loop:
+    \[\mathcal{E}_{\text{EMF}} = -\frac{d\Phi_B}{dt},\]
+    where $\mathcal{E}_{\text{EMF}}$ is the induced EMF and $\Phi_B$ is the magnetic flux through a wire loop. The negative sign indicates that the induced EMF creates a current whose magnetic field opposes the change in flux, as described by Lenz's Law.
+\end{theorem}
+
+\subsubsection{Lenz's Law}
 \begin{law}[Lenz's Law]
     The induced current in a circuit flows in a direction such that the magnetic field it produces opposes the change in magnetic flux that generated it.
 \end{law}
@@ -204,110 +233,152 @@ When the magnetic flux is increasing, the induced current is directed opposite t
     \caption{Direction of the induced current according to Lenz's Law.}
 \end{figure}
 
-\section{Electrical Principles}
-\subsection{Current flow}
+\subsubsection{Mutual Inductance}
+\begin{definition}[Mutual Inductance]
+    Mutual inductance is the property of two nearby circuits whereby a time-varying current in one coil induces an electromotive force (EMF) in another through magnetic flux linkage.
+\end{definition}
+If a current $I_1(t)$ flows in the primary coil, it produces a magnetic flux $\Phi_{21}$ through the secondary coil. According to Faraday's law,
+\[\mathcal{E}_2 = -\frac{d\Phi_{21}}{dt}.\]
+The mutual inductance $M$ is defined by
+\[\Phi_{21} = M I_1,\]
+which gives
+\[\mathcal{E}_2 = -M \frac{dI_1}{dt}.\]
+The value of $M$ depends on the number of turns in each coil, their geometry, their separation, and the magnetic permeability of the material between them.
+
+% ============================================================
+%  4. CIRCUIT FUNDAMENTALS
+% ============================================================
+\section{Circuit Fundamentals}
+
+% ------- 4.1 Current and Voltage -------
+\subsection{Current and Voltage}
+
 \begin{definition}[Electric Current]
-    Electric current is the flow of electrons through a wire driven by an electric field potential energy difference. Defined as the rate of charge past a point in a circuit
+    Electric current is the flow of electrons through a wire driven by an electric field potential energy difference. Defined as the rate of charge past a point in a circuit:
     \begin{equation}
         \label{eq:current}
         I = \frac{dQ}{dt},
     \end{equation}
-    and is measured in amperes (A), where
-    \[1\,\text{A} = 1\,\text{C/s}.\]
+    and is measured in amperes (A), where $1\,\text{A} = 1\,\text{C/s}$.
 \end{definition}
+
 \begin{definition}[Voltage]
-    The Voltage (or electric potential difference) is the difference in potential energy between two points in an electric field.
+    The voltage (or electric potential difference) is the difference in potential energy between two points in an electric field.
 \end{definition}
+
 \begin{definition}[Electron-volt]
     An electron-volt (eV) is a unit of energy equal to the energy gained or lost by an electron when it moves through an electric potential difference of one volt. Since energy is given by $U = qV$, for a charge equal to the elementary charge $e$, we have
-    \[1\,\text{eV} = e \cdot 1\,\text{V}.\]
-    Numerically,
-    \[1\,\text{eV} = 1.602 \times 10^{-19}\,\text{J}.\]
+    \[1\,\text{eV} = e \cdot 1\,\text{V} = 1.602 \times 10^{-19}\,\text{J}.\]
 \end{definition}
+
 When analyzing circuits, current is defined using the convention of positive charge flow. By convention, current flows from higher potential to lower potential, even though in metallic conductors the actual charge carriers are electrons moving in the opposite direction.
 
 When the circuit is closed, electrons flow externally from the anode to the cathode, while conventional current flows from the cathode to the anode. As the charges move through the circuit, the battery's chemical energy is converted into electrical energy and then into other forms such as heat or light.
 
-\subsection{Electromotive Force}
+% ------- 4.2 Electromotive Force -------
 \marginpar{January 15, 2026}
+\subsection{Electromotive Force}
+
 \begin{definition}[Electromotive Force (EMF)]
     Electromotive Force (EMF)\footnote{EMF is the total energy supplied per unit charge by a source. The terminal voltage across a real source is typically less than the EMF due to internal resistance.} is the energy supplied per unit charge by an energy source such as a battery or generator. It represents the work done by the source to move a charge around a complete circuit. EMF is measured in volts (V).
 \end{definition}
-To better understand the concept of EMF, consider the following analogy: EMF is like a voltage credit that is then all spent by dropping it over the elements of the circuit. Think of your checking account with two columns: credit (money in) and debit (money spent). EMF is like the "credit" that is then all "spent" by dropping it over the elements of the circuit.
 
-\subsubsection{Faraday's Law}
-\begin{theorem}[Faraday's Law]
-    Faraday's Law states that a changing magnetic flux through a closed loop induces an electromotive force (EMF) in the loop. Mathematically, it is expressed as:
-    \[\mathcal{E}_{EMF} = -\frac{d\Phi_B}{dt}\]
-    where \(\mathcal{E}_{EMF}\) is the induced EMF, and \(\Phi_B\) is the magnetic flux through a wire loop. The negative sign indicates that the induced EMF creates a current whose magnetic field opposes the change in flux, as described by Lenz's Law.
-\end{theorem}
+To better understand the concept of EMF, consider the following analogy: EMF is like a voltage credit that is then all spent by dropping it over the elements of the circuit. Think of your checking account with two columns: credit (money in) and debit (money spent). EMF is the ``credit'' that is then all ``spent'' by dropping it over the elements of the circuit.
+
+% ------- 4.3 Ohm's Law -------
 \subsection{Ohm's Law}
-\begin{definition}[Ohm's Law]
-    Ohm's Law states that the current \(I\) flowing through a conductor is directly proportional to the voltage \(V\) across it and inversely proportional to its resistance \(R\). Mathematically, it is expressed as:
-    \[I = \frac{V}{R}\]
-\end{definition}
-Microscopically, Ohm's Law can be understood in terms of the motion of electrons in a conductor. When a voltage is applied across a conductor, it creates an electric field that exerts a force on the free electrons, causing them to move and create an electric current. The resistance of the conductor arises from collisions between the electrons and the atoms in the material, which impede their motion. The greater the resistance, the more collisions occur, resulting in a lower current for a given voltage.
-The current density \(J\) is given by Ohm's Law, which states that the current density is proportional to the electric field strength \(E\):
-\[J = \sigma E\]
-Conversely, the electric field strength is given by the current density and the resistivity of the material:
-\[E = J\rho_r\]
-The current \(I\) is given by the current density and the cross-sectional area of the material:
-\[I = AJ = A\sigma E\]
-The electric field strength can also be expressed in terms of the potential difference \(\Delta V\) across the material and its length \(l\):
-\[E = \Delta V/l\]
-Substituting this into the expression for the current, we obtain:
-\[I = \frac{A\sigma \Delta V}{l} = \frac{A\Delta V}{\rho_r l}\]
-The potential difference across the material is also given by the resistance \(R\) and the current \(I\) as stated in Ohm's Law:
-\[\Delta V = IR\]
-Finally, the resistance can be expressed in terms of the resistivity of the material, the length of the material, and its cross-sectional area:
-\[R = \frac{\rho_r l}{A}\]
 
-Ohm's Law can be represented graphically using the Ohm's Law Wheel, which illustrates the relationships between current, voltage, resistance, and conductance. The wheel is a useful tool for quickly finding the value of one electrical property given the values of the other three.
-\begin{figure}[h]
-    \label{Ohmslawformula}
+\begin{definition}[Ohm's Law]
+    Ohm's Law states that the current \(I\) flowing through a conductor is directly proportional to the voltage \(V\) across it and inversely proportional to its resistance \(R\):
+    \[I = \frac{V}{R}.\]
+\end{definition}
+
+Microscopically, Ohm's Law can be understood in terms of the motion of electrons in a conductor. When a voltage is applied across a conductor, it creates an electric field that exerts a force on the free electrons, causing them to move and create an electric current. The resistance of the conductor arises from collisions between the electrons and the atoms in the material, which impede their motion.
+
+The current density $J$ is related to the electric field strength $E$ by
+\[J = \sigma E, \qquad E = J\rho_r,\]
+where $\sigma$ is the conductivity and $\rho_r$ is the resistivity. The current is
+\[I = AJ = A\sigma E.\]
+Using $E = \Delta V/l$,
+\[I = \frac{A\sigma\,\Delta V}{l} = \frac{A\,\Delta V}{\rho_r l}.\]
+From Ohm's Law, $\Delta V = IR$, which gives the resistance in terms of material properties:
+\[R = \frac{\rho_r l}{A}.\]
+
+Ohm's Law can be represented graphically using the Ohm's Law Wheel, which illustrates the relationships between current, voltage, resistance, and conductance.
+\begin{figure}[H]
     \begin{center}
         \includegraphics[width=0.5\textwidth]{../Images/Ohms-Law-Formula-Wheel.png}
-        \caption{Ohm's Law Wheel and Current Density}
+        \caption{Ohm's Law Wheel and Current Density.}
+        \label{Ohmslawformula}
     \end{center}
 \end{figure}
 
-\subsection{Direct Current}
-\begin{definition}[Direct Current (DC)]
-    Direct Current (DC) is a form of current where voltage and current are constant over time, could be found in batteries.
+% ------- 4.4 Kirchhoff's Laws -------
+\subsection{Kirchhoff's Laws}
+
+\begin{definition}[Kirchhoff's Voltage Law (KVL)]
+    The algebraic sum of all potential differences around any closed loop in a circuit is equal to zero.
 \end{definition}
+
+KVL allows us to determine the potential difference between two points in a circuit by accounting for the voltage changes across each component along the path.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\textwidth]{../Images/kirchhoffrule.jpg}
+    \caption{Each resistor and voltage source is traversed from $a$ to $b$. The corresponding potential changes across each element are indicated. (The script $\mathcal{E}$ denotes the emf.)}
+    \label{klawformula}
+\end{figure}
+
+Another common circuit element is the inductor. In the context of KVL, the voltage across an inductor is included in the loop equation in the same way as the voltage across resistors or capacitors.
+
+\begin{definition}[Kirchhoff's Current Law (KCL)]
+    The sum of the currents entering a node is equal to the sum of the currents leaving the node.
+\end{definition}
+
+% ------- 4.5 Direct and Alternating Current -------
+\subsection{Direct and Alternating Current}
+
+\begin{definition}[Direct Current (DC)]
+    Direct Current (DC) is a form of current where voltage and current are constant over time; commonly found in batteries.
+\end{definition}
+
 \begin{definition}[DC Offset]
     A DC offset is the addition of a constant DC value to an AC signal. This shifts the entire signal up or down relative to the \(0\,\text{V}\) level, without changing the shape of the AC signal.
 \end{definition}
 
-\subsection{Alternating Current}
 \begin{definition}[Alternating Current (AC)]
     Alternating Current (AC) is a form of current that changes over time, often in a sinusoidal manner. AC currents are commonly used in power distribution systems, such as household electrical outlets.
 \end{definition}
-In general, an alternating current source is represented in circuit diagrams by a circular source symbol containing a sinusoidal waveform. This indicates that the source provides a time-varying current, typically sinusoidal in form.
-\begin{center}
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.5\textwidth]{../Images/AC_symbol.png}
-        \caption{Alternating Current Symbol.}
-    \end{figure}
-\end{center}
+
+In general, an alternating current source is represented in circuit diagrams by a circular source symbol containing a sinusoidal waveform.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{../Images/AC_symbol.png}
+    \caption{Alternating Current symbol.}
+\end{figure}
+
 If the current is sinusoidal, it is commonly written as
-\[I(t) = I_0 \sin(\omega t),\]
+\[I(t) = I_0\sin(\omega t),\]
 where $I_0$ is the amplitude and $\omega$ is the angular frequency.
-\subsection{Static Circuits and Electronics}
-Consider the variation of electric potential along a conducting wire.\\
-If the wire has a small but non-negligible resistance that is uniformly distributed, the electric potential decreases approximately linearly with distance. This occurs because the voltage drop across a uniform conductor is proportional to its length.
+
+% ------- 4.6 Static Circuits -------
+\subsection{Static Circuits}
+
+Consider the variation of electric potential along a conducting wire.
+
+If the wire has a small but non-negligible resistance that is uniformly distributed, the electric potential decreases approximately linearly with distance, since the voltage drop across a uniform conductor is proportional to its length.
 \begin{center}
 \begin{tikzpicture}
-    \draw[->] (0,0) -- (2,0) node[right] {Length along the wire};
+    \draw[->] (0,0) -- (2,0) node[right] {Length along wire};
     \draw[->] (0,0) -- (0,2) node[above] {Voltage};
     \draw[domain=0:2] plot (\x, {1-0.5*\x});
 \end{tikzpicture}
 \end{center}
+
 In contrast, if a discrete resistor with resistance much larger than that of the wire is introduced, nearly all of the voltage drop occurs across the resistor. The potential along the wire remains approximately constant, with a sharp decrease only at the location of the resistor.
 \begin{center}
 \begin{tikzpicture}
-    \draw[->] (0,0) -- (2,0) node[right] {Length along the wire};
+    \draw[->] (0,0) -- (2,0) node[right] {Length along wire};
     \draw[->] (0,0) -- (0,2) node[above] {Voltage};
     \draw (0,1) -- (1.6,1);
     \draw (1.6,0.1) -- (2,0.1);
@@ -315,70 +386,62 @@ In contrast, if a discrete resistor with resistance much larger than that of the
 \end{tikzpicture}
 \end{center}
 
-\subsection{Circuits}
-Circuits may be classified according to whether they are linear or non-linear, and whether they contain active or passive elements.
-A linear circuit element has a linear (straight-line) relationship between voltage and current, meaning $V \propto I$. In contrast, a non-linear element does not exhibit a straight-line $V$-$I$ relationship.
+% ------- 4.7 Circuit Classification -------
+\subsection{Circuit Classification}
+
+Circuits may be classified according to whether they are linear or non-linear, and whether they contain active or passive elements. A linear circuit element has a linear (straight-line) relationship between voltage and current, meaning $V \propto I$; a non-linear element does not.
+
 \begin{definition}[Passive Linear Circuit]
-A passive linear circuit contains only passive linear elements, such as resistors, capacitors, inductors, and transformers.
+    Contains only passive linear elements, such as resistors, capacitors, inductors, and transformers.
 \end{definition}
 \begin{definition}[Active Linear Circuit]
-An active linear circuit contains at least one active element, such as a transistor, operational amplifier, or independent source, while maintaining an overall linear $V$-$I$ relationship.
+    Contains at least one active element (e.g.\ transistor, op-amp, or independent source) while maintaining an overall linear $V$--$I$ relationship.
 \end{definition}
 \begin{definition}[Passive Non-linear Circuit]
-A passive non-linear circuit contains only passive components but includes at least one non-linear element, such as a diode.
+    Contains only passive components but includes at least one non-linear element, such as a diode.
 \end{definition}
 \begin{definition}[Active Non-linear Circuit]
-An active non-linear circuit contains at least one active element and at least one non-linear element.
+    Contains at least one active element and at least one non-linear element.
 \end{definition}
 
-\subsection{Kirchhoff's Laws}
-
-\begin{definition}[Kirchhoff's Voltage Law]
-    Kirchhoff's Voltage Law (KVL) states that the algebraic sum of all potential differences around any closed loop in a circuit is equal to zero.
-\end{definition}
-KVL allows us to determine the potential difference between two points in a circuit by accounting for the voltage changes across each component along the path.
-
-\begin{figure}[H]
-    \label{klawformula}
-    \centering
-    \includegraphics[width=0.65\textwidth]{../Images/kirchhoffrule.jpg}
-    \caption{Each resistor and voltage source is traversed from $a$ to $b$. The corresponding potential changes across each element are indicated. (The script $\mathcal{E}$ denotes the emf.)}
-\end{figure}
-
-Another common circuit element is the inductor. In the context of KVL, the voltage across an inductor is included in the loop equation in the same way as the voltage across resistors or capacitors.
-
-\begin{definition}[Kirchhoff's Current Law]
-    The Kirchhoff's Current Law states that the sum of the currents entering a node is equal to the sum of the currents leaving the node.
-\end{definition}
-
+% ============================================================
+%  5. CIRCUIT COMPONENTS
+% ============================================================
+\marginpar{January 20, 2026}
 \section{Circuit Components}
+
+% ------- 5.1 Resistors -------
 \subsection{Resistors}
+
 \begin{definition}
-    A resistor is a device that opposes the flow of current through it, resulting in a voltage drop across it. Resistors are characterized by their resistance value \(R\), measured in ohms (\(\Omega\)), which quantifies the amount of opposition they provide to the flow of current.
+    A resistor is a device that opposes the flow of current through it, resulting in a voltage drop across it. Resistors are characterized by their resistance value \(R\), measured in ohms (\(\Omega\)).
 \end{definition}
-When resistors are connected in series, their resistances add together to form a total resistance $R_{tot} = R_1 + R_2 + \cdots + R_n$. In contrast, when resistors are connected in parallel, their resistances add inversely to form a total resistance $\frac{1}{R_{tot}} = \frac{1}{R_1} + \frac{1}{R_2} + \cdots + \frac{1}{R_n}$.
+
+When resistors are connected in series, their resistances add: $R_{\text{tot}} = R_1 + R_2 + \cdots + R_n$. In parallel, they add inversely: $\frac{1}{R_{\text{tot}}} = \frac{1}{R_1} + \frac{1}{R_2} + \cdots + \frac{1}{R_n}$.
+
 \begin{example}
-    Look at the following examples of resistors, all of which are connected in parallel.
-    \begin{figure}[h]
+    \begin{figure}[H]
         \begin{center}
             \includegraphics[width=0.5\textwidth]{../Images/Parallel_resistors.png}
-            \caption{In all of these examples, the components are wired in parallel.}
+            \caption{Examples of components wired in parallel.}
         \end{center}
     \end{figure}
 \end{example}
+
 \subsubsection{Temperature Dependence}
-The temperature dependence of the resistance of many metals can be modelled by the following equation:
-\[R_T = R_0[1 + \alpha (T - T_0)]\]
-where \(R_0\) is the resistance value at reference temperature \(T_0\), and \(\alpha\) is the linear temperature coefficient. This equation shows that the resistance of a metal increases linearly with temperature, which is a common phenomenon observed in many metals.
+The resistance of many metals varies with temperature as
+\[R_T = R_0\left[1 + \alpha(T - T_0)\right],\]
+where \(R_0\) is the resistance at reference temperature \(T_0\) and \(\alpha\) is the linear temperature coefficient.
+
 \subsubsection{Power Dissipation}
-When current flows through a resistor, electrical energy is converted into heat energy due to the resistance of the material. The power \(P\) dissipated by a resistor can be calculated using the formula:
-\[P = \Delta V \cdot I\]
-Using Ohm's Law, we can express the power dissipated in terms of the resistance \(R\) and either the voltage drop \(\Delta V\) or the current \(I\):
-\[P = I^2 R = \frac{(\Delta V)^2}{R}\]
+When current flows through a resistor, electrical energy is converted into heat. The power \(P\) dissipated is
+\[P = \Delta V \cdot I = I^2 R = \frac{(\Delta V)^2}{R}.\]
 The total energy dissipated over time is
-\[U = \int RI^2(t)\,dt.\]
+\[U = \int R\,I^2(t)\,dt.\]
+
+% ------- 5.2 Batteries -------
 \subsection{Batteries}
-\marginpar{January 20, 2026}
+
 \begin{definition}[Battery]
     A battery converts stored chemical energy into electrical energy by maintaining a potential difference between its terminals. Inside the battery, chemical reactions separate charge, creating an excess of negative charge at the anode and positive charge at the cathode.
 \end{definition}
@@ -386,71 +449,64 @@ The total energy dissipated over time is
     An ideal battery is a voltage source with zero internal resistance that maintains a constant voltage regardless of the current drawn.
 \end{definition}
 \begin{definition}[Real Battery]
-    A real battery has internal resistance that causes the voltage output to decreases as the current increases, leading to a loss of energy in the form of heat due to the internal resistance.
-\end{definition}
-The circuit containing a real battery can be modeled as an ideal voltage source \(V_0\) in series with an internal resistance \(r\). The terminal voltage \(V_{terminal}\) of the battery when a current \(I\) is drawn from it can be expressed as:
-\[V_{terminal} = V_{0} - Ir\]
-However, if the circuit contained a resistor \(R\) connected to the battery, the current \(I\) flowing through the circuit can be calculated using Ohm's Law:
-\[V_0 = Ir + IR.\]
-\subsection{Ground and Reference}
-\begin{definition}[Circuit ground]
-    The reference point in a circuit at which the electric potential is defined to be zero. All voltages $V$ in the circuit are measured relative to this point. It does not have to be physically connected to the Earth. The symbol for circuit ground is \begin{circuitikz}\draw (0,0) node[ground]{};\end{circuitikz}.
-\end{definition}
-\begin{definition}[Chassis Ground]
-    Chassis ground is a conductive frame or enclosure of a device that is used as a common return path for current and often connected to circuit ground. It provides shielding and safety by preventing exposed metal parts from reaching dangerous voltages. In many systems, chassis ground may be connected to earth ground, but this is not required. The symbol for chassis ground is \begin{circuitikz}\draw (0,0) node[sground]{};\end{circuitikz}.
-\end{definition}
-\begin{definition}[Earth Ground]
-    Earth ground is a physical connection to the Earth, typically made using a metal rod or pipe driven into the soil. It is used primarily for safety, allowing fault currents to safely dissipate into the ground.
+    A real battery has internal resistance $r$ that causes the terminal voltage to decrease as the current increases, leading to energy loss as heat.
 \end{definition}
 
+A real battery is modelled as an ideal voltage source \(V_0\) in series with an internal resistance \(r\). The terminal voltage when current \(I\) is drawn is
+\[V_{\text{terminal}} = V_0 - Ir.\]
+If an external resistor $R$ is connected, Ohm's Law gives
+\[V_0 = Ir + IR.\]
+
+% ------- 5.3 Ground and Reference -------
+\subsection{Ground and Reference}
+
+\begin{definition}[Circuit Ground]
+    The reference point in a circuit at which the electric potential is defined to be zero. All voltages in the circuit are measured relative to this point. It does not have to be physically connected to the Earth. Symbol: \begin{circuitikz}\draw (0,0) node[ground]{};\end{circuitikz}.
+\end{definition}
+\begin{definition}[Chassis Ground]
+    A conductive frame or enclosure of a device used as a common return path for current; often connected to circuit ground. It provides shielding and safety by preventing exposed metal parts from reaching dangerous voltages. Symbol: \begin{circuitikz}\draw (0,0) node[sground]{};\end{circuitikz}.
+\end{definition}
+\begin{definition}[Earth Ground]
+    A physical connection to the Earth, typically made using a metal rod or pipe driven into the soil, used primarily for safety to allow fault currents to safely dissipate.
+\end{definition}
+
+% ------- 5.4 Capacitors -------
 \subsection{Capacitors}
+
 \begin{definition}[Capacitor]
-    A capacitor is a passive electrical component that stores energy in an electric field between two conductive plates separated by an insulating material (dielectric) or space. The capacitance \(C\) of a capacitor is defined as the ratio of the charge \(Q\) stored on one plate to the voltage \(V\) across the plates (or of the source of the circuit):
+    A capacitor is a passive electrical component that stores energy in an electric field between two conductive plates separated by an insulating material (dielectric) or space. The capacitance \(C\) is defined as the ratio of the charge \(Q\) stored on one plate to the voltage \(V\) across the plates:
     \begin{equation}
         \label{eq:capacitance}
-        C = \frac{Q}{V}
+        C = \frac{Q}{V}.
     \end{equation}
     The SI unit of capacitance is the farad (F).
 \end{definition}
-Capacitance can also be measured in terms of the physical characteristics of the capacitor. For a parallel plate capacitor, the capacitance is given by:
-\[C = \frac{\varepsilon A}{d}\]
-where \(\varepsilon\) is the dielectric constant, \(A\) is the area of the plates, and \(d\) is the distance between the plates.\\
-The permittivity of free space is
-\[\varepsilon_0 = 8.85 \times 10^{-12}\, \text{F/m}.\]
 
-Capacitors combine oppositely to resistors. In parallel,
-\[C_{tot} = C_1 + C_2 + \cdots + C_n,\]
-while in series,
-\[\frac{1}{C_{tot}} = \frac{1}{C_1} + \frac{1}{C_2} + \cdots + \frac{1}{C_n}.\]
+For a parallel plate capacitor,
+\[C = \frac{\varepsilon A}{d},\]
+where \(\varepsilon\) is the dielectric constant, \(A\) is the area of the plates, and \(d\) is the distance between them. The permittivity of free space is
+\[\varepsilon_0 = 8.85 \times 10^{-12}\,\text{F/m}.\]
 
-From the definition of capacitance, the voltage-charge relation is
-\[V = \frac{Q}{C}.\]
-
-Because capacitors typically have very low internal resistance, they can charge and discharge much faster than batteries.
-
-\subsubsection{Energy Stored In a Capacitor}
-The energy stored equals the work required to move charge from one plate to the other. Since $V = \frac{Q}{C}$, the work done in charging the capacitor from $0$ to $Q$ is
-\[W = \int_0^Q V \, dQ = \int_0^Q \frac{Q}{C} \, dQ = \frac{1}{2}CV^2.\]
-Thus, the energy stored in a capacitor is
-\[W = \frac{1}{2}CV^2.\]
+Capacitors combine oppositely to resistors:
+\[C_{\text{tot}} = C_1 + C_2 + \cdots + C_n \quad \text{(parallel)}, \qquad \frac{1}{C_{\text{tot}}} = \frac{1}{C_1} + \frac{1}{C_2} + \cdots + \frac{1}{C_n} \quad \text{(series)}.\]
 
 \subsubsection{Dielectric Insulator}
 \begin{definition}[Dielectric Insulator]
-    A dielectric is an insulating material that permits an electric field but does not conduct charge. When placed between capacitor plates, it increases capacitance by reducing the effective electric field, allowing more charge to be stored for a given voltage. Its permittivity is given by
-    \[\varepsilon = \varepsilon_r \varepsilon_0,\]
-    where $\varepsilon_r$ is the relative permittivity and $\varepsilon_0$ is the permittivity of free space.
+    A dielectric is an insulating material that permits an electric field but does not conduct charge. When placed between capacitor plates, it increases capacitance by reducing the effective electric field, allowing more charge to be stored for a given voltage. Its permittivity is
+    \[\varepsilon = \varepsilon_r\,\varepsilon_0,\]
+    where $\varepsilon_r$ is the relative permittivity.
 \end{definition}
 
+\subsubsection{Energy Stored in a Capacitor}
+The energy stored equals the work required to move charge from one plate to the other. Since $V = Q/C$,
+\[W = \int_0^Q V\,dQ = \int_0^Q \frac{Q}{C}\,dQ = \frac{1}{2}CV^2.\]
+
 \subsubsection{Charging a Capacitor}
-For a capacitor, the current-voltage relationship, derived from \eqref{eq:capacitance} and \eqref{eq:current}, is
-\[I = C\frac{dV}{dt},\]
-where $V$ is the voltage across the capacitor. Integrating,
-\[V(t) = \frac{1}{C}\int I\,dt + V_0,\]
-where $V_0$ is the initial voltage. If the current $I$ is constant, then
-\[\frac{dV}{dt} = \frac{I}{C},\]
-so
-\[V(t) = V_0 + \frac{I}{C}t.\]
-Thus, the voltage increases linearly with time, with slope $\frac{I}{C}$ and y-intercept $V_0$.
+From \eqref{eq:capacitance} and \eqref{eq:current}, the current-voltage relationship for a capacitor is
+\[I = C\frac{dV}{dt}, \qquad V(t) = \frac{1}{C}\int I\,dt + V_0.\]
+For constant current,
+\[V(t) = V_0 + \frac{I}{C}\,t,\]
+so the voltage increases linearly with slope $I/C$.
 \begin{center}
     \begin{tikzpicture}
         \draw[->] (0,0) -- (5,0) node[right] {$t$};
@@ -461,62 +517,23 @@ Thus, the voltage increases linearly with time, with slope $\frac{I}{C}$ and y-i
     \end{tikzpicture}
 \end{center}
 
-\subsection{Transformers \& Mutual Inductance (Not Tested)}
-\begin{definition}[Transformer]
-    A transformer is a device consisting of two coils of wire, called the primary and secondary, magnetically coupled through a shared core. The main purpose of a transformer is to transfer energy between circuits to change voltage levels. A changing current in the primary coil induces a voltage in the secondary coil by mutual inductance. The symbol for a transformer is
-    \begin{center}
-        \begin{circuitikz}
-            \draw
-            (0,0) node[transformer] (T) {}
-            (T.A1) -- ++(-1,0)
-            (T.A2) -- ++(-1,0)
-            (T.B1) -- ++(1,0)
-            (T.B2) -- ++(1,0);
-        \end{circuitikz}
-    \end{center}
-\end{definition}
-A transformer typically consists of two coils with $N_1$ and $N_2$ turns wound around a common core, which may be air or a ferromagnetic material to concentrate the magnetic field.
-\begin{center}
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.5\textwidth]{../Images/Transformer.png}
-        \caption{Visual representation of a transformer.}
-    \end{figure}
-\end{center}
-A time-varying current $I_1$ in the primary produces a magnetic field $\vec B$, creating a magnetic flux $\Phi_B$ through the secondary coil. By Faraday's law, a changing magnetic flux induces a voltage in the secondary:
-\[\mathcal{E}_2 = -\frac{d\Phi_B}{dt}.\]
-Since the magnetic flux is proportional to the primary current, the induced voltage is proportional to $\frac{dI_1}{dt}$. The proportionality constant is the mutual inductance $M$:
-\[\mathcal{E}_2 = -M\frac{dI_1}{dt}.\]
-The SI unit of mutual inductance is the henry (H), where
-\[1\,\text{H} = 1\,\frac{\text{V}\cdot\text{s}}{\text{A}}.\]
-The direction of the induced current depends on the relative winding orientation of the coils. Reversing the winding reverses the polarity of the induced voltage.\\
-If the primary current is sinusoidal, for example $I_1(t) = I_0 \sin(\omega t)$, then
-\[V_2(t) = M \frac{dI_1}{dt} = M \omega I_0 \cos(\omega t),\]
-so the secondary voltage is also sinusoidal but shifted in phase by $\frac{\pi}{2}$ relative to the current.\\
-For an ideal transformer, energy losses are neglected and power is conserved:
-\[V_1 I_1 = V_2 I_2.\]
-This leads to the transformer relations
-\[\frac{V_1}{V_2} = \frac{N_1}{N_2}, \qquad \frac{I_1}{I_2} = \frac{N_2}{N_1},\]
-where $\frac{N_1}{N_2}$ is the turns ratio in the two coils.\\
-\begin{remark}
-    Long-distance power lines use high-voltage AC because it significantly reduces energy loss during transmission over long distances, as higher voltage means lower current, which in turn minimises heat loss within the power lines due to resistance; this is achieved efficiently with transformers that can easily step up and down AC voltage levels as needed.
-\end{remark}
-
+% ------- 5.5 Inductors -------
 \subsection{Inductors}
+
 \begin{definition}[Inductor]
     An inductor is a passive electrical component that stores energy in a magnetic field created by the flow of current through a coil of wire. The inductance \(L\) of an inductor is defined as the ratio of the magnetic flux \(\Phi\) linking the coil to the current \(I\) flowing through it:
-    \[L = \frac{\Phi}{I}\]
-    The SI unit of inductance is the henry (H).    
+    \[L = \frac{\Phi}{I}.\]
+    The SI unit of inductance is the henry (H).
 \end{definition}
-Common circuit symbols for inductors are shown below.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.3\textwidth]{../Images/Inductor_symbols.png}
     \caption{Circuit symbols for inductors with different core types.}
 \end{figure}
+
 \subsubsection{Energy Storage}
-Energy is stored in the magnetic field within the inductor coil. If the voltage applied to the coil were constant, then the current in the coil would rise. 
+Energy is stored in the magnetic field within the inductor coil. For a constant applied voltage, the current in the coil rises linearly with slope $V/L$:
 \begin{center}
     \begin{tikzpicture}
         \draw[->] (0,0) -- (5,0) node[right] {$t$};
@@ -526,27 +543,26 @@ Energy is stored in the magnetic field within the inductor coil. If the voltage 
         \node at (4,2.6) {$\frac{V}{L}$};
     \end{tikzpicture}
 \end{center}
-The energy stored is the amount of work done by the current, which is given by
-\[W = \int_{0}^{t} V \cdot idt = \int L\frac{di}{dt}i = \frac{1}{2}LI^2.\]
+The energy stored is
+\[W = \int_0^t V\cdot i\,dt = \int L\frac{di}{dt}\cdot i\,dt = \frac{1}{2}LI^2.\]
+
 \subsubsection{Networks of Inductors}
-\paragraph{Inductors in Series}
-When inductors are connected in series, the same current flows through each element. The total voltage across the combination is the sum of the individual voltages:
-\[V_{\text{total}} = \sum_{i=1}^{N} V_i.\]
-Since $V_i = L_i \frac{dI}{dt}$ and the current $I$ is the same in each inductor, we obtain
-\[V_{\text{total}} = \left( \sum_{i=1}^{N} L_i \right) \frac{dI}{dt}.\]
-Thus, the equivalent inductance is
+
+\paragraph{Inductors in Series.}
+The equivalent inductance is
 \[L_{\text{total}} = \sum_{i=1}^{N} L_i.\]
-\paragraph{Inductors in Parallel}
-When inductors are connected in parallel, the voltage across each inductor is the same, while the total current is the sum of the individual currents:
-\[I_{\text{total}} = \sum_{i=1}^{N} I_i.\]
-Using $V = L_i \frac{dI_i}{dt}$ and the fact that the voltage is common to all branches, we obtain
+
+\paragraph{Inductors in Parallel.}
+The equivalent inductance satisfies
 \[\frac{1}{L_{\text{total}}} = \sum_{i=1}^{N} \frac{1}{L_i}.\]
-These relations are formally similar to those of resistors, but they arise from the voltage-current relation of an inductor.
+
+These relations are formally identical to those of resistors, but arise from the inductor voltage-current relation.
+
 \subsubsection{Solenoid}
 \begin{definition}[Solenoid]
     A solenoid is a long cylindrical coil of wire designed to produce a nearly uniform magnetic field inside it when current flows.
 \end{definition}
-For a solenoid of length $l$, cross-sectional area $A = \pi r^2$, number of turns $N$, and core permeability $\mu$, the inductance is
+For a solenoid of length $l$, cross-sectional area $A = \pi r^2$, number of turns $N$, and core permeability $\mu$,
 \[L = \frac{\mu N^2 A}{l}.\]
 \begin{figure}[H]
     \centering
@@ -554,78 +570,110 @@ For a solenoid of length $l$, cross-sectional area $A = \pi r^2$, number of turn
     \caption{Schematic representation of a solenoid.}
 \end{figure}
 
-\section{Circuits}
-\subsection{RC Circuit}
-\begin{definition}[RC Circuit]
-    An RC circuit is a circuit consisting of a resistor $R$, a capacitor $C$, and a constant source $V_0$.
-\end{definition}
-\begin{example}
-    An example of an RC circuit is shown in the figure below.
+% ------- 5.6 Transformers & Mutual Inductance -------
+\subsection{Transformers \& Mutual Inductance (Not Tested)}
+
+\begin{definition}[Transformer]
+    A transformer is a device consisting of two coils of wire (primary and secondary) magnetically coupled through a shared core. Its main purpose is to transfer energy between circuits to change voltage levels. Symbol:
     \begin{center}
-        \begin{figure}[H]
-            \centering
-            \includegraphics[width=0.5\textwidth]{../Images/RC_circuit.png}
-            \caption{Visual representation of an RC circuit.}
-        \end{figure}
+        \begin{circuitikz}
+            \draw (0,0) node[transformer] (T) {}
+            (T.A1) -- ++(-1,0)
+            (T.A2) -- ++(-1,0)
+            (T.B1) -- ++(1,0)
+            (T.B2) -- ++(1,0);
+        \end{circuitikz}
     \end{center}
+\end{definition}
+
+A transformer has $N_1$ and $N_2$ turns wound around a common core. A time-varying current $I_1$ in the primary produces flux $\Phi_B$ through the secondary. By Faraday's law,
+\[\mathcal{E}_2 = -\frac{d\Phi_B}{dt} = -M\frac{dI_1}{dt}.\]
+
+\begin{center}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\textwidth]{../Images/Transformer.png}
+        \caption{Visual representation of a transformer.}
+    \end{figure}
+\end{center}
+
+The SI unit of mutual inductance is the henry (H). If $I_1(t) = I_0\sin(\omega t)$, then
+\[V_2(t) = M\omega I_0\cos(\omega t),\]
+so the secondary voltage is sinusoidal but shifted in phase by $\pi/2$ relative to the current.
+
+For an ideal transformer, power is conserved ($V_1 I_1 = V_2 I_2$), giving the transformer relations:
+\[\frac{V_1}{V_2} = \frac{N_1}{N_2}, \qquad \frac{I_1}{I_2} = \frac{N_2}{N_1}.\]
+
+\begin{remark}
+    Long-distance power lines use high-voltage AC because it significantly reduces energy loss during transmission: higher voltage means lower current, which minimises resistive heat loss. Transformers efficiently step AC voltage up and down as needed.
+\end{remark}
+
+% ============================================================
+%  6. CIRCUIT ANALYSIS
+% ============================================================
+\section{Circuit Analysis}
+
+% ------- 6.1 RC Circuit -------
+\subsection{RC Circuit}
+
+\begin{definition}[RC Circuit]
+    An RC circuit consists of a resistor $R$, a capacitor $C$, and a constant source $V_0$.
+\end{definition}
+
+\begin{example}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\textwidth]{../Images/RC_circuit.png}
+        \caption{Visual representation of an RC circuit.}
+    \end{figure}
 \end{example}
+
 \subsubsection{Charging}
-Consider an initially uncharged capacitor connected in series with a resistor and a constant source $V_0$. Applying Kirchhoff's Voltage Law,
-\[V_0 = v_R(t) + v_C(t) = i(t)R + \frac{1}{C}\int_0^{t} i(\tau)\, d\tau.\]
-Differentiating with respect to time gives
-\[0 = R\frac{di(t)}{dt} + \frac{1}{C}i(t).\]
-Multiplying by $C$,
-\[0 = RC\frac{di(t)}{dt} + i(t).\]
-Solving,
-\[I(t) = \frac{V_0}{R}e^{-t/\tau}, \quad V_C(t) = V_0\left(1 - e^{-t/\tau}\right),\]
-where $\tau = RC$ is the time constant. As $t \to \infty$, the current and the resistor voltage decay exponentially to zero, while the capacitor voltage approaches $V_0$.
-\paragraph{Charging Graphs}
+Consider an initially uncharged capacitor connected in series with a resistor and a constant source $V_0$. Applying KVL,
+\[V_0 = v_R(t) + v_C(t) = i(t)R + \frac{1}{C}\int_0^{t}i(\tau)\,d\tau.\]
+Differentiating and solving,
+\[I(t) = \frac{V_0}{R}e^{-t/\tau}, \qquad V_C(t) = V_0\!\left(1 - e^{-t/\tau}\right),\]
+where $\tau = RC$ is the time constant. As $t \to \infty$, the current decays to zero and $V_C \to V_0$.
+
+\paragraph{Charging Graphs.}
 \begin{center}
     \begin{tikzpicture}
-        % --- Current ---
         \begin{scope}
             \draw[->] (0,0) -- (4,0) node[right] {$t$};
             \draw[->] (0,0) -- (0,2.8) node[above] {$I$};
-            \draw[domain=0:3.5,smooth,variable=\x] 
-                plot ({\x},{2.5*exp(-\x)});
+            \draw[domain=0:3.5,smooth,variable=\x] plot ({\x},{2.5*exp(-\x)});
         \end{scope}
-        % --- Voltage ---
         \begin{scope}[xshift=5cm]
             \draw[->] (0,0) -- (4,0) node[right] {$t$};
             \draw[->] (0,0) -- (0,2.8) node[above] {$V_C$};
-            \draw[domain=0:3.5,smooth,variable=\x] 
-                plot ({\x},{2.5*(1-exp(-\x))});
+            \draw[domain=0:3.5,smooth,variable=\x] plot ({\x},{2.5*(1-exp(-\x))});
         \end{scope}
-        % --- Charge ---
         \begin{scope}[xshift=10cm]
             \draw[->] (0,0) -- (4,0) node[right] {$t$};
             \draw[->] (0,0) -- (0,2.8) node[above] {$Q$};
-            \draw[domain=0:3.5,smooth,variable=\x] 
-                plot ({\x},{2.5*(1-exp(-\x))});
+            \draw[domain=0:3.5,smooth,variable=\x] plot ({\x},{2.5*(1-exp(-\x))});
         \end{scope}
     \end{tikzpicture}
 \end{center}
 
 \subsubsection{Discharging}
-If the source is removed and the capacitor initially has voltage $V_0$, the solutions become
-\[I(t) = -\frac{V_0}{R}e^{-t/\tau}, \quad V_C(t) = V_0 e^{-t/\tau}.\]
+If the source is removed and the capacitor initially has voltage $V_0$:
+\[I(t) = -\frac{V_0}{R}e^{-t/\tau}, \qquad V_C(t) = V_0\,e^{-t/\tau}.\]
 Both current and voltage decay exponentially to zero.
-\paragraph{Discharging Graphs}
+
+\paragraph{Discharging Graphs.}
 \begin{center}
     \begin{tikzpicture}
-        % --- Current ---
         \begin{scope}
             \draw[->] (0,0) -- (4.5,0) node[right] {$t$};
             \draw[->] (0,0) -- (0,3) node[above] {$I$};
             \draw[domain=0:4,smooth,variable=\x] plot ({\x},{2.5*exp(-\x)});
         \end{scope}
-        % --- Voltage ---
         \begin{scope}[xshift=5cm]
             \draw[->] (0,0) -- (4.5,0) node[right] {$t$};
             \draw[->] (0,0) -- (0,3) node[above] {$V_C$};
             \draw[domain=0:4,smooth,variable=\x] plot ({\x},{2.5*exp(-\x)});
         \end{scope}
-        % --- Charge ---
         \begin{scope}[xshift=10cm]
             \draw[->] (0,0) -- (4.5,0) node[right] {$t$};
             \draw[->] (0,0) -- (0,3) node[above] {$Q$};
@@ -634,75 +682,112 @@ Both current and voltage decay exponentially to zero.
     \end{tikzpicture}
 \end{center}
 
+\subsection{RC Circuit with AC Driving}
+\marginpar{January 29, 2026}
+\subsubsection{Driving Frequency and Time Constant}
+For a periodic input with period $T$ and angular frequency $\omega = \frac{2\pi}{T} = 2\pi\nu$, the time constants are
+\[\tau_{RC} = RC, \qquad \tau_{LR} = \frac{L}{R}.\]
+The circuit behaviour depends on the ratio of $T$ to $\tau$:
+\begin{itemize}
+    \item \textbf{Low frequency:} $T \gg \tau$
+    \item \textbf{High frequency:} $T \ll \tau$
+\end{itemize}
+\subsubsection{RC Circuit with Square-Wave Input}
+\paragraph{Low frequency ($T \gg \tau$).}
+\begin{itemize}
+    \item Capacitor fully charges and discharges each half-cycle.
+    \item Voltage drops almost entirely across the capacitor.
+    \item Current is nearly zero (except for spikes at each voltage jump).
+    \item Capacitor behaves approximately like an \textbf{open circuit} (break).
+\end{itemize}
+
+\paragraph{High frequency ($T \ll \tau$).}
+\begin{itemize}
+    \item Capacitor does not have time to charge.
+    \item Very little voltage is dropped across the capacitor.
+    \item Current values are close to what we expect for a pure resistor circuit; voltage profile is triangle-wave-like.
+    \item Capacitor behaves approximately like a \textbf{short circuit}.
+\end{itemize}
+
+\subsubsection{Integrator and Differentiator Behaviour}
+\paragraph{Low frequency ($T/\tau \gg 1$) — resistor differentiates.}
+At low frequency, the capacitor has time to fully charge, so its voltage tracks the input: $\Delta V_C(t) \approx V(t)$. The current is therefore $I \approx C\frac{dV}{dt}$, and the voltage across the resistor is
+\[\Delta V_R(t) \approx \tau\frac{dV_{\text{in}}(t)}{dt}, \qquad \tau = RC.\]
+The \textbf{resistor} acts as a \textbf{differentiator}. Sharp transitions in the square-wave input produce current spikes.
+
+\paragraph{High frequency ($T/\tau \ll 1$) — capacitor integrates.}
+At high frequency, the capacitor has no time to charge, so the resistor voltage tracks the input: $\Delta V_R(t) \approx V(t)$, giving $I \approx V(t)/R$. The capacitor voltage is then
+\[\Delta V_C(t) \approx \frac{1}{\tau}\int_0^t V_{\text{in}}(t')\,dt', \qquad \tau = RC.\]
+The \textbf{capacitor} acts as an \textbf{integrator}. A square wave input produces a triangle-wave-like voltage across the capacitor.
+
+
+% ------- 6.2 LR Circuit -------
 \subsection{LR Circuit}
+
 \begin{definition}[LR Circuit]
     An LR circuit is a circuit in which an inductor is connected in series with a resistor.
 \end{definition}
+
 \begin{example}
-    Consider this circuit, at the moment it is turned on (switch connects to 'A'). If the inductor (coil) was replaced with a short, a current $\frac{V}{R}$ would flow immediately, with all of the voltage drop across the resistance $R$.
-    \begin{center}
-        \begin{figure}[H]
-            \label{LR-circuit}
-            \centering
-            \includegraphics[width=0.5\textwidth]{../Images/LR_circuit.png}
-            \caption{Visual representation of an LR circuit.}
-        \end{figure}
-    \end{center}
-    The current flow produces a magnetic flux through the coil. Lenz's law says that the coil will attempt to produce a field that opposes the change in B-field. To do this, it induces a voltage V (equal to the battery's voltage) across the coil, with the upper end positive and the lower negative. Therefore, just at the instant the switch is closed, the current flow will be zero.
+    Consider this circuit at the moment it is turned on (switch connects to `A'). If the inductor were replaced with a short, a current $V/R$ would flow immediately, with all of the voltage drop across $R$.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\textwidth]{../Images/LR_circuit.png}
+        \caption{Visual representation of an LR circuit.}
+        \label{LR-circuit}
+    \end{figure}
+    The current flow produces a magnetic flux through the coil. By Lenz's law, the coil induces a voltage equal to the battery's voltage, opposing the change in flux. Therefore, just at the instant the switch is closed, the current flow is zero.
 \end{example}
-For a single coil,  the voltage-current relationship is
-\[V = L \frac{di}{dt},\]
-where $L$ is called the self-inductance of the coil, or simply the inductance. $L$ depends on the number of turns of wire, and the magnetic properties of the material within the coil. Any current-carrying conductor even a straight wire is surrounded by a magnetic field, and hence has some self-inductance.
 
-When the switch is connected to terminal A in Figure~\eqref{LR-circuit}, the current in the inductor increases according to
-\[I(t) = \frac{V}{R}\left(1 - e^{-\frac{Rt}{L}}\right),\]
-while the voltage across the inductor decreases as
-\[V_L(t) = V e^{-\frac{Rt}{L}}.\]
-The characteristic time constant of the circuit is
-\[\tau = \frac{L}{R}.\]
+For a single coil, the voltage-current relationship is
+\[V = L\frac{di}{dt},\]
+where $L$ is the self-inductance. When the switch is connected to terminal A,
+\[I(t) = \frac{V}{R}\!\left(1 - e^{-Rt/L}\right), \qquad V_L(t) = V\,e^{-Rt/L}.\]
+The characteristic time constant is $\tau = L/R$.
 
-\section{RC and LR Circuits with AC Driving}
+\subsubsection{Charging}
+\subsubsection{Discharging}
+
+\subsection{RC Circuit with AC Driving}
 \marginpar{January 29, 2026}
-\subsection{Driving Frequency and Time Constant}
-For a periodic input signal with period $T$ and angular frequency $\omega$,
-\[\omega = \frac{2\pi}{T} = 2\pi \nu.\]
-The characteristic time constants are:
-\[\tau_{RC} = RC\]
-\[\tau_{LR} = \frac{L}{R}\]
-The circuit behaviour depends on the comparison between $T$ and $\tau$:
+\subsubsection{Driving Frequency and Time Constant}
+For a periodic input with period $T$ and angular frequency $\omega = \frac{2\pi}{T} = 2\pi\nu$, the time constants are
+\[\tau_{RC} = RC, \qquad \tau_{LR} = \frac{L}{R}.\]
+The circuit behaviour depends on the ratio of $T$ to $\tau$:
 \begin{itemize}
-    \item Low frequency: $T \gg \tau$
-    \item High frequency: $T \ll \tau$
+    \item \textbf{Low frequency:} $T \gg \tau$
+    \item \textbf{High frequency:} $T \ll \tau$
 \end{itemize}
-The key idea is that the response depends on the ratio between the driving period and the circuit time constant.
+\subsubsection{RC Circuit with Square-Wave Input}
+\paragraph{Low frequency ($T \gg \tau$).}
+\begin{itemize}
+    \item Capacitor fully charges and discharges each half-cycle.
+    \item Voltage drops almost entirely across the capacitor.
+    \item Current is nearly zero (except for spikes at each voltage jump).
+    \item Capacitor behaves approximately like an \textbf{open circuit} (break).
+\end{itemize}
 
-\subsection{RC Circuit with Square-Wave Input}
-\subsubsection*{Low Frequency ($T \gg \tau$)}
-\begin{itemize}
-    \item Capacitor fully charges and discharges.
-    \item Current similar to pure resistor case.
-    \item Very little voltage remains across the capacitor.
-    \item Capacitor behaves approximately like a short circuit.
-\end{itemize}
-\subsubsection*{High Frequency ($T \ll \tau$)}
+\paragraph{High frequency ($T \ll \tau$).}
 \begin{itemize}
     \item Capacitor does not have time to charge.
-    \item Voltage dropped mostly across the capacitor.
-    \item Current appears as sharp spikes at switching.
-    \item Capacitor behaves approximately like an open circuit.
+    \item Very little voltage is dropped across the capacitor.
+    \item Current values are close to what we expect for a pure resistor circuit; voltage profile is triangle-wave-like.
+    \item Capacitor behaves approximately like a \textbf{short circuit}.
 \end{itemize}
 
-\subsection{Integrator and Differentiator Behaviour (RC)}
-For slowly varying signals (low frequency),
-\[V_C(t) \approx \frac{1}{RC} \int V_{in}(t)\, dt\]
-The capacitor acts as an integrator. A square wave input produces a triangle-like voltage output. For rapidly varying signals (high frequency),
-\[V_R(t) \approx RC \frac{dV_{in}}{dt}\]
-The resistor behaves as a \textbf{differentiator}.  
-Sharp transitions in the input produce current spikes.
+\subsubsection{Integrator and Differentiator Behaviour}
+\paragraph{Low frequency ($T/\tau \gg 1$) — resistor differentiates.}
+At low frequency, the capacitor has time to fully charge, so its voltage tracks the input: $\Delta V_C(t) \approx V(t)$. The current is therefore $I \approx C\frac{dV}{dt}$, and the voltage across the resistor is
+\[\Delta V_R(t) \approx \tau\frac{dV_{\text{in}}(t)}{dt}, \qquad \tau = RC.\]
+The \textbf{resistor} acts as a \textbf{differentiator}. Sharp transitions in the square-wave input produce current spikes.
 
-\subsection{LR Circuit with AC Input}
-The LR circuit is mathematically analogous to the RC circuit.
-\[\tau_{LR} = \frac{L}{R}\]
+\paragraph{High frequency ($T/\tau \ll 1$) — capacitor integrates.}
+At high frequency, the capacitor has no time to charge, so the resistor voltage tracks the input: $\Delta V_R(t) \approx V(t)$, giving $I \approx V(t)/R$. The capacitor voltage is then
+\[\Delta V_C(t) \approx \frac{1}{\tau}\int_0^t V_{\text{in}}(t')\,dt', \qquad \tau = RC.\]
+The \textbf{capacitor} acts as an \textbf{integrator}. A square wave input produces a triangle-wave-like voltage across the capacitor.
+
+\subsubsection{LR Circuit with AC Input}
+The LR circuit is mathematically analogous to the RC circuit ($\tau_{LR} = L/R$).
 \begin{itemize}
     \item Inductor resists changes in current.
     \item At low frequency, the inductor behaves approximately like a short circuit.
@@ -710,187 +795,188 @@ The LR circuit is mathematically analogous to the RC circuit.
 \end{itemize}
 In an LR circuit, current plays a role analogous to voltage in an RC circuit.
 
+% ------- 6.3 RC and LR Circuits with AC Driving -------
+
+
 \subsection{Frequency Behaviour Summary}
 \begin{center}
     \begin{tabular}{|c|c|c|}
     \hline
-    Circuit & Low Frequency ($T \gg \tau$) & High Frequency ($T \ll \tau$) \\
+    Circuit & Low frequency ($T \gg \tau$) & High frequency ($T \ll \tau$) \\
     \hline
-    RC & Capacitor $\approx$ short & Capacitor $\approx$ open \\
+    RC & Capacitor $\approx$ open (break) & Capacitor $\approx$ short \\
     \hline
-    LR & Inductor $\approx$ short & Inductor $\approx$ open \\
+    LR & Inductor $\approx$ short  & Inductor $\approx$ open  \\
     \hline
     \end{tabular}
 \end{center}
+
 Important physical facts:
 \begin{itemize}
-    \item A capacitor blocks DC.
-    \item An inductor passes DC (after long time).
-    \item A capacitor resists changes in voltage.
-    \item An inductor resists changes in current.
+    \item A capacitor blocks DC and resists changes in voltage.
+    \item An inductor passes DC (after long time) and resists changes in current.
 \end{itemize}
 
-
-
+% ============================================================
+%  APPENDIX
+% ============================================================
 \section{Appendix}
 \subsection{Important Concepts}
 
 \textbf{Basic Circuit Laws}
 \begin{itemize}
-    \item Ohm's Law: \eqref{Ohmslawformula}
+    \item Ohm's Law: Figure~\ref{Ohmslawformula}
     \item Real battery: $V_{\text{terminal}} = V_0 - Ir$
 \end{itemize}
 The voltage supplied by the battery represents the total potential difference applied to the circuit.
 
 \textbf{Equivalent Components}
 \begin{itemize}
-    \item Resistors  
-    Series: $R_{eq} = R_1 + R_2 + \cdots + R_n$  
-    Parallel: $R_{eq} = \frac{1}{\frac{1}{R_1}+\frac{1}{R_2}+\cdots+\frac{1}{R_n}}$
+    \item Resistors\\
+    Series: $R_{\text{eq}} = R_1 + R_2 + \cdots + R_n$\\
+    Parallel: $\displaystyle R_{\text{eq}} = \frac{1}{\frac{1}{R_1}+\frac{1}{R_2}+\cdots+\frac{1}{R_n}}$
 
-    \item Capacitors  
-    Series: $C_{eq} = \frac{1}{\frac{1}{C_1}+\frac{1}{C_2}+\cdots+\frac{1}{C_n}}$  
-    Parallel: $C_{eq} = C_1 + C_2 + \cdots + C_n$
+    \item Capacitors\\
+    Series: $\displaystyle C_{\text{eq}} = \frac{1}{\frac{1}{C_1}+\frac{1}{C_2}+\cdots+\frac{1}{C_n}}$\\
+    Parallel: $C_{\text{eq}} = C_1 + C_2 + \cdots + C_n$
 
-    \item Inductors  
-    Series: $L_{eq} = L_1 + L_2 + \cdots + L_n$  
-    Parallel: $L_{eq} = \frac{1}{\frac{1}{L_1}+\frac{1}{L_2}+\cdots+\frac{1}{L_n}}$
+    \item Inductors\\
+    Series: $L_{\text{eq}} = L_1 + L_2 + \cdots + L_n$\\
+    Parallel: $\displaystyle L_{\text{eq}} = \frac{1}{\frac{1}{L_1}+\frac{1}{L_2}+\cdots+\frac{1}{L_n}}$
 \end{itemize}
 
 \textbf{Capacitors}
 \begin{itemize}
     \item Charge relation: $Q = CV$
-    \item Capacitance: $C = \frac{\epsilon A}{d}$
-    \item Permittivity of free space: $\epsilon_0 = 8.85 \times 10^{-12}$
+    \item Capacitance: $C = \dfrac{\varepsilon A}{d}$
+    \item Permittivity of free space: $\varepsilon_0 = 8.85 \times 10^{-12}\,\text{F/m}$
 \end{itemize}
 
-\textbf{RC Circuits}
+\textbf{RC Circuits} (time constant $\tau = RC$)
 
 Charging:
 \begin{itemize}
-    \item Voltage: $V_c(t) = V(1-e^{-\frac{t}{\tau}})$
-    \item Current: $i(t) = \frac{V}{R}e^{-\frac{t}{\tau}}$
-    \item Charge: $Q(t) = CV(1-e^{-\frac{t}{\tau}})$
+    \item Voltage: $V_C(t) = V\!\left(1-e^{-t/\tau}\right)$
+    \item Current: $i(t) = \dfrac{V}{R}e^{-t/\tau}$
+    \item Charge: $Q(t) = CV\!\left(1-e^{-t/\tau}\right)$
 \end{itemize}
-At $t=0$, the capacitor behaves like a short circuit. As $t \rightarrow \infty$, it behaves like an open circuit.
+At $t=0$, the capacitor behaves like a short circuit. As $t\to\infty$, it behaves like an open circuit.
 
 Discharging:
 \begin{itemize}
-    \item Voltage: $V_c(t) = V_0 e^{-\frac{t}{\tau}}$
-    \item Current: $I(t) = I_0 e^{-\frac{t}{\tau}}$
-    \item Charge: $Q(t) = Q_0 e^{-\frac{t}{\tau}}$
+    \item Voltage: $V_C(t) = V_0\,e^{-t/\tau}$
+    \item Current: $I(t) = I_0\,e^{-t/\tau}$
+    \item Charge: $Q(t) = Q_0\,e^{-t/\tau}$
 \end{itemize}
 
-Stored energy:
-\begin{itemize}
-    \item Capacitor: $W = \frac{1}{2}CV^2$
-\end{itemize}
+Stored energy: $W = \dfrac{1}{2}CV^2$
 
 \textbf{Inductors}
 \begin{itemize}
-    \item Inductor voltage: $V = L\frac{dI}{dt}$
-    \item Inductance: $L = \frac{\mu N A}{l}$
-    \item Permeability of free space: $\mu_0 = 4\pi \times 10^{-7}$
+    \item Inductor voltage: $V = L\,\dfrac{dI}{dt}$
+    \item Inductance (solenoid): $L = \dfrac{\mu N^2 A}{l}$
+    \item Permeability of free space: $\mu_0 = 4\pi \times 10^{-7}\,\mathrm{T} \cdot \mathrm{m/A}$
 \end{itemize}
 
-RL Charging:
-\begin{itemize}
-    \item Voltage: $V_L(t) = V e^{-\frac{t}{\tau}}$
-    \item Current: $i(t) = \frac{V}{R}(1-e^{-\frac{t}{\tau}})$
-\end{itemize}
-At $t=0$, an inductor behaves like an open circuit. As $t \rightarrow \infty$, it behaves like a short circuit.
+\textbf{RL Circuits} (time constant $\tau = L/R$)
 
-RL Discharging:
+Charging:
 \begin{itemize}
-    \item Voltage: $V_L(t) = V_0 e^{-\frac{t}{\tau}}$
-    \item Current: $I(t) = I_0 e^{-\frac{t}{\tau}}$
+    \item Voltage: $V_L(t) = V\,e^{-t/\tau}$
+    \item Current: $i(t) = \dfrac{V}{R}\!\left(1-e^{-t/\tau}\right)$
+\end{itemize}
+At $t=0$, an inductor behaves like an open circuit. As $t\to\infty$, it behaves like a short circuit.
+
+Discharging:
+\begin{itemize}
+    \item Voltage: $V_L(t) = V_0\,e^{-t/\tau}$
+    \item Current: $I(t) = I_0\,e^{-t/\tau}$
 \end{itemize}
 
-Stored energy:
-\begin{itemize}
-    \item Inductor: $W = \frac{1}{2}LI^2$
-\end{itemize}
+Stored energy: $W = \dfrac{1}{2}LI^2$
 
 \textbf{Energy Dissipation}
 \begin{itemize}
-    \item Resistor: $U = \int RI^2(t)\,dt$
+    \item Resistor: $U = \displaystyle\int R\,I^2(t)\,dt$
 \end{itemize}
 
 \textbf{RLC Circuits}
 \begin{itemize}
-    \item Natural frequency: $\omega_0 = \frac{1}{\sqrt{LC}}$
-    \item Damping factor: $\Gamma = \frac{R}{L}$
+    \item Natural frequency: $\omega_0 = \dfrac{1}{\sqrt{LC}}$
+    \item Damping factor: $\Gamma = \dfrac{R}{L}$
 \end{itemize}
 
 \textbf{AC Circuits}
 
 Complex current:
-\[ I = I_0 e^{j(\omega t + \phi_0)} = \tilde{I} e^{j\omega t} \]
+\[I = I_0\,e^{j(\omega t+\phi_0)} = \tilde{I}\,e^{j\omega t}.\]
 
 Impedances:
 \begin{itemize}
     \item Resistor: $Z_R = R$
-    \item Capacitor: $Z_C = \frac{1}{j\omega C}$
+    \item Capacitor: $Z_C = \dfrac{1}{j\omega C}$
     \item Inductor: $Z_L = j\omega L$
 \end{itemize}
 
-\textbf{Kirchhoff's Law}
-\begin{itemize}
-    \item Kirchhoff's Law: \eqref{klawformula}
-\end{itemize}
+\textbf{Kirchhoff's Law:} Figure~\ref{klawformula}
 
 \textbf{Miscellaneous}
 
-Transient: The short initial response when a circuit is switched on, typically involving terms like $e^{-\frac{t}{\tau}}$.
+\textit{Transient}: The short initial response when a circuit is switched on, typically involving terms like $e^{-t/\tau}$.
 
-Steady-state: The long-term behavior of the circuit after transients vanish.
+\textit{Steady-state}: The long-term behaviour of the circuit after transients vanish.
 
-Filtering rule:
+Filtering rules:
 \begin{itemize}
-    \item Low-pass filter: Blocks high-frequency signals and allows low-frequency signals to pass. Often an RC circuit with output across the capacitor or an LR circuit where the inductor appears first in the signal path.
-    \item High-pass filter: Blocks low-frequency or DC signals and allows high-frequency signals to pass. Commonly an RC circuit with output across the resistor or an LR circuit where the resistor precedes the inductor.
+    \item \textit{Low-pass filter}: Blocks high-frequency signals; allows low-frequency signals to pass. Often an RC circuit with output across the capacitor, or an LR circuit where the inductor appears first in the signal path.
+    \item \textit{High-pass filter}: Blocks low-frequency/DC signals; allows high-frequency signals to pass. Commonly an RC circuit with output across the resistor, or an LR circuit where the resistor precedes the inductor.
 \end{itemize}
 
-Water analogy:  
-Resistor behaves like friction and dissipates energy.  
-Inductor behaves like inertia and resists changes in current.  
-Capacitor behaves like a spring and stores electrical energy.
+Water analogy:
+\begin{itemize}
+    \item Resistor $\leftrightarrow$ friction; dissipates energy.
+    \item Inductor $\leftrightarrow$ inertia; resists changes in current.
+    \item Capacitor $\leftrightarrow$ spring; stores electrical energy.
+\end{itemize}
 
-Phase shifts (ICE vs ELI):  
-In a capacitor, current leads voltage (ICE).  
-In an inductor, voltage leads current (ELI).
+Phase shifts (ICE vs ELI):
+\begin{itemize}
+    \item In a capacitor, current leads voltage (ICE).
+    \item In an inductor, voltage leads current (ELI).
+\end{itemize}
 
 Damping cases in an RLC circuit:
 \begin{itemize}
-    \item Underdamped: Oscillatory behavior before settling.
-    \item Overdamped: No oscillations; the system slowly approaches equilibrium.
-    \item Critically damped: The fastest return to equilibrium without oscillations.
+    \item \textit{Underdamped}: Oscillatory behaviour before settling.
+    \item \textit{Overdamped}: No oscillations; system slowly approaches equilibrium.
+    \item \textit{Critically damped}: Fastest return to equilibrium without oscillations.
 \end{itemize}
 
-Integrator: Circuit where the output is proportional to the integral of the input, associated with $\frac{1}{j\omega}$.
+\textit{Integrator}: Circuit where the output is proportional to the integral of the input; associated with $\frac{1}{j\omega}$.
 
-Differentiator: Circuit where the output corresponds to the rate of change of the input, associated with $j\omega$.
+\textit{Differentiator}: Circuit where the output corresponds to the rate of change of the input; associated with $j\omega$.
 
-Complex impedance $Z$: Treat impedance like resistance when solving AC circuits, using $V = IZ$.
+\textit{Complex impedance $Z$}: Treat impedance like resistance when solving AC circuits using $V = IZ$.
 
-Decibels (dB) for Bode plots: Used to measure gain.
-\[
-\text{Gain (dB)} = 20\log_{10}\left(\frac{V_{out}}{V_{in}}\right)
-\]
+Decibels (dB) for Bode plots:
+\[\text{Gain (dB)} = 20\log_{10}\!\left(\frac{V_{\text{out}}}{V_{\text{in}}}\right).\]
 
 $-3\,\text{dB}$ point: The cutoff where the signal power is reduced by half.
 
-Cutoff frequency $(\omega_c)$:
+Cutoff frequency $\omega_c$:
 \begin{itemize}
-    \item RC circuit: $\omega_c = \frac{1}{RC}$
-    \item LR circuit: $\omega_c = \frac{R}{L}$
+    \item RC circuit: $\omega_c = \dfrac{1}{RC}$
+    \item LR circuit: $\omega_c = \dfrac{R}{L}$
 \end{itemize}
 
-Tip: For sinusoidal inputs, replace $L$ and $C$ with their impedance expressions and analyze the circuit using standard algebra instead of solving differential equations.
+\textbf{Tip}: For sinusoidal inputs, replace $L$ and $C$ with their impedance expressions and analyze the circuit using standard algebra instead of solving differential equations.
 
+% ============================================================
+%  Useful Links
+% ============================================================
 \section{Useful Links}
-\noindent\textbf{Inductors (visual explanation):}https://www.youtube.com/shorts/lXk4CQDbr4Q\\
-\textbf{Capacitors (visual explanation):}https://www.youtube.com/shorts/PYrTLQctdwg\\
-\textbf{Resistors (introduction):}https://www.youtube.com/watch?v=5HI33hSZoH4\\
+\noindent\textbf{Inductors (visual explanation):} \url{https://www.youtube.com/shorts/lXk4CQDbr4Q}\\
+\textbf{Capacitors (visual explanation):} \url{https://www.youtube.com/shorts/PYrTLQctdwg}\\
+\textbf{Resistors (introduction):} \url{https://www.youtube.com/watch?v=5HI33hSZoH4}
 
 \end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  11 MAR 2026 01:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  20 MAR 2026 01:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -596,11 +596,11 @@ Package hyperref Info: Link coloring ON on input line 30.
 
 Package pgfplots notification 'compat/show suggested version=true': document has been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 39.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 42.
 (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 39.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 42.
  (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
@@ -612,7 +612,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \openout5 = `Phys241.toc'.
 
  [3]
-Underfull \hbox (badness 10000) in paragraph at lines 62--62
+Underfull \hbox (badness 10000) in paragraph at lines 74--74
 []\OT1/cmr/m/n/10 January 13,
  []
 
@@ -620,216 +620,208 @@ Underfull \hbox (badness 10000) in paragraph at lines 62--62
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.92 \begin{center}
-                    [1
+l.114 \end{center}
+                   [1
 
 ]
-<../Images/Pulsating-direct-current-diagram.svg.png, id=318, 1284.8pt x 632.3625pt>
+<../Images/Pulsating-direct-current-diagram.svg.png, id=343, 1284.8pt x 632.3625pt>
 File: ../Images/Pulsating-direct-current-diagram.svg.png Graphic file (type png)
 <use ../Images/Pulsating-direct-current-diagram.svg.png>
-Package pdftex.def Info: ../Images/Pulsating-direct-current-diagram.svg.png  used on input line 103.
+Package pdftex.def Info: ../Images/Pulsating-direct-current-diagram.svg.png  used on input line 120.
 (pdftex.def)             Requested size: 172.5pt x 84.9021pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.123 \end{example}
+l.142 \end{example}
                     [2
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.123 \end{example}
+l.142 \end{example}
                     <../Images/Pulsating-direct-current-diagram.svg.png>]
 pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.145     \[\vec E = -\nabla V.\]
-                                  [3] [4]
-Underfull \hbox (badness 10000) in paragraph at lines 181--181
+l.173     \[\vec{E} = -\nabla V.\]
+                                   [3] [4]
+Underfull \hbox (badness 10000) in paragraph at lines 212--212
 []\OT1/cmr/m/n/10 January 22,
  []
 
-<../Images/Lenzslaw.png, id=348, 465.74pt x 155.07938pt>
+<../Images/Lenzslaw.png, id=373, 465.74pt x 155.07938pt>
 File: ../Images/Lenzslaw.png Graphic file (type png)
 <use ../Images/Lenzslaw.png>
-Package pdftex.def Info: ../Images/Lenzslaw.png  used on input line 203.
+Package pdftex.def Info: ../Images/Lenzslaw.png  used on input line 232.
 (pdftex.def)             Requested size: 232.86943pt x 77.53949pt.
-[5]
-Underfull \hbox (badness 10000) in paragraph at lines 232--232
-[]\OT1/cmr/m/n/10 January 15,
- []
-
-[6
+[5
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.235 \end{definition}
-                       <../Images/Lenzslaw.png>] [7]
-<../Images/Ohms-Law-Formula-Wheel.png, id=375, 432.61626pt x 321.2pt>
+l.239 \end{definition}
+                       <../Images/Lenzslaw.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 279--279
+[]\OT1/cmr/m/n/10 January 15,
+ []
+
+[6]
+<../Images/Ohms-Law-Formula-Wheel.png, id=393, 432.61626pt x 321.2pt>
 File: ../Images/Ohms-Law-Formula-Wheel.png Graphic file (type png)
 <use ../Images/Ohms-Law-Formula-Wheel.png>
-Package pdftex.def Info: ../Images/Ohms-Law-Formula-Wheel.png  used on input line 269.
+Package pdftex.def Info: ../Images/Ohms-Law-Formula-Wheel.png  used on input line 310.
 (pdftex.def)             Requested size: 172.5pt x 128.07582pt.
+ [7]
+<../Images/kirchhoffrule.jpg, id=401, 702.625pt x 396.48125pt>
+File: ../Images/kirchhoffrule.jpg Graphic file (type jpg)
+<use ../Images/kirchhoffrule.jpg>
+Package pdftex.def Info: ../Images/kirchhoffrule.jpg  used on input line 327.
+(pdftex.def)             Requested size: 224.2479pt x 126.5378pt.
  [8
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.277 \end{definition}
-                       <../Images/Ohms-Law-Formula-Wheel.png>]
-<../Images/AC_symbol.png, id=382, 149.05687pt x 51.19125pt>
-File: ../Images/AC_symbol.png Graphic file (type png)
-<use ../Images/AC_symbol.png>
-Package pdftex.def Info: ../Images/AC_symbol.png  used on input line 290.
-(pdftex.def)             Requested size: 172.5pt x 59.24596pt.
- [9
+l.343 \end{definition}
+                      
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.306 \end{center}
-                   <../Images/AC_symbol.png>] [10]
-<../Images/kirchhoffrule.jpg, id=402, 702.625pt x 396.48125pt>
-File: ../Images/kirchhoffrule.jpg Graphic file (type jpg)
-<use ../Images/kirchhoffrule.jpg>
-Package pdftex.def Info: ../Images/kirchhoffrule.jpg  used on input line 344.
-(pdftex.def)             Requested size: 224.2479pt x 126.5378pt.
-<../Images/Parallel_resistors.png, id=403, 288.07625pt x 211.28937pt>
-File: ../Images/Parallel_resistors.png Graphic file (type png)
-<use ../Images/Parallel_resistors.png>
-Package pdftex.def Info: ../Images/Parallel_resistors.png  used on input line 364.
-(pdftex.def)             Requested size: 172.5pt x 126.52312pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[11
+l.343 \end{definition}
+                       <../Images/Ohms-Law-Formula-Wheel.png> <../Images/kirchhoffrule.jpg>]
+<../Images/AC_symbol.png, id=411, 149.05687pt x 51.19125pt>
+File: ../Images/AC_symbol.png Graphic file (type png)
+<use ../Images/AC_symbol.png>
+Package pdftex.def Info: ../Images/AC_symbol.png  used on input line 356.
+(pdftex.def)             Requested size: 172.5pt x 59.24596pt.
+ [9
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.371 \[R_T = R_0[1 + \alpha (T - T_0)]\]
-                                          <../Images/kirchhoffrule.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 381--381
+l.387 \end{center}
+                   <../Images/AC_symbol.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 410--410
 []\OT1/cmr/m/n/10 January 20,
  []
 
-[12
+<../Images/Parallel_resistors.png, id=421, 288.07625pt x 211.28937pt>
+File: ../Images/Parallel_resistors.png Graphic file (type png)
+<use ../Images/Parallel_resistors.png>
+Package pdftex.def Info: ../Images/Parallel_resistors.png  used on input line 425.
+(pdftex.def)             Requested size: 172.5pt x 126.52312pt.
+[10] [11
 pdfTeX warning (ext4): destination with the same identifier (name{figure.6}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.384 \end{definition}
-                       <../Images/Parallel_resistors.png>] [13] [14] [15]
-<../Images/Transformer.png, id=441, 354.32375pt x 277.035pt>
-File: ../Images/Transformer.png Graphic file (type png)
-<use ../Images/Transformer.png>
-Package pdftex.def Info: ../Images/Transformer.png  used on input line 482.
-(pdftex.def)             Requested size: 172.5pt x 134.87329pt.
- [16
+l.456 \[V_{\text{terminal}} = V_0 - Ir.\]
+                                          <../Images/Parallel_resistors.png>] [12] [13]
+<../Images/Inductor_symbols.png, id=458, 129.98563pt x 274.02374pt>
+File: ../Images/Inductor_symbols.png Graphic file (type png)
+<use ../Images/Inductor_symbols.png>
+Package pdftex.def Info: ../Images/Inductor_symbols.png  used on input line 531.
+(pdftex.def)             Requested size: 103.50105pt x 218.19069pt.
+ [14
 pdfTeX warning (ext4): destination with the same identifier (name{figure.7}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.494 ...I_1}{dt} = M \omega I_0 \cos(\omega t),\]
-                                                   <../Images/Transformer.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 499--501
-
- []
-
-<../Images/Inductor_symbols.png, id=449, 129.98563pt x 274.02374pt>
-File: ../Images/Inductor_symbols.png Graphic file (type png)
-<use ../Images/Inductor_symbols.png>
-Package pdftex.def Info: ../Images/Inductor_symbols.png  used on input line 515.
-(pdftex.def)             Requested size: 103.50105pt x 218.19069pt.
-[17] [18
+l.547 ...c{di}{dt}\cdot i\,dt = \frac{1}{2}LI^2.\]
+                                                   <../Images/Inductor_symbols.png>]
+<../Images/Solenoid.png, id=465, 314.67563pt x 251.43938pt>
+File: ../Images/Solenoid.png Graphic file (type png)
+<use ../Images/Solenoid.png>
+Package pdftex.def Info: ../Images/Solenoid.png  used on input line 569.
+(pdftex.def)             Requested size: 172.5pt x 137.83551pt.
+ [15
 pdfTeX warning (ext4): destination with the same identifier (name{figure.8}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.534 \[V_{\text{total}} = \sum_{i=1}^{N} V_i.\]
-                                                 <../Images/Inductor_symbols.png>]
-<../Images/Solenoid.png, id=463, 314.67563pt x 251.43938pt>
-File: ../Images/Solenoid.png Graphic file (type png)
-<use ../Images/Solenoid.png>
-Package pdftex.def Info: ../Images/Solenoid.png  used on input line 553.
-(pdftex.def)             Requested size: 172.5pt x 137.83551pt.
- [19]
-<../Images/RC_circuit.png, id=470, 296.60812pt x 349.80687pt>
-File: ../Images/RC_circuit.png Graphic file (type png)
-<use ../Images/RC_circuit.png>
-Package pdftex.def Info: ../Images/RC_circuit.png  used on input line 567.
-(pdftex.def)             Requested size: 172.5pt x 203.44324pt.
- [20
+l.578     \begin{center}
+                         <../Images/Solenoid.png>]
+<../Images/Transformer.png, id=475, 354.32375pt x 277.035pt>
+File: ../Images/Transformer.png Graphic file (type png)
+<use ../Images/Transformer.png>
+Package pdftex.def Info: ../Images/Transformer.png  used on input line 595.
+(pdftex.def)             Requested size: 172.5pt x 134.87329pt.
+ [16
 pdfTeX warning (ext4): destination with the same identifier (name{figure.9}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.574 ... \frac{1}{C}\int_0^{t} i(\tau)\, d\tau.\]
-                                                  
+l.621 \end{definition}
+                       <../Images/Transformer.png>]
+<../Images/RC_circuit.png, id=485, 296.60812pt x 349.80687pt>
+File: ../Images/RC_circuit.png Graphic file (type png)
+<use ../Images/RC_circuit.png>
+Package pdftex.def Info: ../Images/RC_circuit.png  used on input line 626.
+(pdftex.def)             Requested size: 172.5pt x 203.44324pt.
+
+Overfull \hbox (69.73885pt too wide) in paragraph at lines 656--657
+ [] 
+ []
+
+[17
 pdfTeX warning (ext4): destination with the same identifier (name{figure.10}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.574 ... \frac{1}{C}\int_0^{t} i(\tau)\, d\tau.\]
-                                                   <../Images/Solenoid.png> <../Images/RC_circuit.png>]
-Overfull \hbox (69.73885pt too wide) in paragraph at lines 606--607
+l.657 \end{center}
+                   <../Images/RC_circuit.png>]
+Overfull \hbox (83.96521pt too wide) in paragraph at lines 682--683
  [] 
  []
 
 
-Overfull \hbox (83.96521pt too wide) in paragraph at lines 634--635
- [] 
- []
-
-[21]
-<../Images/LR_circuit.png, id=486, 306.14375pt x 337.76187pt>
-File: ../Images/LR_circuit.png Graphic file (type png)
-<use ../Images/LR_circuit.png>
-Package pdftex.def Info: ../Images/LR_circuit.png  used on input line 647.
-(pdftex.def)             Requested size: 172.5pt x 190.31528pt.
- [22
-pdfTeX warning (ext4): destination with the same identifier (name{figure.11}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.654 \[V = L \frac{di}{dt},\]
-                               <../Images/LR_circuit.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 665--665
+Underfull \hbox (badness 10000) in paragraph at lines 686--686
 []\OT1/cmr/m/n/10 January 29,
  []
 
-[23] [24] [25] [26] [27]
-Overfull \hbox (24.96072pt too wide) in paragraph at lines 892--895
-\OT1/cmr/bx/n/10 Inductors (vi-sual ex-pla-na-tion):\OT1/cmr/m/n/10 https://www.youtube.com/shorts/lXk4CQDbr4Q 
+[18]
+<../Images/LR_circuit.png, id=499, 306.14375pt x 337.76187pt>
+File: ../Images/LR_circuit.png Graphic file (type png)
+<use ../Images/LR_circuit.png>
+Package pdftex.def Info: ../Images/LR_circuit.png  used on input line 735.
+(pdftex.def)             Requested size: 172.5pt x 190.31528pt.
+ [19]
+Underfull \hbox (badness 10000) in paragraph at lines 752--752
+[]\OT1/cmr/m/n/10 January 29,
+ []
+
+[20
+pdfTeX warning (ext4): destination with the same identifier (name{figure.11}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.755 ...} = RC, \qquad \tau_{LR} = \frac{L}{R}.\]
+                                                   <../Images/LR_circuit.png>] [21] [22] [23] [24]
+Overfull \hbox (32.04163pt too wide) in paragraph at lines 978--981
+\OT1/cmr/bx/n/10 Inductors (vi-sual ex-pla-na-tion): [][]$\OT1/cmtt/m/n/10 https : / / www . youtube . com / shorts / lXk4CQDbr4Q$[][] 
  []
 
 
-Overfull \hbox (29.80783pt too wide) in paragraph at lines 892--895
-\OT1/cmr/bx/n/10 Capacitors (vi-sual ex-pla-na-tion):\OT1/cmr/m/n/10 https://www.youtube.com/shorts/PYrTLQctdwg 
+Overfull \hbox (37.58322pt too wide) in paragraph at lines 978--981
+\OT1/cmr/bx/n/10 Capacitors (vi-sual ex-pla-na-tion): [][]$\OT1/cmtt/m/n/10 https : / / www . youtube . com / shorts / PYrTLQctdwg$[][] 
  []
 
 
-Overfull \hbox (2.36513pt too wide) in paragraph at lines 892--895
-\OT1/cmr/bx/n/10 Resistors (in-tro-duc-tion):\OT1/cmr/m/n/10 https://www.youtube.com/watch?v=5HI33hSZoH4 
+Overfull \hbox (7.22375pt too wide) in paragraph at lines 978--981
+\OT1/cmr/bx/n/10 Resistors (in-tro-duc-tion): [][]$\OT1/cmtt/m/n/10 https : / / www . youtube . com / watch ? v = 5HI33hSZoH4$[][] 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 892--895
-
- []
-
-[28] (Phys241.aux)
+[25] [26] (Phys241.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
 Package rerunfilecheck Info: File `Phys241.out' has not changed.
-(rerunfilecheck)             Checksum: 7903A41EFE54FD11F5623CA3ABF97C96;8177.
+(rerunfilecheck)             Checksum: 08B1D603489A457DD972BDC340E426FD;9394.
  ) 
 Here is how much of TeX's memory you used:
- 50195 strings out of 467871
- 1305610 string characters out of 5418377
- 2048519 words of memory out of 5000000
- 78375 multiletter control sequences out of 15000+600000
- 640873 words of font info for 88 fonts, out of 8000000 for 9000
+ 50205 strings out of 467871
+ 1305867 string characters out of 5418377
+ 2051425 words of memory out of 5000000
+ 78378 multiletter control sequences out of 15000+600000
+ 640025 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,8n,118p,799b,1070s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\erenr\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm0800.pk> <C:\Users\erenr\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti9.pfb>
-Output written on Phys241.pdf (31 pages, 941851 bytes).
+ <C:\Users\erenr\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on Phys241.pdf (29 pages, 962660 bytes).
 PDF statistics:
- 652 PDF objects out of 1000 (max. 8388607)
- 149 named destinations out of 1000 (max. 500000)
- 508 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 683 PDF objects out of 1000 (max. 8388607)
+ 158 named destinations out of 1000 (max. 500000)
+ 548 words of extra memory for PDF output out of 10000 (max. 10000000)
 
