@@ -81,10 +81,13 @@
 \contentsline {paragraph}{How to diagonalize $A$.}{25}{section*.15}%
 \contentsline {subsubsection}{\numberline {5.7.4}Algebraic and Geometric Multiplicity}{26}{subsubsection.5.7.4}%
 \contentsline {subsection}{\numberline {5.8}Inner Product Spaces}{27}{subsection.5.8}%
-\contentsline {section}{\numberline {6}Appendix}{28}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Proof: Standard Basis is a Basis}{28}{subsection.6.1}%
-\contentsline {paragraph}{Claim 1.}{28}{section*.16}%
-\contentsline {paragraph}{Claim 2.}{28}{section*.17}%
-\contentsline {subsection}{\numberline {6.2}Algebraic Structures: Rings, Fields, and Vector Spaces}{28}{subsection.6.2}%
-\contentsline {section}{\numberline {7}Solutions}{28}{section.7}%
-\contentsline {section}{\numberline {8}Useful Links}{30}{section.8}%
+\contentsline {subsubsection}{\numberline {5.8.1}Examples of Inner Product Spaces}{28}{subsubsection.5.8.1}%
+\contentsline {subsubsection}{\numberline {5.8.2}Norm Expansion and Pythagoras}{28}{subsubsection.5.8.2}%
+\contentsline {subsubsection}{\numberline {5.8.3}Complex Inner Products}{29}{subsubsection.5.8.3}%
+\contentsline {section}{\numberline {6}Appendix}{29}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Proof: Standard Basis is a Basis}{29}{subsection.6.1}%
+\contentsline {paragraph}{Claim 1.}{29}{section*.18}%
+\contentsline {paragraph}{Claim 2.}{29}{section*.19}%
+\contentsline {subsection}{\numberline {6.2}Algebraic Structures: Rings, Fields, and Vector Spaces}{29}{subsection.6.2}%
+\contentsline {section}{\numberline {7}Solutions}{29}{section.7}%
+\contentsline {section}{\numberline {8}Useful Links}{31}{section.8}%

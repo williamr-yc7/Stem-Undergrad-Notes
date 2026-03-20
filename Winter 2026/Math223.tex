@@ -1194,6 +1194,57 @@ An inner product space is a vector space $V$ equipped with an inner product — 
     For $v=(x_1,\ldots,x_n)^T$ and $w=(y_1,\ldots,y_n)^T$, the dot product $\langle v,w\rangle = x_1y_1+\cdots+x_ny_n$ is an inner product. The induced norm is $\|v\| = \sqrt{x_1^2+\cdots+x_n^2}$, and positive definiteness holds since $\|v\|=0 \implies x_i=0$ for all $i$.
 \end{example}
 
+\marginpar{March 20, 2026}
+\begin{example}
+    Show $\|\lambda u\| = |\lambda|\,\|u\|$.
+    \begin{proof}
+        $\|\lambda u\|^2 = \langle \lambda u, \lambda u\rangle = |\lambda|^2\langle u,u\rangle = |\lambda|^2\|u\|^2$. Taking square roots gives $\|\lambda u\| = |\lambda|\,\|u\|$.
+    \end{proof}
+\end{example}
+ 
+\subsubsection{Examples of Inner Product Spaces}
+ 
+\subsubsection*{Function spaces}
+\begin{example}
+    Let $V = C^0([0,1])$ be the space of continuous functions $[0,1]\to\mathbb{R}$. Define
+    \[\langle f,g\rangle = \int_0^1 f(x)g(x)\,dx.\]
+    This is an inner product:
+    \begin{enumerate}
+        \item \textbf{Linearity on the left}: $\int(f+g)h\,dx = \int fh\,dx + \int gh\,dx = \langle f,h\rangle+\langle g,h\rangle$, and $\int(\lambda f)g\,dx = \lambda\int fg\,dx = \lambda\langle f,g\rangle$.
+        \item \textbf{Symmetry}: $\int f(x)g(x)\,dx = \int g(x)f(x)\,dx$.
+        \item \textbf{Positive definiteness}: $\langle f,f\rangle = \int f(x)^2\,dx \ge 0$. If $\|f\|=0$, then $\int f^2 = 0$; since $f^2\ge 0$ and $f$ is continuous, this forces $f=0$ everywhere.
+    \end{enumerate}
+\end{example}
+ 
+\subsubsection*{Matrix spaces}
+\begin{example}[$M_n(\mathbb{R})$]
+    For $A=(a_{ij})$ and $B=(b_{ij})$ in $M_n(\mathbb{R})$, define
+    \[\langle A,B\rangle = \sum_{i,j=1}^n a_{ij}b_{ij}, \qquad \|A\| = \sqrt{\sum_{i,j=1}^n a_{ij}^2}.\]
+    The standard basis matrices $e_{ij}$ satisfy $\langle e_{ij},e_{kl}\rangle = 1$ if $(i,j)=(k,l)$ and $0$ otherwise, e.g.\ $\langle e_{11},e_{21}\rangle = 0$ but $\langle e_{11},e_{11}\rangle = 1$.
+\end{example}
+ 
+\subsubsection{Norm Expansion and Pythagoras}
+\begin{proposition}[Norm expansion]
+    For any $u,v\in V$:
+    \[\|u+v\|^2 = \|u\|^2 + 2\langle u,v\rangle + \|v\|^2.\]
+\end{proposition}
+\begin{proof}
+    $\langle u+v,u+v\rangle = \langle u,u\rangle + \langle u,v\rangle + \langle v,u\rangle + \langle v,v\rangle = \|u\|^2 + 2\langle u,v\rangle + \|v\|^2$.
+\end{proof}
+\begin{theorem}[Pythagorean theorem]
+    $u \perp v \iff \langle u,v\rangle = 0 \iff \|u+v\|^2 = \|u\|^2 + \|v\|^2$.
+\end{theorem}
+ 
+\subsubsection{Complex Inner Products}
+\begin{definition}[Inner product on $\mathbb{C}^n$]
+    For $x,y\in\mathbb{C}^n$, define
+    \[\langle x,y\rangle = \sum_{i=1}^n x_i\overline{y_i}.\]
+    Then $\|x\|^2 = \langle x,x\rangle = \sum_{i=1}^n x_i\overline{x_i} = \sum_{i=1}^n |x_i|^2$, using $z\overline{z} = |z|^2$.
+\end{definition}
+\begin{remark}
+    The conjugate on the second argument (rather than the first) ensures positive definiteness: $\langle x,x\rangle = \sum|x_i|^2 \ge 0$, with equality iff all $x_i=0$.
+\end{remark}
+
 % ============================================================
 \section{Appendix}
 % ============================================================
