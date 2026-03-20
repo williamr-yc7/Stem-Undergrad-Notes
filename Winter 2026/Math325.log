@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  19 MAR 2026 17:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  19 MAR 2026 20:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -647,110 +647,116 @@ Underfull \hbox (badness 10000) in paragraph at lines 642--642
  []
 
 [16] [17] [18] [19]
-Underfull \hbox (badness 10000) in paragraph at lines 901--901
+Underfull \hbox (badness 10000) in paragraph at lines 913--913
 []\OT1/cmr/m/n/10 February 10,
  []
 
 [20]
-Underfull \hbox (badness 10000) in paragraph at lines 973--973
+Underfull \hbox (badness 10000) in paragraph at lines 985--985
 [][]\OT1/cmr/m/n/10 February 12,
  []
 
 [21] [22]
-Underfull \hbox (badness 10000) in paragraph at lines 1104--1104
+Underfull \hbox (badness 10000) in paragraph at lines 1116--1116
 []\OT1/cmr/m/n/10 February 17,
  []
 
 [23]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1168.
+(hyperref)                removing `math shift' on input line 1180.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 1168.
+(hyperref)                removing `superscript' on input line 1180.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1168.
+(hyperref)                removing `math shift' on input line 1180.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1169--1169
+Underfull \hbox (badness 10000) in paragraph at lines 1181--1181
 []\OT1/cmr/m/n/10 February 19,
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1192.
+(hyperref)                removing `math shift' on input line 1204.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 1192.
+(hyperref)                removing `superscript' on input line 1204.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1192.
+(hyperref)                removing `math shift' on input line 1204.
 
 [24] [25]
-Underfull \hbox (badness 10000) in paragraph at lines 1275--1275
+Underfull \hbox (badness 10000) in paragraph at lines 1287--1287
 []\OT1/cmr/m/n/10 February 24,
  []
 
-<../Images/MSS-setup.jpeg, id=621, 2055.68pt x 800.9925pt>
+<../Images/MSS-setup.jpeg, id=620, 2055.68pt x 800.9925pt>
 File: ../Images/MSS-setup.jpeg Graphic file (type jpg)
 <use ../Images/MSS-setup.jpeg>
-Package pdftex.def Info: ../Images/MSS-setup.jpeg  used on input line 1280.
+Package pdftex.def Info: ../Images/MSS-setup.jpeg  used on input line 1292.
 (pdftex.def)             Requested size: 172.5pt x 67.20956pt.
-<../Images/circuit-ode.jpeg, id=622, 2055.68pt x 1541.76pt>
+[26 <../Images/MSS-setup.jpeg>]
+<../Images/circuit-ode.jpeg, id=628, 2055.68pt x 1541.76pt>
 File: ../Images/circuit-ode.jpeg Graphic file (type jpg)
 <use ../Images/circuit-ode.jpeg>
-Package pdftex.def Info: ../Images/circuit-ode.jpeg  used on input line 1327.
+Package pdftex.def Info: ../Images/circuit-ode.jpeg  used on input line 1339.
 (pdftex.def)             Requested size: 172.5pt x 129.3658pt.
-[26 <../Images/MSS-setup.jpeg>]
-Underfull \hbox (badness 10000) in paragraph at lines 1350--1350
+ [27 <../Images/circuit-ode.jpeg>]
+Underfull \hbox (badness 10000) in paragraph at lines 1362--1362
 []\OT1/cmr/m/n/10 March 10,
  []
 
-[27 <../Images/circuit-ode.jpeg>] [28]
-Underfull \hbox (badness 10000) in paragraph at lines 1430--1430
+[28]
+Underfull \hbox (badness 10000) in paragraph at lines 1442--1442
 []\OT1/cmr/m/n/10 March 12,
  []
 
-[29]
-Underfull \hbox (badness 10000) in paragraph at lines 1470--1470
+[29] [30]
+Underfull \hbox (badness 10000) in paragraph at lines 1482--1482
 []\OT1/cmr/m/n/10 March 10,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1482--1482
+Underfull \hbox (badness 10000) in paragraph at lines 1494--1494
 []\OT1/cmr/m/n/10 March 17,
  []
 
-[30] [31]
-Underfull \hbox (badness 10000) in paragraph at lines 1587--1587
+[31] [32]
+Underfull \hbox (badness 10000) in paragraph at lines 1604--1604
 []\OT1/cmr/m/n/10 March 19,
  []
 
-[32] [33] [34] [35] [36] [37] (Math325.aux)
+
+Underfull \hbox (badness 10000) in paragraph at lines 1619--1619
+[]\OT1/cmr/m/n/10 March 19,
+ []
+
+[33] [34] [35] [36] [37] [38] (Math325.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
 Package rerunfilecheck Info: File `Math325.out' has not changed.
-(rerunfilecheck)             Checksum: 8C6C07B0A01DED81BADACBA5CC4F47E8;13496.
+(rerunfilecheck)             Checksum: A564864B69398FE06085F1BE901E0795;13496.
  ) 
 Here is how much of TeX's memory you used:
- 31132 strings out of 467871
- 732882 string characters out of 5418377
- 1275609 words of memory out of 5000000
+ 31139 strings out of 467871
+ 732947 string characters out of 5418377
+ 1271609 words of memory out of 5000000
  59295 multiletter control sequences out of 15000+600000
  640216 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,14n,118p,799b,644s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,14n,118p,799b,634s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\erenr\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Math325.pdf (40 pages, 1046487 bytes).
+Output written on Math325.pdf (41 pages, 1049854 bytes).
 PDF statistics:
- 867 PDF objects out of 1000 (max. 8388607)
- 223 named destinations out of 1000 (max. 500000)
+ 878 PDF objects out of 1000 (max. 8388607)
+ 230 named destinations out of 1000 (max. 500000)
  575 words of extra memory for PDF output out of 10000 (max. 10000000)
 

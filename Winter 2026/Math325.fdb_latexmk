@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1773954193.80929 "c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math325.tex" "Math325.pdf" "Math325" 1773954196.84709 0
+["pdflatex"] 1773965568.10545 "c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math325.tex" "Math325.pdf" "Math325" 1773965573.66243 0
   "../Images/MSS-setup.jpeg" 1771967647 175284 23355f99136cc6b96c514f0ec06940ab ""
   "../Images/circuit-ode.jpeg" 1771971481 297056 d82c58391ad4225b66d9ad02a986cbc2 ""
   "C:/Users/erenr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1773804861 82507 a9eef8696c92627b87e9975edea03b2a ""
@@ -226,11 +226,11 @@
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/transparent/transparent.sty" 1751104085 1797 4ef4500488e0ea48fd76f41e2a351a2e ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
-  "Math325.aux" 1773954196 11146 cbb8230c959458e1e4f32c34afbc1c8d "pdflatex"
-  "Math325.out" 1773954196 13496 8c6c07b0a01ded81badacba5cc4f47e8 "pdflatex"
-  "Math325.tex" 1773954185 81113 6fa3cbba13dfa22efab4fcb3604aa3bc ""
-  "Math325.toc" 1773954196 6640 8cbbb42eea9223d6b97a70cf9c050a18 "pdflatex"
-  "c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math325.tex" 1773954185 81113 6fa3cbba13dfa22efab4fcb3604aa3bc ""
+  "Math325.aux" 1773965572 11146 ccadf97febe4288d6fba20710a7bce1b "pdflatex"
+  "Math325.out" 1773965572 13496 a564864b69398fe06085f1be901e0795 "pdflatex"
+  "Math325.tex" 1773965557 82213 93ffa702f05bececc0f4f055bb75995a ""
+  "Math325.toc" 1773965572 6640 7b91b8cc2614b4c664531211499f7083 "pdflatex"
+  "c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Math325.tex" 1773965557 82213 93ffa702f05bececc0f4f055bb75995a ""
   (generated)
   "Math325.aux"
   "Math325.log"
