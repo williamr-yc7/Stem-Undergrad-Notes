@@ -1685,76 +1685,150 @@ where $Bu$ is the controller term.
 
 \section{Laplace Transform}
 \marginpar{March 24, 2026}
-Given $f: [0,\infty) \to \mathbb{R}$, its Laplace transform is given by:
-\begin{equation}
-    \label{eq-Laplacetransform}
-    L[f](s) = \int_{0}^{\infty}e^{-st}f(t)dt = F(s).\text{ Exists }\forall s>a.
-\end{equation}
-Here, the improper integral is interpreted as
-\[\int_{0}^{\infty}e^{-st}f(t)dt = \lim_{A \to +\infty}\int_{0}^{A}e^{-st}f(t)dt\]
+
+\subsection{Definition and Existence}
+
+\begin{definition}[Laplace Transform]
+    Given $f: [0,\infty) \to \mathbb{R}$, its Laplace transform is
+    \begin{equation}
+        \label{eq:laplace-transform}
+        \mathcal{L}[f](s) = \int_{0}^{\infty} e^{-st} f(t)\,dt = F(s),
+    \end{equation}
+    where the improper integral is interpreted as
+    \[\int_{0}^{\infty} e^{-st} f(t)\,dt = \lim_{A \to +\infty}
+    \int_{0}^{A} e^{-st} f(t)\,dt.\]
+\end{definition}
+
+\begin{definition}[Piecewise Continuous]
+    A function $f: [0,\infty) \to \mathbb{R}$ is piecewise continuous 
+    if there exists a partition
+    \[t_0 = 0 < t_1 < t_2 < \cdots < t_n < t_{n+1} = +\infty\]
+    such that $f$ is continuous on each $(t_i, t_{i+1})$, and the 
+    one-sided limits $\lim_{t \to t_i^-} f(t)$ and 
+    $\lim_{t \to t_i^+} f(t)$ are finite for each $i = 1, \ldots, n$.
+\end{definition}
+
+\begin{definition}[Exponential Order]
+    A function $f: [0,\infty) \to \mathbb{R}$ is of exponential order 
+    $a$ if there exist constants $K \geq 0$ and $M \geq 0$ such that
+    \[|f(t)| \leq K e^{at} \quad \text{for all } t \geq M.\]
+\end{definition}
+
+\begin{remark}
+    We abbreviate ``piecewise continuous of exponential order'' as PCEO.
+\end{remark}
+
 \begin{lemma}
-    If $\int_{0}^{\infty}|g(t)|dt$ converges, then $\int_{0}^{\infty}g(t)dt$ also converges.
+    If $\int_{0}^{\infty} |g(t)|\,dt$ converges, then 
+    $\int_{0}^{\infty} g(t)\,dt$ also converges.
 \end{lemma}
-We say that a function $f: [0,\infty) \to \mathbb{R}$ is piecewise continuous, if there is a partition
-\[t_0=0<t_1<t_2<\ldots<t_n<t_{n+1}=+\infty,\]
-such that 
-\begin{itemize}
-    \item $f:(t_i,t_{i+1}) \to \mathbb{R}$ is continuous for each $i=0,\ldots,n$.
-    \item $\lim_{t\to t_i^{-}}f(t)<\infty, \lim_{t\to t_i^{+}}f(t) < \infty$, for each $i=1,\ldots,n$.
-\end{itemize}
-We say that $f: [0,\infty) \to \mathbb{R}$ is of exponential order if there exists a constant $a$ (order), $k \geq 0$, $M \geq 0$ such that $|f(t)| \leq Ke^{at}$, $t \geq M$.
-\begin{theorem}[Existence of Laplace Transform]
-    Assume that $f$ is piecewise continuous of exponential order (PCEO) with order $a$. Then, $F(s)$ exists for all $s>a$.
+
+\begin{theorem}[Existence of the Laplace Transform]
+    If $f$ is PCEO with order $a$, then $F(s) = \mathcal{L}[f](s)$ 
+    exists for all $s > a$.
 \end{theorem}
+
 \begin{proof}
-    \[\lim_{A\to +\infty}\int_{0}^{A}|e^{-st}f(t)|dt \leq \lim_{A\to +\infty} \int_{0}^{M}e^{-st}|f(t)|dt + \lim_{A\to +\infty} \int_{M}^{A}Ke^{-(s-a)t}dt.\]
-    \[=\int_{0}^{M}e^{-st}|f(t)|dt + K\lim_{A\to +\infty}\frac{e^{-(s-a)t}}{-(s-a)}\bigg|_{t=M}^{t=A}.\]
-\end{proof}
-\begin{example}
-    Let $f(t) = t^n$, then $|f(t)| \leq K e^{at}$. True for every $a>0 \implies f(t) = t^n$ is of exponential order a for any $a >0$.
-\end{example}
-\begin{example}
-    Let $f(t) = e^{t^2}$ is not of exponential order.
-\end{example}
-\begin{example}
-    Let $f(t) = K$, $t \geq 0$. Then $|f(t)| \leq Ke^{0\cdot t}$, $t \geq M=0$. $L[f](s) = \int_{0}^{\infty}e^{-st}Kdt = K\lim_{A\to +\infty}\int_{0}^{A}e^{-st}dt = K\lim_{A\to +\infty}(\frac{e^{-sA}}{-s} + \frac{1}{s})=\frac{K}{s},\quad \forall s > 0$. This implies that the Laplace transform exists for all $s > 0$ and is given by $L[f](s) = \frac{K}{s}$. The exponential order is $a=0$.
-\end{example}
-\begin{example}
-    Let $f(t) = e^{at}, a\in\mathbb{R}$. Then $K=1,M=0$.
-    \[L[e^{at}] = \int_{0}^{\infty}e^{-st}e^{at}dt = \frac{e^{-(s-a)t}}{-(s-a)}\bigg|_{t=0}^{t=\infty} = \frac{1}{s-a}, \quad \forall s > a.\]
-\end{example}
-FYI: $L[t^n] = \frac{n!}{s^{n+1}}$, $n=0$, proof by induction.
-\begin{example}
-    Let $f(t) = \begin{cases}1, t\in[0,1)\\K, t=1\\ 0, t>1\end{cases}$. For $t>1$, we have $|f(t)| = 0 \leq Ke^{at}$.
-    \[L[f] = \int_{0}^{\infty}e^{-st}f(t)dt = \int_{0}^{1}e^{-st}f(t)dt = \int_{0}^{1}e^{-st}dt = \begin{cases}1, s=0\\\frac{-e^{-s}+1}{s}, s\neq0\end{cases}.\]
-    This Laplace exists for all $s\in\mathbb{R}$.
-\end{example}
-\begin{proposition}
-    Let $f: [0,\infty) \to \mathbb{R}$ be a PCEO with order $a$. Then $F: (a,\infty) \to \mathbb{R}$ defined by $F(s) = L[f](s)$ is a $C^{\infty}$ function with 
-    \[\frac{d^k F}{ds^k}(s) = (-1)^k L[t^kf(t)](s), s>a.\]
-\end{proposition}
-\begin{proof}
-    For $k=1$.\\
-    Since $f$ is PCEO of order $a$, then (exercise) the same holds for $tf(t)$.\\
-    $\implies L[tf(t)](s) = \int_{0}^{\infty}e^{-st}tf(t)dt$ exists for all $s>a$. Now, $F'(s) = \frac{d}{ds}\int_{0}^{\infty}e^{-st}tf(t)dt = -\int_{0}^{\infty}te^{-st}f(t)dt = -L[tf(t)], k=1$.\\
-    For the general case $k>1$, simply replace $f(t)$ by $t^{k-1}f(t)$ in the previous argument.
+    \[\lim_{A\to +\infty}\int_{0}^{A}|e^{-st}f(t)|\,dt \leq 
+    \int_{0}^{M}e^{-st}|f(t)|\,dt + 
+    K\lim_{A\to +\infty}\int_{M}^{A}e^{-(s-a)t}\,dt.\]
+    The first term is finite since $f$ is piecewise continuous on 
+    $[0,M]$. The second term equals
+    \[K\lim_{A\to +\infty}\frac{e^{-(s-a)t}}{-(s-a)}
+    \bigg|_{t=M}^{t=A} = \frac{Ke^{-(s-a)M}}{s-a} < \infty 
+    \quad \text{for } s > a.\]
 \end{proof}
 
-\subsection{Linearity}
-Let $f_1,f_2$ be PCEO of order $a_1,a_2$ respectively. Let $a=max(a_1,a_2)$. Then for any constants $c_1,c_2$
-\[L[c_1f_1(t)+c_2f_2(t)](s) = c_1L[f_1](s) + c_2L[f_2](s),\]
-and it exists for $s>a$.
-\begin{example}
-    Let $f(t) = cosh(at) = \frac{e^{at}+e^{-at}}{2}$, then
-    \[L[f] = \frac{1}{2}L[e^{at}]+\frac{1}{2}L[e^{-at}] = \frac{1}{2}\frac{1}{s-a} + \frac{1}{2}\frac{1}{s+a}=\frac{s}{s^2-a^2}, s>a.\]
+\begin{example}[Exponential order examples]
+    \begin{itemize}
+        \item $f(t) = t^n$ satisfies $|f(t)| \leq Ke^{at}$ for any 
+        $a > 0$, so it is of exponential order $a$ for any $a > 0$.
+        \item $f(t) = e^{t^2}$ is not of exponential order.
+    \end{itemize}
 \end{example}
-\begin{example}
-    Let $f(t) = cos(wt) \implies L[cos(wt)] = \int_{0}^{\infty}e^{-st}cos(wt)dt, s>0$. Notice that $cos(wt) = \frac{e^{iwt}+e^{-iwt}}{2}$, and 
-    \[L[cos(wt)] = \frac{1}{2}L[e^{iwt}]+\frac{1}{2}L[e^{-iwt}] = \frac{1}{2}\frac{1}{s-iw}+\frac{1}{2}\frac{1}{s+iw} = \frac{s}{s^2+w^2}, s>0.\]
+
+\subsection{Computing Laplace Transforms}
+
+\begin{example}[$f(t) = K$]
+    Since $|f(t)| \leq Ke^{0\cdot t}$, the exponential order is $a=0$. 
+    For $s > 0$,
+    \[\mathcal{L}[K](s) = K\lim_{A\to +\infty}\int_{0}^{A}e^{-st}\,dt 
+    = K\lim_{A\to +\infty}\left(\frac{-e^{-sA}}{s} + \frac{1}{s}\right) 
+    = \frac{K}{s}.\]
 \end{example}
-\begin{proposition}[Injectivity of the Laplace Transform]
-    Assume that $f,g: [0,\infty) \to \mathbb{R}$ are continuous and of exponential order. If $L[f] = L[g]$, then $f=g$. This implies that we can define the inverse Laplace Transform, which we denote $L^{-1}[F(s)]$.
+
+\begin{example}[$f(t) = e^{at}$, $a \in \mathbb{R}$]
+    With $K=1$, $M=0$,
+    \[\mathcal{L}[e^{at}](s) = \int_{0}^{\infty}e^{-(s-a)t}\,dt 
+    = \frac{1}{s-a}, \quad s > a.\]
+\end{example}
+
+\begin{remark}
+    By induction one can show that $\mathcal{L}[t^n](s) = 
+    \dfrac{n!}{s^{n+1}}$ for $n = 0, 1, 2, \ldots$
+\end{remark}
+
+\begin{example}[$f(t) = \cosh(at)$]
+    Using $\cosh(at) = \frac{e^{at}+e^{-at}}{2}$ and linearity,
+    \[\mathcal{L}[\cosh(at)](s) = \frac{1}{2}\cdot\frac{1}{s-a} + 
+    \frac{1}{2}\cdot\frac{1}{s+a} = \frac{s}{s^2-a^2}, \quad s > |a|.\]
+\end{example}
+
+\begin{example}[$f(t) = \cos(\omega t)$]
+    Using $\cos(\omega t) = \frac{e^{i\omega t}+e^{-i\omega t}}{2}$ 
+    and linearity,
+    \[\mathcal{L}[\cos(\omega t)](s) = \frac{1}{2}\cdot
+    \frac{1}{s-i\omega} + \frac{1}{2}\cdot\frac{1}{s+i\omega} 
+    = \frac{s}{s^2+\omega^2}, \quad s > 0.\]
+\end{example}
+
+\begin{example}[Piecewise function]
+    Let $f(t) = \begin{cases}1, & t\in[0,1),\\ K, & t=1,\\ 
+    0, & t>1.\end{cases}$
+    Since $f(t) = 0$ for $t > 1$, the transform is
+    \[\mathcal{L}[f](s) = \int_{0}^{1}e^{-st}\,dt = 
+    \begin{cases}1, & s=0,\\ \dfrac{1-e^{-s}}{s}, & s\neq 0,
+    \end{cases}\]
+    which exists for all $s \in \mathbb{R}$.
+\end{example}
+
+\subsection{Properties}
+
+\subsubsection{Linearity}
+
+Let $f_1, f_2$ be PCEO with orders $a_1, a_2$ respectively, and set 
+$a = \max(a_1, a_2)$. Then for any constants $c_1, c_2$,
+\[\mathcal{L}[c_1 f_1 + c_2 f_2](s) = c_1 \mathcal{L}[f_1](s) + 
+c_2 \mathcal{L}[f_2](s), \quad s > a.\]
+
+\subsubsection{Differentiability and the $s$-Derivative Formula}
+
+\begin{proposition}
+    Let $f$ be PCEO with order $a$. Then $F : (a, \infty) \to \mathbb{R}$ 
+    is $C^\infty$ and
+    \[\frac{d^k F}{ds^k}(s) = (-1)^k \mathcal{L}[t^k f(t)](s), 
+    \quad s > a.\]
 \end{proposition}
+
+\begin{proof}
+    For $k=1$: since $f$ is PCEO of order $a$, the same holds for 
+    $tf(t)$, so $\mathcal{L}[tf(t)](s)$ exists for $s > a$. 
+    Differentiating under the integral sign,
+    \[F'(s) = \frac{d}{ds}\int_{0}^{\infty}e^{-st}f(t)\,dt 
+    = -\int_{0}^{\infty}te^{-st}f(t)\,dt = -\mathcal{L}[tf(t)](s).\]
+    For $k > 1$, replace $f(t)$ by $t^{k-1}f(t)$ and iterate.
+\end{proof}
+
+\subsubsection{Injectivity and the Inverse Transform}
+
+\begin{proposition}[Injectivity]
+    Assume $f, g: [0,\infty) \to \mathbb{R}$ are continuous and of 
+    exponential order. If $\mathcal{L}[f] = \mathcal{L}[g]$, then 
+    $f = g$.
+\end{proposition}
+
+Injectivity guarantees that the inverse Laplace transform is 
+well-defined. We denote it $\mathcal{L}^{-1}[F(s)]$.
 
 
 \section{Appendix}

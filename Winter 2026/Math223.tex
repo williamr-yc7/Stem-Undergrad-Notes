@@ -1245,6 +1245,42 @@ An inner product space is a vector space $V$ equipped with an inner product — 
     The conjugate on the second argument (rather than the first) ensures positive definiteness: $\langle x,x\rangle = \sum|x_i|^2 \ge 0$, with equality iff all $x_i=0$.
 \end{remark}
 
+\marginpar{March 23, 2026}
+
+
+\marginpar{March 25, 2026}
+Orthogonal matrices
+def: A orthogonal: columns of A for ONP
+\[A=\left(c_1,\ldots,c_n\right)\]
+$c_i,c_j> = \delta_{ij} = \begin{cases}0, i\neq j\\ 1, i=j\end{cases}$
+Proposition: TFAE:
+\begin{enumerate}
+    \item A orthogonal (columns of A form an ONB)
+    \item $A^TA=I$
+    \item $AA^T=I$
+    \item Rows of A are ONB
+\end{enumerate}
+Proof: $A=(c_1,\ldots,c_n), A^T = \begin{pmatrix}c_1\\\vdots\\c_n\end{pmatrix}(c_1,\ldots,c_n)$. $A^TA = \begin{pmatrix}c_1\cdot c_1=1 & 0 &\cdots & c_1 \cdot c_n = 0\\\vdots&\vdots&\vdots&\vdots\\c_n\cdot c_1 = 0 & 0 &\cdots & c_n \cdot c_n=1\end{pmatrix}$.
+Proof: Assume (1) $c_i \cdot c_j = \delta_{ij} \implies A^TA = I \implies (2)$. Assume (2) $A^TA=I$, then $c_i \cdot c_i = 1, c_i \cdot c_j = 0$, since $i\neq j$. Hence (2) implies (1).
+Proof: Assume (1) $c_i \cdot c_j = \delta_{ij} \implies AA^T = I \implies (3)$. Assume (3) $AA^T=I$, then $c_i \cdot c_i = 1, c_i \cdot c_j = 0$, since $i\neq j$. Hence (3) implies (1).
+Proof: Assume (1) $c_i \cdot c_j = \delta_{ij} \implies A^TA = I \implies (4)$. Assume (4) $A^TA=I$, then $c_i \cdot c_i = 1, c_i \cdot c_j = 0$, since $i\neq j$. Hence (4) implies (1).
+Def: A is orthogonal iff A is invertible and $A^T = A^{-1}$.
+Example: $B=Q^{-1}A1$ If Q orthogonal $Q^{-1}=Q^T$.
+Square matrix. A invertible ($\exists B, AB=BA=I)$:
+$\iff \exists B BA = I \iff A$ is injective.
+$\iff \exists B AB = I \iff A$ is surjective.
+Spectral theorem
+Theorem (version 1): Symmetric $\implies$ diagonalizable.
+Theorem: A symmetric $\implies$ A orthogonally diagonale, $\exists$ ONB of eigenvectors. $A=QDQ^{-1}$
+If A is orthogonally diag, then Q takes std basis to e ONB $\iff$ Q orthogonal matrix.
+Theorem (version 3): symmetric $\implies \exists$ Q orthogonal, D diagonal, $A=QDQ^{-1}$.
+Example: $A=\begin{pmatrix}1&2\\2&1\end{pmatrix}$, $p(\lambda) = det(\lambda I-A)$:
+\begin{enumerate}
+    \item $p(\lambda)=(\lambda - 3)(\lambda + 1)$
+    \item $E_3,E_1$ are eigenvectors, $v_3 = \begin{pmatrix}1\\1\end{pmatrix}, v_1 = \begin{pmatrix}-1\\2\end{pmatrix}$.
+\end{enumerate}
+Proposition: A symmetric, $\lambda_1 \neq \lambda_2 \implies E_{\lambda_1} \perp E_{\lambda_2}$.
+
 % ============================================================
 \section{Appendix}
 % ============================================================
