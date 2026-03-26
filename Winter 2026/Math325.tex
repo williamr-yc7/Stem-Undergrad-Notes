@@ -1870,7 +1870,65 @@ c_2 \mathcal{L}[f_2](s), \quad s > a.\]
 Injectivity guarantees that the inverse Laplace transform is 
 well-defined. We denote it $\mathcal{L}^{-1}[F(s)]$.
 
-
+\marginpar{March 26, 2026}
+\subsubsection{Solving IVPs with the Laplace Transform}
+\begin{theorem}
+    \[L[f'] = sL[f]-f(0)\]
+\end{theorem}
+\begin{proof}
+    \[L[f']=\int_{0}^{\infty}e^{-st}f'(t)dt = e^{-st}f(t)\bigg|_{t=0}^{t=+\infty} - \int_{0}^{\infty}f(t)(-se^{-st})dt.\]
+    \[\implies 0 - f(0) + s\int_{0}^{\infty}e^{-st}f(t)dt = sL[f]-f(0).\]
+    \[\implies L[f''] = sL[f']-f'(0) = s(sL[f]-f(0)) - f'(0).\]
+\end{proof}
+\begin{example}
+    Let $2y''+5y'-3y=2$, $y(0)=0$, $y'(0)=1$. Apply the Laplace transform.
+    \[\implies 2L[y'']+5L[y']-3L[y] = L[2] = \frac{2}{s},\]
+    \[L[y'] = sL[y]-y(0) = sL[y]-0 = sL[y],\]
+    \[L[y'']=sL[y']-y'(0) = s(sL[y]) - 1 = s^2L[y] - 1.\]
+    Denote $Y(s) = L[y](s)$, then
+    \[\iff (2s^2+5s-3)Y(s) = \frac{2}{s} + 2 = \frac{2+2s}{s}\]
+    \[\iff Y(s) = \frac{2+2s}{s}\cdot\frac{1}{(s-1/2)(s+3)}=L[g].\]
+    Note that $2s^2+5s-3=(2s-1)(s+3)$. $\implies Y(s) = \frac{p(s)}{s(s-1/2)(s+3)}$, using partial fractions we get $=-2/3*1/5+6/7\cdot\frac{1}{s-1/2}-4/21\cdot\frac{1}{s+3} = L[-2/3+6/7 e^{t/2}-4/21 e^{-3t}]$, for $p(s) = 1+s$.
+\end{example}
+\subsection{Computational Methods}
+\begin{corollary}
+    Let $f:[0,\infty) \to \mathbb{R}$ be PCEO and denote $F(s) = L[f](s)$. Then
+    \[L[\int_{0}^{t}f(u)du] = \frac{F(s)}{s}.\]
+    Equivalently,
+    \[L^{-1}[\frac{F(s)}{s}] = \int_{0}^{t}f(u)du.\]
+\end{corollary}
+\begin{proof}
+    Let $g(t) = \int_{0}^{t}f(u)du$, $g(0)=0$,$g'(t)=f(t)$, $L[g']=sL[g]-g(0)$ (from the previous theorem), $L[f]=F(s)=sL[\int_{0}^{t}f(u)du] - 0$.
+\end{proof}
+\begin{example}
+    What is $L^{-1}[\frac{1}{s(s^2+1)}]$?
+    \[\frac{1}{s}\frac{1}{s^2+1} = \frac{F(s)}{s},\]
+    where $F(s) = \frac{1}{s^2+1}$, then $f(t) = L^{-1}(F(s))=sin(t)$.
+    \[L^{-1}[\frac{1}{s(s^2+1)}] = \int_{0}^{t}f(u)du = \int_{0}^{t}sin(u)du = -cos(u)\bigg|_{u=0}^{u=t} = 1-cos(t).\]
+    An alternative way:
+    \[\frac{1}{s(s^2+1)} = \frac{1}{s}-\frac{s}{s^2+1}\]
+\end{example}
+\begin{definition}[Convolution Integral]
+    Consider $f,g: [0,\infty) \to \mathbb{R}$ be PCEO. Denote $F(s) = L[f], G[s] = L[g]$, $F(s)G(s) = ?$, $L[f]L[g] = ?$:
+    \[F(s)G(s) = (\int_{0}^{\infty}f(\xi)e^{-s\xi}d\xi)(\int_{0}^{\infty}g(\tau)e^{-s\tau}d\tau) = \iint_{0}^{\infty}f(\xi)g(\tau)e^{-s(\xi+\tau)}d\xi d\tau,\]
+    now let $t=\xi+\tau$, $dt=d\xi$,
+    \[=\int_{0}^{\inf}(\int_{\tau}^{\infty}e^{-st}f(t-\tau)g(\tau)dt)d\tau\]
+    \[=\int_{0}^{\infty}\int_{0}^{\tau}e^{-st}f(t-\tau)g(\tau)d\tau dt\]
+    \[=\int_{0}^{\infty}e^{-st}(\int_{0}^{t}f(t-\tau)g(\tau)d\tau) dt\]
+    \[\int_{0}^{t}f(t-\tau)g(\tau)d\tau = \int_{t}^{0}f(\xi)g(t-\xi)(-d\xi)=\int_{0}^{t}f(\xi)g(t-\xi)d\xi\]
+    This is the ocnvolution of f and g.
+\end{definition}
+\begin{example}
+    \[L^{-1}\{\frac{a}{s^2(s^2+a^2)}\}=L^{-1}\{\frac{1}{s^2}\cdot\frac{a}{s^2+a^2}\}=L^{-1}[\frac{1}{s^2}]\star L^{-1}[\frac{a}{s^2+a^2}]=t\star\sin(at) = \int_{0}^{t}(t-\tau)sin(a\tau)d\tau = \frac{at - sin(at)}{a^2}\]
+\end{example}
+\begin{example}[Integro-differential Equation]
+    \[y'(t) + 2y(t) + \int_{0}^{t}y(\tau)d\tau = sin(t), y(0)=1.\]
+    Let $\int_{0}^{t}y(\tau)d\tau = 1\star y$, laplace transform that and it will give
+    \[sL[y]-1+2L[y]+L[1\star y] = L[sin(t)] = \frac{1}{s^2+1}\]
+    $Y(s) = L[y]$, $(s+2+1/s)Y(s) = \frac{1}{s^2+1}+1=\frac{s^2+2}{s^2+1} \iff (\frac{s^2+2s+1}{s})Y(s) = \frac{s^2+2}{s^2+1} \iff Y(s) = \frac{s(s^2+2)}{(s+1)^2(s^2+1)} \implies y(t) = L^{-1}[\frac{s(s^2+2)}{(s+1)^2(s^2+1)}]$, and $\frac{s(s^2+2)}{(s+1)^2(s^2+1)} = $ some partial fractions
+    \[L[tf(t)] = -F'(s) = \frac{1}{(s+1)^2}\]
+    $F(s)=\frac{1}{s+1}, F'(s) = \frac{-1}{(s+1)^2}
+\end{example}
 \section{Appendix}
 \subsection{Picard Iterations Convergence}
 \begin{proof}[Proof of Picard Iterations Convergence]

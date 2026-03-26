@@ -72,7 +72,9 @@
 \contentsline {subsubsection}{\numberline {7.3.1}Linearity}{37}{subsubsection.7.3.1}%
 \contentsline {subsubsection}{\numberline {7.3.2}Differentiability and the $s$-Derivative Formula}{37}{subsubsection.7.3.2}%
 \contentsline {subsubsection}{\numberline {7.3.3}Injectivity and the Inverse Transform}{38}{subsubsection.7.3.3}%
-\contentsline {section}{\numberline {8}Appendix}{38}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Picard Iterations Convergence}{38}{subsection.8.1}%
-\contentsline {section}{\numberline {9}Solutions}{39}{section.9}%
-\contentsline {section}{\numberline {10}Useful Links}{42}{section.10}%
+\contentsline {subsubsection}{\numberline {7.3.4}Solving IVPs with the Laplace Transform}{38}{subsubsection.7.3.4}%
+\contentsline {subsection}{\numberline {7.4}Computational Methods}{39}{subsection.7.4}%
+\contentsline {section}{\numberline {8}Appendix}{40}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Picard Iterations Convergence}{40}{subsection.8.1}%
+\contentsline {section}{\numberline {9}Solutions}{41}{section.9}%
+\contentsline {section}{\numberline {10}Useful Links}{44}{section.10}%
