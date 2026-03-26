@@ -1111,6 +1111,20 @@ Denote $k_j = \ker(A-\lambda I)^j$. Then
     \checkmark
 \end{example}
 
+\subsubsection{Practical Solution Guide for Repeated Eigenvalues}
+Let $\lambda$ be an eigenvalue with algebraic multiplicity $2$.
+
+\begin{itemize}
+    \item If $\dim\ker(A - \lambda I) = 2$ (two independent eigenvectors), then
+    \[y(t) = c_1 e^{\lambda t} v_1 + c_2 e^{\lambda t} v_2.\]
+
+    \item If $\dim\ker(A - \lambda I) = 1$ (only one eigenvector $v$), then the system is \textbf{defective} and we must introduce a generalized eigenvector $w$ satisfying
+    \[(A - \lambda I)w = v.\]
+
+    The general solution is
+    \[y(t) = e^{\lambda t}\left( c_1 v + c_2 (t v + w) \right).\]
+\end{itemize}
+
 %------- 3.4 -------
 \subsection{The Matrix Exponential}
 \marginpar{February 17, 2026}
@@ -1700,13 +1714,6 @@ near $0$.
     $\tilde{y} = \begin{pmatrix}0\\0\end{pmatrix}$ is hyperbolic 
     and asymptotically stable.
 \end{example}
-
-%------- 5.7 -------
-\subsection{Linear Control Theory}
-
-Study ODEs of the form
-\[y' = Ay + Bu,\]
-where $Bu$ is the controller term.
 
 \section{Laplace Transform}
 \marginpar{March 24, 2026}

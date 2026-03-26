@@ -41,30 +41,30 @@
 \contentsline {subsubsection}{\numberline {5.3.1}Diagonalizable Case: Real Eigenvalues}{20}{subsubsection.5.3.1}%
 \contentsline {subsubsection}{\numberline {5.3.2}Diagonalizable Case: Complex Eigenvalues}{21}{subsubsection.5.3.2}%
 \contentsline {subsubsection}{\numberline {5.3.3}Nondiagonalizable Matrices and Generalized Eigenvectors}{22}{subsubsection.5.3.3}%
-\contentsline {subsection}{\numberline {5.4}The Matrix Exponential}{23}{subsection.5.4}%
-\contentsline {subsubsection}{\numberline {5.4.1}Computing $e^{At}$ from a Fundamental Matrix}{24}{subsubsection.5.4.1}%
+\contentsline {subsubsection}{\numberline {5.3.4}Practical Solution Guide for Repeated Eigenvalues}{23}{subsubsection.5.3.4}%
+\contentsline {subsection}{\numberline {5.4}The Matrix Exponential}{24}{subsection.5.4}%
+\contentsline {subsubsection}{\numberline {5.4.1}Computing $e^{At}$ from a Fundamental Matrix}{25}{subsubsection.5.4.1}%
 \contentsline {subsubsection}{\numberline {5.4.2}Action of $e^{At}$ on Eigenvectors and Generalized Eigenvectors}{25}{subsubsection.5.4.2}%
 \contentsline {subsection}{\numberline {5.5}Non-Homogeneous Systems}{26}{subsection.5.5}%
 \contentsline {subsubsection}{\numberline {5.5.1}Variation of Parameters}{26}{subsubsection.5.5.1}%
-\contentsline {subsection}{\numberline {5.6}Applications}{26}{subsection.5.6}%
-\contentsline {subsubsection}{\numberline {5.6.1}Mass-Spring Systems}{26}{subsubsection.5.6.1}%
-\contentsline {subsubsection}{\numberline {5.6.2}RLC Circuits}{27}{subsubsection.5.6.2}%
+\contentsline {subsection}{\numberline {5.6}Applications}{27}{subsection.5.6}%
+\contentsline {subsubsection}{\numberline {5.6.1}Mass-Spring Systems}{27}{subsubsection.5.6.1}%
+\contentsline {subsubsection}{\numberline {5.6.2}RLC Circuits}{28}{subsubsection.5.6.2}%
 \contentsline {section}{\numberline {6}Stability, Phase Portraits and Orbits}{28}{section.6}%
 \contentsline {subsection}{\numberline {6.1}Orbits and Phase Portraits}{28}{subsection.6.1}%
 \contentsline {subsection}{\numberline {6.2}Equilibrium Solutions}{29}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Stability}{29}{subsection.6.3}%
-\contentsline {subsubsection}{\numberline {6.3.1}Definitions}{29}{subsubsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3}Stability}{30}{subsection.6.3}%
+\contentsline {subsubsection}{\numberline {6.3.1}Definitions}{30}{subsubsection.6.3.1}%
 \contentsline {subsubsection}{\numberline {6.3.2}Examples}{30}{subsubsection.6.3.2}%
 \contentsline {subsection}{\numberline {6.4}Phase Portraits of Planar Linear Systems}{31}{subsection.6.4}%
 \contentsline {subsubsection}{\numberline {6.4.1}Real Eigenvalues: Diagonalizable Case}{31}{subsubsection.6.4.1}%
 \contentsline {subsubsection}{\numberline {6.4.2}Complex Eigenvalues}{31}{subsubsection.6.4.2}%
 \contentsline {subsubsection}{\numberline {6.4.3}Repeated Eigenvalue: Non-Diagonalizable Case}{32}{subsubsection.6.4.3}%
-\contentsline {subsubsection}{\numberline {6.4.4}Quick Classification Guide for Phase Portraits}{32}{subsubsection.6.4.4}%
+\contentsline {subsubsection}{\numberline {6.4.4}Quick Classification Guide for Phase Portraits}{33}{subsubsection.6.4.4}%
 \contentsline {paragraph}{Step 1: Calculate the eigenvalues.}{33}{section*.2}%
 \contentsline {paragraph}{Step 2: Classify by type and sign.}{33}{section*.3}%
 \contentsline {subsection}{\numberline {6.5}Stability Theory for Linear Systems}{33}{subsection.6.5}%
 \contentsline {subsection}{\numberline {6.6}Stability Theory for Nonlinear Systems}{34}{subsection.6.6}%
-\contentsline {subsection}{\numberline {6.7}Linear Control Theory}{35}{subsection.6.7}%
 \contentsline {section}{\numberline {7}Laplace Transform}{35}{section.7}%
 \contentsline {subsection}{\numberline {7.1}Definition and Existence}{35}{subsection.7.1}%
 \contentsline {subsection}{\numberline {7.2}Computing Laplace Transforms}{36}{subsection.7.2}%
@@ -74,5 +74,5 @@
 \contentsline {subsubsection}{\numberline {7.3.3}Injectivity and the Inverse Transform}{37}{subsubsection.7.3.3}%
 \contentsline {section}{\numberline {8}Appendix}{37}{section.8}%
 \contentsline {subsection}{\numberline {8.1}Picard Iterations Convergence}{37}{subsection.8.1}%
-\contentsline {section}{\numberline {9}Solutions}{38}{section.9}%
+\contentsline {section}{\numberline {9}Solutions}{39}{section.9}%
 \contentsline {section}{\numberline {10}Useful Links}{41}{section.10}%

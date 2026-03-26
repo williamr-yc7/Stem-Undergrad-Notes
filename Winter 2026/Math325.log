@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  25 MAR 2026 23:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  26 MAR 2026 10:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -657,123 +657,128 @@ Underfull \hbox (badness 10000) in paragraph at lines 985--985
  []
 
 [21] [22]
-Underfull \hbox (badness 10000) in paragraph at lines 1116--1116
+Underfull \hbox (badness 10000) in paragraph at lines 1130--1130
 []\OT1/cmr/m/n/10 February 17,
  []
 
 [23]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1180.
+(hyperref)                removing `math shift' on input line 1194.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 1180.
+(hyperref)                removing `superscript' on input line 1194.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1180.
+(hyperref)                removing `math shift' on input line 1194.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1181--1181
+Underfull \hbox (badness 10000) in paragraph at lines 1195--1195
 []\OT1/cmr/m/n/10 February 19,
  []
 
+[24]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1204.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 1204.
+(hyperref)                removing `math shift' on input line 1218.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1204.
+(hyperref)                removing `superscript' on input line 1218.
 
-[24] [25]
-Underfull \hbox (badness 10000) in paragraph at lines 1287--1287
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1218.
+
+[25]
+Underfull \hbox (badness 10000) in paragraph at lines 1301--1301
 []\OT1/cmr/m/n/10 February 24,
  []
 
 <../Images/MSS-setup.jpeg, id=655, 2055.68pt x 800.9925pt>
 File: ../Images/MSS-setup.jpeg Graphic file (type jpg)
 <use ../Images/MSS-setup.jpeg>
-Package pdftex.def Info: ../Images/MSS-setup.jpeg  used on input line 1292.
+Package pdftex.def Info: ../Images/MSS-setup.jpeg  used on input line 1306.
 (pdftex.def)             Requested size: 172.5pt x 67.20956pt.
-[26 <../Images/MSS-setup.jpeg>]
-<../Images/circuit-ode.jpeg, id=663, 2055.68pt x 1541.76pt>
+[26]
+<../Images/circuit-ode.jpeg, id=662, 2055.68pt x 1541.76pt>
 File: ../Images/circuit-ode.jpeg Graphic file (type jpg)
 <use ../Images/circuit-ode.jpeg>
-Package pdftex.def Info: ../Images/circuit-ode.jpeg  used on input line 1339.
+Package pdftex.def Info: ../Images/circuit-ode.jpeg  used on input line 1353.
 (pdftex.def)             Requested size: 172.5pt x 129.3658pt.
- [27 <../Images/circuit-ode.jpeg>]
-Underfull \hbox (badness 10000) in paragraph at lines 1362--1362
+ [27 <../Images/MSS-setup.jpeg>]
+Underfull \hbox (badness 10000) in paragraph at lines 1376--1376
 []\OT1/cmr/m/n/10 March 10,
  []
 
-[28]
-Underfull \hbox (badness 10000) in paragraph at lines 1442--1442
+[28 <../Images/circuit-ode.jpeg>] [29]
+Underfull \hbox (badness 10000) in paragraph at lines 1456--1456
 []\OT1/cmr/m/n/10 March 12,
  []
 
-[29] [30]
-Underfull \hbox (badness 10000) in paragraph at lines 1482--1482
+[30]
+Underfull \hbox (badness 10000) in paragraph at lines 1496--1496
 []\OT1/cmr/m/n/10 March 10,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1494--1494
+Underfull \hbox (badness 10000) in paragraph at lines 1508--1508
 []\OT1/cmr/m/n/10 March 17,
  []
 
-[31] [32]
-Underfull \hbox (badness 10000) in paragraph at lines 1629--1629
+[31] [32] [33]
+Underfull \hbox (badness 10000) in paragraph at lines 1643--1643
 []\OT1/cmr/m/n/10 March 19,
  []
 
-[33]
-Underfull \hbox (badness 10000) in paragraph at lines 1644--1644
+
+Underfull \hbox (badness 10000) in paragraph at lines 1658--1658
 []\OT1/cmr/m/n/10 March 19,
  []
 
 [34]
-Underfull \hbox (badness 10000) in paragraph at lines 1712--1712
+Underfull \hbox (badness 10000) in paragraph at lines 1719--1719
 []\OT1/cmr/m/n/10 March 24,
  []
 
 [35]
-Overfull \hbox (2.19669pt too wide) in paragraph at lines 1769--1771
+Overfull \hbox (2.19669pt too wide) in paragraph at lines 1776--1778
 []$\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 t[]$ \OT1/cmr/m/it/10 sat-is-fies $\OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 )\OMS/cmsy/m/n/10 j ^^T \OML/cmm/m/it/10 Ke[]$
  []
 
 [36]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1829.
+(hyperref)                removing `math shift' on input line 1836.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1829.
+(hyperref)                removing `math shift' on input line 1836.
 
 [37] [38] [39] [40] [41] (Math325.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `Math325.out' has not changed.
-(rerunfilecheck)             Checksum: 0DF985A687023A6E9FD67ED91171B137;14993.
+(rerunfilecheck)             Checksum: 957C59C035230F1AFCB6ECE95F6B81F0;15152.
  ) 
 Here is how much of TeX's memory you used:
  31169 strings out of 467871
- 733375 string characters out of 5418377
+ 733385 string characters out of 5418377
  1271609 words of memory out of 5000000
  59303 multiletter control sequences out of 15000+600000
  640216 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,14n,118p,799b,634s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,14n,118p,799b,644s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\erenr\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Math325.pdf (44 pages, 1077871 bytes).
+Output written on Math325.pdf (44 pages, 1078276 bytes).
 PDF statistics:
  946 PDF objects out of 1000 (max. 8388607)
  252 named destinations out of 1000 (max. 500000)
