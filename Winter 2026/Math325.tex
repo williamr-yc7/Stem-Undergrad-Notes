@@ -1118,12 +1118,20 @@ Let $\lambda$ be an eigenvalue with algebraic multiplicity $2$.
     \item If $\dim\ker(A - \lambda I) = 2$ (two independent eigenvectors), then
     \[y(t) = c_1 e^{\lambda t} v_1 + c_2 e^{\lambda t} v_2.\]
 
-    \item If $\dim\ker(A - \lambda I) = 1$ (only one eigenvector $v$), then the system is \textbf{defective} and we must introduce a generalized eigenvector $w$ satisfying
+    \item If $\dim\ker(A - \lambda I) = 1$ (only one eigenvector $v$), then the system is defective and we must introduce a generalized eigenvector $w$ satisfying
     \[(A - \lambda I)w = v.\]
 
     The general solution is
     \[y(t) = e^{\lambda t}\left( c_1 v + c_2 (t v + w) \right).\]
 \end{itemize}
+\subsubsection*{higher multiplicity}
+If an eigenvalue $\lambda$ has multiplicity $m > 2$ and the system is fully defective (only one eigenvector $v$), then we build a chain of generalized eigenvectors:
+\[(A - \lambda I)w_1 = v, \quad (A - \lambda I)w_2 = w_1, \quad dots\]
+The solution follows the pattern:
+\[y(t) = e^{\lambda t} \left[c_1 v+ c_2 (t v + w_1)+ c_3 \left(\frac{t^2}{2} v + t w_1 + w_2\right)+ \cdots\right].\]
+\begin{remark}
+    If you have an eigenvalue with multiplicity $m$ $\implies$ highest power is $t^{m-1}$.
+\end{remark}
 
 %------- 3.4 -------
 \subsection{The Matrix Exponential}
