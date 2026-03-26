@@ -1567,6 +1567,31 @@ $(A - \lambda I)v = u$. Then the general solution is
     the relationship grows without bound along the $u_2$ direction.
 \end{example}
 
+\subsubsection{Quick Classification Guide for Phase Portraits}
+
+For a $2 \times 2$ linear system $y' = Ay$ with $\det(A) \neq 0$, the phase portrait is determined entirely by the eigenvalues $\lambda_1, \lambda_2$ of $A$. The following guide provides a rapid way to match systems to phase portraits by examining the eigenvalue structure.
+
+\paragraph{Step 1: Calculate the eigenvalues.}
+Find $\lambda_1, \lambda_2$ from the characteristic polynomial $\det(A - \lambda I) = 0$.
+
+\paragraph{Step 2: Classify by type and sign.}
+\begin{itemize}
+    \item Both real, same sign, both negative: Stable node. All orbits approach the origin. Arrows point inward toward the equilibrium.
+    
+    \item Both real, same sign, both positive: Unstable node. All orbits move away from the origin. Arrows point outward.
+    
+    \item Real, opposite signs: Saddle point. Hyperbolic structure: orbits approach along one eigenvector direction (stable manifold) and recede along the other (unstable manifold). The phase portrait resembles a stretched X.
+    
+    \item Complex with negative real part: Stable (asymptotically stable) spiral. Orbits spiral inward toward the origin. Arrows rotate and shrink.
+    
+    \item Complex with positive real part: Unstable spiral. Orbits spiral outward away from the origin. Arrows rotate and expand.
+    
+    \item Purely imaginary (real part = 0): Center. Orbits trace closed ellipses. Arrows rotate at constant radius; no convergence or divergence.
+\end{itemize}
+\begin{example}
+    If $\sigma(A) = \{-2, 3\}$ (real, opposite signs), look for a phase portrait with a hyperbolic saddle structure. If $\sigma(A) = \{-1 + 2i, -1 - 2i\}$ (complex with $\mathrm{Re}(\lambda) = -1 < 0$), look for a stable spiral spiraling inward.
+\end{example}
+
 %------- 5.5 -------
 \subsection{Stability Theory for Linear Systems}
 
