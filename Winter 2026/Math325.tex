@@ -1870,65 +1870,85 @@ c_2 \mathcal{L}[f_2](s), \quad s > a.\]
 Injectivity guarantees that the inverse Laplace transform is 
 well-defined. We denote it $\mathcal{L}^{-1}[F(s)]$.
 
+\subsubsection{Laplace Transform of Derivatives}
 \marginpar{March 26, 2026}
-\subsubsection{Solving IVPs with the Laplace Transform}
 \begin{theorem}
-    \[L[f'] = sL[f]-f(0)\]
+    If $f$ is differentiable and PCEO, then
+    \[\mathcal{L}[f'](s) = s\mathcal{L}[f](s) - f(0).\]
+    More generally,
+    \[\mathcal{L}[f''](s) = s^2\mathcal{L}[f](s) - sf(0) - f'(0).\]
 \end{theorem}
 \begin{proof}
-    \[L[f']=\int_{0}^{\infty}e^{-st}f'(t)dt = e^{-st}f(t)\bigg|_{t=0}^{t=+\infty} - \int_{0}^{\infty}f(t)(-se^{-st})dt.\]
-    \[\implies 0 - f(0) + s\int_{0}^{\infty}e^{-st}f(t)dt = sL[f]-f(0).\]
-    \[\implies L[f''] = sL[f']-f'(0) = s(sL[f]-f(0)) - f'(0).\]
+    Integrating by parts,
+    \[\mathcal{L}[f'](s) = \int_{0}^{\infty}e^{-st}f'(t)\,dt = \Big[e^{-st}f(t)\Big]_{0}^{+\infty} + s\int_{0}^{\infty}e^{-st}f(t)\,dt = -f(0) + s\mathcal{L}[f](s).\]
+    Applying this formula to $f'$ gives
+    \[\mathcal{L}[f''](s) = s\mathcal{L}[f'](s) - f'(0) = s\bigl(s\mathcal{L}[f](s) - f(0)\bigr) - f'(0) = s^2\mathcal{L}[f](s) - sf(0) - f'(0).\]
 \end{proof}
-\begin{example}
-    Let $2y''+5y'-3y=2$, $y(0)=0$, $y'(0)=1$. Apply the Laplace transform.
-    \[\implies 2L[y'']+5L[y']-3L[y] = L[2] = \frac{2}{s},\]
-    \[L[y'] = sL[y]-y(0) = sL[y]-0 = sL[y],\]
-    \[L[y'']=sL[y']-y'(0) = s(sL[y]) - 1 = s^2L[y] - 1.\]
-    Denote $Y(s) = L[y](s)$, then
-    \[\iff (2s^2+5s-3)Y(s) = \frac{2}{s} + 2 = \frac{2+2s}{s}\]
-    \[\iff Y(s) = \frac{2+2s}{s}\cdot\frac{1}{(s-1/2)(s+3)}=L[g].\]
-    Note that $2s^2+5s-3=(2s-1)(s+3)$. $\implies Y(s) = \frac{p(s)}{s(s-1/2)(s+3)}$, using partial fractions we get $=-2/3*1/5+6/7\cdot\frac{1}{s-1/2}-4/21\cdot\frac{1}{s+3} = L[-2/3+6/7 e^{t/2}-4/21 e^{-3t}]$, for $p(s) = 1+s$.
+\begin{example}[Solving an IVP via Laplace Transform]
+    Solve $2y'' + 5y' - 3y = 2$, $y(0) = 0$, $y'(0) = 1$.\\
+    Applying $\mathcal{L}$ to both sides and denoting $Y(s) = \mathcal{L}[y](s)$:
+    \[\mathcal{L}[y'] = sY(s), \qquad \mathcal{L}[y''] = s^2Y(s) - 1.\]
+    The equation becomes
+    \[2(s^2Y - 1) + 5(sY) - 3Y = \frac{2}{s},\]
+    \[(2s^2 + 5s - 3)Y(s) = \frac{2}{s} + 2 = \frac{2s+2}{s}.\]
+    Factoring $2s^2 + 5s - 3 = (2s-1)(s+3)$,
+    \[Y(s) = \frac{2(s+1)}{s(2s-1)(s+3)} = \frac{s+1}{s(s-\frac{1}{2})(s+3)}.\]
+    Using partial fractions,
+    \[Y(s) = -\frac{2}{3}\cdot\frac{1}{s} + \frac{6}{7}\cdot\frac{1}{s-\frac{1}{2}} - \frac{4}{21}\cdot\frac{1}{s+3}.\]
+    Taking the inverse Laplace transform,
+    \[y(t) = -\frac{2}{3} + \frac{6}{7}e^{t/2} - \frac{4}{21}e^{-3t}.\]
 \end{example}
+
 \subsection{Computational Methods}
+\subsubsection{Integration in the Time Domain}
 \begin{corollary}
-    Let $f:[0,\infty) \to \mathbb{R}$ be PCEO and denote $F(s) = L[f](s)$. Then
-    \[L[\int_{0}^{t}f(u)du] = \frac{F(s)}{s}.\]
-    Equivalently,
-    \[L^{-1}[\frac{F(s)}{s}] = \int_{0}^{t}f(u)du.\]
+    Let $f$ be PCEO with $F(s) = \mathcal{L}[f](s)$. Then
+    \[\mathcal{L}\!\left[\int_{0}^{t}f(u)\,du\right] = \frac{F(s)}{s}, \qquad \text{equivalently} \qquad \mathcal{L}^{-1}\!\left[\frac{F(s)}{s}\right] = \int_{0}^{t}f(u)\,du.\]
 \end{corollary}
 \begin{proof}
-    Let $g(t) = \int_{0}^{t}f(u)du$, $g(0)=0$,$g'(t)=f(t)$, $L[g']=sL[g]-g(0)$ (from the previous theorem), $L[f]=F(s)=sL[\int_{0}^{t}f(u)du] - 0$.
+    Let $g(t) = \int_{0}^{t}f(u)\,du$. Then $g(0) = 0$ and $g'(t) = f(t)$. By the derivative theorem,
+    \[\mathcal{L}[f](s) = \mathcal{L}[g'](s) = s\mathcal{L}[g](s) - g(0) = s\mathcal{L}[g](s).\]
+    Dividing by $s$ gives the result.
 \end{proof}
 \begin{example}
-    What is $L^{-1}[\frac{1}{s(s^2+1)}]$?
-    \[\frac{1}{s}\frac{1}{s^2+1} = \frac{F(s)}{s},\]
-    where $F(s) = \frac{1}{s^2+1}$, then $f(t) = L^{-1}(F(s))=sin(t)$.
-    \[L^{-1}[\frac{1}{s(s^2+1)}] = \int_{0}^{t}f(u)du = \int_{0}^{t}sin(u)du = -cos(u)\bigg|_{u=0}^{u=t} = 1-cos(t).\]
-    An alternative way:
-    \[\frac{1}{s(s^2+1)} = \frac{1}{s}-\frac{s}{s^2+1}\]
+    Compute $\mathcal{L}^{-1}\!\left[\dfrac{1}{s(s^2+1)}\right]$.\\
+    Write $\dfrac{1}{s(s^2+1)} = \dfrac{1}{s}\cdot\dfrac{1}{s^2+1} = \dfrac{F(s)}{s}$, where $F(s) = \dfrac{1}{s^2+1}$, so $f(t) = \sin t$. By the corollary,
+    \[\mathcal{L}^{-1}\!\left[\frac{1}{s(s^2+1)}\right] = \int_{0}^{t}\sin u\,du = \Big[-\cos u\Big]_0^t = 1 - \cos t.\]
+    Alternatively, by partial fractions: $\dfrac{1}{s(s^2+1)} = \dfrac{1}{s} - \dfrac{s}{s^2+1}$, giving the same result.
 \end{example}
-\begin{definition}[Convolution Integral]
-    Consider $f,g: [0,\infty) \to \mathbb{R}$ be PCEO. Denote $F(s) = L[f], G[s] = L[g]$, $F(s)G(s) = ?$, $L[f]L[g] = ?$:
-    \[F(s)G(s) = (\int_{0}^{\infty}f(\xi)e^{-s\xi}d\xi)(\int_{0}^{\infty}g(\tau)e^{-s\tau}d\tau) = \iint_{0}^{\infty}f(\xi)g(\tau)e^{-s(\xi+\tau)}d\xi d\tau,\]
-    now let $t=\xi+\tau$, $dt=d\xi$,
-    \[=\int_{0}^{\inf}(\int_{\tau}^{\infty}e^{-st}f(t-\tau)g(\tau)dt)d\tau\]
-    \[=\int_{0}^{\infty}\int_{0}^{\tau}e^{-st}f(t-\tau)g(\tau)d\tau dt\]
-    \[=\int_{0}^{\infty}e^{-st}(\int_{0}^{t}f(t-\tau)g(\tau)d\tau) dt\]
-    \[\int_{0}^{t}f(t-\tau)g(\tau)d\tau = \int_{t}^{0}f(\xi)g(t-\xi)(-d\xi)=\int_{0}^{t}f(\xi)g(t-\xi)d\xi\]
-    This is the ocnvolution of f and g.
+
+\subsubsection{Convolution}
+\begin{definition}[Convolution]
+    The convolution of $f, g : [0,\infty) \to \mathbb{R}$ is
+    \[(f \star g)(t) = \int_{0}^{t} f(t-\tau)\,g(\tau)\,d\tau = \int_{0}^{t} f(\xi)\,g(t-\xi)\,d\xi.\]
 \end{definition}
+\begin{theorem}[Convolution Theorem]
+    If $f$ and $g$ are PCEO with $F(s) = \mathcal{L}[f]$ and $G(s) = \mathcal{L}[g]$, then
+    \[\mathcal{L}[f \star g](s) = F(s)G(s), \qquad \text{equivalently} \qquad \mathcal{L}^{-1}[F(s)G(s)] = (f\star g)(t).\]
+\end{theorem}
+\begin{proof}
+    \[F(s)G(s) = \left(\int_{0}^{\infty}f(\xi)e^{-s\xi}\,d\xi\right)\!\left(\int_{0}^{\infty}g(\tau)e^{-s\tau}\,d\tau\right) = \iint_{[0,\infty)^2} f(\xi)g(\tau)e^{-s(\xi+\tau)}\,d\xi\,d\tau.\]
+    Substituting $t = \xi + \tau$ (so $d\xi = dt$) and switching the order of integration,
+    \[= \int_{0}^{\infty}e^{-st}\!\left(\int_{0}^{t}f(t-\tau)g(\tau)\,d\tau\right)dt = \mathcal{L}[f\star g](s).\]
+\end{proof}
 \begin{example}
-    \[L^{-1}\{\frac{a}{s^2(s^2+a^2)}\}=L^{-1}\{\frac{1}{s^2}\cdot\frac{a}{s^2+a^2}\}=L^{-1}[\frac{1}{s^2}]\star L^{-1}[\frac{a}{s^2+a^2}]=t\star\sin(at) = \int_{0}^{t}(t-\tau)sin(a\tau)d\tau = \frac{at - sin(at)}{a^2}\]
+    Compute $\mathcal{L}^{-1}\!\left[\dfrac{a}{s^2(s^2+a^2)}\right]$.\\
+    Write $\dfrac{a}{s^2(s^2+a^2)} = \dfrac{1}{s^2}\cdot\dfrac{a}{s^2+a^2}$. Since $\mathcal{L}^{-1}[1/s^2] = t$ and $\mathcal{L}^{-1}[a/(s^2+a^2)] = \sin(at)$,
+    \[\mathcal{L}^{-1}\!\left[\frac{a}{s^2(s^2+a^2)}\right] = t \star \sin(at) = \int_{0}^{t}(t-\tau)\sin(a\tau)\,d\tau = \frac{at - \sin(at)}{a^2}.\]
 \end{example}
 \begin{example}[Integro-differential Equation]
-    \[y'(t) + 2y(t) + \int_{0}^{t}y(\tau)d\tau = sin(t), y(0)=1.\]
-    Let $\int_{0}^{t}y(\tau)d\tau = 1\star y$, laplace transform that and it will give
-    \[sL[y]-1+2L[y]+L[1\star y] = L[sin(t)] = \frac{1}{s^2+1}\]
-    $Y(s) = L[y]$, $(s+2+1/s)Y(s) = \frac{1}{s^2+1}+1=\frac{s^2+2}{s^2+1} \iff (\frac{s^2+2s+1}{s})Y(s) = \frac{s^2+2}{s^2+1} \iff Y(s) = \frac{s(s^2+2)}{(s+1)^2(s^2+1)} \implies y(t) = L^{-1}[\frac{s(s^2+2)}{(s+1)^2(s^2+1)}]$, and $\frac{s(s^2+2)}{(s+1)^2(s^2+1)} = $ some partial fractions
-    \[L[tf(t)] = -F'(s) = \frac{1}{(s+1)^2}\]
-    $F(s)=\frac{1}{s+1}, F'(s) = \frac{-1}{(s+1)^2}
+    Solve 
+    \[y'(t) + 2y(t) + \int_{0}^{t}y(\tau)\,d\tau = \sin t,\quad y(0) = 1.\]
+    Note that $\int_{0}^{t}y(\tau)\,d\tau = (1\star y)(t)$, so $\mathcal{L}[1\star y] = \frac{Y(s)}{s}$. Denoting $Y(s) = \mathcal{L}[y](s)$ and applying the transform:
+    \[sY(s) - 1 + 2Y(s) + \frac{Y(s)}{s} = \frac{1}{s^2+1}.\]
+    Multiplying through by $s$:
+    \[\left(s^2 + 2s + 1\right)Y(s) = \frac{s}{s^2+1} + s = \frac{s^2+2}{s^2+1} \cdot s \cdot \frac{1}{s},\]
+    \[(s+1)^2 Y(s) = \frac{s(s^2+2)}{s^2+1},\]
+    \[Y(s) = \frac{s(s^2+2)}{(s+1)^2(s^2+1)}.\]
+    Using partial fractions and the identity $\mathcal{L}[te^{-t}](s) = \dfrac{1}{(s+1)^2}$\footnote{This follows from the $s$-derivative formula: $\mathcal{L}[tf(t)] = -F'(s)$, with $F(s) = \frac{1}{s+1}$.},
+    \[y(t) = \mathcal{L}^{-1}\!\left[Y(s)\right] = e^{-t} - \frac{3}{2}te^{-t} + \frac{1}{2}\sin t.\]
 \end{example}
+
 \section{Appendix}
 \subsection{Picard Iterations Convergence}
 \begin{proof}[Proof of Picard Iterations Convergence]
