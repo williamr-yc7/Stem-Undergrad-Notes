@@ -621,6 +621,7 @@ For an ideal transformer, power is conserved ($V_1 I_1 = V_2 I_2$), giving the t
 \end{definition}
 
 \begin{example}
+    Visual representation of an RC circuit:
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.5\textwidth]{../Images/RC_circuit.png}
@@ -628,14 +629,15 @@ For an ideal transformer, power is conserved ($V_1 I_1 = V_2 I_2$), giving the t
     \end{figure}
 \end{example}
 
-\subsubsection{Charging}
+\subsubsection{DC Analysis}
+
+\subsubsection*{Charging}
 Consider an initially uncharged capacitor connected in series with a resistor and a constant source $V_0$. Applying KVL,
 \[V_0 = v_R(t) + v_C(t) = i(t)R + \frac{1}{C}\int_0^{t}i(\tau)\,d\tau.\]
 Differentiating and solving,
 \[I(t) = \frac{V_0}{R}e^{-t/\tau}, \qquad V_C(t) = V_0\!\left(1 - e^{-t/\tau}\right),\]
-where $\tau = RC$ is the time constant. As $t \to \infty$, the current decays to zero and $V_C \to V_0$.
+where $\tau = RC$ is the time constant. As $t \to \infty$, the current decays to zero and $V_C \to V_0$. At $t = 0$, the capacitor behaves like a short circuit; as $t\to\infty$, it behaves like an open circuit.
 
-\paragraph{Charging Graphs.}
 \begin{center}
     \begin{tikzpicture}
         \begin{scope}
@@ -656,12 +658,11 @@ where $\tau = RC$ is the time constant. As $t \to \infty$, the current decays to
     \end{tikzpicture}
 \end{center}
 
-\subsubsection{Discharging}
+\subsubsection*{Discharging}
 If the source is removed and the capacitor initially has voltage $V_0$:
 \[I(t) = -\frac{V_0}{R}e^{-t/\tau}, \qquad V_C(t) = V_0\,e^{-t/\tau}.\]
 Both current and voltage decay exponentially to zero.
 
-\paragraph{Discharging Graphs.}
 \begin{center}
     \begin{tikzpicture}
         \begin{scope}
@@ -682,46 +683,50 @@ Both current and voltage decay exponentially to zero.
     \end{tikzpicture}
 \end{center}
 
-\subsection{RC Circuit with AC Driving}
+% ------- 6.2 RC Circuit with AC Driving -------
 \marginpar{January 29, 2026}
+\subsection{RC Circuit with AC Driving}
+
 \subsubsection{Driving Frequency and Time Constant}
-For a periodic input with period $T$ and angular frequency $\omega = \frac{2\pi}{T} = 2\pi\nu$, the time constants are
-\[\tau_{RC} = RC, \qquad \tau_{LR} = \frac{L}{R}.\]
+For a periodic input with period $T$ and angular frequency $\omega = \frac{2\pi}{T} = 2\pi\nu$, the time constant for an RC circuit is
+\[\tau_{RC} = RC.\]
 The circuit behaviour depends on the ratio of $T$ to $\tau$:
 \begin{itemize}
-    \item \textbf{Low frequency:} $T \gg \tau$
-    \item \textbf{High frequency:} $T \ll \tau$
+    \item Low frequency: $T \gg \tau$
+    \item High frequency: $T \ll \tau$
 \end{itemize}
+
 \subsubsection{RC Circuit with Square-Wave Input}
-\paragraph{Low frequency ($T \gg \tau$).}
+
+\subsubsection*{Low frequency ($T \gg \tau$)}
 \begin{itemize}
     \item Capacitor fully charges and discharges each half-cycle.
     \item Voltage drops almost entirely across the capacitor.
     \item Current is nearly zero (except for spikes at each voltage jump).
-    \item Capacitor behaves approximately like an \textbf{open circuit} (break).
+    \item Capacitor behaves approximately like an open circuit (break).
 \end{itemize}
 
-\paragraph{High frequency ($T \ll \tau$).}
+\subsubsection*{High frequency ($T \ll \tau$)}
 \begin{itemize}
     \item Capacitor does not have time to charge.
     \item Very little voltage is dropped across the capacitor.
     \item Current values are close to what we expect for a pure resistor circuit; voltage profile is triangle-wave-like.
-    \item Capacitor behaves approximately like a \textbf{short circuit}.
+    \item Capacitor behaves approximately like a short circuit.
 \end{itemize}
 
 \subsubsection{Integrator and Differentiator Behaviour}
-\paragraph{Low frequency ($T/\tau \gg 1$) — resistor differentiates.}
+
+\subsubsection*{Low frequency}
 At low frequency, the capacitor has time to fully charge, so its voltage tracks the input: $\Delta V_C(t) \approx V(t)$. The current is therefore $I \approx C\frac{dV}{dt}$, and the voltage across the resistor is
 \[\Delta V_R(t) \approx \tau\frac{dV_{\text{in}}(t)}{dt}, \qquad \tau = RC.\]
-The \textbf{resistor} acts as a \textbf{differentiator}. Sharp transitions in the square-wave input produce current spikes.
+The resistor acts as a differentiator. Sharp transitions in the square-wave input produce current spikes.
 
-\paragraph{High frequency ($T/\tau \ll 1$) — capacitor integrates.}
+\subsubsection*{High frequency}
 At high frequency, the capacitor has no time to charge, so the resistor voltage tracks the input: $\Delta V_R(t) \approx V(t)$, giving $I \approx V(t)/R$. The capacitor voltage is then
 \[\Delta V_C(t) \approx \frac{1}{\tau}\int_0^t V_{\text{in}}(t')\,dt', \qquad \tau = RC.\]
-The \textbf{capacitor} acts as an \textbf{integrator}. A square wave input produces a triangle-wave-like voltage across the capacitor.
+The capacitor acts as an integrator. A square wave input produces a triangle-wave-like voltage across the capacitor.
 
-
-% ------- 6.2 LR Circuit -------
+% ------- 6.3 LR Circuit -------
 \subsection{LR Circuit}
 
 \begin{definition}[LR Circuit]
@@ -741,63 +746,76 @@ The \textbf{capacitor} acts as an \textbf{integrator}. A square wave input produ
 
 For a single coil, the voltage-current relationship is
 \[V = L\frac{di}{dt},\]
-where $L$ is the self-inductance. When the switch is connected to terminal A,
-\[I(t) = \frac{V}{R}\!\left(1 - e^{-Rt/L}\right), \qquad V_L(t) = V\,e^{-Rt/L}.\]
-The characteristic time constant is $\tau = L/R$.
+where $L$ is the self-inductance. The characteristic time constant is $\tau = L/R$.
 
-\subsubsection{Charging}
-\subsubsection{Discharging}
+\subsubsection{DC Analysis}
 
-\subsection{RC Circuit with AC Driving}
-\marginpar{January 29, 2026}
+\subsubsection*{Charging}
+When the switch is connected to terminal A,
+\[I(t) = \frac{V}{R}\!\left(1 - e^{-t/\tau}\right), \qquad V_L(t) = V\,e^{-t/\tau}.\]
+At $t = 0$, an inductor behaves like an open circuit. As $t \to \infty$, it behaves like a short circuit and carries the full steady-state current $V/R$.
+
+\subsubsection*{Discharging}
+\[V_L(t) = V_0\,e^{-t/\tau}, \qquad I(t) = I_0\,e^{-t/\tau}.\]
+Both current and voltage decay exponentially to zero.
+
+% ------- 6.4 LR Circuit with AC Driving -------
+\subsection{LR Circuit with AC Driving}
+
 \subsubsection{Driving Frequency and Time Constant}
-For a periodic input with period $T$ and angular frequency $\omega = \frac{2\pi}{T} = 2\pi\nu$, the time constants are
-\[\tau_{RC} = RC, \qquad \tau_{LR} = \frac{L}{R}.\]
+For a periodic input with period $T$ and angular frequency $\omega = \frac{2\pi}{T} = 2\pi\nu$, the time constant for an LR circuit is
+\[\tau_{LR} = \frac{L}{R}.\]
 The circuit behaviour depends on the ratio of $T$ to $\tau$:
 \begin{itemize}
-    \item \textbf{Low frequency:} $T \gg \tau$
-    \item \textbf{High frequency:} $T \ll \tau$
-\end{itemize}
-\subsubsection{RC Circuit with Square-Wave Input}
-\paragraph{Low frequency ($T \gg \tau$).}
-\begin{itemize}
-    \item Capacitor fully charges and discharges each half-cycle.
-    \item Voltage drops almost entirely across the capacitor.
-    \item Current is nearly zero (except for spikes at each voltage jump).
-    \item Capacitor behaves approximately like an \textbf{open circuit} (break).
+    \item Low frequency: $T \gg \tau$
+    \item High frequency: $T \ll \tau$
 \end{itemize}
 
-\paragraph{High frequency ($T \ll \tau$).}
+\subsubsection{LR Circuit with Square-Wave Input}
+
+\subsubsection*{Low frequency}
 \begin{itemize}
-    \item Capacitor does not have time to charge.
-    \item Very little voltage is dropped across the capacitor.
-    \item Current values are close to what we expect for a pure resistor circuit; voltage profile is triangle-wave-like.
-    \item Capacitor behaves approximately like a \textbf{short circuit}.
+    \item Inductor fully responds each half-cycle.
+    \item Voltage drops almost entirely across the resistor.
+    \item Current closely follows the input and is approximately square-wave-like.
+    \item Inductor behaves approximately like a short circuit.
+\end{itemize}
+
+\subsubsection*{High frequency}
+\begin{itemize}
+    \item Inductor does not have time to respond.
+    \item Voltage drops almost entirely across the inductor.
+    \item Current changes very little; the resistor voltage profile consists of sharp spikes at each transition.
+    \item Inductor behaves approximately like an open circuit.
 \end{itemize}
 
 \subsubsection{Integrator and Differentiator Behaviour}
-\paragraph{Low frequency ($T/\tau \gg 1$) — resistor differentiates.}
-At low frequency, the capacitor has time to fully charge, so its voltage tracks the input: $\Delta V_C(t) \approx V(t)$. The current is therefore $I \approx C\frac{dV}{dt}$, and the voltage across the resistor is
-\[\Delta V_R(t) \approx \tau\frac{dV_{\text{in}}(t)}{dt}, \qquad \tau = RC.\]
-The \textbf{resistor} acts as a \textbf{differentiator}. Sharp transitions in the square-wave input produce current spikes.
 
-\paragraph{High frequency ($T/\tau \ll 1$) — capacitor integrates.}
-At high frequency, the capacitor has no time to charge, so the resistor voltage tracks the input: $\Delta V_R(t) \approx V(t)$, giving $I \approx V(t)/R$. The capacitor voltage is then
-\[\Delta V_C(t) \approx \frac{1}{\tau}\int_0^t V_{\text{in}}(t')\,dt', \qquad \tau = RC.\]
-The \textbf{capacitor} acts as an \textbf{integrator}. A square wave input produces a triangle-wave-like voltage across the capacitor.
+\subsubsection*{Low frequency}
+At low frequency, the inductor has time to fully respond, so the resistor voltage tracks the input: $\Delta V_R(t) \approx V(t)$, giving $I \approx V_{\text{in}}(t)/R$. The voltage across the inductor is then
+\[\Delta V_L(t) \approx \tau\frac{dV_{\text{in}}(t)}{dt}, \qquad \tau = \frac{L}{R}.\]
+The inductor acts as a differentiator. Sharp transitions in the square-wave input produce voltage spikes across the inductor.
 
-\subsubsection{LR Circuit with AC Input}
-The LR circuit is mathematically analogous to the RC circuit ($\tau_{LR} = L/R$).
-\begin{itemize}
-    \item Inductor resists changes in current.
-    \item At low frequency, the inductor behaves approximately like a short circuit.
-    \item At high frequency, the inductor behaves approximately like an open circuit.
-\end{itemize}
-In an LR circuit, current plays a role analogous to voltage in an RC circuit.
+\subsubsection*{High frequency}
+At high frequency, the inductor has no time to respond, so its voltage tracks the input: $\Delta V_L(t) \approx V(t)$, giving $L\frac{dI}{dt} \approx V_{\text{in}}(t)$. The voltage across the resistor is then
+\[\Delta V_R(t) \approx \frac{1}{\tau}\int_0^t V_{\text{in}}(t')\,dt', \qquad \tau = \frac{L}{R}.\]
+The resistor acts as an integrator. A square-wave input produces a triangle-wave-like voltage across the resistor.
 
-% ------- 6.3 RC and LR Circuits with AC Driving -------
+\subsubsection{Analogy with RC Circuit}
+The LR circuit is the dual of the RC circuit. In an LR circuit, current plays the role that voltage plays in an RC circuit, and the integrator/differentiator roles of the components are swapped:
+\begin{center}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    & RC Circuit & LR Circuit \\
+    \hline
+    Differentiator & Resistor (low freq.) & Inductor (low freq.) \\
+    \hline
+    Integrator & Capacitor (high freq.) & Resistor (high freq.) \\
+    \hline
+    \end{tabular}
+\end{center}
 
-
+% ------- 6.5 Frequency Behaviour Summary -------
 \subsection{Frequency Behaviour Summary}
 \begin{center}
     \begin{tabular}{|c|c|c|}
@@ -823,14 +841,14 @@ Important physical facts:
 \section{Appendix}
 \subsection{Important Concepts}
 
-\textbf{Basic Circuit Laws}
+\subsubsection*{Basic Circuit Laws}
 \begin{itemize}
     \item Ohm's Law: Figure~\ref{Ohmslawformula}
     \item Real battery: $V_{\text{terminal}} = V_0 - Ir$
 \end{itemize}
 The voltage supplied by the battery represents the total potential difference applied to the circuit.
 
-\textbf{Equivalent Components}
+\subsubsection*{Equivalent Components}
 \begin{itemize}
     \item Resistors\\
     Series: $R_{\text{eq}} = R_1 + R_2 + \cdots + R_n$\\
@@ -845,14 +863,15 @@ The voltage supplied by the battery represents the total potential difference ap
     Parallel: $\displaystyle L_{\text{eq}} = \frac{1}{\frac{1}{L_1}+\frac{1}{L_2}+\cdots+\frac{1}{L_n}}$
 \end{itemize}
 
-\textbf{Capacitors}
+\subsubsection*{Capacitors}
 \begin{itemize}
     \item Charge relation: $Q = CV$
     \item Capacitance: $C = \dfrac{\varepsilon A}{d}$
     \item Permittivity of free space: $\varepsilon_0 = 8.85 \times 10^{-12}\,\text{F/m}$
 \end{itemize}
 
-\textbf{RC Circuits} (time constant $\tau = RC$)
+\subsubsection*{RC Circuits}
+(time constant $\tau = RC$)
 
 Charging:
 \begin{itemize}
@@ -871,14 +890,15 @@ Discharging:
 
 Stored energy: $W = \dfrac{1}{2}CV^2$
 
-\textbf{Inductors}
+\subsubsection*{Inductors}
 \begin{itemize}
     \item Inductor voltage: $V = L\,\dfrac{dI}{dt}$
     \item Inductance (solenoid): $L = \dfrac{\mu N^2 A}{l}$
     \item Permeability of free space: $\mu_0 = 4\pi \times 10^{-7}\,\mathrm{T} \cdot \mathrm{m/A}$
 \end{itemize}
 
-\textbf{RL Circuits} (time constant $\tau = L/R$)
+\subsubsection*{RL Circuits}
+(time constant $\tau = L/R$)
 
 Charging:
 \begin{itemize}
@@ -895,18 +915,18 @@ Discharging:
 
 Stored energy: $W = \dfrac{1}{2}LI^2$
 
-\textbf{Energy Dissipation}
+\subsubsection*{Energy Dissipation}
 \begin{itemize}
     \item Resistor: $U = \displaystyle\int R\,I^2(t)\,dt$
 \end{itemize}
 
-\textbf{RLC Circuits}
+\subsubsection*{RLC Circuits}
 \begin{itemize}
     \item Natural frequency: $\omega_0 = \dfrac{1}{\sqrt{LC}}$
     \item Damping factor: $\Gamma = \dfrac{R}{L}$
 \end{itemize}
 
-\textbf{AC Circuits}
+\subsubsection*{AC Circuits}
 
 Complex current:
 \[I = I_0\,e^{j(\omega t+\phi_0)} = \tilde{I}\,e^{j\omega t}.\]
@@ -918,9 +938,10 @@ Impedances:
     \item Inductor: $Z_L = j\omega L$
 \end{itemize}
 
-\textbf{Kirchhoff's Law:} Figure~\ref{klawformula}
+\subsubsection*{Kirchhoff's Law:}
+Figure~\ref{klawformula}
 
-\textbf{Miscellaneous}
+\subsubsection*{Miscellaneous}
 
 \textit{Transient}: The short initial response when a circuit is switched on, typically involving terms like $e^{-t/\tau}$.
 
