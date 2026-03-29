@@ -833,30 +833,126 @@ The LR circuit is the dual of the RC circuit. In an LR circuit, current plays th
     \end{tabular}
 \end{center}
 
-\section{Find name}
-\subsection{Complex numbers relation with AC signals}
-Complex signal: $\tilde{V}(t) = V_0e^{i\phi(t)} = V_0e^{i(\omega t + \phi_0)}$.
-This complex signal is not physical, but it can embed the real-valued physical signal $V(t)$.
-\[V(t) = V_0cos(\phi(t)) = Re[V_0e^{i\phi(t)}] = Re[\tilde{V}(t)].\]
-\subsection{Working with complex numbers}
-To start, you have to perform circuit analysis\footnote{write a short explanation for circuit analysis here} with $\tilde{V}(t)$ to calculate a complex output signal $\tilde{V}_{\text{out}}(t)$. After, from $\tilde{V}_{\text{out}}(t)$, you can extract the real-valued physical output signal $V_{\text{out}}(t)$ by taking the real part:
-\[V_{\text{out}}(t) = Re[\tilde{V}_{\text{out}}(t)].\]
-Alternatively, you can extract directly the change in signal amplitdue and phase shift between input and output.
-\subsection{Capacitor current}
-Drop the voltage signal such that $V(t) = Re[\tilde{V}(t)]$ across a capacitor and find current $I(t)$. To do this, you gotta first find $\tilde{I}(t)$ arising from $\tilde{V}(t)$, and then take the real part to get $I(t)$:
-\[\tilde{I}(t) = \frac{d\tilde{Q}}{dt} = C\frac{d\tilde{V}(t)}{dt}=jC\omega V_0e^{j(\omega t + \phi_0)}=jC\omega\tilde{V}.\]
-After that, extract $I(t)$, using the fact that $j=e^{j\pi/2}$:
-\[I(t) = Re[\tilde{I}(t)] = C\omega V_0 Re[e^{j(\omega t + \phi_0 + \pi/2)}] = C\omega V_0 cos(\omega t + \phi_0 + \pi/2).\]
-Note that $I$ vanishes in the limit as $\omega \to 0$ (DC limit), this is due because in the steady state, the capacitor will fully charge and fully oppose voltage source. Also form the equation of the current we extract, we can see that the current leads the input voltage by $\pi/2$, we also say that the input voltage lags the current by $\pi/2$.
-\subsection{Impedance of capacitor}
-Denote $Z_C = \frac{1}{j\omega C} \implies \tilde{I} = \frac{\tilde{V}}{Z_C}$. We can see that this is the complex version of Ohm's law.\\
-$Z$ is a complex resistance, called "impedance".
-The capacitor's impedance is very large for low $\omega$ and falls off as $\omega$ increases. In the DC limit $\omega \to 0$, the capacitive impedance is infinite, equivalent to saying the capacitor blocks DC signals. The complex character of the impedance encodes how the capacitor affects the phase offset between input/output signals.
+% ============================================================
+%  7. PHASORS AND COMPLEX IMPEDANCE
+% ============================================================
+\section{Phasors and Complex Impedance}
+\marginpar{February 5, 2026}
 
+% ------- 7.1 Complex Numbers and AC Signals -------
+\subsection{Complex Representation of AC Signals}
+
+A complex signal is defined as
+\[\tilde{V}(t) = V_0 e^{j\phi(t)} = V_0 e^{j(\omega t + \phi_0)}.\]
+This complex signal is not physical, but it embeds the real-valued physical signal $V(t)$ as its real part:
+\[V(t) = V_0\cos(\phi(t)) = \operatorname{Re}\!\left[V_0 e^{j\phi(t)}\right] = \operatorname{Re}\!\left[\tilde{V}(t)\right].\]
+
+% ------- 7.2 Working with Complex Signals -------
+\subsection{Working with Complex Signals}
+
+To analyze an AC circuit using complex signals, perform circuit analysis\footnote{Circuit analysis is the process of determining the voltages and currents throughout a circuit by applying circuit laws (KVL, KCL) and component relationships. For AC circuits, this is done using the complex signal $\tilde{V}(t)$ in place of the real signal, which simplifies differentiation and integration into algebraic operations.} with $\tilde{V}(t)$ to obtain a complex output signal $\tilde{V}_{\text{out}}(t)$. The real-valued physical output is then recovered by taking the real part:
+\[V_{\text{out}}(t) = \operatorname{Re}\!\left[\tilde{V}_{\text{out}}(t)\right].\]
+Alternatively, one can extract directly the change in signal amplitude and phase shift between input and output.
+
+% ------- 7.3 Capacitor Current -------
+\subsection{Capacitor Current}
+
+Consider a voltage signal $V(t) = \operatorname{Re}[\tilde{V}(t)]$ dropped across a capacitor. To find the current $I(t)$, we first compute the complex current $\tilde{I}(t)$ arising from $\tilde{V}(t)$, then take the real part:
+\[\tilde{I}(t) = \frac{d\tilde{Q}}{dt} = C\frac{d\tilde{V}(t)}{dt} = j C\omega V_0 e^{j(\omega t + \phi_0)} = j C\omega\tilde{V}.\]
+Extracting $I(t)$ using the fact that $j = e^{j\pi/2}$:
+\[I(t) = \operatorname{Re}\!\left[\tilde{I}(t)\right] = C\omega V_0\operatorname{Re}\!\left[e^{j(\omega t + \phi_0 + \pi/2)}\right] = C\omega V_0\cos\!\left(\omega t + \phi_0 + \tfrac{\pi}{2}\right).\]
+Note that $I$ vanishes in the limit $\omega \to 0$ (DC limit), since in steady state the capacitor fully charges and fully opposes the voltage source. From the expression above, the current leads the input voltage by $\pi/2$; equivalently, the input voltage lags the current by $\pi/2$.
+
+% ------- 7.4 Impedance of a Capacitor -------
+\subsection{Impedance of a Capacitor}
+
+Define the capacitive impedance
+\[Z_C = \frac{1}{j\omega C} \implies \tilde{I} = \frac{\tilde{V}}{Z_C},\]
+which is the complex generalization of Ohm's Law. The quantity $Z$ is a complex resistance called impedance. The capacitive impedance is very large at low $\omega$ and decreases as $\omega$ increases. In the DC limit $\omega \to 0$, $Z_C \to \infty$, which is equivalent to saying the capacitor blocks DC signals. The complex character of the impedance encodes how the capacitor affects the phase offset between input and output signals.
+
+% ------- 7.5 Impedance Table -------
 \subsection{Impedance}
-We can perform the same calculation for an inductor and resistor to construct the following impedance table
-\begin
 
+An analogous calculation for an inductor and resistor yields the following impedance table:
+\begin{center}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    Component & Impedance ($Z$) & Phase offset of current relative to voltage \\
+    \hline
+    Resistor   & $R$                    & $0$ \\
+    \hline
+    Capacitor  & $\dfrac{1}{j\omega C}$ & $+\pi/2$ \quad (current leads voltage) \\
+    \hline
+    Inductor   & $j\omega L$            & $-\pi/2$ \quad (current lags voltage) \\
+    \hline
+    \end{tabular}
+\end{center}
+
+% ------- 7.6 Phase Intuition -------
+\subsection{Phase Intuition}
+\marginpar{February 10, 2026}
+
+A capacitor causes current to lead voltage by $\pi/2$ because the current flowing into the capacitor must first accumulate charge on its plates before a voltage difference can be established. Since $I = C\frac{dV}{dt}$, maximum current flows when the voltage is changing fastest (crossing zero) and zero current flows when the voltage is stable at its peak.
+
+An inductor causes current to lag voltage because its magnetic properties, governed by Lenz's law, oppose changes in current flow ($V = L\frac{dI}{dt}$), causing the current waveform to reach its maximum $90°$ after the voltage waveform. Voltage is proportional to the rate of change of current, meaning maximum voltage occurs when current changes fastest (at zero crossing) and zero voltage occurs when the current is constant (at its peak), forcing a $90°$ phase shift.
+
+% ------- 7.7 Power Dissipation of AC Signals -------
+\subsection{Power Dissipation of AC Signals}
+
+The power dissipated by a circuit element driven by an AC signal is found by averaging over one cycle:
+\[P = \frac{1}{T}\int_{0}^{T} I(t)\,\Delta V(t)\,dt.\]
+Taking $V(t) = V_0\cos(\omega t)$ and $I(t) = I_0\cos(\omega t + \phi_0)$, this gives
+\[P = \frac{V_0 I_0}{T}\int_{0}^{T}\cos(\omega t)\cos(\omega t + \phi_0)\,dt = \frac{V_0 I_0}{2}\cos(\phi_0) = V_{\text{rms}}\,I_{\text{rms}}\cos(\phi_0).\]
+For a capacitor and an inductor, $\phi_0 = \pm\pi/2$, so $P = 0$; they do not dissipate energy but instead store and release it. For a resistor, $\phi_0 = 0$, so $P = V_{\text{rms}}\,I_{\text{rms}}$; all the energy is dissipated as heat.
+
+% ------- 7.8 Adding Impedances -------
+\subsection{Adding Impedances}
+
+Impedances combine exactly as resistances do:
+\[Z_{\text{tot}} = Z_1 + Z_2 \quad \text{(series)}, \qquad Z_{\text{tot}} = \left(\frac{1}{Z_1} + \frac{1}{Z_2}\right)^{-1} \quad \text{(parallel)}.\]
+
+% ------- 7.9 Worked Example: Current in an RC Circuit -------
+\subsection{Impedance of an RC Circuit}
+
+\begin{example}
+    Find the current in the following RC circuit:
+    \begin{center}
+        \begin{tikzpicture}[transform shape]
+            \draw (4, 3) to[sinusoidal voltage source] (4, 2.25);
+            \draw (4.75, 4.25) to[american resistor] (7, 4.25);
+            \draw (8, 4.25) to[capacitor] (8, 1.25);
+            \node[sground] at (6, 1.25){};
+            \draw (8, 1.25) |- (4, 1.25) -| (4, 2.25);
+            \draw (7, 4.25) -- (8, 4.25);
+            \draw (4.75, 4.25) |- (4, 4.25) -| (4, 3);
+        \end{tikzpicture}
+    \end{center}
+
+    We have $\tilde{V}(t) = V_0 e^{j\omega t}$, $Z_R = R$, and $Z_C = \frac{1}{j\omega C}$. The total impedance is
+    \[Z_{\text{tot}} = Z_R + Z_C = R + \frac{1}{j\omega C} = \frac{1 + j\omega RC}{j\omega C} = \frac{1+j\omega\tau}{j\omega C},\]
+    where $\tau = RC$. The complex current is
+    \[\tilde{I}(t) = \frac{\tilde{V}(t)}{Z_{\text{tot}}} = \frac{j\omega C\, V_0\, e^{j\omega t}}{1 + j\omega\tau}.\]
+
+    \paragraph{Amplitude.}
+    The magnitude of the total impedance is
+    \[|Z_{\text{tot}}|^2 = R^2 + \frac{1}{\omega^2 C^2} = R^2\,\frac{1 + (\omega\tau)^2}{(\omega\tau)^2},\]
+    so the current amplitude is
+    \[|\tilde{I}| = \frac{V_0}{|Z_{\text{tot}}|} = \frac{V_0}{R}\cdot\frac{\omega\tau}{\sqrt{1+(\omega\tau)^2}}.\]
+    At $\omega = 0$ (DC limit) the current vanishes; as $\omega\to\infty$ it rises to $I_{\max} = V_0/R$, since the capacitive impedance vanishes.
+
+    \paragraph{Phase offset.}
+    The phase of the current leads the voltage by
+    \[\phi = \arctan\!\left(\frac{1}{\omega\tau}\right).\]
+    The full complex current is therefore
+    \[\tilde{I}(t) = \frac{V_0}{R}\cdot\frac{\omega\tau}{\sqrt{1+(\omega\tau)^2}}\,e^{j(\omega t + \phi)}.\]
+
+    \paragraph{Limiting cases.}
+    In the DC limit ($\omega\to 0$), the voltage drops almost entirely across the capacitor and the current leads the voltage by $\phi = \arctan(\infty) = \pi/2$. In the high-frequency limit ($\omega\to\infty$), the voltage drops almost entirely across the resistor and the current is in phase with the voltage: $\phi = \arctan(0) = 0$.
+\end{example}
+
+
+\section{IDK where to put the info below}
+\marginpar{February 12, 2026}
 
 
 
@@ -1024,5 +1120,6 @@ Cutoff frequency $\omega_c$:
 \noindent\textbf{Inductors (visual explanation):} \url{https://www.youtube.com/shorts/lXk4CQDbr4Q}\\
 \textbf{Capacitors (visual explanation):} \url{https://www.youtube.com/shorts/PYrTLQctdwg}\\
 \textbf{Resistors (introduction):} \url{https://www.youtube.com/watch?v=5HI33hSZoH4}
+\textbf{Drawing Circuits for latex:} \url{https://www.circuit2tikz.tf.fau.de/designer/}
 
 \end{document}
