@@ -833,6 +833,33 @@ The LR circuit is the dual of the RC circuit. In an LR circuit, current plays th
     \end{tabular}
 \end{center}
 
+\section{Find name}
+\subsection{Complex numbers relation with AC signals}
+Complex signal: $\tilde{V}(t) = V_0e^{i\phi(t)} = V_0e^{i(\omega t + \phi_0)}$.
+This complex signal is not physical, but it can embed the real-valued physical signal $V(t)$.
+\[V(t) = V_0cos(\phi(t)) = Re[V_0e^{i\phi(t)}] = Re[\tilde{V}(t)].\]
+\subsection{Working with complex numbers}
+To start, you have to perform circuit analysis\footnote{write a short explanation for circuit analysis here} with $\tilde{V}(t)$ to calculate a complex output signal $\tilde{V}_{\text{out}}(t)$. After, from $\tilde{V}_{\text{out}}(t)$, you can extract the real-valued physical output signal $V_{\text{out}}(t)$ by taking the real part:
+\[V_{\text{out}}(t) = Re[\tilde{V}_{\text{out}}(t)].\]
+Alternatively, you can extract directly the change in signal amplitdue and phase shift between input and output.
+\subsection{Capacitor current}
+Drop the voltage signal such that $V(t) = Re[\tilde{V}(t)]$ across a capacitor and find current $I(t)$. To do this, you gotta first find $\tilde{I}(t)$ arising from $\tilde{V}(t)$, and then take the real part to get $I(t)$:
+\[\tilde{I}(t) = \frac{d\tilde{Q}}{dt} = C\frac{d\tilde{V}(t)}{dt}=jC\omega V_0e^{j(\omega t + \phi_0)}=jC\omega\tilde{V}.\]
+After that, extract $I(t)$, using the fact that $j=e^{j\pi/2}$:
+\[I(t) = Re[\tilde{I}(t)] = C\omega V_0 Re[e^{j(\omega t + \phi_0 + \pi/2)}] = C\omega V_0 cos(\omega t + \phi_0 + \pi/2).\]
+Note that $I$ vanishes in the limit as $\omega \to 0$ (DC limit), this is due because in the steady state, the capacitor will fully charge and fully oppose voltage source. Also form the equation of the current we extract, we can see that the current leads the input voltage by $\pi/2$, we also say that the input voltage lags the current by $\pi/2$.
+\subsection{Impedance of capacitor}
+Denote $Z_C = \frac{1}{j\omega C} \implies \tilde{I} = \frac{\tilde{V}}{Z_C}$. We can see that this is the complex version of Ohm's law.\\
+$Z$ is a complex resistance, called "impedance".
+The capacitor's impedance is very large for low $\omega$ and falls off as $\omega$ increases. In the DC limit $\omega \to 0$, the capacitive impedance is infinite, equivalent to saying the capacitor blocks DC signals. The complex character of the impedance encodes how the capacitor affects the phase offset between input/output signals.
+
+\subsection{Impedance}
+We can perform the same calculation for an inductor and resistor to construct the following impedance table
+\begin
+
+
+
+
 % ============================================================
 %  APPENDIX
 % ============================================================
