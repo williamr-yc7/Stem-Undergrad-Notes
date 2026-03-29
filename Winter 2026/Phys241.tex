@@ -718,12 +718,12 @@ The circuit behaviour depends on the ratio of $T$ to $\tau$:
 
 \subsubsection*{Low frequency}
 At low frequency, the capacitor has time to fully charge, so its voltage tracks the input: $\Delta V_C(t) \approx V(t)$. The current is therefore $I \approx C\frac{dV}{dt}$, and the voltage across the resistor is
-\[\Delta V_R(t) \approx \tau\frac{dV_{\text{in}}(t)}{dt}, \qquad \tau = RC.\]
+\[\Delta V_R(t) = R\frac{dQ}{dt} \approx \tau\frac{dV_{\text{in}}(t)}{dt}, \qquad \tau = RC.\]
 The resistor acts as a differentiator. Sharp transitions in the square-wave input produce current spikes.
 
 \subsubsection*{High frequency}
 At high frequency, the capacitor has no time to charge, so the resistor voltage tracks the input: $\Delta V_R(t) \approx V(t)$, giving $I \approx V(t)/R$. The capacitor voltage is then
-\[\Delta V_C(t) \approx \frac{1}{\tau}\int_0^t V_{\text{in}}(t')\,dt', \qquad \tau = RC.\]
+\[\Delta V_C(t) = \frac{Q}{C} \approx \frac{1}{\tau}\int_0^t V_{\text{in}}(t')\,dt', \qquad \tau = RC.\]
 The capacitor acts as an integrator. A square wave input produces a triangle-wave-like voltage across the capacitor.
 
 % ------- 6.3 LR Circuit -------
@@ -793,27 +793,13 @@ The circuit behaviour depends on the ratio of $T$ to $\tau$:
 
 \subsubsection*{Low frequency}
 At low frequency, the inductor has time to fully respond, so the resistor voltage tracks the input: $\Delta V_R(t) \approx V(t)$, giving $I \approx V_{\text{in}}(t)/R$. The voltage across the inductor is then
-\[\Delta V_L(t) \approx \tau\frac{dV_{\text{in}}(t)}{dt}, \qquad \tau = \frac{L}{R}.\]
+\[\Delta V_L(t) = L\frac{dI}{dt} \approx \tau\frac{dV_{\text{in}}(t)}{dt}, \qquad \tau = \frac{L}{R}.\]
 The inductor acts as a differentiator. Sharp transitions in the square-wave input produce voltage spikes across the inductor.
 
 \subsubsection*{High frequency}
 At high frequency, the inductor has no time to respond, so its voltage tracks the input: $\Delta V_L(t) \approx V(t)$, giving $L\frac{dI}{dt} \approx V_{\text{in}}(t)$. The voltage across the resistor is then
-\[\Delta V_R(t) \approx \frac{1}{\tau}\int_0^t V_{\text{in}}(t')\,dt', \qquad \tau = \frac{L}{R}.\]
+\[\Delta V_R(t) = IR \approx \frac{1}{\tau}\int_0^t V_{\text{in}}(t')\,dt', \qquad \tau = \frac{L}{R}.\]
 The resistor acts as an integrator. A square-wave input produces a triangle-wave-like voltage across the resistor.
-
-\subsubsection{Analogy with RC Circuit}
-The LR circuit is the dual of the RC circuit. In an LR circuit, current plays the role that voltage plays in an RC circuit, and the integrator/differentiator roles of the components are swapped:
-\begin{center}
-    \begin{tabular}{|c|c|c|}
-    \hline
-    & RC Circuit & LR Circuit \\
-    \hline
-    Differentiator & Resistor (low freq.) & Inductor (low freq.) \\
-    \hline
-    Integrator & Capacitor (high freq.) & Resistor (high freq.) \\
-    \hline
-    \end{tabular}
-\end{center}
 
 % ------- 6.5 Frequency Behaviour Summary -------
 \subsection{Frequency Behaviour Summary}
@@ -828,12 +814,24 @@ The LR circuit is the dual of the RC circuit. In an LR circuit, current plays th
     \hline
     \end{tabular}
 \end{center}
-
 Important physical facts:
 \begin{itemize}
     \item A capacitor blocks DC and resists changes in voltage.
     \item An inductor passes DC (after long time) and resists changes in current.
 \end{itemize}
+
+The LR circuit is the dual of the RC circuit. In an LR circuit, current plays the role that voltage plays in an RC circuit, and the integrator/differentiator roles of the components are swapped:
+\begin{center}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    & RC Circuit & LR Circuit \\
+    \hline
+    Differentiator & Resistor (low freq.) & Inductor (low freq.) \\
+    \hline
+    Integrator & Capacitor (high freq.) & Resistor (high freq.) \\
+    \hline
+    \end{tabular}
+\end{center}
 
 % ============================================================
 %  APPENDIX

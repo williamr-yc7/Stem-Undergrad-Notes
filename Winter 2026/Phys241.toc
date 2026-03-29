@@ -56,8 +56,7 @@
 \contentsline {subsubsection}{\numberline {6.4.1}Driving Frequency and Time Constant}{21}{subsubsection.6.4.1}%
 \contentsline {subsubsection}{\numberline {6.4.2}LR Circuit with Square-Wave Input}{21}{subsubsection.6.4.2}%
 \contentsline {subsubsection}{\numberline {6.4.3}Integrator and Differentiator Behaviour}{22}{subsubsection.6.4.3}%
-\contentsline {subsubsection}{\numberline {6.4.4}Analogy with RC Circuit}{22}{subsubsection.6.4.4}%
 \contentsline {subsection}{\numberline {6.5}Frequency Behaviour Summary}{22}{subsection.6.5}%
-\contentsline {section}{\numberline {7}Appendix}{23}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Important Concepts}{23}{subsection.7.1}%
+\contentsline {section}{\numberline {7}Appendix}{22}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Important Concepts}{22}{subsection.7.1}%
 \contentsline {section}{\numberline {8}Useful Links}{26}{section.8}%
