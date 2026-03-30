@@ -912,9 +912,9 @@ Impedances combine exactly as resistances do:
 \[Z_{\text{tot}} = Z_1 + Z_2 \quad \text{(series)}, \qquad Z_{\text{tot}} = \left(\frac{1}{Z_1} + \frac{1}{Z_2}\right)^{-1} \quad \text{(parallel)}.\]
 
 % ------- 7.9 Worked Example: Current in an RC Circuit -------
-\subsection{Impedance of an RC Circuit}
+\subsection{Sinusoidally Driven RC Circuit}
 
-\begin{example}
+\begin{example}[Current in Sinusoidally Driven RC Circuit]
     Find the current in the following RC circuit:
     \begin{center}
         \begin{tikzpicture}[transform shape]
@@ -949,11 +949,126 @@ Impedances combine exactly as resistances do:
     \paragraph{Limiting cases.}
     In the DC limit ($\omega\to 0$), the voltage drops almost entirely across the capacitor and the current leads the voltage by $\phi = \arctan(\infty) = \pi/2$. In the high-frequency limit ($\omega\to\infty$), the voltage drops almost entirely across the resistor and the current is in phase with the voltage: $\phi = \arctan(0) = 0$.
 \end{example}
+% ------- 7.10 Impedance Divider -------
+\subsection{Impedance Divider}
+\marginpar{February 12, 2026}
+
+Consider a general voltage divider circuit built from two impedances $Z_1$ and $Z_2$ in series, driven by a sinusoidal source. The output voltage $\tilde{V}'$ is taken across $Z_2$:
+\begin{center}
+    \begin{tikzpicture}[transform shape]
+        \draw (3.5, 0) to[sinusoidal current source] (3.5, 1.75);
+        \draw (3.5, 1.75) -| (3.5, 2) -- (6, 2);
+        \node[shape=rectangle, draw, line width=1pt, minimum width=0.965cm, minimum height=0.465cm] at (6.5, 2){};
+        \draw (8, 2) -- (7, 2);
+        \node[shape=rectangle, draw, line width=1pt, minimum width=0.465cm, minimum height=0.965cm] at (8, 1){};
+        \draw (3.5, 0) -- (8, 0) -| (8, 0.5);
+        \draw (8, 1.5) -| (8, 2);
+        \node[sground] at (6, 0){};
+        \node[anchor=center, align=center] at (6.5, 2){$Z_1$};
+        \node[anchor=center, align=center] at (8, 1){$Z_2$};
+    \end{tikzpicture}
+\end{center}
+The transfer function is
+\[\frac{\tilde{V}'}{\tilde{V}} = \frac{Z_2}{Z_1 + Z_2} = \left|\frac{\tilde{V}'}{\tilde{V}}\right|e^{j\phi},\]
+where $\left|\frac{\tilde{V}'}{\tilde{V}}\right|$ describes how the output amplitude is affected relative to the input amplitude, and $\phi$ is the phase shift of the output relative to the input.
+
+% ------- 7.11 Filter Examples -------
+\subsection{Filter Examples}
+
+\begin{example}[RC Low-Pass Filter]
+Consider the following circuit, with output taken across the capacitor:
+\begin{center}
+    \begin{tikzpicture}[transform shape]
+        \draw (5, 0) to[sinusoidal current source] (5, 2);
+        \draw (5, 0) -- (9, 0);
+        \node[sground] at (7, 0){};
+        \draw (9, 0) to[capacitor] (9, 2);
+        \draw (9, 2) to[american resistor] (5, 2);
+        \node[anchor=south] at (7, 2.1){$Z_1 = R$};
+        \node[anchor=center] at (9.8, 1){$Z_2 = \dfrac{1}{j\omega C}$};
+        \node[shape=circle, draw, line width=1pt, minimum width=0.1cm] at (9, 2){};
+        \node[anchor=west] at (9.15, 2.25){$\tilde{V}'$};
+    \end{tikzpicture}
+\end{center}
+The transfer function is
+\[\frac{\tilde{V}'}{\tilde{V}} = \frac{1/j\omega C}{R + 1/j\omega C} = \frac{1}{1 + j\omega\tau},\]
+where $\tau = RC$. Expanding,
+\[\frac{1}{1+j\omega\tau} = \frac{1 - j\omega\tau}{1+(\omega\tau)^2} = \frac{1}{1+(\omega\tau)^2} - j\frac{\omega\tau}{1+(\omega\tau)^2}.\]
+The amplitude ratio and phase shift are therefore
+\[\left(\frac{V_o'}{V_o}\right)^2 = \left|\frac{\tilde{V}'}{\tilde{V}}\right|^2 = \frac{1}{1+(\omega\tau)^2}, \qquad \phi = -\arctan(\omega\tau).\]
+We can plot both the amplitude ratio and phase shift as functions of $\omega\tau$ (linear scale):
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{../Images/RCcircuit.png}
+\end{figure}
+Conventionally, the amplitude is expressed in dB and the phase in degrees, with $\omega\tau$ on a logarithmic scale, where $V_{\text{dB}} = 20\log_{10}(V) = 10\log_{10}(V^2)$:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{../Images/RCcircuit2.png}
+\end{figure}
+In the high-frequency limit ($\omega\tau \gg 1$), the amplitude falls off as $1/\omega\tau$, and the circuit acts as an integrator.
+\end{example}
+
+\begin{example}[RC High-Pass Filter]
+Consider the following circuit, with output taken across the resistor:
+\begin{center}
+    \begin{tikzpicture}[transform shape]
+        \draw (5, 0) to[sinusoidal current source] (5, 2);
+        \draw (5, 0) -- (9, 0);
+        \node[sground] at (7, 0){};
+        \draw (5, 2) to[capacitor] (9, 2);
+        \draw (9, 0) to[american resistor] (9, 2);
+        \node[shape=circle, draw, line width=1pt, minimum width=0.1cm] at (9, 2){};
+        \node[anchor=west] at (9.15, 2.25){$\tilde{V}'$};
+    \end{tikzpicture}
+\end{center}
+The transfer function is
+\[\frac{\tilde{V}'}{\tilde{V}} = \frac{R}{R + 1/j\omega C} = \frac{j\omega\tau}{1 + j\omega\tau}.\]
+Expanding,
+\[\frac{j\omega\tau}{1+j\omega\tau} = \frac{j\omega\tau(1-j\omega\tau)}{1+(\omega\tau)^2} = \frac{(\omega\tau)^2}{1+(\omega\tau)^2} + j\frac{\omega\tau}{1+(\omega\tau)^2}.\]
+The amplitude ratio and phase shift are therefore
+\[\left(\frac{V_o'}{V_o}\right)^2 = \left|\frac{\tilde{V}'}{\tilde{V}}\right|^2 = \frac{(\omega\tau)^2}{1+(\omega\tau)^2}, \qquad \phi = \arctan\!\left(\frac{1}{\omega\tau}\right).\]
+The Bode plot for this circuit is:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{../Images/RCcircuit3.png}
+\end{figure}
+\end{example}
+
+\begin{example}[Two-Stage RC Circuit]
+Consider the following circuit, in which a resistor $R_2$ is placed in parallel with the capacitor:
+\begin{center}
+    \begin{tikzpicture}[transform shape]
+        \draw (5, 0) to[sinusoidal current source] (5, 2);
+        \node[sground] at (7, 0){};
+        \draw (9.5, 0.25) to[capacitor] (9.5, 1.75);
+        \draw (9, 2) to[american resistor] (5, 2);
+        \draw (8.5, 1.75) to[american resistor] (8.5, 0.25);
+        \draw (9.5, 1.75) |- (8.5, 1.75);
+        \draw (8.5, 0.25) -- (9.5, 0.25);
+        \draw (9, 1.75) -| (9, 2);
+        \draw (9, 0) -| (9, 0.25);
+        \draw (9, 0) -- (5, 0);
+        \node[shape=circle, draw, line width=1pt, minimum width=0.1cm] at (9, 2){};
+        \node[anchor=west] at (9.15, 2.25){$\tilde{V}'$};
+        \node[anchor=south] at (7, 2.1){$R_1$};
+        \node[anchor=west] at (8.65, 1.0){$R_2$};
+        \node[anchor=west] at (9.6, 1.0){$C$};
+    \end{tikzpicture}
+\end{center}
+Here $Z_1 = R_1$ and $Z_2 = R_2 \parallel \frac{1}{j\omega C}$, so the transfer function is
+\[\frac{\tilde{V}'}{\tilde{V}} = \frac{1}{R_1\!\left(\dfrac{1}{R_2} + j\omega C\right) + 1}.\]
+In the two limiting cases:
+\begin{itemize}
+    \item \textbf{High-frequency limit} ($\omega\to\infty$): $R_2$ is short-circuited by the capacitor, giving $\dfrac{\tilde{V}'}{\tilde{V}} \to \dfrac{1}{1 + j\omega R_1 C}$ \quad (low-pass RC).
+    \item \textbf{Low-frequency limit} ($\omega\to 0$): the capacitor is an open circuit, giving $\dfrac{\tilde{V}'}{\tilde{V}} \to \dfrac{R_2}{R_1 + R_2}$ \quad (resistive divider).
+\end{itemize}
+\end{example}
+
 
 
 \section{IDK where to put the info below}
-\marginpar{February 12, 2026}
-
+\marginpar{February 17, 2026}
 
 
 % ============================================================

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  29 MAR 2026 18:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  30 MAR 2026 14:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -481,4 +481,398 @@ File: tikzlibraryplotmarks.code.tex 2025-08-29 v3.1.11a (3.1.11a)
  (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibraryplotmarks.code.tex
 File: pgflibraryplotmarks.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ))) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/latex/circuitikz\circuitikz.sty
-Package: circuitikz 2026/01/07{} The CircuiTikz circuit drawing packa
+Package: circuitikz 2026/01/07{} The CircuiTikz circuit drawing package version 1.8.4
+ (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarycalc.code.tex
+File: tikzlibrarycalc.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibraryarrows.meta.code.tex
+File: pgflibraryarrows.meta.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfarrowinset=\dimen285
+\pgfarrowlength=\dimen286
+\pgfarrowwidth=\dimen287
+\pgfarrowlinewidth=\dimen288
+) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarybending.code.tex
+File: tikzlibrarybending.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+ (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodulebending.code.tex
+File: pgfmodulebending.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+ (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodulenonlineartransformations.code.tex
+File: pgfmodulenonlineartransformations.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgftransformnonlinearflatness=\dimen289
+) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibrarycurvilinear.code.tex
+File: pgflibrarycurvilinear.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@curvilinear@time@a=\dimen290
+\pgf@curvilinear@length@a=\dimen291
+\pgf@curvilinear@length@b=\dimen292
+\pgf@curvilinear@length@c=\dimen293
+\pgf@curvilinear@length@d=\dimen294
+)
+\pgf@arrows@the@rigidity=\dimen295
+)) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryfpu.code.tex) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/circuitikz\pgfcirc.defines.tex
+\pgf@circ@count@a=\count340
+\pgf@circ@count@b=\count341
+\pgf@circ@count@c=\count342
+\pgf@circ@res@up=\dimen296
+\pgf@circ@res@down=\dimen297
+\pgf@circ@res@zero=\dimen298
+\pgf@circ@res@left=\dimen299
+\pgf@circ@res@right=\dimen300
+\pgf@circ@res@other=\dimen301
+\pgf@circ@res@step=\dimen302
+\pgf@circ@res@temp=\dimen303
+\pgf@circ@Rlen=\dimen304
+\pgf@circ@scaled@Rlen=\dimen305
+\pgfstartlinewidth=\dimen306
+) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/circuitikz\pgfcircutils.tex
+\ctikz@scratchbox=\box68
+) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/circuitikz\pgfcircpath.tex) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/circuitikz\pgfcircshapes.tex) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/circuitikz\pgfcircmonopoles.tex) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/circuitikz\pgfcircbipoles.tex) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/circuitikz\pgfcirctripoles.tex
+\pgf@circ@res@count=\count343
+) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/circuitikz\pgfcircquadpoles.tex) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/circuitikz\pgfcircmultipoles.tex) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/circuitikz\pgfcirclabel.tex) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/circuitikz\pgfcircvoltage.tex
+\pgfcirc@labelshift=\dimen307
+) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/circuitikz\pgfcirccurrent.tex) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/generic/circuitikz\pgfcircflow.tex)) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count344
+\float@exts=\toks50
+\float@box=\box69
+\@float@everytoks=\toks51
+\@floatcapt=\box70
+)
+\c@theorem=\count345
+\c@law=\count346
+\c@principle=\count347
+\c@corollary=\count348
+\c@definition=\count349
+\c@problem=\count350
+\c@solution=\count351
+\c@remark=\count352
+\c@proposition=\count353
+Package hyperref Info: Option `colorlinks' set `true' on input line 29.
+ (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
+File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count354
+) (Phys241.aux)
+\openout1 = `Phys241.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+ (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count355
+\scratchdimen=\dimen308
+\scratchbox=\box71
+\nofMPsegments=\count356
+\nofMParguments=\count357
+\everyMPshowfont=\toks52
+\MPscratchCnt=\count358
+\MPscratchDim=\dimen309
+\MPnumerator=\count359
+\makeMPintoPDFobject=\count360
+\everyMPtoPDFconversion=\toks53
+) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+))
+Package hyperref Info: Link coloring ON on input line 30.
+ (Phys241.out) (Phys241.out)
+\@outlinefile=\write4
+\openout4 = `Phys241.out'.
+
+
+Package pgfplots notification 'compat/show suggested version=true': document has been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
+
+LaTeX Font Info:    Trying to load font information for U+msa on input line 42.
+(C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 42.
+ (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [1
+
+{C:/Users/erenr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (Phys241.toc [2
+
+])
+\tf@toc=\write5
+\openout5 = `Phys241.toc'.
+
+ [3]
+Underfull \hbox (badness 10000) in paragraph at lines 74--74
+[]\OT1/cmr/m/n/10 January 13,
+ []
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.114 \end{center}
+                   [1
+
+]
+<../Images/Pulsating-direct-current-diagram.svg.png, id=393, 1284.8pt x 632.3625pt>
+File: ../Images/Pulsating-direct-current-diagram.svg.png Graphic file (type png)
+<use ../Images/Pulsating-direct-current-diagram.svg.png>
+Package pdftex.def Info: ../Images/Pulsating-direct-current-diagram.svg.png  used on input line 120.
+(pdftex.def)             Requested size: 172.5pt x 84.9021pt.
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.142 \end{example}
+                    [2
+pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.142 \end{example}
+                    <../Images/Pulsating-direct-current-diagram.svg.png>]
+pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.173     \[\vec{E} = -\nabla V.\]
+                                   [3] [4]
+Underfull \hbox (badness 10000) in paragraph at lines 212--212
+[]\OT1/cmr/m/n/10 January 22,
+ []
+
+<../Images/Lenzslaw.png, id=423, 465.74pt x 155.07938pt>
+File: ../Images/Lenzslaw.png Graphic file (type png)
+<use ../Images/Lenzslaw.png>
+Package pdftex.def Info: ../Images/Lenzslaw.png  used on input line 232.
+(pdftex.def)             Requested size: 232.86943pt x 77.53949pt.
+[5
+pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.239 \end{definition}
+                       <../Images/Lenzslaw.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 279--279
+[]\OT1/cmr/m/n/10 January 15,
+ []
+
+[6]
+<../Images/Ohms-Law-Formula-Wheel.png, id=443, 432.61626pt x 321.2pt>
+File: ../Images/Ohms-Law-Formula-Wheel.png Graphic file (type png)
+<use ../Images/Ohms-Law-Formula-Wheel.png>
+Package pdftex.def Info: ../Images/Ohms-Law-Formula-Wheel.png  used on input line 310.
+(pdftex.def)             Requested size: 172.5pt x 128.07582pt.
+ [7]
+<../Images/kirchhoffrule.jpg, id=451, 702.625pt x 396.48125pt>
+File: ../Images/kirchhoffrule.jpg Graphic file (type jpg)
+<use ../Images/kirchhoffrule.jpg>
+Package pdftex.def Info: ../Images/kirchhoffrule.jpg  used on input line 327.
+(pdftex.def)             Requested size: 224.2479pt x 126.5378pt.
+ [8
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.343 \end{definition}
+                      
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.343 \end{definition}
+                       <../Images/Ohms-Law-Formula-Wheel.png> <../Images/kirchhoffrule.jpg>]
+<../Images/AC_symbol.png, id=461, 149.05687pt x 51.19125pt>
+File: ../Images/AC_symbol.png Graphic file (type png)
+<use ../Images/AC_symbol.png>
+Package pdftex.def Info: ../Images/AC_symbol.png  used on input line 356.
+(pdftex.def)             Requested size: 172.5pt x 59.24596pt.
+ [9
+pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.387 \end{center}
+                   <../Images/AC_symbol.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 410--410
+[]\OT1/cmr/m/n/10 January 20,
+ []
+
+<../Images/Parallel_resistors.png, id=471, 288.07625pt x 211.28937pt>
+File: ../Images/Parallel_resistors.png Graphic file (type png)
+<use ../Images/Parallel_resistors.png>
+Package pdftex.def Info: ../Images/Parallel_resistors.png  used on input line 425.
+(pdftex.def)             Requested size: 172.5pt x 126.52312pt.
+[10] [11
+pdfTeX warning (ext4): destination with the same identifier (name{figure.6}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.456 \[V_{\text{terminal}} = V_0 - Ir.\]
+                                          <../Images/Parallel_resistors.png>] [12] [13]
+<../Images/Inductor_symbols.png, id=508, 129.98563pt x 274.02374pt>
+File: ../Images/Inductor_symbols.png Graphic file (type png)
+<use ../Images/Inductor_symbols.png>
+Package pdftex.def Info: ../Images/Inductor_symbols.png  used on input line 531.
+(pdftex.def)             Requested size: 103.50105pt x 218.19069pt.
+ [14
+pdfTeX warning (ext4): destination with the same identifier (name{figure.7}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.547 ...c{di}{dt}\cdot i\,dt = \frac{1}{2}LI^2.\]
+                                                   <../Images/Inductor_symbols.png>]
+<../Images/Solenoid.png, id=515, 314.67563pt x 251.43938pt>
+File: ../Images/Solenoid.png Graphic file (type png)
+<use ../Images/Solenoid.png>
+Package pdftex.def Info: ../Images/Solenoid.png  used on input line 569.
+(pdftex.def)             Requested size: 172.5pt x 137.83551pt.
+ [15
+pdfTeX warning (ext4): destination with the same identifier (name{figure.8}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.578     \begin{center}
+                         <../Images/Solenoid.png>]
+<../Images/Transformer.png, id=525, 354.32375pt x 277.035pt>
+File: ../Images/Transformer.png Graphic file (type png)
+<use ../Images/Transformer.png>
+Package pdftex.def Info: ../Images/Transformer.png  used on input line 595.
+(pdftex.def)             Requested size: 172.5pt x 134.87329pt.
+ [16
+pdfTeX warning (ext4): destination with the same identifier (name{figure.9}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.621 \end{definition}
+                       <../Images/Transformer.png>]
+<../Images/RC_circuit.png, id=535, 296.60812pt x 349.80687pt>
+File: ../Images/RC_circuit.png Graphic file (type png)
+<use ../Images/RC_circuit.png>
+Package pdftex.def Info: ../Images/RC_circuit.png  used on input line 627.
+(pdftex.def)             Requested size: 172.5pt x 203.44324pt.
+
+Overfull \hbox (69.73885pt too wide) in paragraph at lines 658--659
+ [] 
+ []
+
+[17
+pdfTeX warning (ext4): destination with the same identifier (name{figure.10}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.659 \end{center}
+                   <../Images/RC_circuit.png>]
+Overfull \hbox (83.96521pt too wide) in paragraph at lines 683--684
+ [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 687--687
+[]\OT1/cmr/m/n/10 January 29,
+ []
+
+[18]
+<../Images/LR_circuit.png, id=549, 306.14375pt x 337.76187pt>
+File: ../Images/LR_circuit.png Graphic file (type png)
+<use ../Images/LR_circuit.png>
+Package pdftex.def Info: ../Images/LR_circuit.png  used on input line 740.
+(pdftex.def)             Requested size: 172.5pt x 190.31528pt.
+ [19] [20
+pdfTeX warning (ext4): destination with the same identifier (name{figure.11}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.759 .../\tau}, \qquad I(t) = I_0\,e^{-t/\tau}.\]
+                                                   <../Images/LR_circuit.png>] [21]
+Underfull \hbox (badness 10000) in paragraph at lines 840--840
+[]\OT1/cmr/m/n/10 February 5,
+ []
+
+[22] [23]
+Underfull \hbox (badness 10000) in paragraph at lines 893--893
+[]\OT1/cmr/m/n/10 February 10,
+ []
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 897.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 897.
+
+Missing character: There is no ° in font cmr10!
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 897.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 897.
+
+Missing character: There is no ° in font cmr10!
+[24] [25]
+Underfull \hbox (badness 10000) in paragraph at lines 954--954
+[]\OT1/cmr/m/n/10 February 12,
+ []
+
+[26]
+<../Images/RCcircuit.png, id=602, 626.84187pt x 328.72812pt>
+File: ../Images/RCcircuit.png Graphic file (type png)
+<use ../Images/RCcircuit.png>
+Package pdftex.def Info: ../Images/RCcircuit.png  used on input line 1002.
+(pdftex.def)             Requested size: 276.00105pt x 144.74614pt.
+<../Images/RCcircuit2.png, id=603, 328.72812pt x 357.335pt>
+File: ../Images/RCcircuit2.png Graphic file (type png)
+<use ../Images/RCcircuit2.png>
+Package pdftex.def Info: ../Images/RCcircuit2.png  used on input line 1007.
+(pdftex.def)             Requested size: 207.0021pt x 225.01863pt.
+ [27 <../Images/RCcircuit.png> <../Images/RCcircuit2.png>]
+<../Images/RCcircuit3.png, id=610, 330.23375pt x 365.86688pt>
+File: ../Images/RCcircuit3.png Graphic file (type png)
+<use ../Images/RCcircuit3.png>
+Package pdftex.def Info: ../Images/RCcircuit3.png  used on input line 1034.
+(pdftex.def)             Requested size: 207.0021pt x 229.34732pt.
+ [28 <../Images/RCcircuit3.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1071--1071
+[]\OT1/cmr/m/n/10 February 17,
+ []
+
+[29] [30] [31] [32]
+Overfull \hbox (32.04163pt too wide) in paragraph at lines 1235--1239
+\OT1/cmr/bx/n/10 Inductors (vi-sual ex-pla-na-tion): [][]$\OT1/cmtt/m/n/10 https : / / www . youtube . com / shorts / lXk4CQDbr4Q$[][] 
+ []
+
+
+Overfull \hbox (37.58322pt too wide) in paragraph at lines 1235--1239
+\OT1/cmr/bx/n/10 Capacitors (vi-sual ex-pla-na-tion): [][]$\OT1/cmtt/m/n/10 https : / / www . youtube . com / shorts / PYrTLQctdwg$[][] 
+ []
+
+
+Overfull \hbox (7.22375pt too wide) in paragraph at lines 1235--1239
+\OT1/cmr/bx/n/10 Resistors (in-tro-duc-tion): [][]$\OT1/cmtt/m/n/10 https : / / www . youtube . com / watch ? v = 5HI33hSZoH4$[][]
+ []
+
+
+Overfull \hbox (21.74866pt too wide) in paragraph at lines 1235--1239
+\OT1/cmr/bx/n/10 Draw-ing Cir-cuits for la-tex: [][]$\OT1/cmtt/m/n/10 https : / / www . circuit2tikz . tf . fau . de / designer/$[][] 
+ []
+
+[33] (Phys241.aux)
+ ***********
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-12-24>
+ ***********
+Package rerunfilecheck Info: File `Phys241.out' has not changed.
+(rerunfilecheck)             Checksum: 5E47EB461CBBDEEA4D3595E8DD1BFE2A;11301.
+ ) 
+Here is how much of TeX's memory you used:
+ 50734 strings out of 467871
+ 1321251 string characters out of 5418377
+ 2053432 words of memory out of 5000000
+ 78872 multiletter control sequences out of 15000+600000
+ 640384 words of font info for 87 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 99i,9n,118p,799b,1070s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\erenr\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on Phys241.pdf (36 pages, 1562078 bytes).
+PDF statistics:
+ 803 PDF objects out of 1000 (max. 8388607)
+ 192 named destinations out of 1000 (max. 500000)
+ 643 words of extra memory for PDF output out of 10000 (max. 10000000)
+

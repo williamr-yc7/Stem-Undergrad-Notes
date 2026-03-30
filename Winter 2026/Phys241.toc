@@ -66,11 +66,13 @@
 \contentsline {subsection}{\numberline {7.6}Phase Intuition}{24}{subsection.7.6}%
 \contentsline {subsection}{\numberline {7.7}Power Dissipation of AC Signals}{24}{subsection.7.7}%
 \contentsline {subsection}{\numberline {7.8}Adding Impedances}{25}{subsection.7.8}%
-\contentsline {subsection}{\numberline {7.9}Impedance of an RC Circuit}{25}{subsection.7.9}%
+\contentsline {subsection}{\numberline {7.9}Sinusoidally Driven RC Circuit}{25}{subsection.7.9}%
 \contentsline {paragraph}{Amplitude.}{25}{section*.19}%
 \contentsline {paragraph}{Phase offset.}{25}{section*.20}%
 \contentsline {paragraph}{Limiting cases.}{26}{section*.21}%
-\contentsline {section}{\numberline {8}IDK where to put the info below}{26}{section.8}%
-\contentsline {section}{\numberline {9}Appendix}{26}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Important Concepts}{26}{subsection.9.1}%
-\contentsline {section}{\numberline {10}Useful Links}{29}{section.10}%
+\contentsline {subsection}{\numberline {7.10}Impedance Divider}{26}{subsection.7.10}%
+\contentsline {subsection}{\numberline {7.11}Filter Examples}{26}{subsection.7.11}%
+\contentsline {section}{\numberline {8}IDK where to put the info below}{29}{section.8}%
+\contentsline {section}{\numberline {9}Appendix}{29}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Important Concepts}{29}{subsection.9.1}%
+\contentsline {section}{\numberline {10}Useful Links}{33}{section.10}%
