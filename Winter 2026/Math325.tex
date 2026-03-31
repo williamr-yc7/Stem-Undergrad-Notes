@@ -1949,6 +1949,70 @@ well-defined. We denote it $\mathcal{L}^{-1}[F(s)]$.
     \[y(t) = \mathcal{L}^{-1}\!\left[Y(s)\right] = e^{-t} - \frac{3}{2}te^{-t} + \frac{1}{2}\sin t.\]
 \end{example}
 
+\marginpar{March 31, 2026}
+5.4: Step functions \& Translation Theorems
+\[u_c(t) = \begin{cases}0, t\in[0,c)\\1, t\geq c\end{cases}\]
+%PS DRAW THIS FCT ABOVE
+Unit step function (or Heaviside function)
+\begin{example}
+    Let $f(t) = \begin{cases}f_1(t), t\in[0,a)\\f_2(t),t\in[a,b)\\f_3(t), t\geq b\end{cases} \implies f=u_0f_1+u_a(f_2-f_1)+u_b(f_3-f_2)$.
+\end{example}
+\begin{theorem}[Translation Theorem 1]
+    Let
+    \[L[u_c](s)=\int_{0}^{\infty}e^{-st}u_c(t)dt = \int_{c}^{\infty}e^{-st}dt = \frac{e^{-cs}}{s}\]
+    \[\implies L[u_c] = \frac{e^{-sc}}{s}, s>0.\]
+\end{theorem}
+\begin{definition}[Translation Operator]
+    %Add picture for the function graphs
+    \[t_c(f)(t) = \begin{cases}0,t\in[0,c)\\f(t-c),t\geq c\end{cases}\] 
+\end{definition}
+\begin{theorem}[Translation Theorem 2]
+    Let $f: [0,\infty) \to \mathbb{R}$ be PCEO with order $a$ and let $c>0$. Then $L[t_c(f)] = e^{-cs}L[f]$. Or equivalently, $L^{-1}[e^{-cs}F(s)] = t_c(f)$.
+\end{theorem}
+\begin{proof}
+    \[L[t_c(f)] = \int_{c}^{\infty}e^{-st}t_c(f)(t-c)dt.\]
+    Substituting $u = t-c$ gives
+    \[= e^{-cs}\int_{0}^{\infty}e^{-su}f(u)du = e^{-cs}L[f].\]
+\end{proof}
+\begin{example}
+    Let $f(t) = \begin{cases}sin(t), t\in[0,\pi/4)\\sin(t)+cos(t-\pi/4), t\geq \pi/4\end{cases}$.
+    %Draw the graph
+    \[=sin(t) + \begin{cases}0, t\in[0,\pi/4)\\cos(t-\pi/4), t\geq \pi/4\end{cases} = sin(t)+t\pi/4(cos(t)) \implies L\{f\} = \frac{1}{s^2+1}+e^{-\pi/4 s}\frac{s}{s^2+1}.\]
+\end{example}
+\begin{example}
+    Let $f(t) = \begin{cases}2,t\in[0,1)\\1+t,t\in[1,4)\\t^2,t\geq 4\end{cases}$. What is $L[f]$?\\
+    \[=2u_0(t)+u_1(t)(t-1)+u_4(t)(t^2-(1+t))\]
+    $u_1(t)(t-1) = t_1(t)$, $u_4(t)(t^2-(1+t)) = t_4(t^2+7t+11)$.
+    \[\implies L\{f\} = 2L{u_0}+L\{t_1(t)\}+L\{t_4(t^2+7t+11)\} = 2/s + e^{-s}L\{t\} + e^{-4s}L\{t^2+7t+11\} = 2/s + e^{-s}1/s^2+e^{-4s}(2/s^3 + 7/s^2 + 11/s).\]
+\end{example}
+\begin{example}
+    let $L^{-1}\{\frac{1-e^{-2s}}{s^2}\} = L^{-1}\{\frac{1}{s^2}\} - L^{-1}\{e^{-2s}F(s)\}$, where $F(s) = 1/s^2$ and $L^{-1}\{F(s)\} = t$.
+    \[=t-t_2(t) = t-u_2(t)(t-2) = \begin{cases}t,t\in[0,2)\\2,t\geq 2\end{cases}\]
+\end{example}
+\begin{theorem}[Translation Theorem 3]
+    Let $f: [0,\infty) \to \mathbb{R}$ be PCEO with order $a$ and let $c>0$. Then $L[f](s-c) = L\{e^{ct}f(t)\}, s>a+c$. Or equivalently, $L^{-1}[F(s-c)] = e^{ct}L^{-1}\{F(s)\}$.
+\end{theorem}
+\begin{proof}
+    $L[f](s-c) = \int_{0}^{\infty}e^{-(s-c)t}f(t)dt = \int_{0}^{\infty}e^{-st}[e^{ct}f(t)]dt = L\{e^{ct}f(t)\}$.
+\end{proof}
+\begin{example}
+    Let $L^{-1}\{\frac{1}{s^2-4s+5}\} = ?$.
+    \[s^2-4s+5=(s-2)^2+1\]
+    \[\implies \frac{1}{s^2-4s+5} = \frac{1}{(s-2)^2+1} = F(s-2),\]
+    where $F(s) = 1/(s^2+1)$ and $f(t) = L^{-1}\{F(s)\} = \sin t$. By TT3 $L^{-1}\{\frac{1}{s^2-4s+5}\} = L^{-1}\{F(s-2)\} = e^{2t}\sin t$.
+\end{example}
+5.5: ODEs with discontinuous forcing terms
+\begin{example}
+    Let $y''+4y = f(t) = u_0(t) - u_1(t) = \begin{cases}1, t\in[0,1)\\0, t\geq 1\end{cases}$ and $y(0)=y'(0)=0$.
+    \[s^2L\{y\}+4L\{y\} = L\{u_0-u_1\} = 1/s - e^{-s}/s\]
+    \[y(t) = L^{-1}\{y(s)\}=L^{-1}\{\frac{1}{(s^2+4)s}\}-L^{-1}\{\frac{e^{-s}}{(s^2+4)s}\}\]
+    First, denote $F(s) = \frac{1}{s(s^2+4)}$. This implies $L^{-1}\{F(s)\} = L^{-1}\{1/s \cdot \frac{1}{s^2+4}\} = L^{-1}\{1/s\}\star 1/2 L^{-1}\{\frac{2}{s^2+4}\} = 1\star 1/2 sin(2t)=\int_{0}^{t}1/2 sin(2\tau)d\tau = 1/4(1-cos(2t)) = f(t) = L^{-1}\{F(s)\}$. By TT2 $y(t) = 1/4(1-cos(2t)) - t_1(1/4(1-cos(2t)))$.
+    \[=\begin{cases}1/4(1-cos(2t)), t\in[0,1)\\1/4(1-cos(2t))-1/4(1-cos(2t-2)), t\geq 1\end{cases}\]
+    %Add graphs
+\end{example}
+
+
+
 \section{Appendix}
 \subsection{Picard Iterations Convergence}
 \begin{proof}[Proof of Picard Iterations Convergence]

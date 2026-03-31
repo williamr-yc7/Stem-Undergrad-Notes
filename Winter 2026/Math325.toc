@@ -76,7 +76,7 @@
 \contentsline {subsection}{\numberline {7.4}Computational Methods}{39}{subsection.7.4}%
 \contentsline {subsubsection}{\numberline {7.4.1}Integration in the Time Domain}{39}{subsubsection.7.4.1}%
 \contentsline {subsubsection}{\numberline {7.4.2}Convolution}{39}{subsubsection.7.4.2}%
-\contentsline {section}{\numberline {8}Appendix}{40}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Picard Iterations Convergence}{40}{subsection.8.1}%
-\contentsline {section}{\numberline {9}Solutions}{42}{section.9}%
-\contentsline {section}{\numberline {10}Useful Links}{44}{section.10}%
+\contentsline {section}{\numberline {8}Appendix}{42}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Picard Iterations Convergence}{42}{subsection.8.1}%
+\contentsline {section}{\numberline {9}Solutions}{44}{section.9}%
+\contentsline {section}{\numberline {10}Useful Links}{46}{section.10}%
