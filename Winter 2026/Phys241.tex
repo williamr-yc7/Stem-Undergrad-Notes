@@ -1139,29 +1139,69 @@ This case represents the fastest return to equilibrium without oscillation.
     \end{tabular}
 \end{center}
 
-
-
-\section{IDK where to put the info below}
+% ------- 8.4 RLC Circuit with AC Driving -------
+\subsection{RLC Circuit with AC Driving}
 \marginpar{February 19, 2026}
-Example of RLC with ac driving:
+
+Consider the following series RLC circuit driven by a sinusoidal voltage source $V(t) = V_0\cos(\omega t)$:
 \begin{center}
     \begin{tikzpicture}[transform shape]
-        % Paths, nodes and wires:
         \node[sground] at (-0.25, -1.5){};
         \draw (-1.25, 2) to[american resistor] (0.75, 2);
         \draw (0.75, 2) to[cute inductor] (2.75, 2);
         \draw (2.75, 2) to[capacitor] (2.75, -1.5);
         \draw (-2.25, 1.5) -| (-2.25, 2) -- (-1.25, 2);
         \draw (-2.25, -1.5) -- (2.75, -1.5);
-        \node[shape=rectangle, minimum width=-0.035cm, minimum height=-0.035cm] at (0, -0){};
-        \draw (-2.25, -1.5) to[sinusoidal current source, i=$a$] (-2.25, 2);
-        \node[shape=rectangle, minimum width=3.215cm, minimum height=1.715cm] at (-3.75, 0.875){} node[anchor=center, align=center, text width=2.827cm, inner sep=6pt] at (-3.75, 0.875){\footnotesize V(t) = V\_0 cos(wt)};
-        \node[currarrow, rotate=90, yscale=-1] at (-5.5, 2){};
+        \draw (-2.25, -1.5) to[sinusoidal current source] (-2.25, 2);
+        \node[anchor=east] at (-2.4, 0.25){$V(t) = V_0\cos(\omega t)$};
         \node[currarrow, rotate=-90] at (2.75, 0.75){};
-        \node[shape=rectangle, minimum width=0.965cm, minimum height=0.715cm] at (3, 0.75){} node[anchor=center, align=center, text width=0.577cm, inner sep=6pt] at (3, 0.75){\tiny I(t)};
+        \node[anchor=west] at (2.9, 0.75){$I(t)$};
     \end{tikzpicture}
 \end{center}
-Here $\tilde{V} = V_0e^{j\omega t}$, then $\tilde{I} = \frac{\tilde{V}}{Z_1+Z_2} = \frac{\tilde{V}}{R}\frac{j\omega\tau}{1-\frac{\omega^2}{\omega_0^2}+j\omega\tau}$, where $\tau = \frac{L}{R}$ and $\omega_0 = \frac{1}{\sqrt{LC}}$. The amplitude of current is $|\tilde{I}|^2=(\frac{V_0}{R})^2(\frac{j\omega\tau}{1-\frac{\omega^2}{\omega_0^2}+j\omega\tau})(\frac{-j\omega\tau}{1-\frac{\omega^2}{\omega_0^2}-j\omega\tau}) = (\frac{V_0}{R})^2\frac{(\omega\tau)^2}{(1-\frac{\omega^2}{\omega_0^2})^2+(\omega\tau)^2}$. Note $|\tilde{I}|$ equals maximum current $I_{max} = \frac{V_0}{R}$ at $\omega=\omega_0$, the input frequency at which the circuit becomes maximally transmittant. The phase of the current: $\tilde{I} = \frac{\tilde{V}}{R}(\frac{j\omega\tau}{1-\frac{\omega^2}{\omega_0^2}+j\omega\tau})(\frac{1-\frac{\omega^2}{\omega_0^2}-j\omega\tau}{1-\frac{\omega^2}{\omega_0^2}-j\omega\tau}) = \frac{\tilde{V}}{R}\frac{(\omega\tau)^2+j\omega\tau(1-\frac{\omega^2}{\omega_0^2})}{(1-\frac{\omega^2}{\omega_0^2})^2+(\omega\tau)^2}$. Therefore $tan\phi = \frac{Im[Z]}{Re[Z]} = \frac{1-\frac{\omega^2}{\omega_0^2}}{\omega\tau}$. The solution for the current is then: $I(t) = |\tilde{I}|cos(\omega t+\phi)$.
+
+Using the complex representation $\tilde{V} = V_0 e^{j\omega t}$, the total impedance of the series circuit is
+\[Z_{\text{tot}} = R + j\omega L + \frac{1}{j\omega C} = R\left(1 - \frac{\omega^2}{\omega_0^2} + j\omega\tau\right)\frac{1}{j\omega\tau}\cdot j\omega\tau,\]
+so that the complex current is
+\[\tilde{I} = \frac{\tilde{V}}{Z_{\text{tot}}} = \frac{\tilde{V}}{R}\cdot\frac{j\omega\tau}{1 - \dfrac{\omega^2}{\omega_0^2} + j\omega\tau},\]
+where $\tau = L/R$ and $\omega_0 = 1/\sqrt{LC}$.
+
+\subsubsection{Amplitude}
+\[|\tilde{I}|^2 = \left(\frac{V_0}{R}\right)^2 \frac{(\omega\tau)^2}{\left(1 - \dfrac{\omega^2}{\omega_0^2}\right)^2 + (\omega\tau)^2}.\]
+At $\omega = \omega_0$ the denominator reduces to $(\omega_0\tau)^2$, so $|\tilde{I}|$ reaches its maximum
+\[I_{\max} = \frac{V_0}{R},\]
+the frequency at which the circuit is maximally transmittant. At resonance, the capacitive and inductive impedances cancel exactly, leaving only $R$.
+
+\subsubsection{Phase}
+Multiplying numerator and denominator of $\tilde{I}/(\tilde{V}/R)$ by the complex conjugate of the denominator gives
+\[\frac{\tilde{I}}{\tilde{V}/R} = \frac{(\omega\tau)^2 + j\omega\tau\!\left(1 - \dfrac{\omega^2}{\omega_0^2}\right)}{\left(1 - \dfrac{\omega^2}{\omega_0^2}\right)^2 + (\omega\tau)^2},\]
+from which the phase of the current relative to the voltage is
+\[\tan\phi = \frac{1 - \dfrac{\omega^2}{\omega_0^2}}{\omega\tau}.\]
+The physical current is therefore
+\[I(t) = |\tilde{I}|\cos(\omega t + \phi).\]
+
+% ------- 8.5 Quality Factor -------
+\subsection{Quality Factor}
+
+The \textbf{quality factor} $Q$ measures the sharpness of the resonance peak:
+\[Q = \frac{1}{\omega_0\tau} = \frac{\omega_0 L}{R}.\]
+A high $Q$ corresponds to a narrow resonance. As $R \to 0$, the circuit approaches a pure LC resonator, $Q \to \infty$, and only oscillation at $\omega_0$ can be sustained. At resonance the capacitive and inductive reactances are equal in magnitude but opposite in phase (offset by $\pi$ radians), so they cancel exactly and the circuit presents purely resistive impedance to the driving source.
+
+% ------- 8.6 Power and Resonance -------
+\subsection{Power and Resonance}
+
+The instantaneous power delivered to the circuit is
+\[P(t) = V(t)\,I(t) = V_0 I_0\cos(\omega t)\cos(\omega t + \phi).\]
+Time-averaging over one complete cycle gives
+\[\langle P \rangle = \frac{1}{T}\int_0^T P(t)\,dt = \frac{V_0 I_0}{2}\cos\phi.\]
+The factor $\cos\phi$ is called the \textbf{power factor}. Capacitors and inductors introduce a phase offset $\phi$ that reduces the efficiency of power delivery. In a pure LC circuit the phase offset is necessarily $\pm\pi/2$, so $\cos\phi = 0$ and the time-averaged power input vanishes --- no net energy is delivered unless the circuit is driven exactly at resonance $\omega = \omega_0$, where the inductive and capacitive impedances cancel and $\phi = 0$.
+
+
+
+\section{IDK where to put the info below}
+\marginpar{March 10, 2026}
+
+
+
 
 % ============================================================
 %  APPENDIX
