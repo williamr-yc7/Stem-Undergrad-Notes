@@ -1065,11 +1065,103 @@ In the two limiting cases:
 \end{itemize}
 \end{example}
 
+% ============================================================
+%  8. RLC CIRCUITS
+% ============================================================
+\section{RLC Circuits}
+\marginpar{February 17, 2026}
+
+\subsection{Charging with a Step Voltage}
+
+Consider the following series RLC circuit, with a switch closed at $t = 0$ to create a voltage step:
+\begin{center}
+    \begin{tikzpicture}[transform shape]
+        \node[sground] at (-0.25, -1.5){};
+        \draw (-2.25, -1.5) to[battery1] (-2.25, 0.5);
+        \draw (-2.25, 0.5) -- (-3, 1.25);
+        \draw (-1.25, 2) to[american resistor] (0.75, 2);
+        \draw (0.75, 2) to[cute inductor] (2.75, 2);
+        \draw (2.75, 2) to[capacitor] (2.75, -1.5);
+        \draw (-2.25, 1.5) -| (-2.25, 2) -- (-1.25, 2);
+        \draw (-2.25, -1.5) -- (2.75, -1.5);
+        \node[anchor=center] at (-2.85, -0.25){\scriptsize $V_0$};
+    \end{tikzpicture}
+\end{center}
+
+Summing voltage drops around the loop (KVL) gives
+\[V_0 = RI + L\frac{dI}{dt} + \frac{Q}{C}.\]
+Differentiating with respect to time and dividing through by $L$,
+\[\frac{d^2I}{dt^2} + \frac{R}{L}\frac{dI}{dt} + \frac{1}{LC}I = 0.\]
+We define the natural resonant frequency
+\[\omega_0 \equiv \frac{1}{\sqrt{LC}},\]
+at which the inductive and capacitive reactances are equal in magnitude. At this frequency, energy oscillates efficiently between the inductor and capacitor, the circuit is purely resistive, and the impedance is minimised. We also define the damping factor
+\[\Gamma \equiv \frac{R}{L},\]
+which represents the rate at which energy is dissipated by the resistor. The equation of motion becomes
+\[\frac{d^2I}{dt^2} + \Gamma\frac{dI}{dt} + \omega_0^2\,I = 0.\]
+
+\subsection{Solution by Characteristic Equation}
+
+Substituting the trial solution $I(t) = ce^{pt}$ gives the characteristic equation
+\[p^2 + \Gamma p + \omega_0^2 = 0 \implies p = -\frac{\Gamma}{2} \pm \sqrt{\left(\frac{\Gamma}{2}\right)^2 - \omega_0^2}.\]
+The nature of the solution depends on the sign of the discriminant, yielding three distinct cases.
+
+\subsection{Damping Cases}
+
+\paragraph{Case 1: Underdamped ($\Gamma < 2\omega_0$).}
+The discriminant is negative, giving complex roots. The solution is a sinusoid with exponentially decaying envelope:
+\[I(t) = \frac{V_0}{L\omega_f}\sin(\omega_f t)\,e^{-\Gamma t/2},\]
+where the damped frequency is
+\[\omega_f = \sqrt{\omega_0^2 - \left(\frac{\Gamma}{2}\right)^2}.\]
+This is the most physically interesting case, exhibiting oscillatory behaviour before settling. As $R \to 0$, damping vanishes, $\omega_f \to \omega_0$, and in the unphysical limit of a pure LC circuit the oscillation persists indefinitely at the natural frequency $\omega_0$.
+
+\paragraph{Case 2: Overdamped ($\Gamma > 2\omega_0$).}
+The discriminant is positive, giving two distinct real roots. The solution decays without oscillation:
+\[I(t) = \frac{V_0}{L\omega_f'}\sinh(\omega_f' t)\,e^{-\Gamma t/2},\]
+where
+\[\omega_f' = \sqrt{\left(\frac{\Gamma}{2}\right)^2 - \omega_0^2}.\]
+
+\paragraph{Case 3: Critically damped ($\Gamma = 2\omega_0$).}
+The discriminant is zero, giving a repeated real root. The solution is
+\[I(t) = \frac{V_0}{L}\,t\,e^{-\Gamma t/2}.\]
+This case represents the fastest return to equilibrium without oscillation.
+
+\begin{center}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    Case & Condition & Behaviour \\
+    \hline
+    Underdamped   & $\Gamma < 2\omega_0$ & Oscillatory, decaying envelope \\
+    \hline
+    Critically damped & $\Gamma = 2\omega_0$ & Fastest non-oscillatory return \\
+    \hline
+    Overdamped    & $\Gamma > 2\omega_0$ & Slow, non-oscillatory decay \\
+    \hline
+    \end{tabular}
+\end{center}
+
 
 
 \section{IDK where to put the info below}
-\marginpar{February 17, 2026}
-
+\marginpar{February 19, 2026}
+Example of RLC with ac driving:
+\begin{center}
+    \begin{tikzpicture}[transform shape]
+        % Paths, nodes and wires:
+        \node[sground] at (-0.25, -1.5){};
+        \draw (-1.25, 2) to[american resistor] (0.75, 2);
+        \draw (0.75, 2) to[cute inductor] (2.75, 2);
+        \draw (2.75, 2) to[capacitor] (2.75, -1.5);
+        \draw (-2.25, 1.5) -| (-2.25, 2) -- (-1.25, 2);
+        \draw (-2.25, -1.5) -- (2.75, -1.5);
+        \node[shape=rectangle, minimum width=-0.035cm, minimum height=-0.035cm] at (0, -0){};
+        \draw (-2.25, -1.5) to[sinusoidal current source, i=$a$] (-2.25, 2);
+        \node[shape=rectangle, minimum width=3.215cm, minimum height=1.715cm] at (-3.75, 0.875){} node[anchor=center, align=center, text width=2.827cm, inner sep=6pt] at (-3.75, 0.875){\footnotesize V(t) = V\_0 cos(wt)};
+        \node[currarrow, rotate=90, yscale=-1] at (-5.5, 2){};
+        \node[currarrow, rotate=-90] at (2.75, 0.75){};
+        \node[shape=rectangle, minimum width=0.965cm, minimum height=0.715cm] at (3, 0.75){} node[anchor=center, align=center, text width=0.577cm, inner sep=6pt] at (3, 0.75){\tiny I(t)};
+    \end{tikzpicture}
+\end{center}
+Here $\tilde{V} = V_0e^{j\omega t}$, then $\tilde{I} = \frac{\tilde{V}}{Z_1+Z_2} = \frac{\tilde{V}}{R}\frac{j\omega\tau}{1-\frac{\omega^2}{\omega_0^2}+j\omega\tau}$, where $\tau = \frac{L}{R}$ and $\omega_0 = \frac{1}{\sqrt{LC}}$. The amplitude of current is $|\tilde{I}|^2=(\frac{V_0}{R})^2(\frac{j\omega\tau}{1-\frac{\omega^2}{\omega_0^2}+j\omega\tau})(\frac{-j\omega\tau}{1-\frac{\omega^2}{\omega_0^2}-j\omega\tau}) = (\frac{V_0}{R})^2\frac{(\omega\tau)^2}{(1-\frac{\omega^2}{\omega_0^2})^2+(\omega\tau)^2}$. Note $|\tilde{I}|$ equals maximum current $I_{max} = \frac{V_0}{R}$ at $\omega=\omega_0$, the input frequency at which the circuit becomes maximally transmittant. The phase of the current: $\tilde{I} = \frac{\tilde{V}}{R}(\frac{j\omega\tau}{1-\frac{\omega^2}{\omega_0^2}+j\omega\tau})(\frac{1-\frac{\omega^2}{\omega_0^2}-j\omega\tau}{1-\frac{\omega^2}{\omega_0^2}-j\omega\tau}) = \frac{\tilde{V}}{R}\frac{(\omega\tau)^2+j\omega\tau(1-\frac{\omega^2}{\omega_0^2})}{(1-\frac{\omega^2}{\omega_0^2})^2+(\omega\tau)^2}$. Therefore $tan\phi = \frac{Im[Z]}{Re[Z]} = \frac{1-\frac{\omega^2}{\omega_0^2}}{\omega\tau}$. The solution for the current is then: $I(t) = |\tilde{I}|cos(\omega t+\phi)$.
 
 % ============================================================
 %  APPENDIX
