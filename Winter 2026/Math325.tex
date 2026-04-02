@@ -1614,11 +1614,16 @@ Find $\lambda_1, \lambda_2$ from the characteristic polynomial $\det(A - \lambda
 If $\det(A) = 0$, then at least one eigenvalue is $0$, and the above classification no longer applies.
 
 \begin{itemize}
-    \item $\lambda_1 = \lambda_2 = 0$, $A = 0$: Every point is an equilibrium. All solutions are constant.
+    \item $\lambda_1 = \lambda_2 = 0$, $A = 0$: Every point is an equilibrium. Type: completely degenerate (all equilibria).. Stability: stable (but not asymptotically stable).
 
-    \item $\lambda_1 = \lambda_2 = 0$, $A \neq 0$: Degenerate equilibrium. Trajectories are straight lines (typically parallel), and solutions exhibit linear drift rather than exponential growth or decay.
+    \item $\lambda_1 = \lambda_2 = 0$, $A \neq 0$: Degenerate equilibrium (defective case). Trajectories are straight lines (typically parallel). Type: degenerate node (non-isolated equilibrium behavior). Stability: unstable.
 
-    \item One eigenvalue $0$, the other nonzero: The origin is non-isolated. The phase portrait consists of a line of equilibria together with motion toward or away from that line depending on the sign of the nonzero eigenvalue.
+    \item One eigenvalue $0$, the other $\lambda \neq 0$: The origin is non-isolated; there is a line of equilibria.
+    \begin{itemize}
+        \item If $\lambda < 0$: Type: line of equilibria (degenerate node-like). Stability: stable (but not asymptotically stable).
+
+        \item If $\lambda > 0$: Type: line of equilibria. Stability: unstable.
+    \end{itemize}
 \end{itemize}
 \begin{example}
     If $\sigma(A) = \{-2, 3\}$ (real, opposite signs), look for a phase portrait with a hyperbolic saddle structure. If $\sigma(A) = \{-1 + 2i, -1 - 2i\}$ (complex with $\mathrm{Re}(\lambda) = -1 < 0$), look for a stable spiral spiraling inward.
@@ -1765,7 +1770,7 @@ near $0$.
 \end{definition}
 
 \begin{remark}
-    We abbreviate ``piecewise continuous of exponential order'' as PCEO.
+    We abbreviate `piecewise continuous of exponential order' as PCEO.
 \end{remark}
 
 \begin{lemma}
@@ -2021,6 +2026,35 @@ Unit step function (or Heaviside function)
     %Add graphs
 \end{example}
 
+\marginpar{April 2, 2026}
+\subsection{Impulse ``Functions''}
+Let $\tau > 0$
+%Include the graph $\d_\tau(t)$
+\[d_\tau(t) = \begin{cases}\frac{1}{2\tau}, t\in(\tau,\tau)\\0, if\,not\end{cases}\]
+\[\int_{-\infty}^{\infty} d_\tau(t)dt = \int_{-\tau}^{\tau}\frac{1}{2\tau}dt = \frac{2\tau}{2\tau} = 1.\]
+The impulse function is the limiting ``function'' obtained as $\delta(t) = \lim_{\tau\to 0}d_\tau(t)$. Take $t \neq 0$, $\delta(t) = 0$. Take $t = 0$, $\delta(t) = \lim_{\tau\to 0} 1/2\tau = \infty$. Notice that $\lim_{\tau\to0} \int_{-\infty}^{\infty}d_\tau(t)dt = 1 = \int_{-\infty}^{\infty}\delta(t)dt$.
+\begin{definition}
+    The impulse function, with impules at $t=t_0$, (also called delta Dirac function) is defined by the properties
+    \begin{itemize}
+        \item $\delta(t) = 0, \forall t\neq0$.
+        \item $\int_{-\infty}^{\infty}\delta(t)dt = 1$.
+    \end{itemize}
+\end{definition}
+The Laplace transform of $\delta(t)$ is
+\begin{align*}
+    \mathcal{L}\{\delta(t-t_0)\} &= \lim_{\tau\to0}\mathcal{L}\{d_\tau(t-t_0)\}\\
+    &= \lim_{\tau\to0}\int_{0}^{\infty}e^{-st}d_\tau(t-t_0)dt = \lim_{\tau\to0}\int_{t_0-\tau}^{t_0+\tau}e^{-st}\frac{1}{2\tau}dt\\
+    &= \lim_{\tau\to0}\frac{1}{2\tau} \frac{e^{-s(t_0+\tau)}-e^{-s(t_0-\tau)}}{-s} = e^{-st_0}\lim_{\tau\to0}\frac{e^{s\tau}-e^{-s\tau}}{2s\tau}\\
+    &\stackrel{\text{Hopital's Rule}}{=} e^{-st_0}\lim_{\tau\to0}\frac{s(e^{s\tau}+e^{-s\tau})}{2s} = e^{-st_0}\\
+    \therefore \mathcal{L}\{\delta(t-t_0)\} &= e^{-st_0}.
+\end{align*}
+\begin{example}
+    \[y'' + 2y' + y = \delta(t-5), y(0) = y'(0) = 0.\]
+    Converting to the Laplace domain:
+    \[(s^2 + 2s + 1)\mathcal{L}\{y\} = e^{-5s},\]
+    \[\implies Y(s) = \frac{e^{-5s}}{(s+1)^2}.\]
+    By TT2: $\mathcal{L}^{-1}\{e^{-5c}F(s)\} = t_c(f)$ and by TT3: $\mathcal{L}^{-1}\{G(s-c)\} = e^{ct}\mathcal{L}\{G(s)\}$. Using TT2: $y(t) = \mathcal{L}^{-1}\{e^{-5s}\frac{1}{(s+1)^2}\} = t_5(\mathcal{L}^{-1}\{\frac{1}{(s+1)^2}\})$. Using TT3: $\mathcal{L}^{-1}\{\frac{1}{(s+1)^2}\} = e^{-t}\mathcal{L}^{-1}\{\frac{1}{s^2}\} = te^{-t}$. Hence $y(t) = t_5(te^{-t})$.
+\end{example}
 
 
 \section{Appendix}
