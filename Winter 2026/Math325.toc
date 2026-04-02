@@ -77,7 +77,8 @@
 \contentsline {subsubsection}{\numberline {7.4.1}Integration in the Time Domain}{39}{subsubsection.7.4.1}%
 \contentsline {subsubsection}{\numberline {7.4.2}Convolution}{39}{subsubsection.7.4.2}%
 \contentsline {subsection}{\numberline {7.5}Impulse ``Functions''}{43}{subsection.7.5}%
-\contentsline {section}{\numberline {8}Appendix}{44}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Picard Iterations Convergence}{44}{subsection.8.1}%
-\contentsline {section}{\numberline {9}Solutions}{45}{section.9}%
-\contentsline {section}{\numberline {10}Useful Links}{48}{section.10}%
+\contentsline {section}{\numberline {8}Power Series Solutions and Numerical Methods}{44}{section.8}%
+\contentsline {section}{\numberline {9}Appendix}{44}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Picard Iterations Convergence}{44}{subsection.9.1}%
+\contentsline {section}{\numberline {10}Solutions}{45}{section.10}%
+\contentsline {section}{\numberline {11}Useful Links}{48}{section.11}%

@@ -2053,9 +2053,13 @@ The Laplace transform of $\delta(t)$ is
     Converting to the Laplace domain:
     \[(s^2 + 2s + 1)\mathcal{L}\{y\} = e^{-5s},\]
     \[\implies Y(s) = \frac{e^{-5s}}{(s+1)^2}.\]
-    By TT2: $\mathcal{L}^{-1}\{e^{-5c}F(s)\} = t_c(f)$ and by TT3: $\mathcal{L}^{-1}\{G(s-c)\} = e^{ct}\mathcal{L}\{G(s)\}$. Using TT2: $y(t) = \mathcal{L}^{-1}\{e^{-5s}\frac{1}{(s+1)^2}\} = t_5(\mathcal{L}^{-1}\{\frac{1}{(s+1)^2}\})$. Using TT3: $\mathcal{L}^{-1}\{\frac{1}{(s+1)^2}\} = e^{-t}\mathcal{L}^{-1}\{\frac{1}{s^2}\} = te^{-t}$. Hence $y(t) = t_5(te^{-t})$.
+    By TT2: $\mathcal{L}^{-1}\{e^{-5c}F(s)\} = t_c(f)$ and by TT3: $\mathcal{L}^{-1}\{G(s-c)\} = e^{ct}\mathcal{L}\{G(s)\}$. Using TT2: $y(t) = \mathcal{L}^{-1}\{e^{-5s}\frac{1}{(s+1)^2}\} = t_5(\mathcal{L}^{-1}\{\frac{1}{(s+1)^2}\})$. Using TT3: $\mathcal{L}^{-1}\{\frac{1}{(s+1)^2}\} = e^{-t}\mathcal{L}^{-1}\{\frac{1}{s^2}\} = te^{-t}$. Hence $y(t) = t_5(te^{-t}) = u_5(t)(t-5)e^{-(t-5)} = \begin{cases}0, t\in[0,5)\\(t-5)e^{-(t-5)}, t\geq5\end{cases}$.
 \end{example}
 
+\section{Power Series Solutions and Numerical Methods}
+\begin{remark}
+    Make sure to read 6.1 from lecture notes.
+\end{remark}
 
 \section{Appendix}
 \subsection{Picard Iterations Convergence}
