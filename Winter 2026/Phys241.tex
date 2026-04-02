@@ -1146,6 +1146,7 @@ This case represents the fastest return to equilibrium without oscillation.
 Consider the following series RLC circuit driven by a sinusoidal voltage source $V(t) = V_0\cos(\omega t)$:
 \begin{center}
     \begin{tikzpicture}[transform shape]
+        \label{RLCwithAC}
         \node[sground] at (-0.25, -1.5){};
         \draw (-1.25, 2) to[american resistor] (0.75, 2);
         \draw (0.75, 2) to[cute inductor] (2.75, 2);
@@ -1195,12 +1196,69 @@ Time-averaging over one complete cycle gives
 \[\langle P \rangle = \frac{1}{T}\int_0^T P(t)\,dt = \frac{V_0 I_0}{2}\cos\phi.\]
 The factor $\cos\phi$ is called the \textbf{power factor}. Capacitors and inductors introduce a phase offset $\phi$ that reduces the efficiency of power delivery. In a pure LC circuit the phase offset is necessarily $\pm\pi/2$, so $\cos\phi = 0$ and the time-averaged power input vanishes --- no net energy is delivered unless the circuit is driven exactly at resonance $\omega = \omega_0$, where the inductive and capacitive impedances cancel and $\phi = 0$.
 
+% ------- 8.7 Capacitor Voltage in a Driven RLC Circuit -------
+\subsection{Capacitor Voltage in a Driven RLC Circuit}
+\marginpar{March 10, 2026}
+
+For the driven series RLC circuit of Section~8.4, the voltage drop across the capacitor is
+\[\Delta V_C = \frac{Q}{C} = \frac{1}{C}\int_0^t I(t')\,dt'.\]
+Using the complex current $\tilde{I} = |\tilde{I}|e^{j(\omega t + \phi)}$, integrating gives
+\[\tilde{V}_C = \frac{\tilde{I}}{j\omega C} = \frac{V_0}{\sqrt{\left(1 - \dfrac{\omega^2}{\omega_0^2}\right)^2 + (\omega\tau)^2}}\,e^{j(\omega t + \phi - \pi/2)}.\]
+Equivalently, from the impedance divider,
+\[\frac{\tilde{V}'}{\tilde{V}} = \frac{Z_C}{Z_{\text{tot}}} = \frac{1}{1 - \dfrac{\omega^2}{\omega_0^2} + j\omega\tau},\]
+with amplitude and phase
+\[\left|\frac{\tilde{V}'}{\tilde{V}}\right|^2 = \frac{1}{\left(1 - \dfrac{\omega^2}{\omega_0^2}\right)^2 + (\omega\tau)^2}, \qquad \phi = -\arctan\!\left(\frac{\omega\tau}{1 - \dfrac{\omega^2}{\omega_0^2}}\right).\]
+
+The capacitor voltage peaks near, but slightly below, $\omega_0$, because the peak is determined by the combination of maximum current flow and the frequency-dependent capacitive reactance, rather than by maximising the current alone.
+
+\subsubsection{Limiting Behaviour}
+
+\paragraph{Low frequency ($\omega \ll \omega_0$).}
+The capacitive impedance dominates and nearly all of the input voltage is dropped across the capacitor. The output amplitude approaches $V_0$ and the phase offset approaches zero.
+
+\paragraph{At resonance ($\omega = \omega_0$).}
+Current is limited only by $R$ and reaches its maximum. Large voltage drops appear across both the inductor and capacitor, but they cancel. The current is in phase with $V(t)$; since the capacitor voltage lags the current by $\pi/2$, it lags the input by $\pi/2$.
+
+\paragraph{High frequency ($\omega \gg \omega_0$).}
+The voltage drops almost entirely across the inductor, so $V(t) \approx L\frac{dI}{dt}$, giving
+\[I(t) \approx \frac{1}{L}\int V(t')\,dt' = \frac{V_0}{\omega L}\sin(\omega t).\]
+The capacitor voltage is then
+\[\Delta V_C = \frac{1}{C}\int I(t')\,dt' \approx -\frac{V_0}{\omega^2 LC}\cos(\omega t) = -\left(\frac{\omega_0}{\omega}\right)^2 V(t).\]
+The inductor current lags $V(t)$ by $\pi/2$; the capacitor voltage lags the current by a further $\pi/2$, so the capacitor voltage lags $V(t)$ by $\pi$ in total.
+
+\begin{remark}
+    The \textbf{natural frequency} $\omega_0$ is the inherent rate at which energy oscillates between the inductor and capacitor in the absence of external driving. The \textbf{resonant frequency} is the specific driving frequency that produces maximum current. For low damping these are nearly identical; for large resistance they diverge.
+\end{remark}
+
+% ------- 8.8 Quality Factor -------
+\subsection{Quality Factor}
+
+The quality factor $Q_f$ is a dimensionless measure of the ratio of energy stored to energy dissipated per cycle:
+\[Q_f = 2\pi\,\frac{W_s}{W_L},\]
+where $W_s$ is the energy stored in the circuit and $W_L$ is the energy lost as heat per cycle.
+
+\subsubsection{Derivation for a Series RLC Circuit}
+Taking $I(t) = I_0\cos(\omega_0 t)$, the maximum energy stored (in the inductor at peak current) is
+\[W_s = \tfrac{1}{2}LI_0^2.\]
+By Joule's law\footnote{Joule's heating law states that the heat produced in a conductor is proportional to the square of the current, the resistance, and the duration of flow.}, the energy dissipated per cycle $T_0 = 2\pi/\omega_0$ is
+\[W_L = R\int_0^{T_0} I_0^2\cos^2(\omega_0 t)\,dt = \frac{RI_0^2 T_0}{2} = \frac{\pi R I_0^2}{\omega_0}.\]
+Therefore,
+\[Q_f = 2\pi\cdot\frac{\tfrac{1}{2}LI_0^2}{\dfrac{\pi R I_0^2}{\omega_0}} = \frac{\omega_0 L}{R} = \frac{1}{\omega_0\tau}.\]
+
+% ------- 8.9 Quality Factor and Energy Decay -------
+\subsection{Quality Factor and Energy Decay}
+
+The quality factor is also directly related to the rate at which energy drains from a freely discharging RLC circuit. The current amplitude decays as
+\[I_0(t) = I_0(0)\,e^{-\Gamma t/2}, \qquad \Gamma = \frac{R}{L},\]
+so the stored energy decays as
+\[E(t) = \tfrac{1}{2}LI_0^2(t) = E_0\,e^{-\Gamma t} \implies \frac{dE}{dt} = -\Gamma E.\]
+The number of radians of oscillation completed per energy $e$-folding time is
+\[Q_f = \omega_0\,\frac{E}{|dE/dt|} = \frac{\omega_0}{\Gamma} = \frac{\omega_0 L}{R} = \frac{1}{\omega_0\tau},\]
+consistent with the result above. A high $Q_f$ therefore means the circuit loses a small fraction of its stored energy per oscillation cycle.
+
 
 
 \section{IDK where to put the info below}
-\marginpar{March 10, 2026}
-
-
 
 
 % ============================================================

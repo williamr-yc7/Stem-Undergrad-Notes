@@ -64,19 +64,19 @@
 \contentsline {paragraph}{Step 1: Calculate the eigenvalues.}{33}{section*.3}%
 \contentsline {paragraph}{Step 2: Classify by type and sign.}{33}{section*.4}%
 \contentsline {subsection}{\numberline {6.5}Stability Theory for Linear Systems}{34}{subsection.6.5}%
-\contentsline {subsection}{\numberline {6.6}Stability Theory for Nonlinear Systems}{34}{subsection.6.6}%
-\contentsline {section}{\numberline {7}Laplace Transform}{35}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Definition and Existence}{35}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Computing Laplace Transforms}{36}{subsection.7.2}%
+\contentsline {subsection}{\numberline {6.6}Stability Theory for Nonlinear Systems}{35}{subsection.6.6}%
+\contentsline {section}{\numberline {7}Laplace Transform}{36}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Definition and Existence}{36}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Computing Laplace Transforms}{37}{subsection.7.2}%
 \contentsline {subsection}{\numberline {7.3}Properties}{37}{subsection.7.3}%
 \contentsline {subsubsection}{\numberline {7.3.1}Linearity}{37}{subsubsection.7.3.1}%
-\contentsline {subsubsection}{\numberline {7.3.2}Differentiability and the $s$-Derivative Formula}{37}{subsubsection.7.3.2}%
+\contentsline {subsubsection}{\numberline {7.3.2}Differentiability and the $s$-Derivative Formula}{38}{subsubsection.7.3.2}%
 \contentsline {subsubsection}{\numberline {7.3.3}Injectivity and the Inverse Transform}{38}{subsubsection.7.3.3}%
 \contentsline {subsubsection}{\numberline {7.3.4}Laplace Transform of Derivatives}{38}{subsubsection.7.3.4}%
 \contentsline {subsection}{\numberline {7.4}Computational Methods}{39}{subsection.7.4}%
 \contentsline {subsubsection}{\numberline {7.4.1}Integration in the Time Domain}{39}{subsubsection.7.4.1}%
 \contentsline {subsubsection}{\numberline {7.4.2}Convolution}{39}{subsubsection.7.4.2}%
-\contentsline {section}{\numberline {8}Appendix}{42}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Picard Iterations Convergence}{42}{subsection.8.1}%
+\contentsline {section}{\numberline {8}Appendix}{43}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Picard Iterations Convergence}{43}{subsection.8.1}%
 \contentsline {section}{\numberline {9}Solutions}{44}{section.9}%
-\contentsline {section}{\numberline {10}Useful Links}{46}{section.10}%
+\contentsline {section}{\numberline {10}Useful Links}{47}{section.10}%

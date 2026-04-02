@@ -1281,6 +1281,34 @@ Example: $A=\begin{pmatrix}1&2\\2&1\end{pmatrix}$, $p(\lambda) = det(\lambda I-A
 \end{enumerate}
 Proposition: A symmetric, $\lambda_1 \neq \lambda_2 \implies E_{\lambda_1} \perp E_{\lambda_2}$.
 
+
+
+\section{Somewhere}
+\subsection{Gram-Schmidt}
+Let $\{v_1,\ldots,v_n\}$ and they are linearly independent, the gram-schmidt will give $\{u_1,\ldots,u_n\}$ orthogonal such that $\Span(v_1,\ldots,v_n) = \Span(u_1,\ldots,u_n)$.
+Say $v_1 = \begin{pmatrix}a_1\\a_2\end{pmatrix}, v_2 = \begin{pmatrix}b_1\\b_2\end{pmatrix}$, $u_1=v_1$
+
+\begin{example}[Hidden Gram-schmidt]
+    Let $v_1 = \begin{pmatrix}5\\0\end{pmatrix}$ and $v_2 = \begin{pmatrix}3\\2\end{pmatrix}$. Then $u_2 = v_2 - kv_1$. $v_1$ to be orthogonal to $u_2$:
+    \[0=<v_1,u_2>=<v_1,v_2-kv_1>=<v_1,v_2>-k<v_1,v_1> = 15-k25 \implies k = \frac{3}{5}.\]
+    So set $u_2 = v_2 - \frac{3}{5}v_1 = \begin{pmatrix}3\\2\end{pmatrix}-\frac{3}{5}\begin{pmatrix}5\\0\end{pmatrix} = \begin{pmatrix}0\\2\end{pmatrix}$, and $\{u_1,u_2\}$ is an orthogonal basis for $\Span(v_1,v_2)$.
+
+    Basically, this is gram-schmidt cuz $k = \frac{<v_i,u_i>}{<u_i,u_i>}$.
+\end{example}
+
+\subsection{Something else}
+\begin{problem}[Characteristic polynomial and invertibility]
+    Let $A\in M_n(\mathbb{R})$ be non-invertiblem. Show $p(\lambda)$ the char. poly. of A has a root at $\lambda = 0$.
+\end{problem}
+\begin{solution}[Characteristic polynomial and invertibility]
+    $\det(A) = 0$ since $A$ is non-invertible, so $\chi(0) = \det(A-0I) = \det(A) = 0$. Hence $0$ is a root of $\chi$.
+\end{solution}
+
+
+
+
+
+
 % ============================================================
 \section{Appendix}
 % ============================================================

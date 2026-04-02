@@ -1610,6 +1610,16 @@ Find $\lambda_1, \lambda_2$ from the characteristic polynomial $\det(A - \lambda
     
     \item Purely imaginary (real part = 0): Center. Orbits trace closed ellipses. Arrows rotate at constant radius; no convergence or divergence.
 \end{itemize}
+\subsubsection*{Remark (Degenerate case: $\det(A) = 0$)}
+If $\det(A) = 0$, then at least one eigenvalue is $0$, and the above classification no longer applies.
+
+\begin{itemize}
+    \item $\lambda_1 = \lambda_2 = 0$, $A = 0$: Every point is an equilibrium. All solutions are constant.
+
+    \item $\lambda_1 = \lambda_2 = 0$, $A \neq 0$: Degenerate equilibrium. Trajectories are straight lines (typically parallel), and solutions exhibit linear drift rather than exponential growth or decay.
+
+    \item One eigenvalue $0$, the other nonzero: The origin is non-isolated. The phase portrait consists of a line of equilibria together with motion toward or away from that line depending on the sign of the nonzero eigenvalue.
+\end{itemize}
 \begin{example}
     If $\sigma(A) = \{-2, 3\}$ (real, opposite signs), look for a phase portrait with a hyperbolic saddle structure. If $\sigma(A) = \{-1 + 2i, -1 - 2i\}$ (complex with $\mathrm{Re}(\lambda) = -1 < 0$), look for a stable spiral spiraling inward.
 \end{example}
