@@ -1259,6 +1259,36 @@ consistent with the result above. A high $Q_f$ therefore means the circuit loses
 
 
 \section{IDK where to put the info below}
+\marginpar{March 12, 2026}
+Power input into RLC series:
+The instantaneous power input into the RLC series circuit is given by: $P(t) = V(t)I(t)$, where $V(t) = V_0cos(\omega t)$ and $I(t) = I_0(\omega)cos(\omega t + \phi(\omega))$. The time-averaged power input over a single oscillation cycle $T$: $<P_d(\omega)> = 1/T \int_{0}^{T} I(t)V(t) dt = \frac{V_0I_0(\omega)}{2}cos(\phi(\omega)) = \frac{V_0^2}{2R}\frac{(\omega\tau)^2}{(1-\omega^2/\omega_0^2)^2+(\omega\tau)^2}$.
+The curves on a graph o $\frac{<P(\omega/\omega_0)>}{P_{max}}$ are normalized by $P_{max}$, but $P_{max}$ depends on R, which influences $Q_f$. For high $Q_f$ we can input more power into the circuit, but only over a small range of input frequencies. For low $Q_f$ we can input less power, but the input frequency doesn't have to be as highly tuned.
+A driven RLC circuit does not keep storing more and more energy because the energy input from the driving source is balanced bu the energy dissipated by the resistor, leading to a stable, maximum energy level known as the steady state. While the inductor and capacitor store and exchange energy, the resistor consistently converts electrical energy into heat (damping), preventing unlimited accumulation.
+$<P(x \equiv (\omega/\omega_0))> = \frac{V_0^2}{2R}\frac{\frac{x^2}{Q_f^2}}{(1-x^2)^2 + \frac{x^2}{Q_f^2}}$, $Q_f = \frac{\omega_0L}{R} = \frac{1}{\omega_0\tau}$, $P_{max} \equiv \frac{V_0^2}{2R}$.
+With $R=0$, can we store infinite energy? No, inductor saturation, capacitor voltage breakdown and/or melting wires would prevent this in practice.
+Define resonance with $\Delta\omega = \omega_2-\omega_1$ as frequency intervale between these points of half power (e.g. frequency interval between points where $P = P_{max}/2$).
+$Q_f = \frac{\omega_0}{\Delta\omega}$: this relation is a general 
+property of resonators (not just LRC circuits).
+In an RLC circuit, power input is directly related to a radio receiver through resonance, which determines how efficiently the radio picks up a specific station while rejecting others. The RLC circuit acts as a tuner, where the power delivered from the input radio waves is maximised at the resonant frequency.
+
+Circuit networks:
+Kirchhoff current law (KCL): at any junction of wires in a circuit, the sum of all the currents entering the junction exactly equals the sum of all the currents leaving the junction.
+Kirchhooff voltage law (KVL): arround any closed loop in a circuit, the algebraic sum of the changes in voltage must equal to zero
+Kirchhoff's laws are easy to state, but appluing them in complex circuits takes practice. So, we got 3 ways to apply kirchhoff's laws in complex circuits
+1. Branch method: Draw a current in each circuit branch; write KCL for each junction and KVL for each closed loop. Disadvantage: this approach will produce non-independent equations.
+2. Loop current method: Introduce a single current for each circuit loop, apply KVL (KCL automatically satisfied).
+3. Nodal method: Voltages are the unknowns; introduce unknown voltage level at each junction; the KCL is then applied to each circuit junction.
+Node: any point where 2 or more components connect.
+Junction (or principal node): specifically refers to a point where 3 or more conductors or branches meet.
+Nodes and junctions are often used interchangeably. Nodes are often used for general connectivity, while junctions are crucial for analysing current division. Junction are nodes, but not all nodes are junctions.
+Branch method: If there are n unknown currents and k branch points (junctions), then there are k-1 independent KCL equations and n-k-1 independent KVL equations.
+Nodal method: Best for circuits with many parallel elements or current sources. It reduces the number of equations to nodes-1.
+Loop method: Best for circuits with many series elements or voltage sources. NB: can only be used for planar circuits\footnote{explain planar circuits vs non planar}.
+Branch method: The most basic one but often requires solving the highest number of simultaneous equations, making it inefficient for complex networks.
+
+\marginpar{March 17, 2026}
+
+
 
 
 % ============================================================

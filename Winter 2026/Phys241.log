@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  1 APR 2026 12:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  6 APR 2026 16:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -848,27 +848,42 @@ Underfull \hbox (badness 10000) in paragraph at lines 1201--1201
 []\OT1/cmr/m/n/10 March 10,
  []
 
-[33] [34] [35] [36] [37] [38]
-Overfull \hbox (32.04163pt too wide) in paragraph at lines 1425--1429
+[33] [34]
+Underfull \hbox (badness 10000) in paragraph at lines 1262--1262
+[]\OT1/cmr/m/n/10 March 12,
+ []
+
+
+Overfull \hbox (3.77043pt too wide) in paragraph at lines 1263--1273
+\OT1/cmr/m/n/10 cle $\OML/cmm/m/it/10 T$\OT1/cmr/m/n/10 : $\OML/cmm/m/it/10 < P[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 !\OT1/cmr/m/n/10 ) \OML/cmm/m/it/10 >\OT1/cmr/m/n/10 = 1\OML/cmm/m/it/10 =T [][] I\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 V\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 dt \OT1/cmr/m/n/10 = []\OML/cmm/m/it/10 cos\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^^\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 !\OT1/cmr/m/n/10 )) = [][]$.
+ []
+
+[35]
+Underfull \hbox (badness 10000) in paragraph at lines 1289--1289
+[]\OT1/cmr/m/n/10 March 17,
+ []
+
+[36] [37] [38] [39]
+Overfull \hbox (32.04163pt too wide) in paragraph at lines 1455--1459
 \OT1/cmr/bx/n/10 Inductors (vi-sual ex-pla-na-tion): [][]$\OT1/cmtt/m/n/10 https : / / www . youtube . com / shorts / lXk4CQDbr4Q$[][] 
  []
 
 
-Overfull \hbox (37.58322pt too wide) in paragraph at lines 1425--1429
+Overfull \hbox (37.58322pt too wide) in paragraph at lines 1455--1459
 \OT1/cmr/bx/n/10 Capacitors (vi-sual ex-pla-na-tion): [][]$\OT1/cmtt/m/n/10 https : / / www . youtube . com / shorts / PYrTLQctdwg$[][] 
  []
 
 
-Overfull \hbox (7.22375pt too wide) in paragraph at lines 1425--1429
+Overfull \hbox (7.22375pt too wide) in paragraph at lines 1455--1459
 \OT1/cmr/bx/n/10 Resistors (in-tro-duc-tion): [][]$\OT1/cmtt/m/n/10 https : / / www . youtube . com / watch ? v = 5HI33hSZoH4$[][]
  []
 
 
-Overfull \hbox (21.74866pt too wide) in paragraph at lines 1425--1429
+Overfull \hbox (21.74866pt too wide) in paragraph at lines 1455--1459
 \OT1/cmr/bx/n/10 Draw-ing Cir-cuits for la-tex: [][]$\OT1/cmtt/m/n/10 https : / / www . circuit2tikz . tf . fau . de / designer/$[][] 
  []
 
-[39] (Phys241.aux)
+[40] (Phys241.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
@@ -877,17 +892,17 @@ Package rerunfilecheck Info: File `Phys241.out' has not changed.
 (rerunfilecheck)             Checksum: ADF8F945D2C12B8B8A8E335DFA377D8A;13746.
  ) 
 Here is how much of TeX's memory you used:
- 50968 strings out of 467871
- 1328172 string characters out of 5418377
+ 50970 strings out of 467871
+ 1328190 string characters out of 5418377
  2055502 words of memory out of 5000000
  79078 multiletter control sequences out of 15000+600000
  640384 words of font info for 87 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,9n,118p,799b,1070s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\erenr\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on Phys241.pdf (43 pages, 1600229 bytes).
+Output written on Phys241.pdf (44 pages, 1610150 bytes).
 PDF statistics:
- 921 PDF objects out of 1000 (max. 8388607)
- 220 named destinations out of 1000 (max. 500000)
+ 927 PDF objects out of 1000 (max. 8388607)
+ 222 named destinations out of 1000 (max. 500000)
  755 words of extra memory for PDF output out of 10000 (max. 10000000)
 
