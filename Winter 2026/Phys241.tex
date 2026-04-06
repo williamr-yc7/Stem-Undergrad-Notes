@@ -1287,6 +1287,11 @@ Loop method: Best for circuits with many series elements or voltage sources. NB:
 Branch method: The most basic one but often requires solving the highest number of simultaneous equations, making it inefficient for complex networks.
 
 \marginpar{March 17, 2026}
+Superposition theorem: (If circuits only contain linear elements) The total current in any point of the circuit equal the algebraic sum of the current produced by each source separately. To calculate current due to any one source, replace all other voltage sources by short circuits (plain wires).
+Constant current source: Just as we can talk about voltage sources that supply a fixed voltage drop, we can introduce current sources that supply fixed current.
+How to create a current source: Drop a voltage across a resistor with a resistance much larger than the net resistance of the system to which the current is being supplied. Or build using active/nonlinear elements (transistors).
+Ideal current source: supplies a fixed current that is independent of the voltage across it (e.g. $r=\infty$).
+Real current source: has a finite internal resistance $r$ that leads to a voltage dependent current; equal to an ideal current source in parallel with a resistance $r$.
 
 
 
