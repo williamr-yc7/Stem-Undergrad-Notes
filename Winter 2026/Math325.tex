@@ -2096,6 +2096,26 @@ Where $(p\star\tilde{a})_n = \sum_{k=0}^{n}\tilde{a}_kp_{n-k} = \sum_{k=0}^{n}(k
     \[\implies a_{n+2} = \frac{-1}{(n+2)(n+1)}a_n\]
 \end{example}
 
+\begin{example}[Airy's Equation]
+    \[y''-xy=0, x_0=0\]
+    \[y''(x) = \sum_{n\geq0}(n+2)(n+1)a_{n+2}x^n\]
+    \[xy(x) = x\sum_{n\geq 0}a_nx^n = \sum_{n=0}^{\infty}a_nx^{n+1}=\sum_{n=1}a_{n-1}x^n = \sum_{n=0}^{\infty}a_{n-1}x^n\]
+    \[y''-xy = \sum_{n=0}^{\infty}[(n+2)(n+1)a_{n+2}-a_{n-1}]x^n = 0\]
+    \[\implies a_{n+2} = \frac{1}{(n+2)(n+1)}a_{n-1}, n\geq 0\]
+    %do rest of the steps
+    Airy's function is then $y(x) = \sum_{k=0}^{\infty}\frac{x^{3k}}{(2*3)(5*6)\ldots(3k-1)(3k)}$.
+\end{example}
+Using the ratio  test, one can show (exercise) that the radius of convergence of Airy's function is $\rho = +\infty$.
+\begin{problem}
+    Redo the airy's equation, but with $y(0) = 0, y'(0) = 1$.
+\end{problem}
+\subsection{Power series for IVPs in Nonlinear Systems}
+\[\begin{cases}
+    \dot{y} = f(y)\\
+    y(0)=y_0\in U
+\end{cases}\]
+Assume $f: U \to \mathbb{R}^n$ is analytic, where $U\subseteq\mathbb{R}^n$ is open. By Cauchy-Kovalevskaya Theorem, the solution to the IVP is analytic. Then we look for solutions to the IVP in the form $y(t) = \sum_{n=0}^{\infty}a_nt^n$, here $a_0 = y_0$. Plug in the IVP and solve for $a_n$. $\sum_{n\geq1}na_nt^{n-1}=f(\sum_{n\geq0}a_nt^n) \implies \sum_{n\geq0}(n+1)a_{n+1}t^n = \sum_{n\geq0}\Phi_n(a)t^n$. Somehow $a_{n+1} = \frac{1}{n+1}\Phi_n(a), n\geq0$, $a_0=y_0$ Recurrence relation.
+
 \section{Appendix}
 \subsection{Picard Iterations Convergence}
 \begin{proof}[Proof of Picard Iterations Convergence]

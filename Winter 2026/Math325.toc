@@ -79,7 +79,8 @@
 \contentsline {subsection}{\numberline {7.5}Impulse ``Functions''}{43}{subsection.7.5}%
 \contentsline {section}{\numberline {8}Power Series Solutions and Numerical Methods}{44}{section.8}%
 \contentsline {subsection}{\numberline {8.1}Second order non-autonomous linear ODEs}{44}{subsection.8.1}%
-\contentsline {section}{\numberline {9}Appendix}{45}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Picard Iterations Convergence}{45}{subsection.9.1}%
-\contentsline {section}{\numberline {10}Solutions}{46}{section.10}%
-\contentsline {section}{\numberline {11}Useful Links}{49}{section.11}%
+\contentsline {subsection}{\numberline {8.2}Power series for IVPs in Nonlinear Systems}{45}{subsection.8.2}%
+\contentsline {section}{\numberline {9}Appendix}{46}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Picard Iterations Convergence}{46}{subsection.9.1}%
+\contentsline {section}{\numberline {10}Solutions}{47}{section.10}%
+\contentsline {section}{\numberline {11}Useful Links}{50}{section.11}%
