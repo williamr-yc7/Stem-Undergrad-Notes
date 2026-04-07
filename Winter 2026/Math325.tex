@@ -2060,6 +2060,41 @@ The Laplace transform of $\delta(t)$ is
 \begin{remark}
     Make sure to read 6.1 from lecture notes.
 \end{remark}
+\subsection{Second order non-autonomous linear ODEs}
+\begin{equation}
+    \label{eq:2nd-order-non-autonomous-ode}
+    P(x)y''(x)+Q(x)y'(x)+R(x)y(x)=0
+\end{equation}
+\begin{example}[Bessel Equation]
+    \[x^2y''+xy'+(x^2-\nu^2)y = 0\]
+\end{example}
+\begin{example}[Legendre Equation]
+    \[(1-x^2)y''-2xy'+\alpha(\alpha+1)y = 0\]
+\end{example}
+\begin{example}[Chebyshev Equation]
+    \[(1-x^2)y''-xy'+\alpha^2y = 0\]
+\end{example}
+\begin{definition}
+    We say that $x=x_0$ is an ordinary point of \eqref{eq:2nd-order-non-autonomous-ode} if $P(x_0) \neq 0$.
+\end{definition}
+Close to $x_0$, $P \neq 0$, then \eqref{eq:2nd-order-non-autonomous-ode} becomes
+\begin{equation}
+    \label{eq:2nd-order-non-autonomous-ode-2}
+    y''+p(x)y'+q(x)y=0
+\end{equation}
+where $p(x) = \frac{Q(x)}{P(x)}, q(x) = \frac{R(x)}{P(x)}$. Key assumption: p,q are analytic at $x_0$.
+\[p(x) = \sum_{n\geq 0} p_n(x-x_0)^n, q(x) = \sum_{n\geq 0} q_n(x-x_0)^n\]
+and they have positive radii of convergence. From Cauchy-Kovalesvkaya Theorem (originally for PDEs), $p,q$ at $x_0$ are analytic then $y(x)$ is analytic at $x=x_0$.
+Denote $y(x) = \sum_{n=0}^{\infty}a_n(x-x_0)^n=a_0+a_1(x-x_0)+\ldots \implies y'(x) = \sum_{n\geq 1}na_n(x-x_0)^{n-1}=\sum_{n=0}^{\infty}(n+1)a_{n+1}(x-x_0)^n \implies y''(x) = \sum_{n\geq 2}n(n-1)a_n(x-x_0)^{n-2} = \sum_{n=0}^{\infty}(n+1)(n+2)a_{n+2}(x-x_0)^{n}$. Also, $y(x_0) = a_0$ and $y'(x_0) = a_1$. $p(x)y'(x) = (\sum_{n\geq0}P_n(x-x_0)^n)(\sum_{n\geq0}\tilde{a}_n(x-x_0)^n) = \sum_{n\geq0}(p\star \tilde{a})_n(x-x_0)^n$. Similarly, $q(x)y(x) = \sum_{n\geq0}(q\star a)_n(x-x_0)^n$. Thus, we get the reccurence relation
+\[a_{n+2} = \frac{-1}{(n+2)(n+1)}[(p\star\tilde{a})_n + (q\star a)_n], n\geq0\]
+Where $(p\star\tilde{a})_n = \sum_{k=0}^{n}\tilde{a}_kp_{n-k} = \sum_{k=0}^{n}(k+1)a_{k+1}p_{n-k}$.
+
+
+\begin{example}
+    \[y''+y=0, p=0=0+0x, q=1,x_0=0\]
+    \[\implies (n+2)(n+1)a_{n+2} + a_n = 0\]
+    \[\implies a_{n+2} = \frac{-1}{(n+2)(n+1)}a_n\]
+\end{example}
 
 \section{Appendix}
 \subsection{Picard Iterations Convergence}
