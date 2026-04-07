@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1775518906.18744 "c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Phys241.tex" "Phys241.pdf" "Phys241" 1775518917.17066 0
+["pdflatex"] 1775524172.29041 "c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Phys241.tex" "Phys241.pdf" "Phys241" 1775524189.47837 0
   "../Images/AC_symbol.png" 1771706995 10727 ad81a1a8d291df05627b5b3d7bf29e13 ""
   "../Images/Inductor_symbols.png" 1771704931 48218 356843cb21f6cb78ffacc44e7b08f6d2 ""
   "../Images/LR_circuit.png" 1771701639 24315 46b4f77eb62e6c43269b2b4074a2ebda ""
@@ -255,11 +255,11 @@
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/tools/indentfirst.sty" 1761901070 1618 30b01152766afcef2ed8f904cfdd3cc6 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
-  "Phys241.aux" 1775518916 16496 adf2758dfc1b521ebe80d22db62f23b9 "pdflatex"
-  "Phys241.out" 1775518916 15472 82ebf9b20d10f4434ef6f1c609d7caea "pdflatex"
-  "Phys241.tex" 1775518892 80745 1dae37a435fc09724057c23dfcc7f020 ""
-  "Phys241.toc" 1775518916 9395 628ddd08e7dfb7068ef07c2931590d94 "pdflatex"
-  "c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Phys241.tex" 1775518892 80745 1dae37a435fc09724057c23dfcc7f020 ""
+  "Phys241.aux" 1775524188 16748 9cb888c49dcc6eee4edbed92fb78c903 "pdflatex"
+  "Phys241.out" 1775524188 15774 d2eee66d5868f4d32a1203f7cc0d8d49 "pdflatex"
+  "Phys241.tex" 1775524170 84858 a5d40e6ecc7fffc3bf188fb8a44568d3 ""
+  "Phys241.toc" 1775524188 9565 bd472b44d88c6dda6546add8935de970 "pdflatex"
+  "c:/Users/erenr/Documents/McGill/Latex Notes/Winter 2026/Phys241.tex" 1775524170 84858 a5d40e6ecc7fffc3bf188fb8a44568d3 ""
   (generated)
   "Phys241.aux"
   "Phys241.log"

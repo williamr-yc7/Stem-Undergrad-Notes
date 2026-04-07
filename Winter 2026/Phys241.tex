@@ -1360,11 +1360,17 @@ A current source can be realised in two ways:
 
 \section{IDK where to put the info below}
 \marginpar{March 19, 2026}
-
-
-
-
-
+To create a constant voltage source from a constant current source, you need to use a component that "shunts" (diverts) excess current while maintaining a fixed voltage drop ($r<<R$).
+Thevenin's Theorem: Any combination of batteries, current sources and resistances with two terminals is electrically equivalent to an ideal battery of voltage $e$ in series with a resistance $r$.
+This theorem also works for circuits with reactances (capacitor and impedances). In that case we represent the effective circuit as an ideal AC voltage source and impedance in series.
+The kirchhoff loop equations for voltage and current are linear, so a linear relation must exist between the voltage $\Delta V_{AB}$ ance current $I$ drawn from the circuit at A and returned at B.
+$\Delta V_{AB} = a-I_{AB}b$, in analogy to a real battery, the constant a is identified as the voltage $e$ and b is just the series resistance $r$. The negative sign indicates that drawing current leads to a greater portion of voltage dropped over internal resistive elements so $\Delta V_{AB}$ is smaller.
+Applying Thevenin's Theorem: To apply the theorem we need to determine $e$ and $r$.
+Approach 1: Experimental (circuit is a black-box). Add a variable load resistor between A and B and us it to adjust I. $\Delta V_{AB} = e-I_{AB}r \implies I_{AB} = e/r - \Delta V_{AB}/r$. Alternatively, can measure $\Delta V_{AB}$ versus $R_L$: $\Delta V_{AB} = e-r\frac{\Delta V_{AB}}{R_L} \implies \Delta V_{AB} = e\frac{R_L}{r}\frac{1}{1+\frac{R_L}{r}}$.
+Approach 2: Theoretical (we know the circuit diagram). Thevenin voltage ($e$): just the voltage difference in the circuit between A and B with zero current drawn ($I_{AB} = 0$). Thevenin resistance ($r$): remove voltage sources in circuit (by shorting batteries); remove current sources (by making an open circuit or break at current source); $r$ is then the total resistance between terminals A and B.
+Norton's theorem: Any combination of batteries, current sources and resistances with 2 terminals is electrically equivalent to an ideal current source with current $i$ in parallel with a resistance $r$.
+The Norton and Thevenin theorems are equivalent:
+KCL implies: $i = I_{AB} + \frac{\Delta V_{AB}}{r_N}$. Norton $= \Delta V_{AB} = r_Ni - r_NI_{AB} \equiv e-rI_{AB} =$ Thevenin.
 
 % ============================================================
 %  APPENDIX
