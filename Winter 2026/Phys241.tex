@@ -1356,21 +1356,58 @@ A current source can be realised in two ways:
     \item \textbf{Active implementation:} Use nonlinear active elements such as transistors to enforce a fixed current over a wide range of terminal voltages.
 \end{itemize}
 
+% ------- 9.6 Converting Between Source Types -------
+\subsection{Converting Between Source Types}
+
+To create a constant voltage source from a constant current source, a component is placed in parallel that shunts (diverts) excess current while maintaining a fixed voltage drop. This requires the shunt resistance to satisfy $r \ll R_L$, so that the terminal voltage remains approximately constant regardless of the load.
+
+% ------- 9.7 Thévenin's Theorem -------
+\subsection{Thévenin's Theorem}
+
+\begin{theorem}[Thévenin's Theorem]
+    Any combination of voltage sources, current sources, and resistances with two terminals A and B is electrically equivalent to an ideal voltage source $e$ in series with a resistance $r$.
+\end{theorem}
+
+This theorem extends to circuits containing reactive elements (capacitors and inductors), in which case the equivalent circuit is an ideal AC voltage source in series with a complex impedance $Z$.
+
+Since the Kirchhoff loop equations are linear, a linear relation must exist between the terminal voltage $\Delta V_{AB}$ and the current $I_{AB}$ drawn at A and returned at B:
+\[\Delta V_{AB} = e - I_{AB}\,r.\]
+In analogy with a real battery, the constant $e$ is the open-circuit voltage and $r$ is the series resistance. The negative sign reflects the fact that drawing current increases the voltage drop across internal resistive elements, reducing $\Delta V_{AB}$.
+
+\subsubsection{Determining $e$ and $r$}
+
+\paragraph{Approach 1: Experimental (black-box circuit).}
+Connect a variable load resistor $R_L$ between terminals A and B and adjust it to vary $I_{AB}$. From the Thévenin relation,
+\[I_{AB} = \frac{e}{r} - \frac{\Delta V_{AB}}{r}.\]
+Alternatively, measure $\Delta V_{AB}$ as a function of $R_L$:
+\[\Delta V_{AB} = e - r\,\frac{\Delta V_{AB}}{R_L} \implies \Delta V_{AB} = \frac{e\,R_L}{r + R_L} = \frac{e}{1 + \dfrac{r}{R_L}}.\]
+Plotting $\Delta V_{AB}$ versus $R_L$ allows both $e$ and $r$ to be extracted from a fit.
+
+\paragraph{Approach 2: Theoretical (known circuit diagram).}
+\begin{itemize}
+    \item \textbf{Thévenin voltage} $e$: compute the open-circuit voltage between A and B with no current drawn ($I_{AB} = 0$).
+    \item \textbf{Thévenin resistance} $r$: deactivate all independent sources (replace voltage sources with short circuits and current sources with open circuits), then compute the total resistance seen between terminals A and B.
+\end{itemize}
+
+% ------- 9.8 Norton's Theorem -------
+\subsection{Norton's Theorem}
+
+\begin{theorem}[Norton's Theorem]
+    Any combination of voltage sources, current sources, and resistances with two terminals A and B is electrically equivalent to an ideal current source $i$ in parallel with a resistance $r_N$.
+\end{theorem}
+
+\subsubsection{Equivalence of Thévenin and Norton Representations}
+
+The two theorems are equivalent. Applying KCL at the output node of the Norton circuit,
+\[i = I_{AB} + \frac{\Delta V_{AB}}{r_N} \implies \Delta V_{AB} = r_N\,i - r_N\,I_{AB}.\]
+Identifying $e \equiv r_N\,i$ and $r \equiv r_N$ recovers the Thévenin relation $\Delta V_{AB} = e - r\,I_{AB}$. The conversion relations between the two representations are therefore
+\[e = r_N\,i, \qquad r = r_N.\]
+
 
 
 \section{IDK where to put the info below}
-\marginpar{March 19, 2026}
-To create a constant voltage source from a constant current source, you need to use a component that "shunts" (diverts) excess current while maintaining a fixed voltage drop ($r<<R$).
-Thevenin's Theorem: Any combination of batteries, current sources and resistances with two terminals is electrically equivalent to an ideal battery of voltage $e$ in series with a resistance $r$.
-This theorem also works for circuits with reactances (capacitor and impedances). In that case we represent the effective circuit as an ideal AC voltage source and impedance in series.
-The kirchhoff loop equations for voltage and current are linear, so a linear relation must exist between the voltage $\Delta V_{AB}$ ance current $I$ drawn from the circuit at A and returned at B.
-$\Delta V_{AB} = a-I_{AB}b$, in analogy to a real battery, the constant a is identified as the voltage $e$ and b is just the series resistance $r$. The negative sign indicates that drawing current leads to a greater portion of voltage dropped over internal resistive elements so $\Delta V_{AB}$ is smaller.
-Applying Thevenin's Theorem: To apply the theorem we need to determine $e$ and $r$.
-Approach 1: Experimental (circuit is a black-box). Add a variable load resistor between A and B and us it to adjust I. $\Delta V_{AB} = e-I_{AB}r \implies I_{AB} = e/r - \Delta V_{AB}/r$. Alternatively, can measure $\Delta V_{AB}$ versus $R_L$: $\Delta V_{AB} = e-r\frac{\Delta V_{AB}}{R_L} \implies \Delta V_{AB} = e\frac{R_L}{r}\frac{1}{1+\frac{R_L}{r}}$.
-Approach 2: Theoretical (we know the circuit diagram). Thevenin voltage ($e$): just the voltage difference in the circuit between A and B with zero current drawn ($I_{AB} = 0$). Thevenin resistance ($r$): remove voltage sources in circuit (by shorting batteries); remove current sources (by making an open circuit or break at current source); $r$ is then the total resistance between terminals A and B.
-Norton's theorem: Any combination of batteries, current sources and resistances with 2 terminals is electrically equivalent to an ideal current source with current $i$ in parallel with a resistance $r$.
-The Norton and Thevenin theorems are equivalent:
-KCL implies: $i = I_{AB} + \frac{\Delta V_{AB}}{r_N}$. Norton $= \Delta V_{AB} = r_Ni - r_NI_{AB} \equiv e-rI_{AB} =$ Thevenin.
+\marginpar{March 24, 2026}
+
 
 % ============================================================
 %  APPENDIX
