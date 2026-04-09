@@ -2116,6 +2116,42 @@ Using the ratio  test, one can show (exercise) that the radius of convergence of
 \end{cases}\]
 Assume $f: U \to \mathbb{R}^n$ is analytic, where $U\subseteq\mathbb{R}^n$ is open. By Cauchy-Kovalevskaya Theorem, the solution to the IVP is analytic. Then we look for solutions to the IVP in the form $y(t) = \sum_{n=0}^{\infty}a_nt^n$, here $a_0 = y_0$. Plug in the IVP and solve for $a_n$. $\sum_{n\geq1}na_nt^{n-1}=f(\sum_{n\geq0}a_nt^n) \implies \sum_{n\geq0}(n+1)a_{n+1}t^n = \sum_{n\geq0}\Phi_n(a)t^n$. Somehow $a_{n+1} = \frac{1}{n+1}\Phi_n(a), n\geq0$, $a_0=y_0$ Recurrence relation.
 
+\marginpar{April 9, 2026}
+\begin{example}[Airy's Equation]
+    \[y''-xy=0, y(0)=1, y'(0)=0\]
+    \[y(x) = \sum_{k=0}^{\infty}\frac{1}{(2*3)(5*6)\cdots(3k-1)(3k)}x^{3k} = \sum_{k=0}^{\infty}b_k\]
+    \[|\frac{b_{k+1}}{b_k}=\frac{|x|^3}{(3k+2)(3k+3)}\to_{k\to +\infty} 0<1, \forall x\in\mathbb{R}\]
+    The radius of convergence of $y(x)$ is $\rho = +\infty$.
+\end{example}
+\subsection{Power Series for IVPs in Nonlinear ODE}
+\begin{example}
+    \[y'=y(1-y)=y-y^2=f(y)\]
+    $y(t)=\sum_{n=0}^{\infty}a_nt^n, y'(t)=\sum_{n=1}na_nt^{n-1}=\sum_{n=0}^{\infty}(n+1)a_{n+1}t^n$, $y^2=\sum_{n=0}^{\infty}(a\star a)_nt^n$ this is the Cauchy Product. $y'=y-y^2 \iff \sum_{n=0}^{\infty}[(n+1)a_{n+1}-a_n+(a\star a)_n]t^n=0 \implies a_{n+1}=\frac{1}{n+1}(a_n-(a\star a)_n), n\geq 0$. If we pick $y(0) = 1/2=a_0$, then $a_1 = 1/4$, $a_2 = 0$, $a_3 = -1/48$, $a_4 = 0, a_5 = 1/480$, etc. $\implies y(x) = 1/2 + 1/4x -1/48x^3 + 1/480 x^5+\cdots \approx \sum_{n=0}^{N}a_nt^n$.
+\end{example}
+
+\subsection{Numerical Method via Power Series}
+\[\begin{cases}
+    y'=f(y)\\
+    y(0)=y_0
+\end{cases}\]
+\[y(t) = \sum a_nt^n, a_n \in \mathbb{R}^n\]
+\[f(y(t))=f(\sum_{n=0}^{\infty}a_nt^n) = \sum_{n=0}^{\infty}\Phi_n(a)t^n\]
+\[\implies_{(RR)}\begin{cases}
+    a_{n+1}=\frac{\Phi_n(a)}{n+1}\\
+    a_0=y_0
+\end{cases}\]
+Fix an order N, and compute $a_1,a_2,\ldots,a_N$ using (RR).
+\[\implies y^N(t) = \sum_{n=0}^{N}a_nt^n\]
+Numerical approximation of order N.
+Let $N=1$
+\[y^1(t) = a_0+a_1t = y(0) + y'(0)t = y_0 + f(y_0)t\]
+Pick a step size $h>0$, I get the approximation $y_1=y_0+hf(y_0)$ (Euler's Method).
+\[\begin{cases}
+    y_{n+1}=y_n + hf(y_n)\\
+    t_{n+1} = t_n + h
+\end{cases}\]
+Pick $N>1$ (Taylor Method of order N): $y_1 = \sum_{n=0}^{N}a_nh^n$, apply the method iteratively.
+
 \section{Appendix}
 \subsection{Picard Iterations Convergence}
 \begin{proof}[Proof of Picard Iterations Convergence]
