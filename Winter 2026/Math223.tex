@@ -1304,6 +1304,15 @@ Say $v_1 = \begin{pmatrix}a_1\\a_2\end{pmatrix}, v_2 = \begin{pmatrix}b_1\\b_2\e
     $\det(A) = 0$ since $A$ is non-invertible, so $\chi(0) = \det(A-0I) = \det(A) = 0$. Hence $0$ is a root of $\chi$.
 \end{solution}
 
+\section{tutorial exercise to put somewhere}
+\begin{problem}
+    Basis Extension: Let $V$ be a finite-dimensional vector sace, and $L \subseteq V$ be linearly independent. Show there is a basis $B \supseteq L$ of $V$.
+    Solution: If $L$ is a basis already, we are done. Suppose that $L$ is not a basis. $L$ is linearly independent, so $L$ is not spanning. Thus, there is a $v_1\in V$ such that $v_1 \notin \Span(L)$. Thus, $L \cup v_1$ is linearly independent. Repeat the reasoning above: we can suppose $L \cup v_1$ is not a basis, so there is a $v_2$ such that $L\cup v_1 \cup v_2$ is LI. But then we can get an $M$ such that $M$ is LI, as big as we want, and $L \subseteq M$. But this contradicts the fact that $V$ is finite-dimensional.
+\end{problem}
+\begin{problem}
+    Let $A$ be similar to $B$, as in there is an invertible $Q$ such that $A = Q^{-1}BQ$. Prove their characteristic equations are equivalent.
+\end{problem}
+
 
 
 
