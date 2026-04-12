@@ -763,9 +763,6 @@ Let $V$ be a vector space over a field $k$. Either $V = \{0\}$, or there exists 
         \item \textbf{Unique coordinates}: every $v\in V$ writes uniquely as $v = \sum_{i=1}^n\lambda_iv_i$.
     \end{enumerate}
 \end{theorem}
-\begin{corollary}[Coordinate vectors]
-    For basis $(v_1,\ldots,v_n)$ of $V$, every $v=x_1v_1+\cdots+x_nv_n$ uniquely, and $[v]_e = \begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix}$ is the coordinate vector of $v$.
-\end{corollary}
 \begin{corollary}
     Any two bases of $V$ have the same number of vectors. Hence $\dim V$ is well-defined.
 \end{corollary}
@@ -845,10 +842,10 @@ Use this when the space is $F(X)$ for a finite set $X$. The dimension equals the
 \subsection{Coordinates and Change of Basis}
 % -----------------------------------------------------------
 \marginpar{February 4--6, 2026}
-
 \subsubsection{Coordinate Vectors}
-If $(e_1,\ldots,e_n)$ is a basis of $V$, every $v\in V$ writes uniquely as $v=\lambda_1e_1+\cdots+\lambda_ne_n$, and
-\[[v]_e = \begin{pmatrix}\lambda_1\\\vdots\\\lambda_n\end{pmatrix}.\]
+\begin{definition}[Coordinate vectors]
+    For basis $(v_1,\ldots,v_n)$ of $V$, every $v=x_1v_1+\cdots+x_nv_n$ uniquely, and $[v]_e = \begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix}$ is the coordinate vector of $v$.
+\end{definition}
 \begin{example}[Finding a coordinate vector]
     Find the coordinate vector of $v=\begin{pmatrix}5\\3\\4\end{pmatrix}$ in the basis $f=\left(f_1,f_2,f_3\right)$ where $f_1=\begin{pmatrix}1\\-1\\0\end{pmatrix}$, $f_2=\begin{pmatrix}1\\1\\0\end{pmatrix}$, $f_3=\begin{pmatrix}0\\1\\1\end{pmatrix}$.\\
     We need $x,y,z$ such that $xf_1+yf_2+zf_3=v$. Writing this as a system:
@@ -892,27 +889,29 @@ If $(e_1,\ldots,e_n)$ is a basis of $V$, every $v\in V$ writes uniquely as $v=\l
 Let $U$ and $V$ be sets. A transformation $T: U \to V$ assigns to each $u \in U$ a unique element $T(u) \in V$. The set $U$ is the domain, $V$ the codomain, and $\operatorname{Im}(T) = \{T(u) : u \in U\} \subseteq V$ is the image.
 
 \begin{definition}[Injective, surjective, bijective]
-\hfill
-\begin{itemize}
-    \item $T$ is \textbf{surjective} if $\operatorname{Im}(T) = V$.
-    \item $T$ is \textbf{injective} if $T(u) = T(u') \implies u = u'$.
-    \item $T$ is \textbf{bijective} if it is both injective and surjective.
-\end{itemize}
+    \hfill
+    \begin{itemize}
+        \item $T$ is \textbf{surjective} if $\operatorname{Im}(T) = V$, i.e., every element of $V$ is hit by at least one element of $U$.
+        \item $T$ is \textbf{injective} if $T(u) = T(u') \implies u = u'$, where $u'$ is any other element of $U$. In other words, no two distinct inputs give the same output --- every element of $V$ is hit by \emph{at most} one element of $U$.
+        \item $T$ is \textbf{bijective} if it is both injective and surjective, i.e., every element of $V$ is hit by \emph{exactly} one element of $U$.
+    \end{itemize}
 \end{definition}
 \begin{example}
-    $f: \mathbb{R}\to\mathbb{R}$, $x\mapsto x^3$ is bijective. $f: \mathbb{R}\to\mathbb{R}$, $x\mapsto x^2$ is neither injective nor surjective.
+    $f: \mathbb{R}\to\mathbb{R}$, $x\mapsto x^3$ is bijective: every real number has exactly one real cube root, so distinct inputs give distinct outputs (injective) and every output is achieved (surjective). On the other hand, $f: \mathbb{R}\to\mathbb{R}$, $x\mapsto x^2$ is neither: it is not injective since $(-2)^2 = 2^2 = 4$ (two inputs, same output), and not surjective since negative numbers are never achieved.
 \end{example}
 \begin{example}
-    $z\mapsto z^2$ on $\mathbb{C}$: not injective since $(-1)^2 = 1^2$, but surjective since every $w\in\mathbb{C}$ has a square root.
+    $z\mapsto z^2$ on $\mathbb{C}$: not injective since $(-1)^2 = 1^2 = 1$ (so two distinct complex numbers map to the same value). It is however surjective: every $w\in\mathbb{C}$ has a square root in $\mathbb{C}$ by the Fundamental Theorem of Algebra, so every output is achieved.
 \end{example}
 
 \subsubsection{Composition and Inverses}
-Given $T: U\to V$ and $S: V\to W$, the composition $R = S\circ T : U\to W$ is defined by $R(u) = S(T(u))$.
+\begin{definition}[Composition]
+    Given $T: U\to V$ and $S: V\to W$, the composition $R = S\circ T : U\to W$ is defined by $R(u) = S(T(u))$.
+\end{definition}
 \begin{example}
     $g = \sin\circ(x^2) : \mathbb{R}\xrightarrow{x^2}\mathbb{R}\xrightarrow{\sin}\mathbb{R}$, so $g(x)=\sin(x^2)$.
 \end{example}
-\begin{proposition}
-    $T: U\to V$ is bijective $\iff$ $T$ has an inverse $S: V\to U$ with $ST = \operatorname{id}_U$ and $TS = \operatorname{id}_V$.
+\begin{proposition}[Inverses]
+    $T: U\to V$ is bijective if and only if $T$ has an inverse $S: V\to U$ with $ST = \operatorname{id}_U$\footnote{remember ST means "apply T first, then S."} and $TS = \operatorname{id}_V$, where $\operatorname{id}_U(u) = u$ and $\operatorname{id}_V(v) = v$ are the identity maps\footnote{The identity map sends every element to itself; it is the function analogue of the identity matrix.}.
 \end{proposition}
 
 % -----------------------------------------------------------
@@ -928,30 +927,31 @@ Given $T: U\to V$ and $S: V\to W$, the composition $R = S\circ T : U\to W$ is de
 \end{definition}
 
 \subsubsection{Main Examples of Linear Maps}
-
-\paragraph{Matrix transformations.} The primary example is $T_A: \mathbb{R}^n\to\mathbb{R}^n$, $T_A(x) = Ax$ for a fixed $A\in M_n(\mathbb{R})$:
+\subsubsection*{Matrix transformations} The primary example is $T_A: \mathbb{R}^n\to\mathbb{R}^n$, $T_A(x) = Ax$ for a fixed $A\in M_n(\mathbb{R})$:
 \[A = \begin{pmatrix}1&2\\3&4\end{pmatrix} \implies T_A\begin{pmatrix}x\\y\end{pmatrix} = \begin{pmatrix}x+2y\\3x+4y\end{pmatrix}.\]
+$T_A$ is bijective if and only if $A$ is invertible ($\det(A)\neq 0$): if $A^{-1}$ exists, then $T_{A^{-1}}$ is the inverse map, so every output has exactly one input. If $\det(A)=0$, then $Ax=0$ has a nonzero solution, meaning $T_A$ collapses an entire direction to zero --- it is neither injective (two inputs map to the same output) nor surjective (some outputs are never reached).
 
-\paragraph{Scaling.}
+\subsubsection*{Scaling}
 \begin{definition}[Scaling transformation]
     $T: U\to U$ is called scaling if there exists a basis $(u_1,\ldots,u_n)$ and scalars $\lambda_1,\ldots,\lambda_n\in k$ such that $T(u_i)=\lambda_iu_i$ for all $i$.
 \end{definition}
+$T$ is bijective if all $\lambda_i \neq 0$: each basis vector is simply stretched or shrunk but never sent to zero, so distinct inputs stay distinct (injective) and every output is reachable by scaling back (surjective). If any $\lambda_i = 0$, then $T(u_i) = 0 = T(0)$, so two distinct vectors map to the same output --- $T$ is neither injective nor surjective.
 
-\paragraph{The derivative.}
+\subsubsection*{The derivative}
 \[D: P_n\to P_n, \quad f\mapsto f', \quad D(x^k)=kx^{k-1}.\]
-$D$ is linear: $(f+g)'=f'+g'$ and $(\lambda f)'=\lambda f'$. $D$ is not injective ($D(1)=0$) and not surjective ($x^n \notin \operatorname{Im}(D)$ since every polynomial in $\operatorname{Im}(D)$ has degree $\leq n-1$).
+$D$ is linear: $(f+g)'=f'+g'$ and $(\lambda f)'=\lambda f'$. $D$ is not injective because any two polynomials differing by a constant have the same derivative, e.g.\ $D(1)=D(0)=0$, so $\ker(D)$ contains all constants. $D$ is not surjective because $x^n$ is never achieved: differentiating any polynomial in $P_n$ drops the degree by 1, so nothing in $P_n$ can differentiate to $x^n$.
 
-\paragraph{The indefinite integral.}
+\subsubsection*{The indefinite integral}
 \[\int: P_\infty \to P_\infty \quad \text{[linear, injective, not surjective]}.\]
-Injective: if $\int f = 0$ then $f = 0$. Not surjective: no $f\in P_\infty$ satisfies $\int f = 1$.
+Injective: integration raises the degree, so if $\int f = \int g$ then $f = g$ --- no two distinct polynomials integrate to the same thing. Equivalently, $\ker(\int) = \{0\}$. Not surjective: the constant polynomial $1 \in P_\infty$ is never an output, since $\int f$ always has zero constant term (or more precisely, $\int f$ always has degree at least 1).
 
-\paragraph{Projection.}
+\subsubsection*{Projection}
 Suppose $V = U\oplus U'$. Every $v\in V$ writes uniquely as $v=u+u'$. Define $P(v):=u$.
 \begin{proposition}
-    The projection $P: V\to U$ along $U'$ is linear.
+    The projection $P: V\to U$ along $U'$ is linear, surjective, but not injective.
 \end{proposition}
 \begin{proof}
-    Write $v_1=u_1+u_1'$ and $v_2=u_2+u_2'$. Then $v_1+v_2=(u_1+u_2)+(u_1'+u_2')$, so $P(v_1+v_2)=u_1+u_2=P(v_1)+P(v_2)$. Scalar case is analogous.
+    Linearity: write $v_1=u_1+u_1'$ and $v_2=u_2+u_2'$. Then $P(v_1+v_2)=u_1+u_2=P(v_1)+P(v_2)$. Scalar case is analogous. Surjective: any $u\in U$ satisfies $P(u)=u$ (since $u = u + 0$ with $0\in U'$), so every element of $U$ is hit. Not injective: any nonzero $u'\in U'$ satisfies $P(u')=0=P(0)$, so two distinct vectors map to the same output.
 \end{proof}
 
 \subsubsection{Defining a Linear Map by its Action on a Basis}
@@ -1060,16 +1060,24 @@ Suppose $V = U\oplus U'$. Every $v\in V$ writes uniquely as $v=u+u'$. Define $P(
 \begin{definition}[Isomorphism]
     $T: U\to V$ is an isomorphism if it is linear and bijective.
 \end{definition}
-To check: verify $T$ is linear, $\ker(T)=\{0\}$, and $\operatorname{Im}(T)=V$.
-\begin{theorem}
-    For $T: V\to V$ with matrix $A$ in basis $e$, the following are equivalent:
+\begin{remark}[How to check $T$ is an isomorphism]
+    In practice, verify the following three things:
+    \begin{enumerate}
+        \item \textbf{Linearity}: check $T(u+u')=T(u)+T(u')$ and $T(\lambda u)=\lambda T(u)$.
+        \item \textbf{Injectivity}: show $\ker(T)=\{0\}$, i.e., the only solution to $T(u)=0$ is $u=0$. This is equivalent to saying $T$ does not collapse any nonzero vector to zero.
+        \item \textbf{Surjectivity}: show $\operatorname{Im}(T)=V$, i.e., every $v\in V$ can be written as $T(u)$ for some $u\in U$.
+    \end{enumerate}
+    A useful shortcut: if $\dim U = \dim V = n$, you only need to check linearity and \emph{one} of injectivity or surjectivity --- the other follows automatically by rank-nullity.
+\end{remark}
+\begin{theorem}[Properties of Isomorphisms]
+    Let $T: V\to V$ be a linear map and let $A = [T]_e$ be the matrix of $T$ in some basis $e$ of $V$. Then the following are equivalent:
     \begin{enumerate}
         \item $T$ is an isomorphism.
         \item $A$ is invertible.
         \item $\det(A)\neq0$.
     \end{enumerate}
 \end{theorem}
-\begin{theorem}
+\begin{theorem}[Isomorphism Theorem]
     $U\cong V \iff \dim U = \dim V$. In particular, every $n$-dimensional space is isomorphic to $k^n$.
 \end{theorem}
 \begin{example}
@@ -1082,7 +1090,7 @@ To check: verify $T$ is linear, $\ker(T)=\{0\}$, and $\operatorname{Im}(T)=V$.
     \[\Phi\begin{pmatrix}\lambda_1\\\vdots\\\lambda_n\end{pmatrix} = \lambda_1v_1+\cdots+\lambda_nv_n.\]
     Then $\operatorname{Im}(\Phi)=\Span(v_1,\ldots,v_n)$.
 \end{definition}
-\begin{theorem}
+\begin{theorem}[Isomorphism Theorem 2]
     $\Phi$ is an isomorphism $\iff$ $(v_1,\ldots,v_n)$ is a basis for $V$. In this case, $[v]_e = \Phi^{-1}(v)$.
 \end{theorem}
 
@@ -1144,10 +1152,10 @@ Let $e=(e_1,\ldots,e_n)$ and $f=(f_1,\ldots,f_n)$ be two bases of $V$, and let $
 
 \subsection{The Characteristic Polynomial}
 \begin{definition}[Characteristic polynomial]
-    \[\chi(\lambda) = \det(A - \lambda\,\mathrm{Id}).\]
+    \[p(\lambda) = \det(A - \lambda\,\mathrm{Id}).\]
 \end{definition}
-\begin{theorem}
-    $\lambda$ is an eigenvalue of $A$ $\iff$ $\lambda$ is a root of $\chi$.
+\begin{theorem}[Characterization of Eigenvalues]
+    $\lambda$ is an eigenvalue of $A$ $\iff$ $\lambda$ is a root of $p(\lambda)$.
 \end{theorem}
 
 \subsection{Algebraic and Geometric Multiplicity}
@@ -1155,8 +1163,8 @@ Let $e=(e_1,\ldots,e_n)$ and $f=(f_1,\ldots,f_n)$ be two bases of $V$, and let $
 \begin{definition}[Algebraic and geometric multiplicity]
     For an eigenvalue $\lambda$ of $A$:
     \begin{itemize}
-        \item The \textbf{algebraic multiplicity} (AM) of $\lambda$ is its exponent as a root of $\chi(\lambda)$.
-        \item The \textbf{geometric multiplicity} (GM) of $\lambda$ is $\dim E_\lambda = \dim\ker(A-\lambda\,\mathrm{Id})$.
+        \item The algebraic multiplicity (AM) of $\lambda$ is its exponent as a root of $p(\lambda)$.
+        \item The geometric multiplicity (GM) of $\lambda$ is $\dim E_\lambda = \dim\ker(A-\lambda\,\mathrm{Id})$.
     \end{itemize}
 \end{definition}
 \begin{theorem}[AM-GM inequality]
@@ -1173,24 +1181,24 @@ Let $e=(e_1,\ldots,e_n)$ and $f=(f_1,\ldots,f_n)$ be two bases of $V$, and let $
 \begin{definition}[Diagonalizable]
     $T$ (or its matrix $A$) is diagonalizable if $\exists$ a basis $e=(e_1,\ldots,e_n)$ and scalars $\lambda_1,\ldots,\lambda_n$ with $T(e_i)=\lambda_ie_i$.
 \end{definition}
-
-\paragraph{How to diagonalize $A$.}
-\begin{enumerate}
-    \item Compute $\chi(\lambda)=\det(A-\lambda\,\mathrm{Id})$ and find its roots (the eigenvalues).
-    \item For each eigenvalue $\lambda_i$, find $\ker(A-\lambda_i\,\mathrm{Id})$ to get eigenvectors.
-    \item If there are $n$ linearly independent eigenvectors, write them as columns of $Q$; then $Q^{-1}AQ$ is diagonal.
-\end{enumerate}
+\begin{method}[How to diagonalize $A$.]
+    \begin{enumerate}
+        \item Compute $p(\lambda)=\det(A-\lambda\,\mathrm{Id})$ and find its roots (the eigenvalues).
+        \item For each eigenvalue $\lambda_i$, find $\ker(A-\lambda_i\,\mathrm{Id})$ to get eigenvectors.
+        \item If there are $n$ linearly independent eigenvectors, write them as columns of $Q$; then $Q^{-1}AQ$ is diagonal.
+    \end{enumerate}
+\end{method}
 \begin{example}[Diagonalization of a $4\times4$ matrix]
     Diagonalize $A=\begin{pmatrix}5&-2&0&0\\0&3&0&0\\0&0&1&2\\0&0&2&4\end{pmatrix}$.\\
     \textbf{Characteristic polynomial.} $A$ is block diagonal:
-    \[\chi(\lambda)=(5-\lambda)(3-\lambda)\cdot\bigl[(1-\lambda)(4-\lambda)-4\bigr] = -\lambda(\lambda-3)(\lambda-5)^2.\]
+    \[p(\lambda)=(5-\lambda)(3-\lambda)\cdot\bigl[(1-\lambda)(4-\lambda)-4\bigr] = -\lambda(\lambda-3)(\lambda-5)^2.\]
     Eigenvalues: $\lambda=0$ (AM$=1$), $\lambda=3$ (AM$=1$), $\lambda=5$ (AM$=2$).\\
     \textbf{Eigenvectors:} For $\lambda=5$: $E_5 = \Span\!\begin{pmatrix}1\\0\\0\\0\end{pmatrix}\!,\begin{pmatrix}0\\0\\1\\2\end{pmatrix}$ (GM$=2$=AM \checkmark). For $\lambda=3$: $E_3=\Span\begin{pmatrix}1\\1\\0\\0\end{pmatrix}$. For $\lambda=0$: $E_0=\Span\begin{pmatrix}0\\0\\-2\\1\end{pmatrix}$.\\
     \[P=\begin{pmatrix}1&0&1&0\\0&0&1&0\\0&1&0&-2\\0&2&0&1\end{pmatrix},\quad P^{-1}AP=\begin{pmatrix}5&0&0&0\\0&5&0&0\\0&0&3&0\\0&0&0&0\end{pmatrix}.\]
 \end{example}
 \begin{example}[$3\times3$ diagonalization]
     Let $A=\begin{pmatrix}1&0&2\\3&4&3\\2&0&1\end{pmatrix}$. Expanding along the second column:
-    \[\chi(\lambda) = (4-\lambda)\det\begin{pmatrix}1-\lambda&2\\2&1-\lambda\end{pmatrix} = (\lambda-4)(\lambda-3)(\lambda+1).\]
+    \[p(\lambda) = (4-\lambda)\det\begin{pmatrix}1-\lambda&2\\2&1-\lambda\end{pmatrix} = (\lambda-4)(\lambda-3)(\lambda+1).\]
     Three distinct eigenvalues $\Rightarrow$ diagonalizable. Eigenvectors: $f_1=\begin{pmatrix}0\\1\\0\end{pmatrix}$, $f_2=\begin{pmatrix}1\\-6\\1\end{pmatrix}$, $f_3=\begin{pmatrix}-1\\0\\1\end{pmatrix}$.
     \[Q = \begin{pmatrix}0&1&-1\\1&-6&0\\0&1&1\end{pmatrix}, \quad D = \begin{pmatrix}4&0&0\\0&3&0\\0&0&-1\end{pmatrix}, \quad A = QDQ^{-1}.\]
 \end{example}
@@ -1200,10 +1208,10 @@ Let $e=(e_1,\ldots,e_n)$ and $f=(f_1,\ldots,f_n)$ be two bases of $V$, and let $
     $A$ and $B$ are \textbf{similar} if there exists an invertible $Q$ with $A = Q^{-1}BQ$.
 \end{definition}
 \begin{problem}[Similar matrices have equal characteristic polynomials]
-    Let $A$ be similar to $B$, i.e., $A = Q^{-1}BQ$ for some invertible $Q$. Prove $\chi_A = \chi_B$.
+    Let $A$ be similar to $B$, i.e., $A = Q^{-1}BQ$ for some invertible $Q$. Prove $p_A = p_B$.
 \end{problem}
 \begin{problem}[Characteristic polynomial and invertibility]
-    Let $A\in M_n(\mathbb{R})$ be non-invertible. Show $\chi(\lambda)$ has a root at $\lambda = 0$.
+    Let $A\in M_n(\mathbb{R})$ be non-invertible. Show $p(\lambda)$ has a root at $\lambda = 0$.
 \end{problem}
 
 % ============================================================
@@ -1211,35 +1219,54 @@ Let $e=(e_1,\ldots,e_n)$ and $f=(f_1,\ldots,f_n)$ be two bases of $V$, and let $
 % ============================================================
 \marginpar{March 18, 2026}
 
-An inner product space is a vector space $V$ equipped with an inner product --- a way to measure length, angle, and perpendicularity. The motivating example is $\mathbb{R}^n$ where $\|v\| = \sqrt{x_1^2+\cdots+x_n^2}$.
+An inner product space is a vector space $V$ equipped with an inner product --- a way to measure length, angle, and perpendicularity.\\
+Let $V$ be a vector space over $K = R$ or $K = C$. We aim to define:
+\begin{enumerate}
+    \item the norm of a vector $v \in V$ , which is a real number $||v||$ representing the length of $v$;
+    \item what it means for two vector $u, v \in V$ to be perpendicular (or orthogonal), denoted $u \perp v$.
+\end{enumerate}
+One can do both by means of an inner product on $V$. We explain the case $K = R$ first.
 
+\subsection{Real Inner Products}
+\begin{definition}[Euclidean Norm]
+    The Euclidean norm of a vector $v=\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix}$ is
+    \[\|v\| = \sqrt{x_1^2+\cdots+x_n^2} = \sqrt{\langle v,v\rangle},\]
+    where $\langle v,v\rangle$ is the standard dot product of $v$ with itself.
+\end{definition}
+\begin{example}[Frobenius Norm on $M_n(\mathbb{R})$]
+    The matrix analogue of the Euclidean norm is the Frobenius norm. For $A=(a_{ij})$ and $B=(b_{ij})$ in $M_n(\mathbb{R})$, define the inner product $\langle A,B\rangle = \sum_{i,j} a_{ij}b_{ij}$, which induces the norm
+    \[\|A\| = \sqrt{\langle A,A\rangle} = \sqrt{\sum_{i,j} a_{ij}^2}.\]
+    This is the direct analogue of the Euclidean norm, summing the squares of all entries instead of all components.
+\end{example}
 \begin{definition}[Inner product]
     Let $V$ be a real vector space. An inner product on $V$ is a map $\langle\cdot,\cdot\rangle : V\times V \to \mathbb{R}$ satisfying:
     \begin{enumerate}
         \item \textbf{Linearity on the left}: $\langle v_1+v_2,w\rangle = \langle v_1,w\rangle + \langle v_2,w\rangle$ and $\langle\lambda v,w\rangle = \lambda\langle v,w\rangle$.
         \item \textbf{Symmetry}: $\langle u,v\rangle = \langle v,u\rangle$.
-        \item \textbf{Positive definiteness}: $\langle v,v\rangle \ge 0$, and $\langle v,v\rangle = 0 \iff v=0$.
+        \item \textbf{Positive definiteness}: $\langle v,v\rangle \ge 0$, and $\langle v,v\rangle = 0 \Rightarrow v=0$.
     \end{enumerate}
     A vector space with an inner product is called an \textbf{inner product space}.
 \end{definition}
 \begin{remark}
-    By symmetry, linearity on the left implies linearity on the right: $\langle u,v_1+v_2\rangle = \langle u,v_1\rangle+\langle u,v_2\rangle$.
+    By symmetry, linearity on the left implies linearity on the right: $\langle u,v_1+v_2\rangle = \langle u,v_1\rangle+\langle u,v_2\rangle$ and $\langle u,\lambda v\rangle = \lambda\langle u,v\rangle$.
 \end{remark}
-\begin{definition}[Norm]
-    The norm induced by an inner product is $\|v\| = \sqrt{\langle v,v\rangle}$.
+\begin{definition}[Norm and Perpendicularity]
+    Let $\langle\cdot,\cdot\rangle$ be an inner product on $V$.
+    \begin{enumerate}
+        \item The norm of $v\in V$ is defined by \[||v|| := \sqrt{\langle v,v\rangle}.\]
+        \item We say that $u$ and $v$ are perpendicular or orthogonal and write $u \perp v$ if \[\langle u,v \rangle=0.\]
+    \end{enumerate}
 \end{definition}
+\begin{remark}[Length vs Distances]
+    The norm of $v$ represents the length of the vector $v$. To compute the distance $d$ between two points $u$ and $v$ in $V$ (extremities of vectors), one needs to compute:
+    \[dist(u,v) = ||u-v||\]
+\end{remark}
 \begin{example}[Standard inner product on $\mathbb{R}^n$]
     For $v=(x_1,\ldots,x_n)^T$ and $w=(y_1,\ldots,y_n)^T$, the dot product $\langle v,w\rangle = x_1y_1+\cdots+x_ny_n$ is an inner product.
 \end{example}
 \begin{example}[Function space inner product]
     On $V = C^0([0,1])$, define $\langle f,g\rangle = \int_0^1 f(x)g(x)\,dx$. This satisfies all three axioms; positive definiteness uses the fact that if $f^2 \geq 0$ is continuous and $\int f^2 = 0$, then $f=0$ everywhere.
 \end{example}
-\begin{example}[$M_n(\mathbb{R})$]
-    For $A=(a_{ij})$ and $B=(b_{ij})$, define $\langle A,B\rangle = \sum_{i,j} a_{ij}b_{ij}$ with $\|A\| = \sqrt{\sum_{i,j} a_{ij}^2}$.
-\end{example}
-
-\subsection{Norm and Pythagorean Theorem}
-
 \begin{proposition}[Norm expansion]
     For any $u,v\in V$:
     \[\|u+v\|^2 = \|u\|^2 + 2\langle u,v\rangle + \|v\|^2.\]
@@ -1247,12 +1274,37 @@ An inner product space is a vector space $V$ equipped with an inner product --- 
 \begin{proof}
     $\langle u+v,u+v\rangle = \langle u,u\rangle + \langle u,v\rangle + \langle v,u\rangle + \langle v,v\rangle = \|u\|^2 + 2\langle u,v\rangle + \|v\|^2$.
 \end{proof}
-\begin{theorem}[Pythagorean theorem]
-    $u \perp v \iff \langle u,v\rangle = 0 \iff \|u+v\|^2 = \|u\|^2 + \|v\|^2$.
+\begin{theorem}[Pythagoras]
+    $u \perp v \iff \langle u,v\rangle = 0 \iff \|u\pm v\|^2 = \|u\|^2 + \|v\|^2$.
 \end{theorem}
 
-\subsection{Cauchy-Schwarz Inequality}
+\subsection{Complex inner products}
+\begin{definition}[Inner product on $\mathbb{C}^n$]
+    For $x,y\in\mathbb{C}^n$, define
+    \[\langle x,y\rangle = \sum_{i=1}^n x_i\overline{y_i}.\]
+    Then $\|x\|^2 = \sum_{i=1}^n |x_i|^2 \geq 0$, with equality iff $x=0$.
+\end{definition}
+\begin{definition}
+    An inner product on a complex vector space V is a function assigning a complex number $\langle u,v \rangle$ to $u,v \in V$: $V \times V \to \mathbb{C}$, $(u,v) \to \langle u,v\rangle$ satisfying:
+    \begin{enumerate}
+        \item \textbf{Linearity on the left}: $\langle v_1+v_2,w\rangle = \langle v_1,w\rangle + \langle v_2,w\rangle$ and $\langle\lambda v,w\rangle = \lambda\langle v,w\rangle$, $\forall u,v,w \in V, \lambda \in \mathbb{C}$.
+        \item \textbf{Symmetry}: $\langle u,v\rangle = \overline{\langle v,u\rangle}$.
+        \item \textbf{Positive definiteness}: $\langle v,v\rangle \ge 0$, and $\langle v,v\rangle = 0 \Rightarrow v=0$.
+    \end{enumerate}
+\end{definition}
+\begin{proposition}[Complex symmetry]
+    Complex inner products are skew-linear in the second variable. This is also called anti-linear and means
+    \begin{itemize}
+        \item $\langle w,u+v \rangle = \langle w,u \rangle + \langle w,v \rangle$
+        \item $\langle w,\lambda u \rangle = \overline{\lambda}\langle w,u \rangle$
+    \end{itemize}
+\end{proposition}
+\begin{definition}[Adjoint Matrix]
+    Let $A \in M_{n}(\mathbb{C})$ be a complex matrix. The adjoint of $A$ is the complex matrix $A^* \in M_{n}(\mathbb{C})$ defined by $A^\ast = \overline{A}^t$.
+\end{definition}
 
+
+\subsection{Cauchy-Schwarz Inequality}
 \begin{theorem}[Cauchy-Schwarz Inequality]
     For any $u, v$ in an inner product space $V$:
     \[|\langle u, v \rangle| \leq \|u\|\,\|v\|,\]
@@ -1263,33 +1315,25 @@ An inner product space is a vector space $V$ equipped with an inner product --- 
     \[0 \leq \|w\|^2 = \left\|u - \frac{\langle u,v\rangle}{\|v\|^2}v\right\|^2 = \|u\|^2 - \frac{|\langle u,v\rangle|^2}{\|v\|^2},\]
     which rearranges to $|\langle u,v\rangle|^2 \leq \|u\|^2\|v\|^2$.
 \end{proof}
-\begin{corollary}[Triangle inequality]
+\begin{theorem}[Triangle inequality]
     $\|u+v\| \leq \|u\| + \|v\|$.
-\end{corollary}
+\end{theorem}
 \begin{proof}
     $\|u+v\|^2 = \|u\|^2 + 2\langle u,v\rangle + \|v\|^2 \leq \|u\|^2 + 2\|u\|\|v\| + \|v\|^2 = (\|u\|+\|v\|)^2$.
 \end{proof}
 
-\subsection{Complex Inner Products}
-
-\begin{definition}[Inner product on $\mathbb{C}^n$]
-    For $x,y\in\mathbb{C}^n$, define
-    \[\langle x,y\rangle = \sum_{i=1}^n x_i\overline{y_i}.\]
-    Then $\|x\|^2 = \sum_{i=1}^n |x_i|^2 \geq 0$, with equality iff $x=0$.
-\end{definition}
-\begin{remark}
-    For complex inner products the symmetry axiom becomes \textbf{conjugate symmetry}: $\langle u,v\rangle = \overline{\langle v,u\rangle}$. This means the inner product is only \emph{conjugate-linear} on the right: $\langle u, \lambda v\rangle = \overline{\lambda}\langle u, v\rangle$.
-\end{remark}
-
 \subsection{Orthonormal Bases}
 \marginpar{March 23, 2026}
-
-\begin{definition}[Orthogonal and orthonormal]
-    A set of vectors $(e_1,\ldots,e_n)$ is:
-    \begin{itemize}
-        \item \textbf{Orthogonal} if $\langle e_i, e_j \rangle = 0$ for all $i \neq j$.
-        \item \textbf{Orthonormal} (ONB) if $\langle e_i, e_j \rangle = \delta_{ij}$ (orthogonal and each $\|e_i\|=1$).
-    \end{itemize}
+\begin{definition}[Orthogonal]
+    A family $v_1,\ldots,v_n$ of vectors is orthogonal if 
+    \[\langle v_i,v_j \rangle =0, if\, i\neq j.\]
+\end{definition}
+\begin{definition}[Orthonormal]
+    A family $v_1,\ldots,v_n$ of vectors is orthonormal if it is orthogonal and $||v_i|| = 1,\,\forall i=1,\ldots,n$. Basically,
+    \[\langle v_i,v_j\rangle = \delta_{ij}\]
+\end{definition}
+\begin{definition}[Orthonormal Basis]
+    An orthonormal basis (ONB) is a basis which is orthonormal.
 \end{definition}
 \begin{proposition}
     Any orthogonal set of nonzero vectors is linearly independent.
@@ -1307,234 +1351,87 @@ An inner product space is a vector space $V$ equipped with an inner product --- 
 \begin{proof}
     Write $v = \sum \lambda_i e_i$. Taking $\langle\cdot, e_k\rangle$ of both sides: $\langle v, e_k\rangle = \lambda_k\|e_k\|^2 = \lambda_k$.
 \end{proof}
+\begin{definition}[Orthogonal Matrix]
+    A matrix $A \in M_n(\mathbb{R})$ is orthogonal if its columns form an ONB of $\mathbb{R}^n$ (endowed with the standard dot product).
+\end{definition}
+\begin{proposition}
+    Let $TX=AX$ be the linear transformation of $\mathbb{R}^n$ associated with matrix $A \in M_n(\mathbb{R})$. Then $A$ is an orthogonal matrix iff $T$ preserves the dot product in the sense that:
+    \[\langle TX,TY \rangle = \langle X,Y\rangle,\]
+    for all vectors $X,Y \in \mathbb{R}^n$, where $\langle X,Y\rangle := X \cdot Y$ is the dot product.
+\end{proposition}
+\begin{definition}[Orthogonal Matrix 2]
+    A matrix $A$ is said to be orthogonal if $AA^t = A^tA = Id$; equivalently, $A$ is invertible with inverse $A^{-1} = A^t$.
+\end{definition}
+\begin{definition}[Unitary Matrix]
+    A matrix $A \in M_n(\mathbb{C})$ is unitary if its columns form an ONB of $\mathbb{C}$.
+\end{definition}
+\begin{definition}[Unitary Matrix 2]
+    A complex $A \in M_n(\mathbb{C})$ is unitary if $AA^\ast = A^\ast A = Id$; equivalently, $A$ is invertible with inverse $A^{-1} = A^\ast$.
+\end{definition}
 
+\subsection{Symmetric Matrices Are Diagonalizable}
+\marginpar{March 25, 2026}
+\begin{theorem}[Spectral theorem - version 1]
+    Symmetric matrices are diagonalizable.
+\end{theorem}
+\begin{example}
+    Let the matrix $A = \begin{bmatrix} 1 & 1 & 0 \\ 1 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}$. Then $A$ is symmetric and thus diagonalizable.
+\end{example}
+\begin{theorem}[Spectral theorem - version 2]
+    If $A \in M_n(\mathbb{R})$ is symmetric, then there exists an ONB of eigenvectors.
+\end{theorem}
+\begin{lemma}
+    If $A$ is symmetric, and $\lambda_1 \neq \lambda_2$ are two different eigenvalues of $A$, then $E_{\lambda_1} \perp E_{\lambda_2}$.
+\end{lemma}
+\begin{theorem}[Spectral theorem - version 3]
+    If $A \in M_n(\mathbb{R})$ is symmetric, there exists an orthogonal matrix $Q$ and a diagonal matrix $D$ such that 
+    \[A = QDQ^t.\]
+\end{theorem}
+
+\subsection{Orthogonal Matrices in Dimension 2}
+
+Every $2\times 2$ orthogonal matrix is one of two types: a rotation or a reflection.
+
+\begin{proposition}
+    Let $A \in M_2(\mathbb{R})$ be orthogonal. Then $A$ is either a rotation
+    \[R_\theta = \begin{pmatrix}\cos\theta & -\sin\theta \\ \sin\theta & \cos\theta\end{pmatrix}\]
+    about the origin by angle $\theta$, or a reflection
+    \[S_\theta = \begin{pmatrix}\cos\theta & \sin\theta \\ \sin\theta & -\cos\theta\end{pmatrix}\]
+    across a line through the origin at angle $\theta/2$. In symbols:
+    \[O(2) = \{R_\theta : \theta\in\mathbb{R}\} \cup \{S_\theta : \theta\in\mathbb{R}\}.\]
+\end{proposition}
+
+\begin{remark}
+    You can tell them apart by the determinant:
+    \[\det(R_\theta) = \cos^2\theta + \sin^2\theta = 1, \qquad \det(S_\theta) = -\cos^2\theta - \sin^2\theta = -1.\]
+    So rotations have determinant $1$ and reflections have determinant $-1$.
+\end{remark}
+
+\begin{remark}[Exam tip]
+    The inverse of any orthogonal matrix is just its transpose: $A^{-1} = A^T$. No row reduction needed. In particular, $R_\theta^{-1} = R_{-\theta}$ (rotate back) and $S_\theta^{-1} = S_\theta$ (reflecting twice gives the identity).
+\end{remark}
+
+\subsection{Isomorphism Theorem For Inner Product Spaces}
+\begin{theorem}[Isomorphism Theorem For Inner Product Spaces]
+    Every finite-dimensional inner product space admits an ONB.
+\end{theorem}
+\begin{theorem}
+    Every inner product on a finite-dimensional space over $K$ is isomorphic to the standard dot product on $K^n$.
+\end{theorem}
 \subsection{Gram-Schmidt Orthonormalization}
-\marginpar{March 25, 2026}
-
-Given a linearly independent set, Gram-Schmidt produces an ONB with the same span by subtracting off the projection onto each previous vector.
-
-\begin{theorem}[Gram-Schmidt]
-    Let $(v_1,\ldots,v_n)$ be linearly independent vectors in an inner product space $V$. Define:
-    \[u_1 = \frac{v_1}{\|v_1\|},\]
-    and for $k = 2,\ldots,n$:
-    \[\tilde{u}_k = v_k - \sum_{j=1}^{k-1} \langle v_k, u_j \rangle\, u_j, \qquad u_k = \frac{\tilde{u}_k}{\|\tilde{u}_k\|}.\]
-    Then $(u_1,\ldots,u_n)$ is an ONB of $\Span(v_1,\ldots,v_n)$.
-\end{theorem}
-\begin{example}[Gram-Schmidt in $\mathbb{R}^2$]
-    Let $v_1 = \begin{pmatrix}5\\0\end{pmatrix}$ and $v_2 = \begin{pmatrix}3\\2\end{pmatrix}$. Set $u_1 = v_1/\|v_1\| = \begin{pmatrix}1\\0\end{pmatrix}$.
-
-    Subtract the projection of $v_2$ onto $u_1$:
-    \[\tilde{u}_2 = v_2 - \langle v_2, u_1\rangle\, u_1 = \begin{pmatrix}3\\2\end{pmatrix} - 3\begin{pmatrix}1\\0\end{pmatrix} = \begin{pmatrix}0\\2\end{pmatrix}.\]
-    Then $u_2 = \tilde{u}_2/\|\tilde{u}_2\| = \begin{pmatrix}0\\1\end{pmatrix}$, and $\{u_1, u_2\}$ is the standard ONB.
-\end{example}
-\begin{remark}
-    The key identity driving Gram-Schmidt is $k = \frac{\langle v_k, u_j\rangle}{\langle u_j, u_j\rangle} = \langle v_k, u_j\rangle$ (since $\|u_j\|=1$). This is exactly the projection coefficient.
-\end{remark}
-
-\subsection{Orthogonal Matrices}
-\marginpar{March 25, 2026}
-
-\begin{definition}[Orthogonal matrix]
-    A square matrix $A \in M_n(\mathbb{R})$ is orthogonal if its columns form an ONB of $\mathbb{R}^n$, equivalently if $A^T A = I$.
-\end{definition}
-\begin{proposition}
-    The following are equivalent for a square matrix $A$:
-    \begin{enumerate}
-        \item $A$ is orthogonal (columns form an ONB).
-        \item $A^TA=I$.
-        \item $AA^T=I$.
-        \item Rows of $A$ form an ONB.
-    \end{enumerate}
-    In particular, an orthogonal matrix satisfies $A^{-1} = A^T$.
-\end{proposition}
-\begin{proof}
-    Write $A=(c_1,\ldots,c_n)$. Then $(A^TA)_{ij} = \langle c_i, c_j\rangle$, so $A^TA = I$ iff $\langle c_i, c_j\rangle = \delta_{ij}$, establishing (1)$\iff$(2). Since $A^TA=I \implies \det(A)=\pm1 \neq 0$, $A$ is invertible, and $A^T = A^{-1}$ implies $AA^T=I$ as well, giving (3). The rows of $A$ are the columns of $A^T$, and $AA^T=I$ says exactly that the rows are orthonormal, giving (4).
-\end{proof}
-\begin{remark}
-    The change of basis formula simplifies nicely when $Q$ is orthogonal: $B = Q^{-1}AQ = Q^TAQ$.
-\end{remark}
-
-\subsection{Spectral Theorem for Symmetric Matrices}
-\marginpar{March 25, 2026}
-
-\begin{proposition}
-    If $A$ is symmetric (i.e., $A^T = A$) and $\lambda_1 \neq \lambda_2$ are distinct eigenvalues, then $E_{\lambda_1} \perp E_{\lambda_2}$.
-\end{proposition}
-\begin{proof}
-    Let $v_1 \in E_{\lambda_1}$, $v_2 \in E_{\lambda_2}$. Then:
-    \[\lambda_1\langle v_1, v_2\rangle = \langle Av_1, v_2\rangle = \langle v_1, A^Tv_2\rangle = \langle v_1, Av_2\rangle = \lambda_2\langle v_1, v_2\rangle.\]
-    Since $\lambda_1 \neq \lambda_2$, we get $\langle v_1, v_2\rangle = 0$.
-\end{proof}
-
-\begin{theorem}[Spectral Theorem, Version 1]
-    Every real symmetric matrix is diagonalizable.
-\end{theorem}
-
-\begin{theorem}[Spectral Theorem, Version 2]
-    If $A$ is symmetric, then there exists an ONB of $\mathbb{R}^n$ consisting of eigenvectors of $A$. Equivalently, there exists an orthogonal matrix $Q$ and a diagonal matrix $D$ such that
-    \[A = QDQ^{-1} = QDQ^T.\]
-\end{theorem}
-\begin{example}
-    Let $A=\begin{pmatrix}1&2\\2&1\end{pmatrix}$. The characteristic polynomial is $\chi(\lambda) = (\lambda-3)(\lambda+1)$, giving eigenvalues $\lambda_1=3$, $\lambda_2=-1$.
-
-    Eigenvectors: $v_3 = \begin{pmatrix}1\\1\end{pmatrix}$ and $v_{-1} = \begin{pmatrix}-1\\1\end{pmatrix}$. These are already orthogonal (as guaranteed by the spectral theorem), so after normalizing:
-    \[Q = \frac{1}{\sqrt{2}}\begin{pmatrix}1&-1\\1&1\end{pmatrix}, \quad D = \begin{pmatrix}3&0\\0&-1\end{pmatrix}, \quad A = QDQ^T.\]
-\end{example}
-
-% ============================================================
-\section{Linear Transformations on Inner Product Spaces}
-% ============================================================
-\marginpar{Chapter 8}
-
-% -----------------------------------------------------------
-\subsection{Linear Functionals}
-% -----------------------------------------------------------
-
-\begin{definition}[Linear functional]
-    A linear functional on $V$ is a linear map $\varphi: V \to k$.
-\end{definition}
-\begin{example}
-    On $\mathbb{R}^n$: fixing $w \in \mathbb{R}^n$, the map $\varphi_w(v) = \langle v, w\rangle$ is a linear functional. On $P_n$: evaluation $\varphi_a(f) = f(a)$ and integration $\varphi(f) = \int_0^1 f(x)\,dx$ are linear functionals.
-\end{example}
-\begin{theorem}[Riesz Representation Theorem]
-    Let $V$ be a finite-dimensional inner product space and $\varphi: V \to k$ a linear functional. Then there exists a unique $w \in V$ such that
-    \[\varphi(v) = \langle v, w\rangle \quad \text{for all } v \in V.\]
-\end{theorem}
-\begin{proof}
-    Let $(e_1,\ldots,e_n)$ be an ONB. Define $w = \sum_i \overline{\varphi(e_i)}\,e_i$. Then for any $v = \sum_j \langle v,e_j\rangle e_j$:
-    \[\langle v, w\rangle = \sum_j \langle v, e_j\rangle \varphi(e_j) = \varphi\!\left(\sum_j \langle v,e_j\rangle e_j\right) = \varphi(v).\]
-    Uniqueness: if $\langle v,w\rangle = \langle v,w'\rangle$ for all $v$, then $\langle v, w-w'\rangle = 0$ for all $v$, so taking $v=w-w'$ gives $\|w-w'\|^2 = 0$, hence $w=w'$.
-\end{proof}
-
-% -----------------------------------------------------------
-\subsection{Orthogonal Projections}
-% -----------------------------------------------------------
-
-\begin{definition}[Orthogonal complement]
-    For a subspace $U \subseteq V$, the orthogonal complement is
-    \[U^\perp = \{v \in V : \langle v, u\rangle = 0 \;\forall u \in U\}.\]
-\end{definition}
-\begin{proposition}
-    $U^\perp$ is a subspace, and $V = U \oplus U^\perp$.
-\end{proposition}
-\begin{proof}
-    Subspace: $\langle 0, u\rangle = 0$ for all $u$; sums and scalar multiples of vectors in $U^\perp$ are in $U^\perp$ by linearity. For the decomposition: given an ONB $(e_1,\ldots,e_k)$ of $U$, any $v \in V$ can be written as $v = u + u^\perp$ where
-    \[u = \sum_{i=1}^k \langle v, e_i\rangle e_i \in U, \qquad u^\perp = v - u.\]
-    One checks $u^\perp \in U^\perp$, and $U \cap U^\perp = \{0\}$ since $w \in U \cap U^\perp$ implies $\langle w,w\rangle = 0$.
-\end{proof}
-\begin{definition}[Orthogonal projection]
-    Given $V = U \oplus U^\perp$, the \textbf{orthogonal projection} onto $U$ is the linear map $P_U: V \to U$ defined by $P_U(v) = u$ where $v = u + u^\perp$.
-
-    If $(e_1,\ldots,e_k)$ is an ONB of $U$, then explicitly:
-    \[P_U(v) = \sum_{i=1}^k \langle v, e_i\rangle\, e_i.\]
-\end{definition}
-\begin{proposition}
-    The orthogonal projection $P_U$ satisfies:
-    \begin{enumerate}
-        \item $P_U^2 = P_U$ (it is idempotent),
-        \item $\ker(P_U) = U^\perp$ and $\operatorname{Im}(P_U) = U$,
-        \item $P_U(v) = v$ for all $v \in U$.
-    \end{enumerate}
-\end{proposition}
-\begin{example}[Projection onto a line]
-    Let $U = \Span(u)$ in $\mathbb{R}^n$. Then $P_U(v) = \frac{\langle v,u\rangle}{\|u\|^2}u$. In terms of the unit vector $\hat{u} = u/\|u\|$: $P_U(v) = \langle v,\hat{u}\rangle \hat{u}$.
-\end{example}
-\begin{remark}[Best approximation]
-    For a subspace $U \subseteq V$, the orthogonal projection $P_U(v)$ is the closest point in $U$ to $v$: it minimizes $\|v - u\|$ over all $u \in U$. This is the geometric meaning of projection.
-\end{remark}
-
-% -----------------------------------------------------------
-\subsection{The Adjoint of a Linear Operator}
-% -----------------------------------------------------------
-
-\begin{definition}[Adjoint]
-    Let $T: V \to V$ be a linear operator on a finite-dimensional inner product space. The \textbf{adjoint} of $T$ is the unique linear operator $T^*: V \to V$ satisfying
-    \[\langle T(u), v\rangle = \langle u, T^*(v)\rangle \quad \text{for all } u,v \in V.\]
-\end{definition}
-\begin{remark}[Existence and uniqueness]
-    For each fixed $v$, the map $u \mapsto \langle T(u), v\rangle$ is a linear functional. By the Riesz representation theorem, there exists a unique $w \in V$ with $\langle T(u), v\rangle = \langle u, w\rangle$ for all $u$. Setting $T^*(v) = w$ defines $T^*$.
-\end{remark}
-\begin{proposition}[Matrix of the adjoint]
-    If $A = [T]_e$ in an ONB $e$, then $[T^*]_e = A^*$ (the conjugate transpose). For real matrices in an ONB, $[T^*]_e = A^T$.
-\end{proposition}
-\begin{proposition}[Properties of the adjoint]
-    \begin{enumerate}
-        \item $(S + T)^* = S^* + T^*$
-        \item $(\lambda T)^* = \overline{\lambda} T^*$
-        \item $(ST)^* = T^* S^*$
-        \item $(T^*)^* = T$
-        \item If $T$ is invertible, $(T^{-1})^* = (T^*)^{-1}$
-    \end{enumerate}
-\end{proposition}
-
-% -----------------------------------------------------------
-\subsection{Self-Adjoint, Unitary, and Normal Operators}
-% -----------------------------------------------------------
-
-\begin{definition}[Self-adjoint, unitary, normal]
-    Let $T: V \to V$ be a linear operator.
-    \begin{itemize}
-        \item $T$ is \textbf{self-adjoint} (Hermitian) if $T^* = T$.
-        \item $T$ is \textbf{unitary} (orthogonal if real) if $T^* T = TT^* = \mathrm{Id}$, i.e., $T^* = T^{-1}$.
-        \item $T$ is \textbf{normal} if $T^*T = TT^*$.
-    \end{itemize}
-\end{definition}
-\begin{remark}
-    Both self-adjoint and unitary operators are normal. In matrix terms over an ONB:
-    \begin{itemize}
-        \item Self-adjoint $\leftrightarrow$ $A = A^*$ (symmetric if real).
-        \item Unitary $\leftrightarrow$ $A^*A = I$ (orthogonal if real).
-        \item Normal $\leftrightarrow$ $A^*A = AA^*$.
-    \end{itemize}
-\end{remark}
-\begin{proposition}[Eigenvalues of self-adjoint operators are real]
-    If $T$ is self-adjoint and $Tv = \lambda v$ with $v \neq 0$, then $\lambda \in \mathbb{R}$.
-\end{proposition}
-\begin{proof}
-    $\lambda\|v\|^2 = \langle Tv, v\rangle = \langle v, T^*v\rangle = \langle v, Tv\rangle = \overline{\lambda}\|v\|^2$. Since $\|v\|^2 > 0$, we get $\lambda = \overline{\lambda}$, so $\lambda\in\mathbb{R}$.
-\end{proof}
-\begin{proposition}[Eigenvalues of unitary operators have modulus 1]
-    If $T$ is unitary and $Tv = \lambda v$ with $v \neq 0$, then $|\lambda| = 1$.
-\end{proposition}
-\begin{proof}
-    $\|v\|^2 = \langle v, v\rangle = \langle T^*Tv, v\rangle = \langle Tv, Tv\rangle = |\lambda|^2\|v\|^2$. Hence $|\lambda|^2 = 1$.
-\end{proof}
-
-% -----------------------------------------------------------
-\subsection{Spectral Theorem (General Version)}
-% -----------------------------------------------------------
-
-\begin{theorem}[Spectral Theorem for Normal Operators over $\mathbb{C}$]
-    Let $V$ be a finite-dimensional complex inner product space and $T: V \to V$ normal. Then $V$ has an ONB consisting of eigenvectors of $T$.
-\end{theorem}
-
-\begin{theorem}[Spectral Theorem for Self-Adjoint Operators over $\mathbb{R}$]
-    Let $V$ be a finite-dimensional real inner product space and $T: V \to V$ self-adjoint. Then $V$ has an ONB consisting of eigenvectors of $T$.
-\end{theorem}
-
-In matrix terms, the spectral theorem says: $A$ is a real symmetric (or complex normal) matrix if and only if $A = QDQ^{-1}$ where $Q$ is orthogonal (unitary) and $D$ is real diagonal.
-
-\paragraph{Algorithm for orthogonal diagonalization.}
+Given two linearly independent vectors $v_1, v_2$, Gram-Schmidt produces an ONB $\{e_1, e_2\}$ with $\Span(e_1,e_2) = \Span(v_1,v_2)$ in two steps:
 \begin{enumerate}
-    \item Find all eigenvalues (roots of $\chi$).
-    \item For each eigenvalue, find a basis of the eigenspace.
-    \item If eigenspaces have dimension $>1$ (repeated eigenvalue), apply Gram-Schmidt within that eigenspace to get an orthogonal basis.
-    \item Normalize all eigenvectors. Eigenvectors from different eigenspaces are automatically orthogonal.
-    \item Assemble the normalized eigenvectors as columns of $Q$.
+    \item Normalize $v_1$: set $e_1 = \dfrac{v_1}{\|v_1\|}$.
+    \item Subtract from $v_2$ its projection onto $e_1$, then normalize:
+    \[w_2 = v_2 - \langle v_2, e_1\rangle\, e_1, \qquad e_2 = \frac{w_2}{\|w_2\|}.\]
 \end{enumerate}
-\begin{example}[Orthogonal diagonalization]
-    Let $A = \begin{pmatrix}2&1&1\\1&2&1\\1&1&2\end{pmatrix}$. Since $A$ is symmetric, it is orthogonally diagonalizable.
-
-    \textbf{Characteristic polynomial:}
-    \[\chi(\lambda) = -(\lambda-1)^2(\lambda-4).\]
-    Eigenvalues: $\lambda_1 = 1$ (AM $= 2$) and $\lambda_2 = 4$ (AM $= 1$).
-
-    \textbf{For $\lambda=4$:} $\ker(A - 4I)$ gives $v = \begin{pmatrix}1\\1\\1\end{pmatrix}$. Normalized: $e_3 = \frac{1}{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix}$.
-
-    \textbf{For $\lambda=1$:} $\ker(A - I)$ gives the 2D space $\{x_1+x_2+x_3=0\}$, with basis $\begin{pmatrix}1\\-1\\0\end{pmatrix}, \begin{pmatrix}1\\0\\-1\end{pmatrix}$. Apply Gram-Schmidt to get an orthogonal basis, then normalize to get $e_1, e_2$.
-
-    \textbf{Result:}
-    \[Q = (e_1\mid e_2\mid e_3), \quad D = \begin{pmatrix}1&0&0\\0&1&0\\0&0&4\end{pmatrix}, \quad A = QDQ^T.\]
+The key idea is that $\langle v_2, e_1\rangle$ is the projection coefficient, telling you how much of $v_1$'s direction is in $v_2$. Subtracting it off leaves a vector orthogonal to $e_1$.
+\begin{example}
+    Let $v_1 = \begin{pmatrix}5\\0\end{pmatrix}$ and $v_2 = \begin{pmatrix}3\\2\end{pmatrix}$.\\
+    Step 1: $e_1 = \dfrac{v_1}{\|v_1\|} = \begin{pmatrix}1\\0\end{pmatrix}$.\\
+    Step 2: $\langle v_2, e_1\rangle = 3\cdot 1 + 2\cdot 0 = 3$, so
+    \[w_2 = \begin{pmatrix}3\\2\end{pmatrix} - 3\begin{pmatrix}1\\0\end{pmatrix} = \begin{pmatrix}0\\2\end{pmatrix}, \qquad e_2 = \frac{w_2}{\|w_2\|} = \begin{pmatrix}0\\1\end{pmatrix}.\]
+    So $\{e_1, e_2\} = \left\{\begin{pmatrix}1\\0\end{pmatrix},\begin{pmatrix}0\\1\end{pmatrix}\right\}$ is an ONB for $\mathbb{R}^2$.
 \end{example}
 
 % ============================================================
@@ -1629,10 +1526,10 @@ In matrix terms, the spectral theorem says: $A$ is a real symmetric (or complex 
     If $L$ spans $V$, done. Otherwise, since $L$ is LI but not spanning, there exists $v_1 \in V \setminus \Span(L)$. Then $L \cup \{v_1\}$ is LI. Repeating: at each step we add one vector to $L$ while maintaining LI. Since $V$ is finite-dimensional, this process terminates in at most $\dim V - |L|$ steps, yielding a basis $B \supseteq L$.
 \end{solution}
 \begin{solution}[Similar matrices have equal characteristic polynomials]
-    $\chi_A(\lambda) = \det(A-\lambda I) = \det(Q^{-1}BQ - \lambda I) = \det(Q^{-1}(B-\lambda I)Q) = \det(Q^{-1})\det(B-\lambda I)\det(Q) = \chi_B(\lambda)$.
+    $p_A(\lambda) = \det(A-\lambda I) = \det(Q^{-1}BQ - \lambda I) = \det(Q^{-1}(B-\lambda I)Q) = \det(Q^{-1})\det(B-\lambda I)\det(Q) = p_B(\lambda)$.
 \end{solution}
 \begin{solution}[Characteristic polynomial and invertibility]
-    $\det(A) = 0$ since $A$ is non-invertible, so $\chi(0) = \det(A-0\cdot I) = \det(A) = 0$. Hence $0$ is a root of $\chi$.
+    $\det(A) = 0$ since $A$ is non-invertible, so $p(0) = \det(A-0\cdot I) = \det(A) = 0$. Hence $0$ is a root of $p(\lambda)$.
 \end{solution}
 
 \section{Useful Links}

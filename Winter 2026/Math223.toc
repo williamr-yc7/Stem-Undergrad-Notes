@@ -1,0 +1,89 @@
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
+\contentsline {section}{\numberline {2}Prerequisite Knowledge}{1}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Introduction to Proof}{1}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Direct Proof}{1}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}Proof by Contradiction}{1}{subsubsection.2.1.2}%
+\contentsline {subsubsection}{\numberline {2.1.3}Proof by Contrapositive}{1}{subsubsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.2}Notation}{2}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Sets}{2}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}Symbols}{2}{subsubsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.3}Complex Numbers}{2}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Definition and the Fundamental Theorem of Algebra}{2}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Arithmetic Operations}{3}{subsubsection.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.3}Complex Conjugate}{3}{subsubsection.2.3.3}%
+\contentsline {subsubsection}{\numberline {2.3.4}Geometric Interpretation and Modulus}{3}{subsubsection.2.3.4}%
+\contentsline {subsubsection}{\numberline {2.3.5}Polar Coordinates and Polar Form}{4}{subsubsection.2.3.5}%
+\contentsline {subsubsection}{\numberline {2.3.6}Roots in $\mathbb {C}$}{5}{subsubsection.2.3.6}%
+\contentsline {subsubsection}{\numberline {2.3.7}Hermiticity}{5}{subsubsection.2.3.7}%
+\contentsline {subsection}{\numberline {2.4}Basic Algebraic Structures}{5}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Sets with Multiplication}{5}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Invertibility}{6}{subsubsection.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.4.3}Rings}{7}{subsubsection.2.4.3}%
+\contentsline {subsubsection}{\numberline {2.4.4}Fields}{8}{subsubsection.2.4.4}%
+\contentsline {section}{\numberline {3}Vector Spaces}{8}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Vectors and Linear Combinations}{9}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Span and Standard Basis}{10}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Span}{10}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Span in $\mathbb {C}^n$}{11}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Standard Basis}{11}{subsubsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.3}Examples of Vector Spaces}{12}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Coordinate Spaces}{12}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Polynomial Spaces}{12}{subsubsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.3}Matrix Spaces}{13}{subsubsection.3.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.4}Function Spaces}{13}{subsubsection.3.3.4}%
+\contentsline {paragraph}{Finite case.}{13}{section*.2}%
+\contentsline {paragraph}{Infinite case.}{13}{section*.3}%
+\contentsline {subsection}{\numberline {3.4}Subspaces}{13}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Definition and the Subspace Criterion}{13}{subsubsection.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.2}Membership in a Span}{14}{subsubsection.3.4.2}%
+\contentsline {subsubsection}{\numberline {3.4.3}Operations on Subspaces}{15}{subsubsection.3.4.3}%
+\contentsline {subsubsection}{\numberline {3.4.4}Direct Sums}{15}{subsubsection.3.4.4}%
+\contentsline {paragraph}{Analogy with sets.}{16}{section*.4}%
+\contentsline {paragraph}{Direct sums in function spaces.}{16}{section*.5}%
+\contentsline {section}{\numberline {4}Basis and Dimension}{16}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Finite Dimensional Spaces}{16}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Linear Independence}{16}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Basis}{17}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Definition and the Main Basis Theorem}{17}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}Finding a Basis}{18}{subsubsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.3}Proving a Set Forms a Basis}{19}{subsubsection.4.3.3}%
+\contentsline {subsubsection}{\numberline {4.3.4}Basis Extension and Extraction}{19}{subsubsection.4.3.4}%
+\contentsline {subsection}{\numberline {4.4}Coordinates and Change of Basis}{19}{subsection.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.1}Coordinate Vectors}{19}{subsubsection.4.4.1}%
+\contentsline {subsubsection}{\numberline {4.4.2}Direct Sum Decompositions and Dimension Formulas}{20}{subsubsection.4.4.2}%
+\contentsline {section}{\numberline {5}Linear Transformations}{21}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Functions: Basic Definitions}{21}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {5.1.1}Composition and Inverses}{21}{subsubsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.2}Linear Maps}{21}{subsection.5.2}%
+\contentsline {subsubsection}{\numberline {5.2.1}Main Examples of Linear Maps}{22}{subsubsection.5.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.2}Defining a Linear Map by its Action on a Basis}{23}{subsubsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.3}Kernel and Image}{23}{subsection.5.3}%
+\contentsline {subsubsection}{\numberline {5.3.1}Rank-Nullity Theorem}{24}{subsubsection.5.3.1}%
+\contentsline {subsubsection}{\numberline {5.3.2}Examples of Kernel and Image}{24}{subsubsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.4}Matrix of a Linear Transformation}{24}{subsection.5.4}%
+\contentsline {section}{\numberline {6}Isomorphisms and Coordinates}{25}{section.6}%
+\contentsline {subsection}{\numberline {6.1}The Canonical Isomorphism}{26}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Change of Basis}{26}{subsection.6.2}%
+\contentsline {subsubsection}{\numberline {6.2.1}Change of Basis Matrix}{26}{subsubsection.6.2.1}%
+\contentsline {subsubsection}{\numberline {6.2.2}Change of Basis Formula}{27}{subsubsection.6.2.2}%
+\contentsline {section}{\numberline {7}Diagonalization}{27}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Eigenvalues and Eigenvectors}{27}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}The Characteristic Polynomial}{27}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Algebraic and Geometric Multiplicity}{28}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Diagonalization}{28}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.5}Similar Matrices}{29}{subsection.7.5}%
+\contentsline {section}{\numberline {8}Inner Product Spaces}{29}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Real Inner Products}{30}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Complex inner products}{31}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Cauchy-Schwarz Inequality}{32}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}Orthonormal Bases}{32}{subsection.8.4}%
+\contentsline {subsection}{\numberline {8.5}Symmetric Matrices Are Diagonalizable}{33}{subsection.8.5}%
+\contentsline {subsection}{\numberline {8.6}Orthogonal Matrices in Dimension 2}{33}{subsection.8.6}%
+\contentsline {subsection}{\numberline {8.7}Isomorphism Theorem For Inner Product Spaces}{34}{subsection.8.7}%
+\contentsline {subsection}{\numberline {8.8}Gram-Schmidt Orthonormalization}{34}{subsection.8.8}%
+\contentsline {section}{\numberline {9}Appendix}{35}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Proof: Standard Basis is a Basis}{35}{subsection.9.1}%
+\contentsline {paragraph}{Claim 1.}{35}{section*.15}%
+\contentsline {paragraph}{Claim 2.}{35}{section*.16}%
+\contentsline {section}{\numberline {10}Solutions}{35}{section.10}%
+\contentsline {section}{\numberline {11}Useful Links}{37}{section.11}%
