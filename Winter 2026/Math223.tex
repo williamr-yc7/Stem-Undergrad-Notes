@@ -47,6 +47,7 @@
 \noindent\rule{\textwidth}{0.4pt}
 \thispagestyle{empty}
 \begin{abstract}
+    These are personal lecture notes for MATH 223: Linear Algebra, McGill University, Winter 2026. Topics covered include complex numbers, abstract vector spaces, subspaces, basis and dimension, linear transformations, isomorphisms, change of basis, eigenvalues and diagonalization, and inner product spaces including the spectral theorem and Gram-Schmidt orthonormalization. Definitions, theorems, and worked examples are included throughout, along with a complete problem and solution set.
 \end{abstract}
 \noindent\rule{\textwidth}{0.4pt}
 \clearpage
@@ -62,6 +63,11 @@
 %------- Introduction -----------
 \setcounter{page}{1}
 \section{Introduction}
+These notes were written for MATH 223 (Linear Algebra) at McGill University, Winter 2026. The course is taught by Mikaël Pichot and meets in Adams Auditorium (AUD) every Monday, Wednesday, and Friday from 11:35\,am to 12:25\,pm.
+\subsubsection*{Grading scheme:}
+\vspace{-2em}
+\[20\%\ \text{assignments} + 20\%\ \text{midterm} + 60\%\ \text{final} \quad \text{or} \quad 20\%\ \text{assignments} + 80\%\ \text{final}\]
+whichever is higher.
 
 % ============================================================
 \section{Prerequisite Knowledge}
@@ -365,7 +371,7 @@ So $x = r\cos\theta$ and $y = r\sin\theta$, with $r = |z|$.
 
 \subsubsection{Fields}
 \begin{definition}[Field]
-    A field is a ring \eqref{def:Ring} in which every nonzero element has a multiplicative inverse.
+    A field is a ring \ref{def:Ring} in which every nonzero element has a multiplicative inverse.
 \end{definition}
 \begin{example}
     $(\mathbb{Q},+,\cdot)$ is a field: it is a ring, and every nonzero $q \in \mathbb{Q}$ has $q^{-1} \in \mathbb{Q}$ with $q\cdot q^{-1} = 1$.
@@ -500,7 +506,7 @@ If $v_1$ and $v_2$ are linearly dependent ($v_1 = \lambda v_2$), then $\Span(v_1
     Equivalently, $e_1,\ldots,e_n$ are the columns of $I_n$.
 \end{definition}
 \begin{proposition}
-    Every $x\in\mathbb{R}^n$ can be written uniquely as $x = x_1e_1+\cdots+x_ne_n$.\footnote{To verify the standard basis is indeed a basis, see Appendix \eqref{subsec:SB}.}
+    Every $x\in\mathbb{R}^n$ can be written uniquely as $x = x_1e_1+\cdots+x_ne_n$.\footnote{To verify the standard basis is indeed a basis, see Appendix \ref{subsec:SB}.}
 \end{proposition}
 
 The standard basis also clarifies the difference between real and complex vector spaces --- the same vectors generate very different spans depending on the scalar field.
@@ -1191,14 +1197,14 @@ Let $e=(e_1,\ldots,e_n)$ and $f=(f_1,\ldots,f_n)$ be two bases of $V$, and let $
 \begin{example}[Diagonalization of a $4\times4$ matrix]
     Diagonalize $A=\begin{pmatrix}5&-2&0&0\\0&3&0&0\\0&0&1&2\\0&0&2&4\end{pmatrix}$.\\
     \textbf{Characteristic polynomial.} $A$ is block diagonal:
-    \[p(\lambda)=(5-\lambda)(3-\lambda)\cdot\bigl[(1-\lambda)(4-\lambda)-4\bigr] = -\lambda(\lambda-3)(\lambda-5)^2.\]
+    \[p(\lambda)=(5-\lambda)(3-\lambda)\cdot\bigl[(1-\lambda)(4-\lambda)-4\bigr] = \lambda(\lambda-3)(\lambda-5)^2.\]
     Eigenvalues: $\lambda=0$ (AM$=1$), $\lambda=3$ (AM$=1$), $\lambda=5$ (AM$=2$).\\
     \textbf{Eigenvectors:} For $\lambda=5$: $E_5 = \Span\!\begin{pmatrix}1\\0\\0\\0\end{pmatrix}\!,\begin{pmatrix}0\\0\\1\\2\end{pmatrix}$ (GM$=2$=AM \checkmark). For $\lambda=3$: $E_3=\Span\begin{pmatrix}1\\1\\0\\0\end{pmatrix}$. For $\lambda=0$: $E_0=\Span\begin{pmatrix}0\\0\\-2\\1\end{pmatrix}$.\\
     \[P=\begin{pmatrix}1&0&1&0\\0&0&1&0\\0&1&0&-2\\0&2&0&1\end{pmatrix},\quad P^{-1}AP=\begin{pmatrix}5&0&0&0\\0&5&0&0\\0&0&3&0\\0&0&0&0\end{pmatrix}.\]
 \end{example}
 \begin{example}[$3\times3$ diagonalization]
     Let $A=\begin{pmatrix}1&0&2\\3&4&3\\2&0&1\end{pmatrix}$. Expanding along the second column:
-    \[p(\lambda) = (4-\lambda)\det\begin{pmatrix}1-\lambda&2\\2&1-\lambda\end{pmatrix} = (\lambda-4)(\lambda-3)(\lambda+1).\]
+    \[p(\lambda) = (4-\lambda)\det\begin{pmatrix}1-\lambda&2\\2&1-\lambda\end{pmatrix} = (4-\lambda)(\lambda-3)(\lambda+1).\]
     Three distinct eigenvalues $\Rightarrow$ diagonalizable. Eigenvectors: $f_1=\begin{pmatrix}0\\1\\0\end{pmatrix}$, $f_2=\begin{pmatrix}1\\-6\\1\end{pmatrix}$, $f_3=\begin{pmatrix}-1\\0\\1\end{pmatrix}$.
     \[Q = \begin{pmatrix}0&1&-1\\1&-6&0\\0&1&1\end{pmatrix}, \quad D = \begin{pmatrix}4&0&0\\0&3&0\\0&0&-1\end{pmatrix}, \quad A = QDQ^{-1}.\]
 \end{example}
@@ -1326,7 +1332,7 @@ One can do both by means of an inner product on $V$. We explain the case $K = R$
 \marginpar{March 23, 2026}
 \begin{definition}[Orthogonal]
     A family $v_1,\ldots,v_n$ of vectors is orthogonal if 
-    \[\langle v_i,v_j \rangle =0, if\, i\neq j.\]
+    \[\langle v_i,v_j \rangle =0, \text{if } i\neq j.\]
 \end{definition}
 \begin{definition}[Orthonormal]
     A family $v_1,\ldots,v_n$ of vectors is orthonormal if it is orthogonal and $||v_i|| = 1,\,\forall i=1,\ldots,n$. Basically,
@@ -1496,12 +1502,6 @@ The key idea is that $\langle v_2, e_1\rangle$ is the projection coefficient, te
 \begin{solution}[Linear independence]
     $3v_1+5v_2-2v_3=0$, so the vectors are not LI.
 \end{solution}
-\begin{solution}[Coordinate vectors]
-    $\lambda_1=2$, $\lambda_3=0$, $\lambda_2=-\frac{1}{3}$. So $[g]_S=\begin{pmatrix}2\\-1/3\\0\end{pmatrix}$.
-\end{solution}
-\begin{solution}[Coordinate vectors 2]
-    Evaluate: $f(1)=-1$, $f(2)=5$, $f(3)=15$. So $[f]_e=\begin{pmatrix}-1\\5\\15\end{pmatrix}$.
-\end{solution}
 \begin{solution}[Finding a Basis]
     Form the matrix with $v_1,v_2,v_3,v_4$ as columns and row reduce:
     \[\begin{pmatrix}1&2&1&2\\2&1&2&8\\1&3&0&2\\1&2&1&10\end{pmatrix}\longrightarrow\begin{pmatrix}1&2&1&2\\0&-3&0&4\\0&1&-1&0\\0&0&0&8\end{pmatrix}\longrightarrow\begin{pmatrix}1&2&1&2\\0&1&-1&0\\0&0&-3&4\\0&0&0&8\end{pmatrix}.\]
@@ -1522,6 +1522,12 @@ The key idea is that $\langle v_2, e_1\rangle$ is the projection coefficient, te
     \[x=0:\; c_1 = 0, \qquad x=1:\; c_1 + 0 + c_3 = 0 \implies c_3=0, \qquad x=2:\; c_1 + 0 + 0 = 0.\]
     (One checks $g_2(1)=0$, $g_2(2)=0$, $g_3(1)=1$, $g_3(2)=0$.) Hence $c_1=c_2=c_3=0$ and $S$ is LI, so $S$ is a basis.
 \end{solution}
+\begin{solution}[Coordinate vectors]
+    $\lambda_1=2$, $\lambda_3=0$, $\lambda_2=-\frac{1}{3}$. So $[g]_S=\begin{pmatrix}2\\-1/3\\0\end{pmatrix}$.
+\end{solution}
+\begin{solution}[Coordinate vectors 2]
+    Evaluate: $f(1)=-1$, $f(2)=5$, $f(3)=15$. So $[f]_e=\begin{pmatrix}-1\\5\\15\end{pmatrix}$.
+\end{solution}
 \begin{solution}[Basis Extension]
     If $L$ spans $V$, done. Otherwise, since $L$ is LI but not spanning, there exists $v_1 \in V \setminus \Span(L)$. Then $L \cup \{v_1\}$ is LI. Repeating: at each step we add one vector to $L$ while maintaining LI. Since $V$ is finite-dimensional, this process terminates in at most $\dim V - |L|$ steps, yielding a basis $B \supseteq L$.
 \end{solution}
@@ -1533,6 +1539,7 @@ The key idea is that $\langle v_2, e_1\rangle$ is the projection coefficient, te
 \end{solution}
 
 \section{Useful Links}
-Proofs: \url{https://www.youtube.com/watch?v=V5tUc-J124s}
+\noindent Proofs: \url{https://www.youtube.com/watch?v=V5tUc-J124s}\\
+Gram-Schmidt: \url{https://www.youtube.com/watch?v=tu1GPtfsQ7M&t=393s}
 
 \end{document}
