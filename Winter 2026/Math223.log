@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  12 APR 2026 19:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  14 APR 2026 18:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -789,26 +789,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 1226--1226
  []
 
 [29] [30] [31]
-Underfull \hbox (badness 10000) in paragraph at lines 1332--1332
+Underfull \hbox (badness 10000) in paragraph at lines 1336--1336
 []\OT1/cmr/m/n/10 March 23,
  []
 
 [32]
-Underfull \hbox (badness 10000) in paragraph at lines 1379--1379
+Underfull \hbox (badness 10000) in paragraph at lines 1383--1383
 []\OT1/cmr/m/n/10 March 25,
  []
 
 [33] [34]
-Overfull \hbox (4.00803pt too wide) in paragraph at lines 1473--1474
+Overfull \hbox (4.00803pt too wide) in paragraph at lines 1477--1478
 [][]\OT1/cmr/bx/n/10 Solution 4 \OT1/cmr/m/n/10 (In-vert-ibil-ity 2)\OT1/cmr/bx/n/10 . []\OT1/cmr/m/it/10 Sup-pose the ma-trix is in-vert-ible. Then $[] [] \OT1/cmr/m/n/10 =
  []
 
 [35] [36]
-Overfull \hbox (3.76823pt too wide) detected at line 1522
+Overfull \hbox (3.76823pt too wide) detected at line 1526
 \OML/cmm/m/it/10 x \OT1/cmr/m/n/10 = 0 :  \OML/cmm/m/it/10 c[] \OT1/cmr/m/n/10 = 0\OML/cmm/m/it/10 ;  x \OT1/cmr/m/n/10 = 1 :  \OML/cmm/m/it/10 c[] \OT1/cmr/m/n/10 + 0 + \OML/cmm/m/it/10 c[] \OT1/cmr/m/n/10 = 0  =[]\OMS/cmsy/m/n/10 )  \OML/cmm/m/it/10 c[] \OT1/cmr/m/n/10 = 0\OML/cmm/m/it/10 ;  x \OT1/cmr/m/n/10 = 2 :  \OML/cmm/m/it/10 c[] \OT1/cmr/m/n/10 + 0 + 0 = 0\OML/cmm/m/it/10 :
  []
 
-[37] (Math223.aux)
+[37] [38] (Math223.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
@@ -817,17 +817,17 @@ Package rerunfilecheck Info: File `Math223.out' has not changed.
 (rerunfilecheck)             Checksum: F29BA9FEFF4D30ECF2EFD97A98AF85F4;14395.
  ) 
 Here is how much of TeX's memory you used:
- 31708 strings out of 467871
- 744884 string characters out of 5418377
- 1275211 words of memory out of 5000000
+ 31710 strings out of 467871
+ 744904 string characters out of 5418377
+ 1276211 words of memory out of 5000000
  59714 multiletter control sequences out of 15000+600000
  640384 words of font info for 87 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,14n,118p,778b,731s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\erenr\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on Math223.pdf (41 pages, 627182 bytes).
+Output written on Math223.pdf (42 pages, 628921 bytes).
 PDF statistics:
- 1109 PDF objects out of 1200 (max. 8388607)
- 387 named destinations out of 1000 (max. 500000)
+ 1115 PDF objects out of 1200 (max. 8388607)
+ 389 named destinations out of 1000 (max. 500000)
  677 words of extra memory for PDF output out of 10000 (max. 10000000)
 

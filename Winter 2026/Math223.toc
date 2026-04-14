@@ -78,7 +78,7 @@
 \contentsline {subsection}{\numberline {8.3}Cauchy-Schwarz Inequality}{32}{subsection.8.3}%
 \contentsline {subsection}{\numberline {8.4}Orthonormal Bases}{32}{subsection.8.4}%
 \contentsline {subsection}{\numberline {8.5}Symmetric Matrices Are Diagonalizable}{33}{subsection.8.5}%
-\contentsline {subsection}{\numberline {8.6}Orthogonal Matrices in Dimension 2}{33}{subsection.8.6}%
+\contentsline {subsection}{\numberline {8.6}Orthogonal Matrices in Dimension 2}{34}{subsection.8.6}%
 \contentsline {subsection}{\numberline {8.7}Isomorphism Theorem For Inner Product Spaces}{34}{subsection.8.7}%
 \contentsline {subsection}{\numberline {8.8}Gram-Schmidt Orthonormalization}{34}{subsection.8.8}%
 \contentsline {section}{\numberline {9}Appendix}{35}{section.9}%
@@ -86,4 +86,4 @@
 \contentsline {paragraph}{Claim 1.}{35}{section*.16}%
 \contentsline {paragraph}{Claim 2.}{35}{section*.17}%
 \contentsline {section}{\numberline {10}Solutions}{35}{section.10}%
-\contentsline {section}{\numberline {11}Useful Links}{37}{section.11}%
+\contentsline {section}{\numberline {11}Useful Links}{38}{section.11}%
