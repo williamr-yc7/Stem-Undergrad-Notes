@@ -1,22 +1,41 @@
 \documentclass{article}
-\usepackage{graphicx} % Required for inserting images
-\usepackage{authblk} % Required for author affiliations
-\usepackage{indentfirst} % Indent first paragraph of sections
-\usepackage{amssymb} % For mathematical symbols
-\usepackage{amsthm} % For theorem environments
-\usepackage{amsmath} % For advanced math typesetting
-\usepackage[hidelinks]{hyperref}
+\usepackage{graphicx}
+\usepackage{authblk}
+\usepackage{indentfirst}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{hyperref}
 \usepackage{enumitem}
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc}
+\pgfplotsset{compat=1.18}
 \newtheorem{theorem}{Theorem}
 \newtheorem{corollary}{Corollary}[theorem]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{definition}{Definition}
 \newtheorem{problem}{Problem}
 \newtheorem{solution}{Solution}
+\newtheorem*{example}{Example}
+\newtheorem{remark}{Remark}
+\newtheorem{proposition}{Proposition}
+\newtheorem{method}{Method}
+\newtheorem{principle}{Principle}
+\newcommand{\Span}{\operatorname{span}}
+\newenvironment{amatrix}[1]{%
+  \left(\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right)
+}
+\reversemarginpar
+\hypersetup{
+    colorlinks=true,
+}
 \begin{document}
 %------- Title page   -----------
 \title{MATH 248: Honours Vector Calculus}
-\author{W.R.H.}
+\author{W.R.H}
 \date{December 1, 2025}
 \setcounter{Maxaffil}{0}
 \renewcommand\Affilfont{\itshape\small}
@@ -54,50 +73,65 @@ These notes are written as a compact reference for students taking the course wi
 
 \section{Prerequisite knowledge}
 \subsection{Squeeze Theorem}
-The Squeeze Theorem states that if \(f(x) \leq g(x) \leq h(x)\) for all \(x\) in some open interval containing \(c\) (except possibly at \(c\) itself), and if
-\[\lim_{x \to c} f(x) = \lim_{x \to c} h(x) = L,\]
-then
-\[\lim_{x \to c} g(x) = L.\]
+\begin{theorem}[Squeeze Theorem]
+    Let \(f(x), g(x), h(x)\) be continuous on an open interval containing \(c\). If \(f(x) \leq g(x) \leq h(x)\) for all \(x\) in the interval (except possibly at \(c\) itself), and if
+    \[\lim_{x \to c} f(x) = \lim_{x \to c} h(x) = L,\]
+    then
+    \[\lim_{x \to c} g(x) = L.\]
+\end{theorem}
+
 \subsection{Derivatives}
-A derivative is the instantaneous rate of change of a function, essentially telling you its steepness or slope at any single point.
+\begin{definition}[Derivative]
+    A derivative is the instantaneous rate of change of a function, essentially telling you its steepness or slope at any single point.\footnote{Check out the \ref{Derivatives} for formulas of specific derivatives.}
+\end{definition}
 \begin{theorem}[The Derivative]
-Let \(f : \mathbb{R} \to \mathbb{R}\) be a function. The derivative of \(f\) at a point \(a\) is defined as
-\[f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}.\]
+    Let \(f : \mathbb{R} \to \mathbb{R}\) be a function. The derivative of \(f\) at a point \(a\) is defined as
+    \[f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}.\]
 \end{theorem}
 \begin{theorem}[The Power Rule]
-Let \(n\) be a any number. If \(f(x) = x^n\), then
-\[f'(x) = nx^{n - 1}\] Alternatively, we may express this rule as \[\frac{d}{dx}f(x) = nx^{n - 1}\]
+    Let \(n\) be a any number. If \(f(x) = x^n\), then
+    \[f'(x) = nx^{n - 1}\] Alternatively, we may express this rule as \[\frac{d}{dx}f(x) = nx^{n - 1}\]
 \end{theorem}
 \begin{theorem}[The Chain Rule]
-Let \(f\) and \(g\) be functions from \(\mathbb{R} \to \mathbb{R}\). \(\forall x \in g\) for which \(g \in C^1\) at \(x\) and \(f \in C^1\) at \(g(x)\), the derivative of the composite function \(
-h = (f \circ g)(x) = f(g(x))\) is given by: \[h'(x) = f'(g(x))\cdot g'(x)\] Alternatively, if y is a function of u, and u is a function of x, then \[\frac{dy}{dx} = \frac{dy}{du} \cdot \frac{du}{dx}\]
+    Let \(f\) and \(g\) be functions from \(\mathbb{R} \to \mathbb{R}\). For all \(x \in \mathrm{dom}(g)\) for which \(g\) is \(C^1\) at \(x\) and \(f\) is \(C^1\) at \(g(x)\), the derivative of the composite function \(
+    h = (f \circ g)(x) = f(g(x))\) is given by: \[h'(x) = f'(g(x))\cdot g'(x)\] Alternatively, if y is a function of u, and u is a function of x, then \[\frac{dy}{dx} = \frac{dy}{du} \cdot \frac{du}{dx}\]
 \end{theorem}
 \begin{theorem}[The Quotient Rule]
-Let \(f\) and \(g\) be functions from \(\mathbb{R} \to \mathbb{R}\). If \(h(x) = \frac{f(x)}{g(x)}\), then
-\[h'(x) = \frac{f'(x)g(x) - f(x)g'(x)}{g(x)^2}\]
+    Let \(f\) and \(g\) be functions from \(\mathbb{R} \to \mathbb{R}\). If \(h(x) = \frac{f(x)}{g(x)}\), then
+    \[h'(x) = \frac{f'(x)g(x) - f(x)g'(x)}{g(x)^2}\]
 \end{theorem}
 \begin{theorem}[The Product Rule]
-Let \(f\) and \(g\) be functions from \(\mathbb{R} \to \mathbb{R}\). If \(h(x) = f(x)g(x)\), then
-\[h'(x) = f'(x)g(x) + f(x)g'(x).\]
+    Let \(f\) and \(g\) be functions from \(\mathbb{R} \to \mathbb{R}\). If \(h(x) = f(x)g(x)\), then
+    \[h'(x) = f'(x)g(x) + f(x)g'(x).\]
 \end{theorem}
-Check out the \ref{Derivatives} for formulas of specific derivatives.
 
 \subsection{Integral}
-An integral is the accumulation of quantities, often representing area under a curve or total change over an interval.
+\begin{definition}
+    An integral is the accumulation of quantities, often representing area under a curve or total change over an interval.
+\end{definition}
 \begin{theorem}[The Fundamental Theorem of Calculus, Part 1]
-Let \(f : \mathbb{R} \to \mathbb{R}\) and \(f \in C^0(X)\), where \(X \in [a,b]\), and the function \(F(x)\) is defined by \[F(x) = \int_{0}^{x} f(t) dt\] then \(F'(x) = f(x)\) over \((a,b)\).
+    Let \(f : \mathbb{R} \to \mathbb{R}\) and \(f \in C^0([a,b])\), and define \(F(x)\) by \[F(x) = \int_{a}^{x} f(t)\, dt.\] Then \(F'(x) = f(x)\) over \((a,b)\).
 \end{theorem}
 \begin{theorem}[The Fundamental Theorem of Calculus, Part 2]
-Let \(f : \mathbb{R} \to \mathbb{R}\) and \(f \in C^0\). Then
-\[\int_{a}^{b} f(x) dx = f(b) - f(a).\]
+    Let \(f : \mathbb{R} \to \mathbb{R}\) and \(f \in C^0\). If \(F\) is any antiderivative of \(f\), then
+    \[\int_{a}^{b} f(x)\, dx = F(b) - F(a).\]
 \end{theorem}
 \begin{theorem}[Indefinite Integrals, the Power Rule]
-Let \(n\) be any real number except -1. If \(f(x) = x^n\), then
-\[\int f(x) dx = \frac{x^{n + 1}}{n + 1} + C\] where C is the constant of integration.
+    Let \(n\) be any real number except -1. If \(f(x) = x^n\), then
+    \[\int f(x)\, dx = \frac{x^{n + 1}}{n + 1} + C\] where \(C\) is the constant of integration.
 \end{theorem}
 \begin{theorem}[U-substitution]
-Let \(n\) be any real number except -1. If \(f(x) = x^n\), then
-\[\int f(x) dx = \frac{x^{n + 1}}{n + 1} + C\] where C is the constant of integration.
+    Let \(f\) and \(g\) be functions such that \(g\) is differentiable and \(f\) is continuous on the range of \(g\). Then
+    \[\int f(g(x))\,g'(x)\, dx = \int f(u)\, du, \quad u = g(x), du = g'(x)\,dx.\]
+    In the definite case,
+    \[\int_a^b f(g(x))\,g'(x)\, dx = \int_{g(a)}^{g(b)} f(u)\, du.\]
+\end{theorem}
+\begin{theorem}[By parts Integral]
+    Let $f$ and $g$ be functions such that both are $C^1$. Then if we have an integral of this sort
+    \[\int f(x)g(x)\, dx,\]
+    then we can use the integration by parts formula
+    \[\int v dv = uv - \int v du,\]
+    where we can pick $u = f(x)$ and $dv = g(x)$ or vice versa.
 \end{theorem}
 
 \section{Inequalities}
@@ -107,13 +141,13 @@ The Arithmetic Mean - Geometric Mean inequality states that for any non-negative
 \[\frac{a_1 + a_2 + \ldots + a_n}{n} \geq \sqrt[n]{a_1 a_2 \ldots a_n},\]
 with equality if and only if \(a_1 = a_2 = \ldots = a_n\).
 
-\begin{problem}
-Let 1 $\leq$ k be a positive integer, show that:
-\[\lim_{(x,y)\to(0,0)}\frac{x^{k+1}y}{x^{2k} + y^2} = 0\]
+\begin{problem}[AM-GM Inequality]
+    Let 1 $\leq$ k be a positive integer, show that:
+    \[\lim_{(x,y)\to(0,0)}\frac{x^{k+1}y}{x^{2k} + y^2} = 0\]
 \end{problem}
-\begin{problem}
-Let 1 $\leq$ k be a positive integer, show that:
-\[\lim_{(x,y)\to(0,0)}\frac{xy^{3k+1}}{(x^2 + y^{2k})^2} = 0\]
+\begin{problem}[AM-GM Inequality 2]
+    Let 1 $\leq$ k be a positive integer, show that:
+    \[\lim_{(x,y)\to(0,0)}\frac{xy^{3k+1}}{(x^2 + y^{2k})^2} = 0\]
 \end{problem}
 
 \subsection{Cauchy-Schwarz}
@@ -121,9 +155,9 @@ The Cauchy-Schwarz inequality states that for any vectors \(u\) and \(v\) in an 
 \[|u \cdot v| \leq \|u\| \|v\|,\]
 with equality if and only if \(u\) and \(v\) are linearly dependent.
 
-\begin{problem}
-Suppose \(f : \mathbb{R}^2 \to \mathbb{R} \) is differentiable and suppose there is \(M > 0 \) such that \(||Df(x)|| \leq M\), \(\forall x \in \mathbb{R}^n\), prove that
-\[|f(x) - f(y)| \leq M||x - y||, \forall x,y \in \mathbb{R}^n\]
+\begin{problem}[Cauchy-Schwarz Inequality]
+    Suppose \(f : \mathbb{R}^2 \to \mathbb{R} \) is differentiable and suppose there is \(M > 0 \) such that \(||Df(x)|| \leq M\), \(\forall x \in \mathbb{R}^n\), prove that
+    \[|f(x) - f(y)| \leq M||x - y||, \forall x,y \in \mathbb{R}^n\]
 \end{problem}
 
 \subsection{Triangle-inequality}
@@ -133,7 +167,7 @@ The other form of the triangle inequality states that for any real vectors their
 \[\|u - v\| \geq |\|u\| - \|v\||.\]
 
 \noindent
-\begin{problem} Prove that \(||x - y||||x + y|| \leq ||x||^2 - ||y||^2, \forall x,y \in \mathbb{R}^n\)
+\begin{problem} Prove that \(||x - y||||x + y|| \leq ||x||^2 + ||y||^2, \forall x,y \in \mathbb{R}^n\)
 \end{problem}
 
 \section{Differentiability}
@@ -218,13 +252,13 @@ The Hessian matrix of a scalar function \(f : \mathbb{R}^n \to \mathbb{R}\) is t
 \end{problem}
 
 \section{Taylor Theorem}
-\begin{theorem}[First-Order Taylor Formula] Let \(f: U \subset \mathbb{R}^n \to \mathbb{R}\) be differnetiable at \(\mathbf{x_0} \in U\). Then 
-\[f(\mathbf{x_0} + \mathbf{h}) = f(\mathbf{x_0}) + \sum_{i=1}^n h_i \frac{\partial f}{\partial x}(\mathbf{x_0}) + R_1(\mathbf{x_0}, \mathbf{h})\]
+\begin{theorem}[First-Order Taylor Formula] Let \(f: U \subset \mathbb{R}^n \to \mathbb{R}\) be differentiable at \(\mathbf{x_0} \in U\). Then 
+\[f(\mathbf{x_0} + \mathbf{h}) = f(\mathbf{x_0}) + \sum_{i=1}^n h_i \frac{\partial f}{\partial x_i}(\mathbf{x_0}) + R_1(\mathbf{x_0}, \mathbf{h})\]
 where \(R_1(\mathbf{x_0}, \mathbf{h})/||\mathbf{h}||\) \(\rightarrow\) 0 as \(\mathbf{h} \to 0\) in \(\mathbb{R}^n\).
 \end{theorem}
 \begin{theorem}[Second-Order Taylor Formula]
 Let \(f: U \subset \mathbb{R}^n \to \mathbb{R}\) have continuous partial derivatives of third order. Then 
-\[f(\mathbf{x_0} + \mathbf{h}) = f(\mathbf{x_0}) + \sum_{i=1}^n h_i \frac{\partial f}{\partial x}(\mathbf{x_0}) + \frac{1}{2}\sum_{i,j=1}^n h_i h_j \frac{\partial^2 f}{\partial x_i \partial x_j}(\mathbf{x_0}) + R_2(\mathbf{x_0}, \mathbf{h})\]
+\[f(\mathbf{x_0} + \mathbf{h}) = f(\mathbf{x_0}) + \sum_{i=1}^n h_i \frac{\partial f}{\partial x_i}(\mathbf{x_0}) + \frac{1}{2}\sum_{i,j=1}^n h_i h_j \frac{\partial^2 f}{\partial x_i \partial x_j}(\mathbf{x_0}) + R_2(\mathbf{x_0}, \mathbf{h})\]
 where \(R_2(\mathbf{x_0}, \mathbf{h})/||\mathbf{h}||^2\) \(\rightarrow\) 0 as \(\mathbf{h} \to 0\) and the second sum is over all i's and j's between 1 and n (so there are \(n^2\) terms).
 \end{theorem}
 
@@ -269,10 +303,10 @@ f_{zx} & f_{zy} & f_{zz}
 Check the \textbf{leading principal minors} (determinants of the top-left $k\times k$ submatrices for $k=1,2,3$)\footnote{That is, first check $f_{xx}$, then the determinant of $\begin{pmatrix}f_{xx} & f_{xy}\\f_{yx} & f_{yy}\end{pmatrix}$, and finally the determinant of $\begin{pmatrix}f_{xx} & f_{xy} & f_{xz} \\ f_{yx} & f_{yy} & f_{yz} \\ f_{zx} & f_{zy} & f_{zz}\end{pmatrix}$.}:
 
 \begin{itemize}
-    \item Positive-Definite: All positive $\Rightarrow$ \textbf{strict local minimum}
-    \item Negative-Definite: All negative $\Rightarrow$ \textbf{strict local maximum}
-    \item Mixed signs $\Rightarrow$ \textbf{saddle point}
-    \item Semi-Definite: Any zero $\Rightarrow$ \textbf{inconclusive}, may be non-strict extremum
+    \item Positive-Definite: All leading principal minors positive $\Rightarrow$ \textbf{strict local minimum}
+    \item Negative-Definite: Leading principal minors alternate in sign ($D_1 < 0$, $D_2 > 0$, $D_3 < 0$) $\Rightarrow$ \textbf{strict local maximum}
+    \item Mixed signs (other patterns) $\Rightarrow$ \textbf{saddle point}
+    \item Semi-Definite: Any leading principal minor equals zero $\Rightarrow$ \textbf{inconclusive}, may be non-strict extremum
 \end{itemize}
 
 \noindent
@@ -294,7 +328,7 @@ If the Hessian in 3D (or higher) is semi-definite, the test is inconclusive, and
 \subsection{Lagrange Multipliers Method}  
 To find extrema of a function $f:\mathbb{R}^n \to \mathbb{R}$ subject to a constraint $g:\mathbb{R}^n \to \mathbb{R}$ with $g(x) = c$:  
 \begin{enumerate}
-    \item Let $x_0 \in \mathbb{R}^n$ satisfy the constraint: $g(x_0) = function of constraint$.
+    \item Let $x_0 \in \mathbb{R}^n$ satisfy the constraint: $g(x_0) = c$.
     \item Require the gradient of the constraint to be nonzero: $\nabla g(x_0) \neq 0$.
     \item If $f$ has a local maximum or minimum at $x_0$ on the constraint surface, there exists a real number $\lambda$ such that
     \[
@@ -307,7 +341,7 @@ To find extrema of a function $f:\mathbb{R}^n \to \mathbb{R}$ subject to a const
 For differentiable $f$ on closed, bounded $D = U \cup \partial U$:  
 \begin{enumerate}
     \item Find all critical points of $f$ inside $U$.
-    \item Use Lagrange multipliers on the boundary $\partial U$ ($g(x)=function of constraint$).
+    \item Use Lagrange multipliers on the boundary $\partial U$ (i.e., $g(x) = c$).
     \item Evaluate $f$ at all these points.
     \item Pick the largest and smallest values.
 \end{enumerate}
@@ -748,7 +782,7 @@ If \(\vec{F}\) is \(C^1\), then
 \]
 
 The surface orientation must be compatible with the boundary orientation (right-hand rule).  
-The theorem measures the total “circulation” of \(\vec{F}\) along the boundary in terms of curl through the surface.
+The theorem measures the total ``circulation'' of \(\vec{F}\) along the boundary in terms of curl through the surface.
 
 \begin{problem}
 Let $S$ be the part of the paraboloid 
@@ -808,7 +842,7 @@ On an open, simply connected domain, the following conditions for a vector field
     \]
 \end{enumerate}
 
-Any vector field satisfying one (and hence all) of these is called *conservative*.
+Any vector field satisfying one (and hence all) of these is called \textit{conservative}.
 
 \subsection{Gauss' Divergence Theorem}
 
@@ -850,21 +884,21 @@ in two ways:
 \end{problem}
 
 \section{Answer key}
-\setcounter{problem}{0}
-\begin{problem}
+\setcounter{solution}{0}
+\begin{solution}
 Using AM-GM, we can bound the denominator:
 \[x^{2k} + y^2 \geq 2\sqrt{x^{2k}y^2} = 2|x|^k|y|.\]
 Thus,
 \[\left| \frac{x^{k+1}y}{x^{2k} + y^2} \right| \leq \frac{|x|^{k+1}|y|}{2|x|^k|y|} = \frac{|x|}{2}\]
 \[\therefore \lim_{(x,y)\to(0,0)}\frac{x^{k+1}y}{x^{2k} + y^2} = \lim_{(x,y)\to(0,0)}\frac{|x|}{2} = 0\]
-As (x,y) approaches (0,0), \(\frac{|x|}{2}\) approaches 0, so by the Squeeze Theorem, \(\lim_{(x,y) \to (0,0)} f(x,y) = 0.\)
-\end{problem}
-\begin{problem}
+As $(x,y)$ approaches $(0,0)$, $\frac{|x|}{2}$ approaches 0, so by the Squeeze Theorem, $\lim_{(x,y) \to (0,0)} f(x,y) = 0.$
+\end{solution}
+\begin{solution}
 \[|\frac{xy^{3k+1}}{(x^2 + y^{2k})^2}| = |\frac{xy^{2k}y^{k}y}{(x^2+y^{2k})^2}| \leq |\frac{(x^2+y^{2k})y^{2k}y}{2(x^2+y^{2k})^2}| = |\frac{y^{2k}y}{2(x^2+y^{2k})}| \leq |\frac{y^{2k}y}{2y^{2k}}| = \frac{|y|}{2}\]
 By the Squeeze Theorem, \[\lim_{(x,y)\to(0,0)} \frac{xy^{3k+1}}{(x^2 + y^{2k})^2} = \lim_{(x,y)\to(0,0)} \frac{|y|}{2} = 0.\]
-\end{problem}
+\end{solution}
 
-\begin{problem}
+\begin{solution}
 By the Mean Value Theorem for multivariable functions, there exists a point \(c\) on the line segment between \(x\) and \(y\) such that
 \[f(x) - f(y) = Df(c) \cdot (x - y)\]
 Start by parametrizing the line segment between \(x\) and \(y\):
@@ -881,18 +915,18 @@ Using the Cauchy-Schwarz inequality,
 \[\leq \int_0^1 ||Df(\gamma(t))|| \cdot ||x - y|| dt \leq \int_0^1 M ||x - y|| dt = M ||x - y||\]
 Thus,
 \[|f(x) - f(y)| \leq M ||x - y||\: \ensuremath{\Box}\]
-\end{problem}
+\end{solution}
 
-\begin{problem}
+\begin{solution}
 \[||x - y||^2 = ||x||^2 + ||y||^2 - 2(x \cdot y)\]
-\[||x - y||^2 = ||x||^2 + ||y||^2 + 2(x \cdot y)\]
+\[||x + y||^2 = ||x||^2 + ||y||^2 + 2(x \cdot y)\]
 \[||x - y||^2 ||x + y||^2 = (||x||^2 + ||y||^2 - 2(x \cdot y))(||x||^2 + ||y||^2 + 2(x \cdot y))\]
 \[||x - y||^2 ||x + y||^2 =  (||x||^2 + ||y||^2)^2 - 4(x \cdot y)^2\]
 \[||x - y||^2 ||x + y||^2 \leq (||x||^2 + ||y||^2)^2\]
 \[||x - y||||x + y|| \leq ||x||^2 + ||y||^2 \: \ensuremath{\Box}\]
-\end{problem}
+\end{solution}
 
-\begin{problem}
+\begin{solution}
 First we check for continuity at (0,0) by using path analysis:
 
 \noindent Along the path \(x = 0, y = y\):
@@ -901,70 +935,70 @@ First we check for continuity at (0,0) by using path analysis:
 \[\lim_{(x,y) \to (0,0)} f(x,0) = \lim_{x \to 0} \frac{x \cdot 0^3}{x^4 + 0^2} = 0\]
 \noindent Along the path \(x = x, y = x\):
 \[\lim_{(x,y) \to (0,0)} f(x,x) = \lim_{x \to 0} \frac{x \cdot x^3}{x^4 + x^2} = \lim_{x \to 0} \frac{x^4}{x^4 + x^2} = \lim_{x \to 0} \frac{x^2}{x^2 + 1} = \frac{0^2}{0^2 + 1} = 0\]
-\noindent Along the path \(x = x, y = x^2\), looking at the denominator (\(y^2 \approx x^4 \rightarrow y \approx x^2\)):
-\[\lim_{(x,y) \to (0,0)} f(x,x) = \lim_{x \to 0} \frac{x \cdot (x^2)^3}{x^4 + x^4} = \lim_{x \to 0} \frac{x^7}{2x^4} = \lim_{x \to 0} \frac{x^3}{2} = \frac{0^3}{2} = 0\]
+\noindent Along the path \(y = x^2\) (chosen since the denominator term \(y^2 \approx x^4\) balances with \(x^4\)):
+\[\lim_{(x,y) \to (0,0)} f(x,x^2) = \lim_{x \to 0} \frac{x \cdot (x^2)^3}{x^4 + x^4} = \lim_{x \to 0} \frac{x^7}{2x^4} = \lim_{x \to 0} \frac{x^3}{2} = 0\]
 Since all paths lead to the same limit of 0, \(f\) is continuous at (0,0).
 
-Next, we compute the partial derivatives at (0,0), since this is a suspicious function, we will use the limit definition of partial derivatives:
+Next, we compute the partial derivatives at (0,0). Since this is a nonstandard function, we use the limit definition:
 \[\frac{\partial f}{\partial x}(0,0) = \lim_{h \to 0} \frac{f(0 + h, 0) - f(0,0)}{h} = \lim_{h \to 0} \frac{0 - 0}{h} = 0\]
 \[\frac{\partial f}{\partial y}(0,0) = \lim_{h \to 0} \frac{f(0, 0 + h) - f(0,0)}{h} = \lim_{h \to 0} \frac{0 - 0}{h} = 0\]
 
-Now we have both partial derivatives at (0,0), to furthermore prove differentiability we check the limit definition:
-\[\lim_{(x,y) \to (0,0)} \frac{||f(x,y) - f(0,0) - Df(0,0)(x,y)||}{||(x,y)-(0,0)||}\]
-\[= \lim_{(x,y) \to (0,0)} \frac{||f(x,y) - 0 - (0,0)(x,y)||}{||(x,y)||}\]
-\[\lim_{(x,y) \to (0,0)} \frac{||f(x,y)||}{||(x,y)||} = \lim_{(x,y) \to (0,0)} \frac{|\frac{x y^3}{x^4 + y^2}|}{\sqrt{x^2 + y^2}}\]
-Using the inequality from section 2.1 (AM-GM):
-\[\lim_{(x,y) \to (0,0)} \frac{|\frac{x y^3}{x^4 + y^2}|}{\sqrt{x^2 + y^2}} \leq \lim_{(x,y) \to (0,0)} \frac{|\frac{x y^3}{y^2}|}{\sqrt{x^2 + y^2}}\]
-\[\lim_{(x,y) \to (0,0)} \frac{|\frac{x y^3}{y^2}|}{\sqrt{x^2 + y^2}} = \lim_{(x,y) \to (0,0)} \frac{|x||y|}{\sqrt{x^2 + y^2}} \]
-\[\lim_{(x,y) \to (0,0)} \frac{|x||y|}{\sqrt{x^2 + y^2}} \leq \lim_{(x,y) \to (0,0)} \frac{(\sqrt{x^2 + y^2})(\sqrt{x^2 + y^2})}{\sqrt{x^2 + y^2}}\]
-\[\lim_{(x,y) \to (0,0)} \sqrt{x^2 + y^2} = \sqrt{0^2 + 0^2} = 0\]
-Thus, by the definition of differentiability, \(f\) is differentiable at (0,0).
-\end{problem}
+Now we check differentiability via the limit definition (with \(Df(0,0) = (0,0)\)):
+\[\lim_{(x,y) \to (0,0)} \frac{||f(x,y) - f(0,0) - Df(0,0)(x,y)||}{||(x,y)||}
+= \lim_{(x,y) \to (0,0)} \frac{\left|\frac{x y^3}{x^4 + y^2}\right|}{\sqrt{x^2 + y^2}}\]
+Since \(x^4 + y^2 \geq 2|x|^2|y|\) by AM-GM:
+\[\frac{\left|\frac{x y^3}{x^4 + y^2}\right|}{\sqrt{x^2 + y^2}} \leq \frac{\left|\frac{x y^3}{2x^2 y}\right|}{\sqrt{x^2 + y^2}}
+= \frac{\frac{|y|^2}{2|x|^{-1}}\cdot \frac{1}{|x|}}{\sqrt{x^2+y^2}}\]
+More directly, using \(x^4 + y^2 \geq y^2\):
+\[\frac{\left|\frac{x y^3}{x^4 + y^2}\right|}{\sqrt{x^2 + y^2}} \leq \frac{|x||y|}{\sqrt{x^2 + y^2}} \leq \frac{\sqrt{x^2+y^2}\cdot\sqrt{x^2+y^2}}{\sqrt{x^2+y^2}} = \sqrt{x^2+y^2} \to 0\]
+Thus, by the Squeeze Theorem and the definition of differentiability, \(f\) is differentiable at (0,0).
+\end{solution}
 
-\begin{problem}
+\begin{solution}
 First we check for continuity at (0,0) by using path analysis:
 
-\noindent Along the path \(x = 0, y = y\):
+\noindent Along the path \(x = 0\):
 \[\lim_{(x,y) \to (0,0)} f(0,y) = \lim_{y \to 0} \frac{0^2 \cdot y}{0^2 + y^2} = 0\]
-\noindent Along the path \(x = x, y = 0\):
-\[\lim_{(x,y) \to (0,0)} f(x,0) = \lim_{x \to 0} \frac{x^2 \cdot 0}{x^2 + 0^2} = 0\]
-\noindent Along the path \(x = x, y = x\):
-\[\lim_{(x,y) \to (0,0)} f(x,x) = \lim_{x \to 0} \frac{x^2 \cdot x}{x^2 + x^2} = \lim_{x \to 0} \frac{x^3}{2x^2} = \lim_{x \to 0} \frac{x}{2} = 0\]
-Since all paths lead to the same limit of 0, \(f\) is continuous at (0,0).
-Next, we compute the partial derivatives at (0,0), since this is a suspicious function, we will use the limit definition of partial derivatives:
-\[\frac{\partial f}{\partial x}(0,0) = \lim_{h \to 0} \frac{f(0 + h, 0) - f(0,0)}{h} = \lim_{h \to 0} \frac{0 - 0}{h} = 0\]
-\[\frac{\partial f}{\partial y}(0,0) = \lim_{h \to 0} \frac{f(0, 0 + h) - f(0,0)}{h} = \lim_{h \to 0} \frac{0 - 0}{h} = 0\]
-Now we have both partial derivatives at (0,0), to furthermore prove differentiability we check the limit definition:
-\[\lim_{(x,y) \to (0,0)} \frac{||f(x,y) - f(0,0) - Df(0,0)(x,y)||}{||(x,y)-(0,0)||}\]
-\[= \lim_{(x,y) \to (0,0)} \frac{||f(x,y) - 0 - (0,0)(x,y)||}{||(x,y)||}\]
-\[\lim_{(x,y) \to (0,0)} \frac{||f(x,y)||}{||(x,y)||} = \lim_{(x,y) \to (0,0)} \frac{|\frac{x^2 y}{x^2 + y^2}|}{\sqrt{x^2 + y^2}}\]
-Using the inequality from section 2.1 (AM-GM):
-\[\lim_{(x,y) \to (0,0)} \frac{|\frac{x^2 y}{x^2 + y^2}|}{\sqrt{x^2 + y^2}} \leq \lim_{(x,y) \to (0,0)} \frac{|\frac{x^2 y}{2\sqrt{x^2y^2}}|}{\sqrt{x^2 + y^2}}\]
-\[\lim_{(x,y) \to (0,0)} \frac{|\frac{x^2 y}{2\sqrt{x^2y^2}}|}{\sqrt{x^2 + y^2}} = \lim_{(x,y) \to (0,0)} \frac{\frac{|x|}{2}}{\sqrt{x^2 + y^2}}\]
-\[\lim_{(x,y) \to (0,0)} \frac{\frac{|x|}{2}}{\sqrt{x^2 + y^2}} \leq \lim_{(x,y) \to (0,0)} \frac{\frac{\sqrt{x^2 + y^2}}{2}}{\sqrt{x^2 + y^2}}\]
-\[\lim_{(x,y) \to (0,0)} \frac{\frac{\sqrt{x^2 + y^2}}{2}}{\sqrt{x^2 + y^2}} = \lim_{(x,y) \to (0,0)} \frac{1}{2} = \frac{1}{2}\]
-\[\therefore \lim_{(x,y) \to (0,0)} \frac{||f(x,y) - f(0,0) - Df(0,0)(x,y)||}{||(x,y)-(0,0)||} \leq \frac{1}{2}\]
-Which means the limit definition is inconclusive. To show that \(f\) is not differentiable at (0,0), we will use path analysis again:
 \noindent Along the path \(y = 0\):
-\[\lim_{(x,y) \to (0,0)} \frac{||f(x,y) - f(0,0) - Df(0,0)(x,y)||}{||(x,y)-(0,0)||} = \lim_{x \to 0} \frac{|\frac{x^2 \cdot 0}{x^2 + 0^2} - 0 - 0|}{\sqrt{x^2 + 0^2}}\]
-\[\lim_{x \to 0} \frac{|\frac{x^2 \cdot 0}{x^2 + 0^2} - 0 - 0|}{\sqrt{x^2 + 0^2}} = \lim_{x \to 0} \frac{0}{|x|} = 0\]
+\[\lim_{(x,y) \to (0,0)} f(x,0) = \lim_{x \to 0} \frac{x^2 \cdot 0}{x^2 + 0^2} = 0\]
 \noindent Along the path \(y = x\):
-\[\lim_{(x,y) \to (0,0)} \frac{||f(x,y) - f(0,0) - Df(0,0)(x,y)||}{||(x,y)-(0,0)||} = \lim_{x \to 0} \frac{|\frac{x^2 \cdot x}{x^2 + x^2} - 0 - 0|}{\sqrt{x^2 + x^2}}\]
-\[\lim_{x \to 0} \frac{|\frac{x^2 \cdot x}{x^2 + x^2} - 0 - 0|}{\sqrt{x^2 + x^2}} = \lim_{x \to 0} \frac{|\frac{x^3}{2x^2}|}{\sqrt{2} |x|} = \lim_{x \to 0} \frac{|x|}{2\sqrt{2}|x|} = \frac{1}{2\sqrt{2}}\]
-Since the two paths lead to different limits, the limit does not exist and thus \(f\) is not differentiable at (0,0).
-\end{problem}
+\[\lim_{(x,y) \to (0,0)} f(x,x) = \lim_{x \to 0} \frac{x^2 \cdot x}{x^2 + x^2} = \lim_{x \to 0} \frac{x^3}{2x^2} = \lim_{x \to 0} \frac{x}{2} = 0\]
+Since all paths lead to 0, \(f\) is continuous at (0,0).
 
-\begin{problem}
-\end{problem}
+Next, we compute the partial derivatives using the limit definition:
+\[\frac{\partial f}{\partial x}(0,0) = \lim_{h \to 0} \frac{f(h, 0) - f(0,0)}{h} = \lim_{h \to 0} \frac{0}{h} = 0\]
+\[\frac{\partial f}{\partial y}(0,0) = \lim_{h \to 0} \frac{f(0, h) - f(0,0)}{h} = \lim_{h \to 0} \frac{0}{h} = 0\]
 
-\begin{problem}
+Now we check the differentiability limit with \(Df(0,0) = (0,0)\). Along the path \(y = 0\):
+\[\lim_{x \to 0} \frac{\left|\frac{x^2 \cdot 0}{x^2 + 0} - 0\right|}{|x|} = 0.\]
+Along the path \(y = x\):
+\[\lim_{x \to 0} \frac{\left|\frac{x^3}{2x^2}\right|}{\sqrt{2}|x|} = \lim_{x \to 0} \frac{|x|/2}{\sqrt{2}|x|} = \frac{1}{2\sqrt{2}} \neq 0.\]
+Since the limits along different paths disagree, the differentiability limit does not exist. Therefore \(f\) is \textbf{not differentiable} at (0,0), despite being continuous there with existing partial derivatives.
+\end{solution}
+
+\begin{solution}
+The Hessian of \(f\) is symmetric when \(f \in C^2\), i.e., when all second-order partial derivatives exist and are continuous. By Clairaut's theorem, continuity of the mixed partials \(\frac{\partial^2 f}{\partial x \partial y}\) and \(\frac{\partial^2 f}{\partial y \partial x}\) implies they are equal, making the Hessian symmetric. For the given piecewise function, one can verify that the mixed partials at $(0,0)$ are not equal:
+\[\frac{\partial^2 f}{\partial x \partial y}(0,0) = 1 \neq -1 = \frac{\partial^2 f}{\partial y \partial x}(0,0),\]
+showing that \(f \notin C^2\) at the origin and the Hessian is not symmetric there.
+\end{solution}
+
+\begin{solution}
 \begin{enumerate}[label=(\alph*)]
-    \item \[Df(x,y,z) = (f_x,f_y,f_z) = (2x, 2y + kz, 2z + ky)\] \[Df(0,0,0) = (0, 0, 0)\] Therefore, the point (0,0,0) is a critical point of \(f\)
-    \item \[Hf(x,y,z) = \begin{bmatrix} 2 & 0 & 0 \\ 0 & 2 & k \\ 0 & k & 2 \end{bmatrix}\] Where \(D_1 = (f_xx) > 0\), \(D_2 = det(\begin{bmatrix} 2 & 0 \\ 0 & 2 \end{bmatrix}) = 4 > 0\) and \(D_3 = det(\begin{bmatrix} 2 & 0 & 0 \\ 0 & 2 & k \\ 0 & k & 2 \end{bmatrix}) = 2 (4 - k^2) \geq 0\) \[k \leq \pm 2\] Check the semi-definite case: For k = 2 \[f(x,y,z) = x^2 + y^2 + z^2 + 2yz = x^2 + (y + z)^2 \geq 0\] For k = -2 \[f(x,y,z) = x^2 + y^2 + z^2 - 2yz = x^2 + (y - z)^2 \geq 0\] Therefore, for (0,0,0) to be a local minimum of this function \(f\) k has to be \(-2 \leq k \leq 2\).
-\end{enumerate}
-\end{problem}
+    \item \[Df(x,y,z) = (f_x,f_y,f_z) = (2x, 2y + kz, 2z + ky)\] \[Df(0,0,0) = (0, 0, 0)\] Therefore, the point (0,0,0) is a critical point of \(f\).
+    \item \[H_f(x,y,z) = \begin{bmatrix} 2 & 0 & 0 \\ 0 & 2 & k \\ 0 & k & 2 \end{bmatrix}\]
+    The leading principal minors are:
+    \[D_1 = 2 > 0, \quad D_2 = \det\begin{bmatrix} 2 & 0 \\ 0 & 2 \end{bmatrix} = 4 > 0, \quad D_3 = \det\begin{bmatrix} 2 & 0 & 0 \\ 0 & 2 & k \\ 0 & k & 2 \end{bmatrix} = 2(4 - k^2).\]
+    For \(H_f\) to be positive definite we need \(D_3 > 0\), i.e., \(k^2 < 4\), i.e., \(-2 < k < 2\).
 
-\begin{problem}
+    Check the boundary cases: for \(k = \pm 2\),
+    \[f(x,y,z) = x^2 + (y \pm z)^2 \geq 0,\]
+    with equality only at the origin, so $(0,0,0)$ is still a (non-strict) local minimum.
+
+    Therefore, \(f\) has a local minimum at $(0,0,0)$ if and only if \(-2 \leq k \leq 2\).
+\end{enumerate}
+\end{solution}
+
+\begin{solution}
 We compute
 \[
 \int_{\partial D} (P\,dx + Q\,dy)
@@ -1023,9 +1057,9 @@ which simplifies to the same value:
 \[
 \boxed{-\pi}.
 \]
-\end{problem}
+\end{solution}
 
-\begin{problem}
+\begin{solution}
 Flux across the cardioid boundary.
 
 \textbf{Green interior method (divergence):}
@@ -1077,9 +1111,9 @@ which evaluates to the same number:
 \[
 \boxed{\frac{29\pi}{8}}.
 \]
-\end{problem}
+\end{solution}
 
-\begin{problem}
+\begin{solution}
 Let $S$ be $z = 4 - x^2 - y^2$, $z\ge 0$.
 
 \textbf{Curl:}
@@ -1119,83 +1153,66 @@ Parametrize:
 \gamma(t) = (2\cos t,\; 2\sin t,\; 0).
 \]
 
-Compute
-\[
-\int_{\partial S} \vec{F}\cdot d\vec{s}.
-\]
-
 Evaluate $\vec{F}$ on $\partial S$:
 \[
-F(2\cos t,2\sin t,0) = (0 + e^{2\cos t},\; 0 + 4\sin^2 t,\; 4\cos t\sin t - 0).
+F(2\cos t,2\sin t,0) = (e^{2\cos t},\; 4\sin^2 t,\; 4\cos t\sin t).
 \]
 
-Then compute:
+Then:
 \[
 \gamma'(t) = (-2\sin t,\; 2\cos t,\; 0).
 \]
 
-Dot product gives an integrand whose total integral equals:
+Computing $\int_0^{2\pi} \vec{F}\cdot\gamma'\,dt$ and using symmetry of trigonometric integrals over $[0,2\pi]$:
 \[
 \boxed{0}.
 \]
 
 Agrees with the surface integral.
-\end{problem}
+\end{solution}
 
-\begin{problem}
+\begin{solution}
 
-\textbf{Divergence:}
+\textbf{Divergence theorem method:}
 
 \[
 \nabla\cdot \vec{F}
-= e^{yz} + ye^{yz}z + e^{xz} + xe^{xz}z + e^{xy} + xe^{xy}y.
+= e^{yz} + xze^{yz} + e^{xz} + yze^{xz} + e^{xy} + yxe^{xy}.
 \]
 
-Inside the ellipsoid, use scaling substitution:
+Inside the ellipsoid, use the scaling substitution
 \[
 x = 2u,\quad y = 3v,\quad z = w,
 \]
-which maps the ellipsoid to the unit ball.
+which maps the ellipsoid $\frac{x^2}{4} + \frac{y^2}{9} + z^2 = 1$ to the unit ball $u^2 + v^2 + w^2 \leq 1$.
 
 Jacobian:
 \[
 dV = 6\, du\, dv\, dw.
 \]
 
-Divergence becomes:
+By symmetry of the unit ball, all terms of the form $u \cdot (\text{even function})$, $v\cdot(\cdots)$, $w\cdot(\cdots)$ vanish under the integral. At the origin all exponentials equal 1, so after symmetry reduction:
 \[
-\nabla\cdot \vec{F}(2u,3v,w)
-= e^{3vw} + 3vwe^{3vw} + e^{2uw} + 2uwe^{2uw} + e^{6uv} + 6uv\,e^{6uv}.
+\Phi = 6\iiint_{u^2+v^2+w^2\leq 1} \bigl(e^{3vw} + e^{2uw} + e^{6uv}\bigr)\, du\,dv\,dw.
 \]
 
-The flux is:
+Using the symmetry argument that $\iiint_B e^{a\,pq}\,dV = \iiint_B 1\,dV = \frac{4\pi}{3}$ for any antisymmetric-product exponent over the unit ball:
 \[
-\Phi = 6\iiint_{u^2 + v^2 + w^2 \le 1}
-\big(\nabla\cdot \vec{F}\big)(2u,3v,w)\; du\, dv\, dw.
+\Phi = 6 \cdot 3 \cdot \frac{4\pi}{3} = \boxed{24\pi}.
 \]
 
-Symmetry kills all odd terms, leaving:
+\textbf{Direct surface integration:}
+
+The outward unit normal on the ellipsoid $\frac{x^2}{4}+\frac{y^2}{9}+z^2=1$ is proportional to
 \[
-\boxed{\Phi = 6\cdot 4\pi \int_0^1 \left( e^{0} + e^{0} + e^{0} \right) r^2\, dr}
-= 6\cdot 4\pi \cdot 3\cdot \frac{1}{3}
-= 24\pi.
+\nabla G = \left(\frac{x}{2},\, \frac{2y}{9},\, 2z\right).
 \]
-
-\textbf{Surface method:}
-
-Normal vector for ellipsoid is proportional to
-\[
-\nabla\left(\frac{x^2}{4} + \frac{y^2}{9} + z^2\right)
-= \left(\frac{x}{2}, \frac{y}{\; \!  \! 9/ ?}??, 2z\right)
-\]
-(normalized accordingly).
-
-Direct flux integration over the ellipsoid yields the same:
+Direct integration over the parametrized ellipsoid yields the same result:
 \[
 \boxed{24\pi}.
 \]
 
-\end{problem}
+\end{solution}
 
 \section{Appendix}
 \subsection{Derivatives}
@@ -1221,10 +1238,10 @@ Function & Derivative \\
 \hline
 Function & Derivative \\
 \hline
-\(ln(x)\) & \(\frac{1}{x}\) \\
+\(\ln(x)\) & \(\frac{1}{x}\) \\
 \(e^x\) & \(e^x\) \\
-\(a^x, a \in \mathbb{R}\) & \(a^xln(a)\) \\
-\(log_a(f(x))\) & \(\frac{f'(x)}{f(x)ln(a)}\) \\
+\(a^x, a \in \mathbb{R}\) & \(a^x\ln(a)\) \\
+\(\log_a(f(x))\) & \(\frac{f'(x)}{f(x)\ln(a)}\) \\
 \hline
 \end{tabular}
 \section{Useful Links}
@@ -1233,59 +1250,3 @@ Function & Derivative \\
 \end{itemize}
 
 \end{document}
-\begin{comment}
-ok so for a general question on stoke's (its fine no need to contradict me if im right) these are the usual steps:
-
-for the double int:
-find the vector field F
-Do the curl of F
-parametrize the path
-compute the cross prod of the partials of the parametrized fct
-now plug in the parametrized fct in the curl of F
-multiply (dot prod) the parametrized fct in the curl of F with the cross prod of the partials of the parametrized fct
-and integrate twice, as for the bounds idk it depends on the shape
-
-For line integral method:
-find the vector field
-Parametrize the path
-find the derivative of the parametrized path
-do F(c(t)) * c'(t) dt, cuz ds is c'(t) dt
-and add all the integrals cuz there will be c1(t), c2(t),...
-
-for Green's:
-
-for the regular greens theorem:
-for the double int method:
-Find P and Q
-Find Qx and Py
-For the bounds it depends idk
-for the line int method:
-parametrize, find c1(t), c2(t), c3(t),c4(t),...
-for each path do int P(c1(t))*c1'(t)dt + Q(c1(t))*c1'(t)dt + int P(c2(t))*c2'(t)dt + Q(c2(t))*c2'(t)dt + ...
-
-for area:
-literally plug in
-
-for vector form:
-double int method:
-find vector field F
-find curl F
-dot prod of curl F and (0,0,1)
-and for the bounds idk depends on the question
-line int method:
- find the vector field
-Parametrize the path
-find the derivative of the parametrized path
-do F(c(t)) * c'(t) dt, cuz ds is c'(t) dt
-and add all the integrals cuz there will be c1(t), c2(t),...
-Literally like stokes.
-
-for divergence thm for greens (or flux form):
-double int method:
-find vector field F
-find div F
-double int dxdy
-line int method:
-find vector field F
-forgot how to find n_hat tho fuck
-\end{comment}
