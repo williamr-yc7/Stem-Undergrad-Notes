@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  14 APR 2026 18:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  14 APR 2026 18:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -583,43 +583,38 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has b
 <to be read again> 
                    \relax 
 l.160 ...||x - y||, \forall x,y \in \mathbb{R}^n\]
-                                                   [3] [4] [5]
-Underfull \hbox (badness 10000) in paragraph at lines 234--238
-
+                                                   [3]
+Overfull \hbox (10.24734pt too wide) in paragraph at lines 170--171
+[][]\OT1/cmr/bx/n/10 Problem 4 \OT1/cmr/m/n/10 (Tri-an-gle In-equal-ity)\OT1/cmr/bx/n/10 . []\OT1/cmr/m/it/10 Prove that $\OMS/cmsy/m/n/10 jj\OML/cmm/m/it/10 x \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 y\OMS/cmsy/m/n/10 jjjj\OML/cmm/m/it/10 x \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 y\OMS/cmsy/m/n/10 jj ^^T jj\OML/cmm/m/it/10 x\OMS/cmsy/m/n/10 jj[] \OT1/cmr/m/n/10 + \OMS/cmsy/m/n/10 jj\OML/cmm/m/it/10 y\OMS/cmsy/m/n/10 jj[]\OML/cmm/m/it/10 ; \OMS/cmsy/m/n/10 8\OML/cmm/m/it/10 x; y \OMS/cmsy/m/n/10 2
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 234--238
-
+[4] [5] [6] [7] [8]
+Overfull \hbox (7.32362pt too wide) in paragraph at lines 342--342
+[]\OT1/cmr/bx/n/12 Second-Derivative Test for Con-strained Ex-trema (Skip) 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 234--238
-
- []
-
-[6] [7] [8] [9] [10] [11] [12]
-Overfull \hbox (54.75143pt too wide) detected at line 566
+[9] [10] [11] [12]
+Overfull \hbox (54.75143pt too wide) detected at line 530
 [] [] [][] \OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x; y; z\OT1/cmr/m/n/10 ) \OML/cmm/m/it/10 dV \OT1/cmr/m/n/10 = [] [] [][] \OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 u; v; w\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ;  y\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 u; v; w\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ;  z\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 u; v; w\OT1/cmr/m/n/10 )) []  \OML/cmm/m/it/10 du dv dw:
  []
 
 [13] [14] [15] [16] [17] [18]
-Overfull \hbox (63.94168pt too wide) in paragraph at lines 893--895
+Overfull \hbox (63.94168pt too wide) in paragraph at lines 856--858
 \OT1/cmr/m/it/10 As $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x; y\OT1/cmr/m/n/10 )$ \OT1/cmr/m/it/10 ap-proaches $\OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0)$\OT1/cmr/m/it/10 , $[]$ ap-proaches 0, so by the Squeeze The-o-rem, $[][] \OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x; y\OT1/cmr/m/n/10 ) =
  []
 
 
-Overfull \hbox (4.96928pt too wide) detected at line 897
+Overfull \hbox (4.96928pt too wide) detected at line 860
 \OMS/cmsy/m/n/10 j[]j \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 j[]j ^^T j[]j \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 j[]j ^^T j[]j \OT1/cmr/m/n/10 = []
  []
 
 [19] [20]
-Overfull \hbox (1.07742pt too wide) in paragraph at lines 946--947
+Overfull \hbox (1.07742pt too wide) in paragraph at lines 909--910
 []\OT1/cmr/m/it/10 Now we check dif-fer-en-tia-bil-ity via the limit def-i-ni-tion (with $\OML/cmm/m/it/10 Df\OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0) = (0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0)$\OT1/cmr/m/it/10 ): 
  []
 
 [21]
-Overfull \hbox (10.34386pt too wide) detected at line 990
+Overfull \hbox (10.34386pt too wide) detected at line 953
 \OML/cmm/m/it/10 D[] \OT1/cmr/m/n/10 = 2 \OML/cmm/m/it/10 > \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 ;  D[] \OT1/cmr/m/n/10 = [] [] = 4 \OML/cmm/m/it/10 > \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 ;  D[] \OT1/cmr/m/n/10 = [] [] = 2(4 \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 k[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 :
  []
 
@@ -629,20 +624,20 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
 Package rerunfilecheck Info: File `Math248.out' has not changed.
-(rerunfilecheck)             Checksum: 96F315359658E9AE296BE4AA6789CFEC;8232.
+(rerunfilecheck)             Checksum: 4DFC7840412DBD6F94F5CAE17727D8C3;8576.
  ) 
 Here is how much of TeX's memory you used:
- 31242 strings out of 467871
- 736773 string characters out of 5418377
- 1268211 words of memory out of 5000000
- 59481 multiletter control sequences out of 15000+600000
+ 31252 strings out of 467871
+ 736937 string characters out of 5418377
+ 1269211 words of memory out of 5000000
+ 59485 multiletter control sequences out of 15000+600000
  638090 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,10n,118p,776b,729s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\erenr\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Math248.pdf (29 pages, 480861 bytes).
+Output written on Math248.pdf (29 pages, 482966 bytes).
 PDF statistics:
- 643 PDF objects out of 1000 (max. 8388607)
- 156 named destinations out of 1000 (max. 500000)
- 429 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 653 PDF objects out of 1000 (max. 8388607)
+ 162 named destinations out of 1000 (max. 500000)
+ 437 words of extra memory for PDF output out of 10000 (max. 10000000)
 

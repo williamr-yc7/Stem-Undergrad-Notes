@@ -17,6 +17,7 @@
 \contentsline {section}{\numberline {9}Constrained Extrema and Lagrange Multipliers}{8}{section.9}%
 \contentsline {subsection}{\numberline {9.1}Lagrange Multipliers Method}{8}{subsection.9.1}%
 \contentsline {subsection}{\numberline {9.2}Absolute Max/Min on a Region with Boundary}{9}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}Second-Derivative Test for Constrained Extrema (Skip)}{9}{subsection.9.3}%
 \contentsline {section}{\numberline {10}Path Integrals and Geometry of Curves}{9}{section.10}%
 \contentsline {subsection}{\numberline {10.1}Tangent and Speed}{9}{subsection.10.1}%
 \contentsline {subsection}{\numberline {10.2}Length of a Curve}{9}{subsection.10.2}%

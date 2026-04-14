@@ -166,27 +166,27 @@ The Triangle Inequality states that for any vectors \(u\) and \(v\) in an inner 
 The other form of the triangle inequality states that for any real vectors their subtracting distance is less than or equal to the sum of their individual distances:
 \[\|u - v\| \geq |\|u\| - \|v\||.\]
 
-\noindent
-\begin{problem} Prove that \(||x - y||||x + y|| \leq ||x||^2 + ||y||^2, \forall x,y \in \mathbb{R}^n\)
+\begin{problem}[Triangle Inequality]
+    Prove that \(||x - y||||x + y|| \leq ||x||^2 + ||y||^2, \forall x,y \in \mathbb{R}^n\)
 \end{problem}
 
 \section{Differentiability}
-For this topic, the class of fall 2025 do not use the epsilon-delta definition of differentiability. Instead, we use the following:
-\begin{theorem}
-\label{differentiation}
-A function \(f : \mathbb{R}^n \to \mathbb{R}^m\) is differentiable at a point \(a \in \mathbb{R}^n\) if there exists a Jacobian matrix \(Df(a)\) such that
-\[\lim_{x \to a} \frac{||f(x) - f(a) - Df(a)(x - a)||}{||x - a||} = 0,\]
-where \(x \in \mathbb{R}^n\) is a variable point approaching \(a\).
-In this case, we call \(Df(a)\) the Jacobian of \(f\) at \(a\).
+For this topic, the class of fall 2025 did not use the epsilon-delta definition of differentiability. Instead, we use the following:
+\begin{theorem}[Differentiability Theorem for multivariable functions]
+    \label{differentiation}
+    A function \(f : \mathbb{R}^n \to \mathbb{R}^m\) is differentiable at a point \(a \in \mathbb{R}^n\) if there exists a Jacobian matrix \(Df(a)\) such that
+    \[\lim_{x \to a} \frac{||f(x) - f(a) - Df(a)(x - a)||}{||x - a||} = 0,\]
+    where \(x \in \mathbb{R}^n\) is a variable point approaching \(a\).
+    In this case, we call \(Df(a)\) the Jacobian of \(f\) at \(a\).
 \end{theorem}
 \begin{corollary}
-The jacobian matrix \(Df(a)\) (often written as J) is given by
-\[Df(a) = \begin{bmatrix}
-\frac{\partial f_1}{\partial x_1}(a) & \frac{\partial f_1}{\partial x_2}(a) & \ldots & \frac{\partial f_1}{\partial x_n}(a) \\
-\frac{\partial f_2}{\partial x_1}(a) & \frac{\partial f_2}{\partial x_2}(a) & \ldots & \frac{\partial f_2}{\partial x_n}(a) \\
-\vdots & \vdots & \ddots & \vdots \\
-\frac{\partial f_m}{\partial x_1}(a) & \frac{\partial f_m}{\partial x_2}(a) & \ldots & \frac{\partial f_m}{\partial x_n}(a)
-\end{bmatrix}\]
+    The jacobian matrix \(Df(a)\) (often written as J) is given by
+    \[Df(a) = \begin{bmatrix}
+    \frac{\partial f_1}{\partial x_1}(a) & \frac{\partial f_1}{\partial x_2}(a) & \ldots & \frac{\partial f_1}{\partial x_n}(a) \\
+    \frac{\partial f_2}{\partial x_1}(a) & \frac{\partial f_2}{\partial x_2}(a) & \ldots & \frac{\partial f_2}{\partial x_n}(a) \\
+    \vdots & \vdots & \ddots & \vdots \\
+    \frac{\partial f_m}{\partial x_1}(a) & \frac{\partial f_m}{\partial x_2}(a) & \ldots & \frac{\partial f_m}{\partial x_n}(a)
+    \end{bmatrix}\]
 \end{corollary}
 \noindent To verify the differentiability of a function \(f\) at a point \(a\), proceed as follows:
 \begin{enumerate}
@@ -194,91 +194,90 @@ The jacobian matrix \(Df(a)\) (often written as J) is given by
     \item Second, compute the partial derivatives at \(a\), either via the limit definition (especially for functions with nonstandard forms such as \( f(x,y) = \frac{x^7y}{x^4+y^2} \)) or by applying standard differentiation rules when appropriate. 
     \item Lastly, once continuity and partial derivatives are established, verify differentiability by checking that the limit in Theorem \ref{differentiation} equals zero.
 \end{enumerate}
-\begin{problem} Find if the following function is differentiable at (0,0):
-\[f(x,y) = \begin{cases} \frac{xy^3}{x^4 + y^2} & (x,y) \neq (0,0) \\ 0 & (x,y) = (0,0) \end{cases}\]
+\begin{problem}[Differentiability]
+    Find if the following function is differentiable at (0,0):
+    \[f(x,y) = \begin{cases} \frac{xy^3}{x^4 + y^2} & (x,y) \neq (0,0) \\ 0 & (x,y) = (0,0) \end{cases}\]
 \end{problem}
-
-\noindent
-\begin{problem} Set
-\[f(x,y) = \begin{cases} \frac{x^2y}{x^2 + y^2} & (x,y) \neq (0,0) \\ 0 & (x,y) = (0,0) \end{cases}\]
-Show that \(f\) is continuous and partial derivatives \(\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}\) exist everywhere. Is \(f\) differentiable at (0,0)?
+\begin{problem}[Differentiability 2]
+    Set
+    \[f(x,y) = \begin{cases} \frac{x^2y}{x^2 + y^2} & (x,y) \neq (0,0) \\ 0 & (x,y) = (0,0) \end{cases}\]
+    Show that \(f\) is continuous and partial derivatives \(\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}\) exist everywhere. Is \(f\) differentiable at (0,0)?
 \end{problem}
 
 \section{Mean Value Theorem}
 The Mean Value Theorem for multivariable functions states:
-\begin{theorem}
-If \(f : \mathbb{R}^n \to \mathbb{R}\) is differentiable on an open convex set containing points \(x\) and \(y\), then there exists a point \(c\) on the line segment between \(x\) and \(y\) such that
-\[f(x) - f(y) = Df(c) \cdot (x - y),\]
-where \(Df(c)\) is the Jacobian matrix of \(f\) at point \(c\). In particular,
-\[|f(x) - f(y)| \leq ||Df(c)|| \cdot ||x-y|| \]
+\begin{theorem}[Mean Value Theorem]
+    If \(f : \mathbb{R}^n \to \mathbb{R}\) is differentiable on an open convex set containing points \(x\) and \(y\), then there exists a point \(c\) on the line segment between \(x\) and \(y\) such that
+    \[f(x) - f(y) = Df(c) \cdot (x - y),\]
+    where \(Df(c)\) is the Jacobian matrix of \(f\) at point \(c\). In particular,
+    \[|f(x) - f(y)| \leq ||Df(c)|| \cdot ||x-y|| \]
 \end{theorem}
-
-For double integrals, the mean value theorem states:
-\begin{theorem}
-If f(x,y) is continuous on a closed, bounded region D, then there exists a point \((x_0,y_0) \in D\) such that:
-\[\iint_D f(x,y) dV = f(x_0,y_0) \cdot Area(D)\]
+\noindent For double integrals, the mean value theorem states:
+\begin{theorem}[Mean Value Theorem for Double Integrals]
+    If f(x,y) is continuous on a closed, bounded region D, then there exists a point \((x_0,y_0) \in D\) such that:
+    \[\iint_D f(x,y) dV = f(x_0,y_0) \cdot Area(D)\]
 \end{theorem}
 
 For triple integrals, the mean value theorem states:
-\begin{theorem}
-If f(x,y,z) is continuous on a closed, bounded region E, then there exists a point \((x_0,y_0,z_0) \in E\) such that:
-\[\iiint_E f(x,y,z) dV = f(x_0,y_0,z_0) \cdot Volume(E)\]
+\begin{theorem}[Mean Value Theorem for Triple Integrals]
+    If f(x,y,z) is continuous on a closed, bounded region E, then there exists a point \((x_0,y_0,z_0) \in E\) such that:
+    \[\iiint_E f(x,y,z) dV = f(x_0,y_0,z_0) \cdot Volume(E)\]
 \end{theorem}
 
 \section{Higher Order Partial Derivatives}
-\begin{definition}
-For \(f : \Omega \subset \mathbb{R}^n \to \mathbb{R}^m\), we can take partial derivatives repeatedly:
-\[\frac{\partial^2 f}{\partial x_i \partial x_j}, \frac{\partial^3 f}{\partial x_i \partial x_j \partial x_k},...\]
-We say \(f \in C^k(\Omega)\) if all partials up to order \(k\) exist and are continuous in \(\Omega\).
+\begin{definition}[Higher Order Partial Derivatives]
+    For \(f : \Omega \subset \mathbb{R}^n \to \mathbb{R}^m\), we can take partial derivatives repeatedly:
+    \[\frac{\partial^2 f}{\partial x_i \partial x_j}, \frac{\partial^3 f}{\partial x_i \partial x_j \partial x_k},...\]
+    We say \(f \in C^k(\Omega)\) if all partials up to order \(k\) exist and are continuous in \(\Omega\).
 \end{definition}
-\noindent\textbf{Remark}:\\\\
-\indent \(f \in C^0\) : Continuous \\\\
-\indent \(f \in C^1\) : First derivatives are continuous (Jacobian continuous)\\\\
-\indent \(f \in C^2\) : Second derivatives are continuous (Hessian continuous)
+\begin{remark}
+    \begin{itemize}
+        \item \(f \in C^0\) : Continuous
+        \item \(f \in C^1\) : First derivatives are continuous (Jacobian continuous)
+        \item \(f \in C^2\) : Second derivatives are continuous (Hessian continuous)
+    \end{itemize}
+\end{remark}
 
-\begin{definition}
-The Hessian matrix of a scalar function \(f : \mathbb{R}^n \to \mathbb{R}\) is the square matrix of second-order partial derivatives of \(f\):
-\[H_f(x) = \begin{bmatrix}
-\frac{\partial^2 f}{\partial x_1^2}(x) & \frac{\partial^2 f}{\partial x_1 \partial x_2}(x) & \ldots & \frac{\partial^2 f}{\partial x_1 \partial x_n}(x) \\
-\frac{\partial^2 f}{\partial x_2 \partial x_1}(x) & \frac{\partial^2 f}{\partial x_2^2}(x) & \ldots & \frac{\partial^2 f}{\partial x_2 \partial x_n}(x) \\
-\vdots & \vdots & \ddots & \vdots \\
-\frac{\partial^2 f}{\partial x_n \partial x_1}(x) & \frac{\partial^2 f}{\partial x_n \partial x_2}(x) & \ldots & \frac{\partial^2 f}{\partial x_n^2}(x)
-\end{bmatrix}\]
+\begin{definition}[Hessian Matrix]
+    The Hessian matrix of a scalar function \(f : \mathbb{R}^n \to \mathbb{R}\) is the square matrix of second-order partial derivatives of \(f\):
+    \[H_f(x) = \begin{bmatrix}
+    \frac{\partial^2 f}{\partial x_1^2}(x) & \frac{\partial^2 f}{\partial x_1 \partial x_2}(x) & \ldots & \frac{\partial^2 f}{\partial x_1 \partial x_n}(x) \\
+    \frac{\partial^2 f}{\partial x_2 \partial x_1}(x) & \frac{\partial^2 f}{\partial x_2^2}(x) & \ldots & \frac{\partial^2 f}{\partial x_2 \partial x_n}(x) \\
+    \vdots & \vdots & \ddots & \vdots \\
+    \frac{\partial^2 f}{\partial x_n \partial x_1}(x) & \frac{\partial^2 f}{\partial x_n \partial x_2}(x) & \ldots & \frac{\partial^2 f}{\partial x_n^2}(x)
+    \end{bmatrix}\]
 \end{definition}
-\noindent\textbf{Remark} : Yes, the Jacobian matrix is the first derivative and the Hessian is the second derivative of a \(C^2\) function.
+\begin{remark}
+    Yes, the Jacobian matrix is the first derivative and the Hessian is the second derivative of a \(C^2\) function.
+\end{remark}
 
-\begin{problem} When Hessian of \(f\) in general is symmetric?
-\[f(x,y) = \begin{cases} \frac{xy(x^2 - y^2)}{x^2 + y^2} & (x,y) \neq (0,0) \\ 0 & (x,y) = (0,0) \end{cases}\]
+\begin{problem}[Symmetric Hessian]
+    When Hessian of \(f\) in general is symmetric?
+    \[f(x,y) = \begin{cases} \frac{xy(x^2 - y^2)}{x^2 + y^2} & (x,y) \neq (0,0) \\ 0 & (x,y) = (0,0) \end{cases}\]
 \end{problem}
 
 \section{Taylor Theorem}
-\begin{theorem}[First-Order Taylor Formula] Let \(f: U \subset \mathbb{R}^n \to \mathbb{R}\) be differentiable at \(\mathbf{x_0} \in U\). Then 
-\[f(\mathbf{x_0} + \mathbf{h}) = f(\mathbf{x_0}) + \sum_{i=1}^n h_i \frac{\partial f}{\partial x_i}(\mathbf{x_0}) + R_1(\mathbf{x_0}, \mathbf{h})\]
-where \(R_1(\mathbf{x_0}, \mathbf{h})/||\mathbf{h}||\) \(\rightarrow\) 0 as \(\mathbf{h} \to 0\) in \(\mathbb{R}^n\).
+\begin{theorem}[First-Order Taylor Formula]
+    Let \(f: U \subset \mathbb{R}^n \to \mathbb{R}\) be differentiable at \(\mathbf{x_0} \in U\). Then 
+    \[f(\mathbf{x_0} + \mathbf{h}) = f(\mathbf{x_0}) + \sum_{i=1}^n h_i \frac{\partial f}{\partial x_i}(\mathbf{x_0}) + R_1(\mathbf{x_0}, \mathbf{h})\]
+    where \(R_1(\mathbf{x_0}, \mathbf{h})/||\mathbf{h}||\) \(\rightarrow\) 0 as \(\mathbf{h} \to 0\) in \(\mathbb{R}^n\).
 \end{theorem}
 \begin{theorem}[Second-Order Taylor Formula]
-Let \(f: U \subset \mathbb{R}^n \to \mathbb{R}\) have continuous partial derivatives of third order. Then 
-\[f(\mathbf{x_0} + \mathbf{h}) = f(\mathbf{x_0}) + \sum_{i=1}^n h_i \frac{\partial f}{\partial x_i}(\mathbf{x_0}) + \frac{1}{2}\sum_{i,j=1}^n h_i h_j \frac{\partial^2 f}{\partial x_i \partial x_j}(\mathbf{x_0}) + R_2(\mathbf{x_0}, \mathbf{h})\]
-where \(R_2(\mathbf{x_0}, \mathbf{h})/||\mathbf{h}||^2\) \(\rightarrow\) 0 as \(\mathbf{h} \to 0\) and the second sum is over all i's and j's between 1 and n (so there are \(n^2\) terms).
+    Let \(f: U \subset \mathbb{R}^n \to \mathbb{R}\) have continuous partial derivatives of third order. Then 
+    \[f(\mathbf{x_0} + \mathbf{h}) = f(\mathbf{x_0}) + \sum_{i=1}^n h_i \frac{\partial f}{\partial x_i}(\mathbf{x_0}) + \frac{1}{2}\sum_{i,j=1}^n h_i h_j \frac{\partial^2 f}{\partial x_i \partial x_j}(\mathbf{x_0}) + R_2(\mathbf{x_0}, \mathbf{h})\]
+    where \(R_2(\mathbf{x_0}, \mathbf{h})/||\mathbf{h}||^2\) \(\rightarrow\) 0 as \(\mathbf{h} \to 0\) and the second sum is over all i's and j's between 1 and n (so there are \(n^2\) terms).
 \end{theorem}
 
 \section{Extrema of Real-Valued Functions}
-
 \begin{theorem}[First-Derivative Test]
-Let $f:\mathbb{R}^n \to \mathbb{R}$ be differentiable. If $x_0$ is a local maximum or minimum, then
-\[
-Df(x_0) = 0,
-\]
-i.e., $x_0$ is a \textbf{critical point} of $f$.
+    Let $f:\mathbb{R}^n \to \mathbb{R}$ be differentiable. If $x_0$ is a local maximum or minimum, then
+    \[Df(x_0) = 0,\]
+    i.e., $x_0$ is a \textbf{critical point} of $f$.
 \end{theorem}
 
 \subsection{Extrema in 2D}
 Let $f(x,y)$ be $C^2$ and $(x_0,y_0)$ a critical point. Define the Hessian:
-\[
-H_f(x_0,y_0) = 
-\begin{pmatrix} f_{xx} & f_{xy} \\ f_{yx} & f_{yy} \end{pmatrix}, \quad D = \det(H_f(x_0,y_0)) = f_{xx}f_{yy} - f_{xy}^2.
-\]
-
+\[H_f(x_0,y_0) = \begin{pmatrix} f_{xx} & f_{xy} \\ f_{yx} & f_{yy} \end{pmatrix}, \quad D = \det(H_f(x_0,y_0)) = f_{xx}f_{yy} - f_{xy}^2.\]
 \textbf{Classification of critical points:}
 \begin{itemize}
     \item Positive Definite: $D>0$ and $f_{xx}>0$ $\Rightarrow$ \textbf{strict local minimum}
@@ -286,36 +285,31 @@ H_f(x_0,y_0) =
     \item $D<0$ $\Rightarrow$ \textbf{saddle point}
     \item Semi-Definite: $D=0$ $\Rightarrow$ \textbf{inconclusive}, may be non-strict extremum
 \end{itemize}
-\noindent
-If you end up with a semi-definite Hessian ($D=0$), the test is inconclusive. In that case, you need to examine higher-order derivatives or check the function along specific directions near the critical point to determine whether it is a local minimum, local maximum, or neither. Semi-definite points may correspond to non-strict extrema, a flat region, or a more complicated structure like a ridge or plateau.
+\begin{remark}
+    If you end up with a semi-definite Hessian ($D=0$), the test is inconclusive. In that case, you need to examine higher-order derivatives or check the function along specific directions near the critical point to determine whether it is a local minimum, local maximum, or neither. 
+\end{remark}
+\begin{remark}
+    Semi-definite points may correspond to non-strict extrema, a flat region, or a more complicated structure like a ridge or plateau.
+\end{remark}
 
 \subsection{Extrema in 3D}
 Let $f(x,y,z)$ be $C^2$ and $(x_0,y_0,z_0)$ a critical point. Let
-\[
-H_f(x_0,y_0,z_0) =
-\begin{pmatrix}
-f_{xx} & f_{xy} & f_{xz} \\
-f_{yx} & f_{yy} & f_{yz} \\
-f_{zx} & f_{zy} & f_{zz}
-\end{pmatrix}.
+\[H_f(x_0,y_0,z_0) = \begin{pmatrix} f_{xx} & f_{xy} & f_{xz} \\ f_{yx} & f_{yy} & f_{yz} \\ f_{zx} & f_{zy} & f_{zz}\end{pmatrix}.
 \]
-
-Check the \textbf{leading principal minors} (determinants of the top-left $k\times k$ submatrices for $k=1,2,3$)\footnote{That is, first check $f_{xx}$, then the determinant of $\begin{pmatrix}f_{xx} & f_{xy}\\f_{yx} & f_{yy}\end{pmatrix}$, and finally the determinant of $\begin{pmatrix}f_{xx} & f_{xy} & f_{xz} \\ f_{yx} & f_{yy} & f_{yz} \\ f_{zx} & f_{zy} & f_{zz}\end{pmatrix}$.}:
-
+Check the leading principal minors (determinants of the top-left $k\times k$ submatrices for $k=1,2,3$)\footnote{That is, first check $f_{xx}$, then the determinant of $\begin{pmatrix}f_{xx} & f_{xy}\\f_{yx} & f_{yy}\end{pmatrix}$, and finally the determinant of $\begin{pmatrix}f_{xx} & f_{xy} & f_{xz} \\ f_{yx} & f_{yy} & f_{yz} \\ f_{zx} & f_{zy} & f_{zz}\end{pmatrix}$.}:
 \begin{itemize}
     \item Positive-Definite: All leading principal minors positive $\Rightarrow$ \textbf{strict local minimum}
     \item Negative-Definite: Leading principal minors alternate in sign ($D_1 < 0$, $D_2 > 0$, $D_3 < 0$) $\Rightarrow$ \textbf{strict local maximum}
     \item Mixed signs (other patterns) $\Rightarrow$ \textbf{saddle point}
     \item Semi-Definite: Any leading principal minor equals zero $\Rightarrow$ \textbf{inconclusive}, may be non-strict extremum
 \end{itemize}
-
-\noindent
-If the Hessian in 3D (or higher) is semi-definite, the test is inconclusive, and you must examine higher-order derivatives or check the function along specific directions near the critical point to determine the type of extremum, just like in 2D.
-
-\noindent
-\textbf{Remark:} These rules generalize to any dimension. In 2D, the determinant test is the \(2 \times 2\) special case of checking definiteness. Strictness is determined by definiteness: positive/negative definite → strict; semi-definite → non-strict.
-
-\begin{problem}
+\begin{remark}
+    If the Hessian in 3D (or higher) is semi-definite, the test is inconclusive, and you must examine higher-order derivatives or check the function along specific directions near the critical point to determine the type of extremum, just like in 2D.
+\end{remark}
+\begin{remark}
+    These rules generalize to any dimension. In 2D, the determinant test is the \(2 \times 2\) special case of checking definiteness. Strictness is determined by definiteness: positive/negative definite $\to$ strict; semi-definite $\to$ non-strict.
+\end{remark}
+\begin{problem}[Extrema in 3D]
     Let \(f(x,y,z) = x^2 + y^2 + z^2 + kyz\).
     \begin{enumerate}[label=(\alph*)]
         \item Verify that (0,0,0) is a critical point for \(f\).
@@ -324,7 +318,6 @@ If the Hessian in 3D (or higher) is semi-definite, the test is inconclusive, and
 \end{problem}
 
 \section{Constrained Extrema and Lagrange Multipliers}
-
 \subsection{Lagrange Multipliers Method}  
 To find extrema of a function $f:\mathbb{R}^n \to \mathbb{R}$ subject to a constraint $g:\mathbb{R}^n \to \mathbb{R}$ with $g(x) = c$:  
 \begin{enumerate}
@@ -346,25 +339,15 @@ For differentiable $f$ on closed, bounded $D = U \cup \partial U$:
     \item Pick the largest and smallest values.
 \end{enumerate}
 
-\subsection*{Second-Derivative Test for Constrained Extrema (Skip)}
+\subsection{Second-Derivative Test for Constrained Extrema (Skip)}
 For constrained extrema of $f$ with constraint $g=c$, assume both are $C^{2}$, $\nabla g(v_{0})\neq 0$, and $\nabla f(v_{0})=\lambda\nabla g(v_{0})$ for some $\lambda$. Define $h=f-\lambda g$. The bordered Hessian at $v_{0}$ is
-
-\[
-H_b=
-\begin{vmatrix}
-0 & -g_x & -g_y \\
--g_x & h_{xx} & h_{xy} \\
--g_y & h_{xy} & h_{yy}
-\end{vmatrix}_{v_{0}}.
-\]
-
+\[H_b=\begin{vmatrix}0 & -g_x & -g_y \\-g_x & h_{xx} & h_{xy} \\-g_y & h_{xy} & h_{yy}\end{vmatrix}_{v_{0}}.\]
 Classification:
 \begin{itemize}
     \item $H_b>0$ gives a local maximum on the constraint curve.
     \item $H_b<0$ gives a local minimum on the constraint curve.
     \item $H_b=0$ is inconclusive.
 \end{itemize}
-
 This method was not covered in our course, so exercises requiring it are skipped, but would be good to at least understand it.
 
 \section{Path Integrals and Geometry of Curves}
@@ -374,56 +357,37 @@ For a curve \(c(t) = (c_1(t), \dots, c_n(t))\), the tangent vector \(c'(t)\) sho
 
 \subsection{Length of a Curve}  
 The length of a curve measures the total distance traveled along it. For \(c(t)\) from \(t = a\) to \(t = b\), the length is
-\[
-L = \int_a^b \|c'(t)\| \, dt.
-\] 
+\[L = \int_a^b \|c'(t)\| \, dt.\] 
 If the curve is in multiple dimensions, \(c(t) = (c_1(t), \dots, c_n(t))\), the integral becomes
-\[
-L = \int_a^b \sqrt{(c_1'(t))^2 + \dots + (c_n'(t))^2} \, dt.
-\]  
+\[L = \int_a^b \sqrt{(c_1'(t))^2 + \dots + (c_n'(t))^2} \, dt.\]  
 This formula adds up all the tiny distances along the path.
 
 \subsection{Path Integral}  
 A path integral sums a function \(f\) along the curve while taking into account how far along the curve you are. For a function \(f\) defined along \(c(t)\), the path integral is
-\[
-\int_c f \, ds = \int_a^b f(c(t)) \|c'(t)\| \, dt.
-\]  
+\[\int_c f \, ds = \int_a^b f(c(t)) \|c'(t)\| \, dt.\]  
 Intuitively, it weights the function \(f\) by the distance traveled along the curve.
 
 \subsection{Arc-Length}  
 The arc length of a curve measures the distance traveled along it from the starting point. For \(c(t) = (x(t), y(t), z(t))\) from \(t_0\) to \(t_1\), the arc length is
-\[
-L = \int_{t_0}^{t_1} \sqrt{(x'(t))^2 + (y'(t))^2 + (z'(t))^2} \, dt.
-\]  
+\[L = \int_{t_0}^{t_1} \sqrt{(x'(t))^2 + (y'(t))^2 + (z'(t))^2} \, dt.\]  
 This gives the total length of the curve in space.
 
 \section{Vector Fields}
-
 \subsection{Vector Fields and Flow Lines}  
 A vector field just gives a vector at every point in space. If you have a curve \(c(t)\), it is a flow line if at every point the vector from the field matches the direction the curve goes:  
-\[
-c'(t) = F(c(t))
-\]  
+\[c'(t) = F(c(t))\]  
 In coordinates, this means each component of \(c'(t)\) equals the corresponding component of \(F(c(t))\).  
 
-Example: in 2D, the vector field \(F = -y\mathbf{i} + x\mathbf{j}\) has circles as flow lines.
+\begin{example}
+    In 2D, the vector field \(F = -y\mathbf{i} + x\mathbf{j}\) has circles as flow lines.
+\end{example}
 
 \subsection{Divergence and Curl}  
 Divergence measures how much a vector field spreads out or compresses at a point, which is also the net flux leaving a tiny volume around that point. For \(F = (F_1, \dots, F_n)\):  
-\[
-\text{div } F = \nabla \cdot F = \frac{\partial F_1}{\partial x_1} + \dots + \frac{\partial F_n}{\partial x_n}.
-\]  
+\[\text{div } F = \nabla \cdot F = \frac{\partial F_1}{\partial x_1} + \dots + \frac{\partial F_n}{\partial x_n}.\]  
 Curl measures rotation of the field around a point. Place a tiny paddle wheel in the field: if it spins, curl is nonzero; its direction is the axis of rotation. In 3D, for \(F = (F_1, F_2, F_3)\):  
-\[
-\text{curl } F = \nabla \times F = 
-\begin{vmatrix}
-\mathbf{i} & \mathbf{j} & \mathbf{k} \\
-\frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
-F_1 & F_2 & F_3
-\end{vmatrix}.
-\]  
+\[\text{curl } F = \nabla \times F = \begin{vmatrix}\mathbf{i} & \mathbf{j} & \mathbf{k} \\\frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\F_1 & F_2 & F_3\end{vmatrix}.\]  
 A field is incompressible if \(\text{div } F = 0\) (no net flux) and irrotational if \(\text{curl } F = 0\). Gradients are always irrotational.
-
 
 \subsection{Rules}  
 For smooth fields, the following always hold: the curl of a gradient is 0, the divergence of a curl is 0, and for a scalar function \(f\) and vector fields \(F, G\):  
@@ -884,7 +848,6 @@ in two ways:
 \end{problem}
 
 \section{Answer key}
-\setcounter{solution}{0}
 \begin{solution}
 Using AM-GM, we can bound the denominator:
 \[x^{2k} + y^2 \geq 2\sqrt{x^{2k}y^2} = 2|x|^k|y|.\]
