@@ -853,9 +853,12 @@ Use this when the space is $F(X)$ for a finite set $X$. The dimension equals the
 \subsection{Coordinates and Change of Basis}
 % -----------------------------------------------------------
 \marginpar{February 4--6, 2026}
-\begin{theorem}
+\begin{theorem}[Unique coordinates]
     Let $e_1,\ldots,e_n$ be vectors in $V$. The following are equivalent:
-    
+    \begin{itemize}
+        \item Basis : $e_1,\ldots,e_n$ span $V$ and are LI.
+        \item Unique coordinates: every vectors $v\in V$ can be written as $v = \sum_i \lambda_i e_i$ in a unique way.
+    \end{itemize}
 \end{theorem}
 \subsubsection{Coordinate Vectors}
 \begin{definition}[Coordinate vectors]
@@ -911,6 +914,13 @@ Let $U$ and $V$ be sets. A transformation $T: U \to V$ assigns to each $u \in U$
         \item $T$ is \textbf{bijective} if it is both injective and surjective, i.e., every element of $V$ is hit by \emph{exactly} one element of $U$.
     \end{itemize}
 \end{definition}
+\begin{definition}[Operator]
+    An operator is a linear transformation of $U$ into itself (i.e. $U \to U$).
+\end{definition}
+\begin{remark}
+    An operator $T: U\to U$ has this following condition:
+    \[T \text{is surjective} \iff T \text{is injective} \iff T \text{is bijective}.\]
+\end{remark}
 \begin{example}
     $f: \mathbb{R}\to\mathbb{R}$, $x\mapsto x^3$ is bijective: every real number has exactly one real cube root, so distinct inputs give distinct outputs (injective) and every output is achieved (surjective). On the other hand, $f: \mathbb{R}\to\mathbb{R}$, $x\mapsto x^2$ is neither: it is not injective since $(-2)^2 = 2^2 = 4$ (two inputs, same output), and not surjective since negative numbers are never achieved.
 \end{example}
@@ -1108,6 +1118,9 @@ Suppose $V = U\oplus U'$. Every $v\in V$ writes uniquely as $v=u+u'$. Define $P(
 \begin{theorem}[Isomorphism Theorem 2]
     $\Phi$ is an isomorphism $\iff$ $(v_1,\ldots,v_n)$ is a basis for $V$. In this case, $[v]_e = \Phi^{-1}(v)$.
 \end{theorem}
+\begin{proof}
+    $\Phi$ is surjective $\iff$ $(v_1,\ldots,v_n)$ span $V$; $\Phi$ is injective $\iff$ $(v_1,\ldots,v_n)$ are LI.
+\end{proof}
 
 % -----------------------------------------------------------
 \subsection{Change of Basis}
@@ -1317,9 +1330,13 @@ One can do both by means of an inner product on $V$. We explain the case $K = R$
 \begin{definition}[Adjoint Matrix]
     Let $A \in M_{n}(\mathbb{C})$ be a complex matrix. The adjoint of $A$ is the complex matrix $A^* \in M_{n}(\mathbb{C})$ defined by $A^\ast = \overline{A}^t$.
 \end{definition}
+\begin{theorem}[Adjoint Property of Inner Products]
+    Let $T$ be a linear transformation from an inner product space $V$ to itself, and let $v,w \in V$. Then
+    \[\langle Tv,w\rangle = \langle v,T^\ast w\rangle.\]
+\end{theorem}
 \begin{definition}[Core Adjoint and Inner Product Rules]
     Core Adjoint and Inner Product Rules, the main property is
-    \[\langle Tv,w \rangle = \langle v,T^\ast w \rangle\]x
+    \[\langle Tv,w \rangle = \langle v,T^\ast w \rangle.\]
 \end{definition}
 
 
@@ -1387,6 +1404,14 @@ One can do both by means of an inner product on $V$. We explain the case $K = R$
 \begin{definition}[Unitary Matrix 2]
     A complex $A \in M_n(\mathbb{C})$ is unitary if $AA^\ast = A^\ast A = Id$; equivalently, $A$ is invertible with inverse $A^{-1} = A^\ast$.
 \end{definition}
+\begin{definition}[Orthogonal Complement]
+    An orthogonal complement of a subspace $W \subseteq V$ is the set
+    \[W^\perp = \{v\in V : v\perp w,\,\forall w\in W\}.\]
+\end{definition}
+\begin{theorem}[The Dimension of an Orthogonal Complement]
+    For any subspace $W\subseteq V$,
+    \[\dim(W) + \dim(W^\perp) = \dim(V).\]
+\end{theorem}
 
 \subsection{Symmetric Matrices Are Diagonalizable}
 \marginpar{March 25, 2026}
