@@ -667,7 +667,7 @@ Let $W$ be a vector space and $U,V \subseteq W$ subspaces.
 
 \paragraph{Analogy with sets.}
 \[\begin{array}{c|c}
-\text{Sets} & \text{Vector spaces} \\
+\text{Set Theory} & \text{Linear Algebra (Vector Spaces)} \\
 \hline
 A \cap B & U \cap V \\
 A \cup B & U + V \\
@@ -836,8 +836,14 @@ Use this when the space is $F(X)$ for a finite set $X$. The dimension equals the
 \begin{proof}
     Set $U=\Span(v_1,\ldots,v_m)$. If $U=V$, done. Otherwise pick $v_{m+1}\in V\setminus U$; this gives a larger LI set. Repeat until the span equals $V$, which happens after at most $\dim V - m$ steps.
 \end{proof}
+\begin{corollary}[Existence of Supplement]
+    If $U\subseteq V$, then there exists a subspace $U'$ of $V$ such that $V = U \oplus U'$, $U'$ is called supplement of $U$ in $V$. $U'$ is not unique
+\end{corollary}
 \begin{theorem}[Basis extraction]
     If $v_1,\ldots,v_n$ span $V$, one can extract a basis from this list.
+\end{theorem}
+\begin{theorem}[Basis Juxtaposition]
+    If $U \oplus V = W$, $(e_1,\ldots,e_n)$ is a basis of $U$ and $(f_1,\ldots,f_n)$ is a basis of $V$, then $(e_1,\ldots,e_n,f_1,\ldots,f_m)$ is a basis of $U \oplus V$.
 \end{theorem}
 \begin{problem}[Basis Extension]
     Let $V$ be a finite-dimensional vector space and $L \subseteq V$ linearly independent. Show there is a basis $B \supseteq L$ of $V$.
@@ -847,6 +853,10 @@ Use this when the space is $F(X)$ for a finite set $X$. The dimension equals the
 \subsection{Coordinates and Change of Basis}
 % -----------------------------------------------------------
 \marginpar{February 4--6, 2026}
+\begin{theorem}
+    Let $e_1,\ldots,e_n$ be vectors in $V$. The following are equivalent:
+    
+\end{theorem}
 \subsubsection{Coordinate Vectors}
 \begin{definition}[Coordinate vectors]
     For basis $(v_1,\ldots,v_n)$ of $V$, every $v=x_1v_1+\cdots+x_nv_n$ uniquely, and $[v]_e = \begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix}$ is the coordinate vector of $v$.
