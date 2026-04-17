@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  16 APR 2026 22:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  17 APR 2026 18:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -624,7 +624,7 @@ l.113 \end{center}
                    [1
 
 ]
-<../Images/Pulsating-direct-current-diagram.svg.png, id=549, 1284.8pt x 632.3625pt>
+<../Images/Pulsating-direct-current-diagram.svg.png, id=614, 1284.8pt x 632.3625pt>
 File: ../Images/Pulsating-direct-current-diagram.svg.png Graphic file (type png)
 <use ../Images/Pulsating-direct-current-diagram.svg.png>
 Package pdftex.def Info: ../Images/Pulsating-direct-current-diagram.svg.png  used on input line 119.
@@ -654,7 +654,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 211--211
 []\OT1/cmr/m/n/10 January 22,
  []
 
-<../Images/Lenzslaw.png, id=580, 465.74pt x 155.07938pt>
+<../Images/Lenzslaw.png, id=645, 465.74pt x 155.07938pt>
 File: ../Images/Lenzslaw.png Graphic file (type png)
 <use ../Images/Lenzslaw.png>
 Package pdftex.def Info: ../Images/Lenzslaw.png  used on input line 231.
@@ -670,13 +670,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 278--278
  []
 
 [6]
-<../Images/Ohms-Law-Formula-Wheel.png, id=600, 432.61626pt x 321.2pt>
+<../Images/Ohms-Law-Formula-Wheel.png, id=665, 432.61626pt x 321.2pt>
 File: ../Images/Ohms-Law-Formula-Wheel.png Graphic file (type png)
 <use ../Images/Ohms-Law-Formula-Wheel.png>
 Package pdftex.def Info: ../Images/Ohms-Law-Formula-Wheel.png  used on input line 309.
 (pdftex.def)             Requested size: 172.5pt x 128.07582pt.
  [7]
-<../Images/kirchhoffrule.jpg, id=608, 702.625pt x 396.48125pt>
+<../Images/kirchhoffrule.jpg, id=673, 702.625pt x 396.48125pt>
 File: ../Images/kirchhoffrule.jpg Graphic file (type jpg)
 <use ../Images/kirchhoffrule.jpg>
 Package pdftex.def Info: ../Images/kirchhoffrule.jpg  used on input line 326.
@@ -692,7 +692,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) has
                                                   \__shipout_drop_firstpage_...
 l.342 \end{definition}
                        <../Images/Ohms-Law-Formula-Wheel.png> <../Images/kirchhoffrule.jpg>]
-<../Images/AC_symbol.png, id=618, 149.05687pt x 51.19125pt>
+<../Images/AC_symbol.png, id=683, 149.05687pt x 51.19125pt>
 File: ../Images/AC_symbol.png Graphic file (type png)
 <use ../Images/AC_symbol.png>
 Package pdftex.def Info: ../Images/AC_symbol.png  used on input line 355.
@@ -707,7 +707,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 409--409
 []\OT1/cmr/m/n/10 January 20,
  []
 
-<../Images/Parallel_resistors.png, id=629, 288.07625pt x 211.28937pt>
+<../Images/Parallel_resistors.png, id=694, 288.07625pt x 211.28937pt>
 File: ../Images/Parallel_resistors.png Graphic file (type png)
 <use ../Images/Parallel_resistors.png>
 Package pdftex.def Info: ../Images/Parallel_resistors.png  used on input line 424.
@@ -718,7 +718,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.6}) has
                                                   \__shipout_drop_firstpage_...
 l.455 \[V_{\text{terminal}} = V_0 - Ir.\]
                                           <../Images/Parallel_resistors.png>] [12] [13]
-<../Images/Inductor_symbols.png, id=665, 129.98563pt x 274.02374pt>
+<../Images/Inductor_symbols.png, id=730, 129.98563pt x 274.02374pt>
 File: ../Images/Inductor_symbols.png Graphic file (type png)
 <use ../Images/Inductor_symbols.png>
 Package pdftex.def Info: ../Images/Inductor_symbols.png  used on input line 530.
@@ -729,7 +729,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.7}) has
                                                   \__shipout_drop_firstpage_...
 l.546 ...c{di}{dt}\cdot i\,dt = \frac{1}{2}LI^2.\]
                                                    <../Images/Inductor_symbols.png>]
-<../Images/Solenoid.png, id=672, 314.67563pt x 251.43938pt>
+<../Images/Solenoid.png, id=737, 314.67563pt x 251.43938pt>
 File: ../Images/Solenoid.png Graphic file (type png)
 <use ../Images/Solenoid.png>
 Package pdftex.def Info: ../Images/Solenoid.png  used on input line 568.
@@ -740,7 +740,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.8}) has
                                                   \__shipout_drop_firstpage_...
 l.577     \begin{center}
                          <../Images/Solenoid.png>]
-<../Images/Transformer.png, id=683, 354.32375pt x 277.035pt>
+<../Images/Transformer.png, id=748, 354.32375pt x 277.035pt>
 File: ../Images/Transformer.png Graphic file (type png)
 <use ../Images/Transformer.png>
 Package pdftex.def Info: ../Images/Transformer.png  used on input line 594.
@@ -751,7 +751,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.9}) has
                                                   \__shipout_drop_firstpage_...
 l.620 \end{definition}
                        <../Images/Transformer.png>]
-<../Images/RC_circuit.png, id=692, 296.60812pt x 349.80687pt>
+<../Images/RC_circuit.png, id=757, 296.60812pt x 349.80687pt>
 File: ../Images/RC_circuit.png Graphic file (type png)
 <use ../Images/RC_circuit.png>
 Package pdftex.def Info: ../Images/RC_circuit.png  used on input line 626.
@@ -777,7 +777,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 686--686
  []
 
 [18]
-<../Images/LR_circuit.png, id=706, 306.14375pt x 337.76187pt>
+<../Images/LR_circuit.png, id=771, 306.14375pt x 337.76187pt>
 File: ../Images/LR_circuit.png Graphic file (type png)
 <use ../Images/LR_circuit.png>
 Package pdftex.def Info: ../Images/LR_circuit.png  used on input line 739.
@@ -817,18 +817,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 953--953
  []
 
 [26]
-<../Images/RCcircuit.png, id=759, 626.84187pt x 328.72812pt>
+<../Images/RCcircuit.png, id=824, 626.84187pt x 328.72812pt>
 File: ../Images/RCcircuit.png Graphic file (type png)
 <use ../Images/RCcircuit.png>
 Package pdftex.def Info: ../Images/RCcircuit.png  used on input line 1001.
 (pdftex.def)             Requested size: 276.00105pt x 144.74614pt.
-<../Images/RCcircuit2.png, id=760, 328.72812pt x 357.335pt>
+<../Images/RCcircuit2.png, id=825, 328.72812pt x 357.335pt>
 File: ../Images/RCcircuit2.png Graphic file (type png)
 <use ../Images/RCcircuit2.png>
 Package pdftex.def Info: ../Images/RCcircuit2.png  used on input line 1006.
 (pdftex.def)             Requested size: 207.0021pt x 225.01863pt.
  [27 <../Images/RCcircuit.png> <../Images/RCcircuit2.png>]
-<../Images/RCcircuit3.png, id=768, 330.23375pt x 365.86688pt>
+<../Images/RCcircuit3.png, id=833, 330.23375pt x 365.86688pt>
 File: ../Images/RCcircuit3.png Graphic file (type png)
 <use ../Images/RCcircuit3.png>
 Package pdftex.def Info: ../Images/RCcircuit3.png  used on input line 1033.
@@ -886,50 +886,60 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1376.
 
 [39]
-Underfull \hbox (badness 10000) in paragraph at lines 1408--1408
+Underfull \hbox (badness 10000) in paragraph at lines 1409--1409
 []\OT1/cmr/m/n/10 March 24,
  []
 
-[40] [41] [42]
-Overfull \hbox (32.04163pt too wide) in paragraph at lines 1572--1576
+[40] [41] [42] [43]
+Overfull \hbox (10.74657pt too wide) in paragraph at lines 1566--1579
+ [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1583--1583
+[]\OT1/cmr/m/n/10 March 31,
+ []
+
+[44] [45] [46] [47]
+Overfull \hbox (32.04163pt too wide) in paragraph at lines 1752--1756
 \OT1/cmr/bx/n/10 Inductors (vi-sual ex-pla-na-tion): [][]$\OT1/cmtt/m/n/10 https : / / www . youtube . com / shorts / lXk4CQDbr4Q$[][] 
  []
 
 
-Overfull \hbox (37.58322pt too wide) in paragraph at lines 1572--1576
+Overfull \hbox (37.58322pt too wide) in paragraph at lines 1752--1756
 \OT1/cmr/bx/n/10 Capacitors (vi-sual ex-pla-na-tion): [][]$\OT1/cmtt/m/n/10 https : / / www . youtube . com / shorts / PYrTLQctdwg$[][] 
  []
 
 
-Overfull \hbox (7.22375pt too wide) in paragraph at lines 1572--1576
+Overfull \hbox (7.22375pt too wide) in paragraph at lines 1752--1756
 \OT1/cmr/bx/n/10 Resistors (in-tro-duc-tion): [][]$\OT1/cmtt/m/n/10 https : / / www . youtube . com / watch ? v = 5HI33hSZoH4$[][]
  []
 
 
-Overfull \hbox (21.74866pt too wide) in paragraph at lines 1572--1576
+Overfull \hbox (21.74866pt too wide) in paragraph at lines 1752--1756
 \OT1/cmr/bx/n/10 Draw-ing Cir-cuits for la-tex: [][]$\OT1/cmtt/m/n/10 https : / / www . circuit2tikz . tf . fau . de / designer/$[][] 
  []
 
-[43] (Phys241.aux)
+[48] (Phys241.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
 Package rerunfilecheck Info: File `Phys241.out' has not changed.
-(rerunfilecheck)             Checksum: 2CDF3342856C8A0919132D811CF29E06;16801.
+(rerunfilecheck)             Checksum: 0F209D6135554E0C8FEB005FFEE198DE;19281.
  ) 
 Here is how much of TeX's memory you used:
- 51005 strings out of 467871
- 1328785 string characters out of 5418377
- 2055253 words of memory out of 5000000
- 79086 multiletter control sequences out of 15000+600000
+ 51067 strings out of 467871
+ 1329658 string characters out of 5418377
+ 2055260 words of memory out of 5000000
+ 79108 multiletter control sequences out of 15000+600000
  638097 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,9n,118p,799b,1070s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\erenr\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on Phys241.pdf (47 pages, 1613875 bytes).
+ 99i,10n,118p,799b,1070s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\erenr\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on Phys241.pdf (52 pages, 1651404 bytes).
 PDF statistics:
- 1038 PDF objects out of 1200 (max. 8388607)
- 254 named destinations out of 1000 (max. 500000)
- 891 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1158 PDF objects out of 1200 (max. 8388607)
+ 294 named destinations out of 1000 (max. 500000)
+ 995 words of extra memory for PDF output out of 10000 (max. 10000000)
 

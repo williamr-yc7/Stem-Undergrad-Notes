@@ -111,7 +111,20 @@
 \contentsline {paragraph}{Approach 2: Theoretical (known circuit diagram).}{39}{section*.29}%
 \contentsline {subsection}{\numberline {9.8}Norton's Theorem}{39}{subsection.9.8}%
 \contentsline {subsubsection}{\numberline {9.8.1}Equivalence of Thévenin and Norton Representations}{39}{subsubsection.9.8.1}%
-\contentsline {section}{\numberline {10}IDK where to put the info below}{40}{section.10}%
-\contentsline {section}{\numberline {11}Appendix}{40}{section.11}%
-\contentsline {subsection}{\numberline {11.1}Important Concepts}{40}{subsection.11.1}%
-\contentsline {section}{\numberline {12}Useful Links}{43}{section.12}%
+\contentsline {section}{\numberline {10}Fourier Analysis}{40}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Fourier Series}{40}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Orthogonality Relations}{40}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}Fourier Coefficients}{41}{subsection.10.3}%
+\contentsline {subsection}{\numberline {10.4}Convergence: Dirichlet's Theorem}{41}{subsection.10.4}%
+\contentsline {subsection}{\numberline {10.5}Fourier Transform}{42}{subsection.10.5}%
+\contentsline {subsection}{\numberline {10.6}Gibbs Phenomenon}{42}{subsection.10.6}%
+\contentsline {subsection}{\numberline {10.7}Example: Sawtooth Wave}{42}{subsection.10.7}%
+\contentsline {subsection}{\numberline {10.8}Even and Odd Functions}{42}{subsection.10.8}%
+\contentsline {subsection}{\numberline {10.9}Transfer Functions and Linear Systems}{43}{subsection.10.9}%
+\contentsline {subsubsection}{\numberline {10.9.1}Application to a Sawtooth Input}{43}{subsubsection.10.9.1}%
+\contentsline {subsection}{\numberline {10.10}Complex Form of the Fourier Series}{44}{subsection.10.10}%
+\contentsline {subsection}{\numberline {10.11}Fourier Series vs.\ Fourier Transform}{44}{subsection.10.11}%
+\contentsline {section}{\numberline {11}IDK where to put the info below}{45}{section.11}%
+\contentsline {section}{\numberline {12}Appendix}{45}{section.12}%
+\contentsline {subsection}{\numberline {12.1}Important Concepts}{45}{subsection.12.1}%
+\contentsline {section}{\numberline {13}Useful Links}{48}{section.13}%

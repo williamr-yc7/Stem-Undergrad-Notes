@@ -1402,10 +1402,190 @@ The two theorems are equivalent. Applying KCL at the output node of the Norton c
 Identifying $e \equiv r_N\,i$ and $r \equiv r_N$ recovers the Thévenin relation $\Delta V_{AB} = e - r\,I_{AB}$. The conversion relations between the two representations are therefore
 \[e = r_N\,i, \qquad r = r_N.\]
 
+% ============================================================
+%  10. FOURIER ANALYSIS
+% ============================================================
+\section{Fourier Analysis}
+\marginpar{March 24, 2026}
+
+\subsection{Fourier Series}
+
+Periodic signals can be expressed as sums of sinusoidal components of varying frequency. Let $f(t)$ be periodic with period $T$, so that $f(t) = f(t+T)$.
+
+\begin{definition}[Fourier Series]
+    The Fourier series of $f(t)$ is its expansion as a sum of cosine and sine functions:
+    \[f(t) = \frac{a_0}{2} + \sum_{n=1}^{\infty}\left[a_n\cos(\omega_n t) + b_n\sin(\omega_n t)\right],\]
+    where $\omega_n = \frac{2\pi n}{T}$. The term $n = 1$ is the \textbf{fundamental}, $n = 2$ is the \textbf{first harmonic}, $n = 3$ is the \textbf{second harmonic}, and so on. The constant $a_0/2$ captures the non-varying (DC) component of the signal.
+\end{definition}
+
+Both sine and cosine terms are required in order to capture the phase of the periodic function being decomposed. Both families of functions are needed because neither alone forms a complete basis for arbitrary periodic signals.
+
+\begin{example}
+    $f(t) = \cos^2(at) = \tfrac{1}{2} + \tfrac{1}{2}\cos(2at)$, so $a_0 = 1$, $a_1 = \tfrac{1}{2}$, with $a = \pi/T$.
+\end{example}
+
+\begin{example}
+    \begin{align*}
+        f(t) = \cos^4(at) &= \left(\tfrac{1}{2} + \tfrac{1}{2}\cos(2at)\right)^2 \\
+                          &= \tfrac{1}{4} + \tfrac{1}{2}\cos(2at) + \tfrac{1}{4}\cos^2(2at) \\
+                          &= \tfrac{3}{8} + \tfrac{1}{2}\cos(2at) + \tfrac{1}{8}\cos(4at),
+    \end{align*}
+    so $a_0 = 3/4$, $a_1 = 1/2$, $a_2 = 1/8$, with $a = \pi/T$.
+\end{example}
+
+\subsection{Orthogonality Relations}
+
+The cosine and sine functions satisfy the following orthogonality integrals, where $\delta_{nm}$ is the Kronecker delta:
+\[\delta_{nm} = \begin{cases} 1, & n = m \\ 0, & n \neq m \end{cases}.\]
+\begin{enumerate}
+    \item $\displaystyle\int_{-T/2}^{T/2}\cos\!\left(\tfrac{2\pi n}{T}t\right)\cos\!\left(\tfrac{2\pi m}{T}t\right)dt = \frac{T}{2}\,\delta_{nm}$
+    \item $\displaystyle\int_{-T/2}^{T/2}\sin\!\left(\tfrac{2\pi n}{T}t\right)\sin\!\left(\tfrac{2\pi m}{T}t\right)dt = \frac{T}{2}\,\delta_{nm}$
+    \item $\displaystyle\int_{-T/2}^{T/2}\cos\!\left(\tfrac{2\pi n}{T}t\right)\sin\!\left(\tfrac{2\pi m}{T}t\right)dt = 0$
+\end{enumerate}
+These relations express the fact that the cosines and sines form a \textbf{complete orthogonal basis} for periodic functions on $[-T/2,\, T/2]$.
+
+\subsection{Fourier Coefficients}
+
+Using the orthogonality relations, the Fourier coefficients are extracted by projection onto each basis function:
+\begin{enumerate}
+    \item $\displaystyle a_n = \frac{2}{T}\int_{-T/2}^{T/2} f(t)\cos(\omega_n t)\,dt$
+    \item $\displaystyle b_n = \frac{2}{T}\int_{-T/2}^{T/2} f(t)\sin(\omega_n t)\,dt$
+    \item $\displaystyle a_0 = \frac{2}{T}\int_{-T/2}^{T/2} f(t)\,dt$
+\end{enumerate}
+The constant $a_0$ is simply twice the time-average of $f(t)$ over one period.
+
+\subsection{Convergence: Dirichlet's Theorem}
+
+\begin{theorem}[Dirichlet's Theorem]
+    The Fourier series converges to $f(t)$ at all points where $f(t)$ is continuous. At a jump discontinuity, the series converges to the midpoint of the jump.
+\end{theorem}
+
+The theorem holds if and only if on the interval $[-T/2,\, T/2]$:
+\begin{enumerate}
+    \item $f(t)$ is single-valued.
+    \item $f(t)$ has a finite number of maxima and minima.
+    \item $f(t)$ has a finite number of discontinuities.
+    \item $\displaystyle\int_{-T/2}^{T/2}|f(t)|^2\,dt$ is finite.
+\end{enumerate}
+Any physically realisable waveform satisfies these conditions.
+
+\subsection{Fourier Transform}
+
+The Fourier series applies to periodic signals. For aperiodic signals, the generalisation is the \textbf{Fourier transform}, which decomposes a signal into a continuous spectrum of frequencies.
+
+\begin{definition}[Fourier Transform]
+    \[F(\omega) = \int_{-\infty}^{\infty} f(t)\,e^{-j\omega t}\,dt.\]
+\end{definition}
+
+\begin{definition}[Inverse Fourier Transform]
+    \[f(t) = \frac{1}{2\pi}\int_{-\infty}^{\infty} F(\omega)\,e^{j\omega t}\,d\omega.\]
+\end{definition}
+
+Here $f(t)$ is the \textbf{time-domain} representation of the signal, and $F(\omega)$ is its \textbf{frequency-domain} representation, describing how the signal's energy is distributed across frequencies.
+
+% ------- 10.6 Gibbs Phenomenon -------
+\subsection{Gibbs Phenomenon}
+
+At a jump discontinuity, truncating the Fourier series at a finite number of terms $N$ produces periodic overshoots and undershoots near the jump. These do not decrease in height as $N$ increases — the overshoot remains approximately $9\%$ of the jump — but the \emph{width} of the oscillations shrinks to zero as $N \to \infty$. This is known as the \textbf{Gibbs phenomenon}.
+
+\begin{remark}
+    Gibbs phenomenon does not contradict Dirichlet's theorem. The theorem guarantees convergence to the midpoint of the jump in the limit $N \to \infty$; it makes no claim about the behaviour of partial sums at finite $N$.
+\end{remark}
+
+% ------- 10.7 Example: Sawtooth Wave -------
+\subsection{Example: Sawtooth Wave}
+
+Consider $f(t) = t/T$ for $|t| \leq T/2$. Since $f(t)$ is odd, $a_n = 0$ for all $n$. The sine coefficients are
+\[b_n = \frac{2}{T}\int_{-T/2}^{T/2} f(t)\sin(\omega_n t)\,dt = \frac{2}{T^2}\int_{-T/2}^{T/2} t\sin\!\left(\frac{2\pi n t}{T}\right)dt = -\frac{(-1)^n}{n\pi}.\]
+
+% ------- 10.8 Even and Odd Functions -------
+\subsection{Even and Odd Functions}
+
+The parity of $f(t)$ simplifies the computation of Fourier coefficients, since the product of two functions of the same parity is even, and of opposite parity is odd. An integral of an odd function over a symmetric interval vanishes.
+
+\begin{enumerate}
+    \item If $f(t)$ is \textbf{even} ($f(-t) = f(t)$):
+    \begin{enumerate}[label=(\alph*)]
+        \item $\displaystyle a_n = \frac{2}{T}\int_{-T/2}^{T/2} f(t)\cos(\omega_n t)\,dt = \frac{4}{T}\int_0^{T/2} f(t)\cos(\omega_n t)\,dt$ \quad (even $\times$ even $=$ even)
+        \item $\displaystyle b_n = \frac{2}{T}\int_{-T/2}^{T/2} f(t)\sin(\omega_n t)\,dt = 0$ \quad (even $\times$ odd $=$ odd)
+    \end{enumerate}
+    \item If $f(t)$ is \textbf{odd} ($f(-t) = -f(t)$):
+    \begin{enumerate}[label=(\alph*)]
+        \item $\displaystyle a_n = \frac{2}{T}\int_{-T/2}^{T/2} f(t)\cos(\omega_n t)\,dt = 0$ \quad (odd $\times$ even $=$ odd)
+        \item $\displaystyle b_n = \frac{2}{T}\int_{-T/2}^{T/2} f(t)\sin(\omega_n t)\,dt = \frac{4}{T}\int_0^{T/2} f(t)\sin(\omega_n t)\,dt$ \quad (odd $\times$ odd $=$ even)
+    \end{enumerate}
+\end{enumerate}
+
+% ------- 10.9 Transfer Functions and Linear Systems -------
+\subsection{Transfer Functions and Linear Systems}
+
+\begin{definition}[Transfer Function]
+    For a linear circuit, the transfer function $H(\omega)$ is defined as the ratio of the complex output to the complex input for a single sinusoidal component:
+    \[H(\omega) \equiv \frac{\tilde{V}_{\text{out}}}{\tilde{V}_{\text{in}}}.\]
+\end{definition}
+
+For a sinusoidal input $\tilde{V}_{\text{in}}(t) = V_0 e^{j\omega t}$, the circuit produces
+\[\tilde{V}_{\text{out}}(t) = H(\omega)\,V_0\,e^{j\omega t}.\]
+For the RC low-pass circuit, $H(\omega) = \dfrac{Z_C}{Z_R + Z_C} = \dfrac{1}{1 + j\omega RC}$, giving
+\[|H(\omega)| = \frac{1}{\sqrt{1 + (\omega\tau)^2}}, \qquad \phi(\omega) = -\arctan(\omega\tau).\]
+For a real cosine input $V_{\text{in}}(t) = V_0\cos(\omega t + \phi_0)$, the output is
+\[V_{\text{out}}(t) = |H(\omega)|\,V_0\cos\!\left(\omega t + \phi_0 + \phi(\omega)\right).\]
+
+\subsubsection{Application to a Sawtooth Input}
+
+Since the circuit is linear, it acts independently on each Fourier component. For a sawtooth input
+\[V_{\text{in}}(t) = \sum_{n=1}^{\infty} b_n \sin(\omega_n t),\]
+the output is
+\[V_{\text{out}}(t) = \sum_{n=1}^{\infty} b_n\,|H(\omega_n)|\sin\!\left(\omega_n t + \phi(\omega_n)\right),\]
+where
+\[b_n = -\frac{(-1)^n}{n\pi}, \qquad |H(\omega_n)| = \frac{1}{\sqrt{1 + (\omega_n\tau)^2}}, \qquad \phi(\omega_n) = -\arctan(\omega_n\tau).\]
+
+% ------- 10.10 Complex Form of the Fourier Series -------
+\subsection{Complex Form of the Fourier Series}
+
+Using Euler's relation, the Fourier series can be rewritten in terms of complex exponentials:
+\[f(t) = \frac{a_0}{2} + \sum_{n=1}^{\infty}\left[a_n\cos(\omega_n t) + b_n\sin(\omega_n t)\right] = \sum_{k=-\infty}^{\infty} c_k\,e^{j\omega_k t}, \qquad \omega_k = \frac{2\pi k}{T},\]
+where
+\[c_0 = \frac{a_0}{2}, \qquad c_m = \frac{a_m - jb_m}{2}, \qquad c_{-m} = \frac{a_m + jb_m}{2}, \quad m \in \mathbb{N}.\]
+The complex exponentials satisfy an orthogonality relation,
+\[\int_{-T/2}^{T/2} e^{j\omega_k t}\,e^{-j\omega_{k'} t}\,dt = T\,\delta_{kk'},\]
+from which the coefficients are extracted by
+\[c_k = \frac{1}{T}\int_{-T/2}^{T/2} f(t)\,e^{-j\omega_k t}\,dt, \qquad k \in \mathbb{Z}.\]
+
+\begin{example}
+    Let $f(t) = \begin{cases} 1, & |t| \leq T/4 \\ 0, & T/4 < |t| \leq T/2 \end{cases}$. Then
+    \[c_k = \frac{1}{T}\int_{-T/4}^{T/4} e^{-j\omega_k t}\,dt = \frac{1}{2j\pi k}\!\left(e^{j\pi k/2} - e^{-j\pi k/2}\right) = \frac{\sin(\pi k/2)}{\pi k}.\]
+    The coefficients are real and symmetric ($c_k = c_{-k}$), which reflects the fact that $f(t)$ is a real-valued even function.
+\end{example}
+
+% ------- 10.11 Fourier Series vs. Fourier Transform -------
+\subsection{Fourier Series vs.\ Fourier Transform}
+
+\begin{center}
+{\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{|l|l|l|}
+    \hline
+    & \textbf{Fourier Series} & \textbf{Fourier Transform} \\
+    \hline
+    Domain      & Periodic $f(t)$ on finite interval & Aperiodic $f(t)$ on $(-\infty, \infty)$ \\
+    \hline
+    Frequencies & Discrete: $\omega_k = \dfrac{2\pi k}{T}$ & Continuous: $\omega \in \mathbb{R}$ \\
+    \hline
+    Representation & $\displaystyle f(t) = \sum_{k=-\infty}^{\infty} c_k\,e^{j\omega_k t}$ & $\displaystyle f(t) = \frac{1}{2\pi}\int_{-\infty}^{\infty} F(\omega)\,e^{j\omega t}\,d\omega$ \\
+    \hline
+    Coefficients & $\displaystyle c_k = \frac{1}{T}\int_{-T/2}^{T/2} f(t)\,e^{-j\omega_k t}\,dt$ & $\displaystyle F(\omega) = \int_{-\infty}^{\infty} f(t)\,e^{-j\omega t}\,dt$ \\
+    \hline
+\end{tabular}}
+\end{center}
 
 
 \section{IDK where to put the info below}
-\marginpar{March 24, 2026}
+\marginpar{March 31, 2026}
+
+
+
+
+
 
 
 % ============================================================
