@@ -134,7 +134,7 @@ A pulsating current is an alternating current superimposed on a non-zero DC leve
 %  3. ELECTROMAGNETIC THEORY
 % ============================================================
 \section{Electromagnetic Theory}
-
+Honestly, this section there isn't really something that he will test you upon but it should be knowledge that you should know to better grasp the idea behind how a circuit works.
 % ------- 3.1 Electric Charge -------
 \subsection{Electric Charge}
 \begin{definition}[Electric Charge]
@@ -167,10 +167,12 @@ A pulsating current is an alternating current superimposed on a non-zero DC leve
 \begin{definition}[Electric Potential]
     The electric potential is a scalar quantity with units of volts (V) that represents the work done per unit charge to move a positive test charge from a reference point (often taken at infinity) to the point $\vec{r}$, without changing its kinetic energy.   
 \end{definition}
-\begin{proposition}
+\begin{proposition}[Formula for Electric Potential]
     The electric potential $V(\vec{r})$ at a point is the electric potential energy per unit charge:
     \[V = \frac{U}{q}.\]
-    It is defined relative to a reference point $\vec{r}_0$ by
+\end{proposition}
+\begin{proposition}[Relation to Electric Field]
+    It is also defined relative to a reference point $\vec{r}_0$ by
     \[V(\vec{r}) - V(\vec{r}_0) = -\int_{\vec{r}_0}^{\vec{r}} \vec{E} \cdot d\vec{l},\]
     where $\vec{E}$ is the electric field. The electric field is related to the potential by
     \[\vec{E} = -\nabla V.\]
@@ -184,10 +186,13 @@ A pulsating current is an alternating current superimposed on a non-zero DC leve
 % ------- 3.4 Electric Potential Energy -------
 \subsection{Electric Potential Energy}
 \begin{definition}[Electric Potential Energy]
-    Electric potential energy $U$ is the energy a charge possesses due to its position in an electric field. For a charge $q$ at a point where the electric potential is $V$, the potential energy is
-    \[U = qV,\]
-    and is measured in joules (J). Since electric potential is defined relative to a reference point, the potential energy is also defined relative to that same reference.
+    Electric potential energy $U$ is the energy a charge possesses due to its position in an electric field. Since electric potential is defined relative to a reference point, the potential energy is also defined relative to that same reference.
 \end{definition}
+\begin{proposition}[Formula for Electric Potential Energy]
+    For a charge $q$ at a point where the electric potential is $V$, the potential energy is
+    \[U = qV,\]
+    and is measured in joules (J).
+\end{proposition}
 An electron placed between two charged plates experiences a potential difference $\Delta V$. The change in its electric potential energy is
 \[\Delta U = q\,\Delta V.\]
 If the electron is allowed to move freely, this change in electric potential energy is converted into kinetic energy:
@@ -196,20 +201,31 @@ If the electron is allowed to move freely, this change in electric potential ene
 % ------- 3.5 Magnetic Field -------
 \subsection{Magnetic Field}
 \begin{definition}[Magnetic Field]
-    A magnetic field $\vec{B}$ is a vector field produced by moving electric charges (currents) and intrinsic magnetic moments of particles. It exerts a force on moving charges given by the Lorentz force law:
-    \[\vec{F} = q(\vec{v} \times \vec{B}),\]
-    where $q$ is the charge and $\vec{v}$ is its velocity. The force is perpendicular to both the velocity and the magnetic field. Unlike electric fields, which act on charges whether stationary or moving, magnetic fields act only on moving charges. For a long straight current-carrying wire, the magnitude of the magnetic field at a distance $r$ is
+    A magnetic field $\vec{B}$ is a vector field produced by moving electric charges (currents) and intrinsic magnetic moments of particles. It exerts a force on moving charges given by the Lorentz force law, which is perpendicular to both the velocity and the magnetic field.
+\end{definition}
+\begin{remark}[Magnetic Fields vs. Electric Fields]
+    Unlike electric fields, which act on charges whether stationary or moving, magnetic fields act only on moving charges.
+\end{remark}
+\begin{theorem}[Lorentz Force Law]
+    The force $\vec{F}$ on a charge $q$ moving with velocity $\vec{v}$ in a magnetic field $\vec{B}$ is given by
+    \[\vec{F} = q(\vec{v} \times \vec{B}).\]
+\end{theorem}
+\begin{proposition}[Magnetic Field from a Current-Carrying Wire]
+    For a long straight current-carrying wire, the magnitude of the magnetic field at a distance $r$ is
     \[B = \frac{\mu_0 I}{2\pi r},\]
     where $\mu_0$ is the permeability of free space\footnote{The permeability of free space is $\mu_0 = 4\pi \times 10^{-7}\,\mathrm{T} \cdot \mathrm{m/A}$.} and $I$ is the current. The SI unit of magnetic field is the tesla (T).
-\end{definition}
+\end{proposition}
 
 % ------- 3.6 Magnetic Flux -------
 \subsection{Magnetic Flux}
 \begin{definition}[Magnetic Flux]
     Magnetic flux $\Phi_B$ through a surface is defined as the surface integral of the magnetic field $\vec{B}$ over that surface:
     \[\Phi_B = \int \vec{B} \cdot d\vec{A},\]
-    where $d\vec{A}$ is an infinitesimal area element of the surface, and the dot product accounts for the angle between the magnetic field and the normal to the surface. The SI unit of magnetic flux is the weber (Wb).
+    where $d\vec{A}$ is an infinitesimal area element of the surface, and the dot product accounts for the angle between the magnetic field and the normal to the surface.
 \end{definition}
+\begin{remark}
+    The SI unit of magnetic flux is the weber (Wb).
+\end{remark}
 
 % ------- 3.7 Electromagnetic Induction -------
 \marginpar{January 22, 2026}
@@ -257,22 +273,28 @@ The value of $M$ depends on the number of turns in each coil, their geometry, th
 \subsection{Current and Voltage}
 
 \begin{definition}[Electric Current]
-    Electric current is the flow of electrons through a wire driven by an electric field potential energy difference. Defined as the rate of charge past a point in a circuit:
+    Electric current is the flow of electrons through a wire driven by an electric field potential energy difference.
+\end{definition}
+\begin{proposition}
+    The current is defined as the rate of charge past a point in a circuit:
     \begin{equation}
         \label{eq:current}
         I = \frac{dQ}{dt},
     \end{equation}
     and is measured in amperes (A), where $1\,\text{A} = 1\,\text{C/s}$.
-\end{definition}
+\end{proposition}
 
 \begin{definition}[Voltage]
     The voltage (or electric potential difference) is the difference in potential energy between two points in an electric field.
 \end{definition}
 
 \begin{definition}[Electron-volt]
-    An electron-volt (eV) is a unit of energy equal to the energy gained or lost by an electron when it moves through an electric potential difference of one volt. Since energy is given by $U = qV$, for a charge equal to the elementary charge $e$, we have
-    \[1\,\text{eV} = e \cdot 1\,\text{V} = 1.602 \times 10^{-19}\,\text{J}.\]
+    An electron-volt (eV) is a unit of energy equal to the energy gained or lost by an electron when it moves through an electric potential difference of one volt.
 \end{definition}
+\begin{proposition}
+    Since energy is given by $U = qV$, for a charge equal to the elementary charge $e$, we have
+    \[1\,\text{eV} = e \cdot 1\,\text{V} = 1.602 \times 10^{-19}\,\text{J}.\]
+\end{proposition}
 
 When analyzing circuits, current is defined using the convention of positive charge flow. By convention, current flows from higher potential to lower potential, even though in metallic conductors the actual charge carriers are electrons moving in the opposite direction.
 
@@ -404,7 +426,7 @@ Circuits may be classified according to whether they are linear or non-linear, a
     Contains only passive components but includes at least one non-linear element, such as a diode.
 \end{definition}
 \begin{definition}[Active Non-linear Circuit]
-    Contains at least one active element and at least one non-linear element.
+    Contains at least one active element and at least one non-linear element, such as a transistor with a non-linear $V$--$I$ characteristic like a diode.
 \end{definition}
 
 % ============================================================
@@ -419,10 +441,14 @@ Circuits may be classified according to whether they are linear or non-linear, a
 \begin{definition}
     A resistor is a device that opposes the flow of current through it, resulting in a voltage drop across it. Resistors are characterized by their resistance value \(R\), measured in ohms (\(\Omega\)).
 \end{definition}
-
-When resistors are connected in series, their resistances add: $R_{\text{tot}} = R_1 + R_2 + \cdots + R_n$. In parallel, they add inversely: $\frac{1}{R_{\text{tot}}} = \frac{1}{R_1} + \frac{1}{R_2} + \cdots + \frac{1}{R_n}$.
-
-\begin{example}
+\begin{proposition}[Series Resistors]
+    When resistors are connected in series, their resistances add: $R_{\text{tot}} = R_1 + R_2 + \cdots + R_n$. 
+\end{proposition}
+\begin{proposition}[Parallel Resistors]
+    When resistors are in parallel, they add inversely: $\frac{1}{R_{\text{tot}}} = \frac{1}{R_1} + \frac{1}{R_2} + \cdots + \frac{1}{R_n}$.
+\end{proposition}
+\begin{example}[Parallel Resistors]
+    Here is an illustration of different weird combination of resistors in parallel.
     \begin{figure}[H]
         \begin{center}
             \includegraphics[width=0.5\textwidth]{../Images/Parallel_resistors.png}
@@ -477,21 +503,29 @@ If an external resistor $R$ is connected, Ohm's Law gives
 \subsection{Capacitors}
 
 \begin{definition}[Capacitor]
-    A capacitor is a passive electrical component that stores energy in an electric field between two conductive plates separated by an insulating material (dielectric) or space. The capacitance \(C\) is defined as the ratio of the charge \(Q\) stored on one plate to the voltage \(V\) across the plates:
+    A capacitor is a passive electrical component that stores energy in an electric field between two conductive plates separated by an insulating material (dielectric) or space.
+\end{definition}
+\begin{proposition}[Capacitance]
+    The capacitance \(C\) is defined as the ratio of the charge \(Q\) stored on one plate to the voltage \(V\) across the plates:
     \begin{equation}
         \label{eq:capacitance}
         C = \frac{Q}{V}.
     \end{equation}
     The SI unit of capacitance is the farad (F).
-\end{definition}
-
+\end{proposition}
 For a parallel plate capacitor,
 \[C = \frac{\varepsilon A}{d},\]
 where \(\varepsilon\) is the dielectric constant, \(A\) is the area of the plates, and \(d\) is the distance between them. The permittivity of free space is
 \[\varepsilon_0 = 8.85 \times 10^{-12}\,\text{F/m}.\]
-
-Capacitors combine oppositely to resistors:
-\[C_{\text{tot}} = C_1 + C_2 + \cdots + C_n \quad \text{(parallel)}, \qquad \frac{1}{C_{\text{tot}}} = \frac{1}{C_1} + \frac{1}{C_2} + \cdots + \frac{1}{C_n} \quad \text{(series)}.\]
+\begin{proposition}[Series Capacitors]
+    When capacitors are connected in series, they add inversely: $\frac{1}{C_{\text{tot}}} = \frac{1}{C_1} + \frac{1}{C_2} + \ldots + \frac{1}{C_n}$.
+\end{proposition}
+\begin{proposition}[Parallel Capacitors]
+    When capacitors are connected in parallel, their capacitances add: $C_{\text{tot}} = C_1 + C_2 + \ldots + C_n$.
+\end{proposition}
+\begin{remark}
+    Capacitors combine oppositely to resistors. This is because the voltage across capacitors in series is divided among them, while the charge on capacitors in parallel is shared.
+\end{remark}
 
 \subsubsection{Dielectric Insulator}
 \begin{definition}[Dielectric Insulator]
@@ -618,12 +652,10 @@ For an ideal transformer, power is conserved ($V_1 I_1 = V_2 I_2$), giving the t
 
 % ------- 6.1 RC Circuit -------
 \subsection{RC Circuit}
-
 \begin{definition}[RC Circuit]
     An RC circuit consists of a resistor $R$, a capacitor $C$, and a constant source $V_0$.
 \end{definition}
-
-\begin{example}
+\begin{example}[RC Circuit]
     Visual representation of an RC circuit:
     \begin{figure}[H]
         \centering
@@ -633,14 +665,12 @@ For an ideal transformer, power is conserved ($V_1 I_1 = V_2 I_2$), giving the t
 \end{example}
 
 \subsubsection{DC Analysis}
-
 \subsubsection*{Charging}
 Consider an initially uncharged capacitor connected in series with a resistor and a constant source $V_0$. Applying KVL,
 \[V_0 = v_R(t) + v_C(t) = i(t)R + \frac{1}{C}\int_0^{t}i(\tau)\,d\tau.\]
 Differentiating and solving,
 \[I(t) = \frac{V_0}{R}e^{-t/\tau}, \qquad V_C(t) = V_0\!\left(1 - e^{-t/\tau}\right),\]
 where $\tau = RC$ is the time constant. As $t \to \infty$, the current decays to zero and $V_C \to V_0$. At $t = 0$, the capacitor behaves like a short circuit; as $t\to\infty$, it behaves like an open circuit.
-
 \begin{center}
     \begin{tikzpicture}
         \begin{scope}
@@ -665,7 +695,6 @@ where $\tau = RC$ is the time constant. As $t \to \infty$, the current decays to
 If the source is removed and the capacitor initially has voltage $V_0$:
 \[I(t) = -\frac{V_0}{R}e^{-t/\tau}, \qquad V_C(t) = V_0\,e^{-t/\tau}.\]
 Both current and voltage decay exponentially to zero.
-
 \begin{center}
     \begin{tikzpicture}
         \begin{scope}
@@ -687,72 +716,74 @@ Both current and voltage decay exponentially to zero.
 \end{center}
 
 % ------- 6.2 RC Circuit with AC Driving -------
+\subsubsection{AC Analysis}
 \marginpar{January 29, 2026}
-\subsection{RC Circuit with AC Driving}
+\subsubsection*{Driving Frequency and Time Constant}
+Let an RC circuit be driven by a periodic input with period $T$ and an angular frequency $\omega = \frac{2\pi}{T} = 2\pi\nu$.
+\begin{definition}[Time Constant]
+    The time constant for an RC circuit is
+    \[\tau_{RC} = RC.\]
+\end{definition}
+\begin{proposition}[Frequency Response]
+    The circuit behaviour depends on the ratio of $T$ to $\tau$:
+    \begin{itemize}
+        \item Low frequency: $T \gg \tau$
+        \item High frequency: $T \ll \tau$
+    \end{itemize}
+\end{proposition}
 
-\subsubsection{Driving Frequency and Time Constant}
-For a periodic input with period $T$ and angular frequency $\omega = \frac{2\pi}{T} = 2\pi\nu$, the time constant for an RC circuit is
-\[\tau_{RC} = RC.\]
-The circuit behaviour depends on the ratio of $T$ to $\tau$:
-\begin{itemize}
-    \item Low frequency: $T \gg \tau$
-    \item High frequency: $T \ll \tau$
-\end{itemize}
+\subsubsection*{Square-Wave Input}
+If the input voltage is a square wave, the circuit response will differ significantly between low and high frequencies.
+\begin{proposition}[Low Frequency]
+    Consider a low-frequency ($T \gg \tau$) square-wave input, where the voltage alternates between $+V_0$ and $-V_0$ every half-cycle. The capacitor has enough time to fully charge and discharge during each half-cycle, resulting in the following behaviour:
+    \begin{itemize}
+        \item Capacitor fully charges and discharges each half-cycle.
+        \item Voltage drops almost entirely across the capacitor.
+        \item Current is nearly zero (except for spikes at each voltage jump).
+        \item Capacitor behaves approximately like an open circuit (break).
+    \end{itemize}
+\end{proposition}
+\begin{proposition}[High Frequency]
+    For a high-frequency ($T \ll \tau$) square-wave input, the capacitor does not have time to charge significantly during each half-cycle, leading to the following behaviour:
+    \begin{itemize}
+        \item Capacitor does not have time to charge.
+        \item Very little voltage is dropped across the capacitor.
+        \item Current values are close to what we expect for a pure resistor circuit; voltage profile is triangle-wave-like.
+        \item Capacitor behaves approximately like a short circuit.
+    \end{itemize}
+\end{proposition}
 
-\subsubsection{RC Circuit with Square-Wave Input}
-
-\subsubsection*{Low frequency ($T \gg \tau$)}
-\begin{itemize}
-    \item Capacitor fully charges and discharges each half-cycle.
-    \item Voltage drops almost entirely across the capacitor.
-    \item Current is nearly zero (except for spikes at each voltage jump).
-    \item Capacitor behaves approximately like an open circuit (break).
-\end{itemize}
-
-\subsubsection*{High frequency ($T \ll \tau$)}
-\begin{itemize}
-    \item Capacitor does not have time to charge.
-    \item Very little voltage is dropped across the capacitor.
-    \item Current values are close to what we expect for a pure resistor circuit; voltage profile is triangle-wave-like.
-    \item Capacitor behaves approximately like a short circuit.
-\end{itemize}
-
-\subsubsection{Integrator and Differentiator Behaviour}
-
-\subsubsection*{Low frequency}
+\subsubsection*{Integrator and Differentiator Behaviour}
 At low frequency, the capacitor has time to fully charge, so its voltage tracks the input: $\Delta V_C(t) \approx V(t)$. The current is therefore $I \approx C\frac{dV}{dt}$, and the voltage across the resistor is
 \[\Delta V_R(t) = R\frac{dQ}{dt} \approx \tau\frac{dV_{\text{in}}(t)}{dt}, \qquad \tau = RC.\]
 The resistor acts as a differentiator. Sharp transitions in the square-wave input produce current spikes.
 
-\subsubsection*{High frequency}
 At high frequency, the capacitor has no time to charge, so the resistor voltage tracks the input: $\Delta V_R(t) \approx V(t)$, giving $I \approx V(t)/R$. The capacitor voltage is then
 \[\Delta V_C(t) = \frac{Q}{C} \approx \frac{1}{\tau}\int_0^t V_{\text{in}}(t')\,dt', \qquad \tau = RC.\]
 The capacitor acts as an integrator. A square wave input produces a triangle-wave-like voltage across the capacitor.
 
 % ------- 6.3 LR Circuit -------
 \subsection{LR Circuit}
-
 \begin{definition}[LR Circuit]
     An LR circuit is a circuit in which an inductor is connected in series with a resistor.
 \end{definition}
-
-\begin{example}
+\begin{example}[LR Circuit]
     Consider this circuit at the moment it is turned on (switch connects to `A'). If the inductor were replaced with a short, a current $V/R$ would flow immediately, with all of the voltage drop across $R$.
     \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.5\textwidth]{../Images/LR_circuit.png}
-        \caption{Visual representation of an LR circuit.}
-        \label{LR-circuit}
+        \begin{center}
+            \centering
+            \includegraphics[width=0.5\textwidth]{../Images/LR_circuit.png}
+            \caption{Visual representation of an LR circuit.}
+            \label{LR-circuit}
+        \end{center}
     \end{figure}
     The current flow produces a magnetic flux through the coil. By Lenz's law, the coil induces a voltage equal to the battery's voltage, opposing the change in flux. Therefore, just at the instant the switch is closed, the current flow is zero.
 \end{example}
-
 For a single coil, the voltage-current relationship is
 \[V = L\frac{di}{dt},\]
-where $L$ is the self-inductance. The characteristic time constant is $\tau = L/R$.
+where $L$ is the self-inductance.
 
 \subsubsection{DC Analysis}
-
 \subsubsection*{Charging}
 When the switch is connected to terminal A,
 \[I(t) = \frac{V}{R}\!\left(1 - e^{-t/\tau}\right), \qquad V_L(t) = V\,e^{-t/\tau}.\]
@@ -763,11 +794,14 @@ At $t = 0$, an inductor behaves like an open circuit. As $t \to \infty$, it beha
 Both current and voltage decay exponentially to zero.
 
 % ------- 6.4 LR Circuit with AC Driving -------
-\subsection{LR Circuit with AC Driving}
+\subsubsection{AC Analysis}
+\subsubsection*{Driving Frequency and Time Constant}
+Let an LR circuit be driven by a periodic input with period $T$ and angular frequency $\omega = \frac{2\pi}{T} = 2\pi\nu$.
+\begin{definition}[Time Constant]
+    The time constant for an LR circuit is
+    \[\tau_{LR} = \frac{L}{R}.\]
+\end{definition}
 
-\subsubsection{Driving Frequency and Time Constant}
-For a periodic input with period $T$ and angular frequency $\omega = \frac{2\pi}{T} = 2\pi\nu$, the time constant for an LR circuit is
-\[\tau_{LR} = \frac{L}{R}.\]
 The circuit behaviour depends on the ratio of $T$ to $\tau$:
 \begin{itemize}
     \item Low frequency: $T \gg \tau$
