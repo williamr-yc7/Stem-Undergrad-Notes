@@ -79,13 +79,12 @@
 \subsubsection{Properties of Waves}
 To describe waves, considering a sinusoidal wave of the form \(A_p\sin(2\pi\nu t)\), we use the following terms:
 \begin{itemize}
-    \item \textbf{Peak amplitude} (\(A_p\)): maximum value of the wave from its equilibrium position.
-    \item \textbf{Peak-to-peak amplitude}: total height of the wave from its maximum to its minimum value (i.e., \(2A_p\)).
-    \item \textbf{Frequency} (\(\nu\)): number of cycles per second (Hz).
-    \item \textbf{Time} (\(t\)): time variable.
+    \item Peak amplitude (\(A_p\)): maximum value of the wave from its equilibrium position.
+    \item Peak-to-peak amplitude: total height of the wave from its maximum to its minimum value (i.e., \(2A_p\)).
+    \item Frequency (\(\nu\)): number of cycles per second (Hz).
+    \item Time (\(t\)): time variable.
 \end{itemize}
 To describe AC signals effectively, we take the root mean square (RMS) amplitude \(\frac{A_p}{\sqrt{2}}\) of values such as current and voltage. This is because the mean value of an AC signal is zero, and the RMS is a more meaningful measure of the signal's amplitude as it gives a positive value that is proportional to the energy in the signal.
-\[I_{\text{RMS}} = \frac{I_p}{\sqrt{2}}, \qquad V_{\text{RMS}} = \frac{V_p}{\sqrt{2}}.\]
 
 \subsubsection{Waveforms}
 \begin{definition}[Waveform]
@@ -105,7 +104,7 @@ A direct current is constant in time, so its graph is a horizontal line.
 \paragraph{2. Alternating current (AC).}
 An alternating current varies periodically in time and typically oscillates about zero in a sinusoidal pattern.
 \begin{center}
-    \begin{tikzpicture}[scale=1]
+    \begin{tikzpicture}[scale=0.8]
         \draw[->] (0,2.5) -- (6,2.5) node[right] {$t$};
         \draw[->] (0,0) -- (0,5) node[above] {$I(t)$};
         \draw[domain=0:6, samples=400] plot (\x,{sin(8*\x r)+2.5});
@@ -123,22 +122,13 @@ A pulsating current is an alternating current superimposed on a non-zero DC leve
 
 % ------- 2.2 Linear Systems -------
 \subsection{Linear Systems}
-
 \begin{definition}[Linear System]
     A system $H$ is linear if it satisfies superposition
     \[H[x_1(t) + x_2(t)] = H[x_1(t)] + H[x_2(t)],\]
     and scaling
     \[H[\alpha x(t)] = \alpha H[x(t)],\]
-    for all inputs $x_1(t), x_2(t)$ and constant $\alpha$.
+    for all inputs $x_1(t), x_2(t)$ and constant $\alpha$.\footnote{PS: this definition is analogic to the definition of a linear transform from MATH 223}
 \end{definition}
-
-\begin{example}
-    Consider two inputs $x_1(t)$ and $x_2(t)$ to a linear system producing outputs $y_1(t) = H[x_1(t)]$ and $y_2(t) = H[x_2(t)]$, where $H$ is some transformation function.
-
-    A linear transformation must satisfy:
-    \[y_{\text{total}} = \alpha y_1(t) + \beta y_2(t) = H[\alpha x_1(t) + \beta x_2(t)],\]
-    where \(\alpha\) and \(\beta\) are constants.
-\end{example}
 
 % ============================================================
 %  3. ELECTROMAGNETIC THEORY
@@ -147,11 +137,17 @@ A pulsating current is an alternating current superimposed on a non-zero DC leve
 
 % ------- 3.1 Electric Charge -------
 \subsection{Electric Charge}
-\begin{definition}
-    Charge is a fundamental physical property that comes in two types: positive (+) and negative (--) (which cancel). Opposite charges attract and equal amounts of positive and negative charge cancel, so most matter is electrically neutral. Electric charge is conserved, meaning it cannot be created or destroyed, only transferred. It is also quantized, existing in discrete multiples of the elementary charge
+\begin{definition}[Electric Charge]
+    Charge is a fundamental physical property that comes in two types: positive (+) and negative (--) (which cancel). Opposite charges attract and equal amounts of positive and negative charge cancel, so most matter is electrically neutral.
+\end{definition}
+\begin{proposition}[Conservation of Charge]
+    Electric charge is conserved, meaning it cannot be created or destroyed, only transferred.
+\end{proposition}
+\begin{proposition}[Quantization of Charge]
+    Electric charge is also quantized, existing in discrete multiples of the elementary charge
     \[e = 1.6 \times 10^{-19}\,\text{C},\]
     where the coulomb (C) is the SI unit of charge.
-\end{definition}
+\end{proposition}
 
 % ------- 3.2 Electric Field -------
 \subsection{Electric Field}
@@ -159,18 +155,26 @@ A pulsating current is an alternating current superimposed on a non-zero DC leve
     The electric field $\vec{E}$ is a vector field produced by electric charges. It describes the force that a charge would experience at any point in space. Quantitatively, the electric field at a point is defined as the force $\vec{F}$ acting on a small positive test charge $q$ placed at that point, divided by the magnitude of the charge:
     \[\vec{E} = \frac{\vec{F}}{q}.\]
 \end{definition}
-The direction of $\vec{E}$ is the direction of the force on a positive test charge. Its SI units are newtons per coulomb (N/C), which are equivalent to volts per meter (V/m).
+\begin{proposition}[Direction of Electric Field]
+    The direction of $\vec{E}$ is the direction of the force on a positive test charge.
+\end{proposition}
+\begin{remark}
+    The SI units for an electric field are newtons per coulomb (N/C), which are equivalent to volts per meter (V/m).
+\end{remark}
 
 % ------- 3.3 Electric Potential -------
 \subsection{Electric Potential}
 \begin{definition}[Electric Potential]
+    The electric potential is a scalar quantity with units of volts (V) that represents the work done per unit charge to move a positive test charge from a reference point (often taken at infinity) to the point $\vec{r}$, without changing its kinetic energy.   
+\end{definition}
+\begin{proposition}
     The electric potential $V(\vec{r})$ at a point is the electric potential energy per unit charge:
     \[V = \frac{U}{q}.\]
-    It is a scalar quantity with units of volts (V) that represents the work done per unit charge to move a positive test charge from a reference point (often taken at infinity) to the point $\vec{r}$, without changing its kinetic energy. It is defined relative to a reference point $\vec{r}_0$ by
+    It is defined relative to a reference point $\vec{r}_0$ by
     \[V(\vec{r}) - V(\vec{r}_0) = -\int_{\vec{r}_0}^{\vec{r}} \vec{E} \cdot d\vec{l},\]
     where $\vec{E}$ is the electric field. The electric field is related to the potential by
     \[\vec{E} = -\nabla V.\]
-\end{definition}
+\end{proposition}
 
 \begin{example}[Uniform Electric Field]
     If $\vec{E}$ is uniform, the potential difference between two points separated by $\vec{d}$ is
