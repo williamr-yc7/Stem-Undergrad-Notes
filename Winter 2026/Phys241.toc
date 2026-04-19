@@ -135,5 +135,4 @@
 \contentsline {subsection}{\numberline {10.26}Discrete Fourier Transform}{51}{subsection.10.26}%
 \contentsline {subsection}{\numberline {10.27}Amplitude Modulation}{51}{subsection.10.27}%
 \contentsline {section}{\numberline {11}Appendix}{51}{section.11}%
-\contentsline {subsection}{\numberline {11.1}Important Concepts}{51}{subsection.11.1}%
-\contentsline {section}{\numberline {12}Useful Links}{55}{section.12}%
+\contentsline {section}{\numberline {12}Useful Links}{51}{section.12}%
