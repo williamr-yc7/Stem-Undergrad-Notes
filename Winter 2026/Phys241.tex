@@ -718,7 +718,6 @@ Both current and voltage decay exponentially to zero.
 % ------- 6.2 RC Circuit with AC Driving -------
 \subsubsection{AC Analysis}
 \marginpar{January 29, 2026}
-\subsubsection*{Driving Frequency and Time Constant}
 Let an RC circuit be driven by a periodic input with period $T$ and an angular frequency $\omega = \frac{2\pi}{T} = 2\pi\nu$.
 \begin{definition}[Time Constant]
     The time constant for an RC circuit is
@@ -732,7 +731,6 @@ Let an RC circuit be driven by a periodic input with period $T$ and an angular f
     \end{itemize}
 \end{proposition}
 
-\subsubsection*{Square-Wave Input}
 If the input voltage is a square wave, the circuit response will differ significantly between low and high frequencies.
 \begin{proposition}[Low Frequency]
     Consider a low-frequency ($T \gg \tau$) square-wave input, where the voltage alternates between $+V_0$ and $-V_0$ every half-cycle. The capacitor has enough time to fully charge and discharge during each half-cycle, resulting in the following behaviour:
@@ -743,6 +741,9 @@ If the input voltage is a square wave, the circuit response will differ signific
         \item Capacitor behaves approximately like an open circuit (break).
     \end{itemize}
 \end{proposition}
+At low frequency, the capacitor has time to fully charge, so its voltage tracks the input: $\Delta V_C(t) \approx V(t)$. The current is therefore $I \approx C\frac{dV}{dt}$, and the voltage across the resistor is
+\[\Delta V_R(t) = R\frac{dQ}{dt} \approx \tau\frac{dV_{\text{in}}(t)}{dt}, \qquad \tau = RC.\]
+The resistor acts as a differentiator. Sharp transitions in the square-wave input produce current spikes.
 \begin{proposition}[High Frequency]
     For a high-frequency ($T \ll \tau$) square-wave input, the capacitor does not have time to charge significantly during each half-cycle, leading to the following behaviour:
     \begin{itemize}
@@ -752,12 +753,6 @@ If the input voltage is a square wave, the circuit response will differ signific
         \item Capacitor behaves approximately like a short circuit.
     \end{itemize}
 \end{proposition}
-
-\subsubsection*{Integrator and Differentiator Behaviour}
-At low frequency, the capacitor has time to fully charge, so its voltage tracks the input: $\Delta V_C(t) \approx V(t)$. The current is therefore $I \approx C\frac{dV}{dt}$, and the voltage across the resistor is
-\[\Delta V_R(t) = R\frac{dQ}{dt} \approx \tau\frac{dV_{\text{in}}(t)}{dt}, \qquad \tau = RC.\]
-The resistor acts as a differentiator. Sharp transitions in the square-wave input produce current spikes.
-
 At high frequency, the capacitor has no time to charge, so the resistor voltage tracks the input: $\Delta V_R(t) \approx V(t)$, giving $I \approx V(t)/R$. The capacitor voltage is then
 \[\Delta V_C(t) = \frac{Q}{C} \approx \frac{1}{\tau}\int_0^t V_{\text{in}}(t')\,dt', \qquad \tau = RC.\]
 The capacitor acts as an integrator. A square wave input produces a triangle-wave-like voltage across the capacitor.
@@ -795,45 +790,41 @@ Both current and voltage decay exponentially to zero.
 
 % ------- 6.4 LR Circuit with AC Driving -------
 \subsubsection{AC Analysis}
-\subsubsection*{Driving Frequency and Time Constant}
 Let an LR circuit be driven by a periodic input with period $T$ and angular frequency $\omega = \frac{2\pi}{T} = 2\pi\nu$.
 \begin{definition}[Time Constant]
     The time constant for an LR circuit is
     \[\tau_{LR} = \frac{L}{R}.\]
 \end{definition}
+\begin{proposition}[Frequency Response]
+    The behavior of the circuit depends on the ratio of $T$ to $\tau$:
+    \begin{itemize}
+        \item Low frequency: $T \gg \tau$
+        \item High frequency: $T \ll \tau$
+    \end{itemize}
+\end{proposition}
 
-The circuit behaviour depends on the ratio of $T$ to $\tau$:
-\begin{itemize}
-    \item Low frequency: $T \gg \tau$
-    \item High frequency: $T \ll \tau$
-\end{itemize}
-
-\subsubsection{LR Circuit with Square-Wave Input}
-
-\subsubsection*{Low frequency}
-\begin{itemize}
-    \item Inductor fully responds each half-cycle.
-    \item Voltage drops almost entirely across the resistor.
-    \item Current closely follows the input and is approximately square-wave-like.
-    \item Inductor behaves approximately like a short circuit.
-\end{itemize}
-
-\subsubsection*{High frequency}
-\begin{itemize}
-    \item Inductor does not have time to respond.
-    \item Voltage drops almost entirely across the inductor.
-    \item Current changes very little; the resistor voltage profile consists of sharp spikes at each transition.
-    \item Inductor behaves approximately like an open circuit.
-\end{itemize}
-
-\subsubsection{Integrator and Differentiator Behaviour}
-
-\subsubsection*{Low frequency}
+If the input voltage is a square wave, the circuit response will differ significantly between low and high frequencies.
+\begin{proposition}[Low Frequency]
+    Consider a low-frequency ($T \gg \tau$) square-wave input, where the voltage alternates between $+V_0$ and $-V_0$ every half-cycle. The inductor has enough time to fully respond during each half-cycle, resulting in the following behaviour:
+    \begin{itemize}
+        \item Inductor fully responds each half-cycle.
+        \item Voltage drops almost entirely across the resistor.
+        \item Current closely follows the input and is approximately square-wave-like.
+        \item Inductor behaves approximately like a short circuit.
+    \end{itemize}
+\end{proposition}
 At low frequency, the inductor has time to fully respond, so the resistor voltage tracks the input: $\Delta V_R(t) \approx V(t)$, giving $I \approx V_{\text{in}}(t)/R$. The voltage across the inductor is then
 \[\Delta V_L(t) = L\frac{dI}{dt} \approx \tau\frac{dV_{\text{in}}(t)}{dt}, \qquad \tau = \frac{L}{R}.\]
 The inductor acts as a differentiator. Sharp transitions in the square-wave input produce voltage spikes across the inductor.
-
-\subsubsection*{High frequency}
+\begin{proposition}[High Frequency]
+    For a high-frequency ($T \ll \tau$) square-wave input, the inductor does not have time to respond during each half-cycle, leading to the following behaviour:
+    \begin{itemize}
+        \item Inductor does not have time to respond.
+        \item Voltage drops almost entirely across the inductor.
+        \item Current changes very little; the resistor voltage profile consists of sharp spikes at each transition.
+        \item Inductor behaves approximately like an open circuit.
+    \end{itemize}
+\end{proposition}
 At high frequency, the inductor has no time to respond, so its voltage tracks the input: $\Delta V_L(t) \approx V(t)$, giving $L\frac{dI}{dt} \approx V_{\text{in}}(t)$. The voltage across the resistor is then
 \[\Delta V_R(t) = IR \approx \frac{1}{\tau}\int_0^t V_{\text{in}}(t')\,dt', \qquad \tau = \frac{L}{R}.\]
 The resistor acts as an integrator. A square-wave input produces a triangle-wave-like voltage across the resistor.
@@ -851,12 +842,12 @@ The resistor acts as an integrator. A square-wave input produces a triangle-wave
     \hline
     \end{tabular}
 \end{center}
-Important physical facts:
-\begin{itemize}
-    \item A capacitor blocks DC and resists changes in voltage.
-    \item An inductor passes DC (after long time) and resists changes in current.
-\end{itemize}
-
+\begin{remark}
+    A capacitor blocks DC and resists changes in voltage.
+\end{remark}
+\begin{remark}
+    An inductor passes DC (after long time) and resists changes in current.
+\end{remark}
 The LR circuit is the dual of the RC circuit. In an LR circuit, current plays the role that voltage plays in an RC circuit, and the integrator/differentiator roles of the components are swapped:
 \begin{center}
     \begin{tabular}{|c|c|c|}
@@ -876,83 +867,88 @@ The LR circuit is the dual of the RC circuit. In an LR circuit, current plays th
 \section{Phasors and Complex Impedance}
 \marginpar{February 5, 2026}
 
-% ------- 7.1 Complex Numbers and AC Signals -------
 \subsection{Complex Representation of AC Signals}
+\begin{definition}[Complex Signal]
+    A complex signal is not physical, but it embeds the real-valued physical signal $V(t)$ as its real part. It is a mathematical tool that simplifies the analysis of AC circuits by allowing us to represent sinusoidal signals as complex exponentials, which are easier to manipulate using algebraic methods.
+\end{definition}
+\begin{proposition}[Complex Signal Representation]
+    A complex signal is defined as
+    \[\tilde{V}(t) = V_0 e^{j\phi(t)} = V_0 e^{j(\omega t + \phi_0)}.\]
+\end{proposition}
+\begin{proposition}[Physical Signal from Complex Signal]
+    The real-valued physical signal $V(t)$ is the real part of the complex signal:
+    \[V(t) = \operatorname{Re}\!\left[V_0 e^{j\phi(t)}\right] = \operatorname{Re}\!\left[\tilde{V}(t)\right].\]
+\end{proposition}
 
-A complex signal is defined as
-\[\tilde{V}(t) = V_0 e^{j\phi(t)} = V_0 e^{j(\omega t + \phi_0)}.\]
-This complex signal is not physical, but it embeds the real-valued physical signal $V(t)$ as its real part:
-\[V(t) = V_0\cos(\phi(t)) = \operatorname{Re}\!\left[V_0 e^{j\phi(t)}\right] = \operatorname{Re}\!\left[\tilde{V}(t)\right].\]
-
-% ------- 7.2 Working with Complex Signals -------
 \subsection{Working with Complex Signals}
 
 To analyze an AC circuit using complex signals, perform circuit analysis\footnote{Circuit analysis is the process of determining the voltages and currents throughout a circuit by applying circuit laws (KVL, KCL) and component relationships. For AC circuits, this is done using the complex signal $\tilde{V}(t)$ in place of the real signal, which simplifies differentiation and integration into algebraic operations.} with $\tilde{V}(t)$ to obtain a complex output signal $\tilde{V}_{\text{out}}(t)$. The real-valued physical output is then recovered by taking the real part:
 \[V_{\text{out}}(t) = \operatorname{Re}\!\left[\tilde{V}_{\text{out}}(t)\right].\]
 Alternatively, one can extract directly the change in signal amplitude and phase shift between input and output.
 
-% ------- 7.3 Capacitor Current -------
 \subsection{Capacitor Current}
 
 Consider a voltage signal $V(t) = \operatorname{Re}[\tilde{V}(t)]$ dropped across a capacitor. To find the current $I(t)$, we first compute the complex current $\tilde{I}(t)$ arising from $\tilde{V}(t)$, then take the real part:
 \[\tilde{I}(t) = \frac{d\tilde{Q}}{dt} = C\frac{d\tilde{V}(t)}{dt} = j C\omega V_0 e^{j(\omega t + \phi_0)} = j C\omega\tilde{V}.\]
 Extracting $I(t)$ using the fact that $j = e^{j\pi/2}$:
 \[I(t) = \operatorname{Re}\!\left[\tilde{I}(t)\right] = C\omega V_0\operatorname{Re}\!\left[e^{j(\omega t + \phi_0 + \pi/2)}\right] = C\omega V_0\cos\!\left(\omega t + \phi_0 + \tfrac{\pi}{2}\right).\]
-Note that $I$ vanishes in the limit $\omega \to 0$ (DC limit), since in steady state the capacitor fully charges and fully opposes the voltage source. From the expression above, the current leads the input voltage by $\pi/2$; equivalently, the input voltage lags the current by $\pi/2$.
+\begin{proposition}
+    From the expression above, the current leads the input voltage by $\pi/2$; equivalently, the input voltage lags the current by $\pi/2$.
+\end{proposition}
+\begin{remark}
+    Note that $I$ vanishes in the limit $\omega \to 0$ (DC limit), since in steady state the capacitor fully charges and fully opposes the voltage source.
+\end{remark}
 
-% ------- 7.4 Impedance of a Capacitor -------
-\subsection{Impedance of a Capacitor}
-
-Define the capacitive impedance
-\[Z_C = \frac{1}{j\omega C} \implies \tilde{I} = \frac{\tilde{V}}{Z_C},\]
-which is the complex generalization of Ohm's Law. The quantity $Z$ is a complex resistance called impedance. The capacitive impedance is very large at low $\omega$ and decreases as $\omega$ increases. In the DC limit $\omega \to 0$, $Z_C \to \infty$, which is equivalent to saying the capacitor blocks DC signals. The complex character of the impedance encodes how the capacitor affects the phase offset between input and output signals.
-
-% ------- 7.5 Impedance Table -------
 \subsection{Impedance}
-
-An analogous calculation for an inductor and resistor yields the following impedance table:
-\begin{center}
-    \begin{tabular}{|c|c|c|}
-    \hline
-    Component & Impedance ($Z$) & Phase offset of current relative to voltage \\
-    \hline
-    Resistor   & $R$                    & $0$ \\
-    \hline
-    Capacitor  & $\dfrac{1}{j\omega C}$ & $+\pi/2$ \quad (current leads voltage) \\
-    \hline
-    Inductor   & $j\omega L$            & $-\pi/2$ \quad (current lags voltage) \\
-    \hline
-    \end{tabular}
-\end{center}
-
-% ------- 7.6 Phase Intuition -------
-\subsection{Phase Intuition}
 \marginpar{February 10, 2026}
+\begin{definition}[Impedance]
+    The impedance $Z$ of a circuit element is a complex resistance defined as the ratio of the complex voltage across the element to the complex current through it:
+    \[Z = \frac{\tilde{V}}{\tilde{I}}.\]
+    The real part of $Z$ governs energy dissipation; the imaginary part (the \textbf{reactance}) encodes the phase offset between voltage and current.
+\end{definition}
+\begin{proposition}[Impedance Combination]
+    Impedances combine exactly as resistances do:
+    \[Z_{\text{tot}} = Z_1 + Z_2 \quad \text{(series)}, \qquad Z_{\text{tot}} = \left(\frac{1}{Z_1} + \frac{1}{Z_2}\right)^{-1} \quad \text{(parallel)}.\]
+\end{proposition}
+\begin{definition}[Resistive Impedance]
+    The impedance of a resistor is purely real:
+    \[Z_R = R.\]
+    Since $Z_R$ has no imaginary part, a resistor introduces no phase offset between voltage and current.
+\end{definition}
+\begin{definition}[Capacitive Impedance]
+    The impedance of a capacitor is
+    \[Z_C = \frac{1}{j\omega C}.\]
+    Since $Z_C$ is purely imaginary and negative, the current leads the voltage by $\pi/2$. The magnitude $|Z_C| = 1/(\omega C)$ is large at low frequencies and falls off as $\omega$ increases; in the DC limit $\omega \to 0$, $Z_C \to \infty$, meaning the capacitor blocks DC signals entirely.
+\end{definition}
+\begin{remark}
+    A capacitor causes current to lead voltage by $\pi/2$ because the current flowing into the capacitor must first accumulate charge on its plates before a voltage difference can be established. Since $I = C\frac{dV}{dt}$, maximum current flows when the voltage is changing fastest (crossing zero) and zero current flows when the voltage is stable at its peak.
+\end{remark}
+\begin{definition}[Inductive Impedance]
+    The impedance of an inductor is
+    \[Z_L = j\omega L.\]
+    Since $Z_L$ is purely imaginary and positive, the current lags the voltage by $\pi/2$. The magnitude $|Z_L| = \omega L$ grows with frequency, so the inductor increasingly opposes high-frequency signals.
+\end{definition}
+\begin{remark}
+    An inductor causes current to lag voltage because its magnetic properties, governed by Lenz's law, oppose changes in current flow ($V = L\frac{dI}{dt}$), causing the current waveform to reach its maximum $90°$ after the voltage waveform. Voltage is proportional to the rate of change of current, meaning maximum voltage occurs when current changes fastest (at zero crossing) and zero voltage occurs when the current is constant (at its peak), forcing a $90°$ phase shift.
+\end{remark}
+\begin{proposition}
+    For any element with impedance $Z$, the complex current and voltage satisfy
+    \[\tilde{I} = \frac{\tilde{V}}{Z},\]
+    the direct complex generalisation of Ohm's Law.
+\end{proposition}
 
-A capacitor causes current to lead voltage by $\pi/2$ because the current flowing into the capacitor must first accumulate charge on its plates before a voltage difference can be established. Since $I = C\frac{dV}{dt}$, maximum current flows when the voltage is changing fastest (crossing zero) and zero current flows when the voltage is stable at its peak.
-
-An inductor causes current to lag voltage because its magnetic properties, governed by Lenz's law, oppose changes in current flow ($V = L\frac{dI}{dt}$), causing the current waveform to reach its maximum $90°$ after the voltage waveform. Voltage is proportional to the rate of change of current, meaning maximum voltage occurs when current changes fastest (at zero crossing) and zero voltage occurs when the current is constant (at its peak), forcing a $90°$ phase shift.
-
-% ------- 7.7 Power Dissipation of AC Signals -------
 \subsection{Power Dissipation of AC Signals}
-
 The power dissipated by a circuit element driven by an AC signal is found by averaging over one cycle:
 \[P = \frac{1}{T}\int_{0}^{T} I(t)\,\Delta V(t)\,dt.\]
 Taking $V(t) = V_0\cos(\omega t)$ and $I(t) = I_0\cos(\omega t + \phi_0)$, this gives
 \[P = \frac{V_0 I_0}{T}\int_{0}^{T}\cos(\omega t)\cos(\omega t + \phi_0)\,dt = \frac{V_0 I_0}{2}\cos(\phi_0) = V_{\text{rms}}\,I_{\text{rms}}\cos(\phi_0).\]
 For a capacitor and an inductor, $\phi_0 = \pm\pi/2$, so $P = 0$; they do not dissipate energy but instead store and release it. For a resistor, $\phi_0 = 0$, so $P = V_{\text{rms}}\,I_{\text{rms}}$; all the energy is dissipated as heat.
 
-% ------- 7.8 Adding Impedances -------
-\subsection{Adding Impedances}
-
-Impedances combine exactly as resistances do:
-\[Z_{\text{tot}} = Z_1 + Z_2 \quad \text{(series)}, \qquad Z_{\text{tot}} = \left(\frac{1}{Z_1} + \frac{1}{Z_2}\right)^{-1} \quad \text{(parallel)}.\]
 
 % ------- 7.9 Worked Example: Current in an RC Circuit -------
 \subsection{Sinusoidally Driven RC Circuit}
-
 \begin{example}[Current in Sinusoidally Driven RC Circuit]
-    Find the current in the following RC circuit:
+    Let $\tilde{V}(t) = V_0 e^{j\omega t}$, $Z_R = R$, and $Z_C = \frac{1}{j\omega C}$, find the current in the following RC circuit:
     \begin{center}
         \begin{tikzpicture}[transform shape]
             \label{Circuit:ACRC}
@@ -965,32 +961,30 @@ Impedances combine exactly as resistances do:
             \draw (4.75, 4.25) |- (4, 4.25) -| (4, 3);
         \end{tikzpicture}
     \end{center}
-
-    We have $\tilde{V}(t) = V_0 e^{j\omega t}$, $Z_R = R$, and $Z_C = \frac{1}{j\omega C}$. The total impedance is
-    \[Z_{\text{tot}} = Z_R + Z_C = R + \frac{1}{j\omega C} = \frac{1 + j\omega RC}{j\omega C} = \frac{1+j\omega\tau}{j\omega C},\]
-    where $\tau = RC$. The complex current is
-    \[\tilde{I}(t) = \frac{\tilde{V}(t)}{Z_{\text{tot}}} = \frac{j\omega C\, V_0\, e^{j\omega t}}{1 + j\omega\tau}.\]
-
-    \paragraph{Amplitude.}
-    The magnitude of the total impedance is
-    \[|Z_{\text{tot}}|^2 = R^2 + \frac{1}{\omega^2 C^2} = R^2\,\frac{1 + (\omega\tau)^2}{(\omega\tau)^2},\]
-    so the current amplitude is
-    \[|\tilde{I}| = \frac{V_0}{|Z_{\text{tot}}|} = \frac{V_0}{R}\cdot\frac{\omega\tau}{\sqrt{1+(\omega\tau)^2}}.\]
-    At $\omega = 0$ (DC limit) the current vanishes; as $\omega\to\infty$ it rises to $I_{\max} = V_0/R$, since the capacitive impedance vanishes.
-
-    \paragraph{Phase offset.}
-    The phase of the current leads the voltage by
-    \[\phi = \arctan\!\left(\frac{1}{\omega\tau}\right).\]
-    The full complex current is therefore
-    \[\tilde{I}(t) = \frac{V_0}{R}\cdot\frac{\omega\tau}{\sqrt{1+(\omega\tau)^2}}\,e^{j(\omega t + \phi)}.\]
-
-    \paragraph{Limiting cases.}
-    In the DC limit ($\omega\to 0$), the voltage drops almost entirely across the capacitor and the current leads the voltage by $\phi = \arctan(\infty) = \pi/2$. In the high-frequency limit ($\omega\to\infty$), the voltage drops almost entirely across the resistor and the current is in phase with the voltage: $\phi = \arctan(0) = 0$.
 \end{example}
-% ------- 7.10 Impedance Divider -------
-\subsection{Impedance Divider}
-\marginpar{February 12, 2026}
+First and foremost, we need to find the total impedance,
+\[Z_{\text{tot}} = Z_R + Z_C = R + \frac{1}{j\omega C} = \frac{1 + j\omega RC}{j\omega C} = \frac{1+j\omega\tau}{j\omega C},\]
+where $\tau = RC$.\\
+After finding the total impedance, we are able to find the complex current,
+\[\tilde{I}(t) = \frac{\tilde{V}(t)}{Z_{\text{tot}}} = \frac{j\omega C\, V_0\, e^{j\omega t}}{1 + j\omega\tau}.\]
+The next step is to find the magnitude of the total impedance
+\[|Z_{\text{tot}}|^2 = R^2 + \frac{1}{\omega^2 C^2} = R^2\,\frac{1 + (\omega\tau)^2}{(\omega\tau)^2},\]
+for which we get the amplitude of the current
+\[|\tilde{I}| = \frac{V_0}{|Z_{\text{tot}}|} = \frac{V_0}{R}\cdot\frac{\omega\tau}{\sqrt{1+(\omega\tau)^2}}.\]
+\begin{remark}
+    At $\omega = 0$ (DC limit) the current vanishes; as $\omega\to\infty$ it rises to $I_{\max} = V_0/R$, since the capacitive impedance vanishes.
+\end{remark}
+For the last step, we need to find the phase offset, since this is an RC circuit, the current leads the voltage due to the capacitor by
+\[\phi = \arctan\!\left(\frac{1}{\omega\tau}\right).\]
+The full complex current is therefore
+\[\tilde{I}(t) = \frac{V_0}{R}\cdot\frac{\omega\tau}{\sqrt{1+(\omega\tau)^2}}\,e^{j(\omega t + \phi)}.\]
+\begin{remark}[Limiting Cases]
+    In the DC limit ($\omega\to 0$), the voltage drops almost entirely across the capacitor and the current leads the voltage by $\phi = \arctan(\infty) = \pi/2$. In the high-frequency limit ($\omega\to\infty$), the voltage drops almost entirely across the resistor and the current is in phase with the voltage: $\phi = \arctan(0) = 0$.
+\end{remark}
 
+
+\subsection{Transfer Function}
+\marginpar{February 12, 2026}
 Consider a general voltage divider circuit built from two impedances $Z_1$ and $Z_2$ in series, driven by a sinusoidal source. The output voltage $\tilde{V}'$ is taken across $Z_2$:
 \begin{center}
     \begin{tikzpicture}[transform shape]
@@ -1006,101 +1000,85 @@ Consider a general voltage divider circuit built from two impedances $Z_1$ and $
         \node[anchor=center, align=center] at (8, 1){$Z_2$};
     \end{tikzpicture}
 \end{center}
-The transfer function is
+The transfer function is therefore
 \[\frac{\tilde{V}'}{\tilde{V}} = \frac{Z_2}{Z_1 + Z_2} = \left|\frac{\tilde{V}'}{\tilde{V}}\right|e^{j\phi},\]
 where $\left|\frac{\tilde{V}'}{\tilde{V}}\right|$ describes how the output amplitude is affected relative to the input amplitude, and $\phi$ is the phase shift of the output relative to the input.
 
-% ------- 7.11 Filter Examples -------
-\subsection{Filter Examples}
-
+\subsection{Filters and Bode Plots}
+\begin{definition}[Bode Plot]
+    A Bode plot shows a circuit's frequency response: amplitude ratio (in dB) and phase shift (in degrees) versus frequency on a logarithmic scale, where $V_{\text{dB}} = 20\log_{10}(V)$.
+\end{definition}
 \begin{example}[RC Low-Pass Filter]
-Consider the following circuit, with output taken across the capacitor:
-\begin{center}
-    \begin{tikzpicture}[transform shape]
-        \draw (5, 0) to[sinusoidal current source] (5, 2);
-        \draw (5, 0) -- (9, 0);
-        \node[sground] at (7, 0){};
-        \draw (9, 0) to[capacitor] (9, 2);
-        \draw (9, 2) to[american resistor] (5, 2);
-        \node[anchor=south] at (7, 2.1){$Z_1 = R$};
-        \node[anchor=center] at (9.8, 1){$Z_2 = \dfrac{1}{j\omega C}$};
-        \node[shape=circle, draw, line width=1pt, minimum width=0.1cm] at (9, 2){};
-        \node[anchor=west] at (9.15, 2.25){$\tilde{V}'$};
-    \end{tikzpicture}
-\end{center}
-The transfer function is
-\[\frac{\tilde{V}'}{\tilde{V}} = \frac{1/j\omega C}{R + 1/j\omega C} = \frac{1}{1 + j\omega\tau},\]
-where $\tau = RC$. Expanding,
-\[\frac{1}{1+j\omega\tau} = \frac{1 - j\omega\tau}{1+(\omega\tau)^2} = \frac{1}{1+(\omega\tau)^2} - j\frac{\omega\tau}{1+(\omega\tau)^2}.\]
-The amplitude ratio and phase shift are therefore
-\[\left(\frac{V_o'}{V_o}\right)^2 = \left|\frac{\tilde{V}'}{\tilde{V}}\right|^2 = \frac{1}{1+(\omega\tau)^2}, \qquad \phi = -\arctan(\omega\tau).\]
-We can plot both the amplitude ratio and phase shift as functions of $\omega\tau$ (linear scale):
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{../Images/RCcircuit.png}
-\end{figure}
-Conventionally, the amplitude is expressed in dB and the phase in degrees, with $\omega\tau$ on a logarithmic scale, where $V_{\text{dB}} = 20\log_{10}(V) = 10\log_{10}(V^2)$:
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.6\textwidth]{../Images/RCcircuit2.png}
-\end{figure}
-In the high-frequency limit ($\omega\tau \gg 1$), the amplitude falls off as $1/\omega\tau$, and the circuit acts as an integrator.
+    Consider the following circuit, with output taken across the capacitor:
+    \begin{center}
+        \begin{tikzpicture}[transform shape]
+            \draw (5, 0) to[sinusoidal current source] (5, 2);
+            \draw (5, 0) -- (9, 0);
+            \node[sground] at (7, 0){};
+            \draw (9, 0) to[capacitor] (9, 2);
+            \draw (9, 2) to[american resistor] (5, 2);
+            \node[anchor=south] at (7, 2.1){$Z_1 = R$};
+            \node[anchor=center] at (9.8, 1){$Z_2 = \dfrac{1}{j\omega C}$};
+            \node[shape=circle, draw, line width=1pt, minimum width=0.1cm] at (9, 2){};
+            \node[anchor=west] at (9.15, 2.25){$\tilde{V}'$};
+        \end{tikzpicture}
+    \end{center}
+    Output across the capacitor gives transfer function
+    \[\frac{\tilde{V}'}{\tilde{V}} = \frac{1}{1 + j\omega\tau} = \frac{1}{1+(\omega\tau)^2} - j\frac{\omega\tau}{1+(\omega\tau)^2}, \qquad \tau = RC,\]
+    with amplitude and phase
+    \[\left|\frac{\tilde{V}'}{\tilde{V}}\right|^2 = \frac{1}{1+(\omega\tau)^2}, \qquad \phi = -\arctan(\omega\tau).\]
+    At high frequencies ($\omega\tau \gg 1$) the amplitude falls as $1/\omega\tau$ and the circuit acts as an integrator. Bode plots (linear then log scale):
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\textwidth]{../Images/RCcircuit2.png}
+    \end{figure}
 \end{example}
-
 \begin{example}[RC High-Pass Filter]
-Consider the following circuit, with output taken across the resistor:
-\begin{center}
-    \begin{tikzpicture}[transform shape]
-        \draw (5, 0) to[sinusoidal current source] (5, 2);
-        \draw (5, 0) -- (9, 0);
-        \node[sground] at (7, 0){};
-        \draw (5, 2) to[capacitor] (9, 2);
-        \draw (9, 0) to[american resistor] (9, 2);
-        \node[shape=circle, draw, line width=1pt, minimum width=0.1cm] at (9, 2){};
-        \node[anchor=west] at (9.15, 2.25){$\tilde{V}'$};
-    \end{tikzpicture}
-\end{center}
-The transfer function is
-\[\frac{\tilde{V}'}{\tilde{V}} = \frac{R}{R + 1/j\omega C} = \frac{j\omega\tau}{1 + j\omega\tau}.\]
-Expanding,
-\[\frac{j\omega\tau}{1+j\omega\tau} = \frac{j\omega\tau(1-j\omega\tau)}{1+(\omega\tau)^2} = \frac{(\omega\tau)^2}{1+(\omega\tau)^2} + j\frac{\omega\tau}{1+(\omega\tau)^2}.\]
-The amplitude ratio and phase shift are therefore
-\[\left(\frac{V_o'}{V_o}\right)^2 = \left|\frac{\tilde{V}'}{\tilde{V}}\right|^2 = \frac{(\omega\tau)^2}{1+(\omega\tau)^2}, \qquad \phi = \arctan\!\left(\frac{1}{\omega\tau}\right).\]
-The Bode plot for this circuit is:
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.6\textwidth]{../Images/RCcircuit3.png}
-\end{figure}
+    Consider the following circuit, with output taken across the resistor:
+    \begin{center}
+        \begin{tikzpicture}[transform shape]
+            \draw (5, 0) to[sinusoidal current source] (5, 2);
+            \draw (5, 0) -- (9, 0);
+            \node[sground] at (7, 0){};
+            \draw (5, 2) to[capacitor] (9, 2);
+            \draw (9, 0) to[american resistor] (9, 2);
+            \node[shape=circle, draw, line width=1pt, minimum width=0.1cm] at (9, 2){};
+            \node[anchor=west] at (9.15, 2.25){$\tilde{V}'$};
+        \end{tikzpicture}
+    \end{center}
+    Output across the resistor gives
+    \[\frac{\tilde{V}'}{\tilde{V}} = \frac{j\omega\tau}{1 + j\omega\tau} = \frac{(\omega\tau)^2}{1+(\omega\tau)^2} + j\frac{\omega\tau}{1+(\omega\tau)^2},\]
+    with amplitude and phase
+    \[\left|\frac{\tilde{V}'}{\tilde{V}}\right|^2 = \frac{(\omega\tau)^2}{1+(\omega\tau)^2}, \qquad \phi = \arctan\!\left(\frac{1}{\omega\tau}\right).\]
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\textwidth]{../Images/RCcircuit3.png}
+    \end{figure}
 \end{example}
-
 \begin{example}[Two-Stage RC Circuit]
-Consider the following circuit, in which a resistor $R_2$ is placed in parallel with the capacitor:
-\begin{center}
-    \begin{tikzpicture}[transform shape]
-        \draw (5, 0) to[sinusoidal current source] (5, 2);
-        \node[sground] at (7, 0){};
-        \draw (9.5, 0.25) to[capacitor] (9.5, 1.75);
-        \draw (9, 2) to[american resistor] (5, 2);
-        \draw (8.5, 1.75) to[american resistor] (8.5, 0.25);
-        \draw (9.5, 1.75) |- (8.5, 1.75);
-        \draw (8.5, 0.25) -- (9.5, 0.25);
-        \draw (9, 1.75) -| (9, 2);
-        \draw (9, 0) -| (9, 0.25);
-        \draw (9, 0) -- (5, 0);
-        \node[shape=circle, draw, line width=1pt, minimum width=0.1cm] at (9, 2){};
-        \node[anchor=west] at (9.15, 2.25){$\tilde{V}'$};
-        \node[anchor=south] at (7, 2.1){$R_1$};
-        \node[anchor=west] at (8.65, 1.0){$R_2$};
-        \node[anchor=west] at (9.6, 1.0){$C$};
-    \end{tikzpicture}
-\end{center}
-Here $Z_1 = R_1$ and $Z_2 = R_2 \parallel \frac{1}{j\omega C}$, so the transfer function is
-\[\frac{\tilde{V}'}{\tilde{V}} = \frac{1}{R_1\!\left(\dfrac{1}{R_2} + j\omega C\right) + 1}.\]
-In the two limiting cases:
-\begin{itemize}
-    \item \textbf{High-frequency limit} ($\omega\to\infty$): $R_2$ is short-circuited by the capacitor, giving $\dfrac{\tilde{V}'}{\tilde{V}} \to \dfrac{1}{1 + j\omega R_1 C}$ \quad (low-pass RC).
-    \item \textbf{Low-frequency limit} ($\omega\to 0$): the capacitor is an open circuit, giving $\dfrac{\tilde{V}'}{\tilde{V}} \to \dfrac{R_2}{R_1 + R_2}$ \quad (resistive divider).
-\end{itemize}
+    Consider the following circuit, in which a resistor $R_2$ is placed in parallel with the capacitor:
+    \begin{center}
+        \begin{tikzpicture}[transform shape]
+            \draw (5, 0) to[sinusoidal current source] (5, 2);
+            \node[sground] at (7, 0){};
+            \draw (9.5, 0.25) to[capacitor] (9.5, 1.75);
+            \draw (9, 2) to[american resistor] (5, 2);
+            \draw (8.5, 1.75) to[american resistor] (8.5, 0.25);
+            \draw (9.5, 1.75) |- (8.5, 1.75);
+            \draw (8.5, 0.25) -- (9.5, 0.25);
+            \draw (9, 1.75) -| (9, 2);
+            \draw (9, 0) -| (9, 0.25);
+            \draw (9, 0) -- (5, 0);
+            \node[shape=circle, draw, line width=1pt, minimum width=0.1cm] at (9, 2){};
+            \node[anchor=west] at (9.15, 2.25){$\tilde{V}'$};
+            \node[anchor=south] at (7, 2.1){$R_1$};
+            \node[anchor=west] at (8.65, 1.0){$R_2$};
+            \node[anchor=west] at (9.6, 1.0){$C$};
+        \end{tikzpicture}
+    \end{center}
+    With $Z_1 = R_1$ and $Z_2 = R_2 \parallel \frac{1}{j\omega C}$, the transfer function is
+    \[\frac{\tilde{V}'}{\tilde{V}} = \frac{1}{R_1\!\left(\dfrac{1}{R_2} + j\omega C\right) + 1}.\]
+    Limiting cases: as $\omega\to\infty$ the capacitor shorts $R_2$, recovering a low-pass RC ($\tilde{V}'/\tilde{V} \to 1/(1+j\omega R_1 C)$); as $\omega\to 0$ the capacitor opens, giving a resistive divider ($\tilde{V}'/\tilde{V} \to R_2/(R_1+R_2)$).
 \end{example}
 
 % ============================================================
@@ -1108,9 +1086,7 @@ In the two limiting cases:
 % ============================================================
 \section{RLC Circuits}
 \marginpar{February 17, 2026}
-
 \subsection{Charging with a Step Voltage}
-
 Consider the following series RLC circuit, with a switch closed at $t = 0$ to create a voltage step:
 \begin{center}
     \begin{tikzpicture}[transform shape]
@@ -1125,7 +1101,6 @@ Consider the following series RLC circuit, with a switch closed at $t = 0$ to cr
         \node[anchor=center] at (-2.85, -0.25){\scriptsize $V_0$};
     \end{tikzpicture}
 \end{center}
-
 Summing voltage drops around the loop (KVL) gives
 \[V_0 = RI + L\frac{dI}{dt} + \frac{Q}{C}.\]
 Differentiating with respect to time and dividing through by $L$,
@@ -1138,31 +1113,11 @@ which represents the rate at which energy is dissipated by the resistor. The equ
 \[\frac{d^2I}{dt^2} + \Gamma\frac{dI}{dt} + \omega_0^2\,I = 0.\]
 
 \subsection{Solution by Characteristic Equation}
-
 Substituting the trial solution $I(t) = ce^{pt}$ gives the characteristic equation
 \[p^2 + \Gamma p + \omega_0^2 = 0 \implies p = -\frac{\Gamma}{2} \pm \sqrt{\left(\frac{\Gamma}{2}\right)^2 - \omega_0^2}.\]
 The nature of the solution depends on the sign of the discriminant, yielding three distinct cases.
 
 \subsection{Damping Cases}
-
-\paragraph{Case 1: Underdamped ($\Gamma < 2\omega_0$).}
-The discriminant is negative, giving complex roots. The solution is a sinusoid with exponentially decaying envelope:
-\[I(t) = \frac{V_0}{L\omega_f}\sin(\omega_f t)\,e^{-\Gamma t/2},\]
-where the damped frequency is
-\[\omega_f = \sqrt{\omega_0^2 - \left(\frac{\Gamma}{2}\right)^2}.\]
-This is the most physically interesting case, exhibiting oscillatory behaviour before settling. As $R \to 0$, damping vanishes, $\omega_f \to \omega_0$, and in the unphysical limit of a pure LC circuit the oscillation persists indefinitely at the natural frequency $\omega_0$.
-
-\paragraph{Case 2: Overdamped ($\Gamma > 2\omega_0$).}
-The discriminant is positive, giving two distinct real roots. The solution decays without oscillation:
-\[I(t) = \frac{V_0}{L\omega_f'}\sinh(\omega_f' t)\,e^{-\Gamma t/2},\]
-where
-\[\omega_f' = \sqrt{\left(\frac{\Gamma}{2}\right)^2 - \omega_0^2}.\]
-
-\paragraph{Case 3: Critically damped ($\Gamma = 2\omega_0$).}
-The discriminant is zero, giving a repeated real root. The solution is
-\[I(t) = \frac{V_0}{L}\,t\,e^{-\Gamma t/2}.\]
-This case represents the fastest return to equilibrium without oscillation.
-
 \begin{center}
     \begin{tabular}{|c|c|c|}
     \hline
@@ -1177,14 +1132,29 @@ This case represents the fastest return to equilibrium without oscillation.
     \end{tabular}
 \end{center}
 
-% ------- 8.4 RLC Circuit with AC Driving -------
+\subsubsection{Underdamped ($\Gamma < 2\omega_0$).}
+The discriminant is negative, giving complex roots. The solution is a sinusoid with exponentially decaying envelope:
+\[I(t) = \frac{V_0}{L\omega_f}\sin(\omega_f t)\,e^{-\Gamma t/2},\]
+where the damped frequency is
+\[\omega_f = \sqrt{\omega_0^2 - \left(\frac{\Gamma}{2}\right)^2}.\]
+This is the most physically interesting case, exhibiting oscillatory behaviour before settling. As $R \to 0$, damping vanishes, $\omega_f \to \omega_0$, and in the unphysical limit of a pure LC circuit the oscillation persists indefinitely at the natural frequency $\omega_0$.
+
+\subsubsection{Overdamped ($\Gamma > 2\omega_0$).}
+The discriminant is positive, giving two distinct real roots. The solution decays without oscillation:
+\[I(t) = \frac{V_0}{L\omega_f'}\sinh(\omega_f' t)\,e^{-\Gamma t/2},\]
+where
+\[\omega_f' = \sqrt{\left(\frac{\Gamma}{2}\right)^2 - \omega_0^2}.\]
+
+\subsubsection{Critically damped ($\Gamma = 2\omega_0$).}
+The discriminant is zero, giving a repeated real root. The solution is
+\[I(t) = \frac{V_0}{L}\,t\,e^{-\Gamma t/2}.\]
+This case represents the fastest return to equilibrium without oscillation.
+
 \subsection{RLC Circuit with AC Driving}
 \marginpar{February 19, 2026}
-
-Consider the following series RLC circuit driven by a sinusoidal voltage source $V(t) = V_0\cos(\omega t)$:
+Consider the following series RLC circuit driven by $V(t) = V_0\cos(\omega t)$:
 \begin{center}
     \begin{tikzpicture}[transform shape]
-        \label{RLCwithAC}
         \node[sground] at (-0.25, -1.5){};
         \draw (-1.25, 2) to[american resistor] (0.75, 2);
         \draw (0.75, 2) to[cute inductor] (2.75, 2);
@@ -1197,44 +1167,42 @@ Consider the following series RLC circuit driven by a sinusoidal voltage source 
         \node[anchor=west] at (2.9, 0.75){$I(t)$};
     \end{tikzpicture}
 \end{center}
-
-Using the complex representation $\tilde{V} = V_0 e^{j\omega t}$, the total impedance of the series circuit is
-\[Z_{\text{tot}} = R + j\omega L + \frac{1}{j\omega C} = R\left(1 - \frac{\omega^2}{\omega_0^2} + j\omega\tau\right)\frac{1}{j\omega\tau}\cdot j\omega\tau,\]
-so that the complex current is
-\[\tilde{I} = \frac{\tilde{V}}{Z_{\text{tot}}} = \frac{\tilde{V}}{R}\cdot\frac{j\omega\tau}{1 - \dfrac{\omega^2}{\omega_0^2} + j\omega\tau},\]
-where $\tau = L/R$ and $\omega_0 = 1/\sqrt{LC}$.
-
-\subsubsection{Amplitude}
+With $\tilde{V} = V_0 e^{j\omega t}$, $\tau = L/R$, and $\omega_0 = 1/\sqrt{LC}$, the total impedance is $Z_{\text{tot}} = R + j\omega L + \frac{1}{j\omega C}$, giving complex current
+\[\tilde{I} = \frac{\tilde{V}}{Z_{\text{tot}}} = \frac{\tilde{V}}{R}\cdot\frac{j\omega\tau}{1 - \dfrac{\omega^2}{\omega_0^2} + j\omega\tau}.\]
+The amplitude of the current is
 \[|\tilde{I}|^2 = \left(\frac{V_0}{R}\right)^2 \frac{(\omega\tau)^2}{\left(1 - \dfrac{\omega^2}{\omega_0^2}\right)^2 + (\omega\tau)^2}.\]
-At $\omega = \omega_0$ the denominator reduces to $(\omega_0\tau)^2$, so $|\tilde{I}|$ reaches its maximum
-\[I_{\max} = \frac{V_0}{R},\]
-the frequency at which the circuit is maximally transmittant. At resonance, the capacitive and inductive impedances cancel exactly, leaving only $R$.
-
-\subsubsection{Phase}
-Multiplying numerator and denominator of $\tilde{I}/(\tilde{V}/R)$ by the complex conjugate of the denominator gives
-\[\frac{\tilde{I}}{\tilde{V}/R} = \frac{(\omega\tau)^2 + j\omega\tau\!\left(1 - \dfrac{\omega^2}{\omega_0^2}\right)}{\left(1 - \dfrac{\omega^2}{\omega_0^2}\right)^2 + (\omega\tau)^2},\]
-from which the phase of the current relative to the voltage is
-\[\tan\phi = \frac{1 - \dfrac{\omega^2}{\omega_0^2}}{\omega\tau}.\]
-The physical current is therefore
-\[I(t) = |\tilde{I}|\cos(\omega t + \phi).\]
+At $\omega = \omega_0$ the denominator reduces to $(\omega_0\tau)^2$, so $|\tilde{I}|$ reaches its maximum $I_{\max} = V_0/R$. At resonance, the capacitive and inductive impedances cancel exactly, leaving only $R$.\\
+We can obtain the phase offset by multiplying through by the complex conjugate of the denominator,
+\[\frac{\tilde{I}}{\tilde{V}/R} = \frac{(\omega\tau)^2 + j\omega\tau\!\left(1 - \dfrac{\omega^2}{\omega_0^2}\right)}{\left(1 - \dfrac{\omega^2}{\omega_0^2}\right)^2 + (\omega\tau)^2}, \qquad \tan\phi = \frac{1 - \dfrac{\omega^2}{\omega_0^2}}{\omega\tau}.\]
+The physical current is therefore $I(t) = |\tilde{I}|\cos(\omega t + \phi)$.
 
 % ------- 8.5 Quality Factor -------
 \subsection{Quality Factor}
-
-The \textbf{quality factor} $Q$ measures the sharpness of the resonance peak:
-\[Q = \frac{1}{\omega_0\tau} = \frac{\omega_0 L}{R}.\]
-A high $Q$ corresponds to a narrow resonance. As $R \to 0$, the circuit approaches a pure LC resonator, $Q \to \infty$, and only oscillation at $\omega_0$ can be sustained. At resonance the capacitive and inductive reactances are equal in magnitude but opposite in phase (offset by $\pi$ radians), so they cancel exactly and the circuit presents purely resistive impedance to the driving source.
+\begin{definition}[Quality Factor]
+    The quality factor $Q$ is a dimensionless parameter that quantifies the sharpness of a resonance peak in a resonant system. A high $Q$ corresponds to a narrow resonance.
+\end{definition}
+\begin{proposition}[Quality Factor of an RLC Circuit]
+    The quality factor can be defined as
+    \[Q = \frac{1}{\omega_0\tau} = \frac{\omega_0 L}{R}.\]
+    As $R \to 0$, the circuit approaches a pure LC resonator, $Q \to \infty$, and only oscillation at $\omega_0$ can be sustained. At resonance the capacitive and inductive reactances are equal in magnitude but opposite in phase (offset by $\pi$ radians), so they cancel exactly and the circuit presents purely resistive impedance to the driving source.
+\end{proposition}
 
 % ------- 8.6 Power and Resonance -------
 \subsection{Power and Resonance}
-
-The instantaneous power delivered to the circuit is
-\[P(t) = V(t)\,I(t) = V_0 I_0\cos(\omega t)\cos(\omega t + \phi).\]
+\begin{proposition}[Instantaneous Power]
+    The instantaneous power delivered to the circuit is
+    \[P(t) = V(t)\,I(t) = V_0 I_0\cos(\omega t)\cos(\omega t + \phi).\]
+\end{proposition}
 Time-averaging over one complete cycle gives
 \[\langle P \rangle = \frac{1}{T}\int_0^T P(t)\,dt = \frac{V_0 I_0}{2}\cos\phi.\]
-The factor $\cos\phi$ is called the \textbf{power factor}. Capacitors and inductors introduce a phase offset $\phi$ that reduces the efficiency of power delivery. In a pure LC circuit the phase offset is necessarily $\pm\pi/2$, so $\cos\phi = 0$ and the time-averaged power input vanishes --- no net energy is delivered unless the circuit is driven exactly at resonance $\omega = \omega_0$, where the inductive and capacitive impedances cancel and $\phi = 0$.
+\begin{definition}[Power Factor]
+    The factor $\cos\phi$ from the previous equation is called the power factor.
+\end{definition}
+\begin{remark}
+    Capacitors and inductors introduce a phase offset $\phi$ that reduces the efficiency of power delivery. In a pure LC circuit the phase offset is necessarily $\pm\pi/2$, so $\cos\phi = 0$ and the time-averaged power input vanishes --- no net energy is delivered unless the circuit is driven exactly at resonance $\omega = \omega_0$, where the inductive and capacitive impedances cancel and $\phi = 0$.
+\end{remark}
 
-% ------- 8.7 Capacitor Voltage in a Driven RLC Circuit -------
+%CONTINUE FROM HERE
 \subsection{Capacitor Voltage in a Driven RLC Circuit}
 \marginpar{March 10, 2026}
 
