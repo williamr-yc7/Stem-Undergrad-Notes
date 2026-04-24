@@ -335,14 +335,14 @@ Since its honours you will deal with analysis. The Midterm is from 4:05 pm to 5:
 \end{example}
 \begin{example}[Continuous but not locally Lipschitz]
     \[f(y) = \sqrt{|y|}.\]
-    The derivative $f'(y) = \frac{\sgn(y)}{2\sqrt{|y|}}$ is unbounded near \(y = 0\), so no Lipschitz constant exists even locally. Hence \(f\) is not locally Lipschitz.
+    The derivative $f'(y) = \frac{\sgn(y)}{2\sqrt{|y|}} = \begin{cases} \dfrac{1}{2\sqrt{y}},\,y > 0 \\ -\dfrac{1}{2\sqrt{-y}},\, y < 0 \end{cases}$ is unbounded near \(y = 0\), so no Lipschitz constant exists even locally. Hence \(f\) is not locally Lipschitz.
 \end{example}
 
 \subsubsection{Integral Form of the IVP}
 \marginpar{January 13, 2026}
 \begin{lemma}
     A function \(y\) solves the IVP if and only if
-    \[y(t) = y_0 + \int_{t_0}^{t} f(y(s),s)ds.\]
+    \[y(t) = y_0 + \int_{t_0}^{t} f(y(s),s)\,ds.\]
 \end{lemma}
 \begin{proof}
     If \(y' = f(y,t)\) and \(y(t_0) = y_0\), then by the Fundamental Theorem of Calculus,
@@ -352,10 +352,13 @@ Since its honours you will deal with analysis. The Midterm is from 4:05 pm to 5:
 \end{proof}
 
 \subsubsection{Picard operator}
-The integral form motivates defining the following operator. Since $(y_0, t_0) \in D \times (a,b)$ and the set is open, choose $\alpha, \delta > 0$ such that
-\[D_{\alpha,\delta} = \{(y,t) : \|y-y_0\| \leq \alpha,\; |t-t_0| \leq \delta\} \subset D \times (a,b),\]
-and set
-\[M_{\alpha,\delta} = \sup_{(y,t)\in D_{\alpha,\delta}}\|f(y,t)\| < +\infty, \qquad \varepsilon = \min\!\left(\delta,\frac{\alpha}{M_{\alpha,\delta}}\right), \qquad J = (t_0-\varepsilon, t_0+\varepsilon).\]
+The integral form of the IVP motivates defining the following operator.
+\begin{algorithm}[Finding an Interval of Existence]
+    Since $(y_0, t_0) \in D \times (a,b)$ and the set is open, choose $\alpha, \delta > 0$ such that
+    \[D_{\alpha,\delta} = \{(y,t) : \|y-y_0\| \leq \alpha,\; |t-t_0| \leq \delta\} \subset D \times (a,b),\]
+    and set
+    \[M_{\alpha,\delta} = \sup_{(y,t)\in D_{\alpha,\delta}}\|f(y,t)\| < +\infty, \qquad \varepsilon = \min\!\left(\delta,\frac{\alpha}{M_{\alpha,\delta}}\right), \qquad J = (t_0-\varepsilon, t_0+\varepsilon).\footnote{You will have to memorize this algorithm for the exams when finding an interval of existence.}\]
+\end{algorithm}
 \begin{definition}[Picard Operator]
     For any $y : J \to \R^n$ with $y(t_0) = y_0$ and 
     $(y(t),t) \in D_{\alpha,\delta}$ for all $t \in J$, define
@@ -381,7 +384,7 @@ and set
     Indeed, $T(y)(t) = 1 + \int_0^t e^s ds = e^t$, so $T(y)=y$. Therefore, $T$ is an operator that maps a function to a new one, and only the true solution is a fixed point of $T$.
 \end{example}
 
-\subsubsection{Statement of the Theorem}
+\subsubsection{Existence and Uniqueness}
 \label{EUT}
 \begin{theorem}[Existence and Uniqueness]
     Let $D \subseteq \R^n$ be open and $(a,b)$ an open interval containing $t_0$. Suppose $f : D \times (a,b) \to \R^n$\,\footnote{\(D \times (a,b)\) denotes the set of all pairs \((y,t)\) with \(y \in D \subset \R^n\) and \(t \in (a,b)\), i.e., all allowed state-time inputs of \(f\).} is continuous and locally Lipschitz in $y$. If $y_0 \in D$, then the IVP
@@ -389,19 +392,29 @@ and set
     has a unique solution on some open interval $J$ containing $t_0$.
 \end{theorem}
 \marginpar{January 20, 2026}
-\begin{remark}[Choosing $\varepsilon$]
-    To apply the Existence and Uniqueness Theorem, we choose \(\varepsilon\) so that the solution remains inside the domain \(D \times (a,b)\).
-    Consider the IVP
-    \[\begin{cases}y' = f(y,t), \\ y(t_0) = y_0.\end{cases}\]
-    The theorem guarantees that there exists a unique solution 
-    \[y : (t_0-\varepsilon, t_0+\varepsilon) \to \R^n.\]
+To apply the Existence and Uniqueness Theorem, we choose \(\varepsilon\) so that the solution remains inside the domain \(D \times (a,b)\). Consider the IVP
+\[\begin{cases}y' = f(y,t), \\ y(t_0) = y_0.\end{cases}\]
+The theorem guarantees that there exists a unique solution 
+\[y : (t_0-\varepsilon, t_0+\varepsilon) \to \R^n.\]
+\begin{algorithm}[Choosing $\varepsilon$]
     Choose \(\alpha > 0\) and \(\delta > 0\) such that
     \[D_{\alpha,\delta} := \{(y,t) : \|y-y_0\| \le \alpha,\ |t-t_0| \le \delta\} \subset D \times (a,b).\]
-    Since \(f\) is continuous, define
+    Since \(f(y,t)\) is continuous, define
     \[M_{\alpha,\delta} = \sup_{(y,t)\in D_{\alpha,\delta}} \|f(y,t)\| < \infty.\]
     Then one may take
     \[\varepsilon = \min\!\left(\delta, \frac{\alpha}{M_{\alpha,\delta}}\right).\]
+\end{algorithm}
+\begin{remark}[Maximizing $\varepsilon$]
+    To determine the largest value of $\varepsilon$  for which the Theorem of Existence and Uniqueness ensures the existence of a solution, then one may try to maximize $\min\!\left(\delta, \frac{\alpha}{M_{\alpha,\delta}}\right)$ by equating both terms together $\delta = \frac{\alpha}{M_{\alpha,\delta}}$.
 \end{remark}
+\begin{example}
+    Consider the IVP
+    \[y' = t^2+y^2, \quad y(0) = 0.\]
+    Determine the largest value of $\varepsilon$ for which the Theorem of Existence and Uniqueness ensures the existence of a solution y : ($-\varepsilon, \varepsilon) \to \R$.\\
+    First and foremost, define
+    \[D_{\alpha,\delta} = \left\{(y,t): ||y - 0|| \leq \alpha, |t-0| \leq \delta\right\}\subset D \times (a,b).\]
+    Set $M_{\alpha,\delta} = \sup_{(y,t) \in D_{\alpha,\delta}} ||f(y,t)||$ and $\varepsilon = \min\!\left(\delta, \frac{\alpha}{M_{\alpha,\delta}}\right)$. Since $f(y,t) \in C^0(\R)$, then choose $D = \R$ and $(a,b) = (-\infty, \infty)$, now we need to 
+\end{example}
 \begin{problem}[Existence and Uniqueness Theorem]
     Consider the initial value problem
     \[\begin{cases}y' = t^2+y^2, \\ y(0) = 0,\end{cases}\]
@@ -413,13 +426,15 @@ and set
     Investigate existence and uniqueness.
 \end{problem}
 
-\subsubsection{Picard Iteration and Existence}
 \marginpar{January 15, 2026}
-Define $y_0(t) \equiv y_0$ (constant). For $k \geq 1$ set
-\[y_k(t) = T(y_{k-1})(t) = y_0 + \int_{t_0}^{t} f(y_{k-1}(s), s)\, ds.\]
-By the invariance lemma, each $y_k$ stays inside $D_{\alpha,\delta}$. 
-
-The sequence $\{y_k\}$ is Cauchy in $\R^n$ (see Appendix~\ref{pf:picard-convergence}) and therefore converges uniformly to a function $y: J \to \R^n$ which satisfies the integral equation, hence solves the IVP.
+\begin{corollary}[Picard Iteration \& Existence]
+    Define $y_0(t) \equiv y_0$ (constant). For $k \geq 1$ set
+    \[y_k(t) = T(y_{k-1})(t) = y_0 + \int_{t_0}^{t} f(y_{k-1}(s), s)\, ds.\]
+    By the invariance lemma, each $y_k$ stays inside $D_{\alpha,\delta}$. 
+\end{corollary}
+\begin{remark}
+    The sequence $\{y_k\}$ is Cauchy in $\R^n$ (see Appendix~\ref{pf:picard-convergence}) and therefore converges uniformly to a function $y: J \to \R^n$ which satisfies the integral equation, hence solves the IVP.
+\end{remark}
 
 \subsubsection{Uniqueness}
 \begin{proof}[Proof of Uniqueness]
@@ -1110,7 +1125,7 @@ Let $\lambda$ be an eigenvalue with algebraic multiplicity $2$.
 \end{itemize}
 \subsubsection*{higher multiplicity}
 If an eigenvalue $\lambda$ has multiplicity $m > 2$ and the system is fully defective (only one eigenvector $v$), then we build a chain of generalized eigenvectors:
-\[(A - \lambda I)w_1 = v, \quad (A - \lambda I)w_2 = w_1, \quad dots\]
+\[(A - \lambda I)w_1 = v, \quad (A - \lambda I)w_2 = w_1, \quad \dots\]
 The solution follows the pattern:
 \[y(t) = e^{\lambda t} \left[c_1 v+ c_2 (t v + w_1)+ c_3 \left(\frac{t^2}{2} v + t w_1 + w_2\right)+ \cdots\right].\]
 \begin{remark}

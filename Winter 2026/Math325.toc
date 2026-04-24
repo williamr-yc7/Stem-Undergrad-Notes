@@ -18,18 +18,17 @@
 \contentsline {subsubsection}{\numberline {3.4.2}Local Lipschitz continuity}{6}{subsubsection.3.4.2}%
 \contentsline {subsubsection}{\numberline {3.4.3}Integral Form of the IVP}{7}{subsubsection.3.4.3}%
 \contentsline {subsubsection}{\numberline {3.4.4}Picard operator}{7}{subsubsection.3.4.4}%
-\contentsline {subsubsection}{\numberline {3.4.5}Statement of the Theorem}{8}{subsubsection.3.4.5}%
-\contentsline {subsubsection}{\numberline {3.4.6}Picard Iteration and Existence}{9}{subsubsection.3.4.6}%
-\contentsline {subsubsection}{\numberline {3.4.7}Uniqueness}{10}{subsubsection.3.4.7}%
-\contentsline {section}{\numberline {4}First-Order Scalar Equation}{10}{section.4}%
-\contentsline {subsection}{\numberline {4.1}First Order Linear Equations}{10}{subsection.4.1}%
-\contentsline {subsubsection}{\numberline {4.1.1}Integrating Factor Method}{10}{subsubsection.4.1.1}%
-\contentsline {subsubsection}{\numberline {4.1.2}Existence and Uniqueness for First Order Linear Equations}{11}{subsubsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {3.4.5}Existence and Uniqueness}{9}{subsubsection.3.4.5}%
+\contentsline {subsubsection}{\numberline {3.4.6}Uniqueness}{10}{subsubsection.3.4.6}%
+\contentsline {section}{\numberline {4}First-Order Scalar Equation}{11}{section.4}%
+\contentsline {subsection}{\numberline {4.1}First Order Linear Equations}{11}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Integrating Factor Method}{11}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}Existence and Uniqueness for First Order Linear Equations}{12}{subsubsection.4.1.2}%
 \contentsline {subsection}{\numberline {4.2}Separable Equations}{12}{subsection.4.2}%
 \contentsline {subsubsection}{\numberline {4.2.1}General Method}{12}{subsubsection.4.2.1}%
 \contentsline {subsection}{\numberline {4.3}Exact Equations}{13}{subsection.4.3}%
 \contentsline {subsubsection}{\numberline {4.3.1}Potential Functions and Integral Curves}{13}{subsubsection.4.3.1}%
-\contentsline {subsubsection}{\numberline {4.3.2}Definition and Exactness Criterion}{13}{subsubsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.2}Definition and Exactness Criterion}{14}{subsubsection.4.3.2}%
 \contentsline {subsubsection}{\numberline {4.3.3}Integrating Factors for Non-Exact Equations}{14}{subsubsection.4.3.3}%
 \contentsline {subsection}{\numberline {4.4}Applications}{15}{subsection.4.4}%
 \contentsline {section}{\numberline {5}Systems of Linear Equations}{16}{section.5}%
