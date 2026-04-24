@@ -350,6 +350,11 @@ INPUT ..\Images\circuit-ode.jpeg
 INPUT ..\Images\circuit-ode.jpeg
 INPUT ..\Images\circuit-ode.jpeg
 INPUT ..\Images\circuit-ode.jpeg
+INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmss10.tfm
+INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmss8.tfm
+INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmss8.tfm
+INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmss8.tfm
+INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmss8.tfm
 INPUT Math325.aux
 INPUT .\Math325.out
 INPUT .\Math325.out
@@ -391,6 +396,8 @@ INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\c
 INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr7.pfb
 INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr8.pfb
 INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr8.pfb
+INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmss10.pfb
+INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmss10.pfb
 INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
 INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
 INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy5.pfb

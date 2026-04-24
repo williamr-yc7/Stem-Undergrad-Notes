@@ -23,9 +23,12 @@
 \newtheorem{proposition}{Proposition}
 \newtheorem{algorithm}{Algorithm}
 \reversemarginpar
-\hypersetup{
-    colorlinks=true,
-}
+\hypersetup{colorlinks=true,}
+% Shortcuts
+\newcommand{\Lap}{\mathcal{L}}
+\newcommand{\Linv}{\mathcal{L}^{-1}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\conv}{\star}
 \begin{document}
 %------- Title page   -----------
 \title{MATH 325: Honours Ordinary Differential Equations}
@@ -68,8 +71,8 @@ Since its honours you will deal with analysis. The Midterm is from 4:05 pm to 5:
 \subsection{Real Analysis}
 \subsubsection{Norms}
 \begin{definition}[Norm]
-    A norm $\|\cdot\|$ on $\mathbb{R}^n$ is a way of measuring the 
-    ``size'' or ``length'' of a vector $x \in \mathbb{R}^n$. It must satisfy:
+    A norm $\|\cdot\|$ on $\R^n$ is a way of measuring the 
+    ``size'' or ``length'' of a vector $x \in \R^n$. It must satisfy:
     \begin{itemize}
         \item $\|x\| \geq 0$, and $\|x\| = 0$ only if $x = 0$,
         \item $\|\alpha x\| = |\alpha|\,\|x\|$ for any scalar $\alpha$,
@@ -77,7 +80,7 @@ Since its honours you will deal with analysis. The Midterm is from 4:05 pm to 5:
     \end{itemize}
 \end{definition}
 \begin{example}
-    The three most common norms on $\mathbb{R}^n$ are:
+    The three most common norms on $\R^n$ are:
     \begin{itemize}
         \item \textbf{Euclidean norm:} $\|x\|_2 = \sqrt{x_1^2 + \cdots + x_n^2}$ 
         (standard geometric length),
@@ -94,13 +97,13 @@ Since its honours you will deal with analysis. The Midterm is from 4:05 pm to 5:
 
 \subsubsection{Sequences and Convergence}
 \begin{definition}[Cauchy Sequence]
-    A sequence of vectors $\{x_k\} \subset \mathbb{R}^n$ is called a Cauchy 
+    A sequence of vectors $\{x_k\} \subset \R^n$ is called a Cauchy 
     sequence if its terms eventually get arbitrarily close to one another:
     for every $\varepsilon > 0$, there exists $N \in \mathbb{N}$ such that
     \[\|x_m - x_n\| < \varepsilon \quad \text{for all } m, n \geq N.\]
 \end{definition}
 \begin{theorem}
-    Every Cauchy sequence in $\mathbb{R}^n$ converges to a point in $\mathbb{R}^n$.
+    Every Cauchy sequence in $\R^n$ converges to a point in $\R^n$.
 \end{theorem}
 \begin{remark}
     This is the key fact used in Picard iteration: we show that the sequence 
@@ -110,8 +113,8 @@ Since its honours you will deal with analysis. The Midterm is from 4:05 pm to 5:
 
 \subsubsection{Uniform Convergence}
 \begin{definition}[Uniform Convergence]
-    A sequence of functions $f_k : J \to \mathbb{R}^n$ converges 
-    \emph{uniformly} to $f : J \to \mathbb{R}^n$ if
+    A sequence of functions $f_k : J \to \R^n$ converges 
+    \emph{uniformly} to $f : J \to \R^n$ if
     \[\lim_{k \to \infty} \sup_{t \in J} \|f_k(t) - f(t)\| = 0.\]
     In plain terms: the approximation error $\|f_k(t) - f(t)\|$ becomes 
     small \emph{simultaneously} for all $t \in J$, not just pointwise.
@@ -131,7 +134,7 @@ Since its honours you will deal with analysis. The Midterm is from 4:05 pm to 5:
 \subsubsection{The Mean Value Inequality}
 \label{MVI}
 \begin{theorem}[Mean Value Inequality]
-    Let $U \subseteq \mathbb{R}^n$ be open and $f : U \to \mathbb{R}^n$ 
+    Let $U \subseteq \R^n$ be open and $f : U \to \R^n$ 
     be $C^1$. For any compact set $K \subset U$ and all $x, y \in K$,
     \[\|f(y) - f(x)\| \leq \left(\sup_{z \in K}\|Df(z)\|\right)\|y - x\|,\]
     where $Df$ denotes the Jacobian matrix of $f$.
@@ -194,31 +197,32 @@ Since its honours you will deal with analysis. The Midterm is from 4:05 pm to 5:
 \begin{definition}[Scalar ODE]
     A scalar ODE has one unknown function.
 \end{definition}
-\begin{example}[Scalar ODE]
-    \[y'' + y = 0\]
-\end{example}
 \begin{definition}[System of ODEs]
     A system of ODEs has several unknown functions.
 \end{definition}
-\begin{example}[System of ODEs]
-    \[\begin{cases}
-        y_1' = y_2\\
-        y_2' = -y_1
-    \end{cases}\]
+\begin{example}[Scalar ODE vs System of ODEs]
+
+    Scalar: $y'' + y = 0$.\\
+    System: $\begin{cases}y_1' = y_2\\y_2' = -y_1\end{cases}$
 \end{example}
-\begin{definition}[System of first order ODEs]
-    A first order system has the form
-    \[y'(t)=f(y(t),t),\]
-    where \(y(t)\in\mathbb{R}^n\) and \(f:\mathbb{R}^n\times\mathbb{R}\to\mathbb{R}^n\).
-    In components,
-    \[y_i'(t)=f_i(y_1,\dots,y_n,t), \quad i=1,\dots,n.\]
-    Any \(n\)th-order ODE
-    \[y^{(n)}=G(t,y,y',\dots,y^{(n-1)})\]
-    can be written as a first order system by setting
-    \[y_1=y,\; y_2=y',\; \dots,\; y_n=y^{(n-1)},\]
-    which gives
-    \[\begin{cases}y_1'=y_2,\\y_2'=y_3,\\\vdots\\y_{n-1}'=y_n,\\y_n'=G(t,y_1,\dots,y_n).\end{cases}\]
+\begin{definition}[First Order Sytem]
+    A first order system is an equation of the form
+    \[y'(t) = f(y(t),\, t),\]
+    where the unknown $y(t) = (y_1(t),\dots,y_n(t)) \in \R^n$ is a vector-valued
+    function and $f : \R^n \times \R \to \R^n$. Written out by
+    component, this is just $n$ coupled equations:
+    \[y_i'(t) = f_i(y_1,\dots,y_n,\, t), \qquad i = 1,\dots,n.\]
 \end{definition}
+\begin{proposition}[Reduction of Higher-Order ODEs]
+    Any single $n$th-order ODE
+    \[y^{(n)} = G\!\left(t,\, y,\, y',\dots, y^{(n-1)}\right)\]
+    can be recast as a first order system by introducing new variables for each derivative:
+    \[y_1 = y, \quad y_2 = y', \quad \dots \quad y_n = y^{(n-1)}.\]
+    Differentiating each substitution gives the equivalent system
+    \[\begin{cases}y_1' = y_2, \\ y_2' = y_3, \\ \;\vdots \\ y_{n-1}' = y_n, \\ y_n' = G(t,\, y_1,\dots, y_n).\end{cases}\]
+    The first $n-1$ equations just say each variable is the derivative of the previous
+    one; the last equation encodes the original ODE.
+\end{proposition}
 \begin{example}[System of First Order ODEs]
     Consider the second-order ODE
     \[y'' + 2y' + y = e^t.\]
@@ -247,11 +251,6 @@ Since its honours you will deal with analysis. The Midterm is from 4:05 pm to 5:
         \item Non-linear: $y'' + sin(y) = 0$
     \end{itemize}
 \end{example}
-\begin{example}[Lorenz system]
-    \label{Lorenzsystem}
-    \[\begin{aligned}y_1' &= \sigma (y_2-y_1), \\ y_2' &= \rho y_1 - y_2 - y_1y_3, \\ y_3' &= y_1y_2 - \beta y_3,\end{aligned}\]
-    where \(\sigma,\rho,\beta\) are parameters. This is a nonlinear first order system in \(\mathbb{R}^3\).
-\end{example}
 
 \subsubsection{Autonomy}
 \begin{definition}[Autonomy]
@@ -265,14 +264,6 @@ Since its honours you will deal with analysis. The Midterm is from 4:05 pm to 5:
         \item Non-autonomous: \(y'(t) = ty(t)\)
     \end{itemize}
 \end{example}
-\begin{example}
-    A classic, simple example of an autonomous first-order system is the linear growth/decay model:
-    \[\frac{dy}{dt} = ky\]
-    Here, \(f(y,t) = ky\), which depends only on \(y\) (where \(k\) is a constant), making it autonomous.
-\end{example}
-\begin{remark}
-    The Lorenz system \eqref{Lorenzsystem} is an example of an autonomous system.
-\end{remark}
 
 \subsection{Solutions and Initial Value Problems}
 \begin{definition}[Solution]
@@ -281,11 +272,11 @@ Since its honours you will deal with analysis. The Midterm is from 4:05 pm to 5:
     \[y'(t) = f(y(t), t) \quad \forall\, t \in J.\]
 \end{definition}
 \begin{example}[Explicit Solution]
-    Consider the following ODE $y' + y = 1$. We can verify that \(y(t) = e^{-t} + 1\), and therefore \(y'(t) = -e^{-t}\), is a solution on \(\mathbb{R}\). Indeed,
+    Consider the following ODE $y' + y = 1$. We can verify that \(y(t) = e^{-t} + 1\), and therefore \(y'(t) = -e^{-t}\), is a solution on \(\R\). Indeed,
     \[y' + y = -e^{-t} + (e^{-t} + 1) = 1.\]
 \end{example}
 \begin{example}[Implicit Solution]
-    Consider the ODE $y \frac{dy}{dx} = x$. This is a nonautonomous, nonlinear, first-order scalar ODE. Separating $y\,dy = x\,dx$ and integrating gives the implicit solution $x^2 - y^2 = C, \quad C \in \mathbb{R}$.
+    Consider the ODE $y \frac{dy}{dx} = x$. This is a nonautonomous, nonlinear, first-order scalar ODE. Separating $y\,dy = x\,dx$ and integrating gives the implicit solution $x^2 - y^2 = C, \quad C \in \R$.
 \end{example}
 \marginpar{January 13, 2026}
 \begin{definition}[Initial Value Problem (IVP)]
@@ -295,20 +286,20 @@ Since its honours you will deal with analysis. The Midterm is from 4:05 pm to 5:
 \subsection{Existence and Uniqueness Theorem}
 \subsubsection{Lipschitz continuity}
 \begin{definition}[Lipschitz Continuity]
-    A function $f : D \to \mathbb{R}^n$ is Lipschitz continuous on $D \subseteq \mathbb{R}^n$ if there exists $L \geq 0$ such that
+    A function $f : D \to \R^n$ is Lipschitz continuous on $D \subseteq \R^n$ if there exists $L \geq 0$ such that
     \[||f(y_1) - f(y_2)|| \le L||y_1 - y_2|| \quad \forall y_1,y_2 \in D.\]
     The smallest such $L$ is called the Lipschitz constant, denoted $\mathrm{Lip}(f)$.
 \end{definition}
 \begin{remark}[How to find a Lipschitz constant]
-    If $f$ is differentiable on $D \subset \mathbb{R}$ and 
+    If $f$ is differentiable on $D \subset \R$ and 
     $|f'(y)| \leq M$ for all $y \in D$, then $f$ is Lipschitz with 
     $\mathrm{Lip}(f) = M$.
 \end{remark}
 \begin{example}
-    Let \(f(y) = 4y - 5\), \(D = \mathbb{R}\), and \(||\cdot|| = |\cdot|\).
+    Let \(f(y) = 4y - 5\), \(D = \R\), and \(||\cdot|| = |\cdot|\).
     Then
     \[|f(y_1) - f(y_2)| = |4y_1 - 4y_2| = 4|y_1 - y_2|.\]
-    So \(f\) is Lipschitz on \(\mathbb{R}\) with \(Lip(f) = 4\).
+    So \(f\) is Lipschitz on \(\R\) with \(Lip(f) = 4\).
 \end{example}
 \begin{example}
     Let
@@ -321,17 +312,10 @@ Since its honours you will deal with analysis. The Midterm is from 4:05 pm to 5:
     Thus \(f\) is Lipschitz on \(D_\delta\) with
     \[Lip(f) = \frac{1}{(\delta - 1)^2}.\]
 \end{example}
-\begin{example}
-    Suppose \(f\) is differentiable and satisfies
-    \[-4 \le f'(y) \le 9 \quad \text{for all } y \in \mathbb{R}.\]
-    Then
-    \[|f'(y)| \le 9 \quad \forall y,\]
-    so \(f\) is Lipschitz on \(\mathbb{R}\) with Lipschitz constant \(L = 9\).
-\end{example}
 
 \subsubsection{Local Lipschitz continuity}
 \begin{definition}[Locally Lipschitz]
-    Let $D \subseteq \mathbb{R}^n$ be open. A function $f : D \to \mathbb{R}^n$ is \emph{locally Lipschitz} if for every compact set $K \subset D$ there exists $L > 0$ such that
+    Let $D \subseteq \R^n$ be open. A function $f : D \to \R^n$ is \emph{locally Lipschitz} if for every compact set $K \subset D$ there exists $L > 0$ such that
     \[\|f(y_1) - f(y_2)\| \leq L\|y_1 - y_2\| \quad \forall\, y_1, y_2 \in K.\]
 \end{definition}
 \begin{remark}
@@ -340,17 +324,17 @@ Since its honours you will deal with analysis. The Midterm is from 4:05 pm to 5:
     Inequality from Section~\ref{MVI}).
 \end{remark}
 \begin{example}[Locally Lipschitz but not Lipschitz]
-    \[f(y) = y^2 \in \mathbb{R}.\]
-    Since \(f'(y)=2y\) is unbounded on \(\mathbb{R}\), no single constant works on the whole domain, so \(f\) is not Lipschitz.  
+    \[f(y) = y^2 \in \R.\]
+    Since \(f'(y)=2y\) is unbounded on \(\R\), no single constant works on the whole domain, so \(f\) is not Lipschitz.  
     However, on any bounded set \(K=[-M,M]\), \(|f'(y)| \le 2M\), so \(f\) is locally Lipschitz.
 \end{example}
-\begin{example}[Lipschitz (hence locally Lipschitz)]
+\begin{example}[Lipschitz $\implies$ locally Lipschitz]
     \[f(y) = \sin y.\]
-    Since \(|f'(y)| = |\cos y| \leq 1\), $\forall y$, $f$ is Lipschitz on \(\mathbb{R}\), with \(Lip(f) = 1\).
+    Since \(|f'(y)| = |\cos y| \leq 1\), $\forall y \in \R$, $f$ is Lipschitz on \(\R\), with \(Lip(f) = 1\).
 \end{example}
 \begin{example}[Continuous but not locally Lipschitz]
     \[f(y) = \sqrt{|y|}.\]
-    The derivative is unbounded near \(y = 0\), so no Lipschitz constant exists even locally. Hence \(f\) is not locally Lipschitz.
+    The derivative $f'(y) = \frac{\operatorname{sgn}(y)}{2\sqrt{|y|}}$ is unbounded near \(y = 0\), so no Lipschitz constant exists even locally. Hence \(f\) is not locally Lipschitz.
 \end{example}
 
 \subsubsection{Integral Form of the IVP}
@@ -372,7 +356,7 @@ The integral form motivates defining the following operator. Since $(y_0, t_0) \
 and set
 \[M_{\alpha,\delta} = \sup_{(y,t)\in D_{\alpha,\delta}}\|f(y,t)\| < +\infty, \qquad \varepsilon = \min\!\left(\delta,\frac{\alpha}{M_{\alpha,\delta}}\right), \qquad J = (t_0-\varepsilon, t_0+\varepsilon).\]
 \begin{definition}[Picard Operator]
-    For any $y : J \to \mathbb{R}^n$ with $y(t_0) = y_0$ and 
+    For any $y : J \to \R^n$ with $y(t_0) = y_0$ and 
     $(y(t),t) \in D_{\alpha,\delta}$ for all $t \in J$, define
     \[T(y)(t) = y_0 + \int_{t_0}^{t} f(y(s),s)\, ds.\]
     A function $y$ solves the IVP if and only if $T(y) = y$, i.e.\ 
@@ -399,7 +383,7 @@ and set
 \subsubsection{Statement of the Theorem}
 \label{EUT}
 \begin{theorem}[Existence and Uniqueness]
-    Let $D \subseteq \mathbb{R}^n$ be open and $(a,b)$ an open interval containing $t_0$. Suppose $f : D \times (a,b) \to \mathbb{R}^n$\,\footnote{\(D \times (a,b)\) denotes the set of all pairs \((y,t)\) with \(y \in D \subset \mathbb{R}^n\) and \(t \in (a,b)\), i.e., all allowed state-time inputs of \(f\).} is continuous and locally Lipschitz in $y$. If $y_0 \in D$, then the IVP
+    Let $D \subseteq \R^n$ be open and $(a,b)$ an open interval containing $t_0$. Suppose $f : D \times (a,b) \to \R^n$\,\footnote{\(D \times (a,b)\) denotes the set of all pairs \((y,t)\) with \(y \in D \subset \R^n\) and \(t \in (a,b)\), i.e., all allowed state-time inputs of \(f\).} is continuous and locally Lipschitz in $y$. If $y_0 \in D$, then the IVP
     \[\begin{cases}y' = f(y,t),\\y(t_0) = y_0\end{cases}\]
     has a unique solution on some open interval $J$ containing $t_0$.
 \end{theorem}
@@ -409,7 +393,7 @@ and set
     Consider the IVP
     \[\begin{cases}y' = f(y,t), \\ y(t_0) = y_0.\end{cases}\]
     The theorem guarantees that there exists a unique solution 
-    \[y : (t_0-\varepsilon, t_0+\varepsilon) \to \mathbb{R}^n.\]
+    \[y : (t_0-\varepsilon, t_0+\varepsilon) \to \R^n.\]
     Choose \(\alpha > 0\) and \(\delta > 0\) such that
     \[D_{\alpha,\delta} := \{(y,t) : \|y-y_0\| \le \alpha,\ |t-t_0| \le \delta\} \subset D \times (a,b).\]
     Since \(f\) is continuous, define
@@ -420,7 +404,7 @@ and set
 \begin{problem}[Existence and Uniqueness Theorem]
     Consider the initial value problem
     \[\begin{cases}y' = t^2+y^2, \\ y(0) = 0,\end{cases}\]
-    Determine the largest value of $\epsilon$ for which the Theorem of Existence and Uniqueness ensures the existence of a solution $y: (-\epsilon,\epsilon) \to \mathbb{R}$.
+    Determine the largest value of $\epsilon$ for which the Theorem of Existence and Uniqueness ensures the existence of a solution $y: (-\epsilon,\epsilon) \to \R$.
 \end{problem}
 \begin{problem}[LLC]
     Consider the initial value problem
@@ -434,7 +418,7 @@ Define $y_0(t) \equiv y_0$ (constant). For $k \geq 1$ set
 \[y_k(t) = T(y_{k-1})(t) = y_0 + \int_{t_0}^{t} f(y_{k-1}(s), s)\, ds.\]
 By the invariance lemma, each $y_k$ stays inside $D_{\alpha,\delta}$. 
 
-The sequence $\{y_k\}$ is Cauchy in $\mathbb{R}^n$ (see Appendix~\ref{pf:picard-convergence}) and therefore converges uniformly to a function $y: J \to \mathbb{R}^n$ which satisfies the integral equation, hence solves the IVP.
+The sequence $\{y_k\}$ is Cauchy in $\R^n$ (see Appendix~\ref{pf:picard-convergence}) and therefore converges uniformly to a function $y: J \to \R^n$ which satisfies the integral equation, hence solves the IVP.
 
 \subsubsection{Uniqueness}
 \begin{proof}[Proof of Uniqueness]
@@ -467,7 +451,7 @@ This requires $\mu'(t) = \mu(t)P(t)$, which gives
 The equation then becomes
 \[\frac{d}{dt}(\mu y) = \mu Q(t),\]
 and integrating both sides yields
-\[y(t) = \frac{1}{\mu(t)}\left(\int \mu(t)Q(t)\,dt + C\right), \quad C \in \mathbb{R}.\]
+\[y(t) = \frac{1}{\mu(t)}\left(\int \mu(t)Q(t)\,dt + C\right), \quad C \in \R.\]
 \begin{example}
     Solve $y' - 2y = 3e^t$ with $y(0) = 1$.\\
     Here $P(t) = -2$, $Q(t) = 3e^t$, so $\mu(t) = e^{-2t}$. 
@@ -520,7 +504,7 @@ Writing the separable ODE as
 where $M(x) = -f_1(x)$ and $N(y) = \frac{1}{f_2(y)}$, and letting $H_1$, $H_2$ be antiderivatives of $M$, $N$ respectively, the chain rule gives
 \[\frac{d}{dx}(H_1(x) + H_2(y(x))) = 0,\]
 so the implicit general solution is
-\[H_1(x) + H_2(y) = C, \quad C \in \mathbb{R},\]
+\[H_1(x) + H_2(y) = C, \quad C \in \R,\]
 or equivalently in integral form,
 \[\int \frac{dy}{f_2(y)} = \int f_1(x)\,dx + C.\]
 \begin{example}[Logistic Equation]
@@ -564,7 +548,7 @@ or equivalently in integral form,
     so $\Psi$ is constant along solutions.
 \end{definition}
 \begin{theorem}
-    Let $D\subset\mathbb{R}^2$ be open and simply connected\footnote{Meaning there are no holes in the domain.}. Suppose $M$, $N$, $M_y$, $N_x$ are continuous on $D$. Then \eqref{SeparableODE} is exact on $D$ if and only if
+    Let $D\subset\R^2$ be open and simply connected\footnote{Meaning there are no holes in the domain.}. Suppose $M$, $N$, $M_y$, $N_x$ are continuous on $D$. Then \eqref{SeparableODE} is exact on $D$ if and only if
     \[M_y(x,y) = N_x(x,y) \quad \forall\,(x,y)\in D.\]
 \end{theorem}
 \begin{proof}
@@ -651,7 +635,7 @@ We consider systems of the form
 \end{equation}
 where
 \[y(t) = \begin{pmatrix}y_1(t)\\\vdots\\y_n(t)\end{pmatrix} \in 
-\mathbb{R}^n, \quad A(t) \in M_n(\mathbb{R}), \quad
+\R^n, \quad A(t) \in M_n(\R), \quad
 r(t) = \begin{pmatrix}r_1(t)\\\vdots\\r_n(t)\end{pmatrix}.\]
 
 %------- 3.1 -------
@@ -667,7 +651,7 @@ by introducing new variables for each derivative.
     \begin{pmatrix}0&1&0\\0&0&1\\5&-4&2\end{pmatrix}
     \begin{pmatrix}y_1\\y_2\\y_3\end{pmatrix} + 
     \begin{pmatrix}0\\0\\\sin t + t^3\end{pmatrix},\]
-    which is in the form $y' = Ay + r$ with $J_{\max} = \mathbb{R}$.
+    which is in the form $y' = Ay + r$ with $J_{\max} = \R$.
 \end{example}
 
 %------- 3.2 -------
@@ -675,7 +659,7 @@ by introducing new variables for each derivative.
 
 \begin{theorem}[Existence and Uniqueness]
     If every entry of $A(t)$ and $r(t)$ is continuous on $Q$, then 
-    for any $t_0 \in Q$ and $y_0 \in \mathbb{R}^n$, the IVP
+    for any $t_0 \in Q$ and $y_0 \in \R^n$, the IVP
     \[\begin{cases}y'(t) = A(t)y(t) + r(t),\\ y(t_0) = y_0\end{cases}\]
     has a unique solution on all of $Q$. Hence $J_{\max} = Q$.
 \end{theorem}
@@ -689,9 +673,9 @@ by introducing new variables for each derivative.
     A \emph{linear control system} is a non-homogeneous system of 
     the form
     \[y' = Ay + Bu,\]
-    where $A \in M_n(\mathbb{R})$ governs the dynamics, 
-    $u \in \mathbb{R}^m$ is the control input, and 
-    $B \in M_{n \times m}(\mathbb{R})$ determines how the control 
+    where $A \in M_n(\R)$ governs the dynamics, 
+    $u \in \R^m$ is the control input, and 
+    $B \in M_{n \times m}(\R)$ determines how the control 
     enters the system. The term $Bu$ can be thought of as a 
     structured forcing term that one can choose to influence the 
     behavior of the solution.
@@ -724,14 +708,14 @@ We now focus on the homogeneous system
 
 \begin{proof}
     \textbf{Step 1: Vector space.} If $y_1, y_2 \in S$ and 
-    $\alpha_1, \alpha_2 \in \mathbb{R}$,
+    $\alpha_1, \alpha_2 \in \R$,
     \[(\alpha_1 y_1 + \alpha_2 y_2)' = \alpha_1 y_1' + 
     \alpha_2 y_2' = A(t)(\alpha_1 y_1 + \alpha_2 y_2),\]
     so any linear combination is in $S$, and the zero function 
     is in $S$.
 
     \textbf{Step 2: Basis of dimension $n$.} Let $e_1,\dots,e_n$ 
-    be the standard basis of $\mathbb{R}^n$, and let $y_i$ be the 
+    be the standard basis of $\R^n$, and let $y_i$ be the 
     unique solution of
     \[\begin{cases}y' = A(t)y,\\ y(t_0) = e_i\end{cases}\]
     for $i = 1,\dots,n$. By uniqueness, every $z \in S$ is a linear 
@@ -756,7 +740,7 @@ We now focus on the homogeneous system
 
 \begin{proof}
     Suppose $\det(y(t_0)) = 0$ for some $t_0$. Then there exists a 
-    nonzero $v \in \mathbb{R}^n$ such that $y(t_0)v = 0$. Define 
+    nonzero $v \in \R^n$ such that $y(t_0)v = 0$. Define 
     $y_1(t) = y(t)v$; since each column of $y(t)$ is a solution, 
     $y_1 \in S$. Also define $y_2(t) = 0 \in S$. Since 
     $y_1(t_0) = 0 = y_2(t_0)$, uniqueness gives $y_1(t) = y_2(t)$ 
@@ -828,7 +812,7 @@ are uniquely determined by
 \subsection{Homogeneous Systems with Constant Coefficients}
 \label{sec:const-coeff}
 
-Consider \eqref{eq:ode-system-matrix} with $A \in M_n(\mathbb{R})$ 
+Consider \eqref{eq:ode-system-matrix} with $A \in M_n(\R)$ 
 constant. We look for solutions of the form
 \begin{equation}
     \label{eq:exp-ansatz}
@@ -846,7 +830,7 @@ eigenvector.
 \end{definition}
 
 \begin{definition}[Characteristic Polynomial, Eigenvalue, Spectrum]
-    The \emph{characteristic polynomial} of $A \in M_n(\mathbb{R})$ 
+    The \emph{characteristic polynomial} of $A \in M_n(\R)$ 
     is $p(\lambda) = \det(A - \lambda I)$. An \emph{eigenvalue} is a 
     root of $p(\lambda)$, and the \emph{spectrum} is
     \[\sigma(A) = \{\lambda \mid p(\lambda) = 0\}.\]
@@ -855,7 +839,7 @@ eigenvector.
 \subsubsection{Diagonalizable Case: Real Eigenvalues}
 
 \begin{definition}[Diagonalizable Matrix]
-    $A \in M_n(\mathbb{R})$ is \emph{diagonalizable} if there exists 
+    $A \in M_n(\R)$ is \emph{diagonalizable} if there exists 
     an invertible $P$ such that $P^{-1}AP$ is diagonal.
 \end{definition}
 
@@ -869,7 +853,7 @@ eigenvector.
     Let $\lambda_1,\ldots,\lambda_n$ be real distinct eigenvalues 
     with eigenvectors $u_1,\ldots,u_n$. Distinct eigenvalues imply 
     the eigenvectors are linearly independent, so they form a basis 
-    of $\mathbb{R}^n$. Let $P = [u_1 \cdots u_n]$. Then
+    of $\R^n$. Let $P = [u_1 \cdots u_n]$. Then
     \[AP = PD, \quad D = \operatorname{diag}(\lambda_1,\ldots,
     \lambda_n),\]
     so $P^{-1}AP = D$.
@@ -945,7 +929,7 @@ eigenvector.
 
 \subsubsection{Diagonalizable Case: Complex Eigenvalues}
 
-If $A \in M_n(\mathbb{R})$ has a complex eigenpair 
+If $A \in M_n(\R)$ has a complex eigenpair 
 $(\lambda, u)$ with $\lambda = \alpha + i\beta$ and 
 $u = p + iq$, then a complex solution is
 \begin{equation}
@@ -956,7 +940,7 @@ $u = p + iq$, then a complex solution is
 \begin{definition}[Euler's Formula]
     \begin{equation}
         \label{eq:EulerFormula}
-        e^{ix} = \cos x + i\sin x, \quad x \in \mathbb{R}.
+        e^{ix} = \cos x + i\sin x, \quad x \in \R.
     \end{equation}
 \end{definition}
 
@@ -970,7 +954,7 @@ separating real and imaginary parts yields two real solutions:
 
 \begin{proposition}[Complex Conjugate Eigenpairs]
     \label{prop:CCE}
-    Let $A \in M_n(\mathbb{R})$. If $(\lambda, u)$ is an eigenpair 
+    Let $A \in M_n(\R)$. If $(\lambda, u)$ is an eigenpair 
     with $\lambda \in \mathbb{C}$, then $(\bar\lambda, \bar u)$ is 
     also an eigenpair.
 \end{proposition}
@@ -1068,7 +1052,7 @@ separating real and imaginary parts yields two real solutions:
 \begin{theorem}[Generalized Eigenvector Basis]
     If $\lambda \in \sigma(A)$ has algebraic multiplicity $m$, then
     $\dim\ker(A-\lambda I)^m = m$. Consequently, every 
-    $A \in M_n(\mathbb{R})$ has a basis of generalized eigenvectors.
+    $A \in M_n(\R)$ has a basis of generalized eigenvectors.
 \end{theorem}
 
 Denote $k_j = \ker(A-\lambda I)^j$. Then
@@ -1137,7 +1121,7 @@ The solution follows the pattern:
 \marginpar{February 17, 2026}
 
 \begin{definition}[Matrix Exponential]
-    For $A \in M_n(\mathbb{R})$,
+    For $A \in M_n(\R)$,
     \[e^A = \sum_{k=0}^{\infty} \frac{A^k}{k!} = I + A + 
     \frac{A^2}{2!} + \cdots\]
 \end{definition}
@@ -1148,7 +1132,7 @@ The solution follows the pattern:
 \end{definition}
 
 \begin{proposition}[Norm Properties]
-    For all $A, B \in M_n(\mathbb{R})$ and $x \in \mathbb{R}^n$:
+    For all $A, B \in M_n(\R)$ and $x \in \R^n$:
     \[\|Ax\| \leq \|A\|\cdot\|x\|, \qquad 
     \|AB\| \leq \|A\|\cdot\|B\|.\]
 \end{proposition}
@@ -1162,7 +1146,7 @@ The solution follows the pattern:
 
 \begin{proposition}[Convergence]
     The series defining $e^A$ converges absolutely for every 
-    $A \in M_n(\mathbb{R})$.
+    $A \in M_n(\R)$.
 \end{proposition}
 
 \begin{proof}
@@ -1172,7 +1156,7 @@ The solution follows the pattern:
 \end{proof}
 
 \begin{proposition}[Basic Properties]
-    For all $A \in M_n(\mathbb{R})$ and $t, s \in \mathbb{R}$:
+    For all $A \in M_n(\R)$ and $t, s \in \R$:
     \[e^{A\cdot 0} = I, \quad e^{A(t+s)} = e^{At}e^{As}, \quad 
     e^{-At} = (e^{At})^{-1}, \quad \frac{d}{dt}e^{At} = Ae^{At} 
     = e^{At}A.\]
@@ -1236,7 +1220,7 @@ a finite sum since $(A-\lambda I)^k u = 0$ for $k > j$.
 
 \begin{proposition}
     The general solution of \eqref{eq:ode-system-matrix} is
-    \[y(t) = \sum_{i=1}^n c_i\, e^{At}u_i, \quad c_i \in \mathbb{R},\]
+    \[y(t) = \sum_{i=1}^n c_i\, e^{At}u_i, \quad c_i \in \R,\]
     where $u_1,\ldots,u_n$ are $n$ linearly independent generalized 
     eigenvectors of $A$.
 \end{proposition}
@@ -1277,15 +1261,15 @@ Consider
     \label{eq:non-homogeneous-ode-system-matrix}
     y'(t) = Ay(t) + r(t),
 \end{equation}
-with $r: I \to \mathbb{R}^n$ continuous. If $y_1(t)$ and $y_2(t)$ are two solutions, then 
+with $r: I \to \R^n$ continuous. If $y_1(t)$ and $y_2(t)$ are two solutions, then 
 $y_2 - y_1$ solves the homogeneous system, so there exists 
-$C \in \mathbb{R}^n$ with $y_2(t) - y_1(t) = Y(t)C$.
+$C \in \R^n$ with $y_2(t) - y_1(t) = Y(t)C$.
 
 \begin{theorem}[General Solution]
     Let $y_p(t)$ be any particular solution of 
     \eqref{eq:non-homogeneous-ode-system-matrix}. Then the general 
     solution is
-    \[y(t) = Y(t)C + y_p(t), \quad C \in \mathbb{R}^n.\]
+    \[y(t) = Y(t)C + y_p(t), \quad C \in \R^n.\]
 \end{theorem}
 
 \subsubsection{Variation of Parameters}
@@ -1299,7 +1283,7 @@ Since $Y(t)$ is invertible, $C_p'(t) = Y^{-1}(t)r(t)$, giving
 \[y_p(t) = Y(t)\int Y^{-1}(t)\,r(t)\,dt.\]
 The general solution is therefore
 \[y(t) = Y(t)\!\left[C + \int Y^{-1}(t)\,r(t)\,dt\right], 
-\quad C \in \mathbb{R}^n.\]
+\quad C \in \R^n.\]
 
 %------- 3.6 -------
 \subsection{Applications}
@@ -1382,11 +1366,11 @@ k \leftrightarrow \frac{1}{C}.\]
 \section{Stability, Phase Portraits and Orbits}
 \marginpar{March 10, 2026}
 
-Let $y'(t) = f(y(t))$, $f$ locally Lipschitz, and $y_0 \in \mathbb{R}^n$. Denote by
+Let $y'(t) = f(y(t))$, $f$ locally Lipschitz, and $y_0 \in \R^n$. Denote by
 \[
 \Gamma_{y_0} = \{y(t) \mid y'(t) = f(y(t)),\ y(0) = y_0,\ t \in J_{\max}\},
 \]
-the \emph{orbit} of $y_0$, where $J_{\max}$ is the maximal interval of existence. The orbit is a curve in $\mathbb{R}^n$.
+the \emph{orbit} of $y_0$, where $J_{\max}$ is the maximal interval of existence. The orbit is a curve in $\R^n$.
 
 %------- 5.1 -------
 \subsection{Orbits and Phase Portraits}
@@ -1413,7 +1397,7 @@ the \emph{orbit} of $y_0$, where $J_{\max}$ is the maximal interval of existence
 \subsection{Equilibrium Solutions}
 
 \begin{definition}[Equilibrium Solution]
-    A vector $\tilde{y} \in \mathbb{R}^n$ is called an \emph{equilibrium solution} (or steady state) of $y' = f(y)$ if $f(\tilde{y}) = 0$. Since $\tilde{y}' = 0 = f(\tilde{y})$, the solution satisfying $y(0) = \tilde{y}$ is constant: $\tilde{y}(t) = \tilde{y}$ for all $t \in \mathbb{R}$, and its orbit is the single point $\Gamma_{\tilde{y}} = \{\tilde{y}\}$.
+    A vector $\tilde{y} \in \R^n$ is called an \emph{equilibrium solution} (or steady state) of $y' = f(y)$ if $f(\tilde{y}) = 0$. Since $\tilde{y}' = 0 = f(\tilde{y})$, the solution satisfying $y(0) = \tilde{y}$ is constant: $\tilde{y}(t) = \tilde{y}$ for all $t \in \R$, and its orbit is the single point $\Gamma_{\tilde{y}} = \{\tilde{y}\}$.
 \end{definition}
 
 \begin{example}
@@ -1426,7 +1410,7 @@ the \emph{orbit} of $y_0$, where $J_{\max}$ is the maximal interval of existence
 
 \begin{example}
     Let $A = \begin{pmatrix}1&-1\\2&-2\end{pmatrix}$. Solving $Au = 0$ gives $a = b$, so
-    \[\ker(A) = \left\langle\begin{pmatrix}1\\1\end{pmatrix}\right\rangle = \left\{c\begin{pmatrix}1\\1\end{pmatrix} \;\middle|\; c\in\mathbb{R}\right\}.\]
+    \[\ker(A) = \left\langle\begin{pmatrix}1\\1\end{pmatrix}\right\rangle = \left\{c\begin{pmatrix}1\\1\end{pmatrix} \;\middle|\; c\in\R\right\}.\]
     Every point on this line is an equilibrium solution.
 \end{example}
 
@@ -1502,7 +1486,7 @@ the \emph{orbit} of $y_0$, where $J_{\max}$ is the maximal interval of existence
 \subsection{Phase Portraits of Planar Linear Systems}
 \marginpar{March 10, 2026}
 
-Let \eqref{eq:ode-system-matrix} hold with $A \in M_2(\mathbb{R})$ 
+Let \eqref{eq:ode-system-matrix} hold with $A \in M_2(\R)$ 
 and $\det(A) \neq 0$. We classify the phase portrait by the 
 eigenstructure of $A$.
 
@@ -1519,7 +1503,7 @@ with $\beta \neq 0$. From Chapter~3, the general solution is
 \[y(t) = c_1 e^{\alpha t}(\cos(\beta t)\,p - \sin(\beta t)\,q) 
 + c_2 e^{\alpha t}(\sin(\beta t)\,p + \cos(\beta t)\,q),\]
 where $p = \mathrm{Re}(u)$ and $q = \mathrm{Im}(u)$. 
-Given constants $c_1, c_2$, there exist $v_1, v_2 \in \mathbb{R}^2$ 
+Given constants $c_1, c_2$, there exist $v_1, v_2 \in \R^2$ 
 perpendicular such that
 \[y(t) = e^{\alpha t}\cos(\beta t)\,v_1 + 
 e^{\alpha t}\sin(\beta t)\,v_2.\]
@@ -1631,12 +1615,12 @@ If $\det(A) = 0$, then at least one eigenvalue is $0$, and the above classificat
 %------- 5.5 -------
 \subsection{Stability Theory for Linear Systems}
 
-Let \eqref{eq:ode-system-matrix} hold with $A \in M_n(\mathbb{R})$ 
-and $\det(A) \neq 0$, so that $\tilde{y} = 0 \in \mathbb{R}^n$ is 
+Let \eqref{eq:ode-system-matrix} hold with $A \in M_n(\R)$ 
+and $\det(A) \neq 0$, so that $\tilde{y} = 0 \in \R^n$ is 
 the only equilibrium solution.
 
 \begin{theorem}[Stability via Eigenvalues]
-    Let $A \in M_n(\mathbb{R})$ be invertible.
+    Let $A \in M_n(\R)$ be invertible.
     \begin{enumerate}
         \item If $\mathrm{Re}(\lambda) < 0$ for all 
         $\lambda \in \sigma(A)$, then $0$ is an asymptotically 
@@ -1680,7 +1664,7 @@ the only equilibrium solution.
 \marginpar{March 19, 2026}
 
 Consider a nonlinear system $y' = f(y)$ with 
-$f : D \to \mathbb{R}^n$, $D \subseteq \mathbb{R}^n$ open, and 
+$f : D \to \R^n$, $D \subseteq \R^n$ open, and 
 let $\tilde{y} \in D$ be an equilibrium solution, i.e.\ 
 $f(\tilde{y}) = 0$. For $y$ close to $\tilde{y}$, expand $f$ 
 around $\tilde{y}$:
@@ -1695,7 +1679,7 @@ approximated by the solutions of the \emph{linearization}
 near $0$.
 
 \begin{theorem}[Stability via Linearization]
-    Let $f : D \to \mathbb{R}^n$ be $C^1$ and let 
+    Let $f : D \to \R^n$ be $C^1$ and let 
     $\tilde{y} \in D$ be an equilibrium solution.
     \begin{enumerate}
         \item If $\mathrm{Re}(\lambda) < 0$ for all 
@@ -1738,425 +1722,491 @@ near $0$.
 \end{example}
 
 \section{Laplace Transform}
-\marginpar{March 24, 2026}
 
 \subsection{Definition and Existence}
 
 \begin{definition}[Laplace Transform]
-    Given $f: [0,\infty) \to \mathbb{R}$, its Laplace transform is
-    \begin{equation}
-        \label{eq:laplace-transform}
-        \mathcal{L}[f](s) = \int_{0}^{\infty} e^{-st} f(t)\,dt = F(s),
-    \end{equation}
-    where the improper integral is interpreted as
-    \[\int_{0}^{\infty} e^{-st} f(t)\,dt = \lim_{A \to +\infty}
-    \int_{0}^{A} e^{-st} f(t)\,dt.\]
+    Given $f: [0,\infty) \to \R$, its Laplace transform is
+    \[\Lap[f](s) = F(s) = \int_0^\infty e^{-st} f(t)\,dt = \lim_{A\to+\infty} \int_0^A e^{-st} f(t)\,dt,\]
+    provided the improper integral converges.
 \end{definition}
 
 \begin{definition}[Piecewise Continuous]
-    A function $f: [0,\infty) \to \mathbb{R}$ is piecewise continuous 
-    if there exists a partition
-    \[t_0 = 0 < t_1 < t_2 < \cdots < t_n < t_{n+1} = +\infty\]
-    such that $f$ is continuous on each $(t_i, t_{i+1})$, and the 
-    one-sided limits $\lim_{t \to t_i^-} f(t)$ and 
-    $\lim_{t \to t_i^+} f(t)$ are finite for each $i = 1, \ldots, n$.
+    A function $f: [0,\infty)\to\R$ is piecewise continuous if there exists a partition
+    $0 = t_0 < t_1 < \cdots < t_n < t_{n+1} = +\infty$
+    such that $f$ is continuous on each $(t_i,\,t_{i+1})$ and the one-sided limits
+    $\lim_{t\to t_i^-} f(t)$ and $\lim_{t\to t_i^+} f(t)$ are finite for each $i$.
 \end{definition}
 
 \begin{definition}[Exponential Order]
-    A function $f: [0,\infty) \to \mathbb{R}$ is of exponential order 
-    $a$ if there exist constants $K \geq 0$ and $M \geq 0$ such that
+    A function $f:[0,\infty)\to\R$ is of exponential order $a$ if there exist constants $K\geq 0$ and $M\geq 0$ such that
     \[|f(t)| \leq K e^{at} \quad \text{for all } t \geq M.\]
 \end{definition}
 
 \begin{remark}
-    We abbreviate `piecewise continuous of exponential order' as PCEO.
+    We abbreviate ``piecewise continuous of exponential order'' as PCEO.
 \end{remark}
 
-\begin{lemma}
-    If $\int_{0}^{\infty} |g(t)|\,dt$ converges, then 
-    $\int_{0}^{\infty} g(t)\,dt$ also converges.
-\end{lemma}
-
-\begin{theorem}[Existence of the Laplace Transform]
-    If $f$ is PCEO with order $a$, then $F(s) = \mathcal{L}[f](s)$ 
-    exists for all $s > a$.
-\end{theorem}
-
-\begin{proof}
-    \[\lim_{A\to +\infty}\int_{0}^{A}|e^{-st}f(t)|\,dt \leq 
-    \int_{0}^{M}e^{-st}|f(t)|\,dt + 
-    K\lim_{A\to +\infty}\int_{M}^{A}e^{-(s-a)t}\,dt.\]
-    The first term is finite since $f$ is piecewise continuous on 
-    $[0,M]$. The second term equals
-    \[K\lim_{A\to +\infty}\frac{e^{-(s-a)t}}{-(s-a)}
-    \bigg|_{t=M}^{t=A} = \frac{Ke^{-(s-a)M}}{s-a} < \infty 
-    \quad \text{for } s > a.\]
-\end{proof}
-
-\begin{example}[Exponential order examples]
-    \begin{itemize}
-        \item $f(t) = t^n$ satisfies $|f(t)| \leq Ke^{at}$ for any 
-        $a > 0$, so it is of exponential order $a$ for any $a > 0$.
-        \item $f(t) = e^{t^2}$ is not of exponential order.
+\begin{example}[Exponential order]
+    \begin{itemize}[nosep]
+        \item $f(t) = t^n$ is of exponential order $a$ for any $a > 0$, since $t^n$ grows slower than any exponential.
+        \item $f(t) = e^{t^2}$ is not of exponential order for any $a$.
     \end{itemize}
 \end{example}
 
+\begin{lemma}
+    If $\int_0^\infty |g(t)|\,dt$ converges, then $\int_0^\infty g(t)\,dt$ converges.
+\end{lemma}
+
+\begin{theorem}[Existence of the Laplace Transform]
+    If $f$ is PCEO with order $a$, then $F(s) = \Lap[f](s)$ exists for all $s > a$.
+\end{theorem}
+
+\begin{proof}
+    \[\int_0^\infty |e^{-st} f(t)|\,dt \leq \int_0^M e^{-st}|f(t)|\,dt + K\int_M^\infty e^{-(s-a)t}\,dt.\]
+    The first term is finite since $f$ is piecewise continuous on $[0,M]$. The second term equals
+    \[K\cdot\frac{e^{-(s-a)M}}{s-a} < \infty \quad\text{for } s > a. \qedhere\]
+\end{proof}
+
+%-----------------------------------------------------------------------------
 \subsection{Computing Laplace Transforms}
+%-----------------------------------------------------------------------------
 
 \begin{example}[$f(t) = K$]
-    Since $|f(t)| \leq Ke^{0\cdot t}$, the exponential order is $a=0$. 
-    For $s > 0$,
-    \[\mathcal{L}[K](s) = K\lim_{A\to +\infty}\int_{0}^{A}e^{-st}\,dt 
-    = K\lim_{A\to +\infty}\left(\frac{-e^{-sA}}{s} + \frac{1}{s}\right) 
-    = \frac{K}{s}.\]
+    Since $|K| \leq K\,e^{0\cdot t}$, the exponential order is $a = 0$. For $s > 0$:
+    \[\Lap[K](s) = K\lim_{A\to\infty}\int_0^A e^{-st}\,dt = K\lim_{A\to\infty}\left(\frac{1}{s} - \frac{e^{-sA}}{s}\right) = \frac{K}{s}.\]
 \end{example}
 
-\begin{example}[$f(t) = e^{at}$, $a \in \mathbb{R}$]
-    With $K=1$, $M=0$,
-    \[\mathcal{L}[e^{at}](s) = \int_{0}^{\infty}e^{-(s-a)t}\,dt 
-    = \frac{1}{s-a}, \quad s > a.\]
+\begin{example}[$f(t) = e^{at}$, $a\in\R$]
+    With $K = 1$, $M = 0$:
+    \[\Lap[e^{at}](s) = \int_0^\infty e^{-(s-a)t}\,dt = \frac{1}{s-a},\quad s > a.\]
 \end{example}
 
 \begin{remark}
-    By induction one can show that $\mathcal{L}[t^n](s) = 
-    \dfrac{n!}{s^{n+1}}$ for $n = 0, 1, 2, \ldots$
+    By induction: $\Lap[t^n](s) = \dfrac{n!}{s^{n+1}}$ for $n = 0,1,2,\ldots$
 \end{remark}
 
 \begin{example}[$f(t) = \cosh(at)$]
-    Using $\cosh(at) = \frac{e^{at}+e^{-at}}{2}$ and linearity,
-    \[\mathcal{L}[\cosh(at)](s) = \frac{1}{2}\cdot\frac{1}{s-a} + 
-    \frac{1}{2}\cdot\frac{1}{s+a} = \frac{s}{s^2-a^2}, \quad s > |a|.\]
+    Using $\cosh(at) = \frac{1}{2}(e^{at} + e^{-at})$ and linearity:
+    \[\Lap[\cosh(at)](s) = \frac{1}{2}\cdot\frac{1}{s-a} + \frac{1}{2}\cdot\frac{1}{s+a} = \frac{s}{s^2 - a^2},\quad s > |a|.\]
 \end{example}
 
 \begin{example}[$f(t) = \cos(\omega t)$]
-    Using $\cos(\omega t) = \frac{e^{i\omega t}+e^{-i\omega t}}{2}$ 
-    and linearity,
-    \[\mathcal{L}[\cos(\omega t)](s) = \frac{1}{2}\cdot
-    \frac{1}{s-i\omega} + \frac{1}{2}\cdot\frac{1}{s+i\omega} 
-    = \frac{s}{s^2+\omega^2}, \quad s > 0.\]
+    Using $\cos(\omega t) = \frac{1}{2}(e^{i\omega t} + e^{-i\omega t})$ and linearity:
+    \[\Lap[\cos(\omega t)](s) = \frac{1}{2}\cdot\frac{1}{s - i\omega} + \frac{1}{2}\cdot\frac{1}{s + i\omega} = \frac{s}{s^2 + \omega^2},\quad s > 0.\]
 \end{example}
 
 \begin{example}[Piecewise function]
-    Let $f(t) = \begin{cases}1, & t\in[0,1),\\ K, & t=1,\\ 
-    0, & t>1.\end{cases}$
-    Since $f(t) = 0$ for $t > 1$, the transform is
-    \[\mathcal{L}[f](s) = \int_{0}^{1}e^{-st}\,dt = 
-    \begin{cases}1, & s=0,\\ \dfrac{1-e^{-s}}{s}, & s\neq 0,
-    \end{cases}\]
-    which exists for all $s \in \mathbb{R}$.
+    Let $f(t) = \begin{cases}1,& 0\leq t < 1,\\ K,& t = 1,\\ 0,& t > 1.\end{cases}$
+    Since $f(t) = 0$ for $t > 1$:
+    \[\Lap[f](s) = \int_0^1 e^{-st}\,dt = \begin{cases}1, & s = 0,\\[4pt] \dfrac{1 - e^{-s}}{s}, & s \neq 0,\end{cases}\]
+    which exists for all $s\in\R$.
 \end{example}
 
+\renewcommand{\arraystretch}{1.6}
+\begin{center}
+\begin{tabular}{c|c|c}
+    $f(t)$ & $F(s) = \Lap[f](s)$ & Domain \\\hline
+    $1$ & $1/s$ & $s > 0$ \\
+    $t^n$ & $n!/s^{n+1}$ & $s > 0$ \\
+    $e^{at}$ & $1/(s-a)$ & $s > a$ \\
+    $\cos(\omega t)$ & $s/(s^2+\omega^2)$ & $s > 0$ \\
+    $\sin(\omega t)$ & $\omega/(s^2+\omega^2)$ & $s > 0$ \\
+    $\cosh(at)$ & $s/(s^2-a^2)$ & $s > |a|$ \\
+    $\sinh(at)$ & $a/(s^2-a^2)$ & $s > |a|$
+\end{tabular}
+\end{center}
+\renewcommand{\arraystretch}{1}
+
+%-----------------------------------------------------------------------------
 \subsection{Properties}
+%-----------------------------------------------------------------------------
 
 \subsubsection{Linearity}
 
-Let $f_1, f_2$ be PCEO with orders $a_1, a_2$ respectively, and set 
-$a = \max(a_1, a_2)$. Then for any constants $c_1, c_2$,
-\[\mathcal{L}[c_1 f_1 + c_2 f_2](s) = c_1 \mathcal{L}[f_1](s) + 
-c_2 \mathcal{L}[f_2](s), \quad s > a.\]
+Let $f_1, f_2$ be PCEO with orders $a_1, a_2$ and set $a = \max(a_1, a_2)$. Then for any constants $c_1, c_2$:
+\[\Lap[c_1 f_1 + c_2 f_2](s) = c_1\,\Lap[f_1](s) + c_2\,\Lap[f_2](s),\quad s > a.\]
 
 \subsubsection{Differentiability and the $s$-Derivative Formula}
 
 \begin{proposition}
-    Let $f$ be PCEO with order $a$. Then $F : (a, \infty) \to \mathbb{R}$ 
-    is $C^\infty$ and
-    \[\frac{d^k F}{ds^k}(s) = (-1)^k \mathcal{L}[t^k f(t)](s), 
-    \quad s > a.\]
+    Let $f$ be PCEO with order $a$. Then $F:(a,\infty)\to\R$ is $C^\infty$ and
+    \[\frac{d^k F}{ds^k}(s) = (-1)^k\,\Lap[t^k f(t)](s),\quad s > a.\]
 \end{proposition}
 
 \begin{proof}
-    For $k=1$: since $f$ is PCEO of order $a$, the same holds for 
-    $tf(t)$, so $\mathcal{L}[tf(t)](s)$ exists for $s > a$. 
-    Differentiating under the integral sign,
-    \[F'(s) = \frac{d}{ds}\int_{0}^{\infty}e^{-st}f(t)\,dt 
-    = -\int_{0}^{\infty}te^{-st}f(t)\,dt = -\mathcal{L}[tf(t)](s).\]
+    For $k = 1$: since $f$ is PCEO of order $a$, so is $tf(t)$, so $\Lap[tf(t)](s)$ exists for $s > a$. Differentiating under the integral sign:
+    \[F'(s) = \frac{d}{ds}\int_0^\infty e^{-st}f(t)\,dt = -\int_0^\infty te^{-st}f(t)\,dt = -\Lap[tf(t)](s).\]
     For $k > 1$, replace $f(t)$ by $t^{k-1}f(t)$ and iterate.
 \end{proof}
 
 \subsubsection{Injectivity and the Inverse Transform}
 
 \begin{proposition}[Injectivity]
-    Assume $f, g: [0,\infty) \to \mathbb{R}$ are continuous and of 
-    exponential order. If $\mathcal{L}[f] = \mathcal{L}[g]$, then 
-    $f = g$.
+    If $f,g:[0,\infty)\to\R$ are continuous and of exponential order, and $\Lap[f] = \Lap[g]$, then $f = g$.
 \end{proposition}
 
-Injectivity guarantees that the inverse Laplace transform is 
-well-defined. We denote it $\mathcal{L}^{-1}[F(s)]$.
+Injectivity guarantees that the inverse Laplace transform $\Linv[F(s)]$ is well-defined.
 
 \subsubsection{Laplace Transform of Derivatives}
-\marginpar{March 26, 2026}
+
 \begin{theorem}
+    \label{thm:deriv}
     If $f$ is differentiable and PCEO, then
-    \[\mathcal{L}[f'](s) = s\mathcal{L}[f](s) - f(0).\]
-    More generally,
-    \[\mathcal{L}[f''](s) = s^2\mathcal{L}[f](s) - sf(0) - f'(0).\]
+    \begin{align}
+        \Lap[f'](s) &= s\,\Lap[f](s) - f(0), \label{eq:first-deriv}\\
+        \Lap[f''](s) &= s^2\,\Lap[f](s) - sf(0) - f'(0). \label{eq:second-deriv}
+    \end{align}
 \end{theorem}
+
 \begin{proof}
-    Integrating by parts,
-    \[\mathcal{L}[f'](s) = \int_{0}^{\infty}e^{-st}f'(t)\,dt = \Big[e^{-st}f(t)\Big]_{0}^{+\infty} + s\int_{0}^{\infty}e^{-st}f(t)\,dt = -f(0) + s\mathcal{L}[f](s).\]
-    Applying this formula to $f'$ gives
-    \[\mathcal{L}[f''](s) = s\mathcal{L}[f'](s) - f'(0) = s\bigl(s\mathcal{L}[f](s) - f(0)\bigr) - f'(0) = s^2\mathcal{L}[f](s) - sf(0) - f'(0).\]
+    Integrating by parts:
+    \[\Lap[f'](s) = \int_0^\infty e^{-st}f'(t)\,dt = \Big[e^{-st}f(t)\Big]_0^{+\infty} + s\int_0^\infty e^{-st}f(t)\,dt = -f(0) + s\,\Lap[f](s).\]
+    Applying this to $f'$:
+    \[\Lap[f''](s) = s\,\Lap[f'](s) - f'(0) = s\bigl(s\,\Lap[f](s) - f(0)\bigr) - f'(0) = s^2\Lap[f](s) - sf(0) - f'(0). \qedhere\]
 \end{proof}
-\begin{example}[Solving an IVP via Laplace Transform]
-    Solve $2y'' + 5y' - 3y = 2$, $y(0) = 0$, $y'(0) = 1$.\\
-    Applying $\mathcal{L}$ to both sides and denoting $Y(s) = \mathcal{L}[y](s)$:
-    \[\mathcal{L}[y'] = sY(s), \qquad \mathcal{L}[y''] = s^2Y(s) - 1.\]
+
+\begin{example}[Solving an IVP via Laplace transform]
+    Solve $2y'' + 5y' - 3y = 2$, with $y(0) = 0$, $y'(0) = 1$.
+
+    Applying $\Lap$ to both sides and denoting $Y(s) = \Lap[y](s)$:
+    \[\Lap[y'] = sY(s),\qquad \Lap[y''] = s^2Y(s) - 1.\]
     The equation becomes
     \[2(s^2Y - 1) + 5(sY) - 3Y = \frac{2}{s},\]
-    \[(2s^2 + 5s - 3)Y(s) = \frac{2}{s} + 2 = \frac{2s+2}{s}.\]
-    Factoring $2s^2 + 5s - 3 = (2s-1)(s+3)$,
-    \[Y(s) = \frac{2(s+1)}{s(2s-1)(s+3)} = \frac{s+1}{s(s-\frac{1}{2})(s+3)}.\]
-    Using partial fractions,
-    \[Y(s) = -\frac{2}{3}\cdot\frac{1}{s} + \frac{6}{7}\cdot\frac{1}{s-\frac{1}{2}} - \frac{4}{21}\cdot\frac{1}{s+3}.\]
-    Taking the inverse Laplace transform,
-    \[y(t) = -\frac{2}{3} + \frac{6}{7}e^{t/2} - \frac{4}{21}e^{-3t}.\]
+    \[(2s^2 + 5s - 3)\,Y(s) = \frac{2}{s} + 2 = \frac{2(s+1)}{s}.\]
+    Factoring $2s^2 + 5s - 3 = (2s - 1)(s + 3)$:
+    \[Y(s) = \frac{2(s+1)}{s(2s-1)(s+3)} = \frac{s+1}{s(s - \tfrac{1}{2})(s+3)}.\]
+    By partial fractions:
+    \[Y(s) = -\frac{2}{3}\cdot\frac{1}{s} + \frac{6}{7}\cdot\frac{1}{s - \frac{1}{2}} - \frac{4}{21}\cdot\frac{1}{s+3}.\]
+    Taking the inverse Laplace transform:
+    \[\boxed{y(t) = -\frac{2}{3} + \frac{6}{7}\,e^{t/2} - \frac{4}{21}\,e^{-3t}.}\]
 \end{example}
 
+%-----------------------------------------------------------------------------
 \subsection{Computational Methods}
+%-----------------------------------------------------------------------------
+
 \subsubsection{Integration in the Time Domain}
+
 \begin{corollary}
-    Let $f$ be PCEO with $F(s) = \mathcal{L}[f](s)$. Then
-    \[\mathcal{L}\!\left[\int_{0}^{t}f(u)\,du\right] = \frac{F(s)}{s}, \qquad \text{equivalently} \qquad \mathcal{L}^{-1}\!\left[\frac{F(s)}{s}\right] = \int_{0}^{t}f(u)\,du.\]
+    \label{cor:integration}
+    Let $f$ be PCEO with $F(s) = \Lap[f](s)$. Then
+    \[\Lap\!\left[\int_0^t f(u)\,du\right] = \frac{F(s)}{s}, \qquad\text{equivalently,}\qquad \Linv\!\left[\frac{F(s)}{s}\right] = \int_0^t f(u)\,du.\]
 \end{corollary}
+
 \begin{proof}
-    Let $g(t) = \int_{0}^{t}f(u)\,du$. Then $g(0) = 0$ and $g'(t) = f(t)$. By the derivative theorem,
-    \[\mathcal{L}[f](s) = \mathcal{L}[g'](s) = s\mathcal{L}[g](s) - g(0) = s\mathcal{L}[g](s).\]
+    Let $g(t) = \int_0^t f(u)\,du$. Then $g(0) = 0$ and $g'(t) = f(t)$. By the derivative theorem:
+    \[\Lap[f](s) = \Lap[g'](s) = s\,\Lap[g](s) - g(0) = s\,\Lap[g](s).\]
     Dividing by $s$ gives the result.
 \end{proof}
+
 \begin{example}
-    Compute $\mathcal{L}^{-1}\!\left[\dfrac{1}{s(s^2+1)}\right]$.\\
-    Write $\dfrac{1}{s(s^2+1)} = \dfrac{1}{s}\cdot\dfrac{1}{s^2+1} = \dfrac{F(s)}{s}$, where $F(s) = \dfrac{1}{s^2+1}$, so $f(t) = \sin t$. By the corollary,
-    \[\mathcal{L}^{-1}\!\left[\frac{1}{s(s^2+1)}\right] = \int_{0}^{t}\sin u\,du = \Big[-\cos u\Big]_0^t = 1 - \cos t.\]
+    Compute $\Linv\!\left[\dfrac{1}{s(s^2+1)}\right]$.
+
+    Write $\dfrac{1}{s(s^2+1)} = \dfrac{1}{s}\cdot\dfrac{1}{s^2+1} = \dfrac{F(s)}{s}$ where $F(s) = \dfrac{1}{s^2+1}$, so $f(t) = \sin t$. By Corollary~\ref{cor:integration}:
+    \[\Linv\!\left[\frac{1}{s(s^2+1)}\right] = \int_0^t \sin u\,du = \Big[-\cos u\Big]_0^t = 1 - \cos t.\]
     Alternatively, by partial fractions: $\dfrac{1}{s(s^2+1)} = \dfrac{1}{s} - \dfrac{s}{s^2+1}$, giving the same result.
 \end{example}
 
 \subsubsection{Convolution}
+
 \begin{definition}[Convolution]
-    The convolution of $f, g : [0,\infty) \to \mathbb{R}$ is
-    \[(f \star g)(t) = \int_{0}^{t} f(t-\tau)\,g(\tau)\,d\tau = \int_{0}^{t} f(\xi)\,g(t-\xi)\,d\xi.\]
+    The convolution of $f,g:[0,\infty)\to\R$ is
+    \[(f\conv g)(t) = \int_0^t f(t-\tau)\,g(\tau)\,d\tau = \int_0^t f(\xi)\,g(t-\xi)\,d\xi.\]
 \end{definition}
+
 \begin{theorem}[Convolution Theorem]
-    If $f$ and $g$ are PCEO with $F(s) = \mathcal{L}[f]$ and $G(s) = \mathcal{L}[g]$, then
-    \[\mathcal{L}[f \star g](s) = F(s)G(s), \qquad \text{equivalently} \qquad \mathcal{L}^{-1}[F(s)G(s)] = (f\star g)(t).\]
+    If $f$ and $g$ are PCEO with $F(s) = \Lap[f]$ and $G(s) = \Lap[g]$, then
+    \[\Lap[f\conv g](s) = F(s)\,G(s), \qquad\text{equivalently,}\qquad \Linv[F(s)\,G(s)] = (f\conv g)(t).\]
 \end{theorem}
+
 \begin{proof}
-    \[F(s)G(s) = \left(\int_{0}^{\infty}f(\xi)e^{-s\xi}\,d\xi\right)\!\left(\int_{0}^{\infty}g(\tau)e^{-s\tau}\,d\tau\right) = \iint_{[0,\infty)^2} f(\xi)g(\tau)e^{-s(\xi+\tau)}\,d\xi\,d\tau.\]
-    Substituting $t = \xi + \tau$ (so $d\xi = dt$) and switching the order of integration,
-    \[= \int_{0}^{\infty}e^{-st}\!\left(\int_{0}^{t}f(t-\tau)g(\tau)\,d\tau\right)dt = \mathcal{L}[f\star g](s).\]
+    \[F(s)\,G(s) = \left(\int_0^\infty f(\xi)\,e^{-s\xi}\,d\xi\right)\!\left(\int_0^\infty g(\tau)\,e^{-s\tau}\,d\tau\right) = \iint_{[0,\infty)^2} f(\xi)\,g(\tau)\,e^{-s(\xi+\tau)}\,d\xi\,d\tau.\]
+    Substituting $t = \xi + \tau$ and switching the order of integration:
+    \[= \int_0^\infty e^{-st}\left(\int_0^t f(t-\tau)\,g(\tau)\,d\tau\right)dt = \Lap[f\conv g](s). \qedhere\]
 \end{proof}
+
 \begin{example}
-    Compute $\mathcal{L}^{-1}\!\left[\dfrac{a}{s^2(s^2+a^2)}\right]$.\\
-    Write $\dfrac{a}{s^2(s^2+a^2)} = \dfrac{1}{s^2}\cdot\dfrac{a}{s^2+a^2}$. Since $\mathcal{L}^{-1}[1/s^2] = t$ and $\mathcal{L}^{-1}[a/(s^2+a^2)] = \sin(at)$,
-    \[\mathcal{L}^{-1}\!\left[\frac{a}{s^2(s^2+a^2)}\right] = t \star \sin(at) = \int_{0}^{t}(t-\tau)\sin(a\tau)\,d\tau = \frac{at - \sin(at)}{a^2}.\]
+    Compute $\Linv\!\left[\dfrac{a}{s^2(s^2+a^2)}\right]$.
+
+    Write $\dfrac{a}{s^2(s^2+a^2)} = \dfrac{1}{s^2}\cdot\dfrac{a}{s^2+a^2}$. Since $\Linv[1/s^2] = t$ and $\Linv[a/(s^2+a^2)] = \sin(at)$:
+    \[\Linv\!\left[\frac{a}{s^2(s^2+a^2)}\right] = t\conv\sin(at) = \int_0^t (t-\tau)\sin(a\tau)\,d\tau = \frac{at - \sin(at)}{a^2}.\]
 \end{example}
-\begin{example}[Integro-differential Equation]
-    Solve 
-    \[y'(t) + 2y(t) + \int_{0}^{t}y(\tau)\,d\tau = \sin t,\quad y(0) = 1.\]
-    Note that $\int_{0}^{t}y(\tau)\,d\tau = (1\star y)(t)$, so $\mathcal{L}[1\star y] = \frac{Y(s)}{s}$. Denoting $Y(s) = \mathcal{L}[y](s)$ and applying the transform:
+
+\begin{example}[Integro-differential equation]
+    Solve $y'(t) + 2y(t) + \displaystyle\int_0^t y(\tau)\,d\tau = \sin t$, with $y(0) = 1$.
+
+    Note that $\int_0^t y(\tau)\,d\tau = (1\conv y)(t)$, so $\Lap[1\conv y] = Y(s)/s$. Let $Y(s) = \Lap[y](s)$ and take the transform:
     \[sY(s) - 1 + 2Y(s) + \frac{Y(s)}{s} = \frac{1}{s^2+1}.\]
-    Multiplying through by $s$:
-    \[\left(s^2 + 2s + 1\right)Y(s) = \frac{s}{s^2+1} + s = \frac{s^2+2}{s^2+1} \cdot s \cdot \frac{1}{s},\]
-    \[(s+1)^2 Y(s) = \frac{s(s^2+2)}{s^2+1},\]
+    Multiplying by $s$:
+    \[(s^2 + 2s + 1)\,Y(s) = s + \frac{s}{s^2+1}, \qquad\Longrightarrow\qquad (s+1)^2\,Y(s) = \frac{s(s^2+2)}{s^2+1},\]
     \[Y(s) = \frac{s(s^2+2)}{(s+1)^2(s^2+1)}.\]
-    Using partial fractions and the identity $\mathcal{L}[te^{-t}](s) = \dfrac{1}{(s+1)^2}$\footnote{This follows from the $s$-derivative formula: $\mathcal{L}[tf(t)] = -F'(s)$, with $F(s) = \frac{1}{s+1}$.},
-    \[y(t) = \mathcal{L}^{-1}\!\left[Y(s)\right] = e^{-t} - \frac{3}{2}te^{-t} + \frac{1}{2}\sin t.\]
+    Using partial fractions and $\Lap[te^{-t}](s) = 1/(s+1)^2$ (from the $s$-derivative formula with $F(s) = 1/(s+1)$):
+    \[\boxed{y(t) = e^{-t} - \tfrac{3}{2}\,te^{-t} + \tfrac{1}{2}\sin t.}\]
 \end{example}
 
-\marginpar{March 31, 2026}
-5.4: Step functions \& Translation Theorems
-\[u_c(t) = \begin{cases}0, t\in[0,c)\\1, t\geq c\end{cases}\]
-%PS DRAW THIS FCT ABOVE
-Unit step function (or Heaviside function)
+%-----------------------------------------------------------------------------
+\subsection{Step Functions and Translation Theorems}
+%-----------------------------------------------------------------------------
+
+\begin{definition}[Unit step function / Heaviside function]
+    \[u_c(t) = \begin{cases}0, & 0 \leq t < c,\\ 1, & t \geq c.\end{cases}\]
+\end{definition}
+
 \begin{example}
-    Let $f(t) = \begin{cases}f_1(t), t\in[0,a)\\f_2(t),t\in[a,b)\\f_3(t), t\geq b\end{cases} \implies f=u_0f_1+u_a(f_2-f_1)+u_b(f_3-f_2)$.
+    Any piecewise function can be written with step functions:
+    \[f(t) = \begin{cases}f_1(t),& 0\leq t<a,\\ f_2(t),& a\leq t<b,\\ f_3(t),& t\geq b\end{cases} \quad\Longrightarrow\quad f = u_0\,f_1 + u_a(f_2-f_1) + u_b(f_3-f_2).\]
 \end{example}
+
 \begin{theorem}[Translation Theorem 1]
-    Let
-    \[L[u_c](s)=\int_{0}^{\infty}e^{-st}u_c(t)dt = \int_{c}^{\infty}e^{-st}dt = \frac{e^{-cs}}{s}\]
-    \[\implies L[u_c] = \frac{e^{-sc}}{s}, s>0.\]
+    \[\Lap[u_c](s) = \int_c^\infty e^{-st}\,dt = \frac{e^{-cs}}{s},\quad s > 0.\]
 \end{theorem}
-\begin{definition}[Translation Operator]
-    %Add picture for the function graphs
-    \[t_c(f)(t) = \begin{cases}0,t\in[0,c)\\f(t-c),t\geq c\end{cases}\] 
+
+\begin{definition}[Translation operator]
+    \[\mathsf{t}_c(f)(t) = \begin{cases}0, & 0\leq t<c,\\ f(t-c), & t\geq c.\end{cases}\]
+    This shifts $f$ to the right by $c$ and fills the gap with zero.
 \end{definition}
-\begin{theorem}[Translation Theorem 2]
-    Let $f: [0,\infty) \to \mathbb{R}$ be PCEO with order $a$ and let $c>0$. Then $L[t_c(f)] = e^{-cs}L[f]$. Or equivalently, $L^{-1}[e^{-cs}F(s)] = t_c(f)$.
+
+\begin{theorem}[Translation Theorem 2 -- Time Shift]
+    \label{thm:TT2}
+    Let $f$ be PCEO with order $a$ and let $c > 0$. Then
+    \[\Lap[\mathsf{t}_c(f)](s) = e^{-cs}\,\Lap[f](s), \qquad\text{equivalently,}\qquad \Linv[e^{-cs}F(s)] = \mathsf{t}_c(f)(t).\]
 \end{theorem}
+
 \begin{proof}
-    \[L[t_c(f)] = \int_{c}^{\infty}e^{-st}t_c(f)(t-c)dt.\]
-    Substituting $u = t-c$ gives
-    \[= e^{-cs}\int_{0}^{\infty}e^{-su}f(u)du = e^{-cs}L[f].\]
+    \[\Lap[\mathsf{t}_c(f)](s) = \int_c^\infty e^{-st} f(t-c)\,dt.\]
+    Substituting $u = t - c$:
+    \[= \int_0^\infty e^{-s(u+c)}f(u)\,du = e^{-cs}\int_0^\infty e^{-su}f(u)\,du = e^{-cs}\,\Lap[f](s). \qedhere\]
 \end{proof}
-\begin{example}
-    Let $f(t) = \begin{cases}sin(t), t\in[0,\pi/4)\\sin(t)+cos(t-\pi/4), t\geq \pi/4\end{cases}$.
-    %Draw the graph
-    \[=sin(t) + \begin{cases}0, t\in[0,\pi/4)\\cos(t-\pi/4), t\geq \pi/4\end{cases} = sin(t)+t\pi/4(cos(t)) \implies L\{f\} = \frac{1}{s^2+1}+e^{-\pi/4 s}\frac{s}{s^2+1}.\]
-\end{example}
-\begin{example}
-    Let $f(t) = \begin{cases}2,t\in[0,1)\\1+t,t\in[1,4)\\t^2,t\geq 4\end{cases}$. What is $L[f]$?\\
-    \[=2u_0(t)+u_1(t)(t-1)+u_4(t)(t^2-(1+t))\]
-    $u_1(t)(t-1) = t_1(t)$, $u_4(t)(t^2-(1+t)) = t_4(t^2+7t+11)$.
-    \[\implies L\{f\} = 2L{u_0}+L\{t_1(t)\}+L\{t_4(t^2+7t+11)\} = 2/s + e^{-s}L\{t\} + e^{-4s}L\{t^2+7t+11\} = 2/s + e^{-s}1/s^2+e^{-4s}(2/s^3 + 7/s^2 + 11/s).\]
-\end{example}
-\begin{example}
-    let $L^{-1}\{\frac{1-e^{-2s}}{s^2}\} = L^{-1}\{\frac{1}{s^2}\} - L^{-1}\{e^{-2s}F(s)\}$, where $F(s) = 1/s^2$ and $L^{-1}\{F(s)\} = t$.
-    \[=t-t_2(t) = t-u_2(t)(t-2) = \begin{cases}t,t\in[0,2)\\2,t\geq 2\end{cases}\]
-\end{example}
-\begin{theorem}[Translation Theorem 3]
-    Let $f: [0,\infty) \to \mathbb{R}$ be PCEO with order $a$ and let $c>0$. Then $L[f](s-c) = L\{e^{ct}f(t)\}, s>a+c$. Or equivalently, $L^{-1}[F(s-c)] = e^{ct}L^{-1}\{F(s)\}$.
+
+Key identity for TT2: to apply the time-shift theorem, write the function in the form $u(t-c)\cdot g(t-c)$, then
+\[\Lap\{u(t-c)\,g(t-c)\} = e^{-cs}\,\Lap\{g(t)\}.\]
+
+\begin{theorem}[Translation Theorem 3 -- Frequency Shift]
+    \label{thm:TT3}
+    Let $f$ be PCEO with order $a$ and let $c \in \R$. Then
+    \[\Lap[e^{ct}f(t)](s) = F(s-c),\quad s > a + c, \qquad\text{equivalently,}\qquad \Linv[F(s-c)] = e^{ct}\,\Linv[F(s)].\]
 \end{theorem}
+
 \begin{proof}
-    $L[f](s-c) = \int_{0}^{\infty}e^{-(s-c)t}f(t)dt = \int_{0}^{\infty}e^{-st}[e^{ct}f(t)]dt = L\{e^{ct}f(t)\}$.
+    \[\Lap[f](s-c) = \int_0^\infty e^{-(s-c)t}f(t)\,dt = \int_0^\infty e^{-st}\bigl[e^{ct}f(t)\bigr]\,dt = \Lap[e^{ct}f(t)](s). \qedhere\]
 \end{proof}
-\begin{example}
-    Let $L^{-1}\{\frac{1}{s^2-4s+5}\} = ?$.
-    \[s^2-4s+5=(s-2)^2+1\]
-    \[\implies \frac{1}{s^2-4s+5} = \frac{1}{(s-2)^2+1} = F(s-2),\]
-    where $F(s) = 1/(s^2+1)$ and $f(t) = L^{-1}\{F(s)\} = \sin t$. By TT3 $L^{-1}\{\frac{1}{s^2-4s+5}\} = L^{-1}\{F(s-2)\} = e^{2t}\sin t$.
-\end{example}
-5.5: ODEs with discontinuous forcing terms
-\begin{example}
-    Let $y''+4y = f(t) = u_0(t) - u_1(t) = \begin{cases}1, t\in[0,1)\\0, t\geq 1\end{cases}$ and $y(0)=y'(0)=0$.
-    \[s^2L\{y\}+4L\{y\} = L\{u_0-u_1\} = 1/s - e^{-s}/s\]
-    \[y(t) = L^{-1}\{y(s)\}=L^{-1}\{\frac{1}{(s^2+4)s}\}-L^{-1}\{\frac{e^{-s}}{(s^2+4)s}\}\]
-    First, denote $F(s) = \frac{1}{s(s^2+4)}$. This implies $L^{-1}\{F(s)\} = L^{-1}\{1/s \cdot \frac{1}{s^2+4}\} = L^{-1}\{1/s\}\star 1/2 L^{-1}\{\frac{2}{s^2+4}\} = 1\star 1/2 sin(2t)=\int_{0}^{t}1/2 sin(2\tau)d\tau = 1/4(1-cos(2t)) = f(t) = L^{-1}\{F(s)\}$. By TT2 $y(t) = 1/4(1-cos(2t)) - t_1(1/4(1-cos(2t)))$.
-    \[=\begin{cases}1/4(1-cos(2t)), t\in[0,1)\\1/4(1-cos(2t))-1/4(1-cos(2t-2)), t\geq 1\end{cases}\]
-    %Add graphs
+
+\begin{example}[TT2: piecewise with cosine]
+    Let $f(t) = \begin{cases}\sin t, & 0\leq t < \pi/4,\\ \sin t + \cos(t - \pi/4), & t\geq\pi/4.\end{cases}$
+
+    Rewrite: $f(t) = \sin t + u(t - \tfrac{\pi}{4})\cos(t - \tfrac{\pi}{4})$. By TT2:
+    \[\Lap\{f\} = \frac{1}{s^2+1} + e^{-\frac{\pi}{4}s}\cdot\frac{s}{s^2+1}.\]
 \end{example}
 
-\marginpar{April 2, 2026}
-\subsection{Impulse ``Functions''}
-Let $\tau > 0$
-%Include the graph $\d_\tau(t)$
-\[d_\tau(t) = \begin{cases}\frac{1}{2\tau}, t\in(\tau,\tau)\\0, if\,not\end{cases}\]
-\[\int_{-\infty}^{\infty} d_\tau(t)dt = \int_{-\tau}^{\tau}\frac{1}{2\tau}dt = \frac{2\tau}{2\tau} = 1.\]
-The impulse function is the limiting ``function'' obtained as $\delta(t) = \lim_{\tau\to 0}d_\tau(t)$. Take $t \neq 0$, $\delta(t) = 0$. Take $t = 0$, $\delta(t) = \lim_{\tau\to 0} 1/2\tau = \infty$. Notice that $\lim_{\tau\to0} \int_{-\infty}^{\infty}d_\tau(t)dt = 1 = \int_{-\infty}^{\infty}\delta(t)dt$.
-\begin{definition}
-    The impulse function, with impules at $t=t_0$, (also called delta Dirac function) is defined by the properties
-    \begin{itemize}
-        \item $\delta(t) = 0, \forall t\neq0$.
-        \item $\int_{-\infty}^{\infty}\delta(t)dt = 1$.
-    \end{itemize}
-\end{definition}
-The Laplace transform of $\delta(t)$ is
-\begin{align*}
-    \mathcal{L}\{\delta(t-t_0)\} &= \lim_{\tau\to0}\mathcal{L}\{d_\tau(t-t_0)\}\\
-    &= \lim_{\tau\to0}\int_{0}^{\infty}e^{-st}d_\tau(t-t_0)dt = \lim_{\tau\to0}\int_{t_0-\tau}^{t_0+\tau}e^{-st}\frac{1}{2\tau}dt\\
-    &= \lim_{\tau\to0}\frac{1}{2\tau} \frac{e^{-s(t_0+\tau)}-e^{-s(t_0-\tau)}}{-s} = e^{-st_0}\lim_{\tau\to0}\frac{e^{s\tau}-e^{-s\tau}}{2s\tau}\\
-    &\stackrel{\text{Hopital's Rule}}{=} e^{-st_0}\lim_{\tau\to0}\frac{s(e^{s\tau}+e^{-s\tau})}{2s} = e^{-st_0}\\
-    \therefore \mathcal{L}\{\delta(t-t_0)\} &= e^{-st_0}.
-\end{align*}
-\begin{example}
-    \[y'' + 2y' + y = \delta(t-5), y(0) = y'(0) = 0.\]
-    Converting to the Laplace domain:
-    \[(s^2 + 2s + 1)\mathcal{L}\{y\} = e^{-5s},\]
-    \[\implies Y(s) = \frac{e^{-5s}}{(s+1)^2}.\]
-    By TT2: $\mathcal{L}^{-1}\{e^{-5c}F(s)\} = t_c(f)$ and by TT3: $\mathcal{L}^{-1}\{G(s-c)\} = e^{ct}\mathcal{L}\{G(s)\}$. Using TT2: $y(t) = \mathcal{L}^{-1}\{e^{-5s}\frac{1}{(s+1)^2}\} = t_5(\mathcal{L}^{-1}\{\frac{1}{(s+1)^2}\})$. Using TT3: $\mathcal{L}^{-1}\{\frac{1}{(s+1)^2}\} = e^{-t}\mathcal{L}^{-1}\{\frac{1}{s^2}\} = te^{-t}$. Hence $y(t) = t_5(te^{-t}) = u_5(t)(t-5)e^{-(t-5)} = \begin{cases}0, t\in[0,5)\\(t-5)e^{-(t-5)}, t\geq5\end{cases}$.
+\begin{example}[TT2: three-piece function]
+    Let $f(t) = \begin{cases}2, & 0\leq t<1,\\ 1+t, & 1\leq t<4,\\ t^2, & t\geq 4.\end{cases}$
+
+    Write using step functions:
+    \[f(t) = 2 + u(t-1)(t-1) + u(t-4)(t^2-t-1).\]
+    Set $g_1(t) = t$ so that $u(t-1)(t-1) = u(t-1)\,g_1(t-1)$, and $g_2(t) = t^2 + 7t + 11$ so that $u(t-4)(t^2-t-1) = u(t-4)\,g_2(t-4)$. By TT2:
+    \[\Lap\{f\} = \frac{2}{s} + e^{-s}\cdot\frac{1}{s^2} + e^{-4s}\left(\frac{2}{s^3} + \frac{7}{s^2} + \frac{11}{s}\right).\]
 \end{example}
 
+\begin{example}[Inverse transform with TT2]
+    Compute $\Linv\!\left\{\dfrac{1-e^{-2s}}{s^2}\right\}$.
+
+    Split: $\dfrac{1-e^{-2s}}{s^2} = \dfrac{1}{s^2} - e^{-2s}\cdot\dfrac{1}{s^2}$. Since $\Linv\{1/s^2\} = t$, by TT2:
+    \[f(t) = t - u(t-2)(t-2) = \begin{cases}t, & 0\leq t<2,\\ 2, & t\geq 2.\end{cases}\]
+\end{example}
+
+\begin{example}[TT3: completing the square]
+    Find $\Linv\!\left\{\dfrac{1}{s^2-4s+5}\right\}$.
+
+    Complete the square: $s^2-4s+5 = (s-2)^2+1$, so
+    \[\frac{1}{s^2-4s+5} = \frac{1}{(s-2)^2+1} = F(s-2),\quad\text{where } F(s) = \frac{1}{s^2+1}.\]
+    Since $\Linv\{F(s)\} = \sin t$, by TT3:
+    \[\Linv\!\left\{\frac{1}{s^2-4s+5}\right\} = e^{2t}\sin t.\]
+\end{example}
+
+%-----------------------------------------------------------------------------
+\subsection{ODEs with Discontinuous Forcing Terms}
+%-----------------------------------------------------------------------------
+
+\begin{example}
+    Solve $y'' + 4y = f(t)$, where $f(t) = \begin{cases}1, & 0\leq t<1,\\ 0, & t\geq 1,\end{cases}$ with $y(0) = y'(0) = 0$.
+
+    Write $f(t) = u_0(t) - u_1(t)$ and take the Laplace transform:
+    \[s^2Y(s) + 4Y(s) = \frac{1}{s} - \frac{e^{-s}}{s}.\]
+    Let $F(s) = \dfrac{1}{s(s^2+4)}$. By convolution:
+    \[\Linv\{F(s)\} = \Linv\!\left\{\frac{1}{s}\cdot\frac{1}{s^2+4}\right\} = 1\conv\tfrac{1}{2}\sin(2t) = \int_0^t \tfrac{1}{2}\sin(2\tau)\,d\tau = \tfrac{1}{4}(1-\cos 2t).\]
+    Denote $g(t) = \tfrac{1}{4}(1-\cos 2t)$. By TT2:
+    \[y(t) = g(t) - \mathsf{t}_1[g](t) = \begin{cases}\frac{1}{4}(1-\cos 2t), & 0\leq t<1,\\[4pt] \frac{1}{4}(1-\cos 2t) - \frac{1}{4}(1-\cos 2(t-1)), & t\geq 1.\end{cases}\]
+\end{example}
+
+%-----------------------------------------------------------------------------
+\subsection{Impulse Functions}
+%-----------------------------------------------------------------------------
+
+Consider the rectangular pulse of width $2\tau$ and unit area:
+\[d_\tau(t) = \begin{cases}\dfrac{1}{2\tau}, & |t| < \tau,\\[4pt] 0, & |t|\geq\tau.\end{cases} \qquad\text{Note: } \int_{-\infty}^{\infty}d_\tau(t)\,dt = \frac{2\tau}{2\tau} = 1.\]
+The impulse function is the limiting ``function'' $\delta(t) = \lim_{\tau\to 0} d_\tau(t)$. For $t\neq 0$, $\delta(t) = 0$; at $t = 0$, $\delta(t) = \lim_{\tau\to 0} 1/(2\tau) = \infty$. Crucially, $\lim_{\tau\to 0}\int_{-\infty}^{\infty} d_\tau(t)\,dt = 1$.
+
+\begin{definition}[Dirac delta function]
+    The impulse function (Dirac delta function), with impulse at $t = t_0$, is defined by:
+    \begin{enumerate}[nosep]
+        \item $\delta(t-t_0) = 0$ for all $t \neq t_0$.
+        \item $\displaystyle\int_{-\infty}^{\infty}\delta(t-t_0)\,dt = 1$.
+    \end{enumerate}
+\end{definition}
+
+\begin{theorem}
+    For $t_0 > 0$:
+    \[\Lap\{\delta(t-t_0)\} = e^{-st_0}.\]
+    In particular, $\Lap\{\delta(t)\} = 1$.
+\end{theorem}
+
+\begin{proof}
+    \begin{align*}
+        \Lap\{\delta(t-t_0)\}
+        &= \lim_{\tau\to 0}\Lap\{d_\tau(t-t_0)\}
+        = \lim_{\tau\to 0}\int_{t_0-\tau}^{t_0+\tau}e^{-st}\cdot\frac{1}{2\tau}\,dt\\
+        &= \lim_{\tau\to 0}\frac{1}{2\tau}\cdot\frac{e^{-s(t_0-\tau)} - e^{-s(t_0+\tau)}}{s}
+        = e^{-st_0}\lim_{\tau\to 0}\frac{e^{s\tau} - e^{-s\tau}}{2s\tau}.
+    \end{align*}
+    By L'H\^opital's rule:
+    \[\lim_{\tau\to 0}\frac{e^{s\tau} - e^{-s\tau}}{2s\tau} = \lim_{\tau\to 0}\frac{s(e^{s\tau} + e^{-s\tau})}{2s} = 1.\]
+    Therefore $\Lap\{\delta(t-t_0)\} = e^{-st_0}$.
+\end{proof}
+
+\begin{example}
+    Solve $y'' + 2y' + y = \delta(t-5)$, with $y(0) = y'(0) = 0$.
+
+    Taking the Laplace transform:
+    \[(s^2+2s+1)\,Y(s) = e^{-5s} \quad\Longrightarrow\quad Y(s) = \frac{e^{-5s}}{(s+1)^2}.\]
+    By TT2: $y(t) = \mathsf{t}_5\!\left[\Linv\!\left\{\dfrac{1}{(s+1)^2}\right\}\right]$.
+
+    By TT3: $\Linv\!\left\{\dfrac{1}{(s+1)^2}\right\} = e^{-t}\,\Linv\!\left\{\dfrac{1}{s^2}\right\} = te^{-t}$.
+
+    Therefore:
+    \[\boxed{y(t) = u_5(t)\,(t-5)\,e^{-(t-5)} = \begin{cases}0, & 0\leq t<5,\\ (t-5)\,e^{-(t-5)}, & t\geq 5.\end{cases}}\]
+\end{example}
+
+%=============================================================================
 \section{Power Series Solutions and Numerical Methods}
+%=============================================================================
+
 \begin{remark}
-    Make sure to read 6.1 from lecture notes.
+    Make sure to read Section 6.1 from the lecture notes.
 \end{remark}
-\subsection{Second order non-autonomous linear ODEs}
+
+\subsection{Second-Order Non-Autonomous Linear ODEs}
+
+Consider the general equation
 \begin{equation}
-    \label{eq:2nd-order-non-autonomous-ode}
-    P(x)y''(x)+Q(x)y'(x)+R(x)y(x)=0
+    \label{eq:general}
+    P(x)\,y''(x) + Q(x)\,y'(x) + R(x)\,y(x) = 0.
 \end{equation}
-\begin{example}[Bessel Equation]
-    \[x^2y''+xy'+(x^2-\nu^2)y = 0\]
+
+\begin{example}[Important special cases]\leavevmode
+    \begin{itemize}[nosep]
+        \item Bessel equation: $x^2y'' + xy' + (x^2 - \nu^2)y = 0$.
+        \item Legendre equation: $(1-x^2)y'' - 2xy' + \alpha(\alpha+1)y = 0$.
+        \item Chebyshev equation: $(1-x^2)y'' - xy' + \alpha^2 y = 0$.
+    \end{itemize}
 \end{example}
-\begin{example}[Legendre Equation]
-    \[(1-x^2)y''-2xy'+\alpha(\alpha+1)y = 0\]
-\end{example}
-\begin{example}[Chebyshev Equation]
-    \[(1-x^2)y''-xy'+\alpha^2y = 0\]
-\end{example}
-\begin{definition}
-    We say that $x=x_0$ is an ordinary point of \eqref{eq:2nd-order-non-autonomous-ode} if $P(x_0) \neq 0$.
+
+\begin{definition}[Ordinary point]
+    A point $x = x_0$ is an ordinary point of (\ref{eq:general}) if $P(x_0)\neq 0$.
 \end{definition}
-Close to $x_0$, $P \neq 0$, then \eqref{eq:2nd-order-non-autonomous-ode} becomes
+
+Near an ordinary point, $P\neq 0$, so we can divide through to get the standard form
 \begin{equation}
-    \label{eq:2nd-order-non-autonomous-ode-2}
-    y''+p(x)y'+q(x)y=0
+    \label{eq:standard}
+    y'' + p(x)\,y' + q(x)\,y = 0,\qquad p(x) = \frac{Q(x)}{P(x)},\quad q(x) = \frac{R(x)}{P(x)}.
 \end{equation}
-where $p(x) = \frac{Q(x)}{P(x)}, q(x) = \frac{R(x)}{P(x)}$. Key assumption: p,q are analytic at $x_0$.
-\[p(x) = \sum_{n\geq 0} p_n(x-x_0)^n, q(x) = \sum_{n\geq 0} q_n(x-x_0)^n\]
-and they have positive radii of convergence. From Cauchy-Kovalesvkaya Theorem (originally for PDEs), $p,q$ at $x_0$ are analytic then $y(x)$ is analytic at $x=x_0$.
-Denote $y(x) = \sum_{n=0}^{\infty}a_n(x-x_0)^n=a_0+a_1(x-x_0)+\ldots \implies y'(x) = \sum_{n\geq 1}na_n(x-x_0)^{n-1}=\sum_{n=0}^{\infty}(n+1)a_{n+1}(x-x_0)^n \implies y''(x) = \sum_{n\geq 2}n(n-1)a_n(x-x_0)^{n-2} = \sum_{n=0}^{\infty}(n+1)(n+2)a_{n+2}(x-x_0)^{n}$. Also, $y(x_0) = a_0$ and $y'(x_0) = a_1$. $p(x)y'(x) = (\sum_{n\geq0}P_n(x-x_0)^n)(\sum_{n\geq0}\tilde{a}_n(x-x_0)^n) = \sum_{n\geq0}(p\star \tilde{a})_n(x-x_0)^n$. Similarly, $q(x)y(x) = \sum_{n\geq0}(q\star a)_n(x-x_0)^n$. Thus, we get the reccurence relation
-\[a_{n+2} = \frac{-1}{(n+2)(n+1)}[(p\star\tilde{a})_n + (q\star a)_n], n\geq0\]
-Where $(p\star\tilde{a})_n = \sum_{k=0}^{n}\tilde{a}_kp_{n-k} = \sum_{k=0}^{n}(k+1)a_{k+1}p_{n-k}$.
 
+Key assumption: $p$ and $q$ are analytic at $x_0$, i.e.\ they have power series expansions
+\[p(x) = \sum_{n\geq 0}p_n(x-x_0)^n,\qquad q(x) = \sum_{n\geq 0}q_n(x-x_0)^n\]
+with positive radii of convergence. By the Cauchy--Kovalevskaya theorem (originally for PDEs), if $p$ and $q$ are analytic at $x_0$, then $y(x)$ is analytic at $x = x_0$.
 
-\begin{example}
-    \[y''+y=0, p=0=0+0x, q=1,x_0=0\]
-    \[\implies (n+2)(n+1)a_{n+2} + a_n = 0\]
-    \[\implies a_{n+2} = \frac{-1}{(n+2)(n+1)}a_n\]
+%-----------------------------------------------------------------------------
+\subsection{The Power Series Method}
+%-----------------------------------------------------------------------------
+
+Since the solution is analytic, write $y(x) = \sum_{n=0}^\infty a_n(x-x_0)^n$, with $a_0 = y(x_0)$ and $a_1 = y'(x_0)$. The derivatives are:
+\begin{align*}
+    y'(x) &= \sum_{n=0}^\infty (n+1)\,a_{n+1}(x-x_0)^n, \\
+    y''(x) &= \sum_{n=0}^\infty (n+2)(n+1)\,a_{n+2}(x-x_0)^n.
+\end{align*}
+The products $p(x)y'(x)$ and $q(x)y(x)$ are computed via the Cauchy product:
+\[p(x)y'(x) = \sum_{n\geq 0}(p\conv\tilde{a})_n\,(x-x_0)^n,\qquad q(x)y(x) = \sum_{n\geq 0}(q\conv a)_n\,(x-x_0)^n,\]
+where $\tilde{a}_k = (k+1)a_{k+1}$ and $(p\conv\tilde{a})_n = \sum_{k=0}^n (k+1)\,a_{k+1}\,p_{n-k}$.
+
+Substituting into (\ref{eq:standard}) and matching coefficients gives the recurrence relation:
+\[\boxed{a_{n+2} = \frac{-1}{(n+2)(n+1)}\Big[(p\conv\tilde{a})_n + (q\conv a)_n\Big],\quad n\geq 0.}\]
+
+\begin{example}[$y'' + y = 0$]
+    Here $p = 0$, $q = 1$, $x_0 = 0$. The recurrence simplifies to:
+    \[(n+2)(n+1)\,a_{n+2} + a_n = 0 \quad\Longrightarrow\quad a_{n+2} = -\frac{a_n}{(n+2)(n+1)}.\]
+    With $a_0$ and $a_1$ free, this produces the familiar series for $\cos$ and $\sin$.
 \end{example}
 
-\begin{example}[Airy's Equation]
-    \[y''-xy=0, x_0=0\]
-    \[y''(x) = \sum_{n\geq0}(n+2)(n+1)a_{n+2}x^n\]
-    \[xy(x) = x\sum_{n\geq 0}a_nx^n = \sum_{n=0}^{\infty}a_nx^{n+1}=\sum_{n=1}a_{n-1}x^n = \sum_{n=0}^{\infty}a_{n-1}x^n\]
-    \[y''-xy = \sum_{n=0}^{\infty}[(n+2)(n+1)a_{n+2}-a_{n-1}]x^n = 0\]
-    \[\implies a_{n+2} = \frac{1}{(n+2)(n+1)}a_{n-1}, n\geq 0\]
-    %do rest of the steps
-    Airy's function is then $y(x) = \sum_{k=0}^{\infty}\frac{x^{3k}}{(2*3)(5*6)\ldots(3k-1)(3k)}$.
+\begin{example}[Airy's equation: $y'' - xy = 0$, $y(0) = 1$, $y'(0) = 0$]
+    Take $x_0 = 0$. Substituting:
+    \[y''(x) = \sum_{n=0}^\infty (n+2)(n+1)\,a_{n+2}\,x^n,\qquad xy(x) = \sum_{n=1}^\infty a_{n-1}\,x^n.\]
+    Setting $y'' - xy = 0$:
+    \[2a_2 + \sum_{n=1}^\infty \Big[(n+2)(n+1)\,a_{n+2} - a_{n-1}\Big]x^n = 0.\]
+    This gives $a_2 = 0$ and the recurrence:
+    \[a_{n+2} = \frac{a_{n-1}}{(n+2)(n+1)},\quad n\geq 1.\]
+    With $a_0 = 1$, $a_1 = 0$: non-zero coefficients occur at indices $n = 0, 3, 6, 9, \ldots$ The Airy function is:
+    \[y(x) = \sum_{k=0}^\infty \frac{x^{3k}}{(2\cdot 3)(5\cdot 6)\cdots(3k-1)(3k)}.\]
+    By the ratio test:
+    \[\left|\frac{b_{k+1}}{b_k}\right| = \frac{|x|^3}{(3k+2)(3k+3)} \to 0 \quad\text{as } k\to\infty,\]
+    so the radius of convergence is $\rho = +\infty$.
 \end{example}
-Using the ratio  test, one can show (exercise) that the radius of convergence of Airy's function is $\rho = +\infty$.
+
 \begin{problem}
-    Redo the airy's equation, but with $y(0) = 0, y'(0) = 1$.
+    Redo Airy's equation with $y(0) = 0$, $y'(0) = 1$ (this gives the second linearly independent solution).
 \end{problem}
-\subsection{Power series for IVPs in Nonlinear Systems}
-\[\begin{cases}
-    \dot{y} = f(y)\\
-    y(0)=y_0\in U
-\end{cases}\]
-Assume $f: U \to \mathbb{R}^n$ is analytic, where $U\subseteq\mathbb{R}^n$ is open. By Cauchy-Kovalevskaya Theorem, the solution to the IVP is analytic. Then we look for solutions to the IVP in the form $y(t) = \sum_{n=0}^{\infty}a_nt^n$, here $a_0 = y_0$. Plug in the IVP and solve for $a_n$. $\sum_{n\geq1}na_nt^{n-1}=f(\sum_{n\geq0}a_nt^n) \implies \sum_{n\geq0}(n+1)a_{n+1}t^n = \sum_{n\geq0}\Phi_n(a)t^n$. Somehow $a_{n+1} = \frac{1}{n+1}\Phi_n(a), n\geq0$, $a_0=y_0$ Recurrence relation.
 
-\marginpar{April 9, 2026}
-\begin{example}[Airy's Equation]
-    \[y''-xy=0, y(0)=1, y'(0)=0\]
-    \[y(x) = \sum_{k=0}^{\infty}\frac{1}{(2*3)(5*6)\cdots(3k-1)(3k)}x^{3k} = \sum_{k=0}^{\infty}b_k\]
-    \[|\frac{b_{k+1}}{b_k}=\frac{|x|^3}{(3k+2)(3k+3)}\to_{k\to +\infty} 0<1, \forall x\in\mathbb{R}\]
-    The radius of convergence of $y(x)$ is $\rho = +\infty$.
-\end{example}
-\subsection{Power Series for IVPs in Nonlinear ODE}
-\begin{example}
-    \[y'=y(1-y)=y-y^2=f(y)\]
-    $y(t)=\sum_{n=0}^{\infty}a_nt^n, y'(t)=\sum_{n=1}na_nt^{n-1}=\sum_{n=0}^{\infty}(n+1)a_{n+1}t^n$, $y^2=\sum_{n=0}^{\infty}(a\star a)_nt^n$ this is the Cauchy Product. $y'=y-y^2 \iff \sum_{n=0}^{\infty}[(n+1)a_{n+1}-a_n+(a\star a)_n]t^n=0 \implies a_{n+1}=\frac{1}{n+1}(a_n-(a\star a)_n), n\geq 0$. If we pick $y(0) = 1/2=a_0$, then $a_1 = 1/4$, $a_2 = 0$, $a_3 = -1/48$, $a_4 = 0, a_5 = 1/480$, etc. $\implies y(x) = 1/2 + 1/4x -1/48x^3 + 1/480 x^5+\cdots \approx \sum_{n=0}^{N}a_nt^n$.
+%-----------------------------------------------------------------------------
+\subsection{Power Series for IVPs in Nonlinear Systems}
+%-----------------------------------------------------------------------------
+
+Consider the IVP
+\[\dot{y} = f(y),\qquad y(0) = y_0 \in U \subseteq \R^n,\]
+where $f: U \to \R^n$ is analytic and $U$ is open. By the Cauchy--Kovalevskaya theorem, the solution is analytic, so we seek $y(t) = \sum_{n=0}^\infty a_n t^n$ with $a_0 = y_0$.
+
+Substituting into the ODE:
+\[\sum_{n=0}^\infty (n+1)\,a_{n+1}\,t^n = f\!\left(\sum_{n=0}^\infty a_n t^n\right) = \sum_{n=0}^\infty \Phi_n(a)\,t^n,\]
+giving the recurrence:
+\[\boxed{a_{n+1} = \frac{\Phi_n(a)}{n+1},\quad n\geq 0,\qquad a_0 = y_0.}\]
+
+\begin{example}[Logistic equation: $y' = y(1-y)$, $y(0) = 1/2$]
+    Here $f(y) = y - y^2$. Expanding $y^2$ via the Cauchy product:
+    \[y^2(t) = \sum_{n=0}^\infty (a\conv a)_n\,t^n,\qquad (a\conv a)_n = \sum_{k=0}^n a_k\,a_{n-k}.\]
+    The recurrence becomes:
+    \[a_{n+1} = \frac{1}{n+1}\Big[a_n - (a\conv a)_n\Big],\quad n\geq 0.\]
+    With $a_0 = 1/2$: $a_1 = 1/4$, $a_2 = 0$, $a_3 = -1/48$, $a_4 = 0$, $a_5 = 1/480$, so
+    \[y(t) = \frac{1}{2} + \frac{1}{4}\,t - \frac{1}{48}\,t^3 + \frac{1}{480}\,t^5 + \cdots \approx \sum_{n=0}^N a_n t^n.\]
 \end{example}
 
+%-----------------------------------------------------------------------------
 \subsection{Numerical Method via Power Series}
-\[\begin{cases}
-    y'=f(y)\\
-    y(0)=y_0
-\end{cases}\]
-\[y(t) = \sum a_nt^n, a_n \in \mathbb{R}^n\]
-\[f(y(t))=f(\sum_{n=0}^{\infty}a_nt^n) = \sum_{n=0}^{\infty}\Phi_n(a)t^n\]
-\[\implies_{(RR)}\begin{cases}
-    a_{n+1}=\frac{\Phi_n(a)}{n+1}\\
-    a_0=y_0
-\end{cases}\]
-Fix an order N, and compute $a_1,a_2,\ldots,a_N$ using (RR).
-\[\implies y^N(t) = \sum_{n=0}^{N}a_nt^n\]
-Numerical approximation of order N.
-Let $N=1$
-\[y^1(t) = a_0+a_1t = y(0) + y'(0)t = y_0 + f(y_0)t\]
-Pick a step size $h>0$, I get the approximation $y_1=y_0+hf(y_0)$ (Euler's Method).
-\[\begin{cases}
-    y_{n+1}=y_n + hf(y_n)\\
-    t_{n+1} = t_n + h
-\end{cases}\]
-Pick $N>1$ (Taylor Method of order N): $y_1 = \sum_{n=0}^{N}a_nh^n$, apply the method iteratively.
+%-----------------------------------------------------------------------------
+
+Given $y' = f(y)$, $y(0) = y_0$, fix an order $N$ and compute $a_0, a_1, \ldots, a_N$ from the recurrence. This gives the numerical approximation of order $N$:
+\[y^N(t) = \sum_{n=0}^N a_n\,t^n.\]
+
+Case $N = 1$ (Euler's method):
+\[y^1(t) = a_0 + a_1 t = y_0 + f(y_0)\,t.\]
+Picking a step size $h > 0$ and iterating:
+\[\boxed{y_{n+1} = y_n + h\,f(y_n),\qquad t_{n+1} = t_n + h.}\]
+
+Case $N > 1$ (Taylor method of order $N$): compute $y_1 = \sum_{n=0}^N a_n h^n$ and apply the method iteratively, achieving higher-order accuracy.
 
 \section{Appendix}
 \subsection{Picard Iterations Convergence}
 \begin{proof}[Proof of Picard Iterations Convergence]
     \label{pf:picard-convergence}
     Pick $t \in [t_0, t_0 + \epsilon]$ (the proof is similar for $t \in [t_0 - \epsilon, t_0]$).
-    The goal is to show that $\{y_k(t)\}_{k=0}^{\infty}$ is a Cauchy sequence\footnote{Cauchy sequence is a sequence that has a limit in a metric space $\mathbb{R}^n$.} in $\mathbb{R}^n$.\footnote{Evaluated on compacted cylinder, understanding epsilon, the L Lipschitz constant coming from somewhere, not on the analysis background such as the Banach fixed point theorem.}
+    The goal is to show that $\{y_k(t)\}_{k=0}^{\infty}$ is a Cauchy sequence\footnote{Cauchy sequence is a sequence that has a limit in a metric space $\R^n$.} in $\R^n$.\footnote{Evaluated on compacted cylinder, understanding epsilon, the L Lipschitz constant coming from somewhere, not on the analysis background such as the Banach fixed point theorem.}
     We prove by induction that
     \[(**)\quad ||y_m(t) - y_{m - 1}(t)|| \leq L^{m - 1}M_{\alpha,\delta} \frac{(t - t_0)^m}{m!},\:\forall m \geq 1.\]
     \textbf{Base case \(m=1\):}
@@ -2196,7 +2246,7 @@ Pick $N>1$ (Taylor Method of order N): $y_1 = \sum_{n=0}^{N}a_nh^n$, apply the m
     \end{cases}\]
 \end{solution}
 \begin{solution}[Existence and Uniqueness Theorem]
-    Let $f(y,t) = t^2+y^2$. This function is continuous and has continuous partial derivatives $\forall(t,y) \in \mathbb{R}^2$, ensuring a unique local solution. To find the guaranteed interval of existence $\epsilon$, we define a rectangular domain $D$ centered at the origin:
+    Let $f(y,t) = t^2+y^2$. This function is continuous and has continuous partial derivatives $\forall(t,y) \in \R^2$, ensuring a unique local solution. To find the guaranteed interval of existence $\epsilon$, we define a rectangular domain $D$ centered at the origin:
     \[D_{\alpha,\delta} = \{(y,t) : \|y\| \leq \alpha, |t| \leq \delta\}.\]
     Now we need to bound the function. We find the maximum value $M$ of $|f(t, y)|$ on this domain:
     \[M = \sup_{(t, y) \in D_{\alpha, \delta}} |t^2 + y^2| = \delta^2 + \alpha^2.\]

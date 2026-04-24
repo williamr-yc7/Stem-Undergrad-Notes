@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  14 APR 2026 18:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  24 APR 2026 17:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -502,31 +502,31 @@ Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 \c@remark=\count346
 \c@proposition=\count347
 \c@algorithm=\count348
-Package hyperref Info: Option `colorlinks' set `true' on input line 28.
+Package hyperref Info: Option `colorlinks' set `true' on input line 26.
  (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count349
 ) (Math325.aux)
 \openout1 = `Math325.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
  (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count350
@@ -546,7 +546,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring ON on input line 29.
+Package hyperref Info: Link coloring ON on input line 32.
  (Math325.out) (Math325.out)
 \@outlinefile=\write4
 \openout4 = `Math325.out'.
@@ -554,11 +554,11 @@ Package hyperref Info: Link coloring ON on input line 29.
 
 Package pgfplots notification 'compat/show suggested version=true': document has been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 37.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 40.
 (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 37.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 40.
  (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
@@ -573,11 +573,11 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.115 ...} \sup_{t \in J} \|f_k(t) - f(t)\| = 0.\]
+l.118 ...} \sup_{t \in J} \|f_k(t) - f(t)\| = 0.\]
                                                    [1
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 150--150
+Underfull \hbox (badness 10000) in paragraph at lines 153--153
 []\OT1/cmr/m/n/10 January 06,
  []
 
@@ -585,9 +585,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 150--150
 pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.163     \[
+l.166     \[
             m\frac{dv}{dt} = mg - \lambda v,\] [2]
-Underfull \hbox (badness 10000) in paragraph at lines 184--184
+Underfull \hbox (badness 10000) in paragraph at lines 187--187
 []\OT1/cmr/m/n/10 January 08,
  []
 
@@ -595,257 +595,224 @@ Underfull \hbox (badness 10000) in paragraph at lines 184--184
 pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.202 \end{definition}
-                       [3]
+l.207 \end{example}
+                    [3]
 pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.240 \end{definition}
-                       [4] [5]
-Underfull \hbox (badness 10000) in paragraph at lines 290--290
+l.238     \[
+            y''' + 4y' - y = 0\] [4]
+Underfull \hbox (badness 10000) in paragraph at lines 281--281
 []\OT1/cmr/m/n/10 January 13,
  []
 
-[6]
-Underfull \hbox (badness 10000) in paragraph at lines 357--357
+[5] [6]
+Underfull \hbox (badness 10000) in paragraph at lines 341--341
 []\OT1/cmr/m/n/10 January 13,
  []
 
-[7]
-Overfull \hbox (7.1454pt too wide) detected at line 373
+
+Overfull \hbox (7.1454pt too wide) detected at line 357
 \OML/cmm/m/it/10 M[] \OT1/cmr/m/n/10 = [] \OMS/cmsy/m/n/10 k\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 y; t\OT1/cmr/m/n/10 )\OMS/cmsy/m/n/10 k \OML/cmm/m/it/10 < \OT1/cmr/m/n/10 +\OMS/cmsy/m/n/10 1\OML/cmm/m/it/10 ;  " \OT1/cmr/m/n/10 = []  [] \OML/cmm/m/it/10 ;  J \OT1/cmr/m/n/10 = (\OML/cmm/m/it/10 t[] \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 "; t[] \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 "\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 :
  []
 
-[8]
-Underfull \hbox (badness 10000) in paragraph at lines 406--406
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 390--390
 []\OT1/cmr/m/n/10 January 20,
  []
 
-[9]
-Underfull \hbox (badness 10000) in paragraph at lines 432--432
+[8]
+Underfull \hbox (badness 10000) in paragraph at lines 416--416
 []\OT1/cmr/m/n/10 January 15,
  []
 
-[10]
-Underfull \hbox (badness 10000) in paragraph at lines 449--449
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 433--433
 []\OT1/cmr/m/n/10 January 22,
  []
 
-[11]
-Underfull \hbox (badness 10000) in paragraph at lines 505--505
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 489--489
 []\OT1/cmr/m/n/10 January 27,
  []
 
-[12]
-Underfull \hbox (badness 10000) in paragraph at lines 537--537
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 521--521
 []\OT1/cmr/m/n/10 January 29,
  []
 
-[13] [14]
-Underfull \hbox (badness 10000) in paragraph at lines 596--596
+[12] [13]
+Underfull \hbox (badness 10000) in paragraph at lines 580--580
 []\OT1/cmr/m/n/10 February 3,
  []
 
-[15]
-Underfull \hbox (badness 10000) in paragraph at lines 641--641
+[14]
+Underfull \hbox (badness 10000) in paragraph at lines 625--625
 []\OT1/cmr/m/n/10 February 3,
  []
 
-[16] [17] [18] [19]
-Underfull \hbox (badness 10000) in paragraph at lines 912--912
+[15] [16] [17] [18] [19]
+Underfull \hbox (badness 10000) in paragraph at lines 896--896
 []\OT1/cmr/m/n/10 February 10,
  []
 
 [20]
-Underfull \hbox (badness 10000) in paragraph at lines 984--984
+Underfull \hbox (badness 10000) in paragraph at lines 968--968
 [][]\OT1/cmr/m/n/10 February 12,
  []
 
-[21] [22] [23]
-Underfull \hbox (badness 10000) in paragraph at lines 1137--1137
+[21] [22]
+Underfull \hbox (badness 10000) in paragraph at lines 1121--1121
 []\OT1/cmr/m/n/10 February 17,
  []
 
-[24]
+[23]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1201.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 1201.
+(hyperref)                removing `math shift' on input line 1185.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1201.
+(hyperref)                removing `superscript' on input line 1185.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1202--1202
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1185.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1186--1186
 []\OT1/cmr/m/n/10 February 19,
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1225.
+(hyperref)                removing `math shift' on input line 1209.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 1225.
+(hyperref)                removing `superscript' on input line 1209.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1225.
+(hyperref)                removing `math shift' on input line 1209.
 
-[25] [26]
-Underfull \hbox (badness 10000) in paragraph at lines 1308--1308
+[24] [25]
+Underfull \hbox (badness 10000) in paragraph at lines 1292--1292
 []\OT1/cmr/m/n/10 February 24,
  []
 
-<../Images/MSS-setup.jpeg, id=715, 2055.68pt x 800.9925pt>
+<../Images/MSS-setup.jpeg, id=718, 2055.68pt x 800.9925pt>
 File: ../Images/MSS-setup.jpeg Graphic file (type jpg)
 <use ../Images/MSS-setup.jpeg>
-Package pdftex.def Info: ../Images/MSS-setup.jpeg  used on input line 1313.
+Package pdftex.def Info: ../Images/MSS-setup.jpeg  used on input line 1297.
 (pdftex.def)             Requested size: 172.5pt x 67.20956pt.
-[27 <../Images/MSS-setup.jpeg>]
-<../Images/circuit-ode.jpeg, id=723, 2055.68pt x 1541.76pt>
+[26 <../Images/MSS-setup.jpeg>]
+<../Images/circuit-ode.jpeg, id=726, 2055.68pt x 1541.76pt>
 File: ../Images/circuit-ode.jpeg Graphic file (type jpg)
 <use ../Images/circuit-ode.jpeg>
-Package pdftex.def Info: ../Images/circuit-ode.jpeg  used on input line 1360.
+Package pdftex.def Info: ../Images/circuit-ode.jpeg  used on input line 1344.
 (pdftex.def)             Requested size: 172.5pt x 129.3658pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 1383--1383
+ [27 <../Images/circuit-ode.jpeg>]
+Underfull \hbox (badness 10000) in paragraph at lines 1367--1367
 []\OT1/cmr/m/n/10 March 10,
  []
 
-[28 <../Images/circuit-ode.jpeg>] [29]
-Underfull \hbox (badness 10000) in paragraph at lines 1463--1463
+[28]
+Underfull \hbox (badness 10000) in paragraph at lines 1447--1447
 []\OT1/cmr/m/n/10 March 12,
  []
 
-[30]
-Underfull \hbox (badness 10000) in paragraph at lines 1503--1503
+[29] [30]
+Underfull \hbox (badness 10000) in paragraph at lines 1487--1487
 []\OT1/cmr/m/n/10 March 10,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1515--1515
+Underfull \hbox (badness 10000) in paragraph at lines 1499--1499
 []\OT1/cmr/m/n/10 March 17,
  []
 
 [31] [32] [33]
-Underfull \hbox (badness 10000) in paragraph at lines 1665--1665
-[]\OT1/cmr/m/n/10 March 19,
- []
-
-[34]
-Underfull \hbox (badness 10000) in paragraph at lines 1680--1680
+Underfull \hbox (badness 10000) in paragraph at lines 1649--1649
 []\OT1/cmr/m/n/10 March 19,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1741--1741
-[]\OT1/cmr/m/n/10 March 24,
+Underfull \hbox (badness 10000) in paragraph at lines 1664--1664
+[]\OT1/cmr/m/n/10 March 19,
  []
 
-[35]
-Overfull \hbox (7.15607pt too wide) in paragraph at lines 1772--1773
-[][]\OT1/cmr/bx/n/10 Remark 15. []\OT1/cmr/m/it/10 We ab-bre-vi-ate `piece-wise con-tin-u-ous of ex-po-nen-tial or-der' as PCEO. 
- []
+[34] [35]
 
-
-Overfull \hbox (2.19669pt too wide) in paragraph at lines 1798--1800
-[]$\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 t[]$ \OT1/cmr/m/it/10 sat-is-fies $\OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 )\OMS/cmsy/m/n/10 j ^^T \OML/cmm/m/it/10 Ke[]$
- []
+Package amsthm Warning: The \qedhere command may not work correctly here on input line 1768.
 
 [36]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1858.
+(hyperref)                removing `math shift' on input line 1830.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1858.
+(hyperref)                removing `math shift' on input line 1830.
 
 [37]
-Underfull \hbox (badness 10000) in paragraph at lines 1888--1888
-[]\OT1/cmr/m/n/10 March 26,
+Overfull \hbox (11.94753pt too wide) detected at line 1864
+\OMS/cmsy/m/n/10 L\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 f[]\OT1/cmr/m/n/10 ](\OML/cmm/m/it/10 s\OT1/cmr/m/n/10 ) = [][] \OML/cmm/m/it/10 e[]f[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ) \OML/cmm/m/it/10 dt \OT1/cmr/m/n/10 = []\OML/cmm/m/it/10 e[]f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 )[][] + \OML/cmm/m/it/10 s [][] e[]f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ) \OML/cmm/m/it/10 dt \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 ^^@\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (0) + \OML/cmm/m/it/10 s \OMS/cmsy/m/n/10 L\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 ](\OML/cmm/m/it/10 s\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 :
  []
 
 
-Overfull \hbox (10.2809pt too wide) detected at line 1897
-\OMS/cmsy/m/n/10 L\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 f[]\OT1/cmr/m/n/10 ](\OML/cmm/m/it/10 s\OT1/cmr/m/n/10 ) = [][] \OML/cmm/m/it/10 e[]f[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ) \OML/cmm/m/it/10 dt \OT1/cmr/m/n/10 = []\OML/cmm/m/it/10 e[]f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 )[][] + \OML/cmm/m/it/10 s [][] e[]f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ) \OML/cmm/m/it/10 dt \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 ^^@\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (0) + \OML/cmm/m/it/10 s\OMS/cmsy/m/n/10 L\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 ](\OML/cmm/m/it/10 s\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 :
+Package amsthm Warning: The \qedhere command may not work correctly here on input line 1866.
+
+
+Overfull \hbox (10.7353pt too wide) detected at line 1866
+\OMS/cmsy/m/n/10 L\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 f[]\OT1/cmr/m/n/10 ](\OML/cmm/m/it/10 s\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 s \OMS/cmsy/m/n/10 L\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 f[]\OT1/cmr/m/n/10 ](\OML/cmm/m/it/10 s\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 f[]\OT1/cmr/m/n/10 (0) = \OML/cmm/m/it/10 s[]s \OMS/cmsy/m/n/10 L\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 ](\OML/cmm/m/it/10 s\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (0)[] \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 f[]\OT1/cmr/m/n/10 (0) = \OML/cmm/m/it/10 s[]\OMS/cmsy/m/n/10 L\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 ](\OML/cmm/m/it/10 s\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 sf\OT1/cmr/m/n/10 (0) \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 f[]\OT1/cmr/m/n/10 (0)\OML/cmm/m/it/10 :
+ []
+
+[38]
+Overfull \hbox (37.40343pt too wide) detected at line 1924
+\OML/cmm/m/it/10 F\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 s\OT1/cmr/m/n/10 ) \OML/cmm/m/it/10 G\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 s\OT1/cmr/m/n/10 ) = []  [] = [] [][] \OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^X\OT1/cmr/m/n/10 ) \OML/cmm/m/it/10 g\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^\\OT1/cmr/m/n/10 ) \OML/cmm/m/it/10 e[] d^^X d^^\:
  []
 
 
-Overfull \hbox (7.40205pt too wide) detected at line 1899
-\OMS/cmsy/m/n/10 L\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 f[]\OT1/cmr/m/n/10 ](\OML/cmm/m/it/10 s\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 s\OMS/cmsy/m/n/10 L\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 f[]\OT1/cmr/m/n/10 ](\OML/cmm/m/it/10 s\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 f[]\OT1/cmr/m/n/10 (0) = \OML/cmm/m/it/10 s[]s\OMS/cmsy/m/n/10 L\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 ](\OML/cmm/m/it/10 s\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (0)[] \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 f[]\OT1/cmr/m/n/10 (0) = \OML/cmm/m/it/10 s[]\OMS/cmsy/m/n/10 L\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 ](\OML/cmm/m/it/10 s\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 sf\OT1/cmr/m/n/10 (0) \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 f[]\OT1/cmr/m/n/10 (0)\OML/cmm/m/it/10 :
- []
+Package amsthm Warning: The \qedhere command may not work correctly here on input line 1926.
 
-[38] [39]
-Overfull \hbox (29.0703pt too wide) detected at line 1944
-\OML/cmm/m/it/10 F\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 s\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 G\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 s\OT1/cmr/m/n/10 ) = []  [] = [] [][] \OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^X\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 g\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^\\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 e[] d^^X d^^\:
- []
+[39] [40]
+
+Package amsthm Warning: The \qedhere command may not work correctly here on input line 1979.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1966--1966
-[]\OT1/cmr/m/n/10 March 31,
- []
-
-[40]
-Overfull \hbox (68.32103pt too wide) detected at line 1994
-\OT1/cmr/m/n/10 = \OML/cmm/m/it/10 sin\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ) + [] = \OML/cmm/m/it/10 sin\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ) + \OML/cmm/m/it/10 t^^Y=\OT1/cmr/m/n/10 4(\OML/cmm/m/it/10 cos\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ))  =[]\OMS/cmsy/m/n/10 )  \OML/cmm/m/it/10 L\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 f\OMS/cmsy/m/n/10 g \OT1/cmr/m/n/10 = [] + \OML/cmm/m/it/10 e[][]:
+Overfull \hbox (32.15715pt too wide) detected at line 1988
+\OMS/cmsy/m/n/10 L\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 e[]f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 )](\OML/cmm/m/it/10 s\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 F\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 s \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 c\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ;  s > a \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 c;  [] \OMS/cmsy/m/n/10 L[]\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 F\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 s \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 c\OT1/cmr/m/n/10 )] = \OML/cmm/m/it/10 e[] \OMS/cmsy/m/n/10 L[]\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 F\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 s\OT1/cmr/m/n/10 )]\OML/cmm/m/it/10 :
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1997--1998
+Package amsthm Warning: The \qedhere command may not work correctly here on input line 1992.
 
+
+Overfull \hbox (38.54248pt too wide) in paragraph at lines 1996--1997
+[]\OT1/cmr/bx/n/10 Example \OT1/cmr/m/n/10 (TT2: piece-wise with co-sine)\OT1/cmr/bx/n/10 . []\OT1/cmr/m/it/10 Let $\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ) = []$ 
  []
 
-
-Overfull \hbox (203.01715pt too wide) detected at line 2000
- \OT1/cmr/m/n/10 =[]\OMS/cmsy/m/n/10 )  \OML/cmm/m/it/10 L\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 f\OMS/cmsy/m/n/10 g \OT1/cmr/m/n/10 = 2\OML/cmm/m/it/10 L[] \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 L\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 t[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 )\OMS/cmsy/m/n/10 g \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 L\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 t[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t[] \OT1/cmr/m/n/10 + 7\OML/cmm/m/it/10 t \OT1/cmr/m/n/10 + 11)\OMS/cmsy/m/n/10 g \OT1/cmr/m/n/10 = 2\OML/cmm/m/it/10 =s \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 e[]L\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 t\OMS/cmsy/m/n/10 g \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 e[]L\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 t[] \OT1/cmr/m/n/10 + 7\OML/cmm/m/it/10 t \OT1/cmr/m/n/10 + 11\OMS/cmsy/m/n/10 g \OT1/cmr/m/n/10 = 2\OML/cmm/m/it/10 =s \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 e[]\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 =s[] \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 e[]\OT1/cmr/m/n/10 (2\OML/cmm/m/it/10 =s[] \OT1/cmr/m/n/10 + 7\OML/cmm/m/it/10 =s[] \OT1/cmr/m/n/10 + 11\OML/cmm/m/it/10 =s\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 :
- []
-
-[41]
-Overfull \hbox (1.99216pt too wide) in paragraph at lines 2015--2017
-\OT1/cmr/m/it/10 where $\OML/cmm/m/it/10 F\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 s\OT1/cmr/m/n/10 ) = 1\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 s[] \OT1/cmr/m/n/10 + 1)$ \OT1/cmr/m/it/10 and $\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 L[]\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 F\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 s\OT1/cmr/m/n/10 )\OMS/cmsy/m/n/10 g \OT1/cmr/m/n/10 = [] \OML/cmm/m/it/10 t$\OT1/cmr/m/it/10 . By TT3 $\OML/cmm/m/it/10 L[]\OMS/cmsy/m/n/10 f[]g \OT1/cmr/m/n/10 =
- []
-
-[42]
-Overfull \hbox (21.38524pt too wide) in paragraph at lines 2054--2056
-\OT1/cmr/m/it/10 Us-ing TT2: $\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ) = \OMS/cmsy/m/n/10 L[]f\OML/cmm/m/it/10 e[][]\OMS/cmsy/m/n/10 g \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 t[]\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 L[]f[]g\OT1/cmr/m/n/10 )$\OT1/cmr/m/it/10 . Us-ing TT3: $\OMS/cmsy/m/n/10 L[]f[]g \OT1/cmr/m/n/10 =
- []
-
-
-Overfull \hbox (50.43546pt too wide) in paragraph at lines 2054--2056
-\OML/cmm/m/it/10 e[]\OMS/cmsy/m/n/10 L[]f[]g \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 te[]$\OT1/cmr/m/it/10 . Hence $\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 t[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 te[]\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 u[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 )(\OML/cmm/m/it/10 t \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 5)\OML/cmm/m/it/10 e[] \OT1/cmr/m/n/10 = []$\OT1/cmr/m/it/10 . 
- []
-
-[43] [44]
-Overfull \hbox (1.60251pt too wide) in paragraph at lines 2115--2117
-\OT1/cmr/m/n/10 Assume $\OML/cmm/m/it/10 f \OT1/cmr/m/n/10 : \OML/cmm/m/it/10 U \OMS/cmsy/m/n/10 ! \U/msb/m/n/10 R[]$ \OT1/cmr/m/n/10 is an-a-lytic, where $\OML/cmm/m/it/10 U \OMS/cmsy/m/n/10 ^^R \U/msb/m/n/10 R[]$ \OT1/cmr/m/n/10 is open. By Cauchy-Kovalevskaya
- []
-
-[45] [46] [47] [48] [49] [50] [51] (Math325.aux)
+[41] [42] [43] [44] [45] [46] [47] [48] [49] [50] [51] (Math325.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
 Package rerunfilecheck Info: File `Math325.out' has not changed.
-(rerunfilecheck)             Checksum: 067E505A6C3EDBF934CA714B061FCFF2;17406.
+(rerunfilecheck)             Checksum: 6DFEC95B56D51C5272CB6C8381891E43;17819.
  ) 
 Here is how much of TeX's memory you used:
- 31208 strings out of 467871
- 734007 string characters out of 5418377
- 1271609 words of memory out of 5000000
- 59309 multiletter control sequences out of 15000+600000
- 637929 words of font info for 78 fonts, out of 8000000 for 9000
+ 31232 strings out of 467871
+ 734233 string characters out of 5418377
+ 1273609 words of memory out of 5000000
+ 59325 multiletter control sequences out of 15000+600000
+ 639434 words of font info for 83 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,14n,118p,799b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\erenr\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Math325.pdf (55 pages, 1117352 bytes).
+ 99i,14n,118p,799b,725s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\erenr\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on Math325.pdf (55 pages, 1119859 bytes).
 PDF statistics:
- 1066 PDF objects out of 1200 (max. 8388607)
- 290 named destinations out of 1000 (max. 500000)
- 711 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1085 PDF objects out of 1200 (max. 8388607)
+ 296 named destinations out of 1000 (max. 500000)
+ 727 words of extra memory for PDF output out of 10000 (max. 10000000)
 

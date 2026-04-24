@@ -670,7 +670,7 @@ For an ideal transformer, power is conserved ($V_1 I_1 = V_2 I_2$), giving the t
 Consider an initially uncharged capacitor connected in series with a resistor and a constant source $V_0$. Applying KVL,
 \[V_0 = v_R(t) + v_C(t) = i(t)R + \frac{1}{C}\int_0^{t}i(\tau)\,d\tau.\]
 Differentiating and solving,
-\[I(t) = \frac{V_0}{R}e^{-t/\tau}, \qquad V_C(t) = V_0\!\left(1 - e^{-t/\tau}\right),\]
+\[I(t) = I_0e^{-t/\tau} =\frac{V_0}{R}e^{-t/\tau}, \qquad V_C(t) = V_0\!\left(1 - e^{-t/\tau}\right),\]
 where $\tau = RC$ is the time constant. As $t \to \infty$, the current decays to zero and $V_C \to V_0$. At $t = 0$, the capacitor behaves like a short circuit; as $t\to\infty$, it behaves like an open circuit.
 \begin{center}
     \begin{tikzpicture}
@@ -782,11 +782,11 @@ where $L$ is the self-inductance.
 \subsubsection{DC Analysis}
 \subsubsection*{Charging}
 When the switch is connected to terminal A,
-\[I(t) = \frac{V}{R}\!\left(1 - e^{-t/\tau}\right), \qquad V_L(t) = V\,e^{-t/\tau}.\]
+\[I(t) = \frac{V_0}{R}\!\left(1 - e^{-t/\tau}\right), \qquad V_L(t) = V_0\,e^{-t/\tau}.\]
 At $t = 0$, an inductor behaves like an open circuit. As $t \to \infty$, it behaves like a short circuit and carries the full steady-state current $V/R$.
 
 \subsubsection*{Discharging}
-\[V_L(t) = V_0\,e^{-t/\tau}, \qquad I(t) = I_0\,e^{-t/\tau}.\]
+\[I(t) = I_0\,e^{-t/\tau}, \qquad V_L(t) = V_0\,e^{-t/\tau}.\]
 Both current and voltage decay exponentially to zero.
 
 % ------- 6.4 LR Circuit with AC Driving -------
