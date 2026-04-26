@@ -412,8 +412,17 @@ The theorem guarantees that there exists a unique solution
     \[y' = t^2+y^2, \quad y(0) = 0.\]
     Determine the largest value of $\varepsilon$ for which the Theorem of Existence and Uniqueness ensures the existence of a solution y : ($-\varepsilon, \varepsilon) \to \R$.\\
     First and foremost, define
-    \[D_{\alpha,\delta} = \left\{(y,t): ||y - 0|| \leq \alpha, |t-0| \leq \delta\right\}\subset D \times (a,b).\]
-    Set $M_{\alpha,\delta} = \sup_{(y,t) \in D_{\alpha,\delta}} ||f(y,t)||$ and $\varepsilon = \min\!\left(\delta, \frac{\alpha}{M_{\alpha,\delta}}\right)$. Since $f(y,t) \in C^0(\R)$, then choose $D = \R$ and $(a,b) = (-\infty, \infty)$, now we need to 
+    \[D_{\alpha,\delta} = \left\{(y,t): |y-0| \leq \alpha,\; |t-0| \leq \delta\right\}\subset D \times (a,b).\]
+    Set $M_{\alpha,\delta} = \sup_{(y,t) \in D_{\alpha,\delta}} ||f(y,t)||$ and $\varepsilon = \min\!\left(\delta, \frac{\alpha}{M_{\alpha,\delta}}\right)$. Since $f(y,t) = t^2 + y^2$ is $C^1$ on $\R^2$, it is locally Lipschitz, so we take $D = \R$ and $(a,b) = \R$. Now we need to find $M_{\alpha,\delta}$.
+    \[M_{\alpha, \delta} = \sup_{(y,t) \in D_{\alpha,\delta}} |t^2+y^2|,\]
+    since $t^2$ is maximized when $t=\delta$ and $y^2$ is maximized when $y=\alpha$, then
+    \[M_{\alpha, \delta} = \delta^2 + \alpha^2.\]
+    Now we want to maximize $\varepsilon = \min\!\left(\delta, \frac{\alpha}{\delta^2 + \alpha^2}\right)$ over $\alpha, \delta > 0$.\\
+    \textbf{Step 1: Optimize over $\alpha$.} For fixed $\delta$, let $g(\alpha) = \frac{\alpha}{\delta^2 + \alpha^2}$. Then
+    \[g'(\alpha) = \frac{\delta^2 - \alpha^2}{(\delta^2 + \alpha^2)^2} = 0 \implies \alpha = \delta,\]
+    so the best choice is $\alpha = \delta$, giving $\varepsilon = \min\!\left(\delta, \frac{1}{2\delta}\right)$.\\
+    \textbf{Step 2: Optimize over $\delta$.} The minimum $\min\!\left(\delta, \frac{1}{2\delta}\right)$ is maximized when both terms are equal, since below $\delta = \frac{1}{\sqrt{2}}$ the first term is the bottleneck, and above it the second term is. Setting $\delta = \frac{1}{2\delta}$ gives $\delta = \frac{1}{\sqrt{2}}$. Hence the largest guaranteed $\varepsilon$ is
+    \[\varepsilon = \frac{1}{\sqrt{2}}.\]
 \end{example}
 \begin{problem}[Existence and Uniqueness Theorem]
     Consider the initial value problem
@@ -503,16 +512,14 @@ and integrating both sides yields
 
 \subsection{Separable Equations}
 \marginpar{January 27, 2026}
-\begin{definition}
+\begin{definition}[Separable Equation]
     The ODE $\frac{dy}{dx} = f(x,y)$ is \emph{separable} if $f(x,y) = f_1(x)f_2(y)$ for some functions $f_1$ and $f_2$.
 \end{definition}
 \begin{example}
     $\dfrac{dy}{dx} = -\dfrac{x}{y}$ is separable with $f_1(x) = x$, $f_2(y) = -\dfrac{1}{y}$.\\
     $\dfrac{dy}{dx} = x^2 + y^2$ is not separable.
 \end{example}
-
-\subsubsection{General Method}
-Writing the separable ODE as
+One can rewrite the separable ODE as
 \begin{equation}
     \label{SeparableODE}
     M(x) + N(y)\frac{dy}{dx} = 0,
