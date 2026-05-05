@@ -93,6 +93,45 @@ Basic Set Theory:
         \item Singleton: $\{x\} = \{y : y = x\}$, the set that contains only the element $x$.
     \end{itemize}
 \end{itemize}
+The complement of $A \subseteq \Omega$ is denoted by $A^c$ or $\overline{A}$ and is defined to be $A^c = \{x\in \Omega: x\notin A\}$.
+The empty set is denoted by $\emptyset$.
+\begin{proposition}
+    $A \cup A^c = \Omega$, $A\cap A^c = \emptyset$, $A\cup \emptyset = A$, $A\cap \emptyset = \emtyset$.
+\end{proposition}
+\begin{proposition}
+    Let A,B,C be sets:
+    \begin{enumerate}
+        \item Commutativity: $A\cup B = B\cup A$.
+        \item Associativity: $A\cup(B\cup C)= (A\cup B)\cup C$, $A\cap (B\cap C) = (A\cap B)\cap C$.
+        \item Distributivity: $A\cup (B\cap C) = (A\cup B)\cap (A\cup C)$, $A\cap (B\cup C) = (A\cap B)\cup (A\cap C)$.
+    \end{enumerate}
+\end{proposition}
+\begin{proof}
+    $A\cap(B\cup C) = (A\cap B)\cup(A\cap C)$, $A\cap(B\cup C) \subset (A\cap B)\cup (A\cap C)$.
+\end{proof}
+Let $x\in A\cap(B\cup C)$. Then $x\in A$ and $x\in B\cup C$. Then $x\in A$ and $x$ belongs to atleast B and C. If $x\in A$ and $x\in B$ then $x\in A\cap(B\cup C)$?
+If $x\in A$ and $x\in C$, then $A\cap C \subset (A\cap B)\cup(A\cap C)$. Hence $A\cap (B \cup C)\subset(A\cap C)$. We now show that $A\cap B)\cup(A\cup C) \subset A\cap(B\cup C)$. Let $x\in (A\cap B)\cup(A\cap C)$. If $x \in A\cap B$ then $x\in A$ and $x\in B \subseteq B\cup C$. If $x\in A\cap C$, then $x\in A$ and $x\in C\subseteq B\cup C$. So $x \in A\cap (B\cup C)$. Hence $(A\cap B)\cup(A\cap C) \subset A\cap(B\cup C)$.
+De morgans law:
+\begin{enumerate}
+    \item $(A\cup B)^c = A^c \cap B^c$.
+    \item $(A\cap B)^c = A^c \cup B^c$.
+\end{enumerate}
+Let $A_1, A_2, A_3, \ldots$ be subsets of $\Omega$. Let $n\in \mathbb{N}: \cap_{i=1}^n A_i = A_1 \cap A_2 \cap \ldots \cap A_n = \{x\in \Omega: x\in A_1, \ldots, x\in A_n\}$.
+$\cap_{i=1}^\infty A_i = \{x\in \Omega: x\in A_i \forall i \in \mathbb{N}\}$.
+$\cup_{i=1}^\infty A_i = \{x\in \Omega: x\in A_{i_0} \text{ for some } i_0 \in \{1,\ldots,n\}\} = \{x\in \Omega: x\in \text{at least one of } A_1,\ldots,A_n\}$.
+\begin{proposition}
+    $(\cup_{i=1}^\infty A_i)^c = \cap_{i=1}^\infty A_i^c$ and $(\cap_{i=1}^\infty A_i)^c = \cup_{i=1}^\infty A_i^c$.
+\end{proposition}
+\begin{problem}
+    In a class of 101 students. 20 students play hockey. 30 students like math. 5 students like math and play hockey. How many students, (1) do not play hockey, (2) do not like math, (3) do not like math and do not play hockey, (4) play hockey but do not like math. Answer (1): $101 - 20 = 81$ students do not play hockey. (2) $101 - 30 = 71$ students do not like math. (3) $101 - (20 + 30 - 5) = 56$ students do not like math and do not play hockey. (4) $20 - 5 = 15$ students play hockey but do not like math.
+\end{problem}
+We define $A\setminus B = \{x\in \Omega: x\in A and x\notin B\} = A\cap B^c = A\setminus (A\cap B)$.
+\begin{remark}
+    Write $|A|$ (cardinal of A) for the number of elements in A. Then $|A\cup B| = |A| + |B| - |A\cap B|$.
+\end{remark}
+\begin{proof}
+    $|A\cup B| = x+y+z, |A| = x+y, |B| = y+z, |A\cap B| = y$. Then $|A\cup B| = |A| + |B| - |A\cap B|$.
+\end{proof}
 
 \marginpar{May 5, 2026}
 \begin{example}
