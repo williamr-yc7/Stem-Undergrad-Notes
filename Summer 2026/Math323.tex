@@ -73,6 +73,26 @@ whichever is higher. The book used for this class is: "Mathematical statistics w
 \section{Prerequisite Knowledge}
 % ============================================================
 \marginpar{May 4, 2026}
+Basic Set Theory:
+\begin{itemize}
+    \item A set is a well defined collection of objects, defined in a way such that we can determine wether or not an element $x$ belongs to the set.
+    \item If $A$ is a set, we say that $a\in A$, if a is an element of A.
+    \item If A is a set, we say that $a \notin A$ if a is not an element of A.
+    \item We specify a set either by listing its elements, if possible on by a property that defines the set.
+    \item In general, we will be working in a universal set $\Omega$.
+    \item Universal set is a set in which all elements belong, like the complex set.
+    \item Operations on sets, let $\Omega$ be a universal set, $A, B \subseteq \Omega$. Then we can define the following operations on sets:
+    \begin{itemize}
+        \item Subset: $A \subseteq B$ if $x \in A$ implies $x \in B$.
+        \item Equality: $A = B$ if $A \subseteq B$ and $B \subseteq A$.
+        \item Proper subset: $A \subsetneq B$ if $A \subseteq B$ and $A \neq B$.
+        \item Union: $A \cup B = \{x : x \in A \text{ or } x \in B\}$
+        \item Intersection: $A \cap B = \{x : x \in A \text{ and } x \in B\}$
+        \item Difference: $A \setminus B = \{x : x \in A \text{ and } x \notin B\}$
+        \item Complement: $A^c = \{x : x \in \Omega \text{ and } x \notin A\}$
+        \item Singleton: $\{x\} = \{y : y = x\}$, the set that contains only the element $x$.
+    \end{itemize}
+\end{itemize}
 
 \marginpar{May 5, 2026}
 \begin{example}
@@ -106,6 +126,45 @@ Let $A, B$ be events $(A, B \in \mathbb{F})$ . Then $A \cap B \in \mathbb{F}$ an
 \begin{lemma}
     $P(B) = P(A^c\cap B) + P(A\cap B)$ and $P(A \cap B) = P(B) - P(A^c\cap B)$, $B = (A\cap B)\cup (A^c\cap B)$, $A\cap B$, $A^c \cap B$ are disjoint $P(B) = P(A\cap B)+P(A^c \cap B)$ and hence $P(A\cap B) = P(B) - P(A\cap B)$ and hence $P(A\cup B) = P(A) + P(B) - P(A\cap B)$.
 \end{lemma}
+The axioms define a probability, require THE countable additivity for piecewise disjoint sets IF $\{A\}^{\infty}_{i=1}$ are a collection of events such that $A_k \cap A_l = \phi$ if $k\neq l$ then $P(\cup_{i=1}^\infty A_i) = \sum_{i=1}^\infty P(A_i)$. If $\{A\}^{\infty}_{i=1}$ are not disjoint, how can we relate $P(\cup_{i=1}^\infty A_i)$ and $\sum_{i=1}^\infty P(A_i)$? 
+\begin{proposition}
+    Let $\{A\}_{i=1}^\infty$ be a collection of events. Then $P(\cup_{i=1}^\infty A_i) \leq \sum_{i=1}^\infty P(A_i)$. Proof: define $A^\star_i = A_i$ and $A_2^\star = A_2 \setminus A_1$, $A_3^\star = A_3 \setminus (A_1 \cup A_2)$, $\dots$, $A_n^\star = A_n \setminus (\cup_{i=1}^{n-1} A_i)$, $\dots$, for $n\geq 2$.
+\end{proposition}
+First, $\{A\}_{i=1}^\infty$ are pairwise disjoint. To show this, let $k\neq l$ be positive integers. We need to show that $A_k^\star \cap A_l^\star = \phi$. Assume that $l > k$ and suppose$A_k^\star \cap A_l^\star \neq \phi$. Let $x \in A_k^\star \cap A_l^\star$. Then $x \in A_l^\star$ and $x \in A_k^\star$. Since $x \in A_l^\star$ and $x \in A_k^\star$. Since $x \in A_l^\star$ then $x \in A_l$ but $x\notin \cup_{i=1}^{l-1} A_i$. Since $k<l$ then $x\notin A_k$. Futhermore, since $x\in A_k^\star$ , then $x\in A_k$, we have here a contradiction. Hence $\{A_i^\star\}_{i=1}^\infty$ are piecewise disjoint. Then next step is to show that $\cup_{i=1}^\infty A_i = \cup_{i=1}^\infty A_i^\star$. First, note that since $A_i^\star \subset A_i$ for all $i\in\mathbb{N}$. Then $\cup_{i=1}^\infty A_i^\star \subset \cup_{i=1}^\infty A_i$. Now, we show that $\cup_{i=1}^\infty A_i \subset \cup_{i=1}^\infty A_i^\star$. Suppose $x\in \cup_{i=1}^\infty A_i$. Then, let $i_0$ be the smallest index integer such that $x \in A_{i_0}$. In particular, $x\notin A_1, x\notin A_2,\ldots, x\notin A_{i_0-1}$. Then $x\in A_{i_0}^\star \subset \cup_{i=1}^\infty A_i^\star$. Therefore, $\cup_{i=1}^\infty A_i^\star \subset \cup_{i=1}^\infty A_i^\star$. Then $\cup_{i=1}^\infty A_i^\star = \cup_{i=1}^\infty A_i$. $P(\cup_{i=1}^\infty A_i) = P(\cup_{i=1}^\infty A_i^\star) = \sum_{i=1}^\infty P(A_i^\star) \leq \sum_{i=1}^\infty P(A_i)$, since $A_i^\star \subset A_i$.
+\begin{corollary}
+    Let $A_1, A_2, \ldots, A_n$ be events. Then $P(\cap_{i=1}^n A_i) \geq \sum_{i=1}^n P(A_i) - (n-1)$. Proof: $P(\cap_{i=1}^n A_i) = 1 - P((\cap_{i=1}^n A_i)^c) = 1- P(\cup_{i=1}^n A_i^c) \geq 1 - \sum_{i=1}^n P(A_i^c) = 1 - (n - \sum_{i=1}^{n}P(A_i)) = \sum_{i=1}^{n}P(A_i) - (n-1)$, since $P(\cup_{i=1}^n A_i^c) \leq \sum_{i=1}^n P(A_i^c)$.
+\end{corollary}
+\begin{problem}
+    Suppose $\{A_i\}_{i=1}^\infty$ are events such that $P(A_i)=1$ for all $i\in \mathbb{N}$ such that $P(\cap_{i=1}^\infty A_i) = 1$.\footnote{He'll prolly ask this on an exam.}
+\end{problem}
+Independent Events: Events A and B are said to be independent if $P(A \cap B) = P(A)P(B)$.
+(...)
+Finite sample spaces and equally likely outcomes
+\begin{example}
+    We roll a dce twice (tolls are assumed to be independent) and we write down the number obtained at each roll. The sample space $\Omega = \{(a,b), a,b \in \{1,2,3,4,5,6\}\}$. $|\Omega| = 36$. Since the two rolls are independent, the probability of $\{(a,b)\}$ is $1/6 x 1/6 = \frac{1}{36}$. The outcomes are equally likely. Let $\Omega = \{w_1,\ldots,w_n\}$ be a finite sample space with $|\Omega| = N$ we say that the outcomes $w_1,\ldots,w_N$ are equally likely if $P(\{w_1\}) = P(\{w_2\}) = \ldots = P(\{w_N\}) = \frac{1}{N}$. Let $A \subset \Omega$. Since $\Omega$ is finite, then A is finite and $A=\{w_1,w_2,\ldots,2_d\}$ and $|A| = d$, $w_1,\ldots,w_n$ are the distinct $d$ elements of A. $P(A) = \sum_{i=1}^d P(\{w_i\}) =  \frac{1}{N} + \frac{1}{N} + \ldots + \frac{1}{N} = \frac{d}{N} = \frac{|A|}{|\Omega|}$.
+\end{example}
+\begin{example}
+    A fair coin is flipped twice. Suppose the flips are independent. The sample space $\Omega = \{HH, HT, TH, TT\}$ outcomes in $\Omega$ are equally likely with probability $1/4$.
+    \begin{enumerate}
+        \item Probability of getting at least one head, call this event A. Find P(A): $A = \{HH,HT,TH\}$, $|A| = 3$, $P(A) = \frac{3}{4}$.
+    \end{enumerate}
+\end{example}
+Counting
+\begin{theorem}[Fundamental Theorem of Counting]
+    With m elements $a_1, \ldots, a_m$ and n elements $b_1, \ldots, b_n$, one can form $m \times n$ distinct pairs $(a,b)$ where $a \in \{a_1,\ldots, a_m\}$ and $b \in \{b_1,\ldots, b_n\}$.
+\end{theorem}
+\begin{example}
+    how many 7 digit telephone numbers can one form? 10 chosen for first, 10 chosen for second, ...,  10 chosen for 7th
+    How many 7-digit telephone numbers can one form if the third digit is even: 10 chosen for first, 10 chosen for second, 5 chosen for third, 10 chosen for fourth, ..., 10 chosen for seventh.
+\end{example}
+Permutations
+\begin{example}
+    In a class of 100 students, 2 students are chosen. The first one wins 100\$ and the second one wins 75\$. How many choices are there if (1) a student can win twice (sampling with replacement) (2) a student can win at most once (sampling without replacement). (1) 100 choices for first, 100 choices for second, so $100^2$ choices. (2) 100 choices for first, 99 choices for second, so $100 \times 99$ choices.
+\end{example}
+Permutations: An ordered arrangement of r distinct objects is called a permutation. The number of ways of randomly choosing r ordered objects form $n$ objects without replacement is denoted by $P^n_r$ and is equal to $\frac{n!}{(n-r)!}$. In total, the number of ordering is $n\times (n-1) \times \ldots \times (n-r+1)$. $P^n_r = n\times (n-1) \times \ldots \times (n-r+1) = \frac{n!}{(n-r)!}$.
+\begin{example}
+    Two students are chosen to form a committee. In here many ways can the choice be done? 100 choices for first one, 99 choices for second one, 2! ways of ordering the two students, so $\frac{100 \times 99}{2!}$ ways.
+\end{example}
 % ============================================================
 \section{Appendix}
 % ============================================================
