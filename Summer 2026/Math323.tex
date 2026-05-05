@@ -29,15 +29,13 @@
   \end{array}\right)
 }
 \reversemarginpar
-\hypersetup{
-    colorlinks=true,
-}
+\hypersetup{colorlinks=true,}
 \begin{document}
 
 %------- Title page -----------
-\title{MATH 223: Linear Algebra}
+\title{MATH 323: Probability}
 \author{W.R.YCH.}
-\date{January \(5^{th}\), 2026}
+\date{May \(4^{th}\), 2026}
 \setcounter{Maxaffil}{0}
 \renewcommand\Affilfont{\itshape\small}
 \maketitle
@@ -64,13 +62,50 @@
 These notes were written for MATH 323 (Probability) at McGill University, Summer 2026. The course is taught by Magid Sabbagh and meets in Steward Biology Building S1/3 (S1/3) every Monday, Tuesday, Wednesday, and Thursday from 8:35\,am to 10:55\,am.
 \subsubsection*{Grading scheme:}
 \vspace{-2em}
-\[20\%\ \text{assignments} + 5\% \text{Multiple Choice Quiz} + 25\%\ \text{midterm} + 50\%\ \text{final} \quad \text{or} \quad 20\%\ \text{assignments} + 5\% \text{Multiple Choice Quiz} + 75\%\ \text{final}\]
-whichever is higher.
+\begin{align}
+    20\%\ \text{assignments} + 5\% \text{Multiple Choice Quiz} + 25\%\ \text{midterm} + 50\%\ \text{final}\\
+    \text{or}\\
+    20\%\ \text{assignments} + 5\% \text{Multiple Choice Quiz} + 75\%\ \text{final}
+\end{align}
+whichever is higher. The book used for this class is: "Mathematical statistics with application, 7th edition." Midterm will be an 1h30 long and will have all 2h30 hours to complete it in class.
 
 % ============================================================
 \section{Prerequisite Knowledge}
 % ============================================================
+\marginpar{May 4, 2026}
 
+\marginpar{May 5, 2026}
+\begin{example}
+    1) Let $\Omega$ be a set. $\mathbb{F} = \{\phi, \Omega\}$ is a $\sigma$-algebra on $\Omega$.\\
+    2) Let $\Omega$ be a set. Then the set of all subset of $\Omega$ is a $\sigma$-algebra on $\Omega$. (The power set of $\Omega$ denoted by $Z^\Omega$).\\
+    3) Let $\omega$ be a set. Define $\mathbb{F} = \{A \subseteq \Omega. \text{A is countable on } A^c \text{is countable}\}$. Then $\mathbb{F}$ is a $\sigma$-algebra on $\Omega$.
+    4) Suppose $A\subseteq \Omega$. $\mathbb{F} = \{\phi, A, A^c, \Omega\}$ is a $\sigma$-algebra.
+\end{example}
+\begin{example}
+    Flip a coin. $\Omega = \{H, T\}$. $2^n = \{\phi, \{H\},\{T\},\{H,T\}\}$.
+\end{example}
+\begin{definition}
+    Let $\Omega$ be the sample space (...) to an experiment and $\mathbb{F}$ a $\sigma$-algebra of subsets of $\Omega$. (...)
+    \begin{enumerate}
+        \item $P(A) \geq 0$ for all $A \in \mathbb{F}$.
+        \item $P(\Omega) = 1$.
+        \item If $A_1, A_2, \dots$ is a collection of pairwise disjoint subsets of $\Omega$ that belong to F then are sets in $\mathbb{F}$ such that $A_i \subseteq A_{i+1}$ for all $i$, then $P(\cup_{i=1}^\infty A_i) = \sum_{i=1}^\infty P(A_i)$. (Pairwise disjoint $A_k \cap A_l = \phi$ if $k \neq l$)
+    \end{enumerate}
+    Properties:
+    \begin{enumerate}
+        \item If $A \subseteq B$ then $P(A) \leq P(B)$. Proof: $B = A \cup (B\setminus A)$ and $P(B) = P(A) + P(B\setminus A)$ since $A$ and $B\setminus A$ are disjoint. $P(B) = P(A) + P(B\setminus A) \geq P(A)$ since $P(B\setminus A) \geq 0$.
+    \end{enumerate}
+\end{definition}
+\begin{corollary}
+    Let $A \in \mathbb{F}$. (A is an event). Then $P(A) \leq 1$. Proof: $A \subseteq \Omega$, (...) by the previous proof, $P(A) \leq P(\Omega) = 1$.
+\end{corollary}
+\begin{proposition}
+    $P(A^c) = 1 - P(A)$. Proof: $\Omega = A \cup A^c$ and $A \cap A^c = \phi$. $P(\Omega) = P(A \cup A^c) = P(A) + P(A^c) = 1$, so $P(A^c) = 1 - P(A)$.
+\end{proposition}
+Let $A, B$ be events $(A, B \in \mathbb{F})$ . Then $A \cap B \in \mathbb{F}$ and $P(A\cup B) = P(A) + P(B) - P(A\cap B)$. $A \cup B = A \cup (B \cap A^c)$, $A \cap (B\cap A^c) = \phi$, $P(A\cup B) = P(A) + P(B\cap A^c)$.
+\begin{lemma}
+    $P(B) = P(A^c\cap B) + P(A\cap B)$ and $P(A \cap B) = P(B) - P(A^c\cap B)$, $B = (A\cap B)\cup (A^c\cap B)$, $A\cap B$, $A^c \cap B$ are disjoint $P(B) = P(A\cap B)+P(A^c \cap B)$ and hence $P(A\cap B) = P(B) - P(A\cap B)$ and hence $P(A\cup B) = P(A) + P(B) - P(A\cap B)$.
+\end{lemma}
 % ============================================================
 \section{Appendix}
 % ============================================================
