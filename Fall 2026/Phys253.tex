@@ -1,0 +1,98 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{authblk} % Required for author affiliations
+\usepackage{indentfirst} % Indent first paragraph of sections
+\usepackage{amssymb} % For mathematical symbols
+\usepackage{amsthm} % For theorem environments
+\usepackage{amsmath} % For advanced math typesetting
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{pgfplots} % For plots
+\usepackage{tikz} % For drawing shapes
+\usepackage{circuitikz}
+\usepackage{float} % For [H] float option
+\pgfplotsset{compat=1.18} % Set compatibility level
+\newtheorem{theorem}{Theorem}
+\newtheorem{law}{Law}
+\newtheorem{principle}{Principle}
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}{Definition}
+\newtheorem{problem}{Problem}
+\newtheorem{solution}{Solution}
+\newtheorem*{example}{Example}
+\newtheorem{remark}{Remark}
+\newtheorem{proposition}{Proposition}
+\reversemarginpar
+\hypersetup{
+    colorlinks=true,
+}
+\begin{document}
+
+% ============================================================
+%  Title page
+% ============================================================
+\title{PHYS 253: Thermal Physics}
+\author{W.R.YCH.}
+\date{August \(31^{st}\), 2026}
+\setcounter{Maxaffil}{0}
+\renewcommand\Affilfont{\itshape\small}
+\maketitle
+
+% ============================================================
+%  Abstract
+% ============================================================
+\noindent\rule{\textwidth}{0.4pt}
+\thispagestyle{empty}
+\begin{abstract}
+    NOT FINISHED
+\end{abstract}
+\noindent\rule{\textwidth}{0.4pt}
+\clearpage
+
+% ============================================================
+%  Table of Contents
+% ============================================================
+\thispagestyle{empty}
+{
+  \hypersetup{linkcolor=black}
+  \tableofcontents
+}
+\clearpage
+
+% ============================================================
+\setcounter{page}{1}
+
+% ============================================================
+%  INTRODUCTION
+% ============================================================
+\section{Introduction}
+
+\begin{definition}[Thermodynamics]
+    Thermodynamics, derived from the ancient Greek words \textit{therme} (heat) and \textit{dynamis} (power), is the branch of physics that deals with the relationships between heat, work, temperature, and energy.
+\end{definition}
+\begin{remark}
+    Thermodynamics does not give microscopic details of the system\footnote{Classical thermodynamics cannot describe microscopic systems directly, but modern extensions like stochastic thermodynamics and statistical mechanics can.}, but rather describes the macroscopic properties and behaviors of systems in terms of a few state variables.
+\end{remark}
+
+\section{Energy Conservation}
+
+\section{Thermal Equilibrium}
+
+\section{Entropy}
+
+
+
+
+% ============================================================
+%  APPENDIX
+% ============================================================
+\appendix
+\section{Appendix}
+
+% ============================================================
+%  Useful Links
+% ============================================================
+\section{Useful Links}
+
+\end{document}

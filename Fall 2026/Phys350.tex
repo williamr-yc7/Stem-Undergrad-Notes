@@ -1,0 +1,91 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{authblk} % Required for author affiliations
+\usepackage{indentfirst} % Indent first paragraph of sections
+\usepackage{amssymb} % For mathematical symbols
+\usepackage{amsthm} % For theorem environments
+\usepackage{amsmath} % For advanced math typesetting
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{pgfplots} % For plots
+\usepackage{tikz} % For drawing shapes
+\usepackage{circuitikz}
+\usepackage{float} % For [H] float option
+\pgfplotsset{compat=1.18} % Set compatibility level
+\newtheorem{theorem}{Theorem}
+\newtheorem{law}{Law}
+\newtheorem{principle}{Principle}
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}{Definition}
+\newtheorem{problem}{Problem}
+\newtheorem{solution}{Solution}
+\newtheorem*{example}{Example}
+\newtheorem{remark}{Remark}
+\newtheorem{proposition}{Proposition}
+\reversemarginpar
+\hypersetup{
+    colorlinks=true,
+}
+\begin{document}
+
+% ============================================================
+%  Title page
+% ============================================================
+\title{PHYS 350: Honours Electricity and Magnetism}
+\author{W.R.YCH.}
+\date{August \(31^{st}\), 2026}
+\setcounter{Maxaffil}{0}
+\renewcommand\Affilfont{\itshape\small}
+\maketitle
+
+% ============================================================
+%  Abstract
+% ============================================================
+\noindent\rule{\textwidth}{0.4pt}
+\thispagestyle{empty}
+\begin{abstract}
+    NOT FINISHED
+\end{abstract}
+\noindent\rule{\textwidth}{0.4pt}
+\clearpage
+
+% ============================================================
+%  Table of Contents
+% ============================================================
+\thispagestyle{empty}
+{
+  \hypersetup{linkcolor=black}
+  \tableofcontents
+}
+\clearpage
+
+% ============================================================
+\setcounter{page}{1}
+
+% ============================================================
+%  INTRODUCTION
+% ============================================================
+\section{Introduction}
+Textbook used is David J. Griffiths - Introduction to Electrodynamics Fifth Edition. Taught by Adrian C. Liu. Mondays, Wednesdays and Fridays from 13:35 to 14:25 in rutherford 112.
+
+\section{Vector Analysis}
+\section{Electrostatics}
+\section{Potentials}
+\section{Electric Fields in Matter}
+\section{Magnetostatics}
+\section{Magnetic Fields in Matter}
+\section{Electrodynamics}
+
+% ============================================================
+%  APPENDIX
+% ============================================================
+\appendix
+\section{Appendix}
+
+% ============================================================
+%  Useful Links
+% ============================================================
+\section{Useful Links}
+
+\end{document}

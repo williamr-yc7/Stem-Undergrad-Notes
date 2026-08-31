@@ -45,7 +45,7 @@
 \noindent\rule{\textwidth}{0.4pt}
 \thispagestyle{empty}
 \begin{abstract}
-These notes summarize the main topics of MATH 248: Honours Vector Calculus, taught by Prof. Pengfei Guan. The course covers partial derivatives and differentiability in several variables, the Jacobian, extrema and the Hessian, scalar and vector fields, orthogonal curvilinear coordinates, multiple integrals, arc length, surface area, and volume. It also includes line and surface integrals, irrotational and solenoidal fields, Green's theorem, the Divergence theorem, and Stokes' theorem. The notes serve as a compact reference for students in Honours Physics, Computer Science, Physiology, and Engineering.
+    These notes summarize the main topics of MATH 248: Honours Vector Calculus, taught by Prof. Pengfei Guan. The course covers partial derivatives and differentiability in several variables, the Jacobian, extrema and the Hessian, scalar and vector fields, orthogonal curvilinear coordinates, multiple integrals, arc length, surface area, and volume. It also includes line and surface integrals, irrotational and solenoidal fields, Green's theorem, the Divergence theorem, and Stokes' theorem.
 \end{abstract}
 \noindent\rule{\textwidth}{0.4pt}
 \clearpage
@@ -69,7 +69,7 @@ MATH 248 is the honours-level introduction to vector calculus. The course focuse
 
 We also study scalar and vector fields, coordinate systems such as polar, cylindrical, and spherical, and geometric quantities like arc length, surface area, and volume. The final part of the course is devoted to line and surface integrals and the main theorems of vector calculus: Green's theorem, the Divergence theorem, and Stokes' theorem.
 
-These notes are written as a compact reference for students taking the course with Prof.~Pengfei Guan. Prerequisites are MATH 133 and MATH 222, and the course is restricted to Honours students in Physics, Computer Science, Physiology, and Engineering. Students who have taken MATH 314 or MATH 358 may not take MATH 248.
+These notes are written as a compact reference for students taking the course with Prof.~Pengfei Guan. Prerequisites are MATH 133 and MATH 222, and the course is restricted to Honours students in Physics, Computer Science, Physiology, and Engineering. Students who have taken MATH 314 or MATH 358 may not take this course.
 
 \section{Prerequisite knowledge}
 \subsection{Squeeze Theorem}
@@ -89,11 +89,11 @@ These notes are written as a compact reference for students taking the course wi
     \[f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}.\]
 \end{theorem}
 \begin{theorem}[The Power Rule]
-    Let \(n\) be a any number. If \(f(x) = x^n\), then
-    \[f'(x) = nx^{n - 1}\] Alternatively, we may express this rule as \[\frac{d}{dx}f(x) = nx^{n - 1}\]
+    Let \(n\) be a any number. If \(f(x) = x^n\), $\forall n \in \mathbb{Q}$\textup{[\footnote{$\mathbb{Q}$ is the set of all rational numbers.}]}, then
+    \[\frac{d}{dx}f(x) = f'(x) = nx^{n - 1}.\]
 \end{theorem}
 \begin{theorem}[The Chain Rule]
-    Let \(f\) and \(g\) be functions from \(\mathbb{R} \to \mathbb{R}\). For all \(x \in \mathrm{dom}(g)\) for which \(g\) is \(C^1\) at \(x\) and \(f\) is \(C^1\) at \(g(x)\), the derivative of the composite function \(
+    Let \(f\) and \(g\) be functions from \(\mathbb{R} \to \mathbb{R}\). \(\forall x \in \mathrm{dom}(g)\)\textup{[\footnote{$\mathrm{dom}$ means `domain'.}]} for which \(g\) is \(C^1\) at \(x\) and \(f\) is \(C^1\) at \(g(x)\), the derivative of the composite function \(
     h = (f \circ g)(x) = f(g(x))\) is given by: \[h'(x) = f'(g(x))\cdot g'(x)\] Alternatively, if y is a function of u, and u is a function of x, then \[\frac{dy}{dx} = \frac{dy}{du} \cdot \frac{du}{dx}\]
 \end{theorem}
 \begin{theorem}[The Quotient Rule]
@@ -134,44 +134,51 @@ These notes are written as a compact reference for students taking the course wi
     where we can pick $u = f(x)$ and $dv = g(x)$ or vice versa.
 \end{theorem}
 
+There are more ways to integrate a function, such as trig substitution and ..., which are not used in this course as they take longer time to solve and is not the primary focus of the class
+
 \section{Inequalities}
 
 \subsection{AM-GM}
-The Arithmetic Mean - Geometric Mean inequality states that for any non-negative real numbers \(a_1, a_2, \ldots, a_n\),
-\[\frac{a_1 + a_2 + \ldots + a_n}{n} \geq \sqrt[n]{a_1 a_2 \ldots a_n},\]
-with equality if and only if \(a_1 = a_2 = \ldots = a_n\).
+\begin{definition}[AM-GM Inequality]
+    The Arithmetic Mean - Geometric Mean inequality states that for any non-negative real numbers \(a_1, a_2, \ldots, a_n\),
+    \[\frac{a_1 + a_2 + \ldots + a_n}{n} \geq \sqrt[n]{a_1 a_2 \ldots a_n},\]
+    with equality if and only if \(a_1 = a_2 = \ldots = a_n\).
+\end{definition}
 
 \begin{problem}[AM-GM Inequality]
     Let 1 $\leq$ k be a positive integer, show that:
-    \[\lim_{(x,y)\to(0,0)}\frac{x^{k+1}y}{x^{2k} + y^2} = 0\]
+    \[\lim_{(x,y)\to(0,0)}\frac{x^{k+1}y}{x^{2k} + y^2} = 0.\]
 \end{problem}
 \begin{problem}[AM-GM Inequality 2]
     Let 1 $\leq$ k be a positive integer, show that:
-    \[\lim_{(x,y)\to(0,0)}\frac{xy^{3k+1}}{(x^2 + y^{2k})^2} = 0\]
+    \[\lim_{(x,y)\to(0,0)}\frac{xy^{3k+1}}{(x^2 + y^{2k})^2} = 0.\]
 \end{problem}
 
 \subsection{Cauchy-Schwarz}
-The Cauchy-Schwarz inequality states that for any vectors \(u\) and \(v\) in an inner product space,
-\[|u \cdot v| \leq \|u\| \|v\|,\]
-with equality if and only if \(u\) and \(v\) are linearly dependent.
-
+\begin{definition}[Cauchy-Schwarz Inequality]
+    The Cauchy-Schwarz inequality states that for any vectors \(u\) and \(v\) in an inner product space,
+    \[|u \cdot v| \leq \|u\| \|v\|,\]
+    with equality if and only if \(u\) and \(v\) are linearly dependent.
+\end{definition}
 \begin{problem}[Cauchy-Schwarz Inequality]
     Suppose \(f : \mathbb{R}^2 \to \mathbb{R} \) is differentiable and suppose there is \(M > 0 \) such that \(||Df(x)|| \leq M\), \(\forall x \in \mathbb{R}^n\), prove that
-    \[|f(x) - f(y)| \leq M||x - y||, \forall x,y \in \mathbb{R}^n\]
+    \[|f(x) - f(y)| \leq M||x - y||, \forall x,y \in \mathbb{R}^n.\]
 \end{problem}
 
 \subsection{Triangle-inequality}
-The Triangle Inequality states that for any vectors \(u\) and \(v\) in an inner product space,
-\[\|u + v\| \leq \|u\| + \|v\|.\]
+\begin{definition}[Triangle Inequality]
+    The Triangle Inequality states that for any vectors \(u\) and \(v\) in an inner product space,
+    \[\|u + v\| \leq \|u\| + \|v\|.\]
+\end{definition}
 The other form of the triangle inequality states that for any real vectors their subtracting distance is less than or equal to the sum of their individual distances:
 \[\|u - v\| \geq |\|u\| - \|v\||.\]
-
 \begin{problem}[Triangle Inequality]
-    Prove that \(||x - y||||x + y|| \leq ||x||^2 + ||y||^2, \forall x,y \in \mathbb{R}^n\)
+    Prove that 
+    \[||x - y||||x + y|| \leq ||x||^2 + ||y||^2, \forall x,y \in \mathbb{R}^n.\]
 \end{problem}
 
 \section{Differentiability}
-For this topic, the class of fall 2025 did not use the epsilon-delta definition of differentiability. Instead, we use the following:
+For this topic, the class of fall 2025 did not use the epsilon-delta definition of differentiability.
 \begin{theorem}[Differentiability Theorem for multivariable functions]
     \label{differentiation}
     A function \(f : \mathbb{R}^n \to \mathbb{R}^m\) is differentiable at a point \(a \in \mathbb{R}^n\) if there exists a Jacobian matrix \(Df(a)\) such that
@@ -179,7 +186,7 @@ For this topic, the class of fall 2025 did not use the epsilon-delta definition 
     where \(x \in \mathbb{R}^n\) is a variable point approaching \(a\).
     In this case, we call \(Df(a)\) the Jacobian of \(f\) at \(a\).
 \end{theorem}
-\begin{corollary}
+\begin{corollary}[Jacobian Matrix]
     The jacobian matrix \(Df(a)\) (often written as J) is given by
     \[Df(a) = \begin{bmatrix}
     \frac{\partial f_1}{\partial x_1}(a) & \frac{\partial f_1}{\partial x_2}(a) & \ldots & \frac{\partial f_1}{\partial x_n}(a) \\
@@ -194,6 +201,10 @@ For this topic, the class of fall 2025 did not use the epsilon-delta definition 
     \item Second, compute the partial derivatives at \(a\), either via the limit definition (especially for functions with nonstandard forms such as \( f(x,y) = \frac{x^7y}{x^4+y^2} \)) or by applying standard differentiation rules when appropriate. 
     \item Lastly, once continuity and partial derivatives are established, verify differentiability by checking that the limit in Theorem \ref{differentiation} equals zero.
 \end{enumerate}
+\begin{lemma}[Path Analysis]
+    %reword
+    Path Analysis is the process in which you apply different random values to a variable.
+\end{lemma}
 \begin{problem}[Differentiability]
     Find if the following function is differentiable at (0,0):
     \[f(x,y) = \begin{cases} \frac{xy^3}{x^4 + y^2} & (x,y) \neq (0,0) \\ 0 & (x,y) = (0,0) \end{cases}\]
@@ -205,20 +216,16 @@ For this topic, the class of fall 2025 did not use the epsilon-delta definition 
 \end{problem}
 
 \section{Mean Value Theorem}
-The Mean Value Theorem for multivariable functions states:
 \begin{theorem}[Mean Value Theorem]
     If \(f : \mathbb{R}^n \to \mathbb{R}\) is differentiable on an open convex set containing points \(x\) and \(y\), then there exists a point \(c\) on the line segment between \(x\) and \(y\) such that
     \[f(x) - f(y) = Df(c) \cdot (x - y),\]
     where \(Df(c)\) is the Jacobian matrix of \(f\) at point \(c\). In particular,
     \[|f(x) - f(y)| \leq ||Df(c)|| \cdot ||x-y|| \]
 \end{theorem}
-\noindent For double integrals, the mean value theorem states:
 \begin{theorem}[Mean Value Theorem for Double Integrals]
     If f(x,y) is continuous on a closed, bounded region D, then there exists a point \((x_0,y_0) \in D\) such that:
     \[\iint_D f(x,y) dV = f(x_0,y_0) \cdot Area(D)\]
 \end{theorem}
-
-For triple integrals, the mean value theorem states:
 \begin{theorem}[Mean Value Theorem for Triple Integrals]
     If f(x,y,z) is continuous on a closed, bounded region E, then there exists a point \((x_0,y_0,z_0) \in E\) such that:
     \[\iiint_E f(x,y,z) dV = f(x_0,y_0,z_0) \cdot Volume(E)\]
@@ -260,7 +267,7 @@ For triple integrals, the mean value theorem states:
 \begin{theorem}[First-Order Taylor Formula]
     Let \(f: U \subset \mathbb{R}^n \to \mathbb{R}\) be differentiable at \(\mathbf{x_0} \in U\). Then 
     \[f(\mathbf{x_0} + \mathbf{h}) = f(\mathbf{x_0}) + \sum_{i=1}^n h_i \frac{\partial f}{\partial x_i}(\mathbf{x_0}) + R_1(\mathbf{x_0}, \mathbf{h})\]
-    where \(R_1(\mathbf{x_0}, \mathbf{h})/||\mathbf{h}||\) \(\rightarrow\) 0 as \(\mathbf{h} \to 0\) in \(\mathbb{R}^n\).
+    where the remainder \(R_1(\mathbf{x_0}, \mathbf{h})/||\mathbf{h}||\) \(\rightarrow\) 0 as \(\mathbf{h} \to 0\) in \(\mathbb{R}^n\).
 \end{theorem}
 \begin{theorem}[Second-Order Taylor Formula]
     Let \(f: U \subset \mathbb{R}^n \to \mathbb{R}\) have continuous partial derivatives of third order. Then 
@@ -848,95 +855,94 @@ in two ways:
 \end{problem}
 
 \section{Answer key}
-\begin{solution}
-Using AM-GM, we can bound the denominator:
-\[x^{2k} + y^2 \geq 2\sqrt{x^{2k}y^2} = 2|x|^k|y|.\]
-Thus,
-\[\left| \frac{x^{k+1}y}{x^{2k} + y^2} \right| \leq \frac{|x|^{k+1}|y|}{2|x|^k|y|} = \frac{|x|}{2}\]
-\[\therefore \lim_{(x,y)\to(0,0)}\frac{x^{k+1}y}{x^{2k} + y^2} = \lim_{(x,y)\to(0,0)}\frac{|x|}{2} = 0\]
-As $(x,y)$ approaches $(0,0)$, $\frac{|x|}{2}$ approaches 0, so by the Squeeze Theorem, $\lim_{(x,y) \to (0,0)} f(x,y) = 0.$
+\begin{solution}[AM-GM Inequality]
+    Using AM-GM, we can bound the denominator:
+    \[x^{2k} + y^2 \geq 2\sqrt{x^{2k}y^2} = 2|x|^k|y|.\]
+    Thus,
+    \[\left| \frac{x^{k+1}y}{x^{2k} + y^2} \right| \leq \frac{|x|^{k+1}|y|}{2|x|^k|y|} = \frac{|x|}{2}\]
+    \[\therefore \lim_{(x,y)\to(0,0)}\frac{x^{k+1}y}{x^{2k} + y^2} = \lim_{(x,y)\to(0,0)}\frac{|x|}{2} = 0\]
+    As $(x,y)$ approaches $(0,0)$, $\frac{|x|}{2}$ approaches 0, so by the Squeeze Theorem, $\lim_{(x,y) \to (0,0)} f(x,y) = 0.$
 \end{solution}
-\begin{solution}
-\[|\frac{xy^{3k+1}}{(x^2 + y^{2k})^2}| = |\frac{xy^{2k}y^{k}y}{(x^2+y^{2k})^2}| \leq |\frac{(x^2+y^{2k})y^{2k}y}{2(x^2+y^{2k})^2}| = |\frac{y^{2k}y}{2(x^2+y^{2k})}| \leq |\frac{y^{2k}y}{2y^{2k}}| = \frac{|y|}{2}\]
-By the Squeeze Theorem, \[\lim_{(x,y)\to(0,0)} \frac{xy^{3k+1}}{(x^2 + y^{2k})^2} = \lim_{(x,y)\to(0,0)} \frac{|y|}{2} = 0.\]
-\end{solution}
-
-\begin{solution}
-By the Mean Value Theorem for multivariable functions, there exists a point \(c\) on the line segment between \(x\) and \(y\) such that
-\[f(x) - f(y) = Df(c) \cdot (x - y)\]
-Start by parametrizing the line segment between \(x\) and \(y\):
-\[\gamma(t) = y + t(x - y), t \in [0,1]\]
-Then,
-\[g(t) = f(\gamma(t))\]
-By the chain rule,
-\[g'(t) = Df(\gamma(t)) \cdot \gamma'(t) = Df(\gamma(t)) \cdot (x - y)\]
-Therefore,
-\[f(x) - f(y) = g(1) - g(0) = \int_0^1 g'(t) dt = \int_0^1 Df(\gamma(t)) \cdot (x - y) dt\]
-Taking the absolute value,
-\[|f(x) - f(y)| = |\int_0^1 Df(\gamma(t)) \cdot (x - y) dt| \leq \int_0^1 |Df(\gamma(t)) \cdot (x - y)| dt\]
-Using the Cauchy-Schwarz inequality,
-\[\leq \int_0^1 ||Df(\gamma(t))|| \cdot ||x - y|| dt \leq \int_0^1 M ||x - y|| dt = M ||x - y||\]
-Thus,
-\[|f(x) - f(y)| \leq M ||x - y||\: \ensuremath{\Box}\]
+\begin{solution}[AM-GM Inequality 2]
+    \[|\frac{xy^{3k+1}}{(x^2 + y^{2k})^2}| = |\frac{xy^{2k}y^{k}y}{(x^2+y^{2k})^2}| \leq |\frac{(x^2+y^{2k})y^{2k}y}{2(x^2+y^{2k})^2}| = |\frac{y^{2k}y}{2(x^2+y^{2k})}| \leq |\frac{y^{2k}y}{2y^{2k}}| = \frac{|y|}{2}\]
+    By the Squeeze Theorem, \[\lim_{(x,y)\to(0,0)} \frac{xy^{3k+1}}{(x^2 + y^{2k})^2} = \lim_{(x,y)\to(0,0)} \frac{|y|}{2} = 0.\]
 \end{solution}
 
-\begin{solution}
-\[||x - y||^2 = ||x||^2 + ||y||^2 - 2(x \cdot y)\]
-\[||x + y||^2 = ||x||^2 + ||y||^2 + 2(x \cdot y)\]
-\[||x - y||^2 ||x + y||^2 = (||x||^2 + ||y||^2 - 2(x \cdot y))(||x||^2 + ||y||^2 + 2(x \cdot y))\]
-\[||x - y||^2 ||x + y||^2 =  (||x||^2 + ||y||^2)^2 - 4(x \cdot y)^2\]
-\[||x - y||^2 ||x + y||^2 \leq (||x||^2 + ||y||^2)^2\]
-\[||x - y||||x + y|| \leq ||x||^2 + ||y||^2 \: \ensuremath{\Box}\]
+\begin{solution}[Cauchy-Schwarz Inequality]
+    By the Mean Value Theorem for multivariable functions, there exists a point \(c\) on the line segment between \(x\) and \(y\) such that
+    \[f(x) - f(y) = Df(c) \cdot (x - y)\]
+    Start by parametrizing the line segment between \(x\) and \(y\):
+    \[\gamma(t) = y + t(x - y), t \in [0,1]\]
+    Then,
+    \[g(t) = f(\gamma(t))\]
+    By the chain rule,
+    \[g'(t) = Df(\gamma(t)) \cdot \gamma'(t) = Df(\gamma(t)) \cdot (x - y)\]
+    Therefore,
+    \[f(x) - f(y) = g(1) - g(0) = \int_0^1 g'(t) dt = \int_0^1 Df(\gamma(t)) \cdot (x - y) dt\]
+    Taking the absolute value,
+    \[|f(x) - f(y)| = |\int_0^1 Df(\gamma(t)) \cdot (x - y) dt| \leq \int_0^1 |Df(\gamma(t)) \cdot (x - y)| dt\]
+    Using the Cauchy-Schwarz inequality,
+    \[\leq \int_0^1 ||Df(\gamma(t))|| \cdot ||x - y|| dt \leq \int_0^1 M ||x - y|| dt = M ||x - y||\]
+    Thus,
+    \[|f(x) - f(y)| \leq M ||x - y||\: \ensuremath{\Box}\]
 \end{solution}
 
-\begin{solution}
-First we check for continuity at (0,0) by using path analysis:
-
-\noindent Along the path \(x = 0, y = y\):
-\[\lim_{(x,y) \to (0,0)} f(0,y) = \lim_{y \to 0} \frac{0 \cdot y^3}{0^4 + y^2} = 0\]
-\noindent Along the path \(x = x, y = 0\):
-\[\lim_{(x,y) \to (0,0)} f(x,0) = \lim_{x \to 0} \frac{x \cdot 0^3}{x^4 + 0^2} = 0\]
-\noindent Along the path \(x = x, y = x\):
-\[\lim_{(x,y) \to (0,0)} f(x,x) = \lim_{x \to 0} \frac{x \cdot x^3}{x^4 + x^2} = \lim_{x \to 0} \frac{x^4}{x^4 + x^2} = \lim_{x \to 0} \frac{x^2}{x^2 + 1} = \frac{0^2}{0^2 + 1} = 0\]
-\noindent Along the path \(y = x^2\) (chosen since the denominator term \(y^2 \approx x^4\) balances with \(x^4\)):
-\[\lim_{(x,y) \to (0,0)} f(x,x^2) = \lim_{x \to 0} \frac{x \cdot (x^2)^3}{x^4 + x^4} = \lim_{x \to 0} \frac{x^7}{2x^4} = \lim_{x \to 0} \frac{x^3}{2} = 0\]
-Since all paths lead to the same limit of 0, \(f\) is continuous at (0,0).
-
-Next, we compute the partial derivatives at (0,0). Since this is a nonstandard function, we use the limit definition:
-\[\frac{\partial f}{\partial x}(0,0) = \lim_{h \to 0} \frac{f(0 + h, 0) - f(0,0)}{h} = \lim_{h \to 0} \frac{0 - 0}{h} = 0\]
-\[\frac{\partial f}{\partial y}(0,0) = \lim_{h \to 0} \frac{f(0, 0 + h) - f(0,0)}{h} = \lim_{h \to 0} \frac{0 - 0}{h} = 0\]
-
-Now we check differentiability via the limit definition (with \(Df(0,0) = (0,0)\)):
-\[\lim_{(x,y) \to (0,0)} \frac{||f(x,y) - f(0,0) - Df(0,0)(x,y)||}{||(x,y)||}
-= \lim_{(x,y) \to (0,0)} \frac{\left|\frac{x y^3}{x^4 + y^2}\right|}{\sqrt{x^2 + y^2}}\]
-Since \(x^4 + y^2 \geq 2|x|^2|y|\) by AM-GM:
-\[\frac{\left|\frac{x y^3}{x^4 + y^2}\right|}{\sqrt{x^2 + y^2}} \leq \frac{\left|\frac{x y^3}{2x^2 y}\right|}{\sqrt{x^2 + y^2}}
-= \frac{\frac{|y|^2}{2|x|^{-1}}\cdot \frac{1}{|x|}}{\sqrt{x^2+y^2}}\]
-More directly, using \(x^4 + y^2 \geq y^2\):
-\[\frac{\left|\frac{x y^3}{x^4 + y^2}\right|}{\sqrt{x^2 + y^2}} \leq \frac{|x||y|}{\sqrt{x^2 + y^2}} \leq \frac{\sqrt{x^2+y^2}\cdot\sqrt{x^2+y^2}}{\sqrt{x^2+y^2}} = \sqrt{x^2+y^2} \to 0\]
-Thus, by the Squeeze Theorem and the definition of differentiability, \(f\) is differentiable at (0,0).
+\begin{solution}[Triangle Inequality]
+    \[||x - y||^2 = ||x||^2 + ||y||^2 - 2(x \cdot y)\]
+    \[||x + y||^2 = ||x||^2 + ||y||^2 + 2(x \cdot y)\]
+    \[||x - y||^2 ||x + y||^2 = (||x||^2 + ||y||^2 - 2(x \cdot y))(||x||^2 + ||y||^2 + 2(x \cdot y))\]
+    \[||x - y||^2 ||x + y||^2 =  (||x||^2 + ||y||^2)^2 - 4(x \cdot y)^2\]
+    \[||x - y||^2 ||x + y||^2 \leq (||x||^2 + ||y||^2)^2\]
+    \[||x - y||||x + y|| \leq ||x||^2 + ||y||^2 \: \ensuremath{\Box}\]
 \end{solution}
 
-\begin{solution}
-First we check for continuity at (0,0) by using path analysis:
+\begin{solution}[Differentiability]
+    First we check for continuity at (0,0) by using path analysis:
 
-\noindent Along the path \(x = 0\):
-\[\lim_{(x,y) \to (0,0)} f(0,y) = \lim_{y \to 0} \frac{0^2 \cdot y}{0^2 + y^2} = 0\]
-\noindent Along the path \(y = 0\):
-\[\lim_{(x,y) \to (0,0)} f(x,0) = \lim_{x \to 0} \frac{x^2 \cdot 0}{x^2 + 0^2} = 0\]
-\noindent Along the path \(y = x\):
-\[\lim_{(x,y) \to (0,0)} f(x,x) = \lim_{x \to 0} \frac{x^2 \cdot x}{x^2 + x^2} = \lim_{x \to 0} \frac{x^3}{2x^2} = \lim_{x \to 0} \frac{x}{2} = 0\]
-Since all paths lead to 0, \(f\) is continuous at (0,0).
+    \noindent Along the path \(x = 0, y = y\):
+    \[\lim_{(x,y) \to (0,0)} f(0,y) = \lim_{y \to 0} \frac{0 \cdot y^3}{0^4 + y^2} = 0\]
+    \noindent Along the path \(x = x, y = 0\):
+    \[\lim_{(x,y) \to (0,0)} f(x,0) = \lim_{x \to 0} \frac{x \cdot 0^3}{x^4 + 0^2} = 0\]
+    \noindent Along the path \(x = x, y = x\):
+    \[\lim_{(x,y) \to (0,0)} f(x,x) = \lim_{x \to 0} \frac{x \cdot x^3}{x^4 + x^2} = \lim_{x \to 0} \frac{x^4}{x^4 + x^2} = \lim_{x \to 0} \frac{x^2}{x^2 + 1} = \frac{0^2}{0^2 + 1} = 0\]
+    \noindent Along the path \(y = x^2\) (chosen since the denominator term \(y^2 \approx x^4\) balances with \(x^4\)):
+    \[\lim_{(x,y) \to (0,0)} f(x,x^2) = \lim_{x \to 0} \frac{x \cdot (x^2)^3}{x^4 + x^4} = \lim_{x \to 0} \frac{x^7}{2x^4} = \lim_{x \to 0} \frac{x^3}{2} = 0\]
+    Since all paths lead to the same limit of 0, \(f\) is continuous at (0,0).
 
-Next, we compute the partial derivatives using the limit definition:
-\[\frac{\partial f}{\partial x}(0,0) = \lim_{h \to 0} \frac{f(h, 0) - f(0,0)}{h} = \lim_{h \to 0} \frac{0}{h} = 0\]
-\[\frac{\partial f}{\partial y}(0,0) = \lim_{h \to 0} \frac{f(0, h) - f(0,0)}{h} = \lim_{h \to 0} \frac{0}{h} = 0\]
+    Next, we compute the partial derivatives at (0,0). Since this is a nonstandard function, we use the limit definition:
+    \[\frac{\partial f}{\partial x}(0,0) = \lim_{h \to 0} \frac{f(0 + h, 0) - f(0,0)}{h} = \lim_{h \to 0} \frac{0 - 0}{h} = 0\]
+    \[\frac{\partial f}{\partial y}(0,0) = \lim_{h \to 0} \frac{f(0, 0 + h) - f(0,0)}{h} = \lim_{h \to 0} \frac{0 - 0}{h} = 0\]
 
-Now we check the differentiability limit with \(Df(0,0) = (0,0)\). Along the path \(y = 0\):
-\[\lim_{x \to 0} \frac{\left|\frac{x^2 \cdot 0}{x^2 + 0} - 0\right|}{|x|} = 0.\]
-Along the path \(y = x\):
-\[\lim_{x \to 0} \frac{\left|\frac{x^3}{2x^2}\right|}{\sqrt{2}|x|} = \lim_{x \to 0} \frac{|x|/2}{\sqrt{2}|x|} = \frac{1}{2\sqrt{2}} \neq 0.\]
-Since the limits along different paths disagree, the differentiability limit does not exist. Therefore \(f\) is \textbf{not differentiable} at (0,0), despite being continuous there with existing partial derivatives.
+    Now we check differentiability via the limit definition (with \(Df(0,0) = (0,0)\)):
+    \[\lim_{(x,y) \to (0,0)} \frac{||f(x,y) - f(0,0) - Df(0,0)(x,y)||}{||(x,y)||}
+    = \lim_{(x,y) \to (0,0)} \frac{\left|\frac{x y^3}{x^4 + y^2}\right|}{\sqrt{x^2 + y^2}}\]
+    Since \(x^4 + y^2 \geq 2|x|^2|y|\) by AM-GM:
+    \[\frac{\left|\frac{x y^3}{x^4 + y^2}\right|}{\sqrt{x^2 + y^2}} \leq \frac{\left|\frac{x y^3}{2x^2 y}\right|}{\sqrt{x^2 + y^2}}
+    = \frac{\frac{|y|^2}{2|x|^{-1}}\cdot \frac{1}{|x|}}{\sqrt{x^2+y^2}}\]
+    More directly, using \(x^4 + y^2 \geq y^2\):
+    \[\frac{\left|\frac{x y^3}{x^4 + y^2}\right|}{\sqrt{x^2 + y^2}} \leq \frac{|x||y|}{\sqrt{x^2 + y^2}} \leq \frac{\sqrt{x^2+y^2}\cdot\sqrt{x^2+y^2}}{\sqrt{x^2+y^2}} = \sqrt{x^2+y^2} \to 0\]
+    Thus, by the Squeeze Theorem and the definition of differentiability, \(f\) is differentiable at (0,0).
+\end{solution}
+\begin{solution}[Differentiability 2]
+    First we check for continuity at (0,0) by using path analysis:
+
+    \noindent Along the path \(x = 0\):
+    \[\lim_{(x,y) \to (0,0)} f(0,y) = \lim_{y \to 0} \frac{0^2 \cdot y}{0^2 + y^2} = 0\]
+    \noindent Along the path \(y = 0\):
+    \[\lim_{(x,y) \to (0,0)} f(x,0) = \lim_{x \to 0} \frac{x^2 \cdot 0}{x^2 + 0^2} = 0\]
+    \noindent Along the path \(y = x\):
+    \[\lim_{(x,y) \to (0,0)} f(x,x) = \lim_{x \to 0} \frac{x^2 \cdot x}{x^2 + x^2} = \lim_{x \to 0} \frac{x^3}{2x^2} = \lim_{x \to 0} \frac{x}{2} = 0\]
+    Since all paths lead to 0, \(f\) is continuous at (0,0).
+
+    Next, we compute the partial derivatives using the limit definition:
+    \[\frac{\partial f}{\partial x}(0,0) = \lim_{h \to 0} \frac{f(h, 0) - f(0,0)}{h} = \lim_{h \to 0} \frac{0}{h} = 0\]
+    \[\frac{\partial f}{\partial y}(0,0) = \lim_{h \to 0} \frac{f(0, h) - f(0,0)}{h} = \lim_{h \to 0} \frac{0}{h} = 0\]
+
+    Now we check the differentiability limit with \(Df(0,0) = (0,0)\). Along the path \(y = 0\):
+    \[\lim_{x \to 0} \frac{\left|\frac{x^2 \cdot 0}{x^2 + 0} - 0\right|}{|x|} = 0.\]
+    Along the path \(y = x\):
+    \[\lim_{x \to 0} \frac{\left|\frac{x^3}{2x^2}\right|}{\sqrt{2}|x|} = \lim_{x \to 0} \frac{|x|/2}{\sqrt{2}|x|} = \frac{1}{2\sqrt{2}} \neq 0.\]
+    Since the limits along different paths disagree, the differentiability limit does not exist. Therefore \(f\) is \textbf{not differentiable} at (0,0), despite being continuous there with existing partial derivatives.
 \end{solution}
 
 \begin{solution}

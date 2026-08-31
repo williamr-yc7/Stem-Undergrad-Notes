@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1776206407.04717 "c:/Users/erenr/Documents/McGill/Latex Notes/Fall 2025/Math248.tex" "Math248.pdf" "Math248" 1776206428.55886 0
-  "C:/Users/erenr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1775797722 82507 a9eef8696c92627b87e9975edea03b2a ""
+["pdflatex"] 1782595990.50319 "c:/Users/erenr/Documents/McGill/Latex Notes/Fall 2025/Math248.tex" "Math248.pdf" "Math248" 1782597750.75392 0
+  "C:/Users/erenr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1782050120 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/erenr/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk" 1767801684 11548 9ea6db1ff0b947846d8751dabcdcf90a ""
   "C:/Users/erenr/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1767801679 13333486 ad3a4e5807f6f25ced943a60862e7471 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/tcrm1000.tfm" 993062508 1436 c7f957a372ef2fbe93c0982f96625e12 ""
@@ -219,11 +219,11 @@
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/tools/indentfirst.sty" 1761901070 1618 30b01152766afcef2ed8f904cfdd3cc6 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
-  "Math248.aux" 1776206424 6972 ffa786c3e016c33c119b57f0ff082edd "pdflatex"
-  "Math248.out" 1776206424 8576 4dfc7840412dbd6f94f5cae17727d8c3 "pdflatex"
-  "Math248.tex" 1776206378 49197 14092e655dea92450e85a0e9916006bb ""
-  "Math248.toc" 1776206424 4464 df4f43de5819a206dd4553339bdf6bb1 "pdflatex"
-  "c:/Users/erenr/Documents/McGill/Latex Notes/Fall 2025/Math248.tex" 1776206378 49197 14092e655dea92450e85a0e9916006bb ""
+  "Math248.aux" 1782595993 6972 ffa786c3e016c33c119b57f0ff082edd "pdflatex"
+  "Math248.out" 1782595993 8576 4dfc7840412dbd6f94f5cae17727d8c3 "pdflatex"
+  "Math248.tex" 1782595988 49953 b90fbc433ab7406d290b96084de8cd76 ""
+  "Math248.toc" 1782595993 4464 df4f43de5819a206dd4553339bdf6bb1 "pdflatex"
+  "c:/Users/erenr/Documents/McGill/Latex Notes/Fall 2025/Math248.tex" 1782595988 49953 b90fbc433ab7406d290b96084de8cd76 ""
   (generated)
   "Math248.aux"
   "Math248.log"
