@@ -23,6 +23,7 @@
 \newtheorem*{example}{Example}
 \newtheorem{remark}{Remark}
 \newtheorem{proposition}{Proposition}
+\newtheorem{result}{Result}
 \reversemarginpar
 \hypersetup{
     colorlinks=true,
@@ -76,16 +77,58 @@ Textbook used is  JS Townsend A Modern Approach to Quantum Mechanics, 2nd ed., U
 \end{itemize}
 
 \section{Stern-Gerlach Experiments}
+\marginpar{August 31, 2026}
 
-\subsection{Spin}
+\subsection{Angular Momentum and Magnetic Moments}
+
 \begin{definition}[Orbital Angular Momentum]
-    The orbital angular momentum $\vec{L}$ of a particle is defined as $\vec{L} = \vec{r} \times \vec{p}$, where $\vec{r}$ is the position vector and $\vec{p} = m\cdot\vec{v}$ is the linear momentum, both in the x-y plane.
+    The orbital angular momentum of a particle is
+    \begin{equation}
+        \vec{L} = \vec{r} \times \vec{p},
+    \end{equation}
+    where $\vec{r}$ is the position vector and $\vec{p} = m\vec{v}$ is the linear momentum.
 \end{definition}
-$L_{z} = rmv$ is the component of angular momentum along the z-axis (circular trajectory). For a solid object $L = I_{0}\omega$ where $I_{0}$ is the moment of inertia and $\omega$ is the angular velocity.
 
-Periodic circular motion $I = \frac{q}{T}$, where $T$ is the period.
+For motion confined to the $x$-$y$ plane, only the $z$ component survives. On a circular path of radius $r$ with speed $v$,
+\begin{equation}
+    L_{z} = mvr.
+\end{equation}
+For a rigid body rotating about a fixed axis this becomes $L = I_{0}\omega$, with $I_{0}$ the moment of inertia and $\omega$ the angular velocity.
 
-A charged point particle of mass $m$ and charge $q$ moving in a circular path with period $T$ will produce a circulating current $I = \frac{q}{T}$ and this current will produce a magnetic moment $\mu = \frac{IA}{c} = \frac{q}{2mc}mvr = \frac{q}{2mc}L_{z}$.
+\subsubsection*{Magnetic moment of a circulating charge}
+
+Consider a point particle of mass $m$ and charge $q$ in a circular orbit of radius $r$ and period $T$. Three steps connect this to a magnetic moment.
+
+\begin{enumerate}
+    \item The charge passes any point on the orbit once per period, so it is equivalent to a steady current
+    \begin{equation}
+        I = \frac{q}{T} = \frac{qv}{2\pi r}.
+    \end{equation}
+
+    \item A current loop of area $A = \pi r^{2}$ has magnetic moment
+    \begin{equation}
+        \mu = \frac{IA}{c}.
+    \end{equation}
+
+    \item Substituting gives
+    \begin{equation}
+        \mu = \frac{1}{c}\left(\frac{qv}{2\pi r}\right)\left(\pi r^{2}\right)
+            = \frac{q}{2mc}\,mvr
+            = \frac{q}{2mc}\,L_{z}.
+    \end{equation}
+\end{enumerate}
+
+\begin{result}[Gyromagnetic Ratio]
+    The magnetic moment is proportional to the angular momentum,
+    \begin{equation}
+        \vec{\mu} = \gamma \vec{L}, \qquad \gamma = \frac{q}{2mc}.
+    \end{equation}
+    The constant $\gamma$ is the gyromagnetic ratio.
+\end{result}
+
+\begin{remark}
+    This is a purely classical result. It matters here because measuring $\vec{\mu}$ is how we measure $\vec{L}$, and it is what the Stern-Gerlach apparatus exploits.
+\end{remark}
 
 % ============================================================
 %  APPENDIX

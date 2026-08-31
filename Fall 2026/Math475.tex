@@ -62,6 +62,177 @@
 %------- Introduction -----------
 \setcounter{page}{1}
 \section{Introduction}
+Taught by Adam Oberman. Mondays and Wednesdays from 14:35 to 15:55 in Steward Biology Building N2/2. Course grading is divided as follows:
+\begin{itemize}
+    \item 10\% 5-6 Assignments.
+    \item 10\% Attendance and participation.
+    \item 10\% 3-5 quizzes.
+    \item 20\% midterm.
+    \item 50\% final exam.
+\end{itemize}
+
+\subsection{Ways to Write a PDE}
+\marginpar{August 31, 2026}
+
+Many of the classical equations are built from a single operator, the Laplacian
+\begin{equation}
+    \Delta u = \sum_{i=1}^{n} \frac{\partial^2 u}{\partial x_i^2}.
+\end{equation}
+
+\begin{center}
+\begin{tabular}{lll}
+    \textbf{Equation} & \textbf{Form} & \textbf{Type} \\
+    \hline
+    Heat & $u_t = \Delta u, \quad t \geq 0$ & parabolic \\
+    Poisson & $\Delta u = f$ & elliptic (stationary) \\
+    Laplace & $\Delta u = 0$ & elliptic (stationary) \\
+    Wave & $u_{tt} = \Delta u$ & hyperbolic \\
+\end{tabular}
+\end{center}
+
+Not every PDE fits this pattern. Nonlinear examples include Burgers' equation
+\begin{equation}
+    u_t + u u_x = 0,
+\end{equation}
+and the Navier-Stokes equations.
+
+\section{Potential Theory}
+
+\subsection{Newton's Problem}
+
+Place a point mass $M$ at the origin and a test mass $m$ at $x \in \mathbb{R}^3 \setminus \{0\}$. The gravitational force on $m$ has magnitude $GmM/\|x\|^2$ and points back toward the origin:
+\begin{equation}
+    \vec{F}(x) = -\frac{GmM}{\|x\|^2} \cdot \frac{x}{\|x\|} = -\frac{GmM}{\|x\|^3}\, x.
+\end{equation}
+
+\subsection{Toolkit}
+
+\begin{lemma}[Derivative of distance is direction]
+    Let $r(x) = \|x\|$ with $x = (x_1,x_2,x_3) \in \mathbb{R}^3$. Then for $x \neq 0$,
+    \begin{equation}
+        \frac{\partial r}{\partial x_i} = \frac{x_i}{r},
+        \qquad
+        \nabla r(x) = \frac{x}{r} = \hat{x}.
+    \end{equation}
+\end{lemma}
+
+\begin{proof}
+    Start from $r^2 = x_1^2 + x_2^2 + x_3^2$ and differentiate both sides with respect to $x_i$:
+    \begin{equation}
+        2r \frac{\partial r}{\partial x_i} = 2x_i
+        \quad \Longrightarrow \quad
+        \frac{\partial r}{\partial x_i} = \frac{x_i}{r}.
+    \end{equation}
+    This requires $r \neq 0$, so the identity fails at the origin.
+\end{proof}
+
+\begin{remark}
+    $\nabla r$ is the unit vector pointing radially outward, so $\|\nabla r\| = 1$ everywhere it is defined.
+\end{remark}
+
+\subsection{Radial Chain Rule}
+
+\begin{proposition}
+    Let $f : (0,\infty) \to \mathbb{R}$ be differentiable and set $g(x) = f(r(x)) = f(\|x\|)$. Then for $x \neq 0$,
+    \begin{equation}
+        \nabla g(x) = f'(r)\, \nabla r(x) = f'(r)\, \frac{x}{r}.
+    \end{equation}
+\end{proposition}
+
+\begin{proof}
+    Componentwise, by the chain rule,
+    \begin{equation}
+        \frac{\partial g}{\partial x_i} = f'(r(x)) \frac{\partial r}{\partial x_i} = f'(r) \frac{x_i}{r}.
+    \end{equation}
+\end{proof}
+
+So the gradient of any radial function points radially, and $f'$ alone controls the magnitude.
+
+\begin{example}[Gradient refresher, non-radial]
+    For $g(x) = x_1 x_2 + x_3^2$,
+    \begin{equation}
+        \nabla g(x) = \left( \frac{\partial g}{\partial x_1}, \frac{\partial g}{\partial x_2}, \frac{\partial g}{\partial x_3} \right) = (x_2,\; x_1,\; 2x_3).
+    \end{equation}
+\end{example}
+
+\begin{remark}
+    The chain rule result above, $\nabla g(x) = f'(r(x))\nabla r(x) = f'(r)\dfrac{x}{r}$, is the tool we use whenever a function depends only on distance from the origin.
+\end{remark}
+
+\subsection{The Laplacian}
+
+Everything below works in $\mathbb{R}^d$ for any $d \geq 1$. Write $x = (x_1, \dots, x_d)$.
+
+\subsubsection*{First form: sum of second partials}
+
+\begin{definition}[Laplacian]
+    \begin{equation}
+        \Delta = \sum_{i=1}^{d} \frac{\partial^2}{\partial x_i^2},
+        \qquad
+        \Delta f(x) = \sum_{i=1}^{d} \frac{\partial^2 f}{\partial x_i^2}(x).
+    \end{equation}
+\end{definition}
+
+In $d = 3$ this reads
+\begin{equation}
+    \Delta f(x) = \frac{\partial^2 f}{\partial x_1^2}(x) + \frac{\partial^2 f}{\partial x_2^2}(x) + \frac{\partial^2 f}{\partial x_3^2}(x).
+\end{equation}
+
+\begin{example}
+    Let $f(x_1,x_2,x_3) = x_1^2 - x_2^2$. Then
+    \begin{equation}
+        \frac{\partial^2 f}{\partial x_1^2} = 2, \qquad
+        \frac{\partial^2 f}{\partial x_2^2} = -2, \qquad
+        \frac{\partial^2 f}{\partial x_3^2} = 0,
+    \end{equation}
+    so $\Delta f = 2 - 2 + 0 = 0$. A function with $\Delta f = 0$ is called \emph{harmonic}.
+\end{example}
+
+\subsubsection*{Second form: divergence of the gradient}
+
+\begin{definition}[Divergence]
+    For a vector field $\vec{v}(x) = (v^1(x), \dots, v^d(x))$, where the superscripts label components and are not powers,
+    \begin{equation}
+        \nabla \cdot \vec{v} = \operatorname{div} \vec{v} = \sum_{i=1}^{d} \frac{\partial v^i}{\partial x_i}(x).
+    \end{equation}
+\end{definition}
+
+Applying this to the gradient field $\vec{v} = \nabla f$, whose $i$-th component is $\partial f / \partial x_i$, gives
+\begin{equation}
+    \nabla \cdot (\nabla f) = \sum_{i=1}^{d} \frac{\partial}{\partial x_i}\left( \frac{\partial f}{\partial x_i} \right) = \sum_{i=1}^{d} \frac{\partial^2 f}{\partial x_i^2} = \Delta f.
+\end{equation}
+
+\begin{proposition}
+    \begin{equation}
+        \Delta = \nabla \cdot \nabla = \operatorname{div} \circ \operatorname{grad}.
+    \end{equation}
+\end{proposition}
+
+\begin{remark}
+    This second form is the useful one for radial functions: combining it with the radial chain rule turns $\Delta$ into an ODE in $r$.
+\end{remark}
+
+\subsection{Harmonic Radial Functions}
+
+\begin{proposition}[Radial Laplacian]
+    For $g(x) = f(r)$, $r = \|x\|$ in $\mathbb{R}^d$, $x \neq 0$:
+    \begin{equation}
+        \Delta g = f''(r) + \frac{d-1}{r} f'(r).
+    \end{equation}
+\end{proposition}
+
+Solve $\Delta f = 0$ in $d = 3$ with the ansatz $f(r) = r^a$:
+\begin{equation}
+    \Delta f = a(a-1)r^{a-2} + \frac{2}{r}\, a r^{a-1} = a(a+1)\, r^{a-2},
+\end{equation}
+which vanishes for $r > 0$ iff $a = 0$ or $a = -1$. So
+\begin{equation}
+    g(x) = A + \frac{B}{\|x\|}.
+\end{equation}
+
+\begin{remark}
+    $1/\|x\|$ is the Newtonian potential: $\nabla(1/r) = -x/\|x\|^3$, the inverse-square field. Harmonic away from the origin only.
+\end{remark}
 
 % ============================================================
 \appendix
