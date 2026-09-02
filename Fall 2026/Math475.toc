@@ -6,6 +6,7 @@
 \contentsline {subsection}{\numberline {2.3}Radial Chain Rule}{2}{subsection.2.3}%
 \contentsline {subsection}{\numberline {2.4}The Laplacian}{2}{subsection.2.4}%
 \contentsline {subsection}{\numberline {2.5}Harmonic Radial Functions}{3}{subsection.2.5}%
-\contentsline {section}{\numberline {A}Appendix}{4}{appendix.A}%
-\contentsline {section}{\numberline {B}Solutions}{4}{appendix.B}%
-\contentsline {section}{\numberline {C}Useful Links}{4}{appendix.C}%
+\contentsline {section}{\numberline {3}General Solutions}{4}{section.3}%
+\contentsline {section}{\numberline {A}Appendix}{5}{appendix.A}%
+\contentsline {section}{\numberline {B}Solutions}{5}{appendix.B}%
+\contentsline {section}{\numberline {C}Useful Links}{5}{appendix.C}%

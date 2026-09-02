@@ -78,9 +78,7 @@ Textbook used is  JS Townsend A Modern Approach to Quantum Mechanics, 2nd ed., U
 
 \section{Stern-Gerlach Experiments}
 \marginpar{August 31, 2026}
-
-\subsection{Angular Momentum and Magnetic Moments}
-\subsubsection{Angular Momentum}
+\subsection{Angular Momentum}
 \begin{definition}[Orbital Angular Momentum]
     The orbital angular momentum of a particle is
     \begin{equation}
@@ -102,7 +100,7 @@ For motion confined to the $x$-$y$ plane, only the $z$ component survives. On a 
     with $I_{0}$ the moment of inertia and $\omega$ the angular velocity.
 \end{definition}
 
-\subsubsection{Magnetic moment of a circulating charge}
+\subsection{Magnetic moment of a circulating charge}
 \begin{definition}[Magnetic moment]
     A magnetic moment is a vector quantity that determines the torque a magnet will experience in an external magnetic field.
 \end{definition}
@@ -215,7 +213,42 @@ Neutron  & $0$    & $m_{p}$ & $g_{n} \approx -3.83$ & $g_{n}\mu_{N}/\hbar$ \\
     Since $m_{p} \gg m_{e}$, we get $\mu_{N} \ll \mu_{B}$ and therefore $|\vec{\mu}_{p}| \ll |\vec{\mu}_{e}|$. Stern-Gerlach deflection of nuclei is much weaker than for electrons.
 \end{remark}
 
-The force is just $\vec{F} = -\vec{\nabla}U$, $F_z = -\frac{\partial U}{\partial z}$. $U = -\vec{\mu}\cdot\vec{B}$. For Silver (Ag) $\vec{L} = 0$, so $\vec{S} \neq 0 \to$ single electron, $U = -g_{e}\frac{|e|}{2m_ec}S_zB_z$. $F_z = -\frac{g_e|e|}{2m_ec}\frac{dB_z}{dz}S_z$, $F_z =\frac{g_e|e|}{2m_ec}|\frac{dB_z}{dz}|S_z$, $F_z \prop S_z$.
+\subsection{Force in an Inhomogeneous Field}
+
+A magnetic moment in a field has potential energy
+\begin{equation}
+    U = -\vec{\mu}\cdot\vec{B},
+\end{equation}
+so the force on it is
+\begin{equation}
+    \vec{F} = -\vec{\nabla}U, \qquad F_{z} = -\frac{\partial U}{\partial z}.
+\end{equation}
+
+\begin{remark}
+    A uniform field gives no force, only a torque. The Stern-Gerlach apparatus needs a field \emph{gradient} to deflect anything.
+\end{remark}
+
+\subsubsection{Silver atoms}
+
+Silver is used because its net orbital angular momentum vanishes, $\vec{L} = 0$, while $\vec{S} \neq 0$. The entire magnetic moment comes from a single unpaired valence electron, so the atom behaves as one electron spin.
+
+Taking the field along $z$,
+\begin{equation}
+    U = -\mu_{z}B_{z} = g_{e}\frac{|e|}{2m_{e}c}\,S_{z}B_{z},
+\end{equation}
+and therefore
+\begin{equation}
+    F_{z} = -g_{e}\frac{|e|}{2m_{e}c}\,S_{z}\,\frac{\partial B_{z}}{\partial z}
+          = g_{e}\frac{|e|}{2m_{e}c}\left|\frac{\partial B_{z}}{\partial z}\right| S_{z},
+\end{equation}
+where the last equality assumes $\partial B_{z}/\partial z < 0$.
+
+\begin{result}
+    \begin{equation}
+        F_{z} \propto S_{z}.
+    \end{equation}
+    The deflection of an atom measures the $z$ component of its spin directly. Classically $S_{z}$ varies continuously over $[-|\vec{S}|, |\vec{S}|]$, so the beam should smear into a band. It does not.
+\end{result}
 % ============================================================
 %  APPENDIX
 % ============================================================

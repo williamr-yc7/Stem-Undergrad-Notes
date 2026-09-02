@@ -234,6 +234,31 @@ which vanishes for $r > 0$ iff $a = 0$ or $a = -1$. So
     $1/\|x\|$ is the Newtonian potential: $\nabla(1/r) = -x/\|x\|^3$, the inverse-square field. Harmonic away from the origin only.
 \end{remark}
 
+\marginpar{September 2, 2026}
+Order of PDE is the order of the highest derivative which appears in it. Example $U_{xx}$ is of 2nd order and $U_t + UU_x$ is of 1st order.
+Solution of PDE (1) $u\in c^K$, where $K$ is the order of the PDE, and $u$ is the k-times differentiable (2) $F(u) = 0$.
+Example: Let $u=u(x,t)$, $F(u_t,u_x) = u_t+cu_x = 0, c \in \mathbb{R}$. A Solution, let $\Phi(z)$ be any differentiable function then define $u(x,t) = \Phi(x-ct)$ solves the PDE. $u_x = \Phi'(x-ct)$, $u_t = -c\Phi'(x-ct)$, so $u_t + cu_x = 0$.
+Example: $u_t = c^2u_{xx}$, Ansatz: k is a constant, orbiting $u(x,t) = e^{-c^2k^2t}\sin(kx) = \exp(-c^2k^2t)\sin(kx)$, $u_t = -c^2k^2u$, $u_x = k\exp(-c^2k^2t)\cos(kx)$, $u_{xx} = -k^2\exp(-c^2k^2t)\sin(kx) = -k^2u$, so $u_t = c^2u_{xx}$.\\
+Example (wave equation): $u_{tt} = c^2u_{xx}$, $u(x,t) = cos(kct)sin(kx)$, $u_{xx} = -k^2cos(kct)sin(kx) = -k^2u$, $u_{tt} = -c^2k^2cos(kct)sin(kx) = -c^2k^2u$, so $u_{tt} = c^2u_{xx}$.
+
+Classification of PDEs.
+Linear/Nonlinear: example $F(u,u_x,x) = 3u+u_x-x^2, L(u,u_x) = 3u+u_x, f(x) = x^2$, $F(u,u_x,x) = 0 \leftrightarrow L(u,u_x) = f(x)$ which is linear. PDE: $F(u,u_x,x) - 0$ is linear if it can be written in the form $L(u,u_x) = f(x)$, where $L$ is linear in each term.
+
+Similarly in higher diensions. Sub definition, the linear PDE $L(u) = f(x)$ is homogeneous. Example $u_t + au_x x^3 = 0$ is linear $L(u_t,u_x) = u_t +au_x, f(x) = x^3$, its inhomogeneous. Example 2: $u_t+uu_x = f(x)$ is nonlinear.
+
+Principle of Superposition:
+Linear $L(u) = 0$, $u_1$, $u_2$ are solutions of $L(u)=0$, then so is $u_1+cu_2$ for all $c\in\mathbb{R}$. Check: $L(u_1+cu_2) = L(u_1)+cL(u_2) = 0 + c*0 = 0$.
+Example: $u_t = c^2c_{xx}$, $u_1(x,t) = \exp(-c^2k^2t)\sin(kx)$, $u_2(x,t) = \exp(-c^2t)\sin(x)$, then $u(x,t) = a_1u+a_2u$ is also a solution.
+\footnote{80\% chance of what we just wrote so far is not on the final.}
+
+\section{General Solutions}
+Example $u(x,y)$ is a function in $\mathbb{R}^2$, solve (all), $u_x=0$ in $\mathbb{R}^2$, solution is $u(x,y) = f(y)$ for $f$ arbitrary.
+Example: $u(x,y) \in \mathbb{R^2}, u_{xx} = 0$, steps: let $v(x,y) = u_x$ by previous example $v(x,y) = f(y)$ so $u_x=f(y)$ so fix one $y \implies u(x,y) = f(y) + xg(y)$. Check  PDE $u(x,y) = f(y)+xg(y), u_x=0+g(y), u_{xx} = 0$.\\
+Example: same idea $u(x,y), u_{xy} = 0$, let $v(x,y) = u_x$, then $v_y = 0$ so $v(x,y) = f(x)$, so $u_x = f(x)$, fix one $y$ and integrate in $x$, $u(x,y) = F(x)+g(y)$, check: $u_{xy} = F'(x)_y + g'(y)_x = 0+0=0$.
+
+"auciliary" conditions means bounday conditions, $\delta u = f(x)$ in domain $\Omega \subset \mathbb{R}^d$, $u(x) = g(x)$ on boundary $\partial\Omega\subset\mathbb{R}^d$.
+
+$Lu=f$, here its a linear PDE where $L$ is the operator, u is the want and f is the input. $Mx=b$, $x\in\mathbb{R}^d$ vector $b\in\mathbb{R}^d$, $x=M^{-1}b$
 % ============================================================
 \appendix
 \section{Appendix}
