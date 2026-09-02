@@ -343,8 +343,6 @@ INPUT .\Phys253.toc
 INPUT .\Phys253.toc
 INPUT Phys253.toc
 INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx10.tfm
-OUTPUT Phys253.toc
-INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcrm1000.tfm
 INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
 INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
 INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam10.tfm
@@ -353,7 +351,10 @@ INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\sym
 INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
 INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm5.tfm
+OUTPUT Phys253.toc
+INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcrm1000.tfm
 INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmti10.tfm
+INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
 INPUT Phys253.aux
 INPUT .\Phys253.out
 INPUT .\Phys253.out
