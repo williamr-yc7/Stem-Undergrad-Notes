@@ -80,7 +80,7 @@ Textbook used is  JS Townsend A Modern Approach to Quantum Mechanics, 2nd ed., U
 \marginpar{August 31, 2026}
 
 \subsection{Angular Momentum and Magnetic Moments}
-
+\subsubsection{Angular Momentum}
 \begin{definition}[Orbital Angular Momentum]
     The orbital angular momentum of a particle is
     \begin{equation}
@@ -93,22 +93,32 @@ For motion confined to the $x$-$y$ plane, only the $z$ component survives. On a 
 \begin{equation}
     L_{z} = mvr.
 \end{equation}
-For a rigid body rotating about a fixed axis this becomes $L = I_{0}\omega$, with $I_{0}$ the moment of inertia and $\omega$ the angular velocity.
 
-\subsubsection*{Magnetic moment of a circulating charge}
+\begin{definition}[Angular Momentum of a Rigid Body]
+    For a rigid body rotating about a fixed axis this 
+    \begin{equation}
+        L = I_{0}\omega,
+    \end{equation}
+    with $I_{0}$ the moment of inertia and $\omega$ the angular velocity.
+\end{definition}
+
+\subsubsection{Magnetic moment of a circulating charge}
+\begin{definition}[Magnetic moment]
+    A magnetic moment is a vector quantity that determines the torque a magnet will experience in an external magnetic field.
+\end{definition}
 
 Consider a point particle of mass $m$ and charge $q$ in a circular orbit of radius $r$ and period $T$. Three steps connect this to a magnetic moment.
 
 \begin{enumerate}
     \item The charge passes any point on the orbit once per period, so it is equivalent to a steady current
-    \begin{equation}
+    \begin{equation*}
         I = \frac{q}{T} = \frac{qv}{2\pi r}.
-    \end{equation}
+    \end{equation*}
 
     \item A current loop of area $A = \pi r^{2}$ has magnetic moment
-    \begin{equation}
-        \mu = \frac{IA}{c}.
-    \end{equation}
+    \begin{equation*}
+        \mu = \frac{IA}{c}.\footnotemark
+    \end{equation*}
 
     \item Substituting gives
     \begin{equation}
@@ -117,7 +127,7 @@ Consider a point particle of mass $m$ and charge $q$ in a circular orbit of radi
             = \frac{q}{2mc}\,L_{z}.
     \end{equation}
 \end{enumerate}
-
+\footnotetext{Here $c$ is in Gaussian units.}
 \begin{result}[Gyromagnetic Ratio]
     The magnetic moment is proportional to the angular momentum,
     \begin{equation}
@@ -132,7 +142,80 @@ Consider a point particle of mass $m$ and charge $q$ in a circular orbit of radi
 
 \marginpar{September 2, 2026}
 
+\subsection{Spin and the Magnetic Moment}
 
+\begin{remark}
+    The moment of inertia $I_0$ measures how mass is distributed relative to the rotation axis.
+\end{remark}
+
+In quantum mechanics the intrinsic angular momentum $\vec{S}$, called spin, replaces the orbital angular momentum $\vec{L}$. The magnetic moment is still proportional to it, but with an extra dimensionless factor,
+\begin{equation}
+    \vec{\mu} = \frac{qg}{2mc}\,\vec{S},
+\end{equation}
+where $g$ is the g-factor of the particle. It has no classical analogue and must be measured or derived from relativistic quantum theory.
+
+\begin{definition}[Gyromagnetic ratio]
+    The gyromagnetic ratio is the ratio of the magnetic moment to the angular momentum,
+    \begin{equation}
+        \gamma = \frac{qg}{2mc},
+    \end{equation}
+    where $q$ is the charge, $g$ is the g-factor, $m$ is the mass, and $c$ is the speed of light.
+\end{definition}
+
+\begin{definition}[Reduced Planck constant]
+    \begin{equation}
+        \hbar = \frac{h}{2\pi}.
+    \end{equation}
+    It carries units of angular momentum, so $[\hbar] = [L_z]$.
+\end{definition}
+
+\subsubsection{Magnetons}
+
+Factoring $\hbar$ out of the gyromagnetic ratio gives a natural unit of magnetic moment for each mass scale.
+
+\begin{definition}[Bohr magneton]
+    \begin{equation}
+        \mu_{B} = \frac{|e|\hbar}{2m_{e}c}.
+    \end{equation}
+\end{definition}
+
+\begin{definition}[Nuclear magneton]
+    \begin{equation}
+        \mu_{N} = \frac{|e|\hbar}{2m_{p}c}.
+    \end{equation}
+\end{definition}
+
+The electron moment is then written as
+\begin{equation}
+    \vec{\mu}_{e} = g_{e}\,\mu_{B}\,\frac{\vec{S}}{\hbar},
+\end{equation}
+and similarly for the proton and neutron with $\mu_{N}$ in place of $\mu_{B}$.
+
+\subsubsection{Values for the three particles}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lcccc}
+\hline
+Particle & Charge $q$ & Mass $m$ & $g$-factor & Gyromagnetic ratio $\gamma$ \\
+\hline
+Electron & $-|e|$ & $m_{e}$ & $g_{e} \approx 2$ & $g_{e}\mu_{B}/\hbar$ \\
+Proton   & $+|e|$ & $m_{p}$ & $g_{p} \approx 5.59$ & $g_{p}\mu_{N}/\hbar$ \\
+Neutron  & $0$    & $m_{p}$ & $g_{n} \approx -3.83$ & $g_{n}\mu_{N}/\hbar$ \\
+\hline
+\end{tabular}
+\caption{Charges, masses, g-factors and gyromagnetic ratios.}
+\end{table}
+
+\begin{remark}
+    The neutron is neutral but still has a magnetic moment, so $\vec{\mu}$ cannot come from a single circulating point charge. This is a first sign that the classical picture fails.
+\end{remark}
+
+\begin{remark}
+    Since $m_{p} \gg m_{e}$, we get $\mu_{N} \ll \mu_{B}$ and therefore $|\vec{\mu}_{p}| \ll |\vec{\mu}_{e}|$. Stern-Gerlach deflection of nuclei is much weaker than for electrons.
+\end{remark}
+
+The force is just $\vec{F} = -\vec{\nabla}U$, $F_z = -\frac{\partial U}{\partial z}$. $U = -\vec{\mu}\cdot\vec{B}$. For Silver (Ag) $\vec{L} = 0$, so $\vec{S} \neq 0 \to$ single electron, $U = -g_{e}\frac{|e|}{2m_ec}S_zB_z$. $F_z = -\frac{g_e|e|}{2m_ec}\frac{dB_z}{dz}S_z$, $F_z =\frac{g_e|e|}{2m_ec}|\frac{dB_z}{dz}|S_z$, $F_z \prop S_z$.
 % ============================================================
 %  APPENDIX
 % ============================================================
@@ -143,5 +226,7 @@ Consider a point particle of mass $m$ and charge $q$ in a circular orbit of radi
 %  Useful Links
 % ============================================================
 \section{Useful Links}
+
+Stern-Gerlach experiment: \url{https://www.youtube.com/shorts/QG7kJXxN1Kk}
 
 \end{document}
