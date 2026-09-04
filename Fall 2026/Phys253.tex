@@ -105,36 +105,26 @@ The textbook is \textit{An Introduction to Thermal Physics} by Daniel V. Schroed
 
 \subsection{Equations of State}
 \begin{definition}[Equation of state]
-    An equation of state is a functional relationship between the easily measured state
-    variables\footnote{Such as pressure, volume and temperature.} of a system in an
-    equilibrium state.
+    An equation of state is a functional relationship between the easily measured state variables\footnote{Such as pressure, volume and temperature.} of a system in an equilibrium state.
 \end{definition}
 
 \begin{example}
-    The ideal gas law is an equation of state relating $(P, V, T)$. It applies to
-    equilibrium states of dilute gases at high temperature:
-    \[
-        PV = nRT,
-    \]
+    The ideal gas law is an equation of state relating $(P, V, T)$. It applies to equilibrium states of dilute gases at high temperature:
+    \[PV = nRT,\]
     where $R$ is the ideal gas constant.
 \end{example}
 
 \subsection{State Functions}
 \begin{definition}[State function]
-    A state function is a property of a system that depends only on the current
-    equilibrium state, and not on the path taken to reach that state. Internal energy,
-    enthalpy, entropy and Gibbs free energy are all state functions.
+    A state function is a property of a system that depends only on the current equilibrium state, and not on the path taken to reach that state. Internal energy, enthalpy, entropy and Gibbs free energy are all state functions.
 \end{definition}
 
 \begin{remark}
-    State functions matter because their values can be compared between two equilibrium
-    states without knowing anything about the process that connected them.
+    State functions matter because their values can be compared between two equilibrium states without knowing anything about the process that connected them.
 \end{remark}
 
 \begin{example}
-    Temperature is a state function. It is the property that determines whether two
-    systems are in thermal equilibrium\footnote{Thermal equilibrium only, not full
-    thermodynamic equilibrium.} with each other.
+    Temperature is a state function. It is the property that determines whether two systems are in thermal equilibrium\footnote{Thermal equilibrium only, not full thermodynamic equilibrium.} with each other.
 \end{example}
 
 % ============================================================
@@ -143,15 +133,11 @@ The textbook is \textit{An Introduction to Thermal Physics} by Daniel V. Schroed
 \section{Laws of Thermodynamics}
 \subsection{Zeroth Law}
 \begin{law}[Zeroth Law of Thermodynamics]
-    If two systems A and B are each separately in thermal equilibrium with a third
-    system C, meaning no heat flows between A and C and no heat flows between B and C,
-    then A and B are in thermal equilibrium with each other.
+    If two systems A and B are each separately in thermal equilibrium with a third system C, meaning no heat flows between A and C and no heat flows between B and C, then A and B are in thermal equilibrium with each other.
 \end{law}
 
 \begin{remark}
-    The zeroth law is what makes a thermometer work. System C is the thermometer, and
-    the law guarantees that two systems reading the same value on it are in thermal
-    equilibrium with each other.
+    The zeroth law is what makes a thermometer work. System C is the thermometer, and the law guarantees that two systems reading the same value on it are in thermal equilibrium with each other.
 \end{remark}
 
 \begin{law}[First Law of Thermodynamics]
@@ -166,71 +152,45 @@ The textbook is \textit{An Introduction to Thermal Physics} by Daniel V. Schroed
 
 \subsection{Energy}
 \begin{definition}[Energy]
-    Energy, from the Greek \textit{energeia} meaning "in work," is the capacity to do
-    work. It is a property of a thermodynamic system, and it is stored in different
-    forms depending on the phase and composition of the matter involved.
+    Energy, from the Greek \textit{energeia} meaning "in work," is the capacity to do work. It is a property of a thermodynamic system, and it is stored in different forms depending on the phase and composition of the matter involved.
 \end{definition}
 
 \subsubsection{Forms of Energy}
 \begin{definition}[Kinetic energy]
-    From the Greek \textit{kinesis} (motion), the energy associated with the motion of a
-    body or of the particles inside it.
+    From the Greek \textit{kinesis} (motion), the energy associated with the motion of a body or of the particles inside it.
 \end{definition}
 
 \begin{definition}[Potential energy]
-    Energy due to condition, position or composition. It is associated with
-    interactions, meaning forces of attraction or repulsion between objects, or chemical
-    bonding.
+    Energy due to condition, position or composition. It is associated with interactions, meaning forces of attraction or repulsion between objects, or chemical bonding.
 \end{definition}
 
 \subsection{Work}
 \begin{definition}[Work]
-    Work is done when a force acts through a distance, and it is associated with a
-    change in the energy of a system:
-    \[
-        W = \int \vec{F} \cdot d\vec{r}.
-    \]
-    In thermodynamics, work is any transfer of energy into or out of a system that is
-    not heat.
+    Work is done when a force acts through a distance, and it is associated with a change in the energy of a system:
+    \[W = \int \vec{F} \cdot d\vec{r}.\]
+    In thermodynamics, work is any transfer of energy into or out of a system that is not heat.
 \end{definition}
 
 \subsubsection*{Compression of a Gas by a Piston}
-Take a gas in a cylinder closed by a piston of area $A$. Pushing the piston in by a
-small distance $\delta x$ does work
-\[
-    W = F \, \delta x.
-\]
+Take a gas in a cylinder closed by a piston of area $A$. Pushing the piston in by a small distance $\delta x$ does work
+\[W = F \, \delta x.\]
 The pressure of the gas is $P = F/A$, so $F = PA$ and
-\[
-    W = PA \, \delta x.
-\]
-For a quasistatic compression\footnote{Slow enough that the gas stays in internal
-equilibrium at every instant, so the pressure is uniform throughout the volume and the
-ideal gas law still applies.}, the change in volume is $\delta V = -A \, \delta x$, so
-the work done \textit{on} the gas is
-\[
-    W = -P \, \delta V \qquad \text{(quasistatic)}.
-\]
-Compressing the gas means $\delta V < 0$, so $W > 0$ and the energy of the gas goes up,
-as expected.
+\[W = PA \, \delta x.\]
+For a quasistatic compression\footnote{Slow enough that the gas stays in internal equilibrium at every instant, so the pressure is uniform throughout the volume and the ideal gas law still applies.}, the change in volume is $\delta V = -A \, \delta x$, so the work done \textit{on} the gas is
+\[W = -P \, \delta V \qquad \text{(quasistatic)}.\]
+Compressing the gas means $\delta V < 0$, so $W > 0$ and the energy of the gas goes up, as expected.
 
 \begin{remark}
-    Energy and work are measured in the same units, joules, where
-    $\SI{1}{\joule} = \SI{1}{\newton\metre} = \SI{1}{\kilo\gram\metre\squared\per\second\squared}$.
+    Energy and work are measured in the same units, joules, where $\SI{1}{\joule} = \SI{1}{\newton\metre} = \SI{1}{\kilo\gram\metre\squared\per\second\squared}$.
 \end{remark}
 
 \subsection{Heat}
 \begin{definition}[Heat]
-    Heat is energy that flows between systems because of a temperature difference, and
-    it drives them toward thermal equilibrium. It is the quantity of energy $q$
-    transferred between a system and its surroundings as a result of that temperature
-    difference.
+    Heat is energy that flows between systems because of a temperature difference, and it drives them toward thermal equilibrium. It is the quantity of energy $q$ transferred between a system and its surroundings as a result of that temperature difference.
 \end{definition}
 
 \begin{remark}
-    Heat and work are not properties of a thermodynamic system. They are the two ways
-    energy can be exchanged between a system and its surroundings. A system does not
-    "contain" heat or work, it contains energy.
+    Heat and work are not properties of a thermodynamic system. They are the two ways energy can be exchanged between a system and its surroundings. A system does not "contain" heat or work, it contains energy.
 \end{remark}
 
 % ============================================================
