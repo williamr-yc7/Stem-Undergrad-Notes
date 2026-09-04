@@ -11,6 +11,7 @@
 \usepackage{tikz} % For drawing shapes
 \usepackage{circuitikz}
 \usepackage{float} % For [H] float option
+\usepackage{braket}
 \pgfplotsset{compat=1.18} % Set compatibility level
 \newtheorem{theorem}{Theorem}
 \newtheorem{law}{Law}
@@ -249,6 +250,10 @@ where the last equality assumes $\partial B_{z}/\partial z < 0$.
     \end{equation}
     The deflection of an atom measures the $z$ component of its spin directly. Classically $S_{z}$ varies continuously over $[-|\vec{S}|, |\vec{S}|]$, so the beam should smear into a band. It does not.
 \end{result}
+
+\section{Misc}
+\marginpar{September 4, 2026}
+$U = -\vec{\mu}\cdot\vec{B}$, $P_z = -\frac{dU}{dz} = \mu_z\frac{dB_z}{dz}$, $\mu_z = -\frac{-g_e|e|}{2m_ec}S_z$. Spin is a vector: $\vec{S} = (S_x, S_y, S_z)^T$. $S_z = |\vec{S}|cos\theta$, where $\theta \in [0,\pi] \implies cos \theta \in [-1,1]$. Classically, $S_z$ is continuous. Quantum mechanically, $S_z$ is discrete. e-spin angular momentum is quantized: $S_z = \pm \hbar/2$. New notation a "ket" $\ket{\uparrow}$ and $\ket{\downarrow}$ for $S_z = +\hbar/2$ and $S_z = -\hbar/2$ respectively. The Stern-Gerlach experiment shows that the spin of an electron is quantized. The spin of an electron is a two-level system, so it can be represented as a two-dimensional vector space. The spin state of an electron can be represented as a linear combination of the basis states $\ket{\uparrow}$ and $\ket{\downarrow}$:
 % ============================================================
 %  APPENDIX
 % ============================================================

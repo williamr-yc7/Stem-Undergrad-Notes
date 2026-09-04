@@ -7,5 +7,6 @@
 \contentsline {subsubsection}{\numberline {2.3.2}Values for the three particles}{3}{subsubsection.2.3.2}%
 \contentsline {subsection}{\numberline {2.4}Force in an Inhomogeneous Field}{3}{subsection.2.4}%
 \contentsline {subsubsection}{\numberline {2.4.1}Silver atoms}{4}{subsubsection.2.4.1}%
+\contentsline {section}{\numberline {3}Misc}{4}{section.3}%
 \contentsline {section}{\numberline {A}Appendix}{4}{appendix.A}%
 \contentsline {section}{\numberline {B}Useful Links}{4}{appendix.B}%
