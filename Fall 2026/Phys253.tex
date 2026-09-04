@@ -5,6 +5,7 @@
 \usepackage{amssymb} % For mathematical symbols
 \usepackage{amsthm} % For theorem environments
 \usepackage{amsmath} % For advanced math typesetting
+\usepackage{siunitx} % For units
 \usepackage{hyperref}
 \usepackage{enumitem}
 \usepackage{pgfplots} % For plots
@@ -34,7 +35,7 @@
 % ============================================================
 \title{PHYS 253: Thermal Physics}
 \author{W.R.YCH.}
-\date{August \(31^{st}\), 2026}
+\date{Fall 2026}
 \setcounter{Maxaffil}{0}
 \renewcommand\Affilfont{\itshape\small}
 \maketitle
@@ -45,7 +46,7 @@
 \noindent\rule{\textwidth}{0.4pt}
 \thispagestyle{empty}
 \begin{abstract}
-    NOT FINISHED
+    Lecture notes for PHYS 253 (Thermal Physics) at McGill University, Fall 2026. The notes follow the lectures and are cross-referenced with \textit{An Introduction to Thermal Physics} by Daniel V. Schroeder. Dates in the margin mark the lecture each block of material came from. These notes are a work in progress.
 \end{abstract}
 \noindent\rule{\textwidth}{0.4pt}
 \clearpage
@@ -67,54 +68,174 @@
 %  INTRODUCTION
 % ============================================================
 \section{Introduction}
-Textbook used is An Introduction to Thermal Physics by Daniel V. Schroeder. Taught by Bradley Siwick. Mondays, Wednesdays and Fridays from 8:35 to 9:25 in rutherford 118. Course grading is divided as follows:
+
+\subsection{Course Information}
+The textbook is \textit{An Introduction to Thermal Physics} by Daniel V. Schroeder. The course is taught by Bradley Siwick, Mondays, Wednesdays and Fridays from 8:35 to 9:25 in Rutherford 118. Grading is divided as follows:
 \begin{itemize}
-    \item 10\% problem sets ($\sim 6$, must be handwritten pdf scans) \footnote{Only one or two of the problems on each assignment will be indicated for submission and grading.}.
-    \item 50\% 2 midterms.
-    \item 40\% final exam.
+    \item 10\% problem sets ($\sim 6$, submitted as handwritten PDF scans)\footnote{Only one or two problems on each assignment are marked for submission and grading.}
+    \item 50\% two midterms
+    \item 40\% final exam
 \end{itemize}
 
+\subsection{What Thermodynamics Is}
 \marginpar{August 31, 2026}
 \begin{definition}[Thermodynamics]
-    Thermodynamics, derived from the ancient Greek words \textit{therme} (heat) and \textit{dynamis} (power), is the branch of physics that deals with the relationships between heat, work, temperature, and energy. It is the study of equilibrium properties of large-scale systems in which temperature is an important variable.
+    Thermodynamics, from the ancient Greek \textit{therme} (heat) and \textit{dynamis} (power), is the branch of physics that deals with the relationships between heat, work, temperature and energy. It studies the equilibrium properties of large-scale systems in which temperature is an important variable.
 \end{definition}
+
 \begin{remark}
-    Thermodynamics does not give microscopic details of the system\footnote{Classical thermodynamics cannot describe microscopic systems directly, but modern extensions like stochastic thermodynamics and statistical mechanics can.}, but rather describes the macroscopic properties and behaviors of systems in terms of a few state variables.
+    Thermodynamics does not describe the microscopic details of a system\footnote{Statistical mechanics and more recent extensions such as stochastic thermodynamics, do.}. It describes the macroscopic properties and behaviour of a system using a small number of state variables.
 \end{remark}
 
-\section{Thermal Equilibrium}
+% ============================================================
+%  EQUILIBRIUM AND STATE VARIABLES
+% ============================================================
+\section{Equilibrium and State Variables}
 \marginpar{September 2, 2026}
-\subsection{Equilibrium States and State Variables}
+\subsection{Equilibrium States}
 \begin{definition}[Equilibrium state]
-    A system is in ES if all the measurable bulk physical properties\footnote{Could be any mechanical and structural properties, thermal, electrical, optical...} of the system are uniform throughout the system and in time.
+    A system is in an equilibrium state if all the measurable bulk physical properties of the system are uniform throughout the system and constant in time.
 \end{definition}
 \begin{remark}
-    If the system is a fixed volume of gas, the pressure is uniform and volume is constant in time in an equilibrium state.
+    For a fixed volume of gas in an equilibrium state, the pressure is the same everywhere in the gas and the volume does not change in time.
 \end{remark}
 \begin{remark}
-    The pressure, volume and mass of a gas fully describe the equilibrium state of the gas, and fixes all the other measurable bulk properties.
+    The pressure, volume and mass of a gas fully describe its equilibrium state. Once those are fixed, every other measurable bulk property is fixed as well.
 \end{remark}
 
 \subsection{Equations of State}
 \begin{definition}[Equation of state]
-    An equation of state is a functional relationship between the easily measured state variables\footnote{Such as pressure, volume, and temperature} of a system in an equilibrium state.
+    An equation of state is a functional relationship between the easily measured state
+    variables\footnote{Such as pressure, volume and temperature.} of a system in an
+    equilibrium state.
 \end{definition}
+
 \begin{example}
-    The ideal gas law is an example of an equation of state that relates (P,V,T) and applies to equilibrium states of dilute gases at high temperature: PV=nRT, where R is the ideal gas constant.
+    The ideal gas law is an equation of state relating $(P, V, T)$. It applies to
+    equilibrium states of dilute gases at high temperature:
+    \[
+        PV = nRT,
+    \]
+    where $R$ is the ideal gas constant.
 \end{example}
+
+\subsection{State Functions}
 \begin{definition}[State function]
-    A state function is a property of a system that depends only on the current equilibrium state of the system, and not on the path taken to reach that state. Examples of state functions include internal energy, enthalpy, entropy, and Gibbs free energy.
+    A state function is a property of a system that depends only on the current
+    equilibrium state, and not on the path taken to reach that state. Internal energy,
+    enthalpy, entropy and Gibbs free energy are all state functions.
 \end{definition}
+
 \begin{remark}
-    State functions are important in thermodynamics since they do not depend on how the equilibrium was reached.
+    State functions matter because their values can be compared between two equilibrium
+    states without knowing anything about the process that connected them.
 \end{remark}
 
-\subsection{Temperature and the Zeroth Law}
-Temperature is a state function, and is defined as the property that determines whether two systems are in thermal equilibrium\footnote{Not in thermodynamic equilibrium!} with each other.
+\begin{example}
+    Temperature is a state function. It is the property that determines whether two
+    systems are in thermal equilibrium\footnote{Thermal equilibrium only, not full
+    thermodynamic equilibrium.} with each other.
+\end{example}
+
+% ============================================================
+%  ZEROTH LAW
+% ============================================================
+\section{Laws of Thermodynamics}
+\subsection{Zeroth Law}
 \begin{law}[Zeroth Law of Thermodynamics]
-    If two systems (A \& B) are separately in thermal equilibrium with a third system (C), meaning no heat flows between A and C, and no heat flows between B and C, then they are in thermal equilibrium with each other.
+    If two systems A and B are each separately in thermal equilibrium with a third
+    system C, meaning no heat flows between A and C and no heat flows between B and C,
+    then A and B are in thermal equilibrium with each other.
 \end{law}
 
+\begin{remark}
+    The zeroth law is what makes a thermometer work. System C is the thermometer, and
+    the law guarantees that two systems reading the same value on it are in thermal
+    equilibrium with each other.
+\end{remark}
+
+\begin{law}[First Law of Thermodynamics]
+    The relationship between Heat (Q), Work (W) and the Internal Energy (U) of a system is dictated by the conservation of energy.
+\end{law}
+
+% ============================================================
+%  ENERGY, WORK AND HEAT
+% ============================================================
+\section{Energy, Work and Heat}
+\marginpar{September 4, 2026}
+
+\subsection{Energy}
+\begin{definition}[Energy]
+    Energy, from the Greek \textit{energeia} meaning "in work," is the capacity to do
+    work. It is a property of a thermodynamic system, and it is stored in different
+    forms depending on the phase and composition of the matter involved.
+\end{definition}
+
+\subsubsection{Forms of Energy}
+\begin{definition}[Kinetic energy]
+    From the Greek \textit{kinesis} (motion), the energy associated with the motion of a
+    body or of the particles inside it.
+\end{definition}
+
+\begin{definition}[Potential energy]
+    Energy due to condition, position or composition. It is associated with
+    interactions, meaning forces of attraction or repulsion between objects, or chemical
+    bonding.
+\end{definition}
+
+\subsection{Work}
+\begin{definition}[Work]
+    Work is done when a force acts through a distance, and it is associated with a
+    change in the energy of a system:
+    \[
+        W = \int \vec{F} \cdot d\vec{r}.
+    \]
+    In thermodynamics, work is any transfer of energy into or out of a system that is
+    not heat.
+\end{definition}
+
+\subsubsection*{Compression of a Gas by a Piston}
+Take a gas in a cylinder closed by a piston of area $A$. Pushing the piston in by a
+small distance $\delta x$ does work
+\[
+    W = F \, \delta x.
+\]
+The pressure of the gas is $P = F/A$, so $F = PA$ and
+\[
+    W = PA \, \delta x.
+\]
+For a quasistatic compression\footnote{Slow enough that the gas stays in internal
+equilibrium at every instant, so the pressure is uniform throughout the volume and the
+ideal gas law still applies.}, the change in volume is $\delta V = -A \, \delta x$, so
+the work done \textit{on} the gas is
+\[
+    W = -P \, \delta V \qquad \text{(quasistatic)}.
+\]
+Compressing the gas means $\delta V < 0$, so $W > 0$ and the energy of the gas goes up,
+as expected.
+
+\begin{remark}
+    Energy and work are measured in the same units, joules, where
+    $\SI{1}{\joule} = \SI{1}{\newton\metre} = \SI{1}{\kilo\gram\metre\squared\per\second\squared}$.
+\end{remark}
+
+\subsection{Heat}
+\begin{definition}[Heat]
+    Heat is energy that flows between systems because of a temperature difference, and
+    it drives them toward thermal equilibrium. It is the quantity of energy $q$
+    transferred between a system and its surroundings as a result of that temperature
+    difference.
+\end{definition}
+
+\begin{remark}
+    Heat and work are not properties of a thermodynamic system. They are the two ways
+    energy can be exchanged between a system and its surroundings. A system does not
+    "contain" heat or work, it contains energy.
+\end{remark}
+
+% ============================================================
+%  MISC
+% ============================================================
 \section{Misc}
 
 % ============================================================
