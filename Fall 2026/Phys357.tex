@@ -241,7 +241,7 @@ A magnetic moment in a field has potential energy
 \end{equation}
 so the force on it is
 \begin{equation}
-    \vec{F} = -\vec{\nabla}U, \qquad F_{z} = -\frac{\partial U}{\partial z} = \mu_{z}\frac{\partial B_{z}}{\partial z}.
+    \vec{F} = -\vec{\nabla}U = \vec{\nabla}(\vec{\mu}\cdot\vec{B}), \qquad F_{z} = -\frac{\partial U}{\partial z} = \mu_{z}\frac{\partial B_{z}}{\partial z}.
 \end{equation}
 
 \begin{definition}[Deflection]
@@ -261,7 +261,7 @@ Silver is used because its net orbital angular momentum vanishes, $\vec{L} = 0$,
 \end{equation}
 and therefore
 \begin{equation}
-    F_{z} = -g_{e}\frac{|e|}{2m_{e}c}\,S_{z}\,\frac{\partial B_{z}}{\partial z}
+    F_{z} = \mu_{z}\frac{\partial B_{z}}{\partial z} = -g_{e}\frac{|e|}{2m_{e}c}\,S_{z}\,\frac{\partial B_{z}}{\partial z}
           = g_{e}\frac{|e|}{2m_{e}c}\left|\frac{\partial B_{z}}{\partial z}\right| S_{z},
 \end{equation}
 where the last equality assumes $\partial B_{z}/\partial z < 0$.
@@ -279,7 +279,10 @@ Spin is a vector,
 \begin{equation}
     \vec{S} = (S_{x}, S_{y}, S_{z})^{T}, \qquad S_{z} = |\vec{S}|\cos\theta.
 \end{equation}
-Classically $\theta \in [0,\pi]$, so $\cos\theta \in [-1,1]$ and $S_{z}$ varies continuously over $[-|\vec{S}|, |\vec{S}|]$. Since $F_z \propto S_z$, the beam should smear into a continuous band. It does not.
+
+\begin{remark}
+    The spins leaving the oven point in random directions, so $\theta$ takes every value in $[0,\pi]$ across the beam and $S_z = |\vec{S}|\cos\theta$ takes every value in $[-|\vec{S}|,|\vec{S}|]$. Since $F_z \propto S_z$, each atom is deflected differently and the screen should show a continuous smear. It shows two spots.
+\end{remark}
 
 % ------------------------------------------------------------
 \subsection{Quantization of \texorpdfstring{$S_z$}{Sz}}
@@ -294,15 +297,15 @@ Classically $\theta \in [0,\pi]$, so $\cos\theta \in [-1,1]$ and $S_{z}$ varies 
 \end{result}
 
 \subsubsection{Ket notation}
-
-New notation, a ``ket'':
-\begin{equation*}
-    \ket{\uparrow} \; \text{for } S_{z} = +\frac{\hbar}{2},
-    \qquad
-    \ket{\downarrow} \; \text{for } S_{z} = -\frac{\hbar}{2}.
-\end{equation*}
-
-The spin of an electron is a two-level system, so it can be represented as a two-dimensional vector space. The spin state of an electron can be represented as a linear combination of the basis states $\ket{\uparrow}$ and $\ket{\downarrow}$:
+\begin{definition}[Ket notation]
+    A ket $\ket{\,\cdot\,}$ labels a quantum state as a vector in a vector space. For electron spin the two measurement outcomes give the basis states
+    \begin{equation*}
+        \ket{\uparrow} \; \text{for } S_{z} = +\frac{\hbar}{2},
+        \qquad
+        \ket{\downarrow} \; \text{for } S_{z} = -\frac{\hbar}{2}.
+    \end{equation*}
+    The space is two-dimensional, so any spin state is a linear combination of the two.
+\end{definition}
 
 % notes cut off here
 
