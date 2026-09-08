@@ -31,9 +31,6 @@
 }
 \begin{document}
 
-% ============================================================
-%  Title page
-% ============================================================
 \title{PHYS 357: Honours Quantum Physics 1}
 \author{W.R.YCH.}
 \date{August \(31^{st}\), 2026}
@@ -41,9 +38,6 @@
 \renewcommand\Affilfont{\itshape\small}
 \maketitle
 
-% ============================================================
-%  Abstract
-% ============================================================
 \noindent\rule{\textwidth}{0.4pt}
 \thispagestyle{empty}
 \begin{abstract}
@@ -52,9 +46,6 @@
 \noindent\rule{\textwidth}{0.4pt}
 \clearpage
 
-% ============================================================
-%  Table of Contents
-% ============================================================
 \thispagestyle{empty}
 {
   \hypersetup{linkcolor=black}
@@ -62,24 +53,24 @@
 }
 \clearpage
 
-% ============================================================
 \setcounter{page}{1}
 
-% ============================================================
-%  INTRODUCTION
-% ============================================================
 \section{Introduction}
-Textbook used is  JS Townsend A Modern Approach to Quantum Mechanics, 2nd ed., University Science Books 2012. Taught by Bill Coish. Mondays, Wednesdays and Fridays from 9:35 to 10:25 in Steward Biology Building N2/2. Course grading is divided as follows:
+Textbook used is JS Townsend, \emph{A Modern Approach to Quantum Mechanics}, 2nd ed., University Science Books 2012. Taught by Bill Coish. Mondays, Wednesdays and Fridays from 9:35 to 10:25 in Steward Biology Building N2/2. Course grading is divided as follows:
 \begin{itemize}
     \item 10\% problem sets (must be handwritten scans).
-    \item 40\% quizzes (on wednesdays, best 8 of 12).
-    \item 20\% midterms (best of 2, october 2nd and november 6th).
+    \item 40\% quizzes (on Wednesdays, best 8 of 12).
+    \item 20\% midterms (best of 2, October 2nd and November 6th).
     \item 30\% final exam.
 \end{itemize}
 
 \section{Stern-Gerlach Experiments}
+
+\subsection{The classical picture}
 \marginpar{August 31, 2026}
-\subsection{Angular Momentum}
+
+\subsubsection{Angular momentum}
+
 \begin{definition}[Orbital Angular Momentum]
     The orbital angular momentum of a particle is
     \begin{equation}
@@ -89,44 +80,34 @@ Textbook used is  JS Townsend A Modern Approach to Quantum Mechanics, 2nd ed., U
 \end{definition}
 
 For motion confined to the $x$-$y$ plane, only the $z$ component survives. On a circular path of radius $r$ with speed $v$,
-\begin{equation}
-    L_{z} = mvr.
-\end{equation}
+\[L_{z} = mvr.\]
 
 \begin{definition}[Angular Momentum of a Rigid Body]
-    For a rigid body rotating about a fixed axis this 
+    For a rigid body\footnote{A rigid body is one that does not deform under the action of external forces.} rotating about a fixed axis this is
     \begin{equation}
         L = I_{0}\omega,
     \end{equation}
     with $I_{0}$ the moment of inertia and $\omega$ the angular velocity.
 \end{definition}
 
-\subsection{Magnetic moment of a circulating charge}
+\begin{remark}
+    The moment of inertia $I_0$ measures how mass is distributed relative to the rotation axis.
+\end{remark}
+
+\subsubsection{Magnetic moment}
+
 \begin{definition}[Magnetic moment]
-    A magnetic moment is a vector quantity that determines the torque a magnet will experience in an external magnetic field.
+    A magnetic moment is a measure of the net circulation of electric charge. It is a vector quantity that determines the torque a magnet will experience in an external magnetic field.
 \end{definition}
 
-Consider a point particle of mass $m$ and charge $q$ in a circular orbit of radius $r$ and period $T$. Three steps connect this to a magnetic moment.
+The magnetic moment of a point particle of mass $m$ and charge $q$ in a circular orbit of radius $r$ and period $T$ is
+\begin{equation}
+    \mu = \frac{IA}{c}\footnotemark = \frac{1}{c}\left(\frac{qv}{2\pi r}\right)\left(\pi r^{2}\right) = \frac{q}{2mc}\,mvr = \frac{q}{2mc}\,L_{z},
+\end{equation}
+where $I$ is the current and $A$ is the area enclosed by the orbit. A single circulating charge counts as a steady current $I = \frac{q}{T} = \frac{qv}{2\pi r}$ because it passes any given point on the loop once per period.
 
-\begin{enumerate}
-    \item The charge passes any point on the orbit once per period, so it is equivalent to a steady current
-    \begin{equation*}
-        I = \frac{q}{T} = \frac{qv}{2\pi r}.
-    \end{equation*}
-
-    \item A current loop of area $A = \pi r^{2}$ has magnetic moment
-    \begin{equation*}
-        \mu = \frac{IA}{c}.\footnotemark
-    \end{equation*}
-
-    \item Substituting gives
-    \begin{equation}
-        \mu = \frac{1}{c}\left(\frac{qv}{2\pi r}\right)\left(\pi r^{2}\right)
-            = \frac{q}{2mc}\,mvr
-            = \frac{q}{2mc}\,L_{z}.
-    \end{equation}
-\end{enumerate}
 \footnotetext{Here $c$ is in Gaussian units.}
+
 \begin{result}[Gyromagnetic Ratio]
     The magnetic moment is proportional to the angular momentum,
     \begin{equation}
@@ -136,16 +117,20 @@ Consider a point particle of mass $m$ and charge $q$ in a circular orbit of radi
 \end{result}
 
 \begin{remark}
-    This is a purely classical result. It matters here because measuring $\vec{\mu}$ is how we measure $\vec{L}$, and it is what the Stern-Gerlach apparatus exploits.
+    This is a purely classical result, in the sense that it follows from Newtonian mechanics and classical electromagnetism alone. The charge is treated as a point particle on a definite orbit with a definite radius and speed, and nothing is quantized. It matters here because measuring $\vec{\mu}$ is how we measure $\vec{L}$, and it is what the Stern-Gerlach apparatus exploits.
 \end{remark}
 
+\begin{definition}[Stern-Gerlach Apparatus]
+    A device that measures one component of a particle's magnetic moment. A beam of neutral atoms passes through a magnet shaped to produce a strong field gradient along a chosen axis, here $z$. The gradient exerts a force $F_z = \mu_z \, \partial B_z / \partial z$, so each atom is deflected by an amount proportional to $\mu_z$, and a screen records where it lands. Since $\vec{\mu} = \gamma \vec{S}$, the position on the screen is a direct measurement of $S_z$.
+\end{definition}
+
+\begin{figure}
+    
+\end{figure}
+
+% ------------------------------------------------------------
+\subsection{Spin and the magnetic moment}
 \marginpar{September 2, 2026}
-
-\subsection{Spin and the Magnetic Moment}
-
-\begin{remark}
-    The moment of inertia $I_0$ measures how mass is distributed relative to the rotation axis.
-\end{remark}
 
 In quantum mechanics the intrinsic angular momentum $\vec{S}$, called spin, replaces the orbital angular momentum $\vec{L}$. The magnetic moment is still proportional to it, but with an extra dimensionless factor,
 \begin{equation}
@@ -161,14 +146,14 @@ where $g$ is the g-factor of the particle. It has no classical analogue and must
     where $q$ is the charge, $g$ is the g-factor, $m$ is the mass, and $c$ is the speed of light.
 \end{definition}
 
+\subsubsection{Magnetons}
+
 \begin{definition}[Reduced Planck constant]
     \begin{equation}
         \hbar = \frac{h}{2\pi}.
     \end{equation}
     It carries units of angular momentum, so $[\hbar] = [L_z]$.
 \end{definition}
-
-\subsubsection{Magnetons}
 
 Factoring $\hbar$ out of the gyromagnetic ratio gives a natural unit of magnetic moment for each mass scale.
 
@@ -214,7 +199,8 @@ Neutron  & $0$    & $m_{p}$ & $g_{n} \approx -3.83$ & $g_{n}\mu_{N}/\hbar$ \\
     Since $m_{p} \gg m_{e}$, we get $\mu_{N} \ll \mu_{B}$ and therefore $|\vec{\mu}_{p}| \ll |\vec{\mu}_{e}|$. Stern-Gerlach deflection of nuclei is much weaker than for electrons.
 \end{remark}
 
-\subsection{Force in an Inhomogeneous Field}
+% ------------------------------------------------------------
+\subsection{The apparatus: force in an inhomogeneous field}
 
 A magnetic moment in a field has potential energy
 \begin{equation}
@@ -222,7 +208,7 @@ A magnetic moment in a field has potential energy
 \end{equation}
 so the force on it is
 \begin{equation}
-    \vec{F} = -\vec{\nabla}U, \qquad F_{z} = -\frac{\partial U}{\partial z}.
+    \vec{F} = -\vec{\nabla}U, \qquad F_{z} = -\frac{\partial U}{\partial z} = \mu_{z}\frac{\partial B_{z}}{\partial z}.
 \end{equation}
 
 \begin{remark}
@@ -231,7 +217,10 @@ so the force on it is
 
 \subsubsection{Silver atoms}
 
-Silver is used because its net orbital angular momentum vanishes, $\vec{L} = 0$, while $\vec{S} \neq 0$. The entire magnetic moment comes from a single unpaired valence electron, so the atom behaves as one electron spin.
+Silver is used because its net orbital angular momentum vanishes, $\vec{L} = 0$, while $\vec{S} \neq 0$. The entire magnetic moment comes from a single unpaired valence electron, so the atom behaves as one electron spin. For the electron,
+\begin{equation}
+    \mu_{z} = -\frac{g_{e}|e|}{2m_{e}c}\,S_{z}.
+\end{equation}
 
 Taking the field along $z$,
 \begin{equation}
@@ -248,12 +237,40 @@ where the last equality assumes $\partial B_{z}/\partial z < 0$.
     \begin{equation}
         F_{z} \propto S_{z}.
     \end{equation}
-    The deflection of an atom measures the $z$ component of its spin directly. Classically $S_{z}$ varies continuously over $[-|\vec{S}|, |\vec{S}|]$, so the beam should smear into a band. It does not.
+    The deflection of an atom measures the $z$ component of its spin directly.
 \end{result}
 
-\section{Misc}
+% ------------------------------------------------------------
+\subsection{The result: quantization of \texorpdfstring{$S_z$}{Sz}}
 \marginpar{September 4, 2026}
-$U = -\vec{\mu}\cdot\vec{B}$, $P_z = -\frac{dU}{dz} = \mu_z\frac{dB_z}{dz}$, $\mu_z = -\frac{-g_e|e|}{2m_ec}S_z$. Spin is a vector: $\vec{S} = (S_x, S_y, S_z)^T$. $S_z = |\vec{S}|cos\theta$, where $\theta \in [0,\pi] \implies cos \theta \in [-1,1]$. Classically, $S_z$ is continuous. Quantum mechanically, $S_z$ is discrete. e-spin angular momentum is quantized: $S_z = \pm \hbar/2$. New notation a "ket" $\ket{\uparrow}$ and $\ket{\downarrow}$ for $S_z = +\hbar/2$ and $S_z = -\hbar/2$ respectively. The Stern-Gerlach experiment shows that the spin of an electron is quantized. The spin of an electron is a two-level system, so it can be represented as a two-dimensional vector space. The spin state of an electron can be represented as a linear combination of the basis states $\ket{\uparrow}$ and $\ket{\downarrow}$:
+
+Spin is a vector,
+\begin{equation}
+    \vec{S} = (S_{x}, S_{y}, S_{z})^{T}, \qquad S_{z} = |\vec{S}|\cos\theta.
+\end{equation}
+Classically $\theta \in [0,\pi]$, so $\cos\theta \in [-1,1]$ and $S_{z}$ varies continuously over $[-|\vec{S}|, |\vec{S}|]$. Since $F_z \propto S_z$, the beam should smear into a continuous band. It does not.
+
+\begin{result}[Quantization of spin]
+    The electron spin angular momentum is quantized:
+    \begin{equation}
+        S_{z} = \pm\frac{\hbar}{2}.
+    \end{equation}
+    The beam splits into two spots.
+\end{result}
+
+\subsubsection{Ket notation}
+
+New notation, a ``ket'':
+\begin{equation*}
+    \ket{\uparrow} \; \text{for } S_{z} = +\frac{\hbar}{2},
+    \qquad
+    \ket{\downarrow} \; \text{for } S_{z} = -\frac{\hbar}{2}.
+\end{equation*}
+
+The spin of an electron is a two-level system, so it can be represented as a two-dimensional vector space. The spin state of an electron can be represented as a linear combination of the basis states $\ket{\uparrow}$ and $\ket{\downarrow}$:
+
+% notes cut off here
+
 % ============================================================
 %  APPENDIX
 % ============================================================
