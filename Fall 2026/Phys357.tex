@@ -55,7 +55,9 @@
 
 \setcounter{page}{1}
 
+% ============================================================
 \section{Introduction}
+% ============================================================
 Textbook used is JS Townsend, \emph{A Modern Approach to Quantum Mechanics}, 2nd ed., University Science Books 2012. Taught by Bill Coish. Mondays, Wednesdays and Fridays from 9:35 to 10:25 in Steward Biology Building N2/2. Course grading is divided as follows:
 \begin{itemize}
     \item 10\% problem sets (must be handwritten scans).
@@ -64,14 +66,17 @@ Textbook used is JS Townsend, \emph{A Modern Approach to Quantum Mechanics}, 2nd
     \item 30\% final exam.
 \end{itemize}
 
+% ============================================================
 \section{Stern-Gerlach Experiments}
+% ============================================================
 
+% ------------------------------------------------------------
 \subsection{The classical picture}
-\marginpar{August 31, 2026}
+% ------------------------------------------------------------
 
 \subsubsection{Angular momentum}
 
-\begin{definition}[Orbital Angular Momentum]
+\begin{definition}[Orbital angular momentum]
     The orbital angular momentum of a particle is
     \begin{equation}
         \vec{L} = \vec{r} \times \vec{p},
@@ -80,9 +85,11 @@ Textbook used is JS Townsend, \emph{A Modern Approach to Quantum Mechanics}, 2nd
 \end{definition}
 
 For motion confined to the $x$-$y$ plane, only the $z$ component survives. On a circular path of radius $r$ with speed $v$,
-\[L_{z} = mvr.\]
+\[
+    L_{z} = mvr.
+\]
 
-\begin{definition}[Angular Momentum of a Rigid Body]
+\begin{definition}[Angular momentum of a rigid body]
     For a rigid body\footnote{A rigid body is one that does not deform under the action of external forces.} rotating about a fixed axis this is
     \begin{equation}
         L = I_{0}\omega,
@@ -94,7 +101,7 @@ For motion confined to the $x$-$y$ plane, only the $z$ component survives. On a 
     The moment of inertia $I_0$ measures how mass is distributed relative to the rotation axis.
 \end{remark}
 
-\subsubsection{Magnetic moment}
+\subsubsection{Magnetic moment of a circulating charge}
 
 \begin{definition}[Magnetic moment]
     A magnetic moment is a measure of the net circulation of electric charge. It is a vector quantity that determines the torque a magnet will experience in an external magnetic field.
@@ -104,69 +111,81 @@ The magnetic moment of a point particle of mass $m$ and charge $q$ in a circular
 \begin{equation}
     \mu = \frac{IA}{c}\footnotemark = \frac{1}{c}\left(\frac{qv}{2\pi r}\right)\left(\pi r^{2}\right) = \frac{q}{2mc}\,mvr = \frac{q}{2mc}\,L_{z},
 \end{equation}
-where $I$ is the current and $A$ is the area enclosed by the orbit. A single circulating charge counts as a steady current $I = \frac{q}{T} = \frac{qv}{2\pi r}$ because it passes any given point on the loop once per period.
-
+where $I$ is the current and $A$ is the area enclosed by the orbit. A single circulating charge counts as a steady current $I = q/T = qv/2\pi r$ because it passes any given point on the loop once per period.
 \footnotetext{Here $c$ is in Gaussian units.}
 
-\begin{result}[Gyromagnetic Ratio]
-    The magnetic moment is proportional to the angular momentum,
-    \begin{equation}
-        \vec{\mu} = \gamma \vec{L}, \qquad \gamma = \frac{q}{2mc}.
-    \end{equation}
-    The constant $\gamma$ is the gyromagnetic ratio.
-\end{result}
-
-\begin{remark}
-    This is a purely classical result, in the sense that it follows from Newtonian mechanics and classical electromagnetism alone. The charge is treated as a point particle on a definite orbit with a definite radius and speed, and nothing is quantized. It matters here because measuring $\vec{\mu}$ is how we measure $\vec{L}$, and it is what the Stern-Gerlach apparatus exploits.
-\end{remark}
-
-\begin{definition}[Stern-Gerlach Apparatus]
-    A device that measures one component of a particle's magnetic moment. A beam of neutral atoms passes through a magnet shaped to produce a strong field gradient along a chosen axis, here $z$. The gradient exerts a force $F_z = \mu_z \, \partial B_z / \partial z$, so each atom is deflected by an amount proportional to $\mu_z$, and a screen records where it lands. Since $\vec{\mu} = \gamma \vec{S}$, the position on the screen is a direct measurement of $S_z$.
-\end{definition}
-
-\begin{figure}
-    
-\end{figure}
-
-% ------------------------------------------------------------
-\subsection{Spin and the magnetic moment}
-\marginpar{September 2, 2026}
-
-In quantum mechanics the intrinsic angular momentum $\vec{S}$, called spin, replaces the orbital angular momentum $\vec{L}$. The magnetic moment is still proportional to it, but with an extra dimensionless factor,
-\begin{equation}
-    \vec{\mu} = \frac{qg}{2mc}\,\vec{S},
-\end{equation}
-where $g$ is the g-factor of the particle. It has no classical analogue and must be measured or derived from relativistic quantum theory.
+\subsubsection{Gyromagnetic ratio}
 
 \begin{definition}[Gyromagnetic ratio]
-    The gyromagnetic ratio is the ratio of the magnetic moment to the angular momentum,
+    The gyromagnetic ratio $\gamma$ is the constant of proportionality between the magnetic moment and the angular momentum,
     \begin{equation}
-        \gamma = \frac{qg}{2mc},
+        \vec{\mu} = \gamma \vec{L}.
     \end{equation}
-    where $q$ is the charge, $g$ is the g-factor, $m$ is the mass, and $c$ is the speed of light.
+    For the circulating charge above,
+    \begin{equation}
+        \gamma = \frac{q}{2mc}.
+    \end{equation}
+\end{definition}
+
+\begin{remark}
+    This is a purely classical result, since the charge is treated as a point particle on a definite orbit with a definite radius and speed, and nothing is quantized. It matters here because measuring $\vec{\mu}$ is how we measure $\vec{L}$, and it is what the Stern-Gerlach apparatus exploits.
+\end{remark}
+
+% ------------------------------------------------------------
+\subsection{Spin}
+% ------------------------------------------------------------
+
+\begin{definition}[Spin]
+    Spin $\vec{S}$ is an intrinsic angular momentum carried by a particle. It is a fixed property of the particle type, like charge or mass, and does not come from any motion through space. A stationary electron alone in empty space still has spin.
+\end{definition}
+
+In quantum mechanics the spin $\vec{S}$ replaces the orbital angular momentum $\vec{L}$ of the classical picture.
+
+\subsubsection{Intrinsic moment and the g-factor}
+
+The magnetic moment is still proportional to the angular momentum, but the gyromagnetic ratio picks up an extra dimensionless factor,
+\begin{equation}
+    \vec{\mu} = \gamma\vec{S}, \qquad \gamma = \frac{qg}{2mc},
+\end{equation}
+where $g$ is the g-factor of the particle.
+
+\begin{definition}[g-factor]
+    The g-factor of a particle\footnote{Its value must be measured or derived from relativistic quantum theory.} is the dimensionless number relating its magnetic moment to its spin angular momentum. It measures how much stronger or weaker the moment is than the classical value $\gamma = q/2mc$, which corresponds to $g = 1$.
 \end{definition}
 
 \subsubsection{Magnetons}
-
+\begin{definition}[Planck constant]
+    The Planck constant $h$ is the fundamental constant of quantum mechanics. It sets the scale at which quantization matters, and relates the energy of a photon to its frequency by $E = h\nu$. Its value is
+    \begin{equation}
+        h \approx 6.626 \times 10^{-34}\ \mathrm{J\,s}.
+    \end{equation}
+    It has units of $J\cdot s$, which is the same as angular momentum.
+\end{definition}
 \begin{definition}[Reduced Planck constant]
     \begin{equation}
         \hbar = \frac{h}{2\pi}.
     \end{equation}
-    It carries units of angular momentum, so $[\hbar] = [L_z]$.
+    It carries units of angular momentum, so $[\hbar] = [L_z] = \frac{kg\cdot m^2}{s}$.
 \end{definition}
 
-Factoring $\hbar$ out of the gyromagnetic ratio gives a natural unit of magnetic moment for each mass scale.
+Writing $\vec{S} = \hbar(\vec{S}/\hbar)$ with $\vec{S}/\hbar$ dimensionless, the $\hbar$ joins the gyromagnetic ratio. The combination $q\hbar/2mc$ then carries the units and sets the natural size of the moment at a given mass scale.
 
 \begin{definition}[Bohr magneton]
+    The Bohr magneton is the natural unit of magnetic moment for an electron,
     \begin{equation}
         \mu_{B} = \frac{|e|\hbar}{2m_{e}c}.
     \end{equation}
 \end{definition}
 
 \begin{definition}[Nuclear magneton]
+    The nuclear magneton is the same combination with the proton mass, and is the natural unit for nucleons,
     \begin{equation}
         \mu_{N} = \frac{|e|\hbar}{2m_{p}c}.
     \end{equation}
+    Since $m_{p}/m_{e} \approx 1836$, we have $\mu_{N} \approx \mu_{B}/1836$.
+\end{definition}
+\begin{definition}[Nucleons]
+    The subatomic particles that make up the nucleus of an atom, specifically protons and neutrons.
 \end{definition}
 
 The electron moment is then written as
@@ -175,7 +194,7 @@ The electron moment is then written as
 \end{equation}
 and similarly for the proton and neutron with $\mu_{N}$ in place of $\mu_{B}$.
 
-\subsubsection{Values for the three particles}
+\subsubsection{Values for the electron, proton and neutron}
 
 \begin{table}[H]
 \centering
@@ -192,7 +211,7 @@ Neutron  & $0$    & $m_{p}$ & $g_{n} \approx -3.83$ & $g_{n}\mu_{N}/\hbar$ \\
 \end{table}
 
 \begin{remark}
-    The neutron is neutral but still has a magnetic moment, so $\vec{\mu}$ cannot come from a single circulating point charge. This is a first sign that the classical picture fails.
+    The classical derivation gives $\mu = (q/2mc)L_z$, which vanishes when $q = 0$. The neutron is neutral yet has a nonzero moment, so its $\vec{\mu}$ cannot come from a single circulating point charge. This is a first sign that the classical picture fails.
 \end{remark}
 
 \begin{remark}
@@ -200,7 +219,21 @@ Neutron  & $0$    & $m_{p}$ & $g_{n} \approx -3.83$ & $g_{n}\mu_{N}/\hbar$ \\
 \end{remark}
 
 % ------------------------------------------------------------
-\subsection{The apparatus: force in an inhomogeneous field}
+\subsection{The Stern-Gerlach apparatus}
+% ------------------------------------------------------------
+
+\begin{definition}[Stern-Gerlach apparatus]
+    A device that measures one component of a particle's magnetic moment. A beam of neutral atoms passes through a magnet shaped to produce a strong field gradient along a chosen axis, here $z$. The gradient deflects each atom by an amount proportional to $\mu_z$, and a screen records where it lands. Since $\vec{\mu} = \gamma\vec{S}$, the position on the screen is a direct measurement of $S_z$.
+\end{definition}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{../Images/Stern-Gerlach_apparatus.png}
+    \caption{Illustration of the Stern-Gerlach apparatus.}
+    \label{fig:stern-gerlach-apparatus}
+\end{figure}
+
+\subsubsection{Force in an inhomogeneous field}
 
 A magnetic moment in a field has potential energy
 \begin{equation}
@@ -211,20 +244,20 @@ so the force on it is
     \vec{F} = -\vec{\nabla}U, \qquad F_{z} = -\frac{\partial U}{\partial z} = \mu_{z}\frac{\partial B_{z}}{\partial z}.
 \end{equation}
 
+\begin{definition}[Deflection]
+    \label{SG-deflection}
+    The transverse displacement of an atom on the screen, produced by the force $F_z$ acting over the length of the magnet. It is proportional to $\mu_z$, so the pattern on the screen is a record of the moments in the beam.
+\end{definition}
+
 \begin{remark}
-    A uniform field gives no force, only a torque. The Stern-Gerlach apparatus needs a field \emph{gradient} to deflect anything.
+    A uniform field gives no force, only a torque. The apparatus needs a field \emph{gradient} to deflect anything.
 \end{remark}
 
 \subsubsection{Silver atoms}
 
 Silver is used because its net orbital angular momentum vanishes, $\vec{L} = 0$, while $\vec{S} \neq 0$. The entire magnetic moment comes from a single unpaired valence electron, so the atom behaves as one electron spin. For the electron,
 \begin{equation}
-    \mu_{z} = -\frac{g_{e}|e|}{2m_{e}c}\,S_{z}.
-\end{equation}
-
-Taking the field along $z$,
-\begin{equation}
-    U = -\mu_{z}B_{z} = g_{e}\frac{|e|}{2m_{e}c}\,S_{z}B_{z},
+    \mu_{z} = -\frac{g_{e}|e|}{2m_{e}c}\,S_{z},
 \end{equation}
 and therefore
 \begin{equation}
@@ -240,15 +273,17 @@ where the last equality assumes $\partial B_{z}/\partial z < 0$.
     The deflection of an atom measures the $z$ component of its spin directly.
 \end{result}
 
-% ------------------------------------------------------------
-\subsection{The result: quantization of \texorpdfstring{$S_z$}{Sz}}
-\marginpar{September 4, 2026}
+\subsubsection{The classical prediction}
 
 Spin is a vector,
 \begin{equation}
     \vec{S} = (S_{x}, S_{y}, S_{z})^{T}, \qquad S_{z} = |\vec{S}|\cos\theta.
 \end{equation}
 Classically $\theta \in [0,\pi]$, so $\cos\theta \in [-1,1]$ and $S_{z}$ varies continuously over $[-|\vec{S}|, |\vec{S}|]$. Since $F_z \propto S_z$, the beam should smear into a continuous band. It does not.
+
+% ------------------------------------------------------------
+\subsection{Quantization of \texorpdfstring{$S_z$}{Sz}}
+% ------------------------------------------------------------
 
 \begin{result}[Quantization of spin]
     The electron spin angular momentum is quantized:
@@ -272,13 +307,9 @@ The spin of an electron is a two-level system, so it can be represented as a two
 % notes cut off here
 
 % ============================================================
-%  APPENDIX
-% ============================================================
 \appendix
 \section{Appendix}
 
-% ============================================================
-%  Useful Links
 % ============================================================
 \section{Useful Links}
 
