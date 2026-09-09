@@ -197,6 +197,24 @@ Compressing the gas means $\delta V < 0$, so $W > 0$ and the energy of the gas g
 %  MISC
 % ============================================================
 \section{Misc}
+\marginpar{September 9, 2026}
+Application of the first law of thermodynamics
+\[\Delta U = Q+W\]
+Compression work
+$W = -P\Delta V$ is a deceptively simple expression. For an ideal gas $PV = nRT$, so $P$ and $V$ and not independent state-variables. There are 2 limiting cases for the compression/expansion of a gas:
+\begin{itemize}
+    \item Isothermal: T is constant during the process.
+    \item Adiabatic: No exchange of heat during the process; no heat flow through boundary.
+\end{itemize}
+Quasistatic Isothermal compression/expansion I: Work
+$PV = nRT = Nk_BT$ equation of state always satisfied during process (Note $N=nN_A; R/N_A = k_B = 1.38 \times 10^{-23} J/K$).
+%Picture of 2 graphs for isothermal expansion and compression with y as pressure and x as volume
+$W = - NkT \int_{V_i}^{V_f} \frac{1}{V}dV = NkT\ln(\frac{V_i}{V_f})$.
+Quasisttic Isothermal Compression/Expansion II: Heat.
+$\Delta U = Q+W$. Remember, for an ideal gas $U(T) = N\bar{e_k} = \frac{3Nk_BT}{2} (\text{For a monatomic gas}) = \frac{fNk_BT}{2} (\text{For a more complex gases})$. For isothermal compression/exapansion $\Delta U = 0$, so $Q = -W = NkT\ln(\frac{V_f}{V_i})$.
+Quasistatic Adiabatic Compression/Expansion: No Heat.
+$\Delta U = Q+W = 0 +W = W$ for an adiabatic process. Gas temperature must change $U(T)$. Equation for the Adiabat $U = \frac{f}{2}NkT$.
+$dU = f/2 NkdT = -PdV = dW$, plugging in $f/2 dT/T = -dV/V$, integrate $f/2 ln(T_f/T_i) = -ln(V_f/V_i)$. Exp: $V_fT_f^{f/2}=V_iT_i^{f/2}$, where $VT^{f/2}$ is a constant. Elim. T using IGL: $V^\gamma P = $ constant, where $\gamma$ is called the adiabatic exponent, is an abbrevitation for $(f+2)/f$.
 
 % ============================================================
 %  APPENDIX
