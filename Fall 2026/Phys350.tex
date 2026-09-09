@@ -75,6 +75,204 @@ Textbook used is David J. Griffiths - Introduction to Electrodynamics Fifth Edit
 \end{itemize}
 
 \section{Vector Analysis}
+
+\subsection{Scalars, Vectors, and Fields}
+\begin{definition}[Scalar]
+    A scalar is a quantity with just a magnitude
+\end{definition}
+\begin{definition}[Vector]
+    Vector is a quantity with a magnitude and a direction. A vector can be written in the form of 
+    \[\vec{v} = v_x\hat{x} + v_y\hat{y} + v_z\hat{z}.\]
+\end{definition}
+\begin{definition}[Cross Product]
+    The cross product is a vector perpendicular to both, set by the right hand rule, and it vanishes for parallel vectors, and can be mathematically written as
+    \[\vec{v}\times\vec{w} = |\vec{v}||\vec{w}|\sin\theta\,\hat{n}
+    = \begin{vmatrix} \hat{x} & \hat{y} & \hat{z} \\ v_x & v_y & v_z \\ w_x & w_y & w_z \end{vmatrix}.\]
+\end{definition}
+\begin{definition}[Dot Product]
+    The dot product measures how much of $\vec{v}$ points along $\vec{w}$, so it is zero for perpendicular vectors, and can be mathematically written as
+    \[\vec{v}\cdot\vec{w} = v_xw_x + v_yw_y + v_zw_z = |\vec{v}||\vec{w}|\cos\theta.\]
+\end{definition}
+\begin{remark}
+    Note $\vec{v}\times\vec{w} = -\vec{w}\times\vec{v}$, and $|\vec{v}| = \sqrt{\vec{v}\cdot\vec{v}}$.
+\end{remark}
+\begin{definition}[Field]
+    A field is something with a value at every point in space. A scalar field assigns a number to each point, like temperature $T(x,y,z)$ or the height of a hill. A vector field assigns a vector to each point, like fluid velocity or $\vec{E}$.
+\end{definition}
+
+\subsection{Divergence, Gradient, and Curl}
+\begin{definition}[Del operator]
+    The del operator
+    \[\vec{\nabla} = \left(\frac{\partial}{\partial x}, \frac{\partial}{\partial y}, \frac{\partial}{\partial z}\right),\]
+    means nothing until it is fed a field.
+\end{definition}
+
+\begin{align}
+    \vec{\nabla}f &= \frac{\partial f}{\partial x}\hat{x} + \frac{\partial f}{\partial y}\hat{y} + \frac{\partial f}{\partial z}\hat{z} && \text{(gradient: scalar $\to$ vector)}, \\
+    \vec{\nabla}\cdot\vec{F} &= \frac{\partial F_x}{\partial x} + \frac{\partial F_y}{\partial y} + \frac{\partial F_z}{\partial z} && \text{(divergence: vector $\to$ scalar)}, \\
+    \vec{\nabla}\times\vec{F} &= \begin{vmatrix} \hat{x} & \hat{y} & \hat{z} \\[2pt] \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\[2pt] F_x & F_y & F_z \end{vmatrix} && \text{(curl: vector $\to$ vector)}.
+\end{align}
+For the divergence we differentiate each component along its own direction. For the curl we mix directions, which is why terms like $\partial F_y/\partial x$ show up. The direction of the curl comes from the right hand rule: curl your fingers the way the paddle wheel turns and your thumb points along $\vec{\nabla}\times\vec{F}$.
+
+The gradient points in the steepest uphill direction, and its length grows where the hill is steeper. It is always perpendicular to the contours of constant $f$.
+
+\subsection{Integrals}
+An integral is an instruction to move along a region, evaluate something at each step, and add it to a running total. The multivariable versions are:
+\begin{align}
+    \int_C \vec{F}\cdot d\vec{l} && \text{line integral, the work done if $\vec{F}$ is a force}, \\
+    \int_S \vec{F}\cdot d\vec{a} = \int_S \vec{F}\cdot\hat{n}\,da && \text{flux, how much of the field pokes through the surface}, \\
+    \int_V f\,d^3\vec{r} && \text{volume integral, the mass if $f$ is a density}.
+\end{align}
+We write $\oint$ when the curve is a closed loop or the surface is closed.
+
+\begin{example}
+    Take $\vec{F} = y\hat{x}$ along a counterclockwise quarter circle of radius $R$. On the circle $d\vec{l} = R\,d\phi(-\sin\phi\,\hat{x} + \cos\phi\,\hat{y})$ and $y = R\sin\phi$, so
+    \[
+        \int_C \vec{F}\cdot d\vec{l} = -R^2\int_0^{\pi/2}\sin^2\phi\,d\phi = -\frac{R^2\pi}{4}.
+    \]
+    It is negative because $\vec{F}$ points along $+\hat{x}$ while we travel in the $-\hat{x}$ direction over most of the arc.
+\end{example}
+
+\subsection{The Three Fundamental Theorems}
+In single variable calculus, $\int_a^b (\partial f/\partial x)\,dx = f(b) - f(a)$. The same pattern holds in higher dimensions: integrating a derivative over a region reduces to evaluating the original object on the boundary of that region. The three theorems differ only in the dimension of the region.
+
+\begin{theorem}[Gradient theorem]
+    The boundary of a curve is two points:
+    \[
+        \int_a^b \vec{\nabla}h\cdot d\vec{l} = h(b) - h(a).
+    \]
+    To find my altitude change climbing a hill, I can compare before and after, or add up all the little changes along the way.
+\end{theorem}
+
+\begin{theorem}[Stokes' theorem]
+    The boundary of a surface is a curve:
+    \[
+        \int_S (\vec{\nabla}\times\vec{F})\cdot d\vec{a} = \oint_C \vec{F}\cdot d\vec{l}.
+    \]
+    To get the total swirl, I can work out the rotation at the boundary, or add up all the little whirlpools inside.
+\end{theorem}
+
+\begin{theorem}[Gauss' divergence theorem]
+    The boundary of a volume is a surface:
+    \[
+        \int_V (\vec{\nabla}\cdot\vec{F})\,d^3\vec{r} = \oint_S \vec{F}\cdot d\vec{a}.
+    \]
+    To find the total flux leaking out through the surface, I can add up all the sources inside.
+\end{theorem}
+
+\begin{remark}
+    Maxwell's equations come in a differential form written with $\vec{\nabla}\cdot$ and $\vec{\nabla}\times$, and an equivalent integral form written with $\oint\vec{F}\cdot d\vec{a}$ and $\oint\vec{F}\cdot d\vec{l}$. These two theorems are what let us pass between them. Gauss' law and Amp\`ere's law are the first examples.
+\end{remark}
+
+\subsection{Second Derivatives}
+Since we have three kinds of first derivative, we can mix and match to build second derivatives. Taking the divergence of a gradient gives
+\[
+    \vec{\nabla}\cdot(\vec{\nabla}f) = \frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2} + \frac{\partial^2 f}{\partial z^2} \equiv \nabla^2 f,
+\]
+where $\nabla^2$ is the Laplacian. Mathematicians often write $\Delta$, but in physics we use $\nabla^2$. Acting on a scalar field it returns a scalar field. It can also act on a vector field, component by component, returning a vector field.
+
+The full list of second derivative identities:
+\begin{align}
+    \vec{\nabla}\cdot(\vec{\nabla}f) &= \nabla^2 f && \text{(generally non-zero)}, \\
+    \vec{\nabla}\times(\vec{\nabla}f) &= 0 && \text{(curl of a gradient)}, \\
+    \vec{\nabla}\cdot(\vec{\nabla}\times\vec{F}) &= 0 && \text{(divergence of a curl)}, \\
+    \vec{\nabla}\times(\vec{\nabla}\times\vec{F}) &= \vec{\nabla}(\vec{\nabla}\cdot\vec{F}) - \nabla^2\vec{F} && \text{(the BAC--CAB of vector calculus)}.
+\end{align}
+These can be proved by writing out every partial derivative, which is tedious, or with index notation.
+
+\subsection{Index Notation}
+Write the $i$th component of $\vec{v}$ as $v_i$, so $v_1 = v_x$, $v_2 = v_y$, $v_3 = v_z$. A matrix carries two indices, $A_{ij}$, where $i$ says which row and $j$ says which column. A symmetric matrix has $A_{ij} = A_{ji}$, and an antisymmetric one has $B_{ij} = -B_{ji}$.
+
+\begin{definition}[Kronecker delta]
+    The identity matrix is written
+    \[
+        \delta_{ij} = \begin{cases} +1 & i = j \\ 0 & i \neq j \end{cases}.
+    \]
+\end{definition}
+
+Matrix multiplication $\vec{w} = A\vec{v}$ becomes $w_i = \sum_j A_{ij}v_j$. Multiplying by the identity gives $\sum_j \delta_{ij}v_j = v_i$, since the delta kills every term except $j = i$. This is the main trick: a delta summed against something sets one index equal to the other.
+
+The dot product is $\vec{v}\cdot\vec{w} = \sum_i v_iw_i$, with no free index because the result is a scalar. The cross product needs a second symbol:
+\[
+    (\vec{v}\times\vec{w})_i = \sum_{j,k}\varepsilon_{ijk}v_jw_k.
+\]
+
+\begin{definition}[Levi-Civita symbol]
+    $\varepsilon_{ijk}$ is defined by
+    \begin{itemize}
+        \item $\varepsilon_{123} = +1$, and cyclic permutations keep the sign: $\varepsilon_{123} = \varepsilon_{231} = \varepsilon_{312}$.
+        \item Swapping any two indices flips the sign, so $\varepsilon_{213} = \varepsilon_{132} = -1$.
+        \item If any two indices are equal, $\varepsilon_{ijk} = 0$.
+    \end{itemize}
+\end{definition}
+
+The identity that does all the work is
+\begin{equation}
+    \sum_i \varepsilon_{ijk}\varepsilon_{imn} = \delta_{jm}\delta_{kn} - \delta_{jn}\delta_{km},
+\end{equation}
+which can be checked component by component.
+
+Writing $\partial_i \equiv \partial/\partial x_i$, the derivatives become
+\[
+    \vec{\nabla}\cdot\vec{F} = \sum_i \partial_i F_i, \qquad (\vec{\nabla}\times\vec{F})_i = \sum_{j,k}\varepsilon_{ijk}\partial_j F_k.
+\]
+
+\subsection{Proving the Identities}
+Set $\vec{G} \equiv \vec{\nabla}\times(\vec{\nabla}\times\vec{F})$. Then
+\begin{align}
+    G_i &= \sum_{j,k}\varepsilon_{ijk}\partial_j\left(\sum_{m,n}\varepsilon_{kmn}\partial_m F_n\right) \\
+    &= \sum_{j,m,n}\left(\sum_k \varepsilon_{kij}\varepsilon_{kmn}\right)\partial_j\partial_m F_n \\
+    &= \sum_{j,m,n}\left(\delta_{im}\delta_{jn} - \delta_{in}\delta_{jm}\right)\partial_j\partial_m F_n.
+\end{align}
+In the second line we used the cyclic property $\varepsilon_{ijk} = \varepsilon_{kij}$ to move the summed index to the front so the identity applies. The first term gives
+\[
+    \sum_j \partial_j\partial_i F_j = \partial_i\left(\sum_j \partial_j F_j\right) = \left(\vec{\nabla}(\vec{\nabla}\cdot\vec{F})\right)_i,
+\]
+and the second gives $-\sum_j\partial_j\partial_j F_i = -(\nabla^2\vec{F})_i$. Together they reproduce the identity claimed above.
+
+For the curl of a gradient,
+\begin{equation}
+    \left(\vec{\nabla}\times(\vec{\nabla}f)\right)_i = \sum_{j,k}\varepsilon_{ijk}\partial_j\partial_k f. \tag{$*$}
+\end{equation}
+Now $j$ and $k$ are internal to the sum, so their names do not matter. Swap the labels:
+\begin{equation}
+    = \sum_{j,k}\varepsilon_{ikj}\partial_k\partial_j f = -\sum_{j,k}\varepsilon_{ijk}\partial_k\partial_j f = -\sum_{j,k}\varepsilon_{ijk}\partial_j\partial_k f. \tag{$**$}
+\end{equation}
+The second step uses the antisymmetry of $\varepsilon$ and the third uses the fact that partial derivatives commute. Comparing $(*)$ and $(**)$, the expression equals minus itself, and the only such number is zero. So $\vec{\nabla}\times(\vec{\nabla}f) = 0$.
+
+\subsection{Irrotational and Solenoidal Fields}
+The two vanishing identities let us classify fields.
+
+\begin{itemize}
+    \item Since $\vec{\nabla}\times(\vec{\nabla}\psi) = 0$, writing $\vec{F} = \vec{\nabla}\psi$ guarantees $\vec{\nabla}\times\vec{F} = 0$. Such a field is \textbf{irrotational}.
+    \item Since $\vec{\nabla}\cdot(\vec{\nabla}\times\vec{A}) = 0$, writing $\vec{F} = \vec{\nabla}\times\vec{A}$ guarantees $\vec{\nabla}\cdot\vec{F} = 0$. Such a field is \textbf{solenoidal}.
+\end{itemize}
+Any vector field can be written as $\vec{\nabla}\psi + \vec{\nabla}\times\vec{A}$.
+
+\begin{theorem}[Irrotational fields]
+    The following four statements are equivalent:
+    \begin{enumerate}[label=(\roman*)]
+        \item $\vec{\nabla}\times\vec{F} = 0$ everywhere.
+        \item $\int_a^b \vec{F}\cdot d\vec{l}$ is independent of path.
+        \item $\oint_C \vec{F}\cdot d\vec{l} = 0$ for any closed loop.
+        \item $\vec{F} = \vec{\nabla}\psi$ for some scalar $\psi$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{theorem}[Solenoidal fields]
+    The following four statements are equivalent:
+    \begin{enumerate}[label=(\roman*)]
+        \item $\vec{\nabla}\cdot\vec{F} = 0$ everywhere.
+        \item $\int_S \vec{F}\cdot d\vec{a}$ is independent of the surface, for surfaces sharing a boundary.
+        \item $\oint_S \vec{F}\cdot d\vec{a} = 0$ for any closed surface.
+        \item $\vec{F} = \vec{\nabla}\times\vec{A}$ for some vector field $\vec{A}$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{remark}
+    In electrostatics we will find $\vec{\nabla}\times\vec{E} = 0$. That is the irrotational case, and it is what licenses us to write $\vec{E} = -\vec{\nabla}V$ and introduce the electric potential. In magnetostatics we will find $\vec{\nabla}\cdot\vec{B} = 0$, which is the solenoidal case and licenses $\vec{B} = \vec{\nabla}\times\vec{A}$, the vector potential.
+\end{remark}
+
 \section{Electrostatics}
 \section{Potentials}
 \section{Electric Fields in Matter}
