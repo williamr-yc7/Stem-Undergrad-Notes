@@ -1,12 +1,22 @@
 \contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Ways to Write a PDE}{1}{subsection.1.1}%
-\contentsline {section}{\numberline {2}Potential Theory}{1}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Newton's Problem}{1}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Toolkit}{2}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Radial Chain Rule}{2}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}The Laplacian}{2}{subsection.2.4}%
-\contentsline {subsection}{\numberline {2.5}Harmonic Radial Functions}{3}{subsection.2.5}%
-\contentsline {section}{\numberline {3}General Solutions}{4}{section.3}%
-\contentsline {section}{\numberline {A}Appendix}{5}{appendix.A}%
-\contentsline {section}{\numberline {B}Solutions}{5}{appendix.B}%
-\contentsline {section}{\numberline {C}Useful Links}{5}{appendix.C}%
+\contentsline {section}{\numberline {2}Basic Definitions and Classification}{1}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Ways to Write a PDE}{1}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Order and Solutions}{1}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Linear and Nonlinear}{2}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Principle of Superposition}{2}{subsection.2.4}%
+\contentsline {section}{\numberline {3}General Solutions}{3}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Solving by Direct Integration}{3}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Auxiliary Conditions}{3}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Operator Viewpoint}{3}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Potential Theory}{4}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Newton's Problem}{4}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Toolkit}{4}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Radial Chain Rule}{4}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}The Laplacian}{5}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Harmonic Radial Functions}{5}{subsection.4.5}%
+\contentsline {section}{\numberline {5}First Order PDEs and the Solution Operator}{6}{section.5}%
+\contentsline {subsection}{\numberline {5.1}The Underlying ODE}{6}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}The Solution Operator}{6}{subsection.5.2}%
+\contentsline {section}{\numberline {A}Appendix}{6}{appendix.A}%
+\contentsline {section}{\numberline {B}Solutions}{6}{appendix.B}%
+\contentsline {section}{\numberline {C}Useful Links}{6}{appendix.C}%

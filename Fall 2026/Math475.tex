@@ -62,14 +62,18 @@
 %------- Introduction -----------
 \setcounter{page}{1}
 \section{Introduction}
-Taught by Adam Oberman. Mondays and Wednesdays from 14:35 to 15:55 in Steward Biology Building N2/2. Course grading is divided as follows:
+Taught by Adam Oberman. Mondays and Wednesdays from 14:35 to 15:55 in Stewart Biology Building N2/2. Course grading is divided as follows:
 \begin{itemize}
-    \item 10\% 5-6 Assignments.
-    \item 10\% Attendance and participation.
+    \item 10\% 5-6 assignments.
+    \item 10\% attendance and participation.
     \item 10\% 3-5 quizzes.
     \item 20\% midterm.
     \item 50\% final exam.
 \end{itemize}
+
+% ============================================================
+\section{Basic Definitions and Classification}
+% ============================================================
 
 \subsection{Ways to Write a PDE}
 \marginpar{August 31, 2026}
@@ -96,7 +100,159 @@ Not every PDE fits this pattern. Nonlinear examples include Burgers' equation
 \end{equation}
 and the Navier-Stokes equations.
 
+\subsection{Order and Solutions}
+\marginpar{September 2, 2026}
+
+\begin{definition}[Order]
+    The order of a PDE is the order of the highest derivative appearing in it.
+\end{definition}
+
+For example $u_{xx} = 0$ is second order, and $u_t + u u_x = 0$ is first order.
+
+\begin{definition}[Solution]
+    Let the PDE be written as $F(u) = 0$ and let $k$ be its order. A function $u$ is a solution if
+    \begin{enumerate}[label=(\arabic*)]
+        \item $u \in C^k$, that is $u$ is $k$ times continuously differentiable, and
+        \item $F(u) = 0$ at every point of the domain.
+    \end{enumerate}
+\end{definition}
+
+\begin{example}[Transport equation]
+    Let $u = u(x,t)$ and $F(u_t, u_x) = u_t + c u_x = 0$ with $c \in \mathbb{R}$. Let $\Phi$ be any differentiable function and set $u(x,t) = \Phi(x - ct)$. Then
+    \begin{equation}
+        u_x = \Phi'(x-ct), \qquad u_t = -c\,\Phi'(x-ct),
+    \end{equation}
+    so $u_t + c u_x = 0$. The whole family $\Phi$ solves the equation.
+\end{example}
+
+\begin{example}[Heat equation]
+    Let $u_t = c^2 u_{xx}$ and take the ansatz $u(x,t) = e^{-c^2k^2 t}\sin(kx)$ for an arbitrary constant $k$. Then
+    \begin{equation}
+        u_t = -c^2k^2 u, \qquad
+        u_x = k\,e^{-c^2k^2t}\cos(kx), \qquad
+        u_{xx} = -k^2 e^{-c^2k^2t}\sin(kx) = -k^2 u,
+    \end{equation}
+    so $u_t = c^2 u_{xx}$.
+\end{example}
+
+\begin{example}[Wave equation]
+    Let $u_{tt} = c^2 u_{xx}$ and take $u(x,t) = \cos(kct)\sin(kx)$. Then
+    \begin{equation}
+        u_{xx} = -k^2 u, \qquad u_{tt} = -c^2k^2 u,
+    \end{equation}
+    so $u_{tt} = c^2 u_{xx}$.
+\end{example}
+
+\subsection{Linear and Nonlinear}
+
+\begin{definition}[Linear PDE]
+    A PDE $F(u, u_x, x) = 0$ is linear if it can be rewritten as
+    \begin{equation}
+        L(u) = f(x),
+    \end{equation}
+    where $L$ is linear in $u$ and its derivatives and $f$ depends on $x$ only.
+\end{definition}
+
+\begin{example}
+    Take $F(u, u_x, x) = 3u + u_x - x^2$. Setting $L(u, u_x) = 3u + u_x$ and $f(x) = x^2$ gives
+    \begin{equation}
+        F(u, u_x, x) = 0 \iff L(u, u_x) = f(x),
+    \end{equation}
+    so the equation is linear. The same definition works in higher dimensions.
+\end{example}
+
+\begin{definition}[Homogeneous]
+    A linear PDE $L(u) = f(x)$ is homogeneous if $f \equiv 0$, and inhomogeneous otherwise.
+\end{definition}
+
+\begin{example}
+    $u_t + a u_x = x^3$ is linear with $L(u) = u_t + a u_x$ and $f(x) = x^3$, so it is inhomogeneous.
+\end{example}
+
+\begin{example}
+    $u_t + u u_x = f(x)$ is nonlinear, because the term $u u_x$ is not linear in $u$.
+\end{example}
+
+\subsection{Principle of Superposition}
+
+\begin{principle}[Superposition]
+    Let $L(u) = 0$ be linear and homogeneous. If $u_1$ and $u_2$ are solutions, then so is $u_1 + c\,u_2$ for every $c \in \mathbb{R}$.
+\end{principle}
+
+\begin{proof}
+    By linearity of $L$,
+    \begin{equation}
+        L(u_1 + c u_2) = L(u_1) + c\,L(u_2) = 0 + c \cdot 0 = 0. \qedhere
+    \end{equation}
+\end{proof}
+
+\begin{example}
+    For $u_t = c^2 u_{xx}$, both
+    \begin{equation}
+        u_1(x,t) = e^{-c^2k^2t}\sin(kx)
+        \qquad \text{and} \qquad
+        u_2(x,t) = e^{-c^2 t}\sin(x)
+    \end{equation}
+    are solutions, so $u(x,t) = a_1 u_1(x,t) + a_2 u_2(x,t)$ is a solution for any $a_1, a_2 \in \mathbb{R}$.
+\end{example}
+
+\footnote{80\% chance that what we have written so far is not on the final.}
+
+% ============================================================
+\section{General Solutions}
+% ============================================================
+
+\subsection{Solving by Direct Integration}
+
+\begin{example}
+    Solve $u_x = 0$ for $u(x,y)$ on $\mathbb{R}^2$. The solution is $u(x,y) = f(y)$ for an arbitrary $f$.
+\end{example}
+
+\begin{example}
+    Solve $u_{xx} = 0$. Set $v(x,y) = u_x$. Then $v_x = 0$, so by the previous example $v(x,y) = f(y)$, hence $u_x = f(y)$. Fixing $y$ and integrating in $x$ gives
+    \begin{equation}
+        u(x,y) = f(y)\,x + g(y).
+    \end{equation}
+    Check: $u_x = f(y)$ and $u_{xx} = 0$.
+\end{example}
+
+\begin{example}
+    Solve $u_{xy} = 0$. Set $v(x,y) = u_x$. Then $v_y = 0$, so $v(x,y) = f(x)$, hence $u_x = f(x)$. Fixing $y$ and integrating in $x$ gives
+    \begin{equation}
+        u(x,y) = F(x) + g(y), \qquad F' = f.
+    \end{equation}
+    Check: $u_x = F'(x)$ depends on $x$ only, so $u_{xy} = 0$.
+\end{example}
+
+\begin{remark}
+    In each case the general solution carries arbitrary \emph{functions} rather than arbitrary constants. An ODE of order $k$ has $k$ free constants; a PDE has free functions of the remaining variables.
+\end{remark}
+
+\subsection{Auxiliary Conditions}
+
+Auxiliary conditions means boundary conditions. A typical problem on a domain $\Omega \subset \mathbb{R}^d$ reads
+\begin{equation}
+    \Delta u = f(x) \quad \text{in } \Omega,
+    \qquad
+    u(x) = g(x) \quad \text{on } \partial\Omega .
+\end{equation}
+These conditions are what cut the family of general solutions down to one.
+
+\subsection{Operator Viewpoint}
+
+Write a linear PDE as
+\begin{equation}
+    Lu = f,
+\end{equation}
+where $L$ is the operator, $u$ is the unknown and $f$ is the input. The linear algebra analogue is
+\begin{equation}
+    Mx = b, \qquad x, b \in \mathbb{R}^d, \qquad x = M^{-1}b,
+\end{equation}
+so solving a linear PDE is the infinite-dimensional version of inverting $M$.
+
+% ============================================================
 \section{Potential Theory}
+% ============================================================
 
 \subsection{Newton's Problem}
 
@@ -234,31 +390,40 @@ which vanishes for $r > 0$ iff $a = 0$ or $a = -1$. So
     $1/\|x\|$ is the Newtonian potential: $\nabla(1/r) = -x/\|x\|^3$, the inverse-square field. Harmonic away from the origin only.
 \end{remark}
 
-\marginpar{September 2, 2026}
-Order of PDE is the order of the highest derivative which appears in it. Example $U_{xx}$ is of 2nd order and $U_t + UU_x$ is of 1st order.
-Solution of PDE (1) $u\in c^K$, where $K$ is the order of the PDE, and $u$ is the k-times differentiable (2) $F(u) = 0$.
-Example: Let $u=u(x,t)$, $F(u_t,u_x) = u_t+cu_x = 0, c \in \mathbb{R}$. A Solution, let $\Phi(z)$ be any differentiable function then define $u(x,t) = \Phi(x-ct)$ solves the PDE. $u_x = \Phi'(x-ct)$, $u_t = -c\Phi'(x-ct)$, so $u_t + cu_x = 0$.
-Example: $u_t = c^2u_{xx}$, Ansatz: k is a constant, orbiting $u(x,t) = e^{-c^2k^2t}\sin(kx) = \exp(-c^2k^2t)\sin(kx)$, $u_t = -c^2k^2u$, $u_x = k\exp(-c^2k^2t)\cos(kx)$, $u_{xx} = -k^2\exp(-c^2k^2t)\sin(kx) = -k^2u$, so $u_t = c^2u_{xx}$.\\
-Example (wave equation): $u_{tt} = c^2u_{xx}$, $u(x,t) = cos(kct)sin(kx)$, $u_{xx} = -k^2cos(kct)sin(kx) = -k^2u$, $u_{tt} = -c^2k^2cos(kct)sin(kx) = -c^2k^2u$, so $u_{tt} = c^2u_{xx}$.
+% ============================================================
+\section{First Order PDEs and the Solution Operator}
+% ============================================================
+\marginpar{September 9, 2026}
 
-Classification of PDEs.
-Linear/Nonlinear: example $F(u,u_x,x) = 3u+u_x-x^2, L(u,u_x) = 3u+u_x, f(x) = x^2$, $F(u,u_x,x) = 0 \leftrightarrow L(u,u_x) = f(x)$ which is linear. PDE: $F(u,u_x,x) - 0$ is linear if it can be written in the form $L(u,u_x) = f(x)$, where $L$ is linear in each term.
+\subsection{The Underlying ODE}
 
-Similarly in higher diensions. Sub definition, the linear PDE $L(u) = f(x)$ is homogeneous. Example $u_t + au_x x^3 = 0$ is linear $L(u_t,u_x) = u_t +au_x, f(x) = x^3$, its inhomogeneous. Example 2: $u_t+uu_x = f(x)$ is nonlinear.
+Start from the ODE
+\begin{equation}
+    x'(s) = v(x(s), s),
+\end{equation}
+where $v$ is a velocity field. Assume $v(x,s)$ is smooth. By the existence and uniqueness theorem there is a unique trajectory passing through every point.
 
-Principle of Superposition:
-Linear $L(u) = 0$, $u_1$, $u_2$ are solutions of $L(u)=0$, then so is $u_1+cu_2$ for all $c\in\mathbb{R}$. Check: $L(u_1+cu_2) = L(u_1)+cL(u_2) = 0 + c*0 = 0$.
-Example: $u_t = c^2c_{xx}$, $u_1(x,t) = \exp(-c^2k^2t)\sin(kx)$, $u_2(x,t) = \exp(-c^2t)\sin(x)$, then $u(x,t) = a_1u+a_2u$ is also a solution.
-\footnote{80\% chance of what we just wrote so far is not on the final.}
+\subsection{The Solution Operator}
 
-\section{General Solutions}
-Example $u(x,y)$ is a function in $\mathbb{R}^2$, solve (all), $u_x=0$ in $\mathbb{R}^2$, solution is $u(x,y) = f(y)$ for $f$ arbitrary.
-Example: $u(x,y) \in \mathbb{R^2}, u_{xx} = 0$, steps: let $v(x,y) = u_x$ by previous example $v(x,y) = f(y)$ so $u_x=f(y)$ so fix one $y \implies u(x,y) = f(y) + xg(y)$. Check  PDE $u(x,y) = f(y)+xg(y), u_x=0+g(y), u_{xx} = 0$.\\
-Example: same idea $u(x,y), u_{xy} = 0$, let $v(x,y) = u_x$, then $v_y = 0$ so $v(x,y) = f(x)$, so $u_x = f(x)$, fix one $y$ and integrate in $x$, $u(x,y) = F(x)+g(y)$, check: $u_{xy} = F'(x)_y + g'(y)_x = 0+0=0$.
+\begin{definition}[Solution operator]
+    Given times $t_0$ and $t_1$, the solution operator is the map
+    \begin{equation}
+        S_{t_0 \to t_1}(x_0) = x(t_1),
+    \end{equation}
+    where $x(\cdot)$ solves the ODE with initial condition $x(t_0) = x_0$.
+\end{definition}
 
-"auciliary" conditions means bounday conditions, $\delta u = f(x)$ in domain $\Omega \subset \mathbb{R}^d$, $u(x) = g(x)$ on boundary $\partial\Omega\subset\mathbb{R}^d$.
+\begin{proposition}[Identities]
+    \begin{enumerate}
+        \item $S_{t \to t}(x) = x$, that is $S_{t \to t} = \mathrm{Id}$.
+        \item $S_{t_1 \to t_2} \circ S_{t_0 \to t_1} = S_{t_0 \to t_2}$.
+        \item $S_{t_1 \to t_0} = \left( S_{t_0 \to t_1} \right)^{-1}$: running time backwards inverts the operator.
+    \end{enumerate}
+\end{proposition}
 
-$Lu=f$, here its a linear PDE where $L$ is the operator, u is the want and f is the input. $Mx=b$, $x\in\mathbb{R}^d$ vector $b\in\mathbb{R}^d$, $x=M^{-1}b$
+
+
+
 % ============================================================
 \appendix
 \section{Appendix}

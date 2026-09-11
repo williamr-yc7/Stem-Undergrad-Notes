@@ -307,13 +307,251 @@ Spin is a vector,
     The space is two-dimensional, so any spin state is a linear combination of the two.
 \end{definition}
 
-% notes cut off here
+\begin{remark}
+    From here on we follow Townsend and write $\ket{+\hat{z}} \equiv \ket{\uparrow}$ and $\ket{-\hat{z}} \equiv \ket{\downarrow}$. The same labels work for any axis: $\ket{\pm\hat{x}}$ are the states with $S_x = \pm\hbar/2$.
+\end{remark}
 
-\section{Misc}
-\subsection{Stern-Gerlach Experiment}
-%Talk about the experiement how you can filter out beams/atoms and always 50/50 chance and if you make it go through SGz and filter out one spin and put it again in SGz then the same spin will result, but if SGz filter then SGx after itll be 50 |-x> and 50 |+x>, also add an illustration
+% ------------------------------------------------------------
+\subsection{Sequential Stern-Gerlach experiments}
+% ------------------------------------------------------------
 
-\subsection{}
+We write SG$z$ for a device whose gradient points along $z$, and SG$x$ for the same device rotated by $90^\circ$ about the beam axis. Each device sends atoms into two beams. Blocking one of them turns the device into a filter: every atom that gets through has a known spin component.
+
+A beam straight from the oven always splits 50/50 in any SG device, whatever its orientation. The interesting results come from sending a filtered beam into a second (or third) device.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+    box/.style={draw, thick, minimum width=1.1cm, minimum height=0.8cm, font=\small},
+    oven/.style={box, fill=orange!20},
+    sg/.style={box, fill=gray!15},
+    beam/.style={-latex, thick},
+    blocked/.style={line width=2.5pt},
+    lab/.style={font=\small}
+]
+% ---------------- Experiment 1 ----------------
+\node[font=\bfseries] at (-1.2,0) {1};
+\node[oven] at (0,0) {Oven};
+\node[sg]   at (2.0,0) {SG$z$};
+\node[sg]   at (4.6,0) {SG$z$};
+\draw[beam] (0.55,0) -- (1.45,0);
+\draw[beam] (2.55,0.15) -- node[lab,above] {$+\hat{z}$} (4.05,0);
+\draw[thick] (2.55,-0.15) -- (3.35,-0.6);
+\draw[blocked] (3.35,-0.85) -- (3.35,-0.35);
+\node[lab] at (2.85,-0.75) {$-\hat{z}$};
+\draw[beam] (5.15,0.15) -- (6.15,0.55) node[lab,right] {$+\hat{z}$: 100\%};
+\draw[beam, dashed] (5.15,-0.15) -- (6.15,-0.55) node[lab,right] {$-\hat{z}$: 0\%};
+
+% ---------------- Experiment 2 ----------------
+\begin{scope}[yshift=-2.3cm]
+\node[font=\bfseries] at (-1.2,0) {2};
+\node[oven] at (0,0) {Oven};
+\node[sg]   at (2.0,0) {SG$z$};
+\node[sg]   at (4.6,0) {SG$x$};
+\draw[beam] (0.55,0) -- (1.45,0);
+\draw[beam] (2.55,0.15) -- node[lab,above] {$+\hat{z}$} (4.05,0);
+\draw[thick] (2.55,-0.15) -- (3.35,-0.6);
+\draw[blocked] (3.35,-0.85) -- (3.35,-0.35);
+\node[lab] at (2.85,-0.75) {$-\hat{z}$};
+\draw[beam] (5.15,0.15) -- (6.15,0.55) node[lab,right] {$+\hat{x}$: 50\%};
+\draw[beam] (5.15,-0.15) -- (6.15,-0.55) node[lab,right] {$-\hat{x}$: 50\%};
+\end{scope}
+
+% ---------------- Experiment 3 ----------------
+\begin{scope}[yshift=-4.6cm]
+\node[font=\bfseries] at (-1.2,0) {3};
+\node[oven] at (0,0) {Oven};
+\node[sg]   at (2.0,0) {SG$z$};
+\node[sg]   at (4.6,0) {SG$x$};
+\node[sg]   at (7.2,0) {SG$z$};
+\draw[beam] (0.55,0) -- (1.45,0);
+\draw[beam] (2.55,0.15) -- node[lab,above] {$+\hat{z}$} (4.05,0);
+\draw[thick] (2.55,-0.15) -- (3.35,-0.6);
+\draw[blocked] (3.35,-0.85) -- (3.35,-0.35);
+\node[lab] at (2.85,-0.75) {$-\hat{z}$};
+\draw[beam] (5.15,0.15) -- node[lab,above] {$+\hat{x}$} (6.65,0);
+\draw[thick] (5.15,-0.15) -- (5.95,-0.6);
+\draw[blocked] (5.95,-0.85) -- (5.95,-0.35);
+\node[lab] at (5.45,-0.75) {$-\hat{x}$};
+\draw[beam] (7.75,0.15) -- (8.75,0.55) node[lab,right] {$+\hat{z}$: 50\%};
+\draw[beam] (7.75,-0.15) -- (8.75,-0.55) node[lab,right] {$-\hat{z}$: 50\%};
+\end{scope}
+\end{tikzpicture}
+\caption{Sequential Stern-Gerlach experiments. Thick bars block a beam. Percentages are the fractions of atoms entering the last device.}
+\label{fig:sequential-sg}
+\end{figure}
+
+\subsubsection{\texorpdfstring{Experiment 1: SG$z$ then SG$z$}{Experiment 1: SGz then SGz}}
+
+Filter the $+\hat{z}$ beam and send it into a second SG$z$. Every atom comes out $+\hat{z}$, none come out $-\hat{z}$. The measurement is repeatable: once an atom is found with $S_z = +\hbar/2$, measuring $S_z$ again gives the same answer. The atom leaves the first device in the state $\ket{+\hat{z}}$.
+
+\subsubsection{\texorpdfstring{Experiment 2: SG$z$ then SG$x$}{Experiment 2: SGz then SGx}}
+
+Filter the $+\hat{z}$ beam and send it into an SG$x$. Half the atoms come out $+\hat{x}$ and half come out $-\hat{x}$. Knowing $S_z = +\hbar/2$ tells us nothing about $S_x$.
+
+\subsubsection{\texorpdfstring{Experiment 3: SG$z$, SG$x$, then SG$z$}{Experiment 3: SGz, SGx, then SGz}}
+
+Filter $+\hat{z}$, then filter $+\hat{x}$, then measure $S_z$ again. The beam splits 50/50 into $+\hat{z}$ and $-\hat{z}$, even though every atom was filtered to $+\hat{z}$ at the start. The $S_x$ measurement wiped out the earlier $S_z$ information.
+
+\begin{result}
+    An atom with a definite value of $S_x$ does not have a definite value of $S_z$. Measuring $S_x$ destroys what we knew about $S_z$, so no state has definite values of both at once.
+\end{result}
+
+% ============================================================
+\section{Quantum States as Vectors}
+% ============================================================
+\marginpar{September 11, 2026}
+
+% ------------------------------------------------------------
+\subsection{Superposition}
+% ------------------------------------------------------------
+
+Experiment 3 shows that an atom in the state $\ket{+\hat{x}}$ does not have a definite $S_z = \pm\hbar/2$. It is neither $\ket{+\hat{z}}$ nor $\ket{-\hat{z}}$, but a combination of both.
+
+\begin{definition}[Superposition]
+    A general spin state is a linear combination of the basis kets,
+    \begin{equation}
+        \ket{\psi} = c_{+}\ket{+\hat{z}} + c_{-}\ket{-\hat{z}}, \qquad c_{\pm} \in \mathbb{C}.
+    \end{equation}
+    The pair $\{\ket{+\hat{z}}, \ket{-\hat{z}}\}$ is a basis, and the coefficients $c_\pm$ are complex numbers.
+\end{definition}
+
+\begin{remark}
+    This works exactly like an ordinary vector written in components,
+    \begin{equation}
+        \vec{E} = E_x\hat{x} + E_y\hat{y} + E_z\hat{z},
+    \end{equation}
+    where the basis is orthonormal:
+    \begin{equation}
+        \hat{x}\cdot\hat{x} = \hat{y}\cdot\hat{y} = \hat{z}\cdot\hat{z} = 1, \qquad \hat{x}\cdot\hat{y} = \hat{x}\cdot\hat{z} = \hat{y}\cdot\hat{z} = 0.
+    \end{equation}
+    A component is picked out with a dot product, $E_x = \hat{x}\cdot\vec{E}$. Kets do the same thing, with the inner product playing the role of the dot product.
+\end{remark}
+
+% ------------------------------------------------------------
+\subsection{Bras and the inner product}
+% ------------------------------------------------------------
+
+\begin{definition}[Bra]
+    Every ket $\ket{\psi}$ has a matching bra $\bra{\psi}$. Putting a bra in front of a ket gives a complex number, the inner product
+    \begin{equation}
+        \bra{\phi}\,\ket{\psi} \equiv \braket{\phi|\psi} \in \mathbb{C}.
+    \end{equation}
+\end{definition}
+
+\begin{definition}[Orthonormal basis]
+    The basis kets are orthonormal:
+    \begin{equation}
+        \braket{+\hat{z}|+\hat{z}} = \braket{-\hat{z}|-\hat{z}} = 1, \qquad \braket{+\hat{z}|-\hat{z}} = \braket{-\hat{z}|+\hat{z}} = 0.
+    \end{equation}
+\end{definition}
+
+% ------------------------------------------------------------
+\subsection{Probability amplitudes}
+% ------------------------------------------------------------
+
+To pull out $c_+$, act on $\ket{\psi}$ with $\bra{+\hat{z}}$, just like dotting $\vec{E}$ with $\hat{x}$:
+\begin{equation}
+    \braket{+\hat{z}|\psi} = c_{+}\underbrace{\braket{+\hat{z}|+\hat{z}}}_{=1} + c_{-}\underbrace{\braket{+\hat{z}|-\hat{z}}}_{=0} = c_{+}.
+\end{equation}
+The same steps with $\bra{-\hat{z}}$ give $c_-$. So
+\begin{equation}
+    c_{\pm} = \braket{\pm\hat{z}|\psi}.
+\end{equation}
+
+\begin{definition}[Probability amplitude]
+    The coefficient $c_\pm = \braket{\pm\hat{z}|\psi}$ is the probability amplitude for measuring $S_z = \pm\hbar/2$. The probability itself is the modulus squared,
+    \begin{equation}
+        P\!\left(S_z = \pm\tfrac{\hbar}{2}\right) = |c_{\pm}|^2 = \left|\braket{\pm\hat{z}|\psi}\right|^2.
+    \end{equation}
+\end{definition}
+
+\begin{principle}[Born rule]
+    The probability that a system in the state $\ket{\psi}$ is found in the state $\ket{\phi}$ is
+    \begin{equation}
+        P(\phi\,|\,\psi) = \left|\braket{\phi|\psi}\right|^2 \in [0,1].
+    \end{equation}
+\end{principle}
+
+% ------------------------------------------------------------
+\subsection{Normalization}
+% ------------------------------------------------------------
+
+A system in $\ket{\psi}$ is found in $\ket{\psi}$ with certainty, so
+\begin{equation}
+    P(\psi\,|\,\psi) = \left|\braket{\psi|\psi}\right|^2 = 1.
+\end{equation}
+
+This fixes what the bra looks like. Write it with unknown coefficients, $\bra{\psi} = c_{+}'\bra{+\hat{z}} + c_{-}'\bra{-\hat{z}}$. Then
+\begin{equation}
+    \braket{\psi|\psi} = \left(c_{+}'\bra{+\hat{z}} + c_{-}'\bra{-\hat{z}}\right)\left(c_{+}\ket{+\hat{z}} + c_{-}\ket{-\hat{z}}\right) = c_{+}'c_{+} + c_{-}'c_{-},
+\end{equation}
+since the cross terms vanish by orthonormality. The two outcomes $S_z = \pm\hbar/2$ must have probabilities $|c_+|^2$ and $|c_-|^2$ that add to 1. For $\braket{\psi|\psi}$ to be that sum, each product $c_\pm' c_\pm$ must be real and equal to $|c_\pm|^2$. This forces $c_{\pm}' = c_{\pm}^{*}$.
+
+\begin{result}
+    Going from a ket to its bra, conjugate the coefficients:
+    \begin{equation}
+        \bra{\psi} = c_{+}^{*}\bra{+\hat{z}} + c_{-}^{*}\bra{-\hat{z}}.
+    \end{equation}
+    In particular $\braket{\psi|\pm\hat{z}} = c_\pm^* = \braket{\pm\hat{z}|\psi}^{*}$. More generally, $\braket{\phi|\psi} = \braket{\psi|\phi}^{*}$.
+\end{result}
+
+\begin{definition}[Normalization condition]
+    \begin{equation}
+        \braket{\psi|\psi} = \braket{\psi|+\hat{z}}\braket{+\hat{z}|\psi} + \braket{\psi|-\hat{z}}\braket{-\hat{z}|\psi} = |c_{+}|^2 + |c_{-}|^2 = 1.
+    \end{equation}
+    In words, $P(S_z = +\hbar/2) + P(S_z = -\hbar/2) = 1$: the atom is always found in one of the two beams.
+\end{definition}
+
+\begin{example}
+    Take
+    \begin{equation*}
+        \ket{\psi} = \frac{1}{\sqrt{3}}\ket{+\hat{z}} + i\sqrt{\frac{2}{3}}\ket{-\hat{z}}.
+    \end{equation*}
+    The amplitude for $S_z = +\hbar/2$ is
+    \begin{equation*}
+        \braket{+\hat{z}|\psi} = \frac{1}{\sqrt{3}}\underbrace{\braket{+\hat{z}|+\hat{z}}}_{=1} + i\sqrt{\frac{2}{3}}\underbrace{\braket{+\hat{z}|-\hat{z}}}_{=0} = \frac{1}{\sqrt{3}},
+    \end{equation*}
+    so $P(S_z = +\hbar/2) = 1/3$. In the same way $\braket{-\hat{z}|\psi} = i\sqrt{2/3}$, so $P(S_z = -\hbar/2) = |i|^2 \cdot 2/3 = 2/3$. The two add to 1, so the state is normalized. The factor $i$ changes nothing here since $|i| = 1$.
+\end{example}
+
+% ------------------------------------------------------------
+\subsection{The state \texorpdfstring{$\ket{+\hat{x}}$}{|+x>}}
+% ------------------------------------------------------------
+
+In Experiment 3, atoms in $\ket{+\hat{x}}$ enter an SG$z$ and split 50/50:
+\begin{equation}
+    P\!\left(S_z = \pm\tfrac{\hbar}{2}\right) = \left|\braket{\pm\hat{z}|+\hat{x}}\right|^2 = \frac{1}{2}.
+\end{equation}
+So both amplitudes have modulus $1/\sqrt{2}$, and each can carry its own phase:
+\begin{equation}
+    \ket{+\hat{x}} = \frac{1}{\sqrt{2}}e^{i\delta_{+}}\ket{+\hat{z}} + \frac{1}{\sqrt{2}}e^{i\delta_{-}}\ket{-\hat{z}}
+    = \frac{e^{i\delta_{+}}}{\sqrt{2}}\left(\ket{+\hat{z}} + e^{i\delta}\ket{-\hat{z}}\right), \qquad \delta = \delta_{-} - \delta_{+},
+\end{equation}
+with $\delta_\pm \in \mathbb{R}$.
+
+% ------------------------------------------------------------
+\subsection{Global phase}
+% ------------------------------------------------------------
+
+Take two kets that differ only by an overall phase, $\ket{\psi} = e^{i\alpha}\ket{\psi'}$ with $\alpha \in \mathbb{R}$. For any state $\ket{\phi}$,
+\begin{equation}
+    P(\phi\,|\,\psi) = \left|\braket{\phi|\psi}\right|^2 = \left|e^{i\alpha}\braket{\phi|\psi'}\right|^2 = \left|\braket{\phi|\psi'}\right|^2 = P(\phi\,|\,\psi'),
+\end{equation}
+since $|e^{i\alpha}| = 1$.
+
+\begin{result}
+    $\ket{\psi}$ and $e^{i\alpha}\ket{\psi}$ give the same probabilities for every possible measurement, so they describe the same physical state. An overall (global) phase has no physical meaning and can be dropped.
+\end{result}
+
+Dropping the global phase $e^{i\delta_+}$ from $\ket{+\hat{x}}$ leaves
+\begin{equation}
+    \ket{+\hat{x}} = \frac{1}{\sqrt{2}}\left(\ket{+\hat{z}} + e^{i\delta}\ket{-\hat{z}}\right).
+\end{equation}
+
+\begin{remark}
+    The relative phase $\delta$ is different: it sits between the two terms, so it cannot be pulled out front and dropped. Experiment 3 alone does not fix it. It is pinned down by combining more measurements (for example along $y$) with a phase convention, and the standard choice for $\ket{+\hat{x}}$ is $\delta = 0$.
+\end{remark}
 
 % ============================================================
 \appendix
