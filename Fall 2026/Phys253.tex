@@ -84,7 +84,7 @@ The textbook is \textit{An Introduction to Thermal Physics} by Daniel V. Schroed
 \end{definition}
 
 \begin{remark}
-    Thermodynamics does not describe the microscopic details of a system\footnote{Statistical mechanics and more recent extensions such as stochastic thermodynamics, do.}. It describes the macroscopic properties and behaviour of a system using a small number of state variables.
+    Thermodynamics does not describe the microscopic details of a system\footnote{Statistical mechanics, and more recent extensions such as stochastic thermodynamics, do.}. It describes the macroscopic properties and behaviour of a system using a small number of state variables.
 \end{remark}
 
 % ============================================================
@@ -110,8 +110,8 @@ The textbook is \textit{An Introduction to Thermal Physics} by Daniel V. Schroed
 
 \begin{example}
     The ideal gas law is an equation of state relating $(P, V, T)$. It applies to equilibrium states of dilute gases at high temperature:
-    \[PV = nRT,\]
-    where $R$ is the ideal gas constant.
+    \[PV = nRT = N k_B T,\]
+    where $n$ is the number of moles, $N = n N_A$ is the number of molecules, $R$ is the ideal gas constant and $k_B = R/N_A = \SI{1.38e-23}{\joule\per\kelvin}$ is Boltzmann's constant.
 \end{example}
 
 \subsection{State Functions}
@@ -128,7 +128,7 @@ The textbook is \textit{An Introduction to Thermal Physics} by Daniel V. Schroed
 \end{example}
 
 % ============================================================
-%  ZEROTH LAW
+%  LAWS OF THERMODYNAMICS
 % ============================================================
 \section{Laws of Thermodynamics}
 \subsection{Zeroth Law}
@@ -140,9 +140,15 @@ The textbook is \textit{An Introduction to Thermal Physics} by Daniel V. Schroed
     The zeroth law is what makes a thermometer work. System C is the thermometer, and the law guarantees that two systems reading the same value on it are in thermal equilibrium with each other.
 \end{remark}
 
+\subsection{First Law}
 \begin{law}[First Law of Thermodynamics]
-    The relationship between Heat (Q), Work (W) and the Internal Energy (U) of a system is dictated by the conservation of energy.
+    The relationship between the heat $Q$ added to a system, the work $W$ done on it and the change in its internal energy $U$ is dictated by the conservation of energy:
+    \[\Delta U = Q + W.\]
 \end{law}
+
+\begin{remark}
+    Sign convention: $Q > 0$ when heat flows into the system, and $W > 0$ when work is done on the system. Both raise the internal energy.
+\end{remark}
 
 % ============================================================
 %  ENERGY, WORK AND HEAT
@@ -155,13 +161,19 @@ The textbook is \textit{An Introduction to Thermal Physics} by Daniel V. Schroed
     Energy, from the Greek \textit{energeia} meaning "in work," is the capacity to do work. It is a property of a thermodynamic system, and it is stored in different forms depending on the phase and composition of the matter involved.
 \end{definition}
 
-\subsubsection{Forms of Energy}
+\paragraph{Forms of energy.}
 \begin{definition}[Kinetic energy]
     From the Greek \textit{kinesis} (motion), the energy associated with the motion of a body or of the particles inside it.
 \end{definition}
 
 \begin{definition}[Potential energy]
     Energy due to condition, position or composition. It is associated with interactions, meaning forces of attraction or repulsion between objects, or chemical bonding.
+\end{definition}
+
+\begin{definition}[Internal energy of an ideal gas]
+    For an ideal gas the internal energy depends only on temperature. It is the number of molecules times the average kinetic energy per molecule:
+    \[U(T) = N \bar{e}_k = \frac{f}{2} N k_B T,\]
+    where $f$ is the number of degrees of freedom per molecule. For a monatomic gas $f = 3$ (translation only), so $U = \tfrac{3}{2} N k_B T$. More complex molecules have extra rotational or vibrational degrees of freedom, so $f > 3$.
 \end{definition}
 
 \subsection{Work}
@@ -171,14 +183,16 @@ The textbook is \textit{An Introduction to Thermal Physics} by Daniel V. Schroed
     In thermodynamics, work is any transfer of energy into or out of a system that is not heat.
 \end{definition}
 
-\subsubsection*{Compression of a Gas by a Piston}
+\paragraph{Compression of a gas by a piston.}
 Take a gas in a cylinder closed by a piston of area $A$. Pushing the piston in by a small distance $\delta x$ does work
 \[W = F \, \delta x.\]
 The pressure of the gas is $P = F/A$, so $F = PA$ and
 \[W = PA \, \delta x.\]
 For a quasistatic compression\footnote{Slow enough that the gas stays in internal equilibrium at every instant, so the pressure is uniform throughout the volume and the ideal gas law still applies.}, the change in volume is $\delta V = -A \, \delta x$, so the work done \textit{on} the gas is
 \[W = -P \, \delta V \qquad \text{(quasistatic)}.\]
-Compressing the gas means $\delta V < 0$, so $W > 0$ and the energy of the gas goes up, as expected.
+Compressing the gas means $\delta V < 0$, so $W > 0$ and the energy of the gas goes up, as expected. For a finite change in volume the work is the integral
+\[W = -\int_{V_i}^{V_f} P \, dV,\]
+which is the area under the curve on a $P$-$V$ diagram.
 
 \begin{remark}
     Energy and work are measured in the same units, joules, where $\SI{1}{\joule} = \SI{1}{\newton\metre} = \SI{1}{\kilo\gram\metre\squared\per\second\squared}$.
@@ -186,7 +200,7 @@ Compressing the gas means $\delta V < 0$, so $W > 0$ and the energy of the gas g
 
 \subsection{Heat}
 \begin{definition}[Heat]
-    Heat is energy that flows between systems because of a temperature difference, and it drives them toward thermal equilibrium. It is the quantity of energy $q$ transferred between a system and its surroundings as a result of that temperature difference.
+    Heat is energy that flows between systems because of a temperature difference, and it drives them toward thermal equilibrium. It is the quantity of energy $Q$ transferred between a system and its surroundings as a result of that temperature difference.
 \end{definition}
 
 \begin{remark}
@@ -194,27 +208,57 @@ Compressing the gas means $\delta V < 0$, so $W > 0$ and the energy of the gas g
 \end{remark}
 
 % ============================================================
-%  MISC
+%  COMPRESSION AND EXPANSION OF AN IDEAL GAS
 % ============================================================
-\section{Misc}
+\section{Compression and Expansion of an Ideal Gas}
 \marginpar{September 9, 2026}
-Application of the first law of thermodynamics
-\[\Delta U = Q+W\]
-Compression work
-$W = -P\Delta V$ is a deceptively simple expression. For an ideal gas $PV = nRT$, so $P$ and $V$ and not independent state-variables. There are 2 limiting cases for the compression/expansion of a gas:
+
+\subsection{The Two Limiting Cases}
+The expression $W = -P \, \delta V$ is deceptively simple. For an ideal gas $PV = nRT$, so $P$ and $V$ are not independent state variables: how $P$ changes as $V$ changes depends on what happens to $T$ during the process. Two limiting cases cover most situations.
 \begin{itemize}
-    \item Isothermal: T is constant during the process.
-    \item Adiabatic: No exchange of heat during the process; no heat flow through boundary.
+    \item Isothermal: $T$ is constant during the process. The gas stays in contact with a reservoir that absorbs or supplies whatever heat is needed.
+    \item Adiabatic: no exchange of heat during the process, meaning no heat flows through the boundary. The gas is insulated, or the process is too fast for heat to flow.
 \end{itemize}
-Quasistatic Isothermal compression/expansion I: Work
-$PV = nRT = Nk_BT$ equation of state always satisfied during process (Note $N=nN_A; R/N_A = k_B = 1.38 \times 10^{-23} J/K$).
-%Picture of 2 graphs for isothermal expansion and compression with y as pressure and x as volume
-$W = - NkT \int_{V_i}^{V_f} \frac{1}{V}dV = NkT\ln(\frac{V_i}{V_f})$.
-Quasisttic Isothermal Compression/Expansion II: Heat.
-$\Delta U = Q+W$. Remember, for an ideal gas $U(T) = N\bar{e_k} = \frac{3Nk_BT}{2} (\text{For a monatomic gas}) = \frac{fNk_BT}{2} (\text{For a more complex gases})$. For isothermal compression/exapansion $\Delta U = 0$, so $Q = -W = NkT\ln(\frac{V_f}{V_i})$.
-Quasistatic Adiabatic Compression/Expansion: No Heat.
-$\Delta U = Q+W = 0 +W = W$ for an adiabatic process. Gas temperature must change $U(T)$. Equation for the Adiabat $U = \frac{f}{2}NkT$.
-$dU = f/2 NkdT = -PdV = dW$, plugging in $f/2 dT/T = -dV/V$, integrate $f/2 ln(T_f/T_i) = -ln(V_f/V_i)$. Exp: $V_fT_f^{f/2}=V_iT_i^{f/2}$, where $VT^{f/2}$ is a constant. Elim. T using IGL: $V^\gamma P = $ constant, where $\gamma$ is called the adiabatic exponent, is an abbrevitation for $(f+2)/f$.
+Both are assumed quasistatic, so $PV = nRT = N k_B T$ holds at every instant.
+
+\subsection{Quasistatic Isothermal Compression and Expansion}
+\paragraph{Work.}
+Since $T$ is constant, $P = N k_B T / V$ can be substituted directly into the work integral:
+\[W = -\int_{V_i}^{V_f} \frac{N k_B T}{V} \, dV = -N k_B T \ln\frac{V_f}{V_i} = N k_B T \ln\frac{V_i}{V_f}.\]
+For a compression $V_f < V_i$, so $W > 0$: work is done on the gas. For an expansion $V_f > V_i$ and $W < 0$: the gas does work on its surroundings.
+
+% TODO: figure with two P-V diagrams (isothermal expansion and compression), pressure on the vertical axis and volume on the horizontal axis. The isotherm is the curve P = NkT/V and the work is the area under it.
+
+\paragraph{Heat.}
+For an ideal gas $U$ depends only on $T$, so an isothermal process has $\Delta U = 0$. The first law then gives
+\[Q = -W = N k_B T \ln\frac{V_f}{V_i}.\]
+In an isothermal expansion the gas does work but its energy does not drop, so it must absorb an equal amount of heat from the reservoir. In an isothermal compression the work done on the gas is dumped into the reservoir as heat.
+
+\subsection{Quasistatic Adiabatic Compression and Expansion}
+There is no heat, so the first law reduces to
+\[\Delta U = Q + W = 0 + W = W.\]
+Any work done on the gas goes entirely into its internal energy, and since $U = \tfrac{f}{2} N k_B T$, the temperature must change: an adiabatic compression heats the gas and an adiabatic expansion cools it.
+
+\paragraph{Equation of the adiabat.}
+Write the first law for an infinitesimal step and use $dW = -P \, dV$:
+\[dU = \frac{f}{2} N k_B \, dT = -P \, dV.\]
+Substitute $P = N k_B T / V$ from the ideal gas law and cancel $N k_B$:
+\[\frac{f}{2} \frac{dT}{T} = -\frac{dV}{V}.\]
+Integrate from the initial to the final state:
+\[\frac{f}{2} \ln\frac{T_f}{T_i} = -\ln\frac{V_f}{V_i}.\]
+Exponentiating both sides gives
+\[V_f T_f^{f/2} = V_i T_i^{f/2},\]
+so $V T^{f/2}$ is constant along an adiabat.
+
+\begin{proposition}[Adiabat in terms of $P$ and $V$]
+    Eliminating $T$ with the ideal gas law $T = PV / N k_B$ gives
+    \[P V^{\gamma} = \text{constant}, \qquad \gamma = \frac{f+2}{f},\]
+    where $\gamma$ is called the adiabatic exponent.
+\end{proposition}
+
+\begin{remark}
+    Since $\gamma > 1$, an adiabat is steeper than an isotherm ($PV = \text{constant}$) on a $P$-$V$ diagram. For a monatomic gas $f = 3$, so $\gamma = 5/3$.
+\end{remark}
 
 % ============================================================
 %  APPENDIX
