@@ -14,10 +14,11 @@
 \contentsline {subsubsection}{\numberline {3.2.1}Spherical symmetry}{9}{subsubsection.3.2.1}%
 \contentsline {subsubsection}{\numberline {3.2.2}Cylindrical symmetry}{9}{subsubsection.3.2.2}%
 \contentsline {subsubsection}{\numberline {3.2.3}Why the fall-off depends on the geometry}{9}{subsubsection.3.2.3}%
-\contentsline {section}{\numberline {4}Potentials}{10}{section.4}%
-\contentsline {section}{\numberline {5}Electric Fields in Matter}{10}{section.5}%
-\contentsline {section}{\numberline {6}Magnetostatics}{10}{section.6}%
-\contentsline {section}{\numberline {7}Magnetic Fields in Matter}{10}{section.7}%
-\contentsline {section}{\numberline {8}Electrodynamics}{10}{section.8}%
-\contentsline {section}{\numberline {A}Appendix}{10}{appendix.A}%
-\contentsline {section}{\numberline {B}Useful Links}{10}{appendix.B}%
+\contentsline {subsection}{\numberline {3.3}Coulomb's Law for Continuous Distributions}{10}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Potentials}{11}{section.4}%
+\contentsline {section}{\numberline {5}Electric Fields in Matter}{11}{section.5}%
+\contentsline {section}{\numberline {6}Magnetostatics}{11}{section.6}%
+\contentsline {section}{\numberline {7}Magnetic Fields in Matter}{11}{section.7}%
+\contentsline {section}{\numberline {8}Electrodynamics}{11}{section.8}%
+\contentsline {section}{\numberline {A}Appendix}{11}{appendix.A}%
+\contentsline {section}{\numberline {B}Useful Links}{11}{appendix.B}%

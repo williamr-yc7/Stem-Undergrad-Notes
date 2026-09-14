@@ -408,6 +408,79 @@ The exponent in the fall-off counts how much charge a fixed cone of field lines 
     For two equal positive charges, the field lines from each are pushed away from the other and none cross the midplane between them. On that plane the field is purely parallel to the plane, and it vanishes at the midpoint. A Gaussian surface straddling the midplane still obeys Gauss' law, but the field on it is not uniform, so the law cannot be used to solve for $\vec{E}$ there: no symmetry, no shortcut.
 \end{remark}
 
+\subsection{Coulomb's Law for Continuous Distributions}
+\marginpar{September 14, 2026}
+
+Superpose the point charge field over the source:
+\[
+    \vec{E}(\vec{r}) = \frac{1}{4\pi\epsilon_0}\int \frac{\rho(\vec{r}')\,d^3\vec{r}'}{\mathfrak{r}^2}\,\hat{\mathfrak{r}},
+    \qquad \vec{\mathfrak{r}} \equiv \vec{r} - \vec{r}',
+\]
+where $\vec{r}$ is the field point, $\vec{r}'$ the source point, and $\vec{\mathfrak{r}}$ (Griffiths' script $r$) the separation vector from source to field point. For a line of charge the volume element collapses to $\rho\,d^3\vec{r}' \to \lambda(\vec{r}')\,dl'$.
+
+\begin{example}[Finite line of charge by direct integration]
+    A line of length $2L$ lies along the $x$ axis from $-L$ to $L$ with uniform $\lambda$, and we want $\vec{E}$ at $P = (0,0,z)$ on the perpendicular bisector.
+        \begin{figure}[H]
+        \centering
+                \begin{tikzpicture}[scale=1.1, >=stealth]
+            % axes
+            \draw[->] (-3.2,0) -- (3.4,0) node[right] {$\hat{x}$};
+            \draw[->] (0,-0.3) -- (0,3.2) node[above] {$\hat{z}$};
+            % line of charge
+            \draw[line width=1.6pt] (-2.5,0) -- (2.5,0);
+            \foreach \x in {-2.5,2.5} \draw[thick] (\x,0.15) -- (\x,-0.15);
+            \node[below=4pt] at (-2.5,0) {$-L$};
+            \node[below=4pt] at (2.5,0) {$+L$};
+            \node[below left] at (0,0) {$O$};
+            % element dx'
+            \fill[green!60!black] (1.35,-0.09) rectangle (1.65,0.09);
+            \node[above=2pt, green!60!black] at (1.5,0.1) {$dx'$};
+            % field point
+            \fill (0,2.5) circle (2pt) node[above right] {$P$};
+            % r vector, label on the right
+            \draw[->, thick, blue] (0,0) -- (0,2.5);
+            \node[blue, right=3pt] at (0,1.4) {$\vec{r} = z\hat{z}$};
+            % r' vector, drawn just below the axis
+            \draw[->, thick, blue] (0,-0.55) -- (1.5,-0.55);
+            \node[blue, below=2pt] at (0.75,-0.55) {$\vec{r}' = x'\hat{x}$};
+            % separation vector
+            \draw[->, thick, red] (1.5,0) -- (0,2.5);
+            \node[red, above right=2pt] at (0.85,1.3) {$\vec{\mathfrak{r}} = \vec{r} - \vec{r}'$};
+            % brace for z on the left
+            \draw[decorate, decoration={brace, amplitude=5pt}] (-0.35,0) -- (-0.35,2.5)
+                node[midway, left=7pt] {$z$};
+        \end{tikzpicture}
+        \caption{Setup for the finite line of charge. The source point $\vec{r}' = x'\hat{x}$ runs from $-L$ to $L$; the field point is $P$ at $\vec{r} = z\hat{z}$; the separation vector is $\vec{\mathfrak{r}} = \vec{r} - \vec{r}'$.}
+    \end{figure}
+    
+    Here $\vec{r} = z\hat{z}$ and $\vec{r}' = x'\hat{x}$, so
+    \[
+        \vec{\mathfrak{r}} = z\hat{z} - x'\hat{x}, \qquad
+        |\vec{\mathfrak{r}}| = \sqrt{z^2 + x'^2}, \qquad
+        \hat{\mathfrak{r}} = \frac{z\hat{z} - x'\hat{x}}{\sqrt{z^2 + x'^2}},
+    \]
+    and the total charge is $Q = \int\lambda\,dx' = 2\lambda L$. Feeding this into the integral,
+    \[
+        \vec{E}(z\hat{z}) = \frac{\lambda}{4\pi\epsilon_0}\int_{-L}^{L}
+        \frac{1}{z^2 + x'^2}\,\frac{z\hat{z} - x'\hat{x}}{\sqrt{z^2 + x'^2}}\,dx'.
+    \]
+    The $\hat{x}$ term is odd in $x'$ and integrates to zero, as the symmetry of the setup demands. For the $\hat{z}$ term, $\int dx'/(z^2 + x'^2)^{3/2} = x'/\big(z^2\sqrt{z^2 + x'^2}\big)$, so
+    \[
+        \vec{E} = \frac{\lambda z\hat{z}}{4\pi\epsilon_0}\cdot\frac{2L}{z^2\sqrt{L^2 + z^2}}
+        = \underbrace{\frac{\lambda}{2\pi\epsilon_0 z}\hat{z}}_{\text{infinite line}}
+        \cdot\underbrace{\frac{L}{\sqrt{L^2 + z^2}}}_{<\,1}.
+    \]
+    The prefactor is the infinite line result from Gauss' law, and the second factor is the correction for finite length. It is always less than one, which is the ``leaked flux'' argument made quantitative. Two limits:
+    \begin{itemize}
+        \item $z \ll L$: $L/\sqrt{L^2 + z^2} \approx L/L = 1$, so $\vec{E} \to \dfrac{\lambda}{2\pi\epsilon_0 z}\hat{z}$. Close to the line it looks infinite, and Gauss' law is recovered.
+        \item $z \gg L$: $\sqrt{L^2 + z^2} \approx z$, so $\vec{E} \to \dfrac{2\lambda L}{4\pi\epsilon_0 z^2}\hat{z} = \dfrac{Q}{4\pi\epsilon_0 z^2}\hat{z}$. Far away it looks like a point charge $Q = 2\lambda L$.
+    \end{itemize}
+\end{example}
+
+\begin{remark}
+    Always check limits. A result for a finite distribution should collapse to a simpler known field both up close and far away; if it does not, the integral is wrong.
+\end{remark}
+
 \section{Potentials}
 \section{Electric Fields in Matter}
 \section{Magnetostatics}

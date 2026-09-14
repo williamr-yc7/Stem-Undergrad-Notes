@@ -17,6 +17,7 @@
 \contentsline {section}{\numberline {5}First Order PDEs and the Solution Operator}{6}{section.5}%
 \contentsline {subsection}{\numberline {5.1}The Underlying ODE}{6}{subsection.5.1}%
 \contentsline {subsection}{\numberline {5.2}The Solution Operator}{6}{subsection.5.2}%
-\contentsline {section}{\numberline {A}Appendix}{6}{appendix.A}%
-\contentsline {section}{\numberline {B}Solutions}{6}{appendix.B}%
-\contentsline {section}{\numberline {C}Useful Links}{6}{appendix.C}%
+\contentsline {section}{\numberline {6}Misc}{6}{section.6}%
+\contentsline {section}{\numberline {A}Appendix}{7}{appendix.A}%
+\contentsline {section}{\numberline {B}Solutions}{7}{appendix.B}%
+\contentsline {section}{\numberline {C}Useful Links}{7}{appendix.C}%

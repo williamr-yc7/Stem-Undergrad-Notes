@@ -421,6 +421,41 @@ where $v$ is a velocity field. Assume $v(x,s)$ is smooth. By the existence and u
     \end{enumerate}
 \end{proposition}
 
+\section{Misc}
+Example: curve $\vec{x}(s) = (x(s),y(s)) = (3\exp(s-2),4\exp(s-2))$, $\vec{x}(2) = (3,4) \& \vec{x}(5) = (3e^3,4e^3)$. Also $\vec{x}'(s) = x(s)$. Example: $\vec{x}(s) = (3s+5, 5s+6)$, $\vec{v}(s) = \vec{x}'(s) = (3,5)$, $\vec{x}(0) = (5,6)$, $\vec{x}(2) = (11,16)$. Example $\begin{cases}
+    x'(s) = c_1x(s) \\
+    y'(s) = c_2y(s)
+\end{cases}$, $c_1,c_2 = 0$, $\vec{v}(x,y) = (a(x,y), b(x,y)) = (c_1x,c_2y)$. Solution: $\begin{cases}
+    x(s) = x_0\exp(c_1s)\\
+    y(s) = y_0\exp(c_2s)
+\end{cases}, \begin{cases}
+    x(0) = x_0\\
+    y(0) = y_0
+\end{cases}$. Check $x'(s) = c_1x_0\exp(c_1s) = c_1x(s)$, similarly $y'(s) = c_2y(s)$. $\vec{v} = (a,b)$, $\vec{v}(x,y) = (-y,x)$, param curve radius $r$ goes in circle $\vec{x}(s) = (x(s),y(s)) = (rcos\theta,rsin\theta)$, $\vec{v}(s) = \vec{x}'(s) = (-rsin\theta,rcos\theta) = (-y,x)$.
+
+General Solution: ODE $\begin{cases}
+    x'=-y\\
+    y'=x
+\end{cases} \implies x(s) = x_0cos(s) - y_0sin(s), y(s) = x_0sin(s)+y_0cos(s)$. Previous case is $x_0=r, y_0=0$, IC $\begin{cases}
+    x(0) = x_0\\
+    y(0) = y_0
+\end{cases}$.
+
+Solving a PDE:
+Constant coefficient:
+PDE: $au_x+bu_y = 0$, where $u(x,y)$. $d/ds u(x(s),y(s)) = 0$ when $x'(s) = a, y'(s) = b$, $\vec{x}' =v$. Using chain rule $u_x(x(s),y(s))x'(s) + u_y(x(s),y(s))y'(s) = 0$.
+Side note: $\vec{v}(x,y) = (a,b)$, $\vec{v} = (a,b)$, $u(\vec{x}(s))$ is constant whenever $\vec{x}' = v$.
+Check ``Ansatz'', $u_x = f'(-bx+ay)(-b), u_y = f'(-bx+ay)(+a)$, $au_x+bu_y = (-ab+ab)f'(-bx+ay) = 0$.
+Case $b=0$, $au_x = 0$, $bu_y = 0$, $u(x,y) = f(y)$, $au_x+bu_y = 0$, $u(x,y) = f(-bx+ay)$.
+V.2 add data: $\begin{cases}
+    3u_x+2u_y = 0\\
+    u(x,0) = x^3 (IC)
+\end{cases}$. also $u(x,y) = x^3$ on $r$, where $r$ is the x-axis so $r = \{(x,y)|y=0\}$. Solve it: Mi general solution: $a=3, b=2$, $u(x,y) = f(-bx+ay)$, $u(x,y) = f(-2x+3y)$, for some f. Note: $y=0$, $u(x,0)= f(-2x)$, $z = -2x$, $f(z) = x^3 = -\frac{z^3}{8}$. Thus $u(x,y) = f(-2x+3y) = -(2x+3y)^3/8 = +(2x-3y)^3/8$. Claim $u(x,y) = \frac{(2x-3y)^3}{8}$, solve
+\begin{enumerate}
+    \item $3u_x+2u_y = 0$
+    \item $u(x,0) = x^3$
+\end{enumerate}
+Check $\frac{(2x-0)^3}{8} = x^3$.
 
 
 
