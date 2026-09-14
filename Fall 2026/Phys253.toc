@@ -1,6 +1,6 @@
 \contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
 \contentsline {subsection}{\numberline {1.1}Course Information}{1}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}What Thermodynamics Is}{1}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.2}Thermodynamics}{1}{subsection.1.2}%
 \contentsline {section}{\numberline {2}Equilibrium and State Variables}{1}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Equilibrium States}{1}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Equations of State}{1}{subsection.2.2}%
@@ -21,5 +21,19 @@
 \contentsline {paragraph}{Heat.}{5}{section*.5}%
 \contentsline {subsection}{\numberline {5.3}Quasistatic Adiabatic Compression and Expansion}{5}{subsection.5.3}%
 \contentsline {paragraph}{Equation of the adiabat.}{5}{section*.6}%
-\contentsline {section}{\numberline {A}Appendix}{6}{appendix.A}%
-\contentsline {section}{\numberline {B}Useful Links}{6}{appendix.B}%
+\contentsline {section}{\numberline {6}Heat Capacity}{6}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Definition}{6}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Heat Capacity Depends on the Process}{6}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Measuring Specific Heat: Calorimetry}{7}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}The Mechanical Equivalent of Heat}{8}{subsection.6.4}%
+\contentsline {section}{\numberline {7}Thermodynamic Processes}{8}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Heat and Work Along a Path}{8}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}The Four Basic Processes}{8}{subsection.7.2}%
+\contentsline {paragraph}{Isobaric ($P$ = constant).}{9}{section*.7}%
+\contentsline {paragraph}{Isothermal ($T$ = constant).}{9}{section*.8}%
+\contentsline {paragraph}{Isochoric ($V$ = constant).}{9}{section*.9}%
+\contentsline {paragraph}{Adiabatic ($Q = 0$).}{9}{section*.10}%
+\contentsline {subsection}{\numberline {7.3}Cycles}{10}{subsection.7.3}%
+\contentsline {section}{\numberline {8}Misc}{10}{section.8}%
+\contentsline {section}{\numberline {A}Appendix}{10}{appendix.A}%
+\contentsline {section}{\numberline {B}Useful Links}{10}{appendix.B}%
