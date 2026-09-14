@@ -556,7 +556,12 @@ Dropping the global phase $e^{i\delta_+}$ from $\ket{+\hat{x}}$ leaves
 \section{Misc}
 \marginpar{September 14, 2026}
 ``Buarole'' $P(\phi) = |<\phi|\psi>|^2$ : probability to find $|\phi>$ if $|\psi>$ is prepared. Why is this? "Shut up and calculate it" - N.D. Men...
+Expt. \#3: $|+\hat{x}> = (|+\hat{z}><+\hat{z}| + |-\hat{z}><-\hat{z}|) \cdot |+\hat{x}> = <+\hat{z}|+\hat{x}>|+\hat{z}> <+\hat{z}|+\hat{x}>|-\hat{z}>$. Most general form consisten with $P(S_z = \pm \hbar/2) = |<\pm\hat{z}|+\hat{x}>|^2 = 1/2 \implies |+\hat{x}> = \frac{e^{i\delta_+}}{\sqrt{2}}|+\hat{z}>+\frac{e^{i\delta_-}}{\sqrt{2}}|-\hat{z}>$, rearrange: $|+\hat{x}> = \frac{e^{i\delta_+}}{\sqrt{2}}(|+\hat{z}>+e^{i\delta}|-\hat{z}>)$, where $\delta=\delta_--\delta_+$. Expectation value $<S_z> = (\frac{+\hbar}{2})P(S_z=+\hbar/2)+(\frac{-\hbar}{2})P(S_z=-\hbar/2) = \frac{\hbar}{2}||<+\hat{z}|+\hat{x}>|^2 + (-\frac{\hbar}{2})|<-\hat{z}|+\hat{x}>|^2 = \hbar/2(1/2) - \hbar/2 (1/2) = 0$. Uncertainty: $\Delta S_z$, $\Delta S_z^2 = <(S_z-<S_z>)^2> = <S_z^2>-<S_z^2>$. $<S_z> = 0$ here: $<S_z^2> = (\hbar/2)^2P(S_z=+\hbar/2) + (-\hbar/2)^2P(S_z=-\hbar/2) = \hbar^2/4(1/2 + 1/2) = \hbar^2/4$. $\Delta S_z = \hbar/2$. N-measurements: $<S_z>_N = \hbar/2 \frac{N_+ - N_-}{N}$, $N_+ = ... +\hbar/2$, and $N_- = ... -\hbar/2$
 
+
+Example: $|\psi> = \sqrt{\frac{1}{3}}|+\hat{z}>+i\sqrt{\frac{2}{3}}|-\hat{z}>$, $<S_z> = (+\hbar/2)1/3 + (-\hbar/2)2/3$, $<S_z> = -\hbar/6$, $\Delta S_z^2 = <S_z^2> - <S_z^2>$, $<S_z^2> = (\hbar/2)^2 1/3 +(-\hbar/2)^2 2/3 = \hbar^2/4 \implies \Delta S_z^2 = \hbar^2/4 - (-\hbar/6)^2 = 9\hbar^2/36 - \hbar^2/36 = 2/9 \hbar^2$, $\Delta S_z = \frac{\sqrt{2}}{3}\hbar \approx 0.47\hbar$.
+
+Experiment \# 5: $S_y$-measurement. Wrte def if cyclic permutation. Take Experiment \#3 with SGx only has +x and then goes through SGz with both outcomes possible, now rename SGx with SGz and SGz with SGy and you got experiment \#5 using cyclic permutation, now $|+\hat{y}> = \frac{e^{i\gamma_+}}{\sqrt{2}} |+\hat{z}> + \frac{e^{i\gamma_-}}{\sqrt{2}}|-\hat{z}> = \frac{e^{i\gamma_+}}{\sqrt{2}}(|+\hat{z}>+e^{i\gamma}|-\hat{z}>)$, where $\gamma = \gamma_- + \gamma_+$. $|+\hat{x}> = \frac{e^{i\delta_+}}{\sqrt{2}}(|+\hat{z}>+e^{i\delta}|-\hat{z}>)$, where $\delta = \delta_- + \delta_+$. Cyclic permutation : $x\to z, z\to y, y\to x \implies |<+\hat{x}|+\hat{z}>|^2 = |<+\hat{y}|+\hat{z}|^2 = |<-\hat{x}|+\hat{y}>|^2 = 1/2$. Recall $|\psi> = C_+|+\hat{z}> + C_-|-\hat{z}>$, $<\psi> = C_+*<+\hat{z}| + C_-*<-\hat{z}|$.
 
 % ============================================================
 \appendix
