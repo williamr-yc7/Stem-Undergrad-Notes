@@ -25,5 +25,6 @@
 \contentsline {subsection}{\numberline {3.4}Normalization}{8}{subsection.3.4}%
 \contentsline {subsection}{\numberline {3.5}The state $\mathinner {|{+\hat {x}}\rangle }$}{9}{subsection.3.5}%
 \contentsline {subsection}{\numberline {3.6}Global phase}{9}{subsection.3.6}%
+\contentsline {section}{\numberline {4}Misc}{9}{section.4}%
 \contentsline {section}{\numberline {A}Appendix}{9}{appendix.A}%
 \contentsline {section}{\numberline {B}Useful Links}{9}{appendix.B}%

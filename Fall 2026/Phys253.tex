@@ -376,13 +376,37 @@ A cycle is a closed path on the $P$-$V$ diagram: the system returns to its initi
     \item Carnot cycle: two isotherms ($T_1$, $T_2$) joined by two adiabats.
 \end{itemize}
 
-\section{Misc}
-Kinetic theory of gases: A microscopic model for U(T) and C
-1. Need to determine how P is related to the kinetic energy in the gas. We can generalize from considerations involving on a single gas particle
-2. Use the equation of state for an ideal gas to relate this to T. 
-momentum is conserved in elastic collisions between gas particles and the walls of container.
-Pressure is the force from the particle acted upon a `wall': $F = ma = dp/dt$, where p is the momentum.
-Force on the left wall for a gas particle bouncing between the left and right walls at a speed $u_x$, and if you graph force over time, then you see spikes separated by a period of $\Delta T = \frac{2L}{u_x}$. Consider the time interval between collisions with the leftmostwall; $\Delta t = \Delta T = \frac{2L}{U_x}$, $\Delta P_{wall} = -\Delta P_{gas} = -(P_f - P_i)$, $\Delta P_{wall} = -(-mu_x-mu_x) = 2mu_x$, so $2mu_x = \bar{F}\cdot\frac{2L}{u_x}$. $\bar{F} = \frac{mu_x^2}{L}$ for one particle and $\bar{F} = N \cdot \frac{m\bar{u_x^2}}{L}$ for all N particles.
+% ============================================================
+%  KINETIC THEORY OF GASES
+% ============================================================
+\section{Kinetic Theory of Gases}
+\marginpar{September 14, 2026}
+
+Kinetic theory is a microscopic model for $U(T)$ and $C$ of an ideal gas. The plan has two steps:
+\begin{enumerate}
+    \item Determine how the pressure $P$ is related to the kinetic energy of the gas particles. This can be worked out for a single particle and then generalized to all $N$.
+    \item Use the ideal gas equation of state to relate the result to $T$.
+\end{enumerate}
+
+\subsection{Pressure from a Single Particle}
+Momentum is conserved in the elastic collisions between gas particles and the walls of the container. The pressure is the force exerted by the particles on a wall, and by Newton's second law
+\[F = ma = \frac{dp}{dt},\]
+where $p$ is the momentum.
+
+Consider one particle of mass $m$ bouncing back and forth between the left and right walls of a box of length $L$, with $x$-velocity $u_x$. A graph of the force on the left wall against time shows a series of spikes, one per collision, separated by the round-trip time
+\[\Delta t = \frac{2L}{u_x}.\]
+At each collision the particle's $x$-momentum reverses, from $m u_x$ to $-m u_x$. By conservation of momentum, the momentum given to the wall is
+\[\Delta p_{\text{wall}} = -\Delta p_{\text{gas}} = -(p_f - p_i) = -(-m u_x - m u_x) = 2 m u_x.\]
+The average force is the momentum transferred per unit time, so $\Delta p_{\text{wall}} = \bar{F} \, \Delta t$, that is
+\[2 m u_x = \bar{F} \cdot \frac{2L}{u_x} \quad \Longrightarrow \quad \bar{F} = \frac{m u_x^2}{L} \qquad \text{(one particle)}.\]
+
+\subsection{Pressure from All $N$ Particles}
+Each particle contributes its own $m u_x^2 / L$, so summing over all $N$ particles and writing $\overline{u_x^2}$ for the average of $u_x^2$ over the gas,
+\[\bar{F} = N \frac{m \overline{u_x^2}}{L}.\]
+Dividing by the wall area $A$, and using $AL = V$,
+\[P = \frac{\bar{F}}{A} = \frac{N m \overline{u_x^2}}{V} \quad \Longrightarrow \quad PV = N m \overline{u_x^2}.\]
+
+% Step 2 (relating this to T via PV = NkT) to be added from the next lecture.
 % ============================================================
 %  APPENDIX
 % ============================================================
