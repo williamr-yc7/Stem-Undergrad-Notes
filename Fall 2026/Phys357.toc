@@ -25,6 +25,10 @@
 \contentsline {subsection}{\numberline {3.4}Normalization}{8}{subsection.3.4}%
 \contentsline {subsection}{\numberline {3.5}The state $\mathinner {|{+\hat {x}}\rangle }$}{9}{subsection.3.5}%
 \contentsline {subsection}{\numberline {3.6}Global phase}{9}{subsection.3.6}%
-\contentsline {section}{\numberline {4}Misc}{9}{section.4}%
-\contentsline {section}{\numberline {A}Appendix}{10}{appendix.A}%
-\contentsline {section}{\numberline {B}Useful Links}{10}{appendix.B}%
+\contentsline {subsection}{\numberline {3.7}Completeness}{9}{subsection.3.7}%
+\contentsline {subsection}{\numberline {3.8}Expectation value and uncertainty}{10}{subsection.3.8}%
+\contentsline {subsection}{\numberline {3.9}The state $\mathinner {|{+\hat {y}}\rangle }$}{10}{subsection.3.9}%
+\contentsline {subsubsection}{\numberline {3.9.1}Experiment 5: measuring $S_y$}{10}{subsubsection.3.9.1}%
+\contentsline {subsubsection}{\numberline {3.9.2}Fixing the relative phase}{11}{subsubsection.3.9.2}%
+\contentsline {section}{\numberline {A}Appendix}{12}{appendix.A}%
+\contentsline {section}{\numberline {B}Useful Links}{12}{appendix.B}%
