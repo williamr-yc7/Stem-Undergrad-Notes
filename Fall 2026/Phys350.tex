@@ -351,6 +351,63 @@ Surround a point charge with a sphere of radius $r$. The flux is fixed by $Q$, b
     Field lines start on positive charges and end on negative ones, and their density measures the field strength. This is the same statement as Gauss' law: the number of lines through a closed surface counts the enclosed charge. Two like charges have lines that bend away from each other. An infinite sheet of charge has lines that cannot spread out at all, so its field is uniform and does not fall off with distance.
 \end{remark}
 
+\subsection{Gauss' Law with Symmetry}
+\marginpar{September 14, 2026}
+
+Gauss' law comes in two equivalent forms, related by the divergence theorem:
+\[
+    \oint_S \vec{E}\cdot d\vec{a} = \frac{Q_{\text{enc}}}{\epsilon_0}
+    \qquad\Longleftrightarrow\qquad
+    \vec{\nabla}\cdot\vec{E} = \frac{\rho}{\epsilon_0},
+\]
+where $\rho$ is the charge density. Both are always true, but the integral form is only useful for computing $\vec{E}$ when the symmetry of the charge distribution lets us pull $E$ out of the integral. That requires a closed surface on which $\vec{E}$ has constant magnitude and is either parallel or perpendicular to $d\vec{a}$ everywhere.
+
+\begin{remark}
+    The integral form answers the question "what is the flux through some closed surface?" for any surface at all, whatever the field looks like: only the enclosed charge matters. It is turning that flux back into a value of $\vec{E}$ at a point that needs symmetry.
+\end{remark}
+
+\subsubsection{Spherical symmetry}
+\begin{example}[Point charge]
+    Surround a point charge $q$ with a sphere $S$ of radius $r$ centred on it. Two facts reduce the integral to a product:
+    \begin{itemize}
+        \item By symmetry, $\vec{E} = E(r)\,\hat{r}$: the field is radial and has the same magnitude everywhere on $S$.
+        \item By geometry, $d\vec{a} = \hat{n}\,da = \hat{r}\,da$ on a sphere.
+    \end{itemize}
+    So $\vec{E}\cdot d\vec{a} = E\,da$, and
+    \[
+        \oint_S \vec{E}\cdot d\vec{a} = E\underbrace{\oint_S da}_{4\pi r^2} = \frac{q}{\epsilon_0}
+        \quad\Longrightarrow\quad
+        E = \frac{q}{4\pi\epsilon_0 r^2}.
+    \]
+    This is Coulomb's law, with $k = 1/4\pi\epsilon_0$.
+\end{example}
+
+\subsubsection{Cylindrical symmetry}
+\begin{example}[Infinite line of charge]
+    Take an infinite straight line carrying charge $\lambda$ per unit length. Use as Gaussian surface a cylinder of radius $z$ and length $d$ coaxial with the line. By symmetry $\vec{E}$ points radially outward from the line, perpendicular to the curved surface, and it has no component along the line. It is therefore parallel to $d\vec{a}$ on the curved surface and perpendicular to $d\vec{a}$ on the two end caps, so the end caps contribute no flux. The enclosed charge is $\lambda d$, and
+    \[
+        \oint_S \vec{E}\cdot d\vec{a} = E\underbrace{\int_{\text{curved}} da}_{2\pi z d} = \frac{\lambda d}{\epsilon_0}
+        \quad\Longrightarrow\quad
+        E = \frac{\lambda}{2\pi\epsilon_0 z}.
+    \]
+    The length $d$ drops out, as it must for an infinite line. The field falls off as $1/z$, not $1/z^2$.
+\end{example}
+
+\begin{example}[Finite versus infinite line]
+    Compare a line of length $2L$ with an infinite line, both with the same $\lambda$, and ask which gives the stronger field at a point $P$ just above the midpoint. The infinite line does. Draw the same cylinder around the middle of each: $Q_{\text{enc}} = \lambda d$ is the same, so the total flux is the same. For the infinite line no flux leaves through the end caps by symmetry. For the finite line the field lines near the ends bend outward, so some flux "leaks" out through the end caps. With the same total, the flux through the curved surface, and hence $E$ at $P$, must be smaller for the finite line.
+\end{example}
+
+\subsubsection{Why the fall-off depends on the geometry}
+The exponent in the fall-off counts how much charge a fixed cone of field lines can "see" as it grows. Picture a narrow cone opening out from the observation point at distance $r$ toward the source. The cone's cross section grows like $r^2$, which is the $1/r^2$ dilution of a point charge. But for extended sources the enclosed charge grows too:
+\begin{itemize}
+    \item A line of charge: the cone intercepts a length of line proportional to $r$, so the field goes like $r/r^2 = 1/r$.
+    \item A sheet of charge: the cone intercepts an area proportional to $r^2$, so the field goes like $r^2/r^2$, a constant. This is the uniform field of the infinite sheet noted above.
+\end{itemize}
+
+\begin{remark}
+    For two equal positive charges, the field lines from each are pushed away from the other and none cross the midplane between them. On that plane the field is purely parallel to the plane, and it vanishes at the midpoint. A Gaussian surface straddling the midplane still obeys Gauss' law, but the field on it is not uniform, so the law cannot be used to solve for $\vec{E}$ there: no symmetry, no shortcut.
+\end{remark}
+
 \section{Potentials}
 \section{Electric Fields in Matter}
 \section{Magnetostatics}
