@@ -421,43 +421,124 @@ where $v$ is a velocity field. Assume $v(x,s)$ is smooth. By the existence and u
     \end{enumerate}
 \end{proposition}
 
+\subsection{Examples of Trajectories}
+
+\begin{example}
+    The curve $\vec{x}(s) = (x(s), y(s)) = (3e^{s-2}, 4e^{s-2})$ satisfies $\vec{x}'(s) = \vec{x}(s)$, so it is a trajectory of the velocity field $\vec{v}(x,y) = (x,y)$. It passes through $\vec{x}(2) = (3,4)$ and $\vec{x}(5) = (3e^3, 4e^3)$.
+\end{example}
+
+\begin{example}
+    The curve $\vec{x}(s) = (3s+5, 5s+6)$ has constant velocity $\vec{v}(s) = \vec{x}'(s) = (3,5)$, with $\vec{x}(0) = (5,6)$ and $\vec{x}(2) = (11,16)$.
+\end{example}
+
+\begin{example}[Decoupled linear field]
+    Take $\vec{v}(x,y) = (c_1 x, c_2 y)$ for constants $c_1, c_2$, so the ODE is
+    \begin{equation}
+        \begin{cases}
+            x'(s) = c_1 x(s) \\
+            y'(s) = c_2 y(s)
+        \end{cases}
+        \qquad
+        \begin{cases}
+            x(0) = x_0 \\
+            y(0) = y_0.
+        \end{cases}
+    \end{equation}
+    The solution is $x(s) = x_0 e^{c_1 s}$, $y(s) = y_0 e^{c_2 s}$. Check: $x'(s) = c_1 x_0 e^{c_1 s} = c_1 x(s)$, and similarly for $y$.
+\end{example}
+
+\begin{example}[Rotation field]
+    Take $\vec{v}(x,y) = (-y, x)$. A circle of radius $r$, $\vec{x}(s) = (r\cos s, r\sin s)$, has $\vec{x}'(s) = (-r\sin s, r\cos s) = (-y, x)$, so circles about the origin are trajectories. The general solution of
+    \begin{equation}
+        \begin{cases}
+            x' = -y \\
+            y' = x
+        \end{cases}
+        \qquad
+        \begin{cases}
+            x(0) = x_0 \\
+            y(0) = y_0
+        \end{cases}
+    \end{equation}
+    is
+    \begin{equation}
+        x(s) = x_0 \cos s - y_0 \sin s, \qquad y(s) = x_0 \sin s + y_0 \cos s.
+    \end{equation}
+    The circle above is the case $x_0 = r$, $y_0 = 0$.
+\end{example}
+
+\subsection{Constant Coefficient Transport}
+
+Consider
+\begin{equation}
+    a u_x + b u_y = 0, \qquad u = u(x,y), \qquad a, b \in \mathbb{R}.
+\end{equation}
+
+\begin{proposition}[Constancy along characteristics]
+    Let $\vec{v} = (a,b)$ and let $\vec{x}(s) = (x(s), y(s))$ solve $\vec{x}'(s) = \vec{v}$, that is $x'(s) = a$ and $y'(s) = b$. Then $u(\vec{x}(s))$ is constant in $s$.
+\end{proposition}
+
+\begin{proof}
+    By the chain rule,
+    \begin{equation}
+        \frac{d}{ds} u(x(s), y(s)) = u_x\, x'(s) + u_y\, y'(s) = a u_x + b u_y = 0. \qedhere
+    \end{equation}
+\end{proof}
+
+The trajectories of $\vec{v}$ are called \emph{characteristics}. Since $u$ is constant along each one, its value is determined by wherever the characteristic meets the data.
+
+\begin{proposition}[General solution]
+    For any differentiable $f$,
+    \begin{equation}
+        u(x,y) = f(-bx + ay)
+    \end{equation}
+    solves $a u_x + b u_y = 0$.
+\end{proposition}
+
+\begin{proof}
+    $u_x = -b\, f'(-bx+ay)$ and $u_y = a\, f'(-bx+ay)$, so $a u_x + b u_y = (-ab + ab) f'(-bx+ay) = 0$.
+\end{proof}
+
+\begin{remark}
+    The argument $-bx + ay$ is constant exactly along the lines of direction $(a,b)$, which are the characteristics. When $b = 0$ the equation reduces to $a u_x = 0$ and the formula gives $u(x,y) = f(ay)$, a function of $y$ alone, as expected.
+\end{remark}
+
+\subsection{Adding Data}
+
+\begin{example}
+    Solve
+    \begin{equation}
+        \begin{cases}
+            3u_x + 2u_y = 0 & \text{(PDE)} \\
+            u(x,0) = x^3 & \text{(IC)},
+        \end{cases}
+    \end{equation}
+    where the data is given on the line $\Gamma = \{(x,y) \mid y = 0\}$.
+\end{example}
+
+\begin{method}[Via the general solution]
+    With $a = 3$, $b = 2$, the general solution is $u(x,y) = f(-2x + 3y)$. On $y = 0$ this reads $u(x,0) = f(-2x) = x^3$. Setting $z = -2x$, so $x = -z/2$, gives $f(z) = -z^3/8$. Therefore
+    \begin{equation}
+        u(x,y) = f(-2x + 3y) = -\frac{(-2x+3y)^3}{8} = \frac{(2x-3y)^3}{8}.
+    \end{equation}
+    Check: $u(x,0) = (2x)^3/8 = x^3$, and $3u_x + 2u_y = \tfrac{3}{8}\cdot 3(2x-3y)^2 \cdot 2 + \tfrac{2}{8}\cdot 3(2x-3y)^2 \cdot (-3) = 0$.
+\end{method}
+
+\begin{method}[Via characteristics]
+    \begin{enumerate}[label=(\arabic*)]
+        \item $u$ is constant along curves with $x'(s) = 3$, $y'(s) = 2$.
+        \item These are the lines $x(s) = 3s + x_0$, $y(s) = 2s + y_0$.
+        \item Given a target point $(x,y)$, find the point $(x_0, 0)$ on $\Gamma$ whose characteristic reaches it. From $y = 2s + 0$ we get $s = y/2$, and then $x = 3s + x_0$ gives $x_0 = x - 3y/2$.
+        \item Since $u$ is constant along the characteristic, $u(x,y) = u(x_0, 0) = x_0^3$:
+        \begin{equation}
+            u(x,y) = \left( x - \frac{3y}{2} \right)^3 = \frac{(2x-3y)^3}{8}.
+        \end{equation}
+    \end{enumerate}
+    Both methods agree.
+\end{method}
+
+
 \section{Misc}
-Example: curve $\vec{x}(s) = (x(s),y(s)) = (3\exp(s-2),4\exp(s-2))$, $\vec{x}(2) = (3,4) \& \vec{x}(5) = (3e^3,4e^3)$. Also $\vec{x}'(s) = x(s)$. Example: $\vec{x}(s) = (3s+5, 5s+6)$, $\vec{v}(s) = \vec{x}'(s) = (3,5)$, $\vec{x}(0) = (5,6)$, $\vec{x}(2) = (11,16)$. Example $\begin{cases}
-    x'(s) = c_1x(s) \\
-    y'(s) = c_2y(s)
-\end{cases}$, $c_1,c_2 = 0$, $\vec{v}(x,y) = (a(x,y), b(x,y)) = (c_1x,c_2y)$. Solution: $\begin{cases}
-    x(s) = x_0\exp(c_1s)\\
-    y(s) = y_0\exp(c_2s)
-\end{cases}, \begin{cases}
-    x(0) = x_0\\
-    y(0) = y_0
-\end{cases}$. Check $x'(s) = c_1x_0\exp(c_1s) = c_1x(s)$, similarly $y'(s) = c_2y(s)$. $\vec{v} = (a,b)$, $\vec{v}(x,y) = (-y,x)$, param curve radius $r$ goes in circle $\vec{x}(s) = (x(s),y(s)) = (rcos\theta,rsin\theta)$, $\vec{v}(s) = \vec{x}'(s) = (-rsin\theta,rcos\theta) = (-y,x)$.
-
-General Solution: ODE $\begin{cases}
-    x'=-y\\
-    y'=x
-\end{cases} \implies x(s) = x_0cos(s) - y_0sin(s), y(s) = x_0sin(s)+y_0cos(s)$. Previous case is $x_0=r, y_0=0$, IC $\begin{cases}
-    x(0) = x_0\\
-    y(0) = y_0
-\end{cases}$.
-
-Solving a PDE:
-Constant coefficient:
-PDE: $au_x+bu_y = 0$, where $u(x,y)$. $d/ds u(x(s),y(s)) = 0$ when $x'(s) = a, y'(s) = b$, $\vec{x}' =v$. Using chain rule $u_x(x(s),y(s))x'(s) + u_y(x(s),y(s))y'(s) = 0$.
-Side note: $\vec{v}(x,y) = (a,b)$, $\vec{v} = (a,b)$, $u(\vec{x}(s))$ is constant whenever $\vec{x}' = v$.
-Check ``Ansatz'', $u_x = f'(-bx+ay)(-b), u_y = f'(-bx+ay)(+a)$, $au_x+bu_y = (-ab+ab)f'(-bx+ay) = 0$.
-Case $b=0$, $au_x = 0$, $bu_y = 0$, $u(x,y) = f(y)$, $au_x+bu_y = 0$, $u(x,y) = f(-bx+ay)$.
-V.2 add data: $\begin{cases}
-    3u_x+2u_y = 0\\
-    u(x,0) = x^3 (IC)
-\end{cases}$. also $u(x,y) = x^3$ on $r$, where $r$ is the x-axis so $r = \{(x,y)|y=0\}$. Solve it: Mi general solution: $a=3, b=2$, $u(x,y) = f(-bx+ay)$, $u(x,y) = f(-2x+3y)$, for some f. Note: $y=0$, $u(x,0)= f(-2x)$, $z = -2x$, $f(z) = x^3 = -\frac{z^3}{8}$. Thus $u(x,y) = f(-2x+3y) = -(2x+3y)^3/8 = +(2x-3y)^3/8$. Claim $u(x,y) = \frac{(2x-3y)^3}{8}$, solve
-\begin{enumerate}
-    \item $3u_x+2u_y = 0$
-    \item $u(x,0) = x^3$
-\end{enumerate}
-Check $\frac{(2x-0)^3}{8} = x^3$.
-
-
 
 % ============================================================
 \appendix
