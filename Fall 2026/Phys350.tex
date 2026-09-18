@@ -232,24 +232,28 @@ The full list of second derivative identities:
     \[\sum_i \varepsilon_{ijk}\varepsilon_{imn} = \delta_{jm}\delta_{kn} - \delta_{jn}\delta_{km}.\]
 \end{proposition}
 
-\subsection{Proving the Identities}%read
+\subsection{Proving the Identities}
 \subsubsection{Curl of a Curl}
-Set $\vec{G} \equiv \vec{\nabla}\times(\vec{\nabla}\times\vec{F})$. Using $\varepsilon_{ijk} = \varepsilon_{kij}$ to bring the summed index forward, then the epsilon-delta identity,
-\begin{align}
-    G_i &= \sum_{j,k}\varepsilon_{ijk}\partial_j\sum_{m,n}\varepsilon_{kmn}\partial_m F_n
-    = \sum_{j,m,n}\left(\delta_{im}\delta_{jn} - \delta_{in}\delta_{jm}\right)\partial_j\partial_m F_n.
-\end{align}
-The first term is $\sum_j \partial_i\partial_j F_j = \left(\vec{\nabla}(\vec{\nabla}\cdot\vec{F})\right)_i$ and the second is $-\sum_j\partial_j\partial_j F_i = -(\nabla^2\vec{F})_i$, giving $\vec{\nabla}\times(\vec{\nabla}\times\vec{F}) = \vec{\nabla}(\vec{\nabla}\cdot\vec{F}) - \nabla^2\vec{F}$.
+Set $\vec{G} \equiv \vec{\nabla}\times(\vec{\nabla}\times\vec{F})$. Then,
+\[G_i = \sum_{j,k}\varepsilon_{ijk}\partial_j\sum_{m,n} \varepsilon_{kmn}\partial_m F_n=\sum_{j,k,m,n}\varepsilon_{ijk}\varepsilon_{kmn}\partial_j\partial_mF_n.\]
+The shared index $k$ is in the third slot of the first symbol, so rotate it forward with the cyclic property $\varepsilon_{ijk} = \varepsilon_{kij}$ to match the proposition ($k$ now first in both):
+\[\sum_k \varepsilon_{kij}\varepsilon_{kmn} = \delta_{im}\delta_{jn} - \delta_{in}\delta_{jm}.\]
+Reading off the proposition with the summed index $k$ removed: the leftover pairs are $(i,j)$ and $(m,n)$, giving straight ($\delta_{im}\delta_{jn}$) minus crossed ($\delta_{in}\delta_{jm}$). Hence
+\[G_i = \sum_{j,m,n}\left(\delta_{im}\delta_{jn} - \delta_{in}\delta_{jm}\right)\partial_j\partial_m F_n.\]
+Each Kronecker delta collapses one sum by setting its indices equal. In the first term $\delta_{im}$ forces $m = i$ and $\delta_{jn}$ forces $n = j$; in the second, $\delta_{in}$ forces $n = i$ and $\delta_{jm}$ forces $m = j$:
+\[G_i = \sum_j \partial_j\partial_i F_j - \sum_j \partial_j\partial_j F_i.\]
+The first term is $\partial_i\sum_j\partial_j F_j = \left(\vec{\nabla}(\vec{\nabla}\cdot\vec{F})\right)_i$ and the second is $-(\nabla^2\vec{F})_i$, giving $\vec{\nabla}\times(\vec{\nabla}\times\vec{F}) = \vec{\nabla}(\vec{\nabla}\cdot\vec{F}) - \nabla^2\vec{F}$.
 
 \subsubsection{Curl of a Gradient}
-Since $j, k$ are summed, relabelling $j \leftrightarrow k$ and using the antisymmetry of $\varepsilon$ and commuting partials,
-\[
-    \left(\vec{\nabla}\times(\vec{\nabla}f)\right)_i = \sum_{j,k}\varepsilon_{ijk}\partial_j\partial_k f
-    = \sum_{j,k}\varepsilon_{ikj}\partial_k\partial_j f = -\sum_{j,k}\varepsilon_{ijk}\partial_j\partial_k f.
-\]
-The expression equals minus itself, so it is zero: $\vec{\nabla}\times(\vec{\nabla}f) = 0$.
+Start from the definition, with $\vec{\nabla}f=\partial_k f$:
+\[\left(\vec{\nabla}\times(\vec{\nabla}f)\right)_i = \sum_{j,k}\varepsilon_{ijk}\partial_j\partial_k f.\]
+Call this sum $S$. Since $j$ and $k$ are both summed over, they are dummy labels and can be renamed freely; swap $j \leftrightarrow k$ everywhere:
+\[S = \sum_{j,k}\varepsilon_{ikj}\partial_k\partial_j f.\]
+Now clean up the two factors. Antisymmetry of $\varepsilon$ gives $\varepsilon_{ikj} = -\varepsilon_{ijk}$, and partial derivatives commute so $\partial_k\partial_j f = \partial_j\partial_k f$. Hence
+\[S = -\sum_{j,k}\varepsilon_{ijk}\partial_j\partial_k f = -S.\]
+So $S = -S$, which forces $S = 0$. Therefore $\vec{\nabla}\times(\vec{\nabla}f) = 0$.
 
-\subsection{Irrotational and Solenoidal Fields}
+\subsection{Irrotational and Solenoidal Fields}%read
 The two vanishing identities let us classify fields.
 
 \begin{itemize}
