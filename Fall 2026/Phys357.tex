@@ -703,6 +703,20 @@ Quantum states are charactiterized by kets and bras, we have an interpretation f
     1, i=j
 \end{cases}, <i|j> = \delta_{ij}$ the kronecker delta. Observable A ($n=2, e.g. A=S_z or S_x or S_y$), outcomes: $a_j (j=1,2,\dots)$, complete set : $\{|a_j>\}$. $<a_i|a_j> = \delta_{ij}$ if $a_i$ all mutualy excl. $P(A=a_j) = |<a_j|\Psi>|^2$, $|\Psi> = \sum_{j}c_j|a_j>, c_j=<a_j|\Psi>, <\Psi| = \sum_jc_j*<a_j|, c_j*=<\Psi|a_j>$. $1 = \sum_jP(A=a_n)$ if $\{|a_j> is complete\} + <a_i|a_j>=\delta_{ij} = \sum_j|<\Psi|a_j>|^2 - <\Psi|\sum_j|a_jXa_j||\Psi> (this is equivalent to the identity operator symbol) = <\Psi|\Psi> = 1$. 2-level sys: $Identity operator symbol = |+\hat{z}X+\hat{z}| + |-\hat{z}X-\hat{z} = |+\hat{x}X+\hat{x}| + |-\hat{x}X-\hat{x} = |+\hat{y}X+\hat{y}| + |-\hat{y}X-\hat{y}$
 
+\marginpar{Septembet 18, 2026}
+Normalization (complete basis): $|\psi> = \mathbb{1}|\psi> = <+\hat{z}|\psi|+\hat{z}>+<-\hat{z}|\psi|-\hat{z}> = C_+|+\hat{z}>+C_-|-\hat{z}>$. $P_+ + P_- = 1 \implies <\psi|\psi> = 1$. General n-level system: basis $\{|a_j>\}, j=1,2,\dots,n$. Observale $A\to$ outcomes $a_j \leftrightarrow S_z \to$ outcomes $\pm \hbar/2$. $\{|a_j>\}-$orthonormal. $<a_i|a_j> = \delta_{ij}$, $\{|a_j>\}-$complete: $\mathbb{1} = \sum_j|a_j\times a_j$. Follows from : $|\psi> = \sum_j C_j|a_j>$ (ket), $<\psi| = \sum_j C_j*<a_j|$ (bra), $<\psi|\psi> = (\sum_jC_j*<a_j|)(\sum_jC_j|a_j>) = \sum_jC_j*C_j<a_j|a_j> = \sum_j|C_j|^2=\sum_j|<a_j|\psi>|^2=1$. $1=\sum_j <\psi|a_j\times a_j|\psi> = <\psi|(\sum_j|a_j\times a_j|)|\psi> = <\psi|\psi>$. $<A> = \sum_j a_jP(A=a_j)=\sum_j a_j|<a_j|\psi>|^2 = \sum_j<\psi|a_j>a_j<a_j|\psi> = <\psi|\sum_ja_j|a_j\times a_j||\psi> = <\psi|\hat{A}|\psi>$.
+
+Chapter 2: Matrix Mechanics and Rotations.
+$|\psi> = \mathbb{1}|\psi> = <+\hat{z}|\psi>|+\hat{z}>+<-\hat{z}|\psi>|-\hat{z}> = C_+|+\hat{z}>+C_|-\hat{z}>$. Projector is $|+\hat{z}\times +\hat{z}|$. $|\psi> = \begin{matrix}C_+\\C_-\end{matrix}$, $\{\hat{x},\hat{y},\hat{z}\}$ is a basis: $\vec{E} = \begin{matrix}E_x\\E_y\\E_z\end{matrix}$. Do NOT say this $|\psi> = \begin{matrix}C_+\\C_-\end{matrix}$, instead it is $|\psi> \to^{S_z basis} \begin{matrix}C_+\\C_-\end{matrix} = \psi$, $<\psi| \to (C_+*C_-*) = \psi^+$ (adjoint, hermitian conjugate). Normi $<\psi|\psi> = (C_+*C_-*)\begin{matrix}C_+\\C_-\end{matrix} = |C_+|^2+|C_-|^2 = \psi^+\psi$. $|+\hat{x}> \to^{S_z basis} 1/\sqrt{2} \begin{matrix}1\\1\end{matrix}$, $|\pm \hat{y}> \to^{S_z basis}1/\sqrt{2}\begin{matrix}1\\\pm i\end{matrix}$.
+$n=2-levels$:
+\begin{itemize}
+    \item $\mathbb{1} = |+\hat{z}\times +\hat{z}| + |-\hat{z}\times -\hat{z}|$
+    \item $\mathbb{1} = |+\hat{x}\times +\hat{x}| + |-\hat{x}\times -\hat{x}|$
+    \item $\mathbb{1} = |+\hat{y}\times +\hat{y}| + |-\hat{y}\times -\hat{y}|$
+    \item $\mathbb{1} = \sum_{j=1}^{n}|j\times j|, <i|j>=\delta_{ij}$ (n-level system)
+\end{itemize}
+
+
 % ============================================================
 \appendix
 \section{Appendix}
