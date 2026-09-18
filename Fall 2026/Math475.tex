@@ -23,6 +23,7 @@
 \newtheorem{method}{Method}
 \newtheorem{principle}{Principle}
 \newcommand{\Span}{\operatorname{span}}
+\newcommand{\R}{\mathbb{R}}
 \newenvironment{amatrix}[1]{%
   \left(\begin{array}{@{}*{#1}{c}|c@{}}
 }{%
@@ -537,8 +538,164 @@ The trajectories of $\vec{v}$ are called \emph{characteristics}. Since $u$ is co
     Both methods agree.
 \end{method}
 
+% ============================================================
+\section{Variable Coefficients and Inhomogeneous Transport}
+% ============================================================
+\marginpar{September 16, 2026}
+
+\subsection{Problem Setup}
+
+\begin{problem}[Linear transport with variable coefficients]
+    Inputs:
+    \begin{enumerate}[label=(\arabic*)]
+        \item A curve $\Gamma \subset \mathbb{R}^2$ and data $u_0 : \Gamma \to \R$.
+        \item Coefficients $a, b : \R^2 \to \R$.
+    \end{enumerate}
+    Find $u : \R^2 \to \R$ such that
+    \begin{equation}
+        \begin{cases}
+            a(x,y)\,u_x + b(x,y)\,u_y = 0 & \text{(PDE)} \\
+            u(x,y) = u_0(x,y) \quad \forall (x,y) \in \Gamma & \text{(IC)}.
+        \end{cases}
+    \end{equation}
+\end{problem}
+
+\subsection{Method of Characteristics}
+
+\begin{method}[Homogeneous case]
+    \begin{enumerate}[label=(\arabic*)]
+        \item Solve the characteristic ODE
+        \begin{equation}
+            \begin{cases}
+                x'(s) = a(x(s), y(s)) \\
+                y'(s) = b(x(s), y(s))
+            \end{cases}
+            \qquad
+            \begin{cases}
+                x(0) = x_0 \\
+                y(0) = y_0
+            \end{cases}
+            \qquad (x_0, y_0) \in \Gamma.
+        \end{equation}
+        \item Set $z(s) = u(x(s), y(s))$. By the chain rule
+        \begin{equation}
+            z'(s) = u_x\, x' + u_y\, y' = a u_x + b u_y = 0,
+        \end{equation}
+        so $z$ is constant and $z(s) = u_0(x_0, y_0)$.
+        \item Given a target $(x,y)$, find $s_0$ and $(x_0, y_0) \in \Gamma$ with $x(s_0) = x$, $y(s_0) = y$. Then
+        \begin{equation}
+            u(x,y) = u_0\big(x_0(x,y),\, y_0(x,y)\big).
+        \end{equation}
+    \end{enumerate}
+\end{method}
+
+\subsection{Inhomogeneous Case}
+
+Now allow a right hand side:
+\begin{equation}
+    a(x,y)\,u_x + b(x,y)\,u_y = c_1(x,y)\,u + c_2(x,y).
+\end{equation}
+The characteristics are unchanged, but $u$ is no longer constant along them. With $z(s) = u(x(s), y(s))$,
+\begin{equation}
+    z'(s) = a u_x + b u_y = c_1 z + c_2,
+\end{equation}
+so the method becomes a three-dimensional ODE system:
+\begin{equation}
+    \begin{cases}
+        x' = a(x,y) \\
+        y' = b(x,y) \\
+        z' = c_1(x,y)\, z + c_2(x,y)
+    \end{cases}
+    \qquad
+    \begin{cases}
+        x(0) = x_0 \\
+        y(0) = y_0 \\
+        z(0) = u_0(x_0, y_0).
+    \end{cases}
+\end{equation}
+
+\subsection{Worked Example}
+
+\begin{example}
+    Solve
+    \begin{equation}
+        \begin{cases}
+            -y\,u_x + x\,u_y = u & \text{(PDE)} \\
+            u(x,0) = g(x) & \text{(IC)}, \quad \Gamma = \{(x,0) \mid x > 0\}.
+        \end{cases}
+    \end{equation}
+\end{example}
+
+\begin{solution}
+    Here $a = -y$, $b = x$, $c_1 = 1$, $c_2 = 0$.
+
+    \textbf{Step 1: characteristic system.}
+    \begin{equation}
+        x' = -y, \qquad y' = x, \qquad z' = z,
+        \qquad
+        x(0) = x_0,\; y(0) = 0,\; z(0) = g(x_0).
+    \end{equation}
+
+    \textbf{Step 2: solve.} From the rotation field example, the general solution of $x' = -y$, $y' = x$ is
+    \begin{equation}
+        x(s) = a_1 \cos s - a_2 \sin s, \qquad y(s) = a_1 \sin s + a_2 \cos s.
+    \end{equation}
+    The initial conditions give $a_1 = x_0$, $a_2 = 0$, so
+    \begin{equation}
+        x(s) = x_0 \cos s, \qquad y(s) = x_0 \sin s, \qquad z(s) = g(x_0)\, e^{s}.
+    \end{equation}
+
+    \textbf{Step 3: invert.} Require $x(s_0) = x$, $y(s_0) = y$:
+    \begin{equation}
+        x = x_0 \cos s_0, \quad y = x_0 \sin s_0
+        \quad \Longrightarrow \quad
+        x_0 = \sqrt{x^2 + y^2}, \qquad s_0 = \arctan(y/x).
+    \end{equation}
+
+    \textbf{Step 4: read off $u$.}
+    \begin{equation}
+        u(x,y) = z(s_0) = g\!\left(\sqrt{x^2 + y^2}\right) \exp\!\big(\arctan(y/x)\big).
+    \end{equation}
+    In polar coordinates this is $u = g(r)\,e^{\theta}$, and the PDE is $\partial_\theta u = u$, which checks.
+\end{solution}
+
+\begin{remark}
+    The characteristics are circles centred at the origin, so every point except the origin is reached from $\Gamma$. The formula with $\arctan$ is valid for $x > 0$; elsewhere use the polar angle $\theta \in [0, 2\pi)$ measured from the positive $x$-axis. Note $u$ jumps by a factor $e^{2\pi}$ across $\Gamma$ itself when $g \neq 0$, since going once around the circle multiplies $z$ by $e^{2\pi}$.
+\end{remark}
+
 
 \section{Misc}
+$``\delta_p''$ point mass at $x=0, x\in\R$, $\int_{-\inf}^{\inf}\delta_0(x)dx=1$, $\delta_0(x)=0, x\neq 0$. Not possible for a function $\delta_0: \R\to\R$.
+Not a function:
+Definition: A function $f:\R\to\R$ is integrable if $\int_{-\inf}^{\inf}|f(x)|dx <\inf$. It is locally integrable if for all $a<b, a,b\in\R$ $\int_a^b|f(x)|dx <\inf$.
+Example: $f(x)=1$, locally integrable $\int_a^b|f(x)|dx = (b-a)$, but not integrable $\int_{-\inf}^\inf 1dx = \inf$.
+Example: suppose $f(x)=0,\forall |x|>R$, then integrable.
+Example: $f(x) = \frac{1}{1+x^2}$ integrable but $f(x) = 1/x$, $\int_{0}^{1}1/xdx = logx |_0^1 = \inf$.
+
+$f(x) = g(x), \forall x\neq3, f(3)\neq g(3), \int_{-\inf}^{\inf}f(x)dx = \int_{-\inf}^{\inf}g(x)dx$. Want to define $\delta_0$. Need for any continuous function $f(x)$, $\int_{-\inf}^{\inf}\delta_0(x)f(x)dx=f(0)$.
+
+Distributiuons:
+ -operational
+ -theory
+
+Heaviside:
+$H(x) = \begin{cases}
+    0, x< 0
+    1, x\geq 0
+\end{cases}$
+Given $f(x)$ smooth
+Define $H_{op}(f)=\int_{-\inf}^{+\inf}H(x)f(x)dx = \int_{0}^{\inf}f(x)dx$.
+
+Given: $g:\R\to\R$
+Define $g_{op}(f) = \int_{-\inf}^{\inf}g(x)f(x)dx$. $g_\epsilon = \begin{cases}
+    0, x<0\\
+    x/\epsilon, 0 \leq x \leq \epsilon\\
+    1, x \geq \epsilon
+\end{cases}$. Claim $\int_{-\inf}^{\inf}g_\epsilon'(x)f(x)dx$ is the average of $f$ over $[0\to\epsilon]$, $1/\epsilon\int_{0}^{\epsilon}f(x)dx$. btw $g_\epsilon'(x) = \begin{cases}
+    0\\
+    1/2\\
+    0
+\end{cases}$. f cts near 0: $\lim_{\epsilon\to 0} 1/\epsilon\int_{0}^{\epsilon}f(x)dx = f(0)$.
 
 % ============================================================
 \appendix

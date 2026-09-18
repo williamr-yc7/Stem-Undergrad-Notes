@@ -70,29 +70,25 @@
 \section{Introduction}
 
 \subsection{Course Information}
-The textbook is \textit{An Introduction to Thermal Physics} by Daniel V. Schroeder. The course is taught by Bradley Siwick, Mondays, Wednesdays and Fridays from 8:35 to 9:25 in Rutherford 118. Grading is divided as follows:
+The textbook is \textit{An Introduction to Thermal Physics} by Daniel V. Schroeder. Grading is divided as follows:
 \begin{itemize}
     \item 10\% problem sets ($\sim 6$, submitted as handwritten PDF scans)\footnote{Only one or two problems on each assignment are marked for submission and grading.}
     \item 50\% two midterms
     \item 40\% final exam
 \end{itemize}
 
-\subsection{Thermodynamics}
+\section{Thermodynamics}
 \marginpar{August 31, 2026}
 \begin{definition}[Thermodynamics]
     Thermodynamics, from the ancient Greek \textit{therme} (heat) and \textit{dynamis} (power), is the branch of physics that deals with the relationships between heat, work, temperature and energy. It studies the equilibrium properties of large-scale systems in which temperature is an important variable.
 \end{definition}
-
 \begin{remark}
     Thermodynamics does not describe the microscopic details of a system\footnote{Statistical mechanics, and more recent extensions such as stochastic thermodynamics, do.}. It describes the macroscopic properties and behaviour of a system using a small number of state variables.
 \end{remark}
 
-% ============================================================
-%  EQUILIBRIUM AND STATE VARIABLES
-% ============================================================
-\section{Equilibrium and State Variables}
+\subsection{Terminologies}%Read
 \marginpar{September 2, 2026}
-\subsection{Equilibrium States}
+\subsubsection{Equilibrium States}
 \begin{definition}[Equilibrium state]
     A system is in an equilibrium state if all the measurable bulk physical properties of the system are uniform throughout the system and constant in time.
 \end{definition}
@@ -103,7 +99,7 @@ The textbook is \textit{An Introduction to Thermal Physics} by Daniel V. Schroed
     The pressure, volume and mass of a gas fully describe its equilibrium state. Once those are fixed, every other measurable bulk property is fixed as well.
 \end{remark}
 
-\subsection{Equations of State}
+\subsubsection{Equations of State}
 \begin{definition}[Equation of state]
     An equation of state is a functional relationship between the easily measured state variables\footnote{Such as pressure, volume and temperature.} of a system in an equilibrium state.
 \end{definition}
@@ -114,7 +110,7 @@ The textbook is \textit{An Introduction to Thermal Physics} by Daniel V. Schroed
     where $n$ is the number of moles, $N = n N_A$ is the number of molecules, $R$ is the ideal gas constant and $k_B = R/N_A = \SI{1.38e-23}{\joule\per\kelvin}$ is Boltzmann's constant.
 \end{example}
 
-\subsection{State Functions}
+\subsubsection{State Functions}
 \begin{definition}[State function]
     A state function is a property of a system that depends only on the current equilibrium state, and not on the path taken to reach that state. Internal energy, enthalpy, entropy and Gibbs free energy are all state functions.
 \end{definition}
@@ -406,7 +402,114 @@ Each particle contributes its own $m u_x^2 / L$, so summing over all $N$ particl
 Dividing by the wall area $A$, and using $AL = V$,
 \[P = \frac{\bar{F}}{A} = \frac{N m \overline{u_x^2}}{V} \quad \Longrightarrow \quad PV = N m \overline{u_x^2}.\]
 
-% Step 2 (relating this to T via PV = NkT) to be added from the next lecture.
+\subsection{Temperature and the Average Kinetic Energy}
+\marginpar{September 16, 2026}
+The velocity has no preferred direction, so the three axes contribute equally to the mean square speed:
+\[\overline{u^2} = \overline{u_x^2} + \overline{u_y^2} + \overline{u_z^2} = 3\,\overline{u_x^2}.\]
+Substituting $\overline{u_x^2} = \tfrac{1}{3}\overline{u^2}$ into $PV = N m \overline{u_x^2}$ gives
+\[PV = \frac{1}{3} N m \overline{u^2}.\]
+Comparing with the ideal gas law $PV = N k_B T$ and cancelling $N$,
+\[k_B T = \frac{1}{3} m \overline{u^2} \quad \Longrightarrow \quad \bar{e}_k = \frac{1}{2} m \overline{u^2} = \frac{3}{2} k_B T.\]
+
+\begin{remark}
+    The average translational kinetic energy per molecule depends only on temperature, not on the mass or type of molecule. This is the microscopic meaning of temperature.
+\end{remark}
+
+% ============================================================
+\section{Equipartition and Degrees of Freedom}
+% ============================================================
+
+\subsection{The Equipartition Theorem}
+\marginpar{September 16, 2026}
+The result $\bar{e}_k = \tfrac{3}{2} k_B T$ is a special case of a far more general statement. It applies to every form of energy that is a quadratic function of a coordinate or velocity component (Cartesian or angular). Each such term is called a degree of freedom.
+
+\begin{definition}[Degree of freedom]
+    A degree of freedom (DOF) is a form of energy that enters the total energy as a quadratic function of a position or velocity component. Translational kinetic energy, rotational kinetic energy, vibrational kinetic energy and elastic potential energy are all quadratic degrees of freedom.
+\end{definition}
+
+\begin{principle}[Equipartition theorem]
+    In a system at thermal equilibrium at temperature $T$, each accessible quadratic degree of freedom carries an average energy
+    \[\langle e \rangle = \frac{1}{2} k_B T.\]
+\end{principle}
+
+For $N$ molecules, each with $f$ accessible degrees of freedom and no other temperature-dependent energy, the total thermal energy is
+\[U_{\text{thermal}} = N f \cdot \frac{1}{2} k_B T.\]
+
+\begin{remark}
+    Except for ideal gases, $U_{\text{thermal}}$ is never the total energy of a system: there is also "static" energy that does not change with temperature, such as chemical bond energy and the rest energies $mc^2$ of the particles. Equipartition remains a good approximation for energy changes associated with raising or lowering the temperature, provided no phase transformations or bond-breaking reactions occur over the range considered.
+\end{remark}
+
+\subsection{Counting Degrees of Freedom}
+Consider a molecule of $N$ atoms. Specifying the positions of all atoms takes $3N$ coordinates, so there are $3N$ independent displacements. These split into three physical types.
+\begin{itemize}
+    \item \textbf{Translational:} three coordinates fix the centre of mass, so $3$ displacements are translations of the molecule as a whole.
+    \item \textbf{Rotational:} of the remaining $3N - 3$ internal displacements, orienting the molecule takes two angles for a linear molecule (the direction of the axis) and three for a nonlinear one (the extra angle fixes rotation about that axis). So $2$ (linear) or $3$ (nonlinear) are rotations.
+    \item \textbf{Vibrational:} what remains is the atoms moving relative to one another,
+    \[N_{\text{vib}} = 3N - 5 \text{ (linear)}, \qquad 3N - 6 \text{ (nonlinear)}.\]
+\end{itemize}
+
+\begin{remark}
+    Translational and rotational modes count as one quadratic DOF each (kinetic energy only); each vibrational mode counts as two (kinetic and potential). So a fully excited nonlinear molecule has $f = 3 + 3 + 2(3N-6)$.
+\end{remark}
+
+\subsection{Degrees of Freedom in Solids}
+\marginpar{September 18, 2026}
+In a crystal the atoms are pinned near lattice sites, so the only motion is vibration, and each vibrational mode counts twice (KE and PE).
+\begin{itemize}
+    \item \textbf{Simple solid} (one atom per unit cell): each atom vibrates along $3$ independent axes, each vibration being $2$ quadratic DOF, so
+    \[f = f_{\text{vib}} = 3 \times 2 = 6.\]
+    \item \textbf{Complex solid} ($n$ atoms per unit cell): there are $3n$ vibrational displacements per cell, each with $2$ DOF, so
+    \[f = f_{\text{vib}} = 3n \times 2 = 6n.\]
+\end{itemize}
+
+\subsection{Freezing Out}
+Not every degree of freedom contributes at every temperature. Each DOF has a minimum quantum excitation energy (for a vibration, $\hbar \omega_{\text{vib}}$). If
+\[\frac{1}{2} k_B T \ll \text{(minimum excitation energy)},\]
+there is not enough thermal energy to lift the DOF out of its ground state. The DOF is then frozen out: inaccessible, with no thermal energy flowing into it. The effective number of degrees of freedom therefore depends on temperature, $f \to f(T)$.
+
+% TODO: figure of the vibrational potential energy well, showing the ground state and the spacing hbar-omega to the first excited state.
+
+% ============================================================
+\section{Predicting Heat Capacities}
+% ============================================================
+
+\subsection{Ideal Gas}
+From equipartition $U = \tfrac{f}{2} N k_B T$, so the heat capacity at constant volume is
+\[C_V = \left(\frac{\partial U}{\partial T}\right)_V = \frac{\partial}{\partial T}\left(\frac{f}{2} N k_B T\right) = \frac{f}{2} N k_B.\]
+When degrees of freedom freeze out below their threshold temperatures, $f \to f(T)$ and hence $C_V \to C_V(T)$.
+
+\begin{example}
+    In a monatomic gas such as helium, $f = 3$ (translation only), and these cannot freeze out. So
+    \[C_V = \frac{3}{2} N k_B = \frac{3}{2} n R, \qquad R = \SI{8.31}{\joule\per\mole\per\kelvin}.\]
+    Per mole,
+    \[c_V = \frac{C_V}{n} = \frac{3}{2} R \approx \SI{12.5}{\joule\per\mole\per\kelvin},\]
+    independent of the type of atom and of temperature.
+\end{example}
+
+\subsection{Solids: the Rule of Dulong and Petit}
+At sufficiently high temperature, with all vibrational modes active and none frozen out, the molar heat capacity of a solid tends to
+\[C_V \sim \frac{f_{\text{vib}}}{2} R.\]
+For a monatomic solid $f_{\text{vib}} = 6$, giving
+\[C_V \sim 3R \approx \SI{25}{\joule\per\mole\per\kelvin}.\]
+
+
+% ============================================================
+\section{Thermodynamic Equilibrium Revisited}
+% ============================================================
+
+\subsection{Local Thermodynamic Equilibrium}
+Earlier an equilibrium state was described as one whose easily measurable macroscopic properties are constant in time and homogeneous throughout the system. This can be relaxed so that thermodynamic concepts apply to systems not yet in complete equilibrium.
+
+\begin{definition}[Local thermodynamic equilibrium]
+    Divide the system into small volume elements. A volume element $V_i$ is in local thermodynamic equilibrium if the easily measurable macroscopic properties inside $V_i$ match the true equilibrium values for the local $(P, V, T)$ conditions, that is, if the properties within $V_i$ are the same as those of an equilibrium system at those local conditions.
+\end{definition}
+
+\begin{remark}
+    This lets a system with, say, a temperature gradient still be treated cell by cell: each cell is locally in equilibrium even though the system as a whole is not.
+\end{remark}
+
+\subsection{Equilibrium versus Rates}
+To determine the equilibrium state of a system we usually need not worry about how long it takes to get there. Thermodynamics, by most definitions, is the study of equilibrium states themselves. Questions about time and the rates of processes belong to a separate but related subject, sometimes called transport theory or kinetics.
 % ============================================================
 %  APPENDIX
 % ============================================================

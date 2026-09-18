@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1789393652.57609 "c:/Users/erenr/Documents/McGill/Latex Notes/Fall 2026/Phys253.tex" "Phys253.pdf" "Phys253" 1789393660.27233 0
+["pdflatex"] 1789738057.04875 "c:/Users/erenr/Documents/McGill/Latex Notes/Fall 2026/Phys253.tex" "Phys253.pdf" "Phys253" 1789738062.70456 0
   "../Images/Thermal-Phys-1.png" 1789390622 194508 d5cb3b2d3a4460db2d7f822a073ad12a ""
   "C:/Users/erenr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1788531305 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/erenr/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk" 1767801684 11548 9ea6db1ff0b947846d8751dabcdcf90a ""
@@ -50,6 +50,7 @@
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1247596666 32716 08e384dc442464e7285e891af9f45947 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb" 1247596667 37944 359e864bd06cde3b1cf57bb20757fb06 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti7.pfb" 1247596667 36607 d654cb3f2bc54f57509240071db3bffa ""
+  "C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1247596673 34694 870c211f62cb72718a00e353f14f254d ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/context/base/mkii/supp-pdf.mkii" 1580390158 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/generic/bigintcalc/bigintcalc.sty" 1576433602 40635 c40361e206be584d448876bba8a64a3b ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/generic/bitset/bitset.sty" 1575926576 33961 6b5c75130e435b2bfdb9f480a09a39f9 ""
@@ -234,11 +235,11 @@
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/translations/translations.sty" 1644048522 44247 2188b95d0ee74e31eca4d316263c58a7 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
-  "Phys253.aux" 1789393659 5783 9b7902384866f7d5edd127462ec3d385 "pdflatex"
-  "Phys253.out" 1789393659 5257 2b794dc917f404696144d8657ef2f569 "pdflatex"
-  "Phys253.tex" 1789393648 24802 f46e34ed4dba020b5b5b327c500b5f81 ""
-  "Phys253.toc" 1789393659 3273 e4b58a97dc9098dc175aeae7fefd7a45 "pdflatex"
-  "c:/Users/erenr/Documents/McGill/Latex Notes/Fall 2026/Phys253.tex" 1789393648 24802 f46e34ed4dba020b5b5b327c500b5f81 ""
+  "Phys253.aux" 1789738062 7404 986505bc83b6b52c726a90467daf4aa8 "pdflatex"
+  "Phys253.out" 1789738062 7609 148311dbab85d1983ec6591c6140f1f7 "pdflatex"
+  "Phys253.tex" 1789738054 32238 86cf3fb6b156fe50ce70dab04832a09d ""
+  "Phys253.toc" 1789738062 4402 40471e1932ada0bf3b983d7e4808fd1d "pdflatex"
+  "c:/Users/erenr/Documents/McGill/Latex Notes/Fall 2026/Phys253.tex" 1789738054 32238 86cf3fb6b156fe50ce70dab04832a09d ""
   (generated)
   "Phys253.aux"
   "Phys253.log"

@@ -696,6 +696,13 @@ Requiring this to equal $1/2$ forces $\cos(\gamma - \delta) = 0$, that is $\gamm
     The factor $i$ that did nothing for $S_z$ matters here: it is a relative phase, and it is exactly what tilts the spin toward $+\hat{y}$.
 \end{example}
 
+\section{Misc}
+Summary and generalization of chapter 1:
+Quantum states are charactiterized by kets and bras, we have an interpretation for these quantum  $|<\phi|\psi>|^2$ is the probability to ess $|\phi>$ given $|\psi>$ and $<\phi|\psi> = <\psi|\phi>*$. Spin-1/2 (2-level) systems $\to$ 2 states: $\{\pm |\hat{x}>\}$ or $\{\pm |\pm\hat{y}>\}$ or $\{\pm |\pm\hat{z}>\}$, which are basis. n-level system: basis: $\{|j>, j=1,2,\dots,n\}$. Complete orthonormal basis $|\psi> = \sum_{j}c_j|j>, c_j = <j|\Psi>, c_j* = <\psi | j>$. The basis is orthonormal means $<i|j> = \begin{cases}
+    0, i\neq j\\
+    1, i=j
+\end{cases}, <i|j> = \delta_{ij}$ the kronecker delta. Observable A ($n=2, e.g. A=S_z or S_x or S_y$), outcomes: $a_j (j=1,2,\dots)$, complete set : $\{|a_j>\}$. $<a_i|a_j> = \delta_{ij}$ if $a_i$ all mutualy excl. $P(A=a_j) = |<a_j|\Psi>|^2$, $|\Psi> = \sum_{j}c_j|a_j>, c_j=<a_j|\Psi>, <\Psi| = \sum_jc_j*<a_j|, c_j*=<\Psi|a_j>$. $1 = \sum_jP(A=a_n)$ if $\{|a_j> is complete\} + <a_i|a_j>=\delta_{ij} = \sum_j|<\Psi|a_j>|^2 - <\Psi|\sum_j|a_jXa_j||\Psi> (this is equivalent to the identity operator symbol) = <\Psi|\Psi> = 1$. 2-level sys: $Identity operator symbol = |+\hat{z}X+\hat{z}| + |-\hat{z}X-\hat{z} = |+\hat{x}X+\hat{x}| + |-\hat{x}X-\hat{x} = |+\hat{y}X+\hat{y}| + |-\hat{y}X-\hat{y}$
+
 % ============================================================
 \appendix
 \section{Appendix}
