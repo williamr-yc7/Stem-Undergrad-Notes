@@ -44,6 +44,6 @@
 \contentsline {subsection}{\numberline {8.6}Derivative of a Distribution}{18}{subsection.8.6}%
 \contentsline {subsection}{\numberline {8.7}Derivatives of Piecewise Smooth Functions}{18}{subsection.8.7}%
 \contentsline {subsection}{\numberline {8.8}Fundamental Solution of $\frac {d^2}{dx^2}$}{19}{subsection.8.8}%
-\contentsline {section}{\numberline {A}Appendix}{19}{appendix.A}%
-\contentsline {section}{\numberline {B}Solutions}{19}{appendix.B}%
-\contentsline {section}{\numberline {C}Useful Links}{19}{appendix.C}%
+\contentsline {section}{\numberline {A}Appendix}{20}{appendix.A}%
+\contentsline {section}{\numberline {B}Solutions}{20}{appendix.B}%
+\contentsline {section}{\numberline {C}Useful Links}{20}{appendix.C}%

@@ -916,7 +916,11 @@ Building more test functions from one: translates and rescalings $\phi(ax+b)$, s
 \subsection{Definition of a Distribution}
 
 \begin{definition}[Distribution]
-    A distribution $F$ is a rule assigning to each test function $\phi$ a real number $\ip{F}{\phi}$ which is
+    A distribution $F$ is a rule assigning to each test function $\phi$ a real number,
+    \begin{equation}
+        F : \D \to \R, \qquad \phi \mapsto \ip{F}{\phi} \in \R,
+    \end{equation}
+    which is
     \begin{itemize}
         \item \textbf{linear}: $\ip{F}{a\phi + b\psi} = a\ip{F}{\phi} + b\ip{F}{\psi}$,
         \item \textbf{continuous}: $\phi_n \to \phi$ in $\D$ implies $\ip{F}{\phi_n} \to \ip{F}{\phi}$.
