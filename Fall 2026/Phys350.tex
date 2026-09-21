@@ -12,6 +12,7 @@
 \usepackage{circuitikz}
 \usepackage{float} % For [H] float option
 \pgfplotsset{compat=1.18} % Set compatibility level
+\usetikzlibrary{decorations.pathreplacing}
 \newtheorem{theorem}{Theorem}
 \newtheorem{law}{Law}
 \newtheorem{principle}{Principle}
@@ -74,8 +75,8 @@ Textbook used is David J. Griffiths - Introduction to Electrodynamics Fifth Edit
 \end{itemize}
 
 \section{Vector Analysis}
-
 \subsection{Terminologies}
+\marginpar{August 31, 2026}
 \begin{definition}[Scalar]
     A scalar is a quantity with just a magnitude.
 \end{definition}
@@ -99,7 +100,8 @@ Textbook used is David J. Griffiths - Introduction to Electrodynamics Fifth Edit
     A field is something with a value at every point in space. A scalar field assigns a number to each point, like temperature $T(x,y,z)$ or the height of a hill. A vector field assigns a vector to each point, like fluid velocity or $\vec{E}$.
 \end{definition}
 
-\subsection{Differential Operators}
+\subsection{Differential Calculus}
+\marginpar{September 2, 2026}
 \begin{definition}[Del operator]
     The del operator
     \[\vec{\nabla} = \left(\frac{\partial}{\partial x}, \frac{\partial}{\partial y}, \frac{\partial}{\partial z}\right).\]
@@ -120,7 +122,8 @@ Textbook used is David J. Griffiths - Introduction to Electrodynamics Fifth Edit
     \[\vec{\nabla}\times\vec{F} = \begin{vmatrix} \hat{x} & \hat{y} & \hat{z} \\[2pt] \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\[2pt] F_x & F_y & F_z \end{vmatrix}.\]
 \end{definition}
 
-\subsection{Vector Integrals}
+
+\subsection{Integral Calculus}
 \begin{definition}[Integral]
     An integral is an instruction to move along a region, evaluate something at each step, and add it to a running total.
 \end{definition}
@@ -145,7 +148,7 @@ Textbook used is David J. Griffiths - Introduction to Electrodynamics Fifth Edit
     We write $\oint$ when the curve is a closed loop or the surface is closed.
 \end{remark}
 
-\subsection{The Three Fundamental Theorems}
+\subsubsection{The Three Fundamental Theorems}
 Integrating a derivative over a region reduces to evaluating the original object on the boundary of that region.
 \begin{theorem}[Gradient theorem]
     The boundary of a curve is two points:
@@ -172,24 +175,8 @@ Integrating a derivative over a region reduces to evaluating the original object
     The divergence theorem \ref{Gauss-div} applied to $\vec{J}$ is how the conservation of charge gets written down.
 \end{remark}
 
-\subsection{Second Derivatives Identities}
-\begin{definition}[Laplacian]
-    Taking the divergence of a gradient gives
-    \[\vec{\nabla}\cdot(\vec{\nabla}f) = \frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2} + \frac{\partial^2 f}{\partial z^2} \equiv \nabla^2 f,\]
-    where $\nabla^2$ is the Laplacian\footnote{Mathematicians often write $\Delta$, but in physics we use $\nabla^2$.}.
-\end{definition}
-\begin{example}[Sign of the Laplacian]
-    At a local maximum $\vec{\nabla}f$ points inward from every side, so it has negative divergence and $\nabla^2 f < 0$; at a minimum, $\nabla^2 f > 0$. At a saddle the second derivatives can cancel, so a flat point alone tells you nothing.
-\end{example}
-The full list of second derivative identities:
-\begin{description}
-    \item[Divergence of a gradient.] $\vec{\nabla}\cdot(\vec{\nabla}f) = \nabla^2 f$.
-    \item[Curl of a gradient.] $\vec{\nabla}\times(\vec{\nabla}f) = 0$.
-    \item[Divergence of a curl.] $\vec{\nabla}\cdot(\vec{\nabla}\times\vec{F}) = 0$.
-    \item[Identity 1.] $\vec{\nabla}\times(\vec{\nabla}\times\vec{F}) = \vec{\nabla}(\vec{\nabla}\cdot\vec{F}) - \nabla^2\vec{F}$.
-\end{description}
-
 \subsection{Index Notation}
+\marginpar{September 4, 2026}
 \begin{remark}
     A matrix carries two indices, $A_{ij}$, where $i$ says which row and $j$ says which column.
 \end{remark}
@@ -232,8 +219,25 @@ The full list of second derivative identities:
     \[\sum_i \varepsilon_{ijk}\varepsilon_{imn} = \delta_{jm}\delta_{kn} - \delta_{jn}\delta_{km}.\]
 \end{proposition}
 
-\subsection{Proving the Identities}
-\subsubsection{Curl of a Curl}
+\subsection{Second Derivatives Identities}
+\begin{definition}[Laplacian]
+    Taking the divergence of a gradient gives
+    \[\vec{\nabla}\cdot(\vec{\nabla}f) = \frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2} + \frac{\partial^2 f}{\partial z^2} \equiv \nabla^2 f,\]
+    where $\nabla^2$ is the Laplacian\footnote{Mathematicians often write $\Delta$, but in physics we use $\nabla^2$.}.
+\end{definition}
+\begin{example}[Sign of the Laplacian]
+    At a local maximum $\vec{\nabla}f$ points inward from every side, so it has negative divergence and $\nabla^2 f < 0$; at a minimum, $\nabla^2 f > 0$. At a saddle the second derivatives can cancel, so a flat point alone tells you nothing.
+\end{example}
+The full list of second derivative identities:
+\begin{description}
+    \item[Divergence of a gradient.] $\vec{\nabla}\cdot(\vec{\nabla}f) = \nabla^2 f$.
+    \item[Curl of a gradient.] $\vec{\nabla}\times(\vec{\nabla}f) = 0$.
+    \item[Divergence of a curl.] $\vec{\nabla}\cdot(\vec{\nabla}\times\vec{F}) = 0$.
+    \item[Identity 1.] $\vec{\nabla}\times(\vec{\nabla}\times\vec{F}) = \vec{\nabla}(\vec{\nabla}\cdot\vec{F}) - \nabla^2\vec{F}$.
+\end{description}
+
+\subsubsection{Proving the Identities}
+\subsubsection*{Curl of a Curl}
 Set $\vec{G} \equiv \vec{\nabla}\times(\vec{\nabla}\times\vec{F})$. Then,
 \[G_i = \sum_{j,k}\varepsilon_{ijk}\partial_j\sum_{m,n} \varepsilon_{kmn}\partial_m F_n=\sum_{j,k,m,n}\varepsilon_{ijk}\varepsilon_{kmn}\partial_j\partial_mF_n.\]
 The shared index $k$ is in the third slot of the first symbol, so rotate it forward with the cyclic property $\varepsilon_{ijk} = \varepsilon_{kij}$ to match the proposition ($k$ now first in both):
@@ -244,7 +248,7 @@ Each Kronecker delta collapses one sum by setting its indices equal. In the firs
 \[G_i = \sum_j \partial_j\partial_i F_j - \sum_j \partial_j\partial_j F_i.\]
 The first term is $\partial_i\sum_j\partial_j F_j = \left(\vec{\nabla}(\vec{\nabla}\cdot\vec{F})\right)_i$ and the second is $-(\nabla^2\vec{F})_i$, giving $\vec{\nabla}\times(\vec{\nabla}\times\vec{F}) = \vec{\nabla}(\vec{\nabla}\cdot\vec{F}) - \nabla^2\vec{F}$.
 
-\subsubsection{Curl of a Gradient}
+\subsubsection*{Curl of a Gradient}
 Start from the definition, with $\vec{\nabla}f=\partial_k f$:
 \[\left(\vec{\nabla}\times(\vec{\nabla}f)\right)_i = \sum_{j,k}\varepsilon_{ijk}\partial_j\partial_k f.\]
 Call this sum $S$. Since $j$ and $k$ are both summed over, they are dummy labels and can be renamed freely; swap $j \leftrightarrow k$ everywhere:
@@ -253,143 +257,70 @@ Now clean up the two factors. Antisymmetry of $\varepsilon$ gives $\varepsilon_{
 \[S = -\sum_{j,k}\varepsilon_{ijk}\partial_j\partial_k f = -S.\]
 So $S = -S$, which forces $S = 0$. Therefore $\vec{\nabla}\times(\vec{\nabla}f) = 0$.
 
-\subsection{Irrotational and Solenoidal Fields}%read
-The two vanishing identities let us classify fields.
-
-\begin{itemize}
-    \item Since $\vec{\nabla}\times(\vec{\nabla}\psi) = 0$, writing $\vec{F} = \vec{\nabla}\psi$ guarantees $\vec{\nabla}\times\vec{F} = 0$. Such a field is \textbf{irrotational}.
-    \item Since $\vec{\nabla}\cdot(\vec{\nabla}\times\vec{A}) = 0$, writing $\vec{F} = \vec{\nabla}\times\vec{A}$ guarantees $\vec{\nabla}\cdot\vec{F} = 0$. Such a field is \textbf{solenoidal}.
-\end{itemize}
-Any vector field can be written as $\vec{\nabla}\psi + \vec{\nabla}\times\vec{A}$.
-
+\subsection{The Theory of Vector Fields}
+\begin{definition}[Irrotational and solenoidal]
+    A field with $\vec{\nabla}\times\vec{F} = 0$ everywhere is irrotational; a field with $\vec{\nabla}\cdot\vec{F} = 0$ everywhere is solenoidal.
+\end{definition}
+\begin{theorem}[Helmholtz]
+    If $\vec{\nabla}\cdot\vec{F}$ and $\vec{\nabla}\times\vec{F}$ are specified everywhere and $\vec{F}\to 0$ at infinity, then $\vec{F}$ is uniquely determined. It can be written as $\vec{F} = \vec{\nabla}\psi + \vec{\nabla}\times\vec{A}$, an irrotational part plus a solenoidal part.
+\end{theorem}
 \begin{theorem}[Irrotational fields]
-    The following four statements are equivalent:
+    Let $\vec{F}$ be a $C^1$ vector field on a simply connected domain (e.g.\ all of $\mathbb{R}^3$). The following are equivalent:
     \begin{enumerate}[label=(\roman*)]
         \item $\vec{\nabla}\times\vec{F} = 0$ everywhere.
-        \item $\int_a^b \vec{F}\cdot d\vec{l}$ is independent of path.
-        \item $\oint_C \vec{F}\cdot d\vec{l} = 0$ for any closed loop.
-        \item $\vec{F} = \vec{\nabla}\psi$ for some scalar $\psi$.
+        \item $\int_a^b \vec{F}\cdot d\vec{l}$ is independent of path, for any given end points.
+        \item $\oint_C \vec{F}\cdot d\vec{l} = 0$ for every closed loop $C$.
+        \item $\vec{F} = -\vec{\nabla}\psi$ for some scalar field $\psi$.
     \end{enumerate}
 \end{theorem}
-
 \begin{theorem}[Solenoidal fields]
-    The following four statements are equivalent:
+    Let $\vec{F}$ be a $C^1$ vector field on a domain with no enclosed voids (e.g.\ all of $\mathbb{R}^3$). The following are equivalent:
     \begin{enumerate}[label=(\roman*)]
         \item $\vec{\nabla}\cdot\vec{F} = 0$ everywhere.
-        \item $\int_S \vec{F}\cdot d\vec{a}$ is independent of the surface, for surfaces sharing a boundary.
-        \item $\oint_S \vec{F}\cdot d\vec{a} = 0$ for any closed surface.
+        \item $\int_S \vec{F}\cdot d\vec{a}$  is independent of surface, for any given boundary line.
+        \item $\oint_S \vec{F}\cdot d\vec{a} = 0$ for any closed surface $S$.
         \item $\vec{F} = \vec{\nabla}\times\vec{A}$ for some vector field $\vec{A}$.
     \end{enumerate}
 \end{theorem}
 
-\begin{remark}
-    In electrostatics we will find $\vec{\nabla}\times\vec{E} = 0$. That is the irrotational case, and it is what licenses us to write $\vec{E} = -\vec{\nabla}V$ and introduce the electric potential. In magnetostatics we will find $\vec{\nabla}\cdot\vec{B} = 0$, which is the solenoidal case and licenses $\vec{B} = \vec{\nabla}\times\vec{A}$, the vector potential.
-\end{remark}
-
 \section{Electrostatics}
-
-\subsection{Gauss' Law and the Inverse Square Law}
-Coulomb's law for two point charges,
-\[
-    F = k\frac{q_1q_2}{r^2},
-\]
-has the same $1/r^2$ shape as Newton's gravity, $F = Gm_1m_2/d^2$. The reason is geometric rather than a coincidence, and Gauss' law makes that explicit.
-
-\begin{law}[Gauss' law]
-    The flux of $\vec{E}$ through any closed surface is set by the charge inside it:
-    \[
-        \oint_S \vec{E}\cdot d\vec{a} = \frac{Q_{\text{enc}}}{\epsilon_0}.
-    \]
+\subsection{Electric Field}
+\marginpar{September 11, 2026}
+\begin{law}[Coulomb's law]
+    The force on a point charge $q_2$ due to a point charge $q_1$ is
+    \begin{equation}
+        \vec{F} = \frac{1}{4\pi\epsilon_0}\frac{q_1q_2}{\mathfrak{r}^2}\,\hat{\mathfrak{r}},
+    \end{equation}
+    where $\vec{\mathfrak{r}}$ points from $q_1$ to $q_2$.\footnote{Coulomb's law has the same shape as Newton's gravity. The reason is geometric rather than a coincidence, and Gauss' law makes that explicit: in $d$ spatial dimensions the flux spreads over a $(d-1)$-dimensional sphere, so $F\propto 1/\mathfrak{r}^{d-1}$, and the $4\pi$ is the area of the unit sphere in $d=3$.}
 \end{law}
+\begin{definition}[Permittivity of free space]
+    The permittivity of free space measures how easily an electric field can form in a classical vacuum:
+    \[\epsilon_0 = 8.85 \times 10^{-12}\ \mathrm{C^2/(N\cdot m^2)}.\]
+\end{definition}
+\begin{definition}[Electric field]
+    The electric field is the force per unit test charge. For a set of point charges $q_i$,
+    \begin{equation}
+        \vec{E}(\vec{r}) = \frac{1}{4\pi\epsilon_0}\sum_{i=1}^{n}\frac{q_i}{\mathfrak{r}_i^2}\,\hat{\mathfrak{r}}_i,
+        \qquad \vec{\mathfrak{r}}_i \equiv \vec{r} - \vec{r}_i.
+    \end{equation}
+\end{definition}
 
-Surround a point charge with a sphere of radius $r$. The flux is fixed by $Q$, but the surface area over which it is spread grows like $r^2$, so $E \propto 1/r^2$. The exponent is really a count of dimensions.
+\subsubsection{Continuous Charge Distributions}
+\begin{definition}[Continuous distributions]
+    Replacing $q_i$ by $dq = \lambda\,dl' = \sigma\,da' = \rho\,d\tau'$ turns the sum into an integral:
+    \begin{equation}
+        \vec{E}(\vec{r}) = \frac{1}{4\pi\epsilon_0}\int\frac{dq}{\mathfrak{r}^2}\,\hat{\mathfrak{r}},
+        \qquad \vec{\mathfrak{r}} = \vec{r} - \vec{r}',
+    \end{equation}
+    where $\vec{r}$ is the field point and $\vec{r}'$ the source point.
+\end{definition}
 
-\begin{example}[Coulomb's law in $d$ dimensions]
-    In a universe with four spatial dimensions $(x,y,z,w)$, volumes are four-dimensional and the surfaces enclosing them are three-dimensional, with ``area'' scaling like $r^3$. Gauss' law then gives $E \propto 1/r^3$. In general, in $d$ spatial dimensions a point charge has $E \propto 1/r^{d-1}$. The inverse square law is what three dimensions look like.
-\end{example}
-
-\begin{remark}[Compactified dimensions]
-    Suppose an extra dimension exists but is curled up, the way a flat sheet with coordinates $(x,y)$ can be rolled into a cylinder whose second coordinate $w$ is periodic with a small radius. At distances much smaller than that radius, field lines spread out into all the dimensions and the field falls off faster than $1/r^2$. At distances much larger than it, there is only room to spread out in the large dimensions and the usual $1/r^2$ is recovered. So a measured deviation from the inverse square law at short range would be evidence for extra dimensions.
-
-    This has been tested for gravity by the E\"ot-Wash torsion balance experiments (2004, 2007, 2020), which checked the $1/r^2$ law down to separations of $52\,\mu$m. Newtonian gravity fit the data, ruling out gravitational strength Yukawa interactions with ranges above $38.6\,\mu$m at 95\% confidence.
-\end{remark}
-
-\begin{remark}[Field lines]
-    Field lines start on positive charges and end on negative ones, and their density measures the field strength. This is the same statement as Gauss' law: the number of lines through a closed surface counts the enclosed charge. Two like charges have lines that bend away from each other. An infinite sheet of charge has lines that cannot spread out at all, so its field is uniform and does not fall off with distance.
-\end{remark}
-
-\subsection{Gauss' Law with Symmetry}
 \marginpar{September 14, 2026}
-
-Gauss' law comes in two equivalent forms, related by the divergence theorem:
-\[
-    \oint_S \vec{E}\cdot d\vec{a} = \frac{Q_{\text{enc}}}{\epsilon_0}
-    \qquad\Longleftrightarrow\qquad
-    \vec{\nabla}\cdot\vec{E} = \frac{\rho}{\epsilon_0},
-\]
-where $\rho$ is the charge density. Both are always true, but the integral form is only useful for computing $\vec{E}$ when the symmetry of the charge distribution lets us pull $E$ out of the integral. That requires a closed surface on which $\vec{E}$ has constant magnitude and is either parallel or perpendicular to $d\vec{a}$ everywhere.
-
-\begin{remark}
-    The integral form answers the question "what is the flux through some closed surface?" for any surface at all, whatever the field looks like: only the enclosed charge matters. It is turning that flux back into a value of $\vec{E}$ at a point that needs symmetry.
-\end{remark}
-
-\subsubsection{Spherical symmetry}
-\begin{example}[Point charge]
-    Surround a point charge $q$ with a sphere $S$ of radius $r$ centred on it. Two facts reduce the integral to a product:
-    \begin{itemize}
-        \item By symmetry, $\vec{E} = E(r)\,\hat{r}$: the field is radial and has the same magnitude everywhere on $S$.
-        \item By geometry, $d\vec{a} = \hat{n}\,da = \hat{r}\,da$ on a sphere.
-    \end{itemize}
-    So $\vec{E}\cdot d\vec{a} = E\,da$, and
-    \[
-        \oint_S \vec{E}\cdot d\vec{a} = E\underbrace{\oint_S da}_{4\pi r^2} = \frac{q}{\epsilon_0}
-        \quad\Longrightarrow\quad
-        E = \frac{q}{4\pi\epsilon_0 r^2}.
-    \]
-    This is Coulomb's law, with $k = 1/4\pi\epsilon_0$.
-\end{example}
-
-\subsubsection{Cylindrical symmetry}
-\begin{example}[Infinite line of charge]
-    Take an infinite straight line carrying charge $\lambda$ per unit length. Use as Gaussian surface a cylinder of radius $z$ and length $d$ coaxial with the line. By symmetry $\vec{E}$ points radially outward from the line, perpendicular to the curved surface, and it has no component along the line. It is therefore parallel to $d\vec{a}$ on the curved surface and perpendicular to $d\vec{a}$ on the two end caps, so the end caps contribute no flux. The enclosed charge is $\lambda d$, and
-    \[
-        \oint_S \vec{E}\cdot d\vec{a} = E\underbrace{\int_{\text{curved}} da}_{2\pi z d} = \frac{\lambda d}{\epsilon_0}
-        \quad\Longrightarrow\quad
-        E = \frac{\lambda}{2\pi\epsilon_0 z}.
-    \]
-    The length $d$ drops out, as it must for an infinite line. The field falls off as $1/z$, not $1/z^2$.
-\end{example}
-
-\begin{example}[Finite versus infinite line]
-    Compare a line of length $2L$ with an infinite line, both with the same $\lambda$, and ask which gives the stronger field at a point $P$ just above the midpoint. The infinite line does. Draw the same cylinder around the middle of each: $Q_{\text{enc}} = \lambda d$ is the same, so the total flux is the same. For the infinite line no flux leaves through the end caps by symmetry. For the finite line the field lines near the ends bend outward, so some flux "leaks" out through the end caps. With the same total, the flux through the curved surface, and hence $E$ at $P$, must be smaller for the finite line.
-\end{example}
-
-\subsubsection{Why the fall-off depends on the geometry}
-The exponent in the fall-off counts how much charge a fixed cone of field lines can "see" as it grows. Picture a narrow cone opening out from the observation point at distance $r$ toward the source. The cone's cross section grows like $r^2$, which is the $1/r^2$ dilution of a point charge. But for extended sources the enclosed charge grows too:
-\begin{itemize}
-    \item A line of charge: the cone intercepts a length of line proportional to $r$, so the field goes like $r/r^2 = 1/r$.
-    \item A sheet of charge: the cone intercepts an area proportional to $r^2$, so the field goes like $r^2/r^2$, a constant. This is the uniform field of the infinite sheet noted above.
-\end{itemize}
-
-\begin{remark}
-    For two equal positive charges, the field lines from each are pushed away from the other and none cross the midplane between them. On that plane the field is purely parallel to the plane, and it vanishes at the midpoint. A Gaussian surface straddling the midplane still obeys Gauss' law, but the field on it is not uniform, so the law cannot be used to solve for $\vec{E}$ there: no symmetry, no shortcut.
-\end{remark}
-
-\subsection{Coulomb's Law for Continuous Distributions}
-\marginpar{September 14, 2026}
-
-Superpose the point charge field over the source:
-\[
-    \vec{E}(\vec{r}) = \frac{1}{4\pi\epsilon_0}\int \frac{\rho(\vec{r}')\,d^3\vec{r}'}{\mathfrak{r}^2}\,\hat{\mathfrak{r}},
-    \qquad \vec{\mathfrak{r}} \equiv \vec{r} - \vec{r}',
-\]
-where $\vec{r}$ is the field point, $\vec{r}'$ the source point, and $\vec{\mathfrak{r}}$ (Griffiths' script $r$) the separation vector from source to field point. For a line of charge the volume element collapses to $\rho\,d^3\vec{r}' \to \lambda(\vec{r}')\,dl'$.
-
-\begin{example}[Finite line of charge by direct integration]
-    A line of length $2L$ lies along the $x$ axis from $-L$ to $L$ with uniform $\lambda$, and we want $\vec{E}$ at $P = (0,0,z)$ on the perpendicular bisector.
+\begin{example}[Finite line of charge]
+    A line of length $2L$ along the $x$ axis carries uniform $\lambda$. Find $\vec{E}$ at $P = (0,0,z)$.
         \begin{figure}[H]
         \centering
-                \begin{tikzpicture}[scale=1.1, >=stealth]
+        \begin{tikzpicture}[scale=1.1, >=stealth]
             % axes
             \draw[->] (-3.2,0) -- (3.4,0) node[right] {$\hat{x}$};
             \draw[->] (0,-0.3) -- (0,3.2) node[above] {$\hat{z}$};
@@ -419,34 +350,75 @@ where $\vec{r}$ is the field point, $\vec{r}'$ the source point, and $\vec{\math
         \end{tikzpicture}
         \caption{Setup for the finite line of charge. The source point $\vec{r}' = x'\hat{x}$ runs from $-L$ to $L$; the field point is $P$ at $\vec{r} = z\hat{z}$; the separation vector is $\vec{\mathfrak{r}} = \vec{r} - \vec{r}'$.}
     \end{figure}
-    
-    Here $\vec{r} = z\hat{z}$ and $\vec{r}' = x'\hat{x}$, so
-    \[
-        \vec{\mathfrak{r}} = z\hat{z} - x'\hat{x}, \qquad
-        |\vec{\mathfrak{r}}| = \sqrt{z^2 + x'^2}, \qquad
-        \hat{\mathfrak{r}} = \frac{z\hat{z} - x'\hat{x}}{\sqrt{z^2 + x'^2}},
-    \]
-    and the total charge is $Q = \int\lambda\,dx' = 2\lambda L$. Feeding this into the integral,
-    \[
-        \vec{E}(z\hat{z}) = \frac{\lambda}{4\pi\epsilon_0}\int_{-L}^{L}
-        \frac{1}{z^2 + x'^2}\,\frac{z\hat{z} - x'\hat{x}}{\sqrt{z^2 + x'^2}}\,dx'.
-    \]
-    The $\hat{x}$ term is odd in $x'$ and integrates to zero, as the symmetry of the setup demands. For the $\hat{z}$ term, $\int dx'/(z^2 + x'^2)^{3/2} = x'/\big(z^2\sqrt{z^2 + x'^2}\big)$, so
-    \[
-        \vec{E} = \frac{\lambda z\hat{z}}{4\pi\epsilon_0}\cdot\frac{2L}{z^2\sqrt{L^2 + z^2}}
-        = \underbrace{\frac{\lambda}{2\pi\epsilon_0 z}\hat{z}}_{\text{infinite line}}
-        \cdot\underbrace{\frac{L}{\sqrt{L^2 + z^2}}}_{<\,1}.
-    \]
-    The prefactor is the infinite line result from Gauss' law, and the second factor is the correction for finite length. It is always less than one, which is the ``leaked flux'' argument made quantitative. Two limits:
+    With $\vec{r} = z\hat{z}$ and $\vec{r}' = x'\hat{x}$,
+    \[\vec{\mathfrak{r}} = z\hat{z} - x'\hat{x}, \qquad\mathfrak{r} = \sqrt{z^2 + x'^2},\]
+    so
+    \[\vec{E} = \frac{\lambda}{4\pi\epsilon_0}\int_{-L}^{L}\frac{z\hat{z} - x'\hat{x}}{(z^2 + x'^2)^{3/2}}\,dx'.\]
+    The $\hat{x}$ term is odd in $x'$ and vanishes by symmetry. Using $\int dx'/(z^2 + x'^2)^{3/2} = x'/\big(z^2\sqrt{z^2 + x'^2}\big)$,
+    \[\vec{E} = \frac{\lambda}{2\pi\epsilon_0 z}\cdot\frac{L}{\sqrt{L^2 + z^2}}\,\hat{z}.\]
     \begin{itemize}
-        \item $z \ll L$: $L/\sqrt{L^2 + z^2} \approx L/L = 1$, so $\vec{E} \to \dfrac{\lambda}{2\pi\epsilon_0 z}\hat{z}$. Close to the line it looks infinite, and Gauss' law is recovered.
-        \item $z \gg L$: $\sqrt{L^2 + z^2} \approx z$, so $\vec{E} \to \dfrac{2\lambda L}{4\pi\epsilon_0 z^2}\hat{z} = \dfrac{Q}{4\pi\epsilon_0 z^2}\hat{z}$. Far away it looks like a point charge $Q = 2\lambda L$.
+        \item $z \ll L$: $\vec{E} \to \dfrac{\lambda}{2\pi\epsilon_0 z}\hat{z}$, the infinite line.
+        \item $z \gg L$: $\vec{E} \to \dfrac{Q}{4\pi\epsilon_0 z^2}\hat{z}$ with $Q = 2\lambda L$, a point charge.
     \end{itemize}
 \end{example}
-
 \begin{remark}
-    Always check limits. A result for a finite distribution should collapse to a simpler known field both up close and far away; if it does not, the integral is wrong.
+    Always check limits: a finite distribution should reduce to a simpler known field up close and far away.
 \end{remark}
+
+\subsection{Gauss' Law}
+\begin{law}[Gauss' law]
+    The flux of $\vec{E}$ through any closed surface is set by the charge inside it:
+    \begin{equation}
+        \oint_S \vec{E}\cdot d\vec{a} = \frac{Q_{\text{enc}}}{\epsilon_0},
+        \qquad Q_{\text{enc}} = \int_V \rho\,d\tau.
+    \end{equation}
+    Applying the divergence theorem to the left side gives $\int_V(\vec{\nabla}\cdot\vec{E})\,d\tau = \int_V (\rho/\epsilon_0)\,d\tau$. Since this holds for every volume $V$, the integrands match, giving the differential form
+    \begin{equation}
+        \vec{\nabla}\cdot\vec{E} = \frac{\rho}{\epsilon_0}.
+    \end{equation}
+\end{law}
+\begin{remark}
+    To solve for $\vec{E}$, choose a closed surface on which $E$ is constant and $\vec{E}$ is everywhere parallel or perpendicular to $d\vec{a}$, so $E$ comes out of the integral.
+\end{remark}
+
+\subsubsection{Spherical symmetry}
+\begin{example}[Point charge]
+    Surround a point charge $q$ with a sphere $S$ of radius $r$ centred on it. Two facts reduce the integral to a product:
+    \begin{itemize}
+        \item By symmetry, $\vec{E} = E(r)\,\hat{r}$: the field is radial and has the same magnitude everywhere on $S$.
+        \item By geometry, $d\vec{a} = \hat{n}\,da = \hat{r}\,da$ on a sphere.
+    \end{itemize}
+    So $\vec{E}\cdot d\vec{a} = E\,da$, and
+    \[
+        \oint_S \vec{E}\cdot d\vec{a} = E\underbrace{\oint_S da}_{4\pi r^2} = \frac{q}{\epsilon_0}
+        \quad\Longrightarrow\quad
+        E = \frac{q}{4\pi\epsilon_0 r^2}.
+    \]
+    This is Coulomb's law, with $k = 1/4\pi\epsilon_0$.
+\end{example}
+
+\subsubsection{Cylindrical symmetry}
+\begin{example}[Infinite line of charge]
+    For a line with charge $\lambda$ per unit length, take a coaxial\footnote{Sharing a common central axis.} cylinder of radius $z$ and length $d$. $\vec{E}$ is radial, so the end caps carry no flux:
+    \[E\,(2\pi z d) = \frac{\lambda d}{\epsilon_0}      \quad\Longrightarrow\quad E = \frac{\lambda}{2\pi\epsilon_0 z}.\]
+    The field falls off as $1/z$, not $1/z^2$.
+\end{example}
+
+\begin{example}[Finite versus infinite line]
+    Near the midpoint, a finite line gives a weaker field than an infinite one with the same $\lambda$. The same cylinder encloses the same charge, hence the same total flux, but for the finite line some of it leaks through the end caps, leaving less through the curved surface. The direct integration confirms this: the finite line field is the infinite line field times $L/\sqrt{L^2+z^2} < 1$.
+\end{example}
+
+\subsubsection{Why the fall-off depends on the geometry}
+The exponent in the fall-off counts how much charge a cone of field lines can ``see'' as it grows. Picture a narrow cone opening from the observation point toward the source: its cross section at distance $r$ grows like $r^2$, which alone gives the $1/r^2$ dilution of a point charge. For extended sources, the charge inside the cone grows too:
+\begin{itemize}
+    \item Line of charge: the cone intercepts a length $\propto r$, so $E \propto r/r^2 = 1/r$.
+    \item Sheet of charge: the cone intercepts an area $\propto r^2$, so $E \propto r^2/r^2$, a constant. The infinite sheet has a uniform field.
+\end{itemize}
+\begin{remark}
+    For two equal positive charges, no field lines cross the midplane: the field there is parallel to the plane and vanishes at the midpoint. Gauss' law still holds, but without symmetry it cannot solve for $\vec{E}$.
+\end{remark}
+
+\marginpar{September 16, 2026}
 
 \section{Potentials}
 \section{Electric Fields in Matter}
@@ -459,6 +431,12 @@ where $\vec{r}$ is the field point, $\vec{r}'$ the source point, and $\vec{\math
 % ============================================================
 \appendix
 \section{Appendix}
+\begin{remark}[Compactified dimensions]
+    %Add this to the appendix useless info for exam
+    Suppose an extra dimension exists but is curled up, the way a flat sheet with coordinates $(x,y)$ can be rolled into a cylinder whose second coordinate $w$ is periodic with a small radius. At distances much smaller than that radius, field lines spread out into all the dimensions and the field falls off faster than $1/r^2$. At distances much larger than it, there is only room to spread out in the large dimensions and the usual $1/r^2$ is recovered. So a measured deviation from the inverse square law at short range would be evidence for extra dimensions.
+
+    This has been tested for gravity by the E\"ot-Wash torsion balance experiments (2004, 2007, 2020), which checked the $1/r^2$ law down to separations of $52\,\mu$m. Newtonian gravity fit the data, ruling out gravitational strength Yukawa interactions with ranges above $38.6\,\mu$m at 95\% confidence.
+\end{remark}
 
 % ============================================================
 %  Useful Links
