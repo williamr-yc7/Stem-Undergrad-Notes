@@ -164,7 +164,7 @@ where $g$ is the g-factor of the particle.
     \begin{equation}
         \hbar = \frac{h}{2\pi}.
     \end{equation}
-    It carries units of angular momentum, so $[\hbar] = [L_z] = \frac{kg\cdot m^2}{s}$.
+    It carries units of angular momentum, so $[\hbar] = [L_z] = \frac{kg\cdot m^2}{s}$. Its value is $\hbar = 1.055 \times 10^{-27}\ \mathrm{erg\,s} = 6.582 \times 10^{-16}\ \mathrm{eV\,s}$.
 \end{definition}
 
 Writing $\vec{S} = \hbar(\vec{S}/\hbar)$ with $\vec{S}/\hbar$ dimensionless, the $\hbar$ joins the gyromagnetic ratio. The combination $q\hbar/2mc$ then carries the units and sets the natural size of the moment at a given mass scale.
@@ -390,10 +390,22 @@ Filter the $+\hat{z}$ beam and send it into an SG$x$. Half the atoms come out $+
 
 \subsubsection{\texorpdfstring{Experiment 3: SG$z$, SG$x$, then SG$z$}{Experiment 3: SGz, SGx, then SGz}}
 
-Filter $+\hat{z}$, then filter $+\hat{x}$, then measure $S_z$ again. The beam splits 50/50 into $+\hat{z}$ and $-\hat{z}$, even though every atom was filtered to $+\hat{z}$ at the start. The $S_x$ measurement wiped out the earlier $S_z$ information.
+Filter $+\hat{z}$, then filter $+\hat{x}$, then measure $S_z$ again. The beam splits 50/50 into $+\hat{z}$ and $-\hat{z}$, even though every atom was filtered to $+\hat{z}$ at the start. The $S_x$ measurement wiped out the earlier $S_z$ information. Blocking $+\hat{x}$ instead of $-\hat{x}$ gives the same 50/50 result.
 
 \begin{result}
     An atom with a definite value of $S_x$ does not have a definite value of $S_z$. Measuring $S_x$ destroys what we knew about $S_z$, so no state has definite values of both at once.
+\end{result}
+
+\subsubsection{\texorpdfstring{Experiment 4: SG$z$, modified SG$x$, then SG$z$}{Experiment 4: SGz, modified SGx, then SGz}}
+
+\begin{definition}[Modified SG$x$ device]
+    An SG$x$ device that splits the beam according to $S_x$ and then recombines the two beams, so atoms with $S_x = \pm\hbar/2$ emerge at the same position even though they took two different paths.
+\end{definition}
+
+Filter $+\hat{z}$, send it through a modified SG$x$ with neither path blocked, then measure $S_z$. Every atom comes out $+\hat{z}$: 100\%, not the 50/50 of Experiment 3.
+
+\begin{result}
+    The modified SG$x$ cannot simply send 50\% of the atoms through in $\ket{+\hat{x}}$ and 50\% in $\ket{-\hat{x}}$: Experiment 3 showed each of those alone gives 50/50 at the end, so that picture is ruled out. Instead the two paths interfere, as for water or light waves, cancelling the possibility of $-\hat{z}$.
 \end{result}
 
 % ============================================================
@@ -596,6 +608,14 @@ which is the general form of the previous subsection with $c_\pm = \braket{\pm\h
     which tends to $\braket{S_z}$ as $N \to \infty$.
 \end{remark}
 
+\begin{remark}[Shot noise]
+    For a finite number $N$ of measurements, the sample average deviates from the expectation value by
+    \begin{equation}
+        \left|\braket{S_z}_N - \braket{S_z}\right| \sim \frac{\Delta S_z}{\sqrt{N}}.
+    \end{equation}
+    This spread is intrinsic, not a flaw of the apparatus: it appears whenever a state with a definite value of one observable (e.g.\ $S_x$ for $\ket{+\hat{x}}$) is measured for an incompatible observable (e.g.\ $S_z$). This is made precise by the uncertainty relations in Chapter 3.
+\end{remark}
+
 \begin{definition}[Uncertainty]
     The uncertainty $\Delta S_z$ is the standard deviation of the measurement outcomes,
     \begin{equation}
@@ -673,6 +693,10 @@ Requiring this to equal $1/2$ forces $\cos(\gamma - \delta) = 0$, that is $\gamm
     \end{equation}
     which satisfies $\braket{+\hat{y}|-\hat{y}} = \frac{1}{2}\left(1 + (-i)(-i)\right) = \frac{1}{2}(1 - 1) = 0$.
 \end{result}
+
+\begin{remark}
+    Complex coefficients are required, not just allowed. With real coefficients the relative phases could only be $0$ or $\pi$, so $\gamma - \delta = \pm\pi/2$ would be impossible, and the conditions $|\braket{+\hat{x}|+\hat{z}}|^2 = |\braket{+\hat{y}|+\hat{z}}|^2 = |\braket{+\hat{x}|+\hat{y}}|^2 = \tfrac{1}{2}$ demanded by the Stern-Gerlach experiments could not all hold.
+\end{remark}
 
 \begin{example}
     For $\ket{\psi} = \sqrt{\tfrac{1}{3}}\ket{+\hat{z}} + i\sqrt{\tfrac{2}{3}}\ket{-\hat{z}}$, compute $\braket{S_y}$. The amplitudes are
@@ -754,6 +778,13 @@ A spin-$\tfrac12$ particle is a two-level system, and each of $\{\ket{\pm\hat{x}
     \end{equation}
 \end{proposition}
 
+\begin{definition}[Uncertainty of an observable]
+    \begin{equation}
+        (\Delta A)^2 = \braket{(A - \braket{A})^2} = \braket{A^2} - \braket{A}^2, \qquad
+        \braket{A^2} = \bra{\psi}\hat{A}^2\ket{\psi} = \sum_j a_j^2|c_j|^2.
+    \end{equation}
+\end{definition}
+
 % ============================================================
 \section{Rotation of Basis States and Matrix Mechanics}
 % ============================================================
@@ -818,6 +849,14 @@ A spin-$\tfrac12$ particle is a two-level system, and each of $\{\ket{\pm\hat{x}
     \end{equation*}
 \end{example}
 
+\begin{proposition}[Properties of projectors]
+    A projector satisfies $P_{\hat{n}}^2 = P_{\hat{n}}$, since $(\ket{\hat{n}}\bra{\hat{n}})(\ket{\hat{n}}\bra{\hat{n}}) = \ket{\hat{n}}\braket{\hat{n}|\hat{n}}\bra{\hat{n}} = \ket{\hat{n}}\bra{\hat{n}}$. In the $S_z$ basis,
+    \begin{equation}
+        P_{-\hat{z}} \xrightarrow{S_z} \begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix}, \qquad
+        \mathbb{1} = P_{+\hat{z}} + P_{-\hat{z}} \xrightarrow{S_z} \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}.
+    \end{equation}
+\end{proposition}
+
 \begin{definition}[Adjoint]
     Writing $A = \mathbb{1}A\mathbb{1} = \sum_{i,j}A_{ij}\ket{i}\bra{j}$, the adjoint is
     \begin{equation}
@@ -838,6 +877,10 @@ A spin-$\tfrac12$ particle is a two-level system, and each of $\{\ket{\pm\hat{x}
 \end{definition}
 
 \begin{remark}
+    $R(\theta\hat{n})$ is a linear operator: $R\left(c_+\ket{+\hat{z}} + c_-\ket{-\hat{z}}\right) = c_+R\ket{+\hat{z}} + c_-R\ket{-\hat{z}}$, which is what the equation above uses.
+\end{remark}
+
+\begin{remark}
     The bra of $\ket{\psi'}$ is $\bra{\psi}R^\dagger$, not $\bra{\psi}R$. With the wrong choice, $\ket{\psi} = \ket{+\hat{z}}$ and $\theta = \pi/2$ would give $\braket{\psi'|\psi'} = \bra{+\hat{z}}R(\pi\hat{y})\ket{+\hat{z}} = \braket{+\hat{z}|-\hat{z}} = 0$ instead of 1.
 \end{remark}
 
@@ -850,6 +893,10 @@ A spin-$\tfrac12$ particle is a two-level system, and each of $\{\ket{\pm\hat{x}
 \begin{proof}
     A rotation must preserve normalization: $\braket{\psi'|\psi'} = \bra{\psi}R^\dagger R\ket{\psi} = 1$ for every $\ket{\psi}$ and every $R(\theta\hat{n})$, which forces $R^\dagger R = \mathbb{1}$.
 \end{proof}
+
+\begin{remark}
+    Unitary operators map physical (normalized) states to physical states. If a unitary $U$ satisfies $U\ket{\psi} = c\ket{\psi}$, then $|c| = 1$, so $c = e^{i\varphi}$ is just a global phase and $U\ket{\psi}$ describes the same physical state as $\ket{\psi}$.
+\end{remark}
 % ============================================================
 \appendix
 \section{Appendix}

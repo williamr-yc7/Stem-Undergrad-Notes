@@ -88,6 +88,13 @@ The textbook is \textit{An Introduction to Thermal Physics} by Daniel V. Schroed
 
 \subsection{Terminologies}%Read
 \marginpar{September 2, 2026}
+\begin{definition}[System, surroundings, boundary]
+    The system is everything involved in the process under study; the surroundings are the rest of the universe it interacts with; the boundary is the interface between them.
+\end{definition}
+\begin{definition}[Open, closed, isolated]
+    An open system exchanges matter and energy with its surroundings, a closed system only energy, and an isolated system neither. The boundary determines which.
+\end{definition}
+
 \subsubsection{Equilibrium States}
 \begin{definition}[Equilibrium state]
     A system is in an equilibrium state if all the measurable bulk physical properties of the system are uniform throughout the system and constant in time.
@@ -135,6 +142,12 @@ The textbook is \textit{An Introduction to Thermal Physics} by Daniel V. Schroed
 \begin{remark}
     The zeroth law is what makes a thermometer work. System C is the thermometer, and the law guarantees that two systems reading the same value on it are in thermal equilibrium with each other.
 \end{remark}
+\begin{remark}
+    Thermal equilibrium (equal $T$) is not full thermodynamic equilibrium, which also requires mechanical and chemical (diffusive) equilibrium.
+\end{remark}
+\begin{remark}
+    Extrapolating $V(T)$ at fixed $P$ for any sample of ideal gas gives $V \to 0$ at the same temperature, $-273.15\,^\circ$C $= 0$ K, which defines absolute zero. A gas thermometer reads $T = PV/nR$.
+\end{remark}
 
 \subsection{First Law}
 \begin{law}[First Law of Thermodynamics]
@@ -144,6 +157,9 @@ The textbook is \textit{An Introduction to Thermal Physics} by Daniel V. Schroed
 
 \begin{remark}
     Sign convention: $Q > 0$ when heat flows into the system, and $W > 0$ when work is done on the system. Both raise the internal energy.
+\end{remark}
+\begin{remark}
+    For an isolated system $Q = W = 0$, so $U$ is constant.
 \end{remark}
 
 % ============================================================
@@ -196,7 +212,7 @@ which is the area under the curve on a $P$-$V$ diagram.
 
 \subsection{Heat}
 \begin{definition}[Heat]
-    Heat is energy that flows between systems because of a temperature difference, and it drives them toward thermal equilibrium. It is the quantity of energy $Q$ transferred between a system and its surroundings as a result of that temperature difference.
+    Heat is energy that flows between systems because of a temperature difference, and it drives them toward thermal equilibrium. It is the quantity of energy $Q$ transferred between a system and its surroundings as a result of that temperature difference. Heat flows spontaneously from the warmer body to the colder one, by conduction, convection or radiation, until $T_A = T_B$. No temperature difference, no heat flow.
 \end{definition}
 
 \begin{remark}
@@ -300,6 +316,11 @@ Most materials expand as they are heated (as $U$ increases). This is most obviou
     The second term is the additional heat needed to compensate for the energy lost as work. The more the volume increases, the larger this term is. For solids and liquids $\partial V / \partial T \approx 0$, so it can often be neglected and $C_P \approx C_V$. For gases it is significant.
 \end{remark}
 
+\begin{proposition}[$C_P$ of an ideal gas]
+    For an ideal gas $U$ depends only on $T$, so $(\partial U/\partial T)_P = C_V$, and $V = Nk_BT/P$ gives $(\partial V/\partial T)_P = Nk_B/P$. Hence
+    \[C_P = C_V + Nk_B = C_V + nR, \qquad c_P = c_V + R \text{ (molar)}.\]
+\end{proposition}
+
 \subsection{Measuring Specific Heat: Calorimetry}
 The best way to determine $C$ or $c$ is to measure it, using a calorimeter: an insulated container in which two bodies at different temperatures are brought into thermal contact. Since the whole system is isolated, conservation of energy gives
 \[Q_{\text{system}} = -Q_{\text{surroundings}},\]
@@ -366,6 +387,9 @@ No heat flows, and the path follows an adiabat $PV^\gamma = \text{constant}$, wh
 \[Q = 0, \qquad W = -\int_{V_1}^{V_2} P \, dV = \Delta U.\]
 
 \subsection{Cycles}
+\begin{definition}[Heat engine]
+    A system that converts thermal energy into work by taking a working substance through a cycle between a hot reservoir at $T_2$ and a cold one at $T_1$.
+\end{definition}
 A cycle is a closed path on the $P$-$V$ diagram: the system returns to its initial state, so $\Delta U = 0$ over one cycle and $Q = -W$. The net work is the area enclosed by the loop.
 \begin{itemize}
     \item Stirling cycle: two isotherms ($T_1$, $T_2$) joined by two isochores ($V_1$, $V_2$).
@@ -414,6 +438,9 @@ Comparing with the ideal gas law $PV = N k_B T$ and cancelling $N$,
 \begin{remark}
     The average translational kinetic energy per molecule depends only on temperature, not on the mass or type of molecule. This is the microscopic meaning of temperature.
 \end{remark}
+\begin{remark}
+    The molecular speeds follow a distribution (Maxwell--Boltzmann), with most probable speed $<$ average speed $<$ rms speed $\sqrt{\overline{u^2}}$.
+\end{remark}
 
 % ============================================================
 \section{Equipartition and Degrees of Freedom}
@@ -451,6 +478,9 @@ Consider a molecule of $N$ atoms. Specifying the positions of all atoms takes $3
 \begin{remark}
     Translational and rotational modes count as one quadratic DOF each (kinetic energy only); each vibrational mode counts as two (kinetic and potential). So a fully excited nonlinear molecule has $f = 3 + 3 + 2(3N-6)$.
 \end{remark}
+\begin{example}[NH$_3$]
+    $N = 4$, nonlinear: $3N = 12$ coordinates, 3 translational, 3 rotational, so $12 - 6 = 6$ vibrational modes and $f_{\text{vib}} = 12$. Total $f = 3 + 3 + 12 = 18$.
+\end{example}
 
 \subsection{Degrees of Freedom in Solids}
 \marginpar{September 18, 2026}
@@ -485,6 +515,9 @@ When degrees of freedom freeze out below their threshold temperatures, $f \to f(
     \[c_V = \frac{C_V}{n} = \frac{3}{2} R \approx \SI{12.5}{\joule\per\mole\per\kelvin},\]
     independent of the type of atom and of temperature.
 \end{example}
+\begin{example}[Diatomic H$_2$]
+    As $T$ rises, degrees of freedom unfreeze one type at a time: $c_V = \tfrac{3}{2}R$ at low $T$ (translation, $f = 3$), $\tfrac{5}{2}R$ once rotation turns on ($f_{\text{rot}} = 2$, above $\sim 100$ K), and $\tfrac{7}{2}R$ once vibration turns on ($f_{\text{vib}} = 2$, when $k_BT \sim \hbar\omega_{\text{vib}}$, thousands of K).
+\end{example}
 
 \subsection{Solids: the Rule of Dulong and Petit}
 At sufficiently high temperature, with all vibrational modes active and none frozen out, the molar heat capacity of a solid tends to
@@ -505,7 +538,7 @@ Earlier an equilibrium state was described as one whose easily measurable macros
 \end{definition}
 
 \begin{remark}
-    This lets a system with, say, a temperature gradient still be treated cell by cell: each cell is locally in equilibrium even though the system as a whole is not.
+    This lets a system with, say, a temperature gradient still be treated cell by cell: each cell is locally in equilibrium even though the system as a whole is not. The approximation is better when relaxation is slow and the gradients in $(P,V,T)$ are gentle. Within each cell one can then talk about $U$, $H$, $S$.
 \end{remark}
 
 \subsection{Equilibrium versus Rates}
