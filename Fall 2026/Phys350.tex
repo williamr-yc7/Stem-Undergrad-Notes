@@ -495,7 +495,7 @@ The exponent in the fall-off counts how much charge a cone of field lines can ``
 \end{remark}
 \begin{proposition}[Potential from the field]
     \[V(\vec{r}) = -\int_{\text{ref}}^{\vec{r}}\vec{E}\cdot d\vec{l}.\]
-    The path does not matter since the integral is path-independent. Changing the reference point adds a constant to $V$, which leaves $\vec{E} = -\vec{\nabla}V$ unchanged (gauge freedom). By convention the reference is at infinity, unless the charge distribution extends to infinity.
+    The path does not matter since the integral is path-independent\footnote{Since $\vec{\nabla}\times\vec{E} = 0$, statement (ii) of the irrotational fields theorem applies.}. Changing the reference point adds a constant to $V$, which leaves $\vec{E} = -\vec{\nabla}V$ unchanged (gauge freedom). By convention the reference is at infinity, unless the charge distribution extends to infinity.
 \end{proposition}
 \begin{example}[Point charge]
     Along a radial path,
@@ -503,8 +503,8 @@ The exponent in the fall-off counts how much charge a cone of field lines can ``
 \end{example}
 \begin{proposition}[Potential of a distribution]
     By superposition,
-    \[V(\vec{r}) = \frac{1}{4\pi\epsilon_0}\int\frac{\rho(\vec{r}')}{\mathfrak{r}}\,d\tau'.\]
-    Unlike the integral for $\vec{E}$, there is no $\hat{\mathfrak{r}}$, so computing $V$ first and then $\vec{E} = -\vec{\nabla}V$ is often easier.
+    \[V(\vec{r}) = \frac{1}{4\pi\epsilon_0}\int\frac{\rho(\vec{r}')}{\mathfrak{r}}\,d\tau',\]
+    where $\rho(\vec{r}')d\tau'=dq$. Unlike the integral for $\vec{E}$, there is no $\hat{\mathfrak{r}}$, so computing $V$ first and then $\vec{E} = -\vec{\nabla}V$ is often easier.
 \end{proposition}
 \begin{law}[Poisson's equation]
     Combining $\vec{\nabla}\cdot\vec{E} = \rho/\epsilon_0$ with $\vec{E} = -\vec{\nabla}V$,
@@ -518,12 +518,12 @@ The exponent in the fall-off counts how much charge a cone of field lines can ``
     So $V$ is potential energy per unit charge, in $\mathrm{J/C} = \mathrm{V}$.
 \end{proposition}
 \begin{proposition}[Energy of $N$ point charges]
-    The first charge comes in free, and each later one feels the potential of those already placed, giving one term per pair:
+    The first charge costs no work, since no field exists yet, and each later one feels the potential of those already placed, giving one term per pair:
     \[U = \frac{1}{2}\sum_{i\neq j}\frac{q_iq_j}{4\pi\epsilon_0|\vec{r}_i - \vec{r}_j|},\]
     where the $\tfrac12$ corrects for counting each pair twice.
 \end{proposition}
 \begin{remark}
-    $U$ does not obey superposition: it is quadratic in the charges, so the energy of two configurations combined includes cross terms. %How? since U is a sum
+    $U$ does not obey superposition: fields add, but energy goes like $E^2$, so combining two configurations gives $U = U_1 + U_2 + (\text{interaction cross terms})$.
 \end{remark}
 \begin{theorem}[Energy stored in the field]
     For a continuous distribution,
@@ -531,17 +531,58 @@ The exponent in the fall-off counts how much charge a cone of field lines can ``
     \qquad u = \frac{\epsilon_0}{2}E^2 \text{ (energy density).}\]
 \end{theorem}
 \begin{proof}
-    By Poisson's equation, $U = -\frac{\epsilon_0}{2}\int(\nabla^2 V)V\,d\tau$. In index notation, $\partial_i(V\partial_i V) = (\partial_i V)(\partial_i V) + V\partial_i\partial_i V$, so
-    \[(\nabla^2 V)V = \vec{\nabla}\cdot(V\vec{\nabla}V) - |\vec{\nabla}V|^2.\]
-    Then
-    \[U = \frac{\epsilon_0}{2}\int|\vec{\nabla}V|^2\,d\tau - \frac{\epsilon_0}{2}\oint_{\infty}V\vec{\nabla}V\cdot d\vec{a}.\]
-    For a bounded distribution $V \sim 1/r$ and $|\vec{\nabla}V| \sim 1/r^2$ while the area grows as $r^2$, so the surface term falls off as $1/r$ and vanishes. With $\vec{E} = -\vec{\nabla}V$, $U = \frac{\epsilon_0}{2}\int E^2\,d\tau$.
+    The pair sum can be written $U = \frac{1}{2}\sum_i q_i V(\vec{r}_i)$, where $V(\vec{r}_i)$ is the potential at $q_i$ due to the others. For a continuous distribution this becomes $U = \frac{1}{2}\int\rho V\,d\tau$. Substituting $\rho = -\epsilon_0\nabla^2 V$ from Poisson's equation,
+    \[U = -\frac{\epsilon_0}{2}\int(\nabla^2 V)V\,d\tau.\]
+    By the product rule in index notation,
+    \[\sum_i\partial_i(V\partial_i V) = \sum_i(\partial_i V)^2 + V\sum_i\partial_i\partial_i V
+    \quad\Longrightarrow\quad
+    (\nabla^2 V)V = \vec{\nabla}\cdot(V\vec{\nabla}V) - |\vec{\nabla}V|^2.\]
+    So
+    \[U = \frac{\epsilon_0}{2}\int|\vec{\nabla}V|^2\,d\tau - \frac{\epsilon_0}{2}\int\vec{\nabla}\cdot(V\vec{\nabla}V)\,d\tau.\]
+    The divergence theorem turns the second integral over all space into a flux through its boundary, a sphere at infinity: $\oint V\vec{\nabla}V\cdot d\vec{a}$. For a bounded distribution $V \sim 1/r$ and $|\vec{\nabla}V| \sim 1/r^2$ while the area grows as $r^2$, so this term falls off as $1/r$ and vanishes. With $\vec{E} = -\vec{\nabla}V$, $U = \frac{\epsilon_0}{2}\int E^2\,d\tau$.
 \end{proof}
 \begin{remark}[Self-energy]
     The discrete sum excludes $i = j$; the continuous integral does not. So $\frac{\epsilon_0}{2}\int E^2\,d\tau$ is always positive, while the pair sum for two opposite charges is negative. The difference is the infinite self-energy of point charges.
 \end{remark}
 
 \section{Potentials}
+\subsection{Multipole Expansion}
+\marginpar{September 18, 2026}
+\begin{example}[Two charges on the $z$ axis]
+    Place $q_1$ at $z = d/2$ and $q_2$ at $z = -d/2$. With $\theta$ measured from the $z$ axis,
+    \[V(\vec{r}) = \frac{1}{4\pi\epsilon_0}\left(\frac{q_1}{\mathfrak{r}_1} + \frac{q_2}{\mathfrak{r}_2}\right),
+    \qquad \mathfrak{r}_{1,2}^2 = r^2 + \left(\frac{d}{2}\right)^2 \mp rd\cos\theta.\]
+    Writing $1/\mathfrak{r}_{1,2} = \frac{1}{r}(1+\epsilon_\mp)^{-1/2}$ with $\epsilon_\mp = \frac{d}{2r}\left(\frac{d}{2r} \mp 2\cos\theta\right)$ and expanding for $d \ll r$, $(1+\epsilon)^{-1/2} = 1 - \frac{1}{2}\epsilon + \frac{3}{8}\epsilon^2 - \dots$, gives
+    \[V(\vec{r}) = \frac{1}{4\pi\epsilon_0}\left[\underbrace{\frac{q_1+q_2}{r}}_{\text{monopole}} + \underbrace{\frac{(q_1-q_2)d\cos\theta}{2r^2}}_{\text{dipole}} + \underbrace{\frac{(q_1+q_2)d^2}{4}\frac{3\cos^2\theta - 1}{2r^3}}_{\text{quadrupole}} + \dots\right].\]
+    Each term gains a power of $1/r$, so $E \sim 1/r^2,\ 1/r^3,\ 1/r^4, \dots$
+\end{example}
+\begin{remark}
+    Setting $q_1 = -q_2$ kills the monopole term, leaving $V \sim 1/r^2$ and $E \sim 1/r^3$ at leading order.
+\end{remark}
+\begin{definition}[Ideal dipole]
+    The $n$-th term carries $q\,d^{\,n}$. Taking $q\to\infty$, $d\to 0$ with $qd$ fixed kills every term beyond the dipole, leaving a point object with dipole moment $\vec{p} = q\vec{d}$ and exactly $V \sim 1/r^2$.
+\end{definition}
+\begin{remark}
+    Two opposite dipoles placed close together cancel at dipole order, giving a quadrupole with $V \sim 1/r^3$. In general the pattern continues: two opposite $2^n$-poles make a $2^{n+1}$-pole.
+\end{remark}
+\begin{theorem}[Multipole expansion]
+    For $r$ large compared with the size of the distribution,
+    \[V(\vec{r}) = \frac{1}{4\pi\epsilon_0}\left(\frac{Q}{r} + \frac{\vec{p}\cdot\hat{r}}{r^2} + \frac{\sum_{i,j}\hat{r}_iQ_{ij}\hat{r}_j}{r^3} + \dots\right),\]
+    with
+    \[Q = \int\rho(\vec{r}')\,d\tau', \qquad
+    \vec{p} = \int\vec{r}'\rho(\vec{r}')\,d\tau', \qquad
+    Q_{ij} = \int\frac{1}{2}\left(3r'_ir'_j - r'^2\delta_{ij}\right)\rho(\vec{r}')\,d\tau'.\]
+    Equivalently (Griffiths' form), with $\alpha$ the angle between $\vec{r}$ and $\vec{r}'$ and $P_n$ the Legendre polynomials,
+    \[V(\vec{r}) = \frac{1}{4\pi\epsilon_0}\sum_{n=0}^{\infty}\frac{1}{r^{n+1}}\int(r')^nP_n(\cos\alpha)\rho(\vec{r}')\,d\tau'.\]
+    $P_0 = 1$ gives the monopole, $P_1 = \cos\alpha$ the dipole (since $r'\cos\alpha = \vec{r}'\cdot\hat{r}$), and $P_2 = \frac{1}{2}(3\cos^2\alpha - 1)$ the quadrupole.
+\end{theorem}
+\begin{remark}
+    This is a series in $1/r$, good at large $r$, the opposite of a Taylor series in $r$.
+\end{remark}
+\begin{remark}[Origin dependence]
+    Shifting the origin by $\vec{a}$ changes $\vec{p} \to \vec{p} - Q\vec{a}$, so $\vec{p}$ is well defined only when $Q = 0$ (a neutral molecule, not an ion). In general only the first non-vanishing moment is origin-independent.
+\end{remark}
+
 \section{Electric Fields in Matter}
 \section{Magnetostatics}
 \section{Magnetic Fields in Matter}

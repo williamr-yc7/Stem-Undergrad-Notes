@@ -20,9 +20,10 @@
 \contentsline {subsection}{\numberline {3.4}Electric Potential}{11}{subsection.3.4}%
 \contentsline {subsection}{\numberline {3.5}Work and Energy in Electrostatics}{12}{subsection.3.5}%
 \contentsline {section}{\numberline {4}Potentials}{13}{section.4}%
-\contentsline {section}{\numberline {5}Electric Fields in Matter}{13}{section.5}%
-\contentsline {section}{\numberline {6}Magnetostatics}{13}{section.6}%
-\contentsline {section}{\numberline {7}Magnetic Fields in Matter}{13}{section.7}%
-\contentsline {section}{\numberline {8}Electrodynamics}{13}{section.8}%
-\contentsline {section}{\numberline {A}Appendix}{13}{appendix.A}%
-\contentsline {section}{\numberline {B}Useful Links}{13}{appendix.B}%
+\contentsline {subsection}{\numberline {4.1}Multipole Expansion}{13}{subsection.4.1}%
+\contentsline {section}{\numberline {5}Electric Fields in Matter}{14}{section.5}%
+\contentsline {section}{\numberline {6}Magnetostatics}{14}{section.6}%
+\contentsline {section}{\numberline {7}Magnetic Fields in Matter}{14}{section.7}%
+\contentsline {section}{\numberline {8}Electrodynamics}{14}{section.8}%
+\contentsline {section}{\numberline {A}Appendix}{14}{appendix.A}%
+\contentsline {section}{\numberline {B}Useful Links}{15}{appendix.B}%
