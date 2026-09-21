@@ -466,7 +466,7 @@ The exponent in the fall-off counts how much charge a cone of field lines can ``
     For two equal positive charges, no field lines cross the midplane: the field there is parallel to the plane and vanishes at the midpoint. Gauss' law still holds, but without symmetry it cannot solve for $\vec{E}$.
 \end{remark}
 
-\subsection{The Curl of $\vec{E}$ and the Potential}
+\subsection{The Curl of $\vec{E}$}
 \begin{example}[Line integral of a point charge]
     For a point charge at the origin, $d\vec{l} = dr\,\hat{r} + r\,d\theta\,\hat{\theta} + r\sin\theta\,d\phi\,\hat{\phi}$ and only the radial part survives:
     \[\int_{\vec{a}}^{\vec{b}}\vec{E}\cdot d\vec{l} = \frac{q}{4\pi\epsilon_0}\int_{r_a}^{r_b}\frac{dr}{r^2} = \frac{q}{4\pi\epsilon_0}\left(\frac{1}{r_a} - \frac{1}{r_b}\right).\]
@@ -481,13 +481,65 @@ The exponent in the fall-off counts how much charge a cone of field lines can ``
 \begin{remark}
     Physically, $Q\oint\vec{E}\cdot d\vec{l}$ is the work done on a test charge around a closed loop. If it were nonzero, a charge could gain energy just by circling, violating energy conservation.
 \end{remark}
+
+\subsection{Electric Potential}
 \begin{definition}[Electric potential]
     Since $\vec{\nabla}\times\vec{E} = 0$, the irrotational fields theorem guarantees a scalar $V$ with
     \[\vec{E} = -\vec{\nabla}V.\]
-    The minus sign is convention: positive charges are pushed toward lower $V$, i.e.\ lower potential energy.
+    The minus sign is convention: positive charges are pushed toward lower potential energy.
 \end{definition}
 
 \marginpar{September 16, 2026}
+\begin{remark}
+    $\oint\vec{E}\cdot d\vec{l} = 0$ holds only in electrostatics. If fields vary in time, a charge can gain net energy around a loop.
+\end{remark}
+\begin{proposition}[Potential from the field]
+    \[V(\vec{r}) = -\int_{\text{ref}}^{\vec{r}}\vec{E}\cdot d\vec{l}.\]
+    The path does not matter since the integral is path-independent. Changing the reference point adds a constant to $V$, which leaves $\vec{E} = -\vec{\nabla}V$ unchanged (gauge freedom). By convention the reference is at infinity, unless the charge distribution extends to infinity.
+\end{proposition}
+\begin{example}[Point charge]
+    Along a radial path,
+    \[V(r) = -\frac{q}{4\pi\epsilon_0}\int_\infty^r\frac{dr'}{r'^2} = \frac{q}{4\pi\epsilon_0 r}.\]
+\end{example}
+\begin{proposition}[Potential of a distribution]
+    By superposition,
+    \[V(\vec{r}) = \frac{1}{4\pi\epsilon_0}\int\frac{\rho(\vec{r}')}{\mathfrak{r}}\,d\tau'.\]
+    Unlike the integral for $\vec{E}$, there is no $\hat{\mathfrak{r}}$, so computing $V$ first and then $\vec{E} = -\vec{\nabla}V$ is often easier.
+\end{proposition}
+\begin{law}[Poisson's equation]
+    Combining $\vec{\nabla}\cdot\vec{E} = \rho/\epsilon_0$ with $\vec{E} = -\vec{\nabla}V$,
+    \[\nabla^2 V = -\frac{\rho}{\epsilon_0}.\]
+\end{law}
+
+\subsection{Work and Energy in Electrostatics}
+\begin{proposition}[Potential energy of a test charge]
+    Bringing $Q$ in from infinity against the field takes
+    \[W = -Q\int_\infty^{\vec{r}}\vec{E}\cdot d\vec{l} = QV(\vec{r}).\]
+    So $V$ is potential energy per unit charge, in $\mathrm{J/C} = \mathrm{V}$.
+\end{proposition}
+\begin{proposition}[Energy of $N$ point charges]
+    The first charge comes in free, and each later one feels the potential of those already placed, giving one term per pair:
+    \[U = \frac{1}{2}\sum_{i\neq j}\frac{q_iq_j}{4\pi\epsilon_0|\vec{r}_i - \vec{r}_j|},\]
+    where the $\tfrac12$ corrects for counting each pair twice.
+\end{proposition}
+\begin{remark}
+    $U$ does not obey superposition: it is quadratic in the charges, so the energy of two configurations combined includes cross terms. %How? since U is a sum
+\end{remark}
+\begin{theorem}[Energy stored in the field]
+    For a continuous distribution,
+    \[U = \frac{1}{2}\int\rho V\,d\tau = \frac{\epsilon_0}{2}\int_{\text{all space}} E^2\,d\tau,
+    \qquad u = \frac{\epsilon_0}{2}E^2 \text{ (energy density).}\]
+\end{theorem}
+\begin{proof}
+    By Poisson's equation, $U = -\frac{\epsilon_0}{2}\int(\nabla^2 V)V\,d\tau$. In index notation, $\partial_i(V\partial_i V) = (\partial_i V)(\partial_i V) + V\partial_i\partial_i V$, so
+    \[(\nabla^2 V)V = \vec{\nabla}\cdot(V\vec{\nabla}V) - |\vec{\nabla}V|^2.\]
+    Then
+    \[U = \frac{\epsilon_0}{2}\int|\vec{\nabla}V|^2\,d\tau - \frac{\epsilon_0}{2}\oint_{\infty}V\vec{\nabla}V\cdot d\vec{a}.\]
+    For a bounded distribution $V \sim 1/r$ and $|\vec{\nabla}V| \sim 1/r^2$ while the area grows as $r^2$, so the surface term falls off as $1/r$ and vanishes. With $\vec{E} = -\vec{\nabla}V$, $U = \frac{\epsilon_0}{2}\int E^2\,d\tau$.
+\end{proof}
+\begin{remark}[Self-energy]
+    The discrete sum excludes $i = j$; the continuous integral does not. So $\frac{\epsilon_0}{2}\int E^2\,d\tau$ is always positive, while the pair sum for two opposite charges is negative. The difference is the infinite self-energy of point charges.
+\end{remark}
 
 \section{Potentials}
 \section{Electric Fields in Matter}
