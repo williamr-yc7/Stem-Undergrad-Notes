@@ -696,31 +696,160 @@ Requiring this to equal $1/2$ forces $\cos(\gamma - \delta) = 0$, that is $\gamm
     The factor $i$ that did nothing for $S_z$ matters here: it is a relative phase, and it is exactly what tilts the spin toward $+\hat{y}$.
 \end{example}
 
-\section{Misc}
-Summary and generalization of chapter 1:
-Quantum states are charactiterized by kets and bras, we have an interpretation for these quantum  $|<\phi|\psi>|^2$ is the probability to ess $|\phi>$ given $|\psi>$ and $<\phi|\psi> = <\psi|\phi>*$. Spin-1/2 (2-level) systems $\to$ 2 states: $\{\pm |\hat{x}>\}$ or $\{\pm |\pm\hat{y}>\}$ or $\{\pm |\pm\hat{z}>\}$, which are basis. n-level system: basis: $\{|j>, j=1,2,\dots,n\}$. Complete orthonormal basis $|\psi> = \sum_{j}c_j|j>, c_j = <j|\Psi>, c_j* = <\psi | j>$. The basis is orthonormal means $<i|j> = \begin{cases}
-    0, i\neq j\\
-    1, i=j
-\end{cases}, <i|j> = \delta_{ij}$ the kronecker delta. Observable A ($n=2, e.g. A=S_z or S_x or S_y$), outcomes: $a_j (j=1,2,\dots)$, complete set : $\{|a_j>\}$. $<a_i|a_j> = \delta_{ij}$ if $a_i$ all mutualy excl. $P(A=a_j) = |<a_j|\Psi>|^2$, $|\Psi> = \sum_{j}c_j|a_j>, c_j=<a_j|\Psi>, <\Psi| = \sum_jc_j*<a_j|, c_j*=<\Psi|a_j>$. $1 = \sum_jP(A=a_n)$ if $\{|a_j> is complete\} + <a_i|a_j>=\delta_{ij} = \sum_j|<\Psi|a_j>|^2 - <\Psi|\sum_j|a_jXa_j||\Psi> (this is equivalent to the identity operator symbol) = <\Psi|\Psi> = 1$. 2-level sys: $Identity operator symbol = |+\hat{z}X+\hat{z}| + |-\hat{z}X-\hat{z} = |+\hat{x}X+\hat{x}| + |-\hat{x}X-\hat{x} = |+\hat{y}X+\hat{y}| + |-\hat{y}X-\hat{y}$
+% ------------------------------------------------------------
+\subsection{Generalization to \texorpdfstring{$n$}{n}-level systems}
+% ------------------------------------------------------------
+\marginpar{September 16, 2026}
 
-\marginpar{Septembet 18, 2026}
-Normalization (complete basis): $|\psi> = \mathbb{1}|\psi> = <+\hat{z}|\psi|+\hat{z}>+<-\hat{z}|\psi|-\hat{z}> = C_+|+\hat{z}>+C_-|-\hat{z}>$. $P_+ + P_- = 1 \implies <\psi|\psi> = 1$. General n-level system: basis $\{|a_j>\}, j=1,2,\dots,n$. Observale $A\to$ outcomes $a_j \leftrightarrow S_z \to$ outcomes $\pm \hbar/2$. $\{|a_j>\}-$orthonormal. $<a_i|a_j> = \delta_{ij}$, $\{|a_j>\}-$complete: $\mathbb{1} = \sum_j|a_j\times a_j$. Follows from : $|\psi> = \sum_j C_j|a_j>$ (ket), $<\psi| = \sum_j C_j*<a_j|$ (bra), $<\psi|\psi> = (\sum_jC_j*<a_j|)(\sum_jC_j|a_j>) = \sum_jC_j*C_j<a_j|a_j> = \sum_j|C_j|^2=\sum_j|<a_j|\psi>|^2=1$. $1=\sum_j <\psi|a_j\times a_j|\psi> = <\psi|(\sum_j|a_j\times a_j|)|\psi> = <\psi|\psi>$. $<A> = \sum_j a_jP(A=a_j)=\sum_j a_j|<a_j|\psi>|^2 = \sum_j<\psi|a_j>a_j<a_j|\psi> = <\psi|\sum_ja_j|a_j\times a_j||\psi> = <\psi|\hat{A}|\psi>$.
+A spin-$\tfrac12$ particle is a two-level system, and each of $\{\ket{\pm\hat{x}}\}$, $\{\ket{\pm\hat{y}}\}$, $\{\ket{\pm\hat{z}}\}$ is a basis. An $n$-level system has a basis $\{\ket{j}\}$, $j = 1,\dots,n$.
 
-Chapter 2: Matrix Mechanics and Rotations.
-$|\psi> = \mathbb{1}|\psi> = <+\hat{z}|\psi>|+\hat{z}>+<-\hat{z}|\psi>|-\hat{z}> = C_+|+\hat{z}>+C_|-\hat{z}>$. Projector is $|+\hat{z}\times +\hat{z}|$. $|\psi> = \begin{matrix}C_+\\C_-\end{matrix}$, $\{\hat{x},\hat{y},\hat{z}\}$ is a basis: $\vec{E} = \begin{matrix}E_x\\E_y\\E_z\end{matrix}$. Do NOT say this $|\psi> = \begin{matrix}C_+\\C_-\end{matrix}$, instead it is $|\psi> \to^{S_z basis} \begin{matrix}C_+\\C_-\end{matrix} = \psi$, $<\psi| \to (C_+*C_-*) = \psi^+$ (adjoint, hermitian conjugate). Normi $<\psi|\psi> = (C_+*C_-*)\begin{matrix}C_+\\C_-\end{matrix} = |C_+|^2+|C_-|^2 = \psi^+\psi$. $|+\hat{x}> \to^{S_z basis} 1/\sqrt{2} \begin{matrix}1\\1\end{matrix}$, $|\pm \hat{y}> \to^{S_z basis}1/\sqrt{2}\begin{matrix}1\\\pm i\end{matrix}$.
-$n=2-levels$:
-\begin{itemize}
-    \item $\mathbb{1} = |+\hat{z}\times +\hat{z}| + |-\hat{z}\times -\hat{z}|$
-    \item $\mathbb{1} = |+\hat{x}\times +\hat{x}| + |-\hat{x}\times -\hat{x}|$
-    \item $\mathbb{1} = |+\hat{y}\times +\hat{y}| + |-\hat{y}\times -\hat{y}|$
-    \item $\mathbb{1} = \sum_{j=1}^{n}|j\times j|, <i|j>=\delta_{ij}$ (n-level system)
-\end{itemize}
-$\mathbb{1}|\psi> = \sum_{j\in\{+\hat{x},-\hat{x}\}}|j\times j||\psi> = <+\hat{x}|\psi>|+\hat{x}>+<-\hat{x}|\psi>|-\hat{x}>=<+\hat{y}|\psi>|+\hat{y}>+<-\hat{y}|\psi>|-\hat{y}>$. $|\psi> \to^{S_x basis} \begin{matrix}<+\hat{x}|\psi>\\<-\hat{x}|\psi>\end{matrix}$, $|\psi> \to^{S_y basis} \begin{matrix}<+\hat{y}|\psi>\\<-\hat{y}|\psi>\end{matrix}$, $|+\hat{z}> \to^{S_x basis} \begin{matrix}<+\hat{x}|+\hat{z}>\\<-\hat{x}|-\hat{z}>\end{matrix} = 1/\sqrt{2}\begin{matrix}1\\1\end{matrix} |+\hat{z}> \to^{S_z basis}\begin{matrix}1\\0\end{matrix}$. $|+\hat{z}> \to^{S_y basis} \begin{matrix}<+\hat{y}|+\hat{z}>\\<-\hat{y}|-\hat{z}>\end{matrix} = 1/\sqrt{2}\begin{matrix}1\\1\end{matrix}$
+\begin{definition}[Orthonormal and complete basis]
+    The basis is orthonormal if
+    \begin{equation}
+        \braket{i|j} = \delta_{ij},
+    \end{equation}
+    and complete if every state can be expanded in it,
+    \begin{equation}
+        \ket{\psi} = \sum_j c_j\ket{j}, \qquad c_j = \braket{j|\psi}, \qquad \bra{\psi} = \sum_j c_j^*\bra{j}.
+    \end{equation}
+    Completeness is equivalent to
+    \begin{equation}
+        \mathbb{1} = \sum_{j=1}^{n}\ket{j}\bra{j}.
+    \end{equation}
+\end{definition}
 
+\begin{example}
+    For $n = 2$, $\mathbb{1} = \ket{+\hat{n}}\bra{+\hat{n}} + \ket{-\hat{n}}\bra{-\hat{n}}$ for any $\hat{n} \in \{\hat{x},\hat{y},\hat{z}\}$, so
+    \begin{equation*}
+        \ket{\psi} = \braket{+\hat{x}|\psi}\ket{+\hat{x}} + \braket{-\hat{x}|\psi}\ket{-\hat{x}} = \braket{+\hat{y}|\psi}\ket{+\hat{y}} + \braket{-\hat{y}|\psi}\ket{-\hat{y}}.
+    \end{equation*}
+\end{example}
+
+\begin{definition}[Observable]
+    An observable $A$ has outcomes $a_j$ with states $\ket{a_j}$ forming a complete orthonormal set. For spin-$\tfrac12$, $A$ could be $S_x$, $S_y$ or $S_z$, with outcomes $\pm\hbar/2$. By the Born rule,
+    \begin{equation}
+        P(A = a_j) = \left|\braket{a_j|\psi}\right|^2.
+    \end{equation}
+\end{definition}
+
+\begin{proposition}
+    Normalization $\braket{\psi|\psi} = 1$ is the statement that the probabilities sum to 1.
+\end{proposition}
+\begin{proof}
+    \begin{equation*}
+        \braket{\psi|\psi} = \Big(\sum_i c_i^*\bra{a_i}\Big)\Big(\sum_j c_j\ket{a_j}\Big) = \sum_{i,j}c_i^*c_j\delta_{ij} = \sum_j|c_j|^2 = \sum_j P(A = a_j) = 1.
+    \end{equation*}
+    Equivalently, inserting the identity, $\sum_j\braket{\psi|a_j}\braket{a_j|\psi} = \bra{\psi}\Big(\sum_j\ket{a_j}\bra{a_j}\Big)\ket{\psi} = \braket{\psi|\psi}$.
+\end{proof}
+
+% ------------------------------------------------------------
+\subsection{Expectation value as an operator}
+% ------------------------------------------------------------
+\marginpar{September 18, 2026}
+
+\begin{proposition}
+    \begin{equation}
+        \braket{A} = \sum_j a_j\left|\braket{a_j|\psi}\right|^2 = \sum_j\braket{\psi|a_j}a_j\braket{a_j|\psi} = \bra{\psi}\hat{A}\ket{\psi},
+        \qquad \hat{A} = \sum_j a_j\ket{a_j}\bra{a_j}.
+    \end{equation}
+\end{proposition}
+
+% ============================================================
+\section{Rotation of Basis States and Matrix Mechanics}
+% ============================================================
+
+% ------------------------------------------------------------
+\subsection{States as column vectors}
+% ------------------------------------------------------------
+
+\begin{definition}[Representation of a state]
+    In the $S_z$ basis, a ket is represented by the column of its components and a bra by the conjugate row, the adjoint:
+    \begin{equation}
+        \ket{\psi} \xrightarrow{S_z} \psi = \begin{pmatrix} c_+ \\ c_- \end{pmatrix}, \qquad
+        \bra{\psi} \xrightarrow{S_z} \psi^\dagger = \begin{pmatrix} c_+^* & c_-^* \end{pmatrix},
+    \end{equation}
+    with $c_\pm = \braket{\pm\hat{z}|\psi}$. Then
+    \begin{equation}
+        \braket{\psi|\psi} = \psi^\dagger\psi = |c_+|^2 + |c_-|^2.
+    \end{equation}
+\end{definition}
+
+\begin{remark}
+    Write $\ket{\psi} \xrightarrow{S_z} \psi$, not $\ket{\psi} = \psi$. The ket is basis-independent; the column depends on the basis, just like $\vec{E}$ versus its components.
+\end{remark}
+
+\begin{example}
+    \begin{equation*}
+        \ket{\pm\hat{x}} \xrightarrow{S_z} \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ \pm 1 \end{pmatrix}, \qquad
+        \ket{\pm\hat{y}} \xrightarrow{S_z} \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ \pm i \end{pmatrix}.
+    \end{equation*}
+\end{example}
+
+\begin{example}[Other bases]
+    In the $S_x$ basis, $\ket{\psi} \xrightarrow{S_x} \begin{pmatrix} \braket{+\hat{x}|\psi} \\ \braket{-\hat{x}|\psi} \end{pmatrix}$, and similarly for $S_y$. So the same state has different columns:
+    \begin{equation*}
+        \ket{+\hat{z}} \xrightarrow{S_z} \begin{pmatrix} 1 \\ 0 \end{pmatrix}, \qquad
+        \ket{+\hat{z}} \xrightarrow{S_x} \begin{pmatrix} \braket{+\hat{x}|+\hat{z}} \\ \braket{-\hat{x}|+\hat{z}} \end{pmatrix} = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ 1 \end{pmatrix}, \qquad
+        \ket{+\hat{z}} \xrightarrow{S_y} \begin{pmatrix} \braket{+\hat{y}|+\hat{z}} \\ \braket{-\hat{y}|+\hat{z}} \end{pmatrix} = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ 1 \end{pmatrix}.
+    \end{equation*}
+\end{example}
+
+% ------------------------------------------------------------
+\subsection{Operators as matrices}
+% ------------------------------------------------------------
 \marginpar{September 21, 2026}
-$\mathbb{1} = P_{+\hat{n}} + P_{-\hat{n}}, \hat{n}\in\{\hat{x},\hat{y},\hat{z}\}$, State : $|\psi> = c_+|+\hat{z}> + C_-|\hat{z}> \to^{S_z basis} \begin{matrix}C_+\\C_-\end{matrix}$. $P_{+\hat{z}}|\psi> = C_+|+\hat{z}> \to^{S_z basis}\begin{matrix}C_+\\0\end{matrix} = C_+\begin{matrix}1\\0\end{matrix}$. Matrix: $P_{+\hat{z}} = \begin{matrix}<+\hat{z}|P_{+\hat{z}}|+\hat{z}>&<+\hat{z}|P_{+\hat{z}}|-\hat{z}>\\<-\hat{z}|P_{+\hat{z}}|+\hat{z}>&<-\hat{z}|P_{+\hat{z}}|-\hat{z}>\end{matrix} = \begin{matrix}1&0\\0&0\end{matrix}$. Check: $\psi = \begin{matrix}C_+\\C_-\end{matrix} : P_{+\hat{z}}\begin{matrix}C_+\\C_-\end{matrix} =\begin{matrix}1&0\\0&0\end{matrix}\begin{matrix}C_+\\C_-\end{matrix} = \begin{matrix}C_+\\0\end{matrix}$. Operator A: $A|\psi> = ?$. n-levels: $\mathbb{1} = \sum_j|j\times j|, <i|j> = \delta_{ij}, A\mathbb{1}|\psi> = \sum_j A|j\times j| |\psi>$. $<k|A|\psi> = \sum_j<k|A|j><j|\psi>(k=1,2,\dots,n)$, $|\psi> \to^{|j> basis}\begin{matrix}<1|\psi>\\<2|\psi>\\<3|\psi>\\\dots\\<n|\psi>\end{matrix} = \psi$, $A\to^{|j> basis}\begin{matrix}A_{11}&A_{12}&\dots&A_{1n}\\A_{21}&\dots&\dots&\dots\\A_{n1}&\dots&\dots&\dots&A_{nn}\end{matrix} = A$, $A_{ij} = <i|A|j>$, $A|\psi> \to A\cdot\psi = \begin{matrix}<1|A|\psi>\\<2|A|\psi>\\<\dots|A|\psi>\\<n|A|\psi>\end{matrix}$.
-Rotation Operator
-$|\psi'>=R(\theta\hat{y}|\psi>), \theta=\pi/2: \pm\hat{z}\to\pm\hat{x}, |\pm\hat{x}>=R(\pi/2\hat{y})|\pm\hat{z}>, |\psi>=C_+|+\hat{z}>+C_-|-\hat{z}>$, $R(\pi/2\hat{y})|\psi> = C_+R()|+\hat{z}>+C_-R()|-\hat{z}> = C_+|+\hat{x}>+C_-|-\hat{x}>=|\psi'>$, $|\psi'> = R(\theta\hat{y})|\psi>, <\psi'| = <\psi|R(\theta\hat{y})$, $<\psi|R(\theta\hat{y}R(\theta\hat{y}))|\psi>$ for $|+\hat{z}> = |\psi>$, $\theta=\pi/2$, $R(\pi/2)|+\hat{x}> = +\hat{x}>, R^2(\pi/2\hat{y})|+\hat{z}>=R(\pi\hat{y})|+\hat{z}> = |-\hat{z}>$, but $<+\hat{z}|R(\pi\hat{y})|+\hat{z}> = <+\hat{z}|-\hat{z}>=0$ Need $<\psi'|\psi'> = 1$, $|\psi'> = R|\psi> \implies <\psi'|=<\psi|R^+$, $R_{ij} = <i|R|j>, R_{ij}^+ = R_{ji}*$, $\mathbb{1}R^\mathbb{1}=\sum_{ij}|i\times i|R|j\times j| = \sum_{ij}R_{ij}|i\times j|$, $R^+=\sum_{ij}R_{ij}*(|i\times j|)^+ = \sum_{ij}R_{ij}*|j\times i|$. $<\psi'|\psi'>=<\psi|R^+R|\psi>=1$ true for all $R(\theta\hat{n})$ and all $|\psi>$. $\implies R = u$ is unitary: $u^+u=uu^+=\mathbb{1}$.
+
+\begin{definition}[Projection operator]
+    $P_{\pm\hat{n}} = \ket{\pm\hat{n}}\bra{\pm\hat{n}}$, so that $\mathbb{1} = P_{+\hat{n}} + P_{-\hat{n}}$ and $P_{+\hat{z}}\ket{\psi} = c_+\ket{+\hat{z}}$.
+\end{definition}
+
+\begin{definition}[Matrix of an operator]
+    In a basis $\{\ket{j}\}$, an operator $A$ is represented by the matrix
+    \begin{equation}
+        A_{ij} = \bra{i}A\ket{j}.
+    \end{equation}
+    Inserting the identity, $\bra{k}A\ket{\psi} = \sum_j\bra{k}A\ket{j}\braket{j|\psi}$, so $A\ket{\psi}$ is represented by the matrix product $A\psi$.
+\end{definition}
+
+\begin{example}
+    \begin{equation*}
+        P_{+\hat{z}} \xrightarrow{S_z} \begin{pmatrix} \bra{+\hat{z}}P_{+\hat{z}}\ket{+\hat{z}} & \bra{+\hat{z}}P_{+\hat{z}}\ket{-\hat{z}} \\ \bra{-\hat{z}}P_{+\hat{z}}\ket{+\hat{z}} & \bra{-\hat{z}}P_{+\hat{z}}\ket{-\hat{z}} \end{pmatrix} = \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix},
+        \qquad \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}\begin{pmatrix} c_+ \\ c_- \end{pmatrix} = \begin{pmatrix} c_+ \\ 0 \end{pmatrix}.
+    \end{equation*}
+\end{example}
+
+\begin{definition}[Adjoint]
+    Writing $A = \mathbb{1}A\mathbb{1} = \sum_{i,j}A_{ij}\ket{i}\bra{j}$, the adjoint is
+    \begin{equation}
+        A^\dagger = \sum_{i,j}A_{ij}^*\ket{j}\bra{i}, \qquad (A^\dagger)_{ij} = A_{ji}^*.
+    \end{equation}
+    If $\ket{\psi'} = A\ket{\psi}$, then $\bra{\psi'} = \bra{\psi}A^\dagger$.
+\end{definition}
+
+% ------------------------------------------------------------
+\subsection{The rotation operator}
+% ------------------------------------------------------------
+
+\begin{definition}[Rotation operator]
+    $R(\theta\hat{n})$ rotates a state by $\theta$ about $\hat{n}$: $\ket{\psi'} = R(\theta\hat{n})\ket{\psi}$. For example, $R\left(\tfrac{\pi}{2}\hat{y}\right)$ takes $\ket{\pm\hat{z}}$ to $\ket{\pm\hat{x}}$ (up to phase), so
+    \begin{equation}
+        R\left(\tfrac{\pi}{2}\hat{y}\right)\left(c_+\ket{+\hat{z}} + c_-\ket{-\hat{z}}\right) = c_+\ket{+\hat{x}} + c_-\ket{-\hat{x}}.
+    \end{equation}
+\end{definition}
+
+\begin{remark}
+    The bra of $\ket{\psi'}$ is $\bra{\psi}R^\dagger$, not $\bra{\psi}R$. With the wrong choice, $\ket{\psi} = \ket{+\hat{z}}$ and $\theta = \pi/2$ would give $\braket{\psi'|\psi'} = \bra{+\hat{z}}R(\pi\hat{y})\ket{+\hat{z}} = \braket{+\hat{z}|-\hat{z}} = 0$ instead of 1.
+\end{remark}
+
+\begin{theorem}
+    Rotation operators are unitary:
+    \begin{equation}
+        R^\dagger R = RR^\dagger = \mathbb{1}.
+    \end{equation}
+\end{theorem}
+\begin{proof}
+    A rotation must preserve normalization: $\braket{\psi'|\psi'} = \bra{\psi}R^\dagger R\ket{\psi} = 1$ for every $\ket{\psi}$ and every $R(\theta\hat{n})$, which forces $R^\dagger R = \mathbb{1}$.
+\end{proof}
 % ============================================================
 \appendix
 \section{Appendix}
