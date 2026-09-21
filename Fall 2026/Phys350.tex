@@ -11,6 +11,7 @@
 \usepackage{tikz} % For drawing shapes
 \usepackage{circuitikz}
 \usepackage{float} % For [H] float option
+\usepackage{booktabs}
 \pgfplotsset{compat=1.18} % Set compatibility level
 \usetikzlibrary{decorations.pathreplacing}
 \newtheorem{theorem}{Theorem}
@@ -119,9 +120,14 @@ Textbook used is David J. Griffiths - Introduction to Electrodynamics Fifth Edit
 \end{definition}
 \begin{definition}[Curl]
     Curl turns a vector into a vector, measuring local rotation. Picture a small paddle wheel: if the flow spins it, the curl is non-zero there. Uniform flow does not spin it, but shear flow (parallel arrows, longer on one side) does, so straight field lines do not imply zero curl.
-    \[\vec{\nabla}\times\vec{F} = \begin{vmatrix} \hat{x} & \hat{y} & \hat{z} \\[2pt] \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\[2pt] F_x & F_y & F_z \end{vmatrix}.\]
+    \[\vec{\nabla}\times\vec{F} = \begin{vmatrix} \hat{x} & \hat{y} & \hat{z} \\[2pt] \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\[2pt] F_x & F_y & F_z \end{vmatrix} = \left(\frac{\partial}{\partial y}F_z - \frac{\partial}{\partial z}F_y, -(\frac{\partial}{\partial x}F_z - \frac{\partial}{\partial z}F_x), \frac{\partial}{\partial x}F_y - \frac{\partial}{\partial y}F_x\right).\]
 \end{definition}
-
+\begin{remark}
+    The direction of the curl follows the right-hand rule: curl your fingers along the paddle wheel's rotation and your thumb points along $\vec{\nabla}\times\vec{F}$.
+\end{remark}
+\begin{remark}
+    Divergence and curl are themselves fields: they can vanish in some places and not others, and a general field has both.
+\end{remark}
 
 \subsection{Integral Calculus}
 \begin{definition}[Integral]
@@ -197,10 +203,10 @@ Integrating a derivative over a region reduces to evaluating the original object
     \[\vec{w} = A\vec{v} \implies w_i = \sum_j A_{ij}v_j.\]
 \end{proposition}
 \begin{proposition}[Dot Product]
-    \[\vec{v}\cdot\vec{w} = \sum_i v_iw_i.\]
+    \[\vec{v}\cdot\vec{w} = \sum_i v_iw_i; \vec{\nabla}\cdot\vec{F} = \sum_i \partial_i F_i.\]
 \end{proposition}
 \begin{proposition}[Cross Product]
-    \[(\vec{v}\times\vec{w})_i = \sum_{j,k}\varepsilon_{ijk}v_jw_k.\]
+    \[(\vec{v}\times\vec{w})_i = \sum_{j,k}\varepsilon_{ijk}v_jw_k; (\vec{\nabla}\times\vec{F})_i = \sum_{j,k}\varepsilon_{ijk}\partial_j F_k.\]
 \end{proposition}
 \begin{definition}[Levi-Civita symbol]
     $\varepsilon_{ijk}$ is defined by
@@ -225,37 +231,52 @@ Integrating a derivative over a region reduces to evaluating the original object
     \[\vec{\nabla}\cdot(\vec{\nabla}f) = \frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2} + \frac{\partial^2 f}{\partial z^2} \equiv \nabla^2 f,\]
     where $\nabla^2$ is the Laplacian\footnote{Mathematicians often write $\Delta$, but in physics we use $\nabla^2$.}.
 \end{definition}
+\begin{remark}
+    $\nabla^2$ also acts on vector fields, component by component: $(\nabla^2\vec{F})_i = \nabla^2 F_i$.
+\end{remark}
 \begin{example}[Sign of the Laplacian]
     At a local maximum $\vec{\nabla}f$ points inward from every side, so it has negative divergence and $\nabla^2 f < 0$; at a minimum, $\nabla^2 f > 0$. At a saddle the second derivatives can cancel, so a flat point alone tells you nothing.
 \end{example}
 The full list of second derivative identities:
-\begin{description}
-    \item[Divergence of a gradient.] $\vec{\nabla}\cdot(\vec{\nabla}f) = \nabla^2 f$.
-    \item[Curl of a gradient.] $\vec{\nabla}\times(\vec{\nabla}f) = 0$.
-    \item[Divergence of a curl.] $\vec{\nabla}\cdot(\vec{\nabla}\times\vec{F}) = 0$.
-    \item[Identity 1.] $\vec{\nabla}\times(\vec{\nabla}\times\vec{F}) = \vec{\nabla}(\vec{\nabla}\cdot\vec{F}) - \nabla^2\vec{F}$.
-\end{description}
+\begin{table}[H]
+    \centering
+    \renewcommand{\arraystretch}{1.4}
+    \begin{tabular}{l|l}
+        \toprule
+        \textbf{Name} & \textbf{Identity} \\
+        \midrule
+        Divergence of a gradient & $\vec{\nabla}\cdot(\vec{\nabla}f) = \nabla^2 f$ \\
+        Curl of a gradient & $\vec{\nabla}\times(\vec{\nabla}f) = 0$ \\
+        Divergence of a curl & $\vec{\nabla}\cdot(\vec{\nabla}\times\vec{F}) = 0$ \\
+        Curl of a curl & $\vec{\nabla}\times(\vec{\nabla}\times\vec{F}) = \vec{\nabla}(\vec{\nabla}\cdot\vec{F}) - \nabla^2\vec{F}$ \\
+        \bottomrule
+    \end{tabular}
+    \caption{Second derivative identities.}
+\end{table}
 
 \subsubsection{Proving the Identities}
-\subsubsection*{Curl of a Curl}
-Set $\vec{G} \equiv \vec{\nabla}\times(\vec{\nabla}\times\vec{F})$. Then,
-\[G_i = \sum_{j,k}\varepsilon_{ijk}\partial_j\sum_{m,n} \varepsilon_{kmn}\partial_m F_n=\sum_{j,k,m,n}\varepsilon_{ijk}\varepsilon_{kmn}\partial_j\partial_mF_n.\]
-The shared index $k$ is in the third slot of the first symbol, so rotate it forward with the cyclic property $\varepsilon_{ijk} = \varepsilon_{kij}$ to match the proposition ($k$ now first in both):
-\[\sum_k \varepsilon_{kij}\varepsilon_{kmn} = \delta_{im}\delta_{jn} - \delta_{in}\delta_{jm}.\]
-Reading off the proposition with the summed index $k$ removed: the leftover pairs are $(i,j)$ and $(m,n)$, giving straight ($\delta_{im}\delta_{jn}$) minus crossed ($\delta_{in}\delta_{jm}$). Hence
-\[G_i = \sum_{j,m,n}\left(\delta_{im}\delta_{jn} - \delta_{in}\delta_{jm}\right)\partial_j\partial_m F_n.\]
-Each Kronecker delta collapses one sum by setting its indices equal. In the first term $\delta_{im}$ forces $m = i$ and $\delta_{jn}$ forces $n = j$; in the second, $\delta_{in}$ forces $n = i$ and $\delta_{jm}$ forces $m = j$:
-\[G_i = \sum_j \partial_j\partial_i F_j - \sum_j \partial_j\partial_j F_i.\]
-The first term is $\partial_i\sum_j\partial_j F_j = \left(\vec{\nabla}(\vec{\nabla}\cdot\vec{F})\right)_i$ and the second is $-(\nabla^2\vec{F})_i$, giving $\vec{\nabla}\times(\vec{\nabla}\times\vec{F}) = \vec{\nabla}(\vec{\nabla}\cdot\vec{F}) - \nabla^2\vec{F}$.
+\begin{proof}[Curl of a Curl]
+    Set $\vec{G} \equiv \vec{\nabla}\times(\vec{\nabla}\times\vec{F})$. Then,
+    \[G_i = \sum_{j,k}\varepsilon_{ijk}\partial_j\sum_{m,n} \varepsilon_{kmn}\partial_m F_n=\sum_{j,k,m,n}\varepsilon_{ijk}\varepsilon_{kmn}\partial_j\partial_mF_n.\]
+    The shared index $k$ is in the third slot of the first symbol, so rotate it forward with the cyclic property $\varepsilon_{ijk} = \varepsilon_{kij}$ to match the proposition ($k$ now first in both):
+    \[\sum_k \varepsilon_{kij}\varepsilon_{kmn} = \delta_{im}\delta_{jn} - \delta_{in}\delta_{jm}.\]
+    Reading off the proposition with the summed index $k$ removed: the leftover pairs are $(i,j)$ and $(m,n)$, giving straight ($\delta_{im}\delta_{jn}$) minus crossed ($\delta_{in}\delta_{jm}$). Hence
+    \[G_i = \sum_{j,m,n}\left(\delta_{im}\delta_{jn} - \delta_{in}\delta_{jm}\right)\partial_j\partial_m F_n.\]
+    Each Kronecker delta collapses one sum by setting its indices equal. In the first term $\delta_{im}$ forces $m = i$ and $\delta_{jn}$ forces $n = j$; in the second, $\delta_{in}$ forces $n = i$ and $\delta_{jm}$ forces $m = j$:
+    \[G_i = \sum_j \partial_j\partial_i F_j - \sum_j \partial_j\partial_j F_i.\]
+    The first term is $\partial_i\sum_j\partial_j F_j = \left(\vec{\nabla}(\vec{\nabla}\cdot\vec{F})\right)_i$ and the second is $-(\nabla^2\vec{F})_i$, giving $\vec{\nabla}\times(\vec{\nabla}\times\vec{F}) = \vec{\nabla}(\vec{\nabla}\cdot\vec{F}) - \nabla^2\vec{F}$.
+\end{proof}
 
-\subsubsection*{Curl of a Gradient}
-Start from the definition, with $\vec{\nabla}f=\partial_k f$:
-\[\left(\vec{\nabla}\times(\vec{\nabla}f)\right)_i = \sum_{j,k}\varepsilon_{ijk}\partial_j\partial_k f.\]
-Call this sum $S$. Since $j$ and $k$ are both summed over, they are dummy labels and can be renamed freely; swap $j \leftrightarrow k$ everywhere:
-\[S = \sum_{j,k}\varepsilon_{ikj}\partial_k\partial_j f.\]
-Now clean up the two factors. Antisymmetry of $\varepsilon$ gives $\varepsilon_{ikj} = -\varepsilon_{ijk}$, and partial derivatives commute so $\partial_k\partial_j f = \partial_j\partial_k f$. Hence
-\[S = -\sum_{j,k}\varepsilon_{ijk}\partial_j\partial_k f = -S.\]
-So $S = -S$, which forces $S = 0$. Therefore $\vec{\nabla}\times(\vec{\nabla}f) = 0$.
+
+\begin{proof}[Curl of a Gradient]
+    Start from the definition, with $\vec{\nabla}f=\partial_k f$:
+    \[\left(\vec{\nabla}\times(\vec{\nabla}f)\right)_i = \sum_{j,k}\varepsilon_{ijk}\partial_j\partial_k f.\]
+    Call this sum $S$. Since $j$ and $k$ are both summed over, they are dummy labels and can be renamed freely; swap $j \leftrightarrow k$ everywhere:
+    \[S = \sum_{j,k}\varepsilon_{ikj}\partial_k\partial_j f.\]
+    Now clean up the two factors. Antisymmetry of $\varepsilon$ gives $\varepsilon_{ikj} = -\varepsilon_{ijk}$, and partial derivatives commute so $\partial_k\partial_j f = \partial_j\partial_k f$. Hence
+    \[S = -\sum_{j,k}\varepsilon_{ijk}\partial_j\partial_k f = -S.\]
+    So $S = -S$, which forces $S = 0$. Therefore $\vec{\nabla}\times(\vec{\nabla}f) = 0$.
+\end{proof}
 
 \subsection{The Theory of Vector Fields}
 \begin{definition}[Irrotational and solenoidal]
@@ -282,6 +303,9 @@ So $S = -S$, which forces $S = 0$. Therefore $\vec{\nabla}\times(\vec{\nabla}f) 
         \item $\vec{F} = \vec{\nabla}\times\vec{A}$ for some vector field $\vec{A}$.
     \end{enumerate}
 \end{theorem}
+\begin{remark}
+    In electrostatics we will find $\vec{\nabla}\times\vec{E} = 0$, which licenses $\vec{E} = -\vec{\nabla}V$ and the electric potential. In magnetostatics we will find $\vec{\nabla}\cdot\vec{B} = 0$, which licenses $\vec{B} = \vec{\nabla}\times\vec{A}$, the vector potential.
+\end{remark}
 
 \section{Electrostatics}
 \subsection{Electric Field}
@@ -304,6 +328,12 @@ So $S = -S$, which forces $S = 0$. Therefore $\vec{\nabla}\times(\vec{\nabla}f) 
         \qquad \vec{\mathfrak{r}}_i \equiv \vec{r} - \vec{r}_i.
     \end{equation}
 \end{definition}
+\begin{principle}[Superposition]
+    The field of several sources is the sum of their individual fields, $\vec{E} = \vec{E}_1 + \vec{E}_2 + \dots$
+\end{principle}
+\begin{remark}[Field theory]
+    Source charges create $\vec{E}$; a test charge $Q$ then feels $\vec{F} = Q\vec{E}$.
+\end{remark}
 
 \subsubsection{Continuous Charge Distributions}
 \begin{definition}[Continuous distributions]
@@ -314,6 +344,9 @@ So $S = -S$, which forces $S = 0$. Therefore $\vec{\nabla}\times(\vec{\nabla}f) 
     \end{equation}
     where $\vec{r}$ is the field point and $\vec{r}'$ the source point.
 \end{definition}
+\begin{remark}
+    $\hat{\mathfrak{r}}$ is not constant: it points differently for every source point $\vec{r}'$, so it cannot come out of the integral. Split it into components first. Direct integration always works (numerically if needed); Gauss' law is quicker but only with symmetry.
+\end{remark}
 
 \marginpar{September 14, 2026}
 \begin{example}[Finite line of charge]
@@ -378,6 +411,9 @@ So $S = -S$, which forces $S = 0$. Therefore $\vec{\nabla}\times(\vec{\nabla}f) 
     \end{equation}
 \end{law}
 \begin{remark}
+    Flux is a charge detector. Since $d\vec{a}$ always points outward, a field just passing through a closed surface gives negative flux where it enters and positive where it leaves, and these tend to cancel. Net flux needs field lines diverging out of the volume, which needs charge inside. The Gaussian surface is imaginary: nothing is physically there.
+\end{remark}
+\begin{remark}
     To solve for $\vec{E}$, choose a closed surface on which $E$ is constant and $\vec{E}$ is everywhere parallel or perpendicular to $d\vec{a}$, so $E$ comes out of the integral.
 \end{remark}
 
@@ -408,6 +444,18 @@ So $S = -S$, which forces $S = 0$. Therefore $\vec{\nabla}\times(\vec{\nabla}f) 
     Near the midpoint, a finite line gives a weaker field than an infinite one with the same $\lambda$. The same cylinder encloses the same charge, hence the same total flux, but for the finite line some of it leaks through the end caps, leaving less through the curved surface. The direct integration confirms this: the finite line field is the infinite line field times $L/\sqrt{L^2+z^2} < 1$.
 \end{example}
 
+\subsubsection{Planar symmetry}
+\begin{example}[Infinite plane of charge]
+    For a plane with surface charge density $\sigma$, take a Gaussian pillbox straddling the plane with caps of area $A$. By symmetry $\vec{E}$ points straight away from the plane on both sides, so the curved side carries no flux and each cap carries $EA$:
+    \[2EA = \frac{\sigma A}{\epsilon_0} \quad\Longrightarrow\quad E = \frac{\sigma}{2\epsilon_0}.\]
+    The field does not depend on the distance from the plane.
+\end{example}
+\begin{example}[Infinite plane via Coulomb's law]
+    Use polar coordinates $(r',\phi')$ on the plane, centred below the field point at height $z$. Each piece $\sigma r'\,dr'\,d\phi'$ pushes along $\hat{\mathfrak{r}}$. Sideways components cancel in pairs, so keep only the $\hat{z}$ part via $\cos\psi = z/\sqrt{r'^2+z^2}$:
+    \[\vec{E} = \hat{z}\int_0^{2\pi}\!d\phi'\int_0^\infty \frac{\sigma}{4\pi\epsilon_0}\frac{r'z}{(r'^2+z^2)^{3/2}}\,dr' = \frac{\sigma z}{2\epsilon_0}\left[-\frac{1}{\sqrt{r'^2+z^2}}\right]_0^\infty\hat{z} = \frac{\sigma}{2\epsilon_0}\hat{z}.\]
+    Why distance drops out: up close each piece pushes hard but mostly at a bad angle; far away each piece is weak but more of them push at a good angle. The two effects cancel exactly. For a line, stepping back also brings in more charge at good angles, but only $\propto r$, not enough to beat $1/r^2$, hence $E \propto 1/r$.
+\end{example}
+
 \subsubsection{Why the fall-off depends on the geometry}
 The exponent in the fall-off counts how much charge a cone of field lines can ``see'' as it grows. Picture a narrow cone opening from the observation point toward the source: its cross section at distance $r$ grows like $r^2$, which alone gives the $1/r^2$ dilution of a point charge. For extended sources, the charge inside the cone grows too:
 \begin{itemize}
@@ -417,6 +465,27 @@ The exponent in the fall-off counts how much charge a cone of field lines can ``
 \begin{remark}
     For two equal positive charges, no field lines cross the midplane: the field there is parallel to the plane and vanishes at the midpoint. Gauss' law still holds, but without symmetry it cannot solve for $\vec{E}$.
 \end{remark}
+
+\subsection{The Curl of $\vec{E}$ and the Potential}
+\begin{example}[Line integral of a point charge]
+    For a point charge at the origin, $d\vec{l} = dr\,\hat{r} + r\,d\theta\,\hat{\theta} + r\sin\theta\,d\phi\,\hat{\phi}$ and only the radial part survives:
+    \[\int_{\vec{a}}^{\vec{b}}\vec{E}\cdot d\vec{l} = \frac{q}{4\pi\epsilon_0}\int_{r_a}^{r_b}\frac{dr}{r^2} = \frac{q}{4\pi\epsilon_0}\left(\frac{1}{r_a} - \frac{1}{r_b}\right).\]
+    This depends only on the endpoints, so around a closed loop ($r_a = r_b$) it vanishes.
+\end{example}
+\begin{theorem}[Electrostatic fields are curl-free]
+    For any electrostatic field, $\oint\vec{E}\cdot d\vec{l} = 0$ and $\vec{\nabla}\times\vec{E} = 0$.
+\end{theorem}
+\begin{proof}
+    By superposition, any static $\vec{E}$ is a sum of point-charge fields, each with zero loop integral. Stokes' theorem then gives $\int_S(\vec{\nabla}\times\vec{E})\cdot d\vec{a} = 0$ for every surface, so $\vec{\nabla}\times\vec{E} = 0$.
+\end{proof}
+\begin{remark}
+    Physically, $Q\oint\vec{E}\cdot d\vec{l}$ is the work done on a test charge around a closed loop. If it were nonzero, a charge could gain energy just by circling, violating energy conservation.
+\end{remark}
+\begin{definition}[Electric potential]
+    Since $\vec{\nabla}\times\vec{E} = 0$, the irrotational fields theorem guarantees a scalar $V$ with
+    \[\vec{E} = -\vec{\nabla}V.\]
+    The minus sign is convention: positive charges are pushed toward lower $V$, i.e.\ lower potential energy.
+\end{definition}
 
 \marginpar{September 16, 2026}
 

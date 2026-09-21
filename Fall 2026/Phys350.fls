@@ -286,6 +286,8 @@ INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex\generic\circuitikz\pgfcir
 INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex\generic\circuitikz\pgfcircflow.tex
 INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex\latex\float\float.sty
 INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex\latex\float\float.sty
+INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex\latex\booktabs\booktabs.sty
+INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex\latex\booktabs\booktabs.sty
 INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
 INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
 INPUT .\Phys350.aux
@@ -365,6 +367,7 @@ INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\eul
 INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\euler\eufm7.tfm
 INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmti7.tfm
 INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmti7.tfm
+INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\euler\eufm10.tfm
 INPUT Phys350.aux
 INPUT .\Phys350.out
 INPUT .\Phys350.out
@@ -380,6 +383,10 @@ INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\c
 INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmex10.pfb
 INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb
 INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb
+INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi12.pfb
+INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi12.pfb
+INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi5.pfb
+INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi5.pfb
 INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi6.pfb
 INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi6.pfb
 INPUT C:\Users\erenr\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi7.pfb

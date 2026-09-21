@@ -4,21 +4,23 @@
 \contentsline {subsection}{\numberline {2.2}Differential Calculus}{1}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Integral Calculus}{2}{subsection.2.3}%
 \contentsline {subsubsection}{\numberline {2.3.1}The Three Fundamental Theorems}{3}{subsubsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.4}Index Notation}{3}{subsection.2.4}%
-\contentsline {subsection}{\numberline {2.5}Second Derivatives Identities}{4}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.4}Index Notation}{4}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Second Derivatives Identities}{5}{subsection.2.5}%
 \contentsline {subsubsection}{\numberline {2.5.1}Proving the Identities}{5}{subsubsection.2.5.1}%
 \contentsline {subsection}{\numberline {2.6}The Theory of Vector Fields}{6}{subsection.2.6}%
 \contentsline {section}{\numberline {3}Electrostatics}{7}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Electric Field}{7}{subsection.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.1}Continuous Charge Distributions}{7}{subsubsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.2}Gauss' Law}{8}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.1.1}Continuous Charge Distributions}{8}{subsubsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.2}Gauss' Law}{9}{subsection.3.2}%
 \contentsline {subsubsection}{\numberline {3.2.1}Spherical symmetry}{9}{subsubsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}Cylindrical symmetry}{9}{subsubsection.3.2.2}%
-\contentsline {subsubsection}{\numberline {3.2.3}Why the fall-off depends on the geometry}{9}{subsubsection.3.2.3}%
-\contentsline {section}{\numberline {4}Potentials}{10}{section.4}%
-\contentsline {section}{\numberline {5}Electric Fields in Matter}{10}{section.5}%
-\contentsline {section}{\numberline {6}Magnetostatics}{10}{section.6}%
-\contentsline {section}{\numberline {7}Magnetic Fields in Matter}{10}{section.7}%
-\contentsline {section}{\numberline {8}Electrodynamics}{10}{section.8}%
-\contentsline {section}{\numberline {A}Appendix}{10}{appendix.A}%
-\contentsline {section}{\numberline {B}Useful Links}{10}{appendix.B}%
+\contentsline {subsubsection}{\numberline {3.2.2}Cylindrical symmetry}{10}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Planar symmetry}{10}{subsubsection.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.4}Why the fall-off depends on the geometry}{10}{subsubsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.3}The Curl of $\vec {E}$ and the Potential}{11}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Potentials}{12}{section.4}%
+\contentsline {section}{\numberline {5}Electric Fields in Matter}{12}{section.5}%
+\contentsline {section}{\numberline {6}Magnetostatics}{12}{section.6}%
+\contentsline {section}{\numberline {7}Magnetic Fields in Matter}{12}{section.7}%
+\contentsline {section}{\numberline {8}Electrodynamics}{12}{section.8}%
+\contentsline {section}{\numberline {A}Appendix}{12}{appendix.A}%
+\contentsline {section}{\numberline {B}Useful Links}{12}{appendix.B}%
