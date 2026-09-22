@@ -12,6 +12,7 @@
 \usepackage{circuitikz}
 \usepackage{float} % For [H] float option
 \usepackage{braket}
+\usepackage{dsfont}
 \pgfplotsset{compat=1.18} % Set compatibility level
 \newtheorem{theorem}{Theorem}
 \newtheorem{law}{Law}
@@ -36,6 +37,7 @@
 \date{August \(31^{st}\), 2026}
 \setcounter{Maxaffil}{0}
 \renewcommand\Affilfont{\itshape\small}
+\newcommand{\id}{\mathds{1}}
 \maketitle
 
 \noindent\rule{\textwidth}{0.4pt}
@@ -84,15 +86,11 @@ Textbook used is JS Townsend, \emph{A Modern Approach to Quantum Mechanics}, 2nd
 \end{definition}
 
 For motion confined to the $x$-$y$ plane, only the $z$ component survives. On a circular path of radius $r$ with speed $v$,
-\[
-    L_{z} = mvr.
-\]
+\[L_{z} = mvr.\]
 
 \begin{definition}[Angular momentum of a rigid body]
     For a rigid body\footnote{A rigid body is one that does not deform under the action of external forces.} rotating about a fixed axis this is
-    \begin{equation}
-        L = I_{0}\omega,
-    \end{equation}
+    \[L = I_{0}\omega,\]
     with $I_{0}$ the moment of inertia and $\omega$ the angular velocity.
 \end{definition}
 
@@ -107,9 +105,7 @@ For motion confined to the $x$-$y$ plane, only the $z$ component survives. On a 
 \end{definition}
 
 The magnetic moment of a point particle of mass $m$ and charge $q$ in a circular orbit of radius $r$ and period $T$ is
-\begin{equation}
-    \mu = \frac{IA}{c}\footnotemark = \frac{1}{c}\left(\frac{qv}{2\pi r}\right)\left(\pi r^{2}\right) = \frac{q}{2mc}\,mvr = \frac{q}{2mc}\,L_{z},
-\end{equation}
+\[\mu = \frac{IA}{c}\footnotemark = \frac{1}{c}\left(\frac{qv}{2\pi r}\right)\left(\pi r^{2}\right) = \frac{q}{2mc}\,mvr = \frac{q}{2mc}\,L_{z},\]
 where $I$ is the current and $A$ is the area enclosed by the orbit. A single circulating charge counts as a steady current $I = q/T = qv/2\pi r$ because it passes any given point on the loop once per period.
 \footnotetext{Here $c$ is in Gaussian units.}
 
@@ -155,16 +151,14 @@ where $g$ is the g-factor of the particle.
 \subsubsection{Magnetons}
 \begin{definition}[Planck constant]
     The Planck constant $h$ is the fundamental constant of quantum mechanics. It sets the scale at which quantization matters, and relates the energy of a photon to its frequency by $E = h\nu$. Its value is
-    \begin{equation}
-        h \approx 6.626 \times 10^{-34}\ \mathrm{J\,s}.
-    \end{equation}
+    \[h \approx 6.626 \times 10^{-34}\ \mathrm{J\,s}.\]
     It has units of $J\cdot s$, which is the same as angular momentum.
 \end{definition}
 \begin{definition}[Reduced Planck constant]
     \begin{equation}
         \hbar = \frac{h}{2\pi}.
     \end{equation}
-    It carries units of angular momentum, so $[\hbar] = [L_z] = \frac{kg\cdot m^2}{s}$. Its value is $\hbar = 1.055 \times 10^{-27}\ \mathrm{erg\,s} = 6.582 \times 10^{-16}\ \mathrm{eV\,s}$.
+    It carries units of angular momentum, so $[\hbar] = [L_z] = \frac{kg\cdot m^2}{s}$.
 \end{definition}
 
 Writing $\vec{S} = \hbar(\vec{S}/\hbar)$ with $\vec{S}/\hbar$ dimensionless, the $\hbar$ joins the gyromagnetic ratio. The combination $q\hbar/2mc$ then carries the units and sets the natural size of the moment at a given mass scale.
@@ -239,36 +233,26 @@ A magnetic moment in a field has potential energy
     U = -\vec{\mu}\cdot\vec{B},
 \end{equation}
 so the force on it is
-\begin{equation}
-    \vec{F} = -\vec{\nabla}U = \vec{\nabla}(\vec{\mu}\cdot\vec{B}), \qquad F_{z} = -\frac{\partial U}{\partial z} = \mu_{z}\frac{\partial B_{z}}{\partial z}.
-\end{equation}
+\[\vec{F} = -\vec{\nabla}U = \vec{\nabla}(\vec{\mu}\cdot\vec{B}), \qquad F_{z} = -\frac{\partial U}{\partial z} = \mu_{z}\frac{\partial B_{z}}{\partial z}.\]
 
 \begin{definition}[Deflection]
-    \label{SG-deflection}
-    The transverse displacement of an atom on the screen, produced by the force $F_z$ acting over the length of the magnet. It is proportional to $\mu_z$, so the pattern on the screen is a record of the moments in the beam.
+    The displacement of an atom on the screen, perpendicular to the beam axis, produced by $F_z$ acting over the length of the magnet. It is proportional to $\mu_z$, so the pattern on the screen is a record of the moments in the beam.
 \end{definition}
 
 \begin{remark}
-    A uniform field gives no force, only a torque. The apparatus needs a field \emph{gradient} to deflect anything.
+    A uniform field gives no force, only a torque. Thus, the apparatus needs a field \emph{gradient} to deflect anything.
 \end{remark}
 
 \subsubsection{Silver atoms}
 
 Silver is used because its net orbital angular momentum vanishes, $\vec{L} = 0$, while $\vec{S} \neq 0$. The entire magnetic moment comes from a single unpaired valence electron, so the atom behaves as one electron spin. For the electron,
-\begin{equation}
-    \mu_{z} = -\frac{g_{e}|e|}{2m_{e}c}\,S_{z},
-\end{equation}
+\[\mu_{z} = -\frac{g_{e}|e|}{2m_{e}c}\,S_{z},\]
 and therefore
-\begin{equation}
-    F_{z} = \mu_{z}\frac{\partial B_{z}}{\partial z} = -g_{e}\frac{|e|}{2m_{e}c}\,S_{z}\,\frac{\partial B_{z}}{\partial z}
-          = g_{e}\frac{|e|}{2m_{e}c}\left|\frac{\partial B_{z}}{\partial z}\right| S_{z},
-\end{equation}
+\[F_{z} = \mu_{z}\frac{\partial B_{z}}{\partial z} = -g_{e}\frac{|e|}{2m_{e}c}\,S_{z}\,\frac{\partial B_{z}}{\partial z} = g_{e}\frac{|e|}{2m_{e}c}\left|\frac{\partial B_{z}}{\partial z}\right| S_{z},\]
 where the last equality assumes $\partial B_{z}/\partial z < 0$.
 
 \begin{result}
-    \begin{equation}
-        F_{z} \propto S_{z}.
-    \end{equation}
+    \[F_{z} \propto S_{z}.\]
     The deflection of an atom measures the $z$ component of its spin directly.
 \end{result}
 
@@ -280,7 +264,7 @@ Spin is a vector,
 \end{equation}
 
 \begin{remark}
-    The spins leaving the oven point in random directions, so $\theta$ takes every value in $[0,\pi]$ across the beam and $S_z = |\vec{S}|\cos\theta$ takes every value in $[-|\vec{S}|,|\vec{S}|]$. Since $F_z \propto S_z$, each atom is deflected differently and the screen should show a continuous smear. It shows two spots.
+    The spins leaving the oven point in random directions, so $\theta$ takes every value in $[0,\pi]$ across the beam and $S_z = |\vec{S}|\cos\theta$ takes every value in $[-|\vec{S}|,|\vec{S}|]$. Since $F_z \propto S_z$, each atom is deflected differently and the screen should show a continuous smear, but it shows two spots.
 \end{remark}
 
 % ------------------------------------------------------------
@@ -296,6 +280,9 @@ Spin is a vector,
 \end{result}
 
 \subsubsection{Ket notation}
+\begin{definition}[Basis state]
+    One of a set of states $\{\ket{j}\}$ that are mutually orthonormal and span the space, so that every state is a unique linear combination of them. For spin-$\tfrac12$ the two outcomes of any one measurement, $\{\ket{\pm\hat{n}}\}$, form a basis.
+\end{definition}
 \begin{definition}[Ket notation]
     A ket $\ket{\,\cdot\,}$ labels a quantum state as a vector in a vector space. For electron spin the two measurement outcomes give the basis states
     \begin{equation*}
@@ -314,9 +301,15 @@ Spin is a vector,
 \subsection{Sequential Stern-Gerlach experiments}
 % ------------------------------------------------------------
 
-We write SG$z$ for a device whose gradient points along $z$, and SG$x$ for the same device rotated by $90^\circ$ about the beam axis. Each device sends atoms into two beams. Blocking one of them turns the device into a filter: every atom that gets through has a known spin component.
-
-A beam straight from the oven always splits 50/50 in any SG device, whatever its orientation. The interesting results come from sending a filtered beam into a second (or third) device.
+\begin{proposition}
+    We write SG$z$ for a device whose gradient points along $z$, and SG$x$ for the same device rotated by $90^\circ$ about the beam axis.
+\end{proposition}
+\begin{definition}[Filter]
+    Each device sends atoms into two beams. A filter is a device that blocks on of the beams.
+\end{definition}
+\begin{remark}
+    A beam straight from the oven always splits 50/50 in any SG device, whatever its orientation.
+\end{remark}
 
 \begin{figure}[H]
 \centering
@@ -375,50 +368,45 @@ A beam straight from the oven always splits 50/50 in any SG device, whatever its
 \draw[beam] (7.75,0.15) -- (8.75,0.55) node[lab,right] {$+\hat{z}$: 50\%};
 \draw[beam] (7.75,-0.15) -- (8.75,-0.55) node[lab,right] {$-\hat{z}$: 50\%};
 \end{scope}
+
+%add experiment 4
 \end{tikzpicture}
-\caption{Sequential Stern-Gerlach experiments. Thick bars block a beam. Percentages are the fractions of atoms entering the last device.}
+\caption{Sequential Stern-Gerlach experiments. Thick bars block a beam. Percentages are the fractions of atoms entering the last device. Every oven starts with $N_0$ atoms.}
 \label{fig:sequential-sg}
 \end{figure}
 
 \subsubsection{\texorpdfstring{Experiment 1: SG$z$ then SG$z$}{Experiment 1: SGz then SGz}}
 
-Filter the $+\hat{z}$ beam and send it into a second SG$z$. Every atom comes out $+\hat{z}$, none come out $-\hat{z}$. The measurement is repeatable: once an atom is found with $S_z = +\hbar/2$, measuring $S_z$ again gives the same answer. The atom leaves the first device in the state $\ket{+\hat{z}}$.
+Filter the $+\hat{z}$ beam and send it into a second SG$z$. Every atom comes out $+\hat{z}$, none come out $-\hat{z}$. The measurement is repeatable: once an atom is found with $S_z = +\hbar/2$, measuring $S_z$ again gives the same answer. The atom leaves the first device in the state $\ket{+\hat{z}}$. So we end with $N_0/2$ atoms with the $|+\hat{z}>$.
 
 \subsubsection{\texorpdfstring{Experiment 2: SG$z$ then SG$x$}{Experiment 2: SGz then SGx}}
 
-Filter the $+\hat{z}$ beam and send it into an SG$x$. Half the atoms come out $+\hat{x}$ and half come out $-\hat{x}$. Knowing $S_z = +\hbar/2$ tells us nothing about $S_x$.
+Filter the $+\hat{z}$ beam and send it into an SG$x$. Half the atoms come out $+\hat{x}$ and half come out $-\hat{x}$. Knowing $S_z = +\hbar/2$ tells us nothing about $S_x$. We end up with $N_0/4$ in the $|+\hat{x}>$ and $N_0/4$ in the $|-\hat{x}>$.
 
 \subsubsection{\texorpdfstring{Experiment 3: SG$z$, SG$x$, then SG$z$}{Experiment 3: SGz, SGx, then SGz}}
 
-Filter $+\hat{z}$, then filter $+\hat{x}$, then measure $S_z$ again. The beam splits 50/50 into $+\hat{z}$ and $-\hat{z}$, even though every atom was filtered to $+\hat{z}$ at the start. The $S_x$ measurement wiped out the earlier $S_z$ information. Blocking $+\hat{x}$ instead of $-\hat{x}$ gives the same 50/50 result.
-
+Filter $+\hat{z}$, then filter $+\hat{x}$, then measure $S_z$ again. The beam splits 50/50 into $+\hat{z}$ and $-\hat{z}$ at the end, even though every atom was filtered to $+\hat{z}$ at the start. The $S_x$ measurement wiped out the earlier $S_z$ information. Blocking $+\hat{x}$ instead of $-\hat{x}$ gives the same 50/50 result. We end with $N_0/8 |+\hat{z}$ and $N_0/8 |-\hat{z}>$.
 \begin{result}
     An atom with a definite value of $S_x$ does not have a definite value of $S_z$. Measuring $S_x$ destroys what we knew about $S_z$, so no state has definite values of both at once.
 \end{result}
 
 \subsubsection{\texorpdfstring{Experiment 4: SG$z$, modified SG$x$, then SG$z$}{Experiment 4: SGz, modified SGx, then SGz}}
-
-\begin{definition}[Modified SG$x$ device]
-    An SG$x$ device that splits the beam according to $S_x$ and then recombines the two beams, so atoms with $S_x = \pm\hbar/2$ emerge at the same position even though they took two different paths.
+\begin{definition}[Modified SG device]
+    %Too long with useless info be direct what is a modified SG device how is it differenet then a regular one
+    An SG device that splits the beam according to $S$ and then recombines the two beams, so atoms with $S = \pm\hbar/2$ emerge at the same position even though they took two different paths.
 \end{definition}
-
-Filter $+\hat{z}$, send it through a modified SG$x$ with neither path blocked, then measure $S_z$. Every atom comes out $+\hat{z}$: 100\%, not the 50/50 of Experiment 3.
-
+Filter $+\hat{z}$, send it through a modified SG$x$ with neither path blocked, then measure $S_z$. Every atom comes out $+\hat{z}$: 100\%, not the 50/50 of Experiment 3. End with $N_0/4 |+\hat{z}>$ from $|+\hat{x}>$ and $N_0/4 |+\hat{z}>$ from $|-\hat{x}>$.
 \begin{result}
-    The modified SG$x$ cannot simply send 50\% of the atoms through in $\ket{+\hat{x}}$ and 50\% in $\ket{-\hat{x}}$: Experiment 3 showed each of those alone gives 50/50 at the end, so that picture is ruled out. Instead the two paths interfere, as for water or light waves, cancelling the possibility of $-\hat{z}$.
+    The modified SG$x$ cannot be sending $N_0/4$ through as $\ket{+\hat{x}}$ and $N_0/4$ as $\ket{-\hat{x}}$: Experiment 3 showed each of those alone gives 50/50 at the end. Instead the two paths interfere, as for water or light waves, cancelling the possibility of $-\hat{z}$. No path can be assigned to an atom.
 \end{result}
-
 % ============================================================
 \section{Quantum States as Vectors}
 % ============================================================
-\marginpar{September 11, 2026}
+\marginpar{September 11-18, 2026}
 
 % ------------------------------------------------------------
-\subsection{Superposition}
-% ------------------------------------------------------------
-
-Experiment 3 shows that an atom in the state $\ket{+\hat{x}}$ does not have a definite $S_z = \pm\hbar/2$. It is neither $\ket{+\hat{z}}$ nor $\ket{-\hat{z}}$, but a combination of both.
-
+\subsection{The vector space of spin states}
+\subsubsection{Superposition}
 \begin{definition}[Superposition]
     A general spin state is a linear combination of the basis kets,
     \begin{equation}
@@ -427,29 +415,11 @@ Experiment 3 shows that an atom in the state $\ket{+\hat{x}}$ does not have a de
     The pair $\{\ket{+\hat{z}}, \ket{-\hat{z}}\}$ is a basis, and the coefficients $c_\pm$ are complex numbers.
 \end{definition}
 
-\begin{remark}
-    This works exactly like an ordinary vector written in components,
-    \begin{equation}
-        \vec{E} = E_x\hat{x} + E_y\hat{y} + E_z\hat{z},
-    \end{equation}
-    where the basis is orthonormal:
-    \begin{equation}
-        \hat{x}\cdot\hat{x} = \hat{y}\cdot\hat{y} = \hat{z}\cdot\hat{z} = 1, \qquad \hat{x}\cdot\hat{y} = \hat{x}\cdot\hat{z} = \hat{y}\cdot\hat{z} = 0.
-    \end{equation}
-    A component is picked out with a dot product, $E_x = \hat{x}\cdot\vec{E}$. Kets do the same thing, with the inner product playing the role of the dot product.
-\end{remark}
-
-% ------------------------------------------------------------
-\subsection{Bras and the inner product}
-% ------------------------------------------------------------
-
+\subsubsection{Bras and the inner product}
 \begin{definition}[Bra]
     Every ket $\ket{\psi}$ has a matching bra $\bra{\psi}$. Putting a bra in front of a ket gives a complex number, the inner product
-    \begin{equation}
-        \bra{\phi}\,\ket{\psi} \equiv \braket{\phi|\psi} \in \mathbb{C}.
-    \end{equation}
+    \[\bra{\phi}\,\ket{\psi} \equiv \braket{\phi|\psi} \in \mathbb{C}.\]
 \end{definition}
-
 \begin{definition}[Orthonormal basis]
     The basis kets are orthonormal:
     \begin{equation}
@@ -457,26 +427,45 @@ Experiment 3 shows that an atom in the state $\ket{+\hat{x}}$ does not have a de
     \end{equation}
 \end{definition}
 
-% ------------------------------------------------------------
-\subsection{Probability amplitudes}
-% ------------------------------------------------------------
-
-To pull out $c_+$, act on $\ket{\psi}$ with $\bra{+\hat{z}}$, just like dotting $\vec{E}$ with $\hat{x}$:
+\subsubsection{Completeness}
+\begin{remark}
+    The Born rule, $P(\phi\,|\,\psi) = |\braket{\phi|\psi}|^2$, is the probability of finding $\ket{\phi}$ when $\ket{\psi}$ is prepared. Why is it true? There is no deeper derivation: it is a postulate that agrees with every experiment. As David Mermin put it, "shut up and calculate."
+\end{remark}
+\begin{definition}[Projector]
+    The operator $P_j = \ket{j}\bra{j}$ built from a basis state. Acting on $\ket{\psi} = \sum_k c_k\ket{k}$ it keeps only the $\ket{j}$ part,
+    \[P_j\ket{\psi} = c_j\ket{j},\]
+    since $\braket{j|k} = \delta_{jk}$.
+\end{definition}
+\begin{proposition}[Completeness relation]
+    Since any state can be expanded in the basis $\{\ket{+\hat{z}}, \ket{-\hat{z}}\}$, the sum of the projectors onto the basis states is the identity:
+    \begin{equation}
+        \ket{+\hat{z}}\bra{+\hat{z}} + \ket{-\hat{z}}\bra{-\hat{z}} = 1.
+    \end{equation}
+\end{proposition}
+Applying this to $\ket{+\hat{x}}$ gives the expansion directly:
 \begin{equation}
-    \braket{+\hat{z}|\psi} = c_{+}\underbrace{\braket{+\hat{z}|+\hat{z}}}_{=1} + c_{-}\underbrace{\braket{+\hat{z}|-\hat{z}}}_{=0} = c_{+}.
-\end{equation}
-The same steps with $\bra{-\hat{z}}$ give $c_-$. So
-\begin{equation}
-    c_{\pm} = \braket{\pm\hat{z}|\psi}.
+    \ket{+\hat{x}} = \left(\ket{+\hat{z}}\bra{+\hat{z}} + \ket{-\hat{z}}\bra{-\hat{z}}\right)\ket{+\hat{x}}
+    = \braket{+\hat{z}|+\hat{x}}\ket{+\hat{z}} + \braket{-\hat{z}|+\hat{x}}\ket{-\hat{z}},
 \end{equation}
 
+\subsection{Extracting probabilities}
+\subsubsection{Probability amplitudes}
+\begin{proposition}
+    To pull out $c_+$, act on $\ket{\psi}$ with $\bra{+\hat{z}}$:
+    \begin{equation}
+        \braket{+\hat{z}|\psi} = c_{+}\underbrace{\braket{+\hat{z}|+\hat{z}}}_{=1} + c_{-}\underbrace{\braket{+\hat{z}|-\hat{z}}}_{=0} = c_{+}.
+    \end{equation}
+    The same steps with $\bra{-\hat{z}}$ give $c_-$. So
+    \begin{equation}
+        c_{\pm} = \braket{\pm\hat{z}|\psi}.
+    \end{equation}
+\end{proposition}
 \begin{definition}[Probability amplitude]
     The coefficient $c_\pm = \braket{\pm\hat{z}|\psi}$ is the probability amplitude for measuring $S_z = \pm\hbar/2$. The probability itself is the modulus squared,
     \begin{equation}
         P\!\left(S_z = \pm\tfrac{\hbar}{2}\right) = |c_{\pm}|^2 = \left|\braket{\pm\hat{z}|\psi}\right|^2.
     \end{equation}
 \end{definition}
-
 \begin{principle}[Born rule]
     The probability that a system in the state $\ket{\psi}$ is found in the state $\ket{\phi}$ is
     \begin{equation}
@@ -484,21 +473,16 @@ The same steps with $\bra{-\hat{z}}$ give $c_-$. So
     \end{equation}
 \end{principle}
 
-% ------------------------------------------------------------
-\subsection{Normalization}
-% ------------------------------------------------------------
-
-A system in $\ket{\psi}$ is found in $\ket{\psi}$ with certainty, so
-\begin{equation}
-    P(\psi\,|\,\psi) = \left|\braket{\psi|\psi}\right|^2 = 1.
-\end{equation}
-
-This fixes what the bra looks like. Write it with unknown coefficients, $\bra{\psi} = c_{+}'\bra{+\hat{z}} + c_{-}'\bra{-\hat{z}}$. Then
-\begin{equation}
-    \braket{\psi|\psi} = \left(c_{+}'\bra{+\hat{z}} + c_{-}'\bra{-\hat{z}}\right)\left(c_{+}\ket{+\hat{z}} + c_{-}\ket{-\hat{z}}\right) = c_{+}'c_{+} + c_{-}'c_{-},
-\end{equation}
+\subsubsection{Normalization}
+\begin{proposition}
+    A system in $\ket{\psi}$ is found in $\ket{\psi}$ with certainty, so
+    \begin{equation}
+        P(\psi\,|\,\psi) = \left|\braket{\psi|\psi}\right|^2 = 1.
+    \end{equation}
+\end{proposition}
+To find what a bra equals to, write it with unknown coefficients, $\bra{\psi} = c_{+}'\bra{+\hat{z}} + c_{-}'\bra{-\hat{z}}$. Then
+\[\braket{\psi|\psi} = \left(c_{+}'\bra{+\hat{z}} + c_{-}'\bra{-\hat{z}}\right)\left(c_{+}\ket{+\hat{z}} + c_{-}\ket{-\hat{z}}\right) = c_{+}'c_{+} + c_{-}'c_{-},\]
 since the cross terms vanish by orthonormality. The two outcomes $S_z = \pm\hbar/2$ must have probabilities $|c_+|^2$ and $|c_-|^2$ that add to 1. For $\braket{\psi|\psi}$ to be that sum, each product $c_\pm' c_\pm$ must be real and equal to $|c_\pm|^2$. This forces $c_{\pm}' = c_{\pm}^{*}$.
-
 \begin{result}
     Going from a ket to its bra, conjugate the coefficients:
     \begin{equation}
@@ -506,14 +490,12 @@ since the cross terms vanish by orthonormality. The two outcomes $S_z = \pm\hbar
     \end{equation}
     In particular $\braket{\psi|\pm\hat{z}} = c_\pm^* = \braket{\pm\hat{z}|\psi}^{*}$. More generally, $\braket{\phi|\psi} = \braket{\psi|\phi}^{*}$.
 \end{result}
-
 \begin{definition}[Normalization condition]
     \begin{equation}
         \braket{\psi|\psi} = \braket{\psi|+\hat{z}}\braket{+\hat{z}|\psi} + \braket{\psi|-\hat{z}}\braket{-\hat{z}|\psi} = |c_{+}|^2 + |c_{-}|^2 = 1.
     \end{equation}
     In words, $P(S_z = +\hbar/2) + P(S_z = -\hbar/2) = 1$: the atom is always found in one of the two beams.
 \end{definition}
-
 \begin{example}
     Take
     \begin{equation*}
@@ -523,83 +505,103 @@ since the cross terms vanish by orthonormality. The two outcomes $S_z = \pm\hbar
     \begin{equation*}
         \braket{+\hat{z}|\psi} = \frac{1}{\sqrt{3}}\underbrace{\braket{+\hat{z}|+\hat{z}}}_{=1} + i\sqrt{\frac{2}{3}}\underbrace{\braket{+\hat{z}|-\hat{z}}}_{=0} = \frac{1}{\sqrt{3}},
     \end{equation*}
-    so $P(S_z = +\hbar/2) = 1/3$. In the same way $\braket{-\hat{z}|\psi} = i\sqrt{2/3}$, so $P(S_z = -\hbar/2) = |i|^2 \cdot 2/3 = 2/3$. The two add to 1, so the state is normalized. The factor $i$ changes nothing here since $|i| = 1$.
+    so $P(S_z = +\hbar/2) = 1/3$. In the same way $\braket{-\hat{z}|\psi} = i\sqrt{2/3}$, so $P(S_z = -\hbar/2) = |i|^2 \cdot 2/3 = 2/3$. The two add to 1, so the state is normalized.
 \end{example}
 
-% ------------------------------------------------------------
-\subsection{The state \texorpdfstring{$\ket{+\hat{x}}$}{|+x>}}
-% ------------------------------------------------------------
-
-In Experiment 3, atoms in $\ket{+\hat{x}}$ enter an SG$z$ and split 50/50:
-\begin{equation}
-    P\!\left(S_z = \pm\tfrac{\hbar}{2}\right) = \left|\braket{\pm\hat{z}|+\hat{x}}\right|^2 = \frac{1}{2}.
-\end{equation}
-So both amplitudes have modulus $1/\sqrt{2}$, and each can carry its own phase:
-\begin{equation}
-    \ket{+\hat{x}} = \frac{1}{\sqrt{2}}e^{i\delta_{+}}\ket{+\hat{z}} + \frac{1}{\sqrt{2}}e^{i\delta_{-}}\ket{-\hat{z}}
-    = \frac{e^{i\delta_{+}}}{\sqrt{2}}\left(\ket{+\hat{z}} + e^{i\delta}\ket{-\hat{z}}\right), \qquad \delta = \delta_{-} - \delta_{+},
-\end{equation}
-with $\delta_\pm \in \mathbb{R}$.
-
-% ------------------------------------------------------------
-\subsection{Global phase}
-% ------------------------------------------------------------
-
-Take two kets that differ only by an overall phase, $\ket{\psi} = e^{i\alpha}\ket{\psi'}$ with $\alpha \in \mathbb{R}$. For any state $\ket{\phi}$,
-\begin{equation}
-    P(\phi\,|\,\psi) = \left|\braket{\phi|\psi}\right|^2 = \left|e^{i\alpha}\braket{\phi|\psi'}\right|^2 = \left|\braket{\phi|\psi'}\right|^2 = P(\phi\,|\,\psi'),
-\end{equation}
-since $|e^{i\alpha}| = 1$.
-
+\subsubsection{Global phase}
+\begin{proposition}
+    Take two kets that differ only by an overall phase, $\ket{\psi} = e^{i\alpha}\ket{\psi'}$ with $\alpha \in \mathbb{R}$. For any state $\ket{\phi}$,
+    \begin{equation}
+        P(\phi\,|\,\psi) = \left|\braket{\phi|\psi}\right|^2 = \left|e^{i\alpha}\braket{\phi|\psi'}\right|^2 = \left|\braket{\phi|\psi'}\right|^2 = P(\phi\,|\,\psi'),
+    \end{equation}
+    since $|e^{i\alpha}| = 1$.
+\end{proposition}
 \begin{result}
     $\ket{\psi}$ and $e^{i\alpha}\ket{\psi}$ give the same probabilities for every possible measurement, so they describe the same physical state. An overall (global) phase has no physical meaning and can be dropped.
 \end{result}
-
 Dropping the global phase $e^{i\delta_+}$ from $\ket{+\hat{x}}$ leaves
-\begin{equation}
-    \ket{+\hat{x}} = \frac{1}{\sqrt{2}}\left(\ket{+\hat{z}} + e^{i\delta}\ket{-\hat{z}}\right).
-\end{equation}
-
+\[\ket{+\hat{x}} = \frac{1}{\sqrt{2}}\left(\ket{+\hat{z}} + e^{i\delta}\ket{-\hat{z}}\right).\]
 \begin{remark}
     The relative phase $\delta$ is different: it sits between the two terms, so it cannot be pulled out front and dropped. Experiment 3 alone does not fix it. It is pinned down by combining more measurements (for example along $y$) with a phase convention, and the standard choice for $\ket{+\hat{x}}$ is $\delta = 0$.
 \end{remark}
 
+\subsection{Fixing the Basis States}
 
 % ------------------------------------------------------------
-\subsection{Completeness}
-% ------------------------------------------------------------
-\marginpar{September 14, 2026}
+\subsubsection{The state \texorpdfstring{$\ket{+\hat{x}}$}{|+x>}}
+In Experiment 3, atoms in $\ket{+\hat{x}}$ enter an SG$z$ and split 50/50:
+\[P\!\left(S_z = \pm\tfrac{\hbar}{2}\right) = \left|\braket{\pm\hat{z}|+\hat{x}}\right|^2 = \frac{1}{2}.\]
+So both amplitudes have modulus $1/\sqrt{2}$, and each can carry its own phase:
+\[\ket{+\hat{x}} = \frac{1}{\sqrt{2}}e^{i\delta_{+}}\ket{+\hat{z}} + \frac{1}{\sqrt{2}}e^{i\delta_{-}}\ket{-\hat{z}} = \frac{e^{i\delta_{+}}}{\sqrt{2}}\left(\ket{+\hat{z}} + e^{i\delta}\ket{-\hat{z}}\right), \qquad \delta = \delta_{-} - \delta_{+},\]
+with $\delta_\pm \in \mathbb{R}$.
 
-\begin{remark}
-    The Born rule, $P(\phi\,|\,\psi) = |\braket{\phi|\psi}|^2$, is the probability of finding $\ket{\phi}$ when $\ket{\psi}$ is prepared. Why is it true? There is no deeper derivation: it is a postulate that agrees with every experiment. As David Mermin put it, "shut up and calculate."
-\end{remark}
-
-\begin{proposition}[Completeness relation]
-    Since any state can be expanded in the basis $\{\ket{+\hat{z}}, \ket{-\hat{z}}\}$, the sum of the projectors onto the basis states is the identity:
+\subsubsection{Experiment 5: measuring \texorpdfstring{$S_y$}{Sy}}
+\begin{definition}[Cyclic permutation]
+    A cyclic permutation of the axes relabels them as $x \to y$, $y \to z$, $z \to x$ (or the reverse). It is a rotation of the coordinate system, so no physics changes under it.
+\end{definition}
+Let Experiment 5 be a cyclic permutation of Experiment 3, SG$x$ becomes SG$z$ and SG$z$ becomes SG$y$. Now the process is as follows: filter $+\hat{z}$, then measure $S_y$.
+\begin{proposition}
+    By symmetry it must split 50/50 as well, so every cross-axis overlap has the same modulus:
     \begin{equation}
-        \ket{+\hat{z}}\bra{+\hat{z}} + \ket{-\hat{z}}\bra{-\hat{z}} = 1.
+        \left|\braket{+\hat{x}|+\hat{z}}\right|^2 = \left|\braket{+\hat{y}|+\hat{z}}\right|^2 = \left|\braket{-\hat{x}|+\hat{y}}\right|^2 = \frac{1}{2}.
     \end{equation}
 \end{proposition}
+The same argument as for $\ket{+\hat{x}}$ then gives
+\[\ket{+\hat{y}} = \frac{e^{i\gamma_+}}{\sqrt{2}}\left(\ket{+\hat{z}} + e^{i\gamma}\ket{-\hat{z}}\right), \qquad \gamma = \gamma_- - \gamma_+.\]
 
-Applying this to $\ket{+\hat{x}}$ gives the expansion directly:
-\begin{equation}
-    \ket{+\hat{x}} = \left(\ket{+\hat{z}}\bra{+\hat{z}} + \ket{-\hat{z}}\bra{-\hat{z}}\right)\ket{+\hat{x}}
-    = \braket{+\hat{z}|+\hat{x}}\ket{+\hat{z}} + \braket{-\hat{z}|+\hat{x}}\ket{-\hat{z}},
-\end{equation}
-which is the general form of the previous subsection with $c_\pm = \braket{\pm\hat{z}|+\hat{x}}$.
+\subsubsection{The state \texorpdfstring{$\ket{+\hat{y}}$}{|+y>}}
+\begin{proposition}
+    Drop the global phases, $\gamma_+ = \delta_+ = 0$, so that we finally obtain equations for x and y in terms of z:
+    \[\ket{\pm\hat{x}} = \frac{1}{\sqrt{2}}\left(\ket{+\hat{z}} \pm e^{i\delta}\ket{-\hat{z}}\right), \qquad \ket{\pm\hat{y}} = \frac{1}{\sqrt{2}}\left(\ket{+\hat{z}} \pm e^{i\gamma}\ket{-\hat{z}}\right).\]
+\end{proposition}
+So using orthonormality of the $\hat{z}$ basis,
+\[\braket{+\hat{x}|+\hat{y}} = \frac{1}{2}\left(1 + e^{i(\gamma - \delta)}\right), \qquad \left|\braket{+\hat{x}|+\hat{y}}\right|^2 = \frac{1}{2}\left(1 + \cos(\gamma - \delta)\right).\]
+Requiring this to equal $1/2$ forces $\cos(\gamma - \delta) = 0$, that is $\gamma - \delta = \pm\pi/2$. The remaining freedom is convention.
+\begin{result}[Phase convention]
+    Take $\delta = 0$ and $\gamma = +\pi/2$. Then
+    \begin{equation}
+        \ket{\pm\hat{x}} = \frac{1}{\sqrt{2}}\left(\ket{+\hat{z}} \pm \ket{-\hat{z}}\right), \qquad
+        \ket{\pm\hat{y}} = \frac{1}{\sqrt{2}}\left(\ket{+\hat{z}} \pm i\ket{-\hat{z}}\right), \qquad
+    \end{equation}
+    The bras are then
+    \begin{equation}
+        \bra{\pm\hat{x}} = \frac{1}{\sqrt{2}}\left(\bra{+\hat{z}} \pm \bra{-\hat{z}}\right), \qquad \bra{\pm\hat{y}} = \frac{1}{\sqrt{2}}\left(\bra{+\hat{z}} \mp i\bra{-\hat{z}}\right).
+    \end{equation}
+\end{result}
+\begin{remark}
+    Complex coefficients are required, not just allowed. With real coefficients the relative phases could only be $0$ or $\pi$, so $\gamma - \delta = \pm\pi/2$ would be impossible.
+\end{remark}
+\begin{example}
+    For $\ket{\psi} = \sqrt{\tfrac{1}{3}}\ket{+\hat{z}} + i\sqrt{\tfrac{2}{3}}\ket{-\hat{z}}$, compute $\braket{S_y}$.\\
+    The amplitudes are
+    \begin{align*}
+        \braket{+\hat{y}|\psi} &= \sqrt{\tfrac{1}{3}}\braket{+\hat{y}|+\hat{z}} + i\sqrt{\tfrac{2}{3}}\braket{+\hat{y}|-\hat{z}}
+        = \frac{1}{\sqrt{2}}\left(\sqrt{\tfrac{1}{3}} + i\sqrt{\tfrac{2}{3}}\,(-i)\right)
+        = \frac{1}{\sqrt{2}}\left(\sqrt{\tfrac{1}{3}} + \sqrt{\tfrac{2}{3}}\right), \\
+        \braket{-\hat{y}|\psi} &= \sqrt{\tfrac{1}{3}}\braket{-\hat{y}|+\hat{z}} + i\sqrt{\tfrac{2}{3}}\braket{-\hat{y}|-\hat{z}}
+        = \frac{1}{\sqrt{2}}\left(\sqrt{\tfrac{1}{3}} + i\sqrt{\tfrac{2}{3}}\,(i)\right)
+        = \frac{1}{\sqrt{2}}\left(\sqrt{\tfrac{1}{3}} - \sqrt{\tfrac{2}{3}}\right).
+    \end{align*}
+    Computing the probabilities
+    \begin{equation*}
+        P\!\left(S_y = +\tfrac{\hbar}{2}\right) = |\bra{+\hat{y}}\ket{\psi}|^2 = \frac{1}{2} + \frac{\sqrt{2}}{3}, \qquad
+        P\!\left(S_y = -\tfrac{\hbar}{2}\right) = |\bra{-\hat{y}}\ket{\psi}|^2 = \frac{1}{2} - \frac{\sqrt{2}}{3},
+    \end{equation*}
+    which add to 1 as they must. Then
+    \begin{equation*}
+        \braket{S_y} = \frac{\hbar}{2}\left[\left(\frac{1}{2} + \frac{\sqrt{2}}{3}\right) - \left(\frac{1}{2} - \frac{\sqrt{2}}{3}\right)\right] = \frac{\sqrt{2}}{3}\hbar.
+    \end{equation*}
+    The factor $i$ that did nothing for $S_z$ matters here: it is a relative phase, and it is exactly what tilts the spin toward $+\hat{y}$.
+\end{example}
 
-% ------------------------------------------------------------
-\subsection{Expectation value and uncertainty}
-% ------------------------------------------------------------
-
+\subsection{Statistics of Measurements}
+\subsubsection{Expectation value}
 \begin{definition}[Expectation value]
     The expectation value of $S_z$ in the state $\ket{\psi}$ is the average outcome weighted by the probabilities,
     \begin{equation}
-        \braket{S_z} = \left(+\frac{\hbar}{2}\right)P\!\left(S_z = +\tfrac{\hbar}{2}\right) + \left(-\frac{\hbar}{2}\right)P\!\left(S_z = -\tfrac{\hbar}{2}\right)
-        = \frac{\hbar}{2}\left|\braket{+\hat{z}|\psi}\right|^2 - \frac{\hbar}{2}\left|\braket{-\hat{z}|\psi}\right|^2.
+        \braket{S_z} = \left(\frac{\hbar}{2}\right)\left|\braket{+\hat{z}|\psi}\right|^2 + \left(-\frac{\hbar}{2}\right)\left|\braket{-\hat{z}|\psi}\right|^2.
     \end{equation}
 \end{definition}
-
 \begin{remark}
     For $N$ measurements on identically prepared atoms, with $N_+$ giving $+\hbar/2$ and $N_-$ giving $-\hbar/2$, the measured average is
     \begin{equation}
@@ -607,23 +609,25 @@ which is the general form of the previous subsection with $c_\pm = \braket{\pm\h
     \end{equation}
     which tends to $\braket{S_z}$ as $N \to \infty$.
 \end{remark}
-
 \begin{remark}[Shot noise]
     For a finite number $N$ of measurements, the sample average deviates from the expectation value by
     \begin{equation}
         \left|\braket{S_z}_N - \braket{S_z}\right| \sim \frac{\Delta S_z}{\sqrt{N}}.
     \end{equation}
-    This spread is intrinsic, not a flaw of the apparatus: it appears whenever a state with a definite value of one observable (e.g.\ $S_x$ for $\ket{+\hat{x}}$) is measured for an incompatible observable (e.g.\ $S_z$). This is made precise by the uncertainty relations in Chapter 3.
+    This spread is intrinsic, not a flaw of the apparatus: it appears whenever a state with a definite value of one observable (e.g.\ $S_x$ for $\ket{+\hat{x}}$) is measured for an incompatible observable (e.g.\ $S_z$).
 \end{remark}
 
+\subsubsection{Uncertainty}
 \begin{definition}[Uncertainty]
     The uncertainty $\Delta S_z$ is the standard deviation of the measurement outcomes,
     \begin{equation}
-        (\Delta S_z)^2 = \braket{(S_z - \braket{S_z})^2} = \braket{S_z^2} - \braket{S_z}^2,
+        (\Delta S_z)^2 = \braket{S_z^2} - \braket{S_z}^2,
     \end{equation}
-    where $\braket{S_z^2}$ is computed like $\braket{S_z}$ with the outcomes squared.
+    where 
+    \begin{equation}
+        \braket{S_z^2} = (\frac{\hbar}{2})^2\left|\braket{+\hat{z}|\psi}\right|^2 + (-\frac{\hbar}{2})^2\left|\braket{-\hat{z}|\psi}\right|^2.
+    \end{equation}
 \end{definition}
-
 \begin{example}
     For $\ket{+\hat{x}}$, both probabilities are $1/2$, so
     \begin{equation*}
@@ -632,7 +636,6 @@ which is the general form of the previous subsection with $c_\pm = \braket{\pm\h
     \end{equation*}
     and therefore $\Delta S_z = \hbar/2$. The average is zero but every single measurement gives $\pm\hbar/2$, so the spread is maximal.
 \end{example}
-
 \begin{example}
     For $\ket{\psi} = \sqrt{\tfrac{1}{3}}\ket{+\hat{z}} + i\sqrt{\tfrac{2}{3}}\ket{-\hat{z}}$, the probabilities are $1/3$ and $2/3$, so
     \begin{equation*}
@@ -642,113 +645,48 @@ which is the general form of the previous subsection with $c_\pm = \braket{\pm\h
     Then
     \begin{equation*}
         (\Delta S_z)^2 = \frac{\hbar^2}{4} - \frac{\hbar^2}{36} = \frac{9\hbar^2 - \hbar^2}{36} = \frac{2}{9}\hbar^2, \qquad
-        \Delta S_z = \frac{\sqrt{2}}{3}\hbar \approx 0.47\hbar.
+        \Delta S_z = \frac{\sqrt{2}}{3}\hbar.
     \end{equation*}
 \end{example}
-
-% ------------------------------------------------------------
-\subsection{The state \texorpdfstring{$\ket{+\hat{y}}$}{|+y>}}
-% ------------------------------------------------------------
-
-\subsubsection{Experiment 5: measuring \texorpdfstring{$S_y$}{Sy}}
-
-\begin{definition}[Cyclic permutation]
-    A cyclic permutation of the axes relabels them as $x \to y$, $y \to z$, $z \to x$ (or the reverse). It is a rotation of the coordinate system, so no physics changes under it.
-\end{definition}
-
-Take Experiment 3 (filter $+\hat{x}$, then measure $S_z$) and cyclically permute the axes so that SG$x$ becomes SG$z$ and SG$z$ becomes SG$y$. The result is Experiment 5: filter $+\hat{z}$, then measure $S_y$. By symmetry it must split 50/50 as well, so every cross-axis overlap has the same modulus:
-\begin{equation}
-    \left|\braket{+\hat{x}|+\hat{z}}\right|^2 = \left|\braket{+\hat{y}|+\hat{z}}\right|^2 = \left|\braket{-\hat{x}|+\hat{y}}\right|^2 = \frac{1}{2}.
-\end{equation}
-The same argument as for $\ket{+\hat{x}}$ then gives
-\begin{equation}
-    \ket{+\hat{y}} = \frac{e^{i\gamma_+}}{\sqrt{2}}\ket{+\hat{z}} + \frac{e^{i\gamma_-}}{\sqrt{2}}\ket{-\hat{z}}
-    = \frac{e^{i\gamma_+}}{\sqrt{2}}\left(\ket{+\hat{z}} + e^{i\gamma}\ket{-\hat{z}}\right), \qquad \gamma = \gamma_- - \gamma_+.
-\end{equation}
-
-\subsubsection{Fixing the relative phase}
-
-Drop the global phases, $\gamma_+ = \delta_+ = 0$, so that
-\begin{equation}
-    \ket{+\hat{x}} = \frac{1}{\sqrt{2}}\left(\ket{+\hat{z}} + e^{i\delta}\ket{-\hat{z}}\right), \qquad
-    \ket{+\hat{y}} = \frac{1}{\sqrt{2}}\left(\ket{+\hat{z}} + e^{i\gamma}\ket{-\hat{z}}\right).
-\end{equation}
-The bra of $\ket{+\hat{x}}$ has conjugated coefficients, $\bra{+\hat{x}} = \frac{1}{\sqrt{2}}\left(\bra{+\hat{z}} + e^{-i\delta}\bra{-\hat{z}}\right)$, so using orthonormality of the $\hat{z}$ basis,
-\begin{equation}
-    \braket{+\hat{x}|+\hat{y}} = \frac{1}{2}\left(1 + e^{i(\gamma - \delta)}\right), \qquad
-    \left|\braket{+\hat{x}|+\hat{y}}\right|^2 = \frac{1}{2}\left(1 + \cos(\gamma - \delta)\right).
-\end{equation}
-Requiring this to equal $1/2$ forces $\cos(\gamma - \delta) = 0$, that is $\gamma - \delta = \pm\pi/2$. The remaining freedom is convention.
-
-\begin{result}[Phase convention]
-    Take $\delta = 0$ and $\gamma = +\pi/2$. Then
-    \begin{equation}
-        \ket{+\hat{x}} = \frac{1}{\sqrt{2}}\left(\ket{+\hat{z}} + \ket{-\hat{z}}\right), \qquad
-        \ket{+\hat{y}} = \frac{1}{\sqrt{2}}\left(\ket{+\hat{z}} + i\ket{-\hat{z}}\right), \qquad
-        \bra{+\hat{y}} = \frac{1}{\sqrt{2}}\left(\bra{+\hat{z}} - i\bra{-\hat{z}}\right).
-    \end{equation}
-    The orthogonal partner is
-    \begin{equation}
-        \ket{-\hat{y}} = \frac{1}{\sqrt{2}}\left(\ket{+\hat{z}} - i\ket{-\hat{z}}\right),
-    \end{equation}
-    which satisfies $\braket{+\hat{y}|-\hat{y}} = \frac{1}{2}\left(1 + (-i)(-i)\right) = \frac{1}{2}(1 - 1) = 0$.
-\end{result}
-
 \begin{remark}
-    Complex coefficients are required, not just allowed. With real coefficients the relative phases could only be $0$ or $\pi$, so $\gamma - \delta = \pm\pi/2$ would be impossible, and the conditions $|\braket{+\hat{x}|+\hat{z}}|^2 = |\braket{+\hat{y}|+\hat{z}}|^2 = |\braket{+\hat{x}|+\hat{y}}|^2 = \tfrac{1}{2}$ demanded by the Stern-Gerlach experiments could not all hold.
+    $\braket{S_z^2}$ is always equal to $\frac{\hbar^2}{4}$.
 \end{remark}
 
-\begin{example}
-    For $\ket{\psi} = \sqrt{\tfrac{1}{3}}\ket{+\hat{z}} + i\sqrt{\tfrac{2}{3}}\ket{-\hat{z}}$, compute $\braket{S_y}$. The amplitudes are
-    \begin{align*}
-        \braket{+\hat{y}|\psi} &= \sqrt{\tfrac{1}{3}}\braket{+\hat{y}|+\hat{z}} + i\sqrt{\tfrac{2}{3}}\braket{+\hat{y}|-\hat{z}}
-        = \frac{1}{\sqrt{2}}\left(\sqrt{\tfrac{1}{3}} + i\sqrt{\tfrac{2}{3}}\,(-i)\right)
-        = \frac{1}{\sqrt{2}}\left(\sqrt{\tfrac{1}{3}} + \sqrt{\tfrac{2}{3}}\right), \\
-        \braket{-\hat{y}|\psi} &= \sqrt{\tfrac{1}{3}}\braket{-\hat{y}|+\hat{z}} + i\sqrt{\tfrac{2}{3}}\braket{-\hat{y}|-\hat{z}}
-        = \frac{1}{\sqrt{2}}\left(\sqrt{\tfrac{1}{3}} + i\sqrt{\tfrac{2}{3}}\,(i)\right)
-        = \frac{1}{\sqrt{2}}\left(\sqrt{\tfrac{1}{3}} - \sqrt{\tfrac{2}{3}}\right).
-    \end{align*}
-    Squaring, with $2\sqrt{\tfrac{1}{3}}\sqrt{\tfrac{2}{3}} = \tfrac{2\sqrt{2}}{3}$,
-    \begin{equation*}
-        P\!\left(S_y = +\tfrac{\hbar}{2}\right) = \frac{1}{2} + \frac{\sqrt{2}}{3}, \qquad
-        P\!\left(S_y = -\tfrac{\hbar}{2}\right) = \frac{1}{2} - \frac{\sqrt{2}}{3},
-    \end{equation*}
-    which add to 1 as they must. Then
-    \begin{equation*}
-        \braket{S_y} = \frac{\hbar}{2}\left[\left(\frac{1}{2} + \frac{\sqrt{2}}{3}\right) - \left(\frac{1}{2} - \frac{\sqrt{2}}{3}\right)\right] = \frac{\sqrt{2}}{3}\hbar \approx 0.47\hbar.
-    \end{equation*}
-    The factor $i$ that did nothing for $S_z$ matters here: it is a relative phase, and it is exactly what tilts the spin toward $+\hat{y}$.
-\end{example}
 
-% ------------------------------------------------------------
+
 \subsection{Generalization to \texorpdfstring{$n$}{n}-level systems}
-% ------------------------------------------------------------
-\marginpar{September 16, 2026}
-
+\subsubsection{Orthonormality and completeness}
 A spin-$\tfrac12$ particle is a two-level system, and each of $\{\ket{\pm\hat{x}}\}$, $\{\ket{\pm\hat{y}}\}$, $\{\ket{\pm\hat{z}}\}$ is a basis. An $n$-level system has a basis $\{\ket{j}\}$, $j = 1,\dots,n$.
-
+\begin{remark}
+    The index $j$ labels the outcomes of one chosen observable, not the coordinate axes. Picking $S_x$, $S_y$ or $S_z$ picks the basis; within that basis $j = 1,2$ labels its two states $\ket{a_1} = \ket{+\hat{x}}$ and $\ket{a_2} = \ket{-\hat{x}}$. A spin-1 particle has $n = 3$ outcomes, and an $n$-level atom has $j = 1,\dots,n$.
+\end{remark}
+\begin{definition}[Spin quantum number]
+    The spin quantum number $s$ labels the magnitude of a particle's spin and is fixed by the particle type. It takes the values $s = 0, \tfrac12, 1, \tfrac32, \dots$, and a measurement of $S_z$ then gives one of $2s+1$ outcomes,
+    \begin{equation}
+        S_z = m\hbar, \qquad m = -s, -s+1, \dots, +s.
+    \end{equation}
+    The electron has $s = \tfrac12$, so $S_z = \pm\hbar/2$ and the beam splits in two. A spin-1 particle would split into three beams, $S_z = +\hbar, 0, -\hbar$.
+\end{definition}
 \begin{definition}[Orthonormal and complete basis]
     The basis is orthonormal if
-    \begin{equation}
-        \braket{i|j} = \delta_{ij},
-    \end{equation}
+    \[\braket{i|j} = \delta_{ij},\]
     and complete if every state can be expanded in it,
     \begin{equation}
         \ket{\psi} = \sum_j c_j\ket{j}, \qquad c_j = \braket{j|\psi}, \qquad \bra{\psi} = \sum_j c_j^*\bra{j}.
     \end{equation}
     Completeness is equivalent to
     \begin{equation}
-        \mathbb{1} = \sum_{j=1}^{n}\ket{j}\bra{j}.
+        \id = \sum_{j=1}^{n}\ket{j}\bra{j}.
     \end{equation}
 \end{definition}
-
 \begin{example}
-    For $n = 2$, $\mathbb{1} = \ket{+\hat{n}}\bra{+\hat{n}} + \ket{-\hat{n}}\bra{-\hat{n}}$ for any $\hat{n} \in \{\hat{x},\hat{y},\hat{z}\}$, so
+    For $n = 2$, $\id = \ket{+\hat{n}}\bra{+\hat{n}} + \ket{-\hat{n}}\bra{-\hat{n}}$ for any $\hat{n} \in \{\hat{x},\hat{y},\hat{z}\}$, so
     \begin{equation*}
         \ket{\psi} = \braket{+\hat{x}|\psi}\ket{+\hat{x}} + \braket{-\hat{x}|\psi}\ket{-\hat{x}} = \braket{+\hat{y}|\psi}\ket{+\hat{y}} + \braket{-\hat{y}|\psi}\ket{-\hat{y}}.
     \end{equation*}
 \end{example}
 
+\subsubsection{Observables and the Born rule}
 \begin{definition}[Observable]
     An observable $A$ has outcomes $a_j$ with states $\ket{a_j}$ forming a complete orthonormal set. For spin-$\tfrac12$, $A$ could be $S_x$, $S_y$ or $S_z$, with outcomes $\pm\hbar/2$. By the Born rule,
     \begin{equation}
@@ -757,7 +695,7 @@ A spin-$\tfrac12$ particle is a two-level system, and each of $\{\ket{\pm\hat{x}
 \end{definition}
 
 \begin{proposition}
-    Normalization $\braket{\psi|\psi} = 1$ is the statement that the probabilities sum to 1.
+    Normalization $\braket{\psi|\psi} = \id$ is the statement that the probabilities sum to 1.
 \end{proposition}
 \begin{proof}
     \begin{equation*}
@@ -766,11 +704,7 @@ A spin-$\tfrac12$ particle is a two-level system, and each of $\{\ket{\pm\hat{x}
     Equivalently, inserting the identity, $\sum_j\braket{\psi|a_j}\braket{a_j|\psi} = \bra{\psi}\Big(\sum_j\ket{a_j}\bra{a_j}\Big)\ket{\psi} = \braket{\psi|\psi}$.
 \end{proof}
 
-% ------------------------------------------------------------
-\subsection{Expectation value as an operator}
-% ------------------------------------------------------------
-\marginpar{September 18, 2026}
-
+\subsubsection{Expectation value as an operator}
 \begin{proposition}
     \begin{equation}
         \braket{A} = \sum_j a_j\left|\braket{a_j|\psi}\right|^2 = \sum_j\braket{\psi|a_j}a_j\braket{a_j|\psi} = \bra{\psi}\hat{A}\ket{\psi},
@@ -831,7 +765,7 @@ A spin-$\tfrac12$ particle is a two-level system, and each of $\{\ket{\pm\hat{x}
 \marginpar{September 21, 2026}
 
 \begin{definition}[Projection operator]
-    $P_{\pm\hat{n}} = \ket{\pm\hat{n}}\bra{\pm\hat{n}}$, so that $\mathbb{1} = P_{+\hat{n}} + P_{-\hat{n}}$ and $P_{+\hat{z}}\ket{\psi} = c_+\ket{+\hat{z}}$.
+    $P_{\pm\hat{n}} = \ket{\pm\hat{n}}\bra{\pm\hat{n}}$, so that $\id = P_{+\hat{n}} + P_{-\hat{n}}$ and $P_{+\hat{z}}\ket{\psi} = c_+\ket{+\hat{z}}$.
 \end{definition}
 
 \begin{definition}[Matrix of an operator]
@@ -853,12 +787,12 @@ A spin-$\tfrac12$ particle is a two-level system, and each of $\{\ket{\pm\hat{x}
     A projector satisfies $P_{\hat{n}}^2 = P_{\hat{n}}$, since $(\ket{\hat{n}}\bra{\hat{n}})(\ket{\hat{n}}\bra{\hat{n}}) = \ket{\hat{n}}\braket{\hat{n}|\hat{n}}\bra{\hat{n}} = \ket{\hat{n}}\bra{\hat{n}}$. In the $S_z$ basis,
     \begin{equation}
         P_{-\hat{z}} \xrightarrow{S_z} \begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix}, \qquad
-        \mathbb{1} = P_{+\hat{z}} + P_{-\hat{z}} \xrightarrow{S_z} \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}.
+        \id = P_{+\hat{z}} + P_{-\hat{z}} \xrightarrow{S_z} \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}.
     \end{equation}
 \end{proposition}
 
 \begin{definition}[Adjoint]
-    Writing $A = \mathbb{1}A\mathbb{1} = \sum_{i,j}A_{ij}\ket{i}\bra{j}$, the adjoint is
+    Writing $A = \id A\id = \sum_{i,j}A_{ij}\ket{i}\bra{j}$, the adjoint is
     \begin{equation}
         A^\dagger = \sum_{i,j}A_{ij}^*\ket{j}\bra{i}, \qquad (A^\dagger)_{ij} = A_{ji}^*.
     \end{equation}
@@ -887,11 +821,11 @@ A spin-$\tfrac12$ particle is a two-level system, and each of $\{\ket{\pm\hat{x}
 \begin{theorem}
     Rotation operators are unitary:
     \begin{equation}
-        R^\dagger R = RR^\dagger = \mathbb{1}.
+        R^\dagger R = RR^\dagger = \id.
     \end{equation}
 \end{theorem}
 \begin{proof}
-    A rotation must preserve normalization: $\braket{\psi'|\psi'} = \bra{\psi}R^\dagger R\ket{\psi} = 1$ for every $\ket{\psi}$ and every $R(\theta\hat{n})$, which forces $R^\dagger R = \mathbb{1}$.
+    A rotation must preserve normalization: $\braket{\psi'|\psi'} = \bra{\psi}R^\dagger R\ket{\psi} = 1$ for every $\ket{\psi}$ and every $R(\theta\hat{n})$, which forces $R^\dagger R = \id$.
 \end{proof}
 
 \begin{remark}

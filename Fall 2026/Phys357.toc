@@ -16,26 +16,32 @@
 \contentsline {subsubsection}{\numberline {2.4.1}Ket notation}{5}{subsubsection.2.4.1}%
 \contentsline {subsection}{\numberline {2.5}Sequential Stern-Gerlach experiments}{6}{subsection.2.5}%
 \contentsline {subsubsection}{\numberline {2.5.1}Experiment 1: SG$z$ then SG$z$}{6}{subsubsection.2.5.1}%
-\contentsline {subsubsection}{\numberline {2.5.2}Experiment 2: SG$z$ then SG$x$}{6}{subsubsection.2.5.2}%
-\contentsline {subsubsection}{\numberline {2.5.3}Experiment 3: SG$z$, SG$x$, then SG$z$}{6}{subsubsection.2.5.3}%
+\contentsline {subsubsection}{\numberline {2.5.2}Experiment 2: SG$z$ then SG$x$}{7}{subsubsection.2.5.2}%
+\contentsline {subsubsection}{\numberline {2.5.3}Experiment 3: SG$z$, SG$x$, then SG$z$}{7}{subsubsection.2.5.3}%
 \contentsline {subsubsection}{\numberline {2.5.4}Experiment 4: SG$z$, modified SG$x$, then SG$z$}{7}{subsubsection.2.5.4}%
 \contentsline {section}{\numberline {3}Quantum States as Vectors}{7}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Superposition}{7}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Bras and the inner product}{7}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Probability amplitudes}{8}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Normalization}{8}{subsection.3.4}%
-\contentsline {subsection}{\numberline {3.5}The state $\mathinner {|{+\hat {x}}\rangle }$}{9}{subsection.3.5}%
-\contentsline {subsection}{\numberline {3.6}Global phase}{9}{subsection.3.6}%
-\contentsline {subsection}{\numberline {3.7}Completeness}{10}{subsection.3.7}%
-\contentsline {subsection}{\numberline {3.8}Expectation value and uncertainty}{10}{subsection.3.8}%
-\contentsline {subsection}{\numberline {3.9}The state $\mathinner {|{+\hat {y}}\rangle }$}{11}{subsection.3.9}%
-\contentsline {subsubsection}{\numberline {3.9.1}Experiment 5: measuring $S_y$}{11}{subsubsection.3.9.1}%
-\contentsline {subsubsection}{\numberline {3.9.2}Fixing the relative phase}{11}{subsubsection.3.9.2}%
-\contentsline {subsection}{\numberline {3.10}Generalization to $n$-level systems}{12}{subsection.3.10}%
-\contentsline {subsection}{\numberline {3.11}Expectation value as an operator}{13}{subsection.3.11}%
-\contentsline {section}{\numberline {4}Rotation of Basis States and Matrix Mechanics}{13}{section.4}%
-\contentsline {subsection}{\numberline {4.1}States as column vectors}{13}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Operators as matrices}{14}{subsection.4.2}%
+\contentsline {subsection}{\numberline {3.1}The vector space of spin states}{7}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Superposition}{7}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}Bras and the inner product}{7}{subsubsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.3}Completeness}{8}{subsubsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.2}Extracting probabilities}{8}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Probability amplitudes}{8}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Normalization}{9}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Global phase}{9}{subsubsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.3}Fixing the Basis States}{10}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}The state $\mathinner {|{+\hat {x}}\rangle }$}{10}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Experiment 5: measuring $S_y$}{10}{subsubsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.3}The state $\mathinner {|{+\hat {y}}\rangle }$}{11}{subsubsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.4}Statistics of Measurements}{12}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Expectation value}{12}{subsubsection.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.2}Uncertainty}{12}{subsubsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.5}Generalization to $n$-level systems}{13}{subsection.3.5}%
+\contentsline {subsubsection}{\numberline {3.5.1}Orthonormality and completeness}{13}{subsubsection.3.5.1}%
+\contentsline {subsubsection}{\numberline {3.5.2}Observables and the Born rule}{13}{subsubsection.3.5.2}%
+\contentsline {subsubsection}{\numberline {3.5.3}Expectation value as an operator}{14}{subsubsection.3.5.3}%
+\contentsline {section}{\numberline {4}Rotation of Basis States and Matrix Mechanics}{14}{section.4}%
+\contentsline {subsection}{\numberline {4.1}States as column vectors}{14}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Operators as matrices}{15}{subsection.4.2}%
 \contentsline {subsection}{\numberline {4.3}The rotation operator}{15}{subsection.4.3}%
-\contentsline {section}{\numberline {A}Appendix}{15}{appendix.A}%
-\contentsline {section}{\numberline {B}Useful Links}{15}{appendix.B}%
+\contentsline {section}{\numberline {A}Appendix}{16}{appendix.A}%
+\contentsline {section}{\numberline {B}Useful Links}{16}{appendix.B}%
