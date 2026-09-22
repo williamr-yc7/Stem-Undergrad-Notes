@@ -26,39 +26,34 @@
 \newtheorem{remark}{Remark}
 \newtheorem{proposition}{Proposition}
 \newtheorem{result}{Result}
+\newcommand{\id}{\mathds{1}}
 \reversemarginpar
 \hypersetup{
     colorlinks=true,
 }
 \begin{document}
-
 \title{PHYS 357: Honours Quantum Physics 1}
 \author{W.R.YCH.}
 \date{August \(31^{st}\), 2026}
 \setcounter{Maxaffil}{0}
 \renewcommand\Affilfont{\itshape\small}
-\newcommand{\id}{\mathds{1}}
 \maketitle
-
 \noindent\rule{\textwidth}{0.4pt}
 \thispagestyle{empty}
 \begin{abstract}
 \end{abstract}
 \noindent\rule{\textwidth}{0.4pt}
 \clearpage
-
 \thispagestyle{empty}
 {
   \hypersetup{linkcolor=black}
   \tableofcontents
 }
 \clearpage
-
 \setcounter{page}{1}
 
-% ============================================================
+
 \section{Introduction}
-% ============================================================
 Textbook used is JS Townsend, \emph{A Modern Approach to Quantum Mechanics}, 2nd ed., University Science Books 2012. Taught by Bill Coish. Mondays, Wednesdays and Fridays from 9:35 to 10:25 in Steward Biology Building N2/2. Course grading is divided as follows:
 \begin{itemize}
     \item 10\% problem sets (must be handwritten scans).
@@ -67,16 +62,12 @@ Textbook used is JS Townsend, \emph{A Modern Approach to Quantum Mechanics}, 2nd
     \item 30\% final exam.
 \end{itemize}
 
-% ============================================================
-\section{Stern-Gerlach Experiments}
-% ============================================================
 
-% ------------------------------------------------------------
+\section{Stern-Gerlach Experiments}
+
 \subsection{The classical picture}
-% ------------------------------------------------------------
 
 \subsubsection{Angular momentum}
-
 \begin{definition}[Orbital angular momentum]
     The orbital angular momentum of a particle is
     \begin{equation}
@@ -84,33 +75,27 @@ Textbook used is JS Townsend, \emph{A Modern Approach to Quantum Mechanics}, 2nd
     \end{equation}
     where $\vec{r}$ is the position vector and $\vec{p} = m\vec{v}$ is the linear momentum.
 \end{definition}
-
 For motion confined to the $x$-$y$ plane, only the $z$ component survives. On a circular path of radius $r$ with speed $v$,
 \[L_{z} = mvr.\]
-
 \begin{definition}[Angular momentum of a rigid body]
     For a rigid body\footnote{A rigid body is one that does not deform under the action of external forces.} rotating about a fixed axis this is
     \[L = I_{0}\omega,\]
     with $I_{0}$ the moment of inertia and $\omega$ the angular velocity.
 \end{definition}
-
 \begin{remark}
     The moment of inertia $I_0$ measures how mass is distributed relative to the rotation axis.
 \end{remark}
 
 \subsubsection{Magnetic moment of a circulating charge}
-
 \begin{definition}[Magnetic moment]
     A magnetic moment is a measure of the net circulation of electric charge. It is a vector quantity that determines the torque a magnet will experience in an external magnetic field.
 \end{definition}
-
 The magnetic moment of a point particle of mass $m$ and charge $q$ in a circular orbit of radius $r$ and period $T$ is
 \[\mu = \frac{IA}{c}\footnotemark = \frac{1}{c}\left(\frac{qv}{2\pi r}\right)\left(\pi r^{2}\right) = \frac{q}{2mc}\,mvr = \frac{q}{2mc}\,L_{z},\]
 where $I$ is the current and $A$ is the area enclosed by the orbit. A single circulating charge counts as a steady current $I = q/T = qv/2\pi r$ because it passes any given point on the loop once per period.
 \footnotetext{Here $c$ is in Gaussian units.}
 
 \subsubsection{Gyromagnetic ratio}
-
 \begin{definition}[Gyromagnetic ratio]
     The gyromagnetic ratio $\gamma$ is the constant of proportionality between the magnetic moment and the angular momentum,
     \begin{equation}
@@ -121,29 +106,22 @@ where $I$ is the current and $A$ is the area enclosed by the orbit. A single cir
         \gamma = \frac{q}{2mc}.
     \end{equation}
 \end{definition}
-
 \begin{remark}
     This is a purely classical result, since the charge is treated as a point particle on a definite orbit with a definite radius and speed, and nothing is quantized. It matters here because measuring $\vec{\mu}$ is how we measure $\vec{L}$, and it is what the Stern-Gerlach apparatus exploits.
 \end{remark}
 
-% ------------------------------------------------------------
 \subsection{Spin}
-% ------------------------------------------------------------
-
 \begin{definition}[Spin]
     Spin $\vec{S}$ is an intrinsic angular momentum carried by a particle. It is a fixed property of the particle type, like charge or mass, and does not come from any motion through space. A stationary electron alone in empty space still has spin.
 \end{definition}
-
 In quantum mechanics the spin $\vec{S}$ replaces the orbital angular momentum $\vec{L}$ of the classical picture.
 
 \subsubsection{Intrinsic moment and the g-factor}
-
 The magnetic moment is still proportional to the angular momentum, but the gyromagnetic ratio picks up an extra dimensionless factor,
 \begin{equation}
     \vec{\mu} = \gamma\vec{S}, \qquad \gamma = \frac{qg}{2mc},
 \end{equation}
 where $g$ is the g-factor of the particle.
-
 \begin{definition}[g-factor]
     The g-factor of a particle\footnote{Its value must be measured or derived from relativistic quantum theory.} is the dimensionless number relating its magnetic moment to its spin angular momentum. It measures how much stronger or weaker the moment is than the classical value $\gamma = q/2mc$, which corresponds to $g = 1$.
 \end{definition}
@@ -158,18 +136,15 @@ where $g$ is the g-factor of the particle.
     \begin{equation}
         \hbar = \frac{h}{2\pi}.
     \end{equation}
-    It carries units of angular momentum, so $[\hbar] = [L_z] = \frac{kg\cdot m^2}{s}$.
+    It carries units of angular momentum, so $[\hbar] = [L_z] = \frac{kg\cdot m^2}{s}$. Its value is $\hbar = 1.055 \times 10^{-27}\ \mathrm{erg\,s} = 6.582 \times 10^{-16}\ \mathrm{eV\,s}$.
 \end{definition}
-
 Writing $\vec{S} = \hbar(\vec{S}/\hbar)$ with $\vec{S}/\hbar$ dimensionless, the $\hbar$ joins the gyromagnetic ratio. The combination $q\hbar/2mc$ then carries the units and sets the natural size of the moment at a given mass scale.
-
 \begin{definition}[Bohr magneton]
     The Bohr magneton is the natural unit of magnetic moment for an electron,
     \begin{equation}
         \mu_{B} = \frac{|e|\hbar}{2m_{e}c}.
     \end{equation}
 \end{definition}
-
 \begin{definition}[Nuclear magneton]
     The nuclear magneton is the same combination with the proton mass, and is the natural unit for nucleons,
     \begin{equation}
@@ -180,7 +155,6 @@ Writing $\vec{S} = \hbar(\vec{S}/\hbar)$ with $\vec{S}/\hbar$ dimensionless, the
 \begin{definition}[Nucleons]
     The subatomic particles that make up the nucleus of an atom, specifically protons and neutrons.
 \end{definition}
-
 The electron moment is then written as
 \begin{equation}
     \vec{\mu}_{e} = g_{e}\,\mu_{B}\,\frac{\vec{S}}{\hbar},
@@ -188,7 +162,6 @@ The electron moment is then written as
 and similarly for the proton and neutron with $\mu_{N}$ in place of $\mu_{B}$.
 
 \subsubsection{Values for the electron, proton and neutron}
-
 \begin{table}[H]
 \centering
 \begin{tabular}{lcccc}
@@ -202,23 +175,17 @@ Neutron  & $0$    & $m_{p}$ & $g_{n} \approx -3.83$ & $g_{n}\mu_{N}/\hbar$ \\
 \end{tabular}
 \caption{Charges, masses, g-factors and gyromagnetic ratios.}
 \end{table}
-
 \begin{remark}
     The classical derivation gives $\mu = (q/2mc)L_z$, which vanishes when $q = 0$. The neutron is neutral yet has a nonzero moment, so its $\vec{\mu}$ cannot come from a single circulating point charge. This is a first sign that the classical picture fails.
 \end{remark}
-
 \begin{remark}
     Since $m_{p} \gg m_{e}$, we get $\mu_{N} \ll \mu_{B}$ and therefore $|\vec{\mu}_{p}| \ll |\vec{\mu}_{e}|$. Stern-Gerlach deflection of nuclei is much weaker than for electrons.
 \end{remark}
 
-% ------------------------------------------------------------
 \subsection{The Stern-Gerlach apparatus}
-% ------------------------------------------------------------
-
 \begin{definition}[Stern-Gerlach apparatus]
     A device that measures one component of a particle's magnetic moment. A beam of neutral atoms passes through a magnet shaped to produce a strong field gradient along a chosen axis, here $z$. The gradient deflects each atom by an amount proportional to $\mu_z$, and a screen records where it lands. Since $\vec{\mu} = \gamma\vec{S}$, the position on the screen is a direct measurement of $S_z$.
 \end{definition}
-
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{../Images/Stern-Gerlach_apparatus.png}
@@ -227,50 +194,40 @@ Neutron  & $0$    & $m_{p}$ & $g_{n} \approx -3.83$ & $g_{n}\mu_{N}/\hbar$ \\
 \end{figure}
 
 \subsubsection{Force in an inhomogeneous field}
-
 A magnetic moment in a field has potential energy
 \begin{equation}
     U = -\vec{\mu}\cdot\vec{B},
 \end{equation}
 so the force on it is
 \[\vec{F} = -\vec{\nabla}U = \vec{\nabla}(\vec{\mu}\cdot\vec{B}), \qquad F_{z} = -\frac{\partial U}{\partial z} = \mu_{z}\frac{\partial B_{z}}{\partial z}.\]
-
 \begin{definition}[Deflection]
     The displacement of an atom on the screen, perpendicular to the beam axis, produced by $F_z$ acting over the length of the magnet. It is proportional to $\mu_z$, so the pattern on the screen is a record of the moments in the beam.
 \end{definition}
-
 \begin{remark}
     A uniform field gives no force, only a torque. Thus, the apparatus needs a field \emph{gradient} to deflect anything.
 \end{remark}
 
 \subsubsection{Silver atoms}
-
 Silver is used because its net orbital angular momentum vanishes, $\vec{L} = 0$, while $\vec{S} \neq 0$. The entire magnetic moment comes from a single unpaired valence electron, so the atom behaves as one electron spin. For the electron,
 \[\mu_{z} = -\frac{g_{e}|e|}{2m_{e}c}\,S_{z},\]
 and therefore
 \[F_{z} = \mu_{z}\frac{\partial B_{z}}{\partial z} = -g_{e}\frac{|e|}{2m_{e}c}\,S_{z}\,\frac{\partial B_{z}}{\partial z} = g_{e}\frac{|e|}{2m_{e}c}\left|\frac{\partial B_{z}}{\partial z}\right| S_{z},\]
 where the last equality assumes $\partial B_{z}/\partial z < 0$.
-
 \begin{result}
     \[F_{z} \propto S_{z}.\]
     The deflection of an atom measures the $z$ component of its spin directly.
 \end{result}
 
 \subsubsection{The classical prediction}
-
 Spin is a vector,
 \begin{equation}
     \vec{S} = (S_{x}, S_{y}, S_{z})^{T}, \qquad S_{z} = |\vec{S}|\cos\theta.
 \end{equation}
-
 \begin{remark}
     The spins leaving the oven point in random directions, so $\theta$ takes every value in $[0,\pi]$ across the beam and $S_z = |\vec{S}|\cos\theta$ takes every value in $[-|\vec{S}|,|\vec{S}|]$. Since $F_z \propto S_z$, each atom is deflected differently and the screen should show a continuous smear, but it shows two spots.
 \end{remark}
 
-% ------------------------------------------------------------
-\subsection{Quantization of \texorpdfstring{$S_z$}{Sz}}
-% ------------------------------------------------------------
-
+\subsubsection{The observed result}
 \begin{result}[Quantization of spin]
     The electron spin angular momentum is quantized:
     \begin{equation}
@@ -278,8 +235,16 @@ Spin is a vector,
     \end{equation}
     The beam splits into two spots.
 \end{result}
-
-\subsubsection{Ket notation}
+\begin{definition}[Spin quantum number]
+    The spin quantum number $s$ labels the magnitude of a particle's spin and is fixed by the particle type. It takes the values $s = 0, \tfrac12, 1, \tfrac32, \dots$, and a measurement of $S_z$ then gives one of $2s+1$ outcomes,
+    \begin{equation}
+        S_z = m\hbar, \qquad m = -s, -s+1, \dots, +s.
+    \end{equation}
+    The electron has $s = \tfrac12$, so $S_z = \pm\hbar/2$ and the beam splits in two. A spin-1 particle would split into three beams, $S_z = +\hbar, 0, -\hbar$.
+\end{definition}
+\begin{remark}
+    Everything in these notes is the $s = \tfrac12$ case, so the state space is two-dimensional. Note also that $S_z$ is a component, while the magnitude is $|\vec{S}| = \hbar\sqrt{s(s+1)}$, which for the electron is $\hbar\sqrt{3}/2$, not $\hbar/2$.
+\end{remark}
 \begin{definition}[Basis state]
     One of a set of states $\{\ket{j}\}$ that are mutually orthonormal and span the space, so that every state is a unique linear combination of them. For spin-$\tfrac12$ the two outcomes of any one measurement, $\{\ket{\pm\hat{n}}\}$, form a basis.
 \end{definition}
@@ -292,25 +257,20 @@ Spin is a vector,
     \end{equation*}
     The space is two-dimensional, so any spin state is a linear combination of the two.
 \end{definition}
-
 \begin{remark}
     From here on we follow Townsend and write $\ket{+\hat{z}} \equiv \ket{\uparrow}$ and $\ket{-\hat{z}} \equiv \ket{\downarrow}$. The same labels work for any axis: $\ket{\pm\hat{x}}$ are the states with $S_x = \pm\hbar/2$.
 \end{remark}
 
-% ------------------------------------------------------------
 \subsection{Sequential Stern-Gerlach experiments}
-% ------------------------------------------------------------
-
 \begin{proposition}
     We write SG$z$ for a device whose gradient points along $z$, and SG$x$ for the same device rotated by $90^\circ$ about the beam axis.
 \end{proposition}
 \begin{definition}[Filter]
-    Each device sends atoms into two beams. A filter is a device that blocks on of the beams.
+    Each device sends atoms into two beams. A filter is a device that blocks one of the beams.
 \end{definition}
 \begin{remark}
     A beam straight from the oven always splits 50/50 in any SG device, whatever its orientation.
 \end{remark}
-
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}[
@@ -333,7 +293,6 @@ Spin is a vector,
 \node[lab] at (2.85,-0.75) {$-\hat{z}$};
 \draw[beam] (5.15,0.15) -- (6.15,0.55) node[lab,right] {$+\hat{z}$: 100\%};
 \draw[beam, dashed] (5.15,-0.15) -- (6.15,-0.55) node[lab,right] {$-\hat{z}$: 0\%};
-
 % ---------------- Experiment 2 ----------------
 \begin{scope}[yshift=-2.3cm]
 \node[font=\bfseries] at (-1.2,0) {2};
@@ -348,7 +307,6 @@ Spin is a vector,
 \draw[beam] (5.15,0.15) -- (6.15,0.55) node[lab,right] {$+\hat{x}$: 50\%};
 \draw[beam] (5.15,-0.15) -- (6.15,-0.55) node[lab,right] {$-\hat{x}$: 50\%};
 \end{scope}
-
 % ---------------- Experiment 3 ----------------
 \begin{scope}[yshift=-4.6cm]
 \node[font=\bfseries] at (-1.2,0) {3};
@@ -368,7 +326,6 @@ Spin is a vector,
 \draw[beam] (7.75,0.15) -- (8.75,0.55) node[lab,right] {$+\hat{z}$: 50\%};
 \draw[beam] (7.75,-0.15) -- (8.75,-0.55) node[lab,right] {$-\hat{z}$: 50\%};
 \end{scope}
-
 %add experiment 4
 \end{tikzpicture}
 \caption{Sequential Stern-Gerlach experiments. Thick bars block a beam. Percentages are the fractions of atoms entering the last device. Every oven starts with $N_0$ atoms.}
@@ -376,36 +333,32 @@ Spin is a vector,
 \end{figure}
 
 \subsubsection{\texorpdfstring{Experiment 1: SG$z$ then SG$z$}{Experiment 1: SGz then SGz}}
-
-Filter the $+\hat{z}$ beam and send it into a second SG$z$. Every atom comes out $+\hat{z}$, none come out $-\hat{z}$. The measurement is repeatable: once an atom is found with $S_z = +\hbar/2$, measuring $S_z$ again gives the same answer. The atom leaves the first device in the state $\ket{+\hat{z}}$. So we end with $N_0/2$ atoms with the $|+\hat{z}>$.
+Filter the $+\hat{z}$ beam and send it into a second SG$z$. Every atom comes out $+\hat{z}$, none come out $-\hat{z}$. The measurement is repeatable: once an atom is found with $S_z = +\hbar/2$, measuring $S_z$ again gives the same answer. The atom leaves the first device in the state $\ket{+\hat{z}}$. So we end with $N_0/2$ atoms in $\ket{+\hat{z}}$.
 
 \subsubsection{\texorpdfstring{Experiment 2: SG$z$ then SG$x$}{Experiment 2: SGz then SGx}}
-
-Filter the $+\hat{z}$ beam and send it into an SG$x$. Half the atoms come out $+\hat{x}$ and half come out $-\hat{x}$. Knowing $S_z = +\hbar/2$ tells us nothing about $S_x$. We end up with $N_0/4$ in the $|+\hat{x}>$ and $N_0/4$ in the $|-\hat{x}>$.
+Filter the $+\hat{z}$ beam and send it into an SG$x$. Half the atoms come out $+\hat{x}$ and half come out $-\hat{x}$. Knowing $S_z = +\hbar/2$ tells us nothing about $S_x$. We end up with $N_0/4$ in $\ket{+\hat{x}}$ and $N_0/4$ in $\ket{-\hat{x}}$.
 
 \subsubsection{\texorpdfstring{Experiment 3: SG$z$, SG$x$, then SG$z$}{Experiment 3: SGz, SGx, then SGz}}
-
-Filter $+\hat{z}$, then filter $+\hat{x}$, then measure $S_z$ again. The beam splits 50/50 into $+\hat{z}$ and $-\hat{z}$ at the end, even though every atom was filtered to $+\hat{z}$ at the start. The $S_x$ measurement wiped out the earlier $S_z$ information. Blocking $+\hat{x}$ instead of $-\hat{x}$ gives the same 50/50 result. We end with $N_0/8 |+\hat{z}$ and $N_0/8 |-\hat{z}>$.
+Filter $+\hat{z}$, then filter $+\hat{x}$, then measure $S_z$ again. The beam splits 50/50 into $+\hat{z}$ and $-\hat{z}$ at the end, even though every atom was filtered to $+\hat{z}$ at the start. The $S_x$ measurement wiped out the earlier $S_z$ information. Blocking $+\hat{x}$ instead of $-\hat{x}$ gives the same 50/50 result. We end with $N_0/8$ in $\ket{+\hat{z}}$ and $N_0/8$ in $\ket{-\hat{z}}$.
 \begin{result}
     An atom with a definite value of $S_x$ does not have a definite value of $S_z$. Measuring $S_x$ destroys what we knew about $S_z$, so no state has definite values of both at once.
 \end{result}
 
 \subsubsection{\texorpdfstring{Experiment 4: SG$z$, modified SG$x$, then SG$z$}{Experiment 4: SGz, modified SGx, then SGz}}
 \begin{definition}[Modified SG device]
-    %Too long with useless info be direct what is a modified SG device how is it differenet then a regular one
-    An SG device that splits the beam according to $S$ and then recombines the two beams, so atoms with $S = \pm\hbar/2$ emerge at the same position even though they took two different paths.
+    An SG device that splits the beam according to $S_n$ and then recombines the two beams, so atoms with $S_n = \pm\hbar/2$ emerge at the same position even though they took two different paths.
 \end{definition}
-Filter $+\hat{z}$, send it through a modified SG$x$ with neither path blocked, then measure $S_z$. Every atom comes out $+\hat{z}$: 100\%, not the 50/50 of Experiment 3. End with $N_0/4 |+\hat{z}>$ from $|+\hat{x}>$ and $N_0/4 |+\hat{z}>$ from $|-\hat{x}>$.
+Filter $+\hat{z}$, send it through a modified SG$x$ with neither path blocked, then measure $S_z$. Every atom comes out $+\hat{z}$: 100\%, not the 50/50 of Experiment 3. All $N_0/2$ atoms end in $\ket{+\hat{z}}$.
 \begin{result}
     The modified SG$x$ cannot be sending $N_0/4$ through as $\ket{+\hat{x}}$ and $N_0/4$ as $\ket{-\hat{x}}$: Experiment 3 showed each of those alone gives 50/50 at the end. Instead the two paths interfere, as for water or light waves, cancelling the possibility of $-\hat{z}$. No path can be assigned to an atom.
 \end{result}
-% ============================================================
+
+
 \section{Quantum States as Vectors}
-% ============================================================
 \marginpar{September 11-18, 2026}
 
-% ------------------------------------------------------------
 \subsection{The vector space of spin states}
+
 \subsubsection{Superposition}
 \begin{definition}[Superposition]
     A general spin state is a linear combination of the basis kets,
@@ -428,9 +381,6 @@ Filter $+\hat{z}$, send it through a modified SG$x$ with neither path blocked, t
 \end{definition}
 
 \subsubsection{Completeness}
-\begin{remark}
-    The Born rule, $P(\phi\,|\,\psi) = |\braket{\phi|\psi}|^2$, is the probability of finding $\ket{\phi}$ when $\ket{\psi}$ is prepared. Why is it true? There is no deeper derivation: it is a postulate that agrees with every experiment. As David Mermin put it, "shut up and calculate."
-\end{remark}
 \begin{definition}[Projector]
     The operator $P_j = \ket{j}\bra{j}$ built from a basis state. Acting on $\ket{\psi} = \sum_k c_k\ket{k}$ it keeps only the $\ket{j}$ part,
     \[P_j\ket{\psi} = c_j\ket{j},\]
@@ -439,16 +389,18 @@ Filter $+\hat{z}$, send it through a modified SG$x$ with neither path blocked, t
 \begin{proposition}[Completeness relation]
     Since any state can be expanded in the basis $\{\ket{+\hat{z}}, \ket{-\hat{z}}\}$, the sum of the projectors onto the basis states is the identity:
     \begin{equation}
-        \ket{+\hat{z}}\bra{+\hat{z}} + \ket{-\hat{z}}\bra{-\hat{z}} = 1.
+        \ket{+\hat{z}}\bra{+\hat{z}} + \ket{-\hat{z}}\bra{-\hat{z}} = \id.
     \end{equation}
 \end{proposition}
-Applying this to $\ket{+\hat{x}}$ gives the expansion directly:
+Inserting the identity in front of any state gives its expansion directly:
 \begin{equation}
-    \ket{+\hat{x}} = \left(\ket{+\hat{z}}\bra{+\hat{z}} + \ket{-\hat{z}}\bra{-\hat{z}}\right)\ket{+\hat{x}}
-    = \braket{+\hat{z}|+\hat{x}}\ket{+\hat{z}} + \braket{-\hat{z}|+\hat{x}}\ket{-\hat{z}},
+    \ket{\psi} = \left(\ket{+\hat{z}}\bra{+\hat{z}} + \ket{-\hat{z}}\bra{-\hat{z}}\right)\ket{\psi}
+    = \braket{+\hat{z}|\psi}\ket{+\hat{z}} + \braket{-\hat{z}|\psi}\ket{-\hat{z}},
 \end{equation}
+so the coefficients $c_\pm$ of the superposition are the inner products $\braket{\pm\hat{z}|\psi}$.
 
 \subsection{Extracting probabilities}
+
 \subsubsection{Probability amplitudes}
 \begin{proposition}
     To pull out $c_+$, act on $\ket{\psi}$ with $\bra{+\hat{z}}$:
@@ -472,6 +424,9 @@ Applying this to $\ket{+\hat{x}}$ gives the expansion directly:
         P(\phi\,|\,\psi) = \left|\braket{\phi|\psi}\right|^2 \in [0,1].
     \end{equation}
 \end{principle}
+\begin{remark}
+    Why is the Born rule true? There is no deeper derivation: it is a postulate that agrees with every experiment. As David Mermin put it, "shut up and calculate."
+\end{remark}
 
 \subsubsection{Normalization}
 \begin{proposition}
@@ -519,21 +474,22 @@ since the cross terms vanish by orthonormality. The two outcomes $S_z = \pm\hbar
 \begin{result}
     $\ket{\psi}$ and $e^{i\alpha}\ket{\psi}$ give the same probabilities for every possible measurement, so they describe the same physical state. An overall (global) phase has no physical meaning and can be dropped.
 \end{result}
-Dropping the global phase $e^{i\delta_+}$ from $\ket{+\hat{x}}$ leaves
-\[\ket{+\hat{x}} = \frac{1}{\sqrt{2}}\left(\ket{+\hat{z}} + e^{i\delta}\ket{-\hat{z}}\right).\]
 \begin{remark}
-    The relative phase $\delta$ is different: it sits between the two terms, so it cannot be pulled out front and dropped. Experiment 3 alone does not fix it. It is pinned down by combining more measurements (for example along $y$) with a phase convention, and the standard choice for $\ket{+\hat{x}}$ is $\delta = 0$.
+    A \emph{relative} phase is different: it sits between the two terms of a superposition, so it cannot be pulled out front and dropped. It has physical consequences, as the next subsection shows.
 \end{remark}
 
-\subsection{Fixing the Basis States}
+\subsection{Fixing the basis states}
 
-% ------------------------------------------------------------
 \subsubsection{The state \texorpdfstring{$\ket{+\hat{x}}$}{|+x>}}
 In Experiment 3, atoms in $\ket{+\hat{x}}$ enter an SG$z$ and split 50/50:
 \[P\!\left(S_z = \pm\tfrac{\hbar}{2}\right) = \left|\braket{\pm\hat{z}|+\hat{x}}\right|^2 = \frac{1}{2}.\]
 So both amplitudes have modulus $1/\sqrt{2}$, and each can carry its own phase:
 \[\ket{+\hat{x}} = \frac{1}{\sqrt{2}}e^{i\delta_{+}}\ket{+\hat{z}} + \frac{1}{\sqrt{2}}e^{i\delta_{-}}\ket{-\hat{z}} = \frac{e^{i\delta_{+}}}{\sqrt{2}}\left(\ket{+\hat{z}} + e^{i\delta}\ket{-\hat{z}}\right), \qquad \delta = \delta_{-} - \delta_{+},\]
-with $\delta_\pm \in \mathbb{R}$.
+with $\delta_\pm \in \mathbb{R}$. Dropping the global phase $e^{i\delta_+}$ leaves
+\[\ket{+\hat{x}} = \frac{1}{\sqrt{2}}\left(\ket{+\hat{z}} + e^{i\delta}\ket{-\hat{z}}\right).\]
+\begin{remark}
+    The relative phase $\delta$ survives, and Experiment 3 alone does not fix it. It is pinned down by combining more measurements (for example along $y$) with a phase convention.
+\end{remark}
 
 \subsubsection{Experiment 5: measuring \texorpdfstring{$S_y$}{Sy}}
 \begin{definition}[Cyclic permutation]
@@ -549,9 +505,9 @@ Let Experiment 5 be a cyclic permutation of Experiment 3, SG$x$ becomes SG$z$ an
 The same argument as for $\ket{+\hat{x}}$ then gives
 \[\ket{+\hat{y}} = \frac{e^{i\gamma_+}}{\sqrt{2}}\left(\ket{+\hat{z}} + e^{i\gamma}\ket{-\hat{z}}\right), \qquad \gamma = \gamma_- - \gamma_+.\]
 
-\subsubsection{The state \texorpdfstring{$\ket{+\hat{y}}$}{|+y>}}
+\subsubsection{The state \texorpdfstring{$\ket{+\hat{y}}$}{|+y>} and the phase convention}
 \begin{proposition}
-    Drop the global phases, $\gamma_+ = \delta_+ = 0$, so that we finally obtain equations for x and y in terms of z:
+    Dropping the global phases, $\gamma_+ = \delta_+ = 0$, we obtain equations for $x$ and $y$ in terms of $z$:
     \[\ket{\pm\hat{x}} = \frac{1}{\sqrt{2}}\left(\ket{+\hat{z}} \pm e^{i\delta}\ket{-\hat{z}}\right), \qquad \ket{\pm\hat{y}} = \frac{1}{\sqrt{2}}\left(\ket{+\hat{z}} \pm e^{i\gamma}\ket{-\hat{z}}\right).\]
 \end{proposition}
 So using orthonormality of the $\hat{z}$ basis,
@@ -561,7 +517,7 @@ Requiring this to equal $1/2$ forces $\cos(\gamma - \delta) = 0$, that is $\gamm
     Take $\delta = 0$ and $\gamma = +\pi/2$. Then
     \begin{equation}
         \ket{\pm\hat{x}} = \frac{1}{\sqrt{2}}\left(\ket{+\hat{z}} \pm \ket{-\hat{z}}\right), \qquad
-        \ket{\pm\hat{y}} = \frac{1}{\sqrt{2}}\left(\ket{+\hat{z}} \pm i\ket{-\hat{z}}\right), \qquad
+        \ket{\pm\hat{y}} = \frac{1}{\sqrt{2}}\left(\ket{+\hat{z}} \pm i\ket{-\hat{z}}\right).
     \end{equation}
     The bras are then
     \begin{equation}
@@ -594,7 +550,8 @@ Requiring this to equal $1/2$ forces $\cos(\gamma - \delta) = 0$, that is $\gamm
     The factor $i$ that did nothing for $S_z$ matters here: it is a relative phase, and it is exactly what tilts the spin toward $+\hat{y}$.
 \end{example}
 
-\subsection{Statistics of Measurements}
+\subsection{Statistics of measurements}
+
 \subsubsection{Expectation value}
 \begin{definition}[Expectation value]
     The expectation value of $S_z$ in the state $\ket{\psi}$ is the average outcome weighted by the probabilities,
@@ -621,11 +578,11 @@ Requiring this to equal $1/2$ forces $\cos(\gamma - \delta) = 0$, that is $\gamm
 \begin{definition}[Uncertainty]
     The uncertainty $\Delta S_z$ is the standard deviation of the measurement outcomes,
     \begin{equation}
-        (\Delta S_z)^2 = \braket{S_z^2} - \braket{S_z}^2,
+        (\Delta S_z)^2 = \braket{\left(S_z - \braket{S_z}\right)^2} = \braket{S_z^2} - \braket{S_z}^2,
     \end{equation}
-    where 
+    where
     \begin{equation}
-        \braket{S_z^2} = (\frac{\hbar}{2})^2\left|\braket{+\hat{z}|\psi}\right|^2 + (-\frac{\hbar}{2})^2\left|\braket{-\hat{z}|\psi}\right|^2.
+        \braket{S_z^2} = \left(\frac{\hbar}{2}\right)^2\left|\braket{+\hat{z}|\psi}\right|^2 + \left(-\frac{\hbar}{2}\right)^2\left|\braket{-\hat{z}|\psi}\right|^2.
     \end{equation}
 \end{definition}
 \begin{example}
@@ -649,24 +606,16 @@ Requiring this to equal $1/2$ forces $\cos(\gamma - \delta) = 0$, that is $\gamm
     \end{equation*}
 \end{example}
 \begin{remark}
-    $\braket{S_z^2}$ is always equal to $\frac{\hbar^2}{4}$.
+    For spin-$\tfrac12$, $\braket{S_z^2}$ is always equal to $\frac{\hbar^2}{4}$, since both outcomes square to the same number and the probabilities sum to 1.
 \end{remark}
 
-
-
 \subsection{Generalization to \texorpdfstring{$n$}{n}-level systems}
+
 \subsubsection{Orthonormality and completeness}
 A spin-$\tfrac12$ particle is a two-level system, and each of $\{\ket{\pm\hat{x}}\}$, $\{\ket{\pm\hat{y}}\}$, $\{\ket{\pm\hat{z}}\}$ is a basis. An $n$-level system has a basis $\{\ket{j}\}$, $j = 1,\dots,n$.
 \begin{remark}
-    The index $j$ labels the outcomes of one chosen observable, not the coordinate axes. Picking $S_x$, $S_y$ or $S_z$ picks the basis; within that basis $j = 1,2$ labels its two states $\ket{a_1} = \ket{+\hat{x}}$ and $\ket{a_2} = \ket{-\hat{x}}$. A spin-1 particle has $n = 3$ outcomes, and an $n$-level atom has $j = 1,\dots,n$.
+    The index $j$ labels the outcomes of one chosen observable, not the coordinate axes. Picking $S_x$, $S_y$ or $S_z$ picks the basis; within that basis $j = 1,2$ labels its two states, for example $\ket{a_1} = \ket{+\hat{x}}$ and $\ket{a_2} = \ket{-\hat{x}}$. A spin-1 particle has $n = 3$ outcomes, and an $n$-level atom has $j = 1,\dots,n$.
 \end{remark}
-\begin{definition}[Spin quantum number]
-    The spin quantum number $s$ labels the magnitude of a particle's spin and is fixed by the particle type. It takes the values $s = 0, \tfrac12, 1, \tfrac32, \dots$, and a measurement of $S_z$ then gives one of $2s+1$ outcomes,
-    \begin{equation}
-        S_z = m\hbar, \qquad m = -s, -s+1, \dots, +s.
-    \end{equation}
-    The electron has $s = \tfrac12$, so $S_z = \pm\hbar/2$ and the beam splits in two. A spin-1 particle would split into three beams, $S_z = +\hbar, 0, -\hbar$.
-\end{definition}
 \begin{definition}[Orthonormal and complete basis]
     The basis is orthonormal if
     \[\braket{i|j} = \delta_{ij},\]
@@ -693,9 +642,8 @@ A spin-$\tfrac12$ particle is a two-level system, and each of $\{\ket{\pm\hat{x}
         P(A = a_j) = \left|\braket{a_j|\psi}\right|^2.
     \end{equation}
 \end{definition}
-
 \begin{proposition}
-    Normalization $\braket{\psi|\psi} = \id$ is the statement that the probabilities sum to 1.
+    Normalization $\braket{\psi|\psi} = 1$ is the statement that the probabilities sum to 1.
 \end{proposition}
 \begin{proof}
     \begin{equation*}
@@ -711,7 +659,6 @@ A spin-$\tfrac12$ particle is a two-level system, and each of $\{\ket{\pm\hat{x}
         \qquad \hat{A} = \sum_j a_j\ket{a_j}\bra{a_j}.
     \end{equation}
 \end{proposition}
-
 \begin{definition}[Uncertainty of an observable]
     \begin{equation}
         (\Delta A)^2 = \braket{(A - \braket{A})^2} = \braket{A^2} - \braket{A}^2, \qquad
@@ -719,14 +666,10 @@ A spin-$\tfrac12$ particle is a two-level system, and each of $\{\ket{\pm\hat{x}
     \end{equation}
 \end{definition}
 
-% ============================================================
+
 \section{Rotation of Basis States and Matrix Mechanics}
-% ============================================================
 
-% ------------------------------------------------------------
 \subsection{States as column vectors}
-% ------------------------------------------------------------
-
 \begin{definition}[Representation of a state]
     In the $S_z$ basis, a ket is represented by the column of its components and a bra by the conjugate row, the adjoint:
     \begin{equation}
@@ -738,18 +681,15 @@ A spin-$\tfrac12$ particle is a two-level system, and each of $\{\ket{\pm\hat{x}
         \braket{\psi|\psi} = \psi^\dagger\psi = |c_+|^2 + |c_-|^2.
     \end{equation}
 \end{definition}
-
 \begin{remark}
     Write $\ket{\psi} \xrightarrow{S_z} \psi$, not $\ket{\psi} = \psi$. The ket is basis-independent; the column depends on the basis, just like $\vec{E}$ versus its components.
 \end{remark}
-
 \begin{example}
     \begin{equation*}
         \ket{\pm\hat{x}} \xrightarrow{S_z} \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ \pm 1 \end{pmatrix}, \qquad
         \ket{\pm\hat{y}} \xrightarrow{S_z} \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ \pm i \end{pmatrix}.
     \end{equation*}
 \end{example}
-
 \begin{example}[Other bases]
     In the $S_x$ basis, $\ket{\psi} \xrightarrow{S_x} \begin{pmatrix} \braket{+\hat{x}|\psi} \\ \braket{-\hat{x}|\psi} \end{pmatrix}$, and similarly for $S_y$. So the same state has different columns:
     \begin{equation*}
@@ -759,15 +699,11 @@ A spin-$\tfrac12$ particle is a two-level system, and each of $\{\ket{\pm\hat{x}
     \end{equation*}
 \end{example}
 
-% ------------------------------------------------------------
 \subsection{Operators as matrices}
-% ------------------------------------------------------------
 \marginpar{September 21, 2026}
-
 \begin{definition}[Projection operator]
     $P_{\pm\hat{n}} = \ket{\pm\hat{n}}\bra{\pm\hat{n}}$, so that $\id = P_{+\hat{n}} + P_{-\hat{n}}$ and $P_{+\hat{z}}\ket{\psi} = c_+\ket{+\hat{z}}$.
 \end{definition}
-
 \begin{definition}[Matrix of an operator]
     In a basis $\{\ket{j}\}$, an operator $A$ is represented by the matrix
     \begin{equation}
@@ -775,14 +711,12 @@ A spin-$\tfrac12$ particle is a two-level system, and each of $\{\ket{\pm\hat{x}
     \end{equation}
     Inserting the identity, $\bra{k}A\ket{\psi} = \sum_j\bra{k}A\ket{j}\braket{j|\psi}$, so $A\ket{\psi}$ is represented by the matrix product $A\psi$.
 \end{definition}
-
 \begin{example}
     \begin{equation*}
         P_{+\hat{z}} \xrightarrow{S_z} \begin{pmatrix} \bra{+\hat{z}}P_{+\hat{z}}\ket{+\hat{z}} & \bra{+\hat{z}}P_{+\hat{z}}\ket{-\hat{z}} \\ \bra{-\hat{z}}P_{+\hat{z}}\ket{+\hat{z}} & \bra{-\hat{z}}P_{+\hat{z}}\ket{-\hat{z}} \end{pmatrix} = \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix},
         \qquad \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}\begin{pmatrix} c_+ \\ c_- \end{pmatrix} = \begin{pmatrix} c_+ \\ 0 \end{pmatrix}.
     \end{equation*}
 \end{example}
-
 \begin{proposition}[Properties of projectors]
     A projector satisfies $P_{\hat{n}}^2 = P_{\hat{n}}$, since $(\ket{\hat{n}}\bra{\hat{n}})(\ket{\hat{n}}\bra{\hat{n}}) = \ket{\hat{n}}\braket{\hat{n}|\hat{n}}\bra{\hat{n}} = \ket{\hat{n}}\bra{\hat{n}}$. In the $S_z$ basis,
     \begin{equation}
@@ -790,7 +724,6 @@ A spin-$\tfrac12$ particle is a two-level system, and each of $\{\ket{\pm\hat{x}
         \id = P_{+\hat{z}} + P_{-\hat{z}} \xrightarrow{S_z} \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}.
     \end{equation}
 \end{proposition}
-
 \begin{definition}[Adjoint]
     Writing $A = \id A\id = \sum_{i,j}A_{ij}\ket{i}\bra{j}$, the adjoint is
     \begin{equation}
@@ -799,25 +732,19 @@ A spin-$\tfrac12$ particle is a two-level system, and each of $\{\ket{\pm\hat{x}
     If $\ket{\psi'} = A\ket{\psi}$, then $\bra{\psi'} = \bra{\psi}A^\dagger$.
 \end{definition}
 
-% ------------------------------------------------------------
 \subsection{The rotation operator}
-% ------------------------------------------------------------
-
 \begin{definition}[Rotation operator]
     $R(\theta\hat{n})$ rotates a state by $\theta$ about $\hat{n}$: $\ket{\psi'} = R(\theta\hat{n})\ket{\psi}$. For example, $R\left(\tfrac{\pi}{2}\hat{y}\right)$ takes $\ket{\pm\hat{z}}$ to $\ket{\pm\hat{x}}$ (up to phase), so
     \begin{equation}
         R\left(\tfrac{\pi}{2}\hat{y}\right)\left(c_+\ket{+\hat{z}} + c_-\ket{-\hat{z}}\right) = c_+\ket{+\hat{x}} + c_-\ket{-\hat{x}}.
     \end{equation}
 \end{definition}
-
 \begin{remark}
     $R(\theta\hat{n})$ is a linear operator: $R\left(c_+\ket{+\hat{z}} + c_-\ket{-\hat{z}}\right) = c_+R\ket{+\hat{z}} + c_-R\ket{-\hat{z}}$, which is what the equation above uses.
 \end{remark}
-
 \begin{remark}
     The bra of $\ket{\psi'}$ is $\bra{\psi}R^\dagger$, not $\bra{\psi}R$. With the wrong choice, $\ket{\psi} = \ket{+\hat{z}}$ and $\theta = \pi/2$ would give $\braket{\psi'|\psi'} = \bra{+\hat{z}}R(\pi\hat{y})\ket{+\hat{z}} = \braket{+\hat{z}|-\hat{z}} = 0$ instead of 1.
 \end{remark}
-
 \begin{theorem}
     Rotation operators are unitary:
     \begin{equation}
@@ -827,17 +754,15 @@ A spin-$\tfrac12$ particle is a two-level system, and each of $\{\ket{\pm\hat{x}
 \begin{proof}
     A rotation must preserve normalization: $\braket{\psi'|\psi'} = \bra{\psi}R^\dagger R\ket{\psi} = 1$ for every $\ket{\psi}$ and every $R(\theta\hat{n})$, which forces $R^\dagger R = \id$.
 \end{proof}
-
 \begin{remark}
     Unitary operators map physical (normalized) states to physical states. If a unitary $U$ satisfies $U\ket{\psi} = c\ket{\psi}$, then $|c| = 1$, so $c = e^{i\varphi}$ is just a global phase and $U\ket{\psi}$ describes the same physical state as $\ket{\psi}$.
 \end{remark}
-% ============================================================
+
+
 \appendix
 \section{Appendix}
 
-% ============================================================
+
 \section{Useful Links}
-
 Stern-Gerlach experiment: \url{https://www.youtube.com/shorts/QG7kJXxN1Kk}
-
 \end{document}
