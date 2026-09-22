@@ -63,7 +63,63 @@ Textbook used is JS Townsend, \emph{A Modern Approach to Quantum Mechanics}, 2nd
 \end{itemize}
 
 
+\section{Mathematical Background}
+
+\subsection{Taylor expansion}
+\begin{definition}[Taylor series]
+    A function $f$ that is smooth near $a$ equals the power series
+    \begin{equation}
+        f(x) = \sum_{n=0}^{\infty}\frac{f^{(n)}(a)}{n!}(x-a)^n,
+    \end{equation}
+    where $f^{(n)}$ is the $n$th derivative. Expanding about $a = 0$ gives the Maclaurin series.
+\end{definition}
+\begin{result}[Series used in this course]
+    \begin{equation}
+        e^{x} = \sum_{n=0}^{\infty}\frac{x^n}{n!}, \qquad
+        \cos x = \sum_{n=0}^{\infty}\frac{(-1)^n x^{2n}}{(2n)!}, \qquad
+        \sin x = \sum_{n=0}^{\infty}\frac{(-1)^n x^{2n+1}}{(2n+1)!},
+    \end{equation}
+    together with the binomial theorem $(1+u)^N = \sum_{n=0}^{N}\binom{N}{n}u^n$ for integer $N$.
+\end{result}
+\begin{remark}
+    Comparing the three series gives Euler's formula $e^{i\theta} = \cos\theta + i\sin\theta$, hence
+    \begin{equation}
+        \cos\theta = \frac{e^{i\theta}+e^{-i\theta}}{2}, \qquad \sin\theta = \frac{e^{i\theta}-e^{-i\theta}}{2i}.
+    \end{equation}
+    These two are used constantly when rotation matrices are written out.
+\end{remark}
+\begin{example}[The exponential as a limit]
+    Show that $\lim_{N\to\infty}\left(1+x/N\right)^N = e^x$. Take the logarithm of the left
+    side, which turns the power into a product:
+    \begin{equation*}
+        \ln\left(1+\frac{x}{N}\right)^{N} = N\ln\left(1+\frac{x}{N}\right).
+    \end{equation*}
+    The Taylor series of the logarithm about $u = 0$ is
+    \begin{equation*}
+        \ln(1+u) = u - \frac{u^2}{2} + \frac{u^3}{3} - \cdots,
+    \end{equation*}
+    so with $u = x/N$, which is small once $N$ is large,
+    \begin{equation*}
+        N\ln\left(1+\frac{x}{N}\right)
+        = N\left(\frac{x}{N} - \frac{x^2}{2N^2} + \frac{x^3}{3N^3} - \cdots\right)
+        = x - \frac{x^2}{2N} + \frac{x^3}{3N^2} - \cdots.
+    \end{equation*}
+    Every term after the first carries a factor $1/N$ or smaller, so they all vanish as
+    $N \to \infty$ and the logarithm tends to $x$. Exponentiating,
+    \begin{equation*}
+        \lim_{N\to\infty}\left(1+\frac{x}{N}\right)^{N} = e^{x}.
+    \end{equation*}
+\end{example}
+\begin{remark}
+    This limit is what lets a rotation be written as an exponential. A finite rotation is $N$ infinitesimal ones stacked up,
+    \begin{equation}
+        R(\theta\hat{n}) = \lim_{N\to\infty}\left(\id - \frac{i}{\hbar}\frac{\theta}{N}\,\hat{n}\cdot\vec{S}\right)^{N} = e^{-i\theta\,\hat{n}\cdot\vec{S}/\hbar}.
+    \end{equation}
+\end{remark}
+
+
 \section{Stern-Gerlach Experiments}
+\marginpar{August 31 - September 9, 2026}
 
 \subsection{The classical picture}
 
@@ -220,9 +276,9 @@ where the last equality assumes $\partial B_{z}/\partial z < 0$.
 
 \subsubsection{The classical prediction}
 Spin is a vector,
-\begin{equation}
+\[
     \vec{S} = (S_{x}, S_{y}, S_{z})^{T}, \qquad S_{z} = |\vec{S}|\cos\theta.
-\end{equation}
+\]
 \begin{remark}
     The spins leaving the oven point in random directions, so $\theta$ takes every value in $[0,\pi]$ across the beam and $S_z = |\vec{S}|\cos\theta$ takes every value in $[-|\vec{S}|,|\vec{S}|]$. Since $F_z \propto S_z$, each atom is deflected differently and the screen should show a continuous smear, but it shows two spots.
 \end{remark}
@@ -250,11 +306,11 @@ Spin is a vector,
 \end{definition}
 \begin{definition}[Ket notation]
     A ket $\ket{\,\cdot\,}$ labels a quantum state as a vector in a vector space. For electron spin the two measurement outcomes give the basis states
-    \begin{equation*}
+    \[
         \ket{\uparrow} \; \text{for } S_{z} = +\frac{\hbar}{2},
         \qquad
         \ket{\downarrow} \; \text{for } S_{z} = -\frac{\hbar}{2}.
-    \end{equation*}
+    \]
     The space is two-dimensional, so any spin state is a linear combination of the two.
 \end{definition}
 \begin{remark}
@@ -326,7 +382,26 @@ Spin is a vector,
 \draw[beam] (7.75,0.15) -- (8.75,0.55) node[lab,right] {$+\hat{z}$: 50\%};
 \draw[beam] (7.75,-0.15) -- (8.75,-0.55) node[lab,right] {$-\hat{z}$: 50\%};
 \end{scope}
-%add experiment 4
+% ---------------- Experiment 4 ----------------
+\begin{scope}[yshift=-7.2cm]
+\node[font=\bfseries] at (-1.2,0) {4};
+\node[oven] at (0,0) {Oven};
+\node[sg]   at (2.0,0) {SG$z$};
+\node[sg]   at (7.8,0) {SG$z$};
+\draw[beam] (0.55,0) -- (1.45,0);
+\draw[beam] (2.55,0.15) -- node[lab,above] {$+\hat{z}$} (3.95,0);
+\draw[thick] (2.55,-0.15) -- (3.35,-0.6);
+\draw[blocked] (3.35,-0.85) -- (3.35,-0.35);
+\node[lab] at (2.85,-0.75) {$-\hat{z}$};
+% modified SGx: splits and recombines, neither path blocked
+\draw[dashed, gray] (3.95,-1.0) rectangle (6.65,1.0);
+\node[lab] at (5.3,1.3) {modified SG$x$};
+\draw[thick] (3.95,0) -- (4.75,0.45) -- node[lab,above] {$+\hat{x}$} (5.85,0.45) -- (6.65,0);
+\draw[thick] (3.95,0) -- (4.75,-0.45) -- node[lab,below] {$-\hat{x}$} (5.85,-0.45) -- (6.65,0);
+\draw[beam] (6.65,0) -- (7.25,0);
+\draw[beam] (8.35,0.15) -- (9.35,0.55) node[lab,right] {$+\hat{z}$: 100\%};
+\draw[beam, dashed] (8.35,-0.15) -- (9.35,-0.55) node[lab,right] {$-\hat{z}$: 0\%};
+\end{scope}
 \end{tikzpicture}
 \caption{Sequential Stern-Gerlach experiments. Thick bars block a beam. Percentages are the fractions of atoms entering the last device. Every oven starts with $N_0$ atoms.}
 \label{fig:sequential-sg}
@@ -393,10 +468,10 @@ Filter $+\hat{z}$, send it through a modified SG$x$ with neither path blocked, t
     \end{equation}
 \end{proposition}
 Inserting the identity in front of any state gives its expansion directly:
-\begin{equation}
+\[
     \ket{\psi} = \left(\ket{+\hat{z}}\bra{+\hat{z}} + \ket{-\hat{z}}\bra{-\hat{z}}\right)\ket{\psi}
     = \braket{+\hat{z}|\psi}\ket{+\hat{z}} + \braket{-\hat{z}|\psi}\ket{-\hat{z}},
-\end{equation}
+\]
 so the coefficients $c_\pm$ of the superposition are the inner products $\braket{\pm\hat{z}|\psi}$.
 
 \subsection{Extracting probabilities}
@@ -404,9 +479,9 @@ so the coefficients $c_\pm$ of the superposition are the inner products $\braket
 \subsubsection{Probability amplitudes}
 \begin{proposition}
     To pull out $c_+$, act on $\ket{\psi}$ with $\bra{+\hat{z}}$:
-    \begin{equation}
+    \[
         \braket{+\hat{z}|\psi} = c_{+}\underbrace{\braket{+\hat{z}|+\hat{z}}}_{=1} + c_{-}\underbrace{\braket{+\hat{z}|-\hat{z}}}_{=0} = c_{+}.
-    \end{equation}
+    \]
     The same steps with $\bra{-\hat{z}}$ give $c_-$. So
     \begin{equation}
         c_{\pm} = \braket{\pm\hat{z}|\psi}.
@@ -431,9 +506,9 @@ so the coefficients $c_\pm$ of the superposition are the inner products $\braket
 \subsubsection{Normalization}
 \begin{proposition}
     A system in $\ket{\psi}$ is found in $\ket{\psi}$ with certainty, so
-    \begin{equation}
+    \[
         P(\psi\,|\,\psi) = \left|\braket{\psi|\psi}\right|^2 = 1.
-    \end{equation}
+    \]
 \end{proposition}
 To find what a bra equals to, write it with unknown coefficients, $\bra{\psi} = c_{+}'\bra{+\hat{z}} + c_{-}'\bra{-\hat{z}}$. Then
 \[\braket{\psi|\psi} = \left(c_{+}'\bra{+\hat{z}} + c_{-}'\bra{-\hat{z}}\right)\left(c_{+}\ket{+\hat{z}} + c_{-}\ket{-\hat{z}}\right) = c_{+}'c_{+} + c_{-}'c_{-},\]
@@ -453,22 +528,22 @@ since the cross terms vanish by orthonormality. The two outcomes $S_z = \pm\hbar
 \end{definition}
 \begin{example}
     Take
-    \begin{equation*}
+    \[
         \ket{\psi} = \frac{1}{\sqrt{3}}\ket{+\hat{z}} + i\sqrt{\frac{2}{3}}\ket{-\hat{z}}.
-    \end{equation*}
+    \]
     The amplitude for $S_z = +\hbar/2$ is
-    \begin{equation*}
+    \[
         \braket{+\hat{z}|\psi} = \frac{1}{\sqrt{3}}\underbrace{\braket{+\hat{z}|+\hat{z}}}_{=1} + i\sqrt{\frac{2}{3}}\underbrace{\braket{+\hat{z}|-\hat{z}}}_{=0} = \frac{1}{\sqrt{3}},
-    \end{equation*}
+    \]
     so $P(S_z = +\hbar/2) = 1/3$. In the same way $\braket{-\hat{z}|\psi} = i\sqrt{2/3}$, so $P(S_z = -\hbar/2) = |i|^2 \cdot 2/3 = 2/3$. The two add to 1, so the state is normalized.
 \end{example}
 
 \subsubsection{Global phase}
 \begin{proposition}
     Take two kets that differ only by an overall phase, $\ket{\psi} = e^{i\alpha}\ket{\psi'}$ with $\alpha \in \mathbb{R}$. For any state $\ket{\phi}$,
-    \begin{equation}
+    \[
         P(\phi\,|\,\psi) = \left|\braket{\phi|\psi}\right|^2 = \left|e^{i\alpha}\braket{\phi|\psi'}\right|^2 = \left|\braket{\phi|\psi'}\right|^2 = P(\phi\,|\,\psi'),
-    \end{equation}
+    \]
     since $|e^{i\alpha}| = 1$.
 \end{proposition}
 \begin{result}
@@ -498,9 +573,9 @@ with $\delta_\pm \in \mathbb{R}$. Dropping the global phase $e^{i\delta_+}$ leav
 Let Experiment 5 be a cyclic permutation of Experiment 3, SG$x$ becomes SG$z$ and SG$z$ becomes SG$y$. Now the process is as follows: filter $+\hat{z}$, then measure $S_y$.
 \begin{proposition}
     By symmetry it must split 50/50 as well, so every cross-axis overlap has the same modulus:
-    \begin{equation}
+    \[
         \left|\braket{+\hat{x}|+\hat{z}}\right|^2 = \left|\braket{+\hat{y}|+\hat{z}}\right|^2 = \left|\braket{-\hat{x}|+\hat{y}}\right|^2 = \frac{1}{2}.
-    \end{equation}
+    \]
 \end{proposition}
 The same argument as for $\ket{+\hat{x}}$ then gives
 \[\ket{+\hat{y}} = \frac{e^{i\gamma_+}}{\sqrt{2}}\left(\ket{+\hat{z}} + e^{i\gamma}\ket{-\hat{z}}\right), \qquad \gamma = \gamma_- - \gamma_+.\]
@@ -539,14 +614,14 @@ Requiring this to equal $1/2$ forces $\cos(\gamma - \delta) = 0$, that is $\gamm
         = \frac{1}{\sqrt{2}}\left(\sqrt{\tfrac{1}{3}} - \sqrt{\tfrac{2}{3}}\right).
     \end{align*}
     Computing the probabilities
-    \begin{equation*}
+    \[
         P\!\left(S_y = +\tfrac{\hbar}{2}\right) = |\bra{+\hat{y}}\ket{\psi}|^2 = \frac{1}{2} + \frac{\sqrt{2}}{3}, \qquad
         P\!\left(S_y = -\tfrac{\hbar}{2}\right) = |\bra{-\hat{y}}\ket{\psi}|^2 = \frac{1}{2} - \frac{\sqrt{2}}{3},
-    \end{equation*}
+    \]
     which add to 1 as they must. Then
-    \begin{equation*}
+    \[
         \braket{S_y} = \frac{\hbar}{2}\left[\left(\frac{1}{2} + \frac{\sqrt{2}}{3}\right) - \left(\frac{1}{2} - \frac{\sqrt{2}}{3}\right)\right] = \frac{\sqrt{2}}{3}\hbar.
-    \end{equation*}
+    \]
     The factor $i$ that did nothing for $S_z$ matters here: it is a relative phase, and it is exactly what tilts the spin toward $+\hat{y}$.
 \end{example}
 
@@ -561,16 +636,16 @@ Requiring this to equal $1/2$ forces $\cos(\gamma - \delta) = 0$, that is $\gamm
 \end{definition}
 \begin{remark}
     For $N$ measurements on identically prepared atoms, with $N_+$ giving $+\hbar/2$ and $N_-$ giving $-\hbar/2$, the measured average is
-    \begin{equation}
+    \[
         \braket{S_z}_N = \frac{\hbar}{2}\,\frac{N_+ - N_-}{N},
-    \end{equation}
+    \]
     which tends to $\braket{S_z}$ as $N \to \infty$.
 \end{remark}
 \begin{remark}[Shot noise]
     For a finite number $N$ of measurements, the sample average deviates from the expectation value by
-    \begin{equation}
+    \[
         \left|\braket{S_z}_N - \braket{S_z}\right| \sim \frac{\Delta S_z}{\sqrt{N}}.
-    \end{equation}
+    \]
     This spread is intrinsic, not a flaw of the apparatus: it appears whenever a state with a definite value of one observable (e.g.\ $S_x$ for $\ket{+\hat{x}}$) is measured for an incompatible observable (e.g.\ $S_z$).
 \end{remark}
 
@@ -587,23 +662,23 @@ Requiring this to equal $1/2$ forces $\cos(\gamma - \delta) = 0$, that is $\gamm
 \end{definition}
 \begin{example}
     For $\ket{+\hat{x}}$, both probabilities are $1/2$, so
-    \begin{equation*}
+    \[
         \braket{S_z} = \frac{\hbar}{2}\cdot\frac{1}{2} - \frac{\hbar}{2}\cdot\frac{1}{2} = 0, \qquad
         \braket{S_z^2} = \left(\frac{\hbar}{2}\right)^2\cdot\frac{1}{2} + \left(-\frac{\hbar}{2}\right)^2\cdot\frac{1}{2} = \frac{\hbar^2}{4},
-    \end{equation*}
+    \]
     and therefore $\Delta S_z = \hbar/2$. The average is zero but every single measurement gives $\pm\hbar/2$, so the spread is maximal.
 \end{example}
 \begin{example}
     For $\ket{\psi} = \sqrt{\tfrac{1}{3}}\ket{+\hat{z}} + i\sqrt{\tfrac{2}{3}}\ket{-\hat{z}}$, the probabilities are $1/3$ and $2/3$, so
-    \begin{equation*}
+    \[
         \braket{S_z} = \frac{\hbar}{2}\cdot\frac{1}{3} - \frac{\hbar}{2}\cdot\frac{2}{3} = -\frac{\hbar}{6}, \qquad
         \braket{S_z^2} = \frac{\hbar^2}{4}\left(\frac{1}{3} + \frac{2}{3}\right) = \frac{\hbar^2}{4}.
-    \end{equation*}
+    \]
     Then
-    \begin{equation*}
+    \[
         (\Delta S_z)^2 = \frac{\hbar^2}{4} - \frac{\hbar^2}{36} = \frac{9\hbar^2 - \hbar^2}{36} = \frac{2}{9}\hbar^2, \qquad
         \Delta S_z = \frac{\sqrt{2}}{3}\hbar.
-    \end{equation*}
+    \]
 \end{example}
 \begin{remark}
     For spin-$\tfrac12$, $\braket{S_z^2}$ is always equal to $\frac{\hbar^2}{4}$, since both outcomes square to the same number and the probabilities sum to 1.
@@ -630,9 +705,9 @@ A spin-$\tfrac12$ particle is a two-level system, and each of $\{\ket{\pm\hat{x}
 \end{definition}
 \begin{example}
     For $n = 2$, $\id = \ket{+\hat{n}}\bra{+\hat{n}} + \ket{-\hat{n}}\bra{-\hat{n}}$ for any $\hat{n} \in \{\hat{x},\hat{y},\hat{z}\}$, so
-    \begin{equation*}
+    \[
         \ket{\psi} = \braket{+\hat{x}|\psi}\ket{+\hat{x}} + \braket{-\hat{x}|\psi}\ket{-\hat{x}} = \braket{+\hat{y}|\psi}\ket{+\hat{y}} + \braket{-\hat{y}|\psi}\ket{-\hat{y}}.
-    \end{equation*}
+    \]
 \end{example}
 
 \subsubsection{Observables and the Born rule}
@@ -646,9 +721,9 @@ A spin-$\tfrac12$ particle is a two-level system, and each of $\{\ket{\pm\hat{x}
     Normalization $\braket{\psi|\psi} = 1$ is the statement that the probabilities sum to 1.
 \end{proposition}
 \begin{proof}
-    \begin{equation*}
+    \[
         \braket{\psi|\psi} = \Big(\sum_i c_i^*\bra{a_i}\Big)\Big(\sum_j c_j\ket{a_j}\Big) = \sum_{i,j}c_i^*c_j\delta_{ij} = \sum_j|c_j|^2 = \sum_j P(A = a_j) = 1.
-    \end{equation*}
+    \]
     Equivalently, inserting the identity, $\sum_j\braket{\psi|a_j}\braket{a_j|\psi} = \bra{\psi}\Big(\sum_j\ket{a_j}\bra{a_j}\Big)\ket{\psi} = \braket{\psi|\psi}$.
 \end{proof}
 
@@ -685,18 +760,45 @@ A spin-$\tfrac12$ particle is a two-level system, and each of $\{\ket{\pm\hat{x}
     Write $\ket{\psi} \xrightarrow{S_z} \psi$, not $\ket{\psi} = \psi$. The ket is basis-independent; the column depends on the basis, just like $\vec{E}$ versus its components.
 \end{remark}
 \begin{example}
-    \begin{equation*}
+    \[
         \ket{\pm\hat{x}} \xrightarrow{S_z} \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ \pm 1 \end{pmatrix}, \qquad
         \ket{\pm\hat{y}} \xrightarrow{S_z} \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ \pm i \end{pmatrix}.
-    \end{equation*}
+    \]
 \end{example}
 \begin{example}[Other bases]
     In the $S_x$ basis, $\ket{\psi} \xrightarrow{S_x} \begin{pmatrix} \braket{+\hat{x}|\psi} \\ \braket{-\hat{x}|\psi} \end{pmatrix}$, and similarly for $S_y$. So the same state has different columns:
-    \begin{equation*}
+    \[
         \ket{+\hat{z}} \xrightarrow{S_z} \begin{pmatrix} 1 \\ 0 \end{pmatrix}, \qquad
         \ket{+\hat{z}} \xrightarrow{S_x} \begin{pmatrix} \braket{+\hat{x}|+\hat{z}} \\ \braket{-\hat{x}|+\hat{z}} \end{pmatrix} = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ 1 \end{pmatrix}, \qquad
         \ket{+\hat{z}} \xrightarrow{S_y} \begin{pmatrix} \braket{+\hat{y}|+\hat{z}} \\ \braket{-\hat{y}|+\hat{z}} \end{pmatrix} = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ 1 \end{pmatrix}.
-    \end{equation*}
+    \]
+\end{example}
+\begin{proposition}[Inner product as a matrix product]
+    If $\ket{\phi} \xrightarrow{S_z} \phi$ and $\ket{\psi} \xrightarrow{S_z} \psi$, then the inner product is a row times a column,
+    \begin{equation}
+        \braket{\phi|\psi} = \phi^\dagger\psi,
+    \end{equation}
+    and the Born rule reads $P(\phi\,|\,\psi) = \left|\phi^\dagger\psi\right|^2$.
+\end{proposition}
+\begin{remark}
+    If the state is given in another basis, first replace each basis ket by its $S_z$ column and add. For $\ket{\psi} = a\ket{+\hat{y}} + b\ket{-\hat{y}}$,
+    \[
+        \psi \xrightarrow{S_z} \frac{a}{\sqrt{2}}\begin{pmatrix} 1 \\ i \end{pmatrix} + \frac{b}{\sqrt{2}}\begin{pmatrix} 1 \\ -i \end{pmatrix} = \frac{1}{\sqrt{2}}\begin{pmatrix} a+b \\ i(a-b) \end{pmatrix},
+    \]
+    and $\psi^\dagger\psi = 1$ is worth checking before going further.
+\end{remark}
+\begin{example}[A probability by matrix mechanics]
+    For $\ket{\psi} = \sqrt{\tfrac{1}{5}}\ket{+\hat{z}} + i\sqrt{\tfrac{4}{5}}\ket{-\hat{z}}$, find $P(S_x = +\hbar/2)$. Write $\ket{\psi}$ as a column and $\ket{+\hat{x}}$ as the conjugate row:
+    \[
+        \psi \xrightarrow{S_z} \frac{1}{\sqrt{5}}\begin{pmatrix} 1 \\ 2i \end{pmatrix}, \qquad
+        \bra{+\hat{x}} \xrightarrow{S_z} \frac{1}{\sqrt{2}}\begin{pmatrix} 1 & 1 \end{pmatrix}.
+    \]
+    Then
+    \[
+        \braket{+\hat{x}|\psi} = \frac{1}{\sqrt{10}}\begin{pmatrix} 1 & 1 \end{pmatrix}\begin{pmatrix} 1 \\ 2i \end{pmatrix} = \frac{1+2i}{\sqrt{10}}, \qquad
+        P\!\left(S_x = +\tfrac{\hbar}{2}\right) = \frac{|1+2i|^2}{10} = \frac{5}{10} = \frac{1}{2}.
+    \]
+    Take the modulus of the whole sum, not of each term separately.
 \end{example}
 
 \subsection{Operators as matrices}
@@ -712,17 +814,17 @@ A spin-$\tfrac12$ particle is a two-level system, and each of $\{\ket{\pm\hat{x}
     Inserting the identity, $\bra{k}A\ket{\psi} = \sum_j\bra{k}A\ket{j}\braket{j|\psi}$, so $A\ket{\psi}$ is represented by the matrix product $A\psi$.
 \end{definition}
 \begin{example}
-    \begin{equation*}
+    \[
         P_{+\hat{z}} \xrightarrow{S_z} \begin{pmatrix} \bra{+\hat{z}}P_{+\hat{z}}\ket{+\hat{z}} & \bra{+\hat{z}}P_{+\hat{z}}\ket{-\hat{z}} \\ \bra{-\hat{z}}P_{+\hat{z}}\ket{+\hat{z}} & \bra{-\hat{z}}P_{+\hat{z}}\ket{-\hat{z}} \end{pmatrix} = \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix},
         \qquad \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}\begin{pmatrix} c_+ \\ c_- \end{pmatrix} = \begin{pmatrix} c_+ \\ 0 \end{pmatrix}.
-    \end{equation*}
+    \]
 \end{example}
 \begin{proposition}[Properties of projectors]
     A projector satisfies $P_{\hat{n}}^2 = P_{\hat{n}}$, since $(\ket{\hat{n}}\bra{\hat{n}})(\ket{\hat{n}}\bra{\hat{n}}) = \ket{\hat{n}}\braket{\hat{n}|\hat{n}}\bra{\hat{n}} = \ket{\hat{n}}\bra{\hat{n}}$. In the $S_z$ basis,
-    \begin{equation}
+    \[
         P_{-\hat{z}} \xrightarrow{S_z} \begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix}, \qquad
         \id = P_{+\hat{z}} + P_{-\hat{z}} \xrightarrow{S_z} \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}.
-    \end{equation}
+    \]
 \end{proposition}
 \begin{definition}[Adjoint]
     Writing $A = \id A\id = \sum_{i,j}A_{ij}\ket{i}\bra{j}$, the adjoint is
@@ -731,13 +833,102 @@ A spin-$\tfrac12$ particle is a two-level system, and each of $\{\ket{\pm\hat{x}
     \end{equation}
     If $\ket{\psi'} = A\ket{\psi}$, then $\bra{\psi'} = \bra{\psi}A^\dagger$.
 \end{definition}
+\begin{proposition}[Adjoint of a product]
+    \begin{equation}
+        \left(AB\right)^\dagger = B^\dagger A^\dagger.
+    \end{equation}
+\end{proposition}
+\begin{proof}
+    Component by component,
+    \[
+        \left[(AB)^\dagger\right]_{ij} = (AB)_{ji}^{*} = \sum_k A_{jk}^{*}B_{ki}^{*} = \sum_k (B^\dagger)_{ik}(A^\dagger)_{kj} = \left(B^\dagger A^\dagger\right)_{ij}.
+    \]
+\end{proof}
+\begin{remark}
+    The order reverses, and $A^\dagger B^\dagger$ is a different matrix in general. For real entries the adjoint is just the transpose.
+\end{remark}
+
+\subsection{The spin operators}
+Each spin component is built from the projectors onto its own basis, as the operator form of the expectation value requires:
+\begin{equation}
+    \hat{S}_n = \frac{\hbar}{2}\left(\ket{+\hat{n}}\bra{+\hat{n}} - \ket{-\hat{n}}\bra{-\hat{n}}\right), \qquad \hat{n} \in \{\hat{x},\hat{y},\hat{z}\}.
+\end{equation}
+Its matrix in the $S_z$ basis is $(\hat{S}_n)_{ij} = \bra{i}\hat{S}_n\ket{j}$ with $i,j \in \{+\hat{z},-\hat{z}\}$. Each entry is a difference of two products, one overlap from the bra side and one from the ket side, and the bra side is conjugated.
+\begin{example}[The matrix of $\hat{S}_z$]
+    Here every overlap is $0$ or $1$ by orthonormality, so only the diagonal survives:
+    \[
+        \bra{+\hat{z}}\hat{S}_z\ket{+\hat{z}} = \frac{\hbar}{2}\left(1 - 0\right) = \frac{\hbar}{2}, \qquad
+        \bra{-\hat{z}}\hat{S}_z\ket{-\hat{z}} = \frac{\hbar}{2}\left(0 - 1\right) = -\frac{\hbar}{2},
+    \]
+    with both off-diagonal entries zero, giving
+    \[
+        \hat{S}_z \xrightarrow{S_z} \frac{\hbar}{2}\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}.
+    \]
+    An operator is diagonal in its own basis, and the diagonal entries are its outcomes.
+\end{example}
+\begin{example}[The matrix of $\hat{S}_x$]
+    From $\ket{\pm\hat{x}} \xrightarrow{S_z} \tfrac{1}{\sqrt{2}}(1, \pm 1)^{T}$ the overlaps are $\braket{+\hat{z}|\pm\hat{x}} = \braket{-\hat{z}|+\hat{x}} = \tfrac{1}{\sqrt{2}}$ and $\braket{-\hat{z}|-\hat{x}} = -\tfrac{1}{\sqrt{2}}$, all real. Then
+    \begin{align*}
+        \bra{+\hat{z}}\hat{S}_x\ket{+\hat{z}} &= \frac{\hbar}{2}\left(\tfrac{1}{2} - \tfrac{1}{2}\right) = 0, &
+        \bra{+\hat{z}}\hat{S}_x\ket{-\hat{z}} &= \frac{\hbar}{2}\left(\tfrac{1}{2} + \tfrac{1}{2}\right) = \frac{\hbar}{2}, \\
+        \bra{-\hat{z}}\hat{S}_x\ket{+\hat{z}} &= \frac{\hbar}{2}\left(\tfrac{1}{2} + \tfrac{1}{2}\right) = \frac{\hbar}{2}, &
+        \bra{-\hat{z}}\hat{S}_x\ket{-\hat{z}} &= \frac{\hbar}{2}\left(\tfrac{1}{2} - \tfrac{1}{2}\right) = 0,
+    \end{align*}
+    where the $+$ signs come from the single minus sign carried by $\braket{-\hat{z}|-\hat{x}}$ meeting the minus in front of the second projector. So
+    \[
+        \hat{S}_x \xrightarrow{S_z} \frac{\hbar}{2}\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}.
+    \]
+\end{example}
+\begin{example}[The matrix of $\hat{S}_y$]
+    Now the overlaps are complex, and the bra side is conjugated: $\braket{-\hat{z}|\pm\hat{y}} = \pm\tfrac{i}{\sqrt{2}}$ while $\braket{\pm\hat{y}|-\hat{z}} = \mp\tfrac{i}{\sqrt{2}}$, with $\braket{+\hat{z}|\pm\hat{y}} = \braket{\pm\hat{y}|+\hat{z}} = \tfrac{1}{\sqrt{2}}$. Then
+    \begin{align*}
+        \bra{+\hat{z}}\hat{S}_y\ket{-\hat{z}} &= \frac{\hbar}{2}\left(\tfrac{1}{\sqrt{2}}\cdot\tfrac{-i}{\sqrt{2}} - \tfrac{1}{\sqrt{2}}\cdot\tfrac{i}{\sqrt{2}}\right) = -\frac{i\hbar}{2}, \\
+        \bra{-\hat{z}}\hat{S}_y\ket{+\hat{z}} &= \frac{\hbar}{2}\left(\tfrac{i}{\sqrt{2}}\cdot\tfrac{1}{\sqrt{2}} - \tfrac{-i}{\sqrt{2}}\cdot\tfrac{1}{\sqrt{2}}\right) = +\frac{i\hbar}{2},
+    \end{align*}
+    and the diagonal entries vanish because $i\cdot(-i) = 1$ in both terms. So
+    \[
+        \hat{S}_y \xrightarrow{S_z} \frac{\hbar}{2}\begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix}.
+    \]
+\end{example}
+\begin{result}[Pauli matrices]
+    \begin{equation}
+        \hat{S}_j = \frac{\hbar}{2}\sigma_j, \qquad
+        \sigma_x = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}, \quad
+        \sigma_y = \begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix}, \quad
+        \sigma_z = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix},
+    \end{equation}
+    all in the $S_z$ basis. Each is its own adjoint, and each squares to $\id$, so $\hat{S}_j^2 = \tfrac{\hbar^2}{4}\id$ for every $j$.
+\end{result}
+\begin{remark}[Shortcut]
+    Instead of four separate brackets, write each projector as an outer product of a column with its conjugate row, for example
+    \[
+        \ket{+\hat{x}}\bra{+\hat{x}} \xrightarrow{S_z} \frac{1}{2}\begin{pmatrix} 1 \\ 1 \end{pmatrix}\begin{pmatrix} 1 & 1 \end{pmatrix} = \frac{1}{2}\begin{pmatrix} 1 & 1 \\ 1 & 1 \end{pmatrix}, \qquad
+        \ket{-\hat{x}}\bra{-\hat{x}} \xrightarrow{S_z} \frac{1}{2}\begin{pmatrix} 1 & -1 \\ -1 & 1 \end{pmatrix},
+    \]
+    then subtract and multiply by $\hbar/2$.
+\end{remark}
+\begin{example}[Expectation value and uncertainty by matrix mechanics]
+    For $\ket{\psi} = \sqrt{\tfrac{1}{5}}\ket{+\hat{y}} + i\sqrt{\tfrac{4}{5}}\ket{-\hat{y}}$, find $\braket{S_z}$ and $\Delta S_z$. First move to the $S_z$ basis:
+    \[
+        \psi \xrightarrow{S_z} \frac{1}{\sqrt{10}}\left[\begin{pmatrix} 1 \\ i \end{pmatrix} + \begin{pmatrix} 2i \\ 2 \end{pmatrix}\right] = \frac{1}{\sqrt{10}}\begin{pmatrix} 1+2i \\ 2+i \end{pmatrix}.
+    \]
+    Then $\braket{S_z} = \psi^\dagger\hat{S}_z\psi$:
+    \[
+        \braket{S_z} = \frac{\hbar}{2}\cdot\frac{1}{10}\begin{pmatrix} 1-2i & 2-i \end{pmatrix}\begin{pmatrix} 1+2i \\ -(2+i) \end{pmatrix} = \frac{\hbar}{2}\cdot\frac{5-5}{10} = 0.
+    \]
+    Since $\hat{S}_z^2 = \tfrac{\hbar^2}{4}\id$, we get $\braket{S_z^2} = \tfrac{\hbar^2}{4}\psi^\dagger\psi = \tfrac{\hbar^2}{4}$, and therefore
+    \[
+        (\Delta S_z)^2 = \frac{\hbar^2}{4} - 0, \qquad \Delta S_z = \frac{\hbar}{2}.
+    \]
+    Both $S_z$ outcomes have probability $\tfrac12$ here, so the spread is maximal.
+\end{example}
 
 \subsection{The rotation operator}
 \begin{definition}[Rotation operator]
     $R(\theta\hat{n})$ rotates a state by $\theta$ about $\hat{n}$: $\ket{\psi'} = R(\theta\hat{n})\ket{\psi}$. For example, $R\left(\tfrac{\pi}{2}\hat{y}\right)$ takes $\ket{\pm\hat{z}}$ to $\ket{\pm\hat{x}}$ (up to phase), so
-    \begin{equation}
+    \[
         R\left(\tfrac{\pi}{2}\hat{y}\right)\left(c_+\ket{+\hat{z}} + c_-\ket{-\hat{z}}\right) = c_+\ket{+\hat{x}} + c_-\ket{-\hat{x}}.
-    \end{equation}
+    \]
 \end{definition}
 \begin{remark}
     $R(\theta\hat{n})$ is a linear operator: $R\left(c_+\ket{+\hat{z}} + c_-\ket{-\hat{z}}\right) = c_+R\ket{+\hat{z}} + c_-R\ket{-\hat{z}}$, which is what the equation above uses.
@@ -756,6 +947,43 @@ A spin-$\tfrac12$ particle is a two-level system, and each of $\{\ket{\pm\hat{x}
 \end{proof}
 \begin{remark}
     Unitary operators map physical (normalized) states to physical states. If a unitary $U$ satisfies $U\ket{\psi} = c\ket{\psi}$, then $|c| = 1$, so $c = e^{i\varphi}$ is just a global phase and $U\ket{\psi}$ describes the same physical state as $\ket{\psi}$.
+\end{remark}
+\subsubsection{Rotations about \texorpdfstring{$\hat{z}$}{z}}
+\begin{result}
+    A rotation about $\hat{z}$ cannot change $S_z$, so it leaves the $S_z$ basis states where they are and can only multiply them by a phase:
+    \begin{equation}
+        R(\phi\hat{z})\ket{\pm\hat{z}} = e^{\mp i\phi/2}\ket{\pm\hat{z}}.
+    \end{equation}
+    The exponent follows from $R = e^{-i\phi \hat{S}_z/\hbar}$ acting on a state with $S_z = \pm\hbar/2$.
+\end{result}
+\begin{remark}
+    A full turn, $\phi = 2\pi$, gives $R = -\id$ rather than $\id$: a spin-$\tfrac12$ state needs $4\pi$ to come back to itself. The sign is a global phase, so it is unobservable on its own.
+\end{remark}
+\begin{remark}
+    In the $S_z$ basis the matrix is diagonal,
+    \begin{equation}
+        R(\phi\hat{z}) \xrightarrow{S_z} \begin{pmatrix} e^{-i\phi/2} & 0 \\ 0 & e^{i\phi/2} \end{pmatrix},
+    \end{equation}
+    but in any other basis it is not, and it has to be built entry by entry from $R_{ij} = \bra{i}R\ket{j}$.
+\end{remark}
+\begin{example}[$R(\phi\hat{z})$ in the $S_x$ basis]
+    Apply $R$ to the $S_x$ basis states by expanding them in $\hat{z}$:
+    \[
+        R\ket{\pm\hat{x}} = \frac{1}{\sqrt{2}}\left(e^{-i\phi/2}\ket{+\hat{z}} \pm e^{i\phi/2}\ket{-\hat{z}}\right).
+    \]
+    Hitting these with $\bra{\pm\hat{x}} = \tfrac{1}{\sqrt{2}}\left(\bra{+\hat{z}} \pm \bra{-\hat{z}}\right)$ gives
+    \begin{align*}
+        \bra{+\hat{x}}R\ket{+\hat{x}} = \bra{-\hat{x}}R\ket{-\hat{x}} &= \frac{1}{2}\left(e^{-i\phi/2} + e^{i\phi/2}\right) = \cos\frac{\phi}{2}, \\
+        \bra{+\hat{x}}R\ket{-\hat{x}} = \bra{-\hat{x}}R\ket{+\hat{x}} &= \frac{1}{2}\left(e^{-i\phi/2} - e^{i\phi/2}\right) = -i\sin\frac{\phi}{2},
+    \end{align*}
+    using the two identities from the Taylor section. So
+    \[
+        R(\phi\hat{z}) \xrightarrow{S_x} \begin{pmatrix} \cos\frac{\phi}{2} & -i\sin\frac{\phi}{2} \\ -i\sin\frac{\phi}{2} & \cos\frac{\phi}{2} \end{pmatrix}.
+    \]
+    Check: at $\phi = \pi/2$, $R\ket{+\hat{x}} \xrightarrow{S_x} \tfrac{1}{\sqrt{2}}(1,-i)^{T}$, which is $\ket{+\hat{y}}$ up to a global phase, as rotating $\hat{x}$ by $90^\circ$ about $\hat{z}$ should give.
+\end{example}
+\begin{remark}
+    Repeating the calculation in the $S_y$ basis, where the bras carry $\mp i$, gives the same matrix. Both $\hat{x}$ and $\hat{y}$ are perpendicular to the rotation axis, so the rotation looks identical from either one.
 \end{remark}
 
 
