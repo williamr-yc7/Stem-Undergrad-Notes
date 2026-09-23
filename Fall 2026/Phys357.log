@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  23 SEP 2026 11:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  23 SEP 2026 11:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -615,16 +615,16 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \openout5 = `Phys357.toc'.
 
  [3]
-LaTeX Font Info:    Trying to load font information for U+dsrom on input line 97.
+LaTeX Font Info:    Trying to load font information for U+dsrom on input line 98.
  (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/latex/doublestroke\udsrom.fd
 File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
 )
-Underfull \hbox (badness 6708) in paragraph at lines 103--103
+Underfull \hbox (badness 6708) in paragraph at lines 104--104
 []\OT1/cmr/m/n/10 August 31 -
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 103--103
+Underfull \hbox (badness 10000) in paragraph at lines 104--104
 \OT1/cmr/m/n/10 Septem-ber 9,
  []
 
@@ -632,37 +632,37 @@ Underfull \hbox (badness 10000) in paragraph at lines 103--103
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.112     \end{equation}
+l.113     \end{equation}
                          [1
 
 ]
 pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.148 \end{remark}
+l.149 \end{remark}
                    [2]
 pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.181     \begin{equation}
+l.182     \begin{equation}
                            [3] [4
 pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.225 \end{definition}
+l.226 \end{definition}
                       ]
 <../Images/Stern-Gerlach_apparatus.png, id=354, 587.19376pt x 257.96375pt>
 File: ../Images/Stern-Gerlach_apparatus.png Graphic file (type png)
 <use ../Images/Stern-Gerlach_apparatus.png>
-Package pdftex.def Info: ../Images/Stern-Gerlach_apparatus.png  used on input line 228.
+Package pdftex.def Info: ../Images/Stern-Gerlach_apparatus.png  used on input line 229.
 (pdftex.def)             Requested size: 172.5pt x 75.7798pt.
  [5
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.254     \[F_{z} \propto S_{z}.\]
+l.255     \[F_{z} \propto S_{z}.\]
                                    <../Images/Stern-Gerlach_apparatus.png (PNG copy)>] [6]
-Overfull \hbox (8.59946pt too wide) in paragraph at lines 380--381
+Overfull \hbox (8.59946pt too wide) in paragraph at lines 381--382
  [][] 
  []
 
@@ -670,64 +670,64 @@ Overfull \hbox (8.59946pt too wide) in paragraph at lines 380--381
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.390 
+l.391 
       ] [8] [9] [10] [11]
-Overfull \hbox (41.84529pt too wide) detected at line 575
+Overfull \hbox (41.84529pt too wide) detected at line 576
 []
  []
 
 
-Overfull \hbox (6.10797pt too wide) detected at line 577
+Overfull \hbox (6.10797pt too wide) detected at line 578
 \OML/cmm/m/it/10 P  [] \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 j [] [] j[] \OT1/cmr/m/n/10 = [] + []\OML/cmm/m/it/10 ;  P  [] \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 j [] [] j[] \OT1/cmr/m/n/10 = [] \OMS/cmsy/m/n/10 ^^@ []\OML/cmm/m/it/10 ;
  []
 
 [12] [13]
-Overfull \hbox (10.55852pt too wide) detected at line 664
+Overfull \hbox (10.55852pt too wide) detected at line 665
 [] \OT1/cmr/m/n/10 = [] [] \OML/cmm/m/it/10 c[] [] [][] [] c[] [] [] \OT1/cmr/m/n/10 = [] \OML/cmm/m/it/10 c[]c[]^^N[] \OT1/cmr/m/n/10 = [] \OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 c[]\OMS/cmsy/m/n/10 j[] \OT1/cmr/m/n/10 = [] \OML/cmm/m/it/10 P\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 A \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 a[]\OT1/cmr/m/n/10 ) = 1\OML/cmm/m/it/10 :
  []
 
 
-Overfull \hbox (0.13799pt too wide) in paragraph at lines 664--666
+Overfull \hbox (0.13799pt too wide) in paragraph at lines 665--667
 \OT1/cmr/m/n/10 Equivalently, in-sert-ing the iden-tity, $[][] [] [] = [] [] [][] [] [] [] [] =
  []
 
 
-Overfull \hbox (8.3445pt too wide) detected at line 673
+Overfull \hbox (8.3445pt too wide) detected at line 674
 [][][][] \OT1/cmr/m/n/10 = [] \OML/cmm/m/it/10 a[] [][] \OT1/cmr/m/n/10 = [] [] \OML/cmm/m/it/10 a[] [] \OT1/cmr/m/n/10 = [] [] [] \OML/cmm/m/it/10 ;  [] \OT1/cmr/m/n/10 = [] \OML/cmm/m/it/10 a[] [] [] :
  []
 
 [14]
-Overfull \hbox (5.76529pt too wide) in paragraph at lines 719--720
+Overfull \hbox (5.76529pt too wide) in paragraph at lines 720--721
 [][]\OT1/cmr/bx/n/10 Problem 3 \OT1/cmr/m/n/10 (A prob-a-bil-ity by ma-trix me-chan-ics)\OT1/cmr/bx/n/10 . []\OT1/cmr/m/it/10 For $[] \OT1/cmr/m/n/10 = [] [] + \OML/cmm/m/it/10 i[] []$\OT1/cmr/m/it/10 ,
  []
 
 [15]
-Overfull \hbox (17.26207pt too wide) detected at line 743
+Overfull \hbox (17.26207pt too wide) detected at line 744
 \OML/cmm/m/it/10 P[] [] [] \OT1/cmr/m/n/10 = [] \OML/cmm/m/it/10 ;  [] [] \OT1/cmr/m/n/10 = [] \OML/cmm/m/it/10 :
  []
 
 [16] [17] [18]
-Overfull \hbox (18.02933pt too wide) in paragraph at lines 850--852
+Overfull \hbox (18.02933pt too wide) in paragraph at lines 851--853
 \OT1/cmr/m/n/10 From $[] = [] []$ and or-thonor-mal-ity, $[] = []$ and $[] =
  []
 
 [19]
-Overfull \hbox (66.94295pt too wide) detected at line 902
+Overfull \hbox (66.94295pt too wide) detected at line 903
 [] [] [] \OML/cmm/m/it/10 ;  [] [] [] \OT1/cmr/m/n/10 = [] [] \OML/cmm/m/it/10 ;  [] [] [] \OT1/cmr/m/n/10 = [] [] \OML/cmm/m/it/10 :
  []
 
 [20] [21]
-Overfull \hbox (91.7852pt too wide) detected at line 970
+Overfull \hbox (91.7852pt too wide) detected at line 971
 \OML/cmm/m/it/10  [] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 R []  [] \OT1/cmr/m/n/10 = [] [] [] [] = [] [] \OML/cmm/m/it/10 ;   [] \OT1/cmr/m/n/10 = [] [] \OML/cmm/m/it/10 :
  []
 
 
-Overfull \hbox (24.5806pt too wide) detected at line 972
+Overfull \hbox (24.5806pt too wide) detected at line 973
 [] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10  [][] [] \OT1/cmr/m/n/10 = [] \OMS/cmsy/m/n/10 ^^A [] [] [] [] \OT1/cmr/m/n/10 = [] [] = 0\OML/cmm/m/it/10 :
  []
 
 
-Overfull \hbox (8.42882pt too wide) in paragraph at lines 977--978
+Overfull \hbox (8.42882pt too wide) in paragraph at lines 978--979
 []\OT1/cmr/m/n/10 Stern-Gerlach ex-per-i-ment: [][]$\OT1/cmtt/m/n/10 https : / / www . youtube . com / shorts / QG7kJXxN1Kk$[][] 
  []
 

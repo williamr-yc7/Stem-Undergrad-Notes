@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  21 SEP 2026 14:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  23 SEP 2026 11:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -631,17 +631,17 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
  [2
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 80--80
+Underfull \hbox (badness 10000) in paragraph at lines 79--79
 []\OT1/cmr/m/n/10 August 31,
  []
 
 
-Overfull \hbox (40.90506pt too wide) detected at line 91
+Overfull \hbox (40.90506pt too wide) detected at line 90
 [] \OMS/cmsy/m/n/10 ^^B [] \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 j[]jj[]j [] \OML/cmm/m/it/10 ^^R [] \OT1/cmr/m/n/10 = [] = [](\OML/cmm/m/it/10 v[]w[] \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 w[]v[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^@ []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 v[]w[] \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 w[]v[]\OT1/cmr/m/n/10 ) + [](\OML/cmm/m/it/10 v[]w[] \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 w[]v[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 :
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 105--105
+Underfull \hbox (badness 10000) in paragraph at lines 104--104
 []\OT1/cmr/m/n/10 September 2,
  []
 
@@ -649,16 +649,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 105--105
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.116 \end{remark}
+l.115 \end{remark}
                    [1
 
 ]
 pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.151 ...V f\,d^3\vec{r} = \int_V f\,dx\,dy\,dz.\]
+l.150 ...V f\,d^3\vec{r} = \int_V f\,dx\,dy\,dz.\]
                                                    [2]
-Underfull \hbox (badness 10000) in paragraph at lines 185--185
+Underfull \hbox (badness 10000) in paragraph at lines 184--184
 []\OT1/cmr/m/n/10 September 4,
  []
 
@@ -666,27 +666,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 185--185
 pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.266 ... F_j - \sum_j \partial_j\partial_j F_i.\]
+l.265 ... F_j - \sum_j \partial_j\partial_j F_i.\]
                                                   ] [6]
-LaTeX Font Info:    Trying to load font information for U+euf on input line 316.
+LaTeX Font Info:    Trying to load font information for U+euf on input line 315.
  (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 ) [7] [8
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.395     \end{itemize}
+l.394     \end{itemize}
                        ] [9] [10]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 469.
+(hyperref)                removing `math shift' on input line 468.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 469.
+(hyperref)                removing `math shift' on input line 468.
 
 [11] [12] [13]
-Overfull \hbox (1.96169pt too wide) detected at line 574
+Overfull \hbox (1.96169pt too wide) detected at line 573
 \OML/cmm/m/it/10 Q \OT1/cmr/m/n/10 = [] \OML/cmm/m/it/10 ^^Z\OT1/cmr/m/n/10 ([]) \OML/cmm/m/it/10 d^^\[];  [] \OT1/cmr/m/n/10 = [] []\OML/cmm/m/it/10 ^^Z\OT1/cmr/m/n/10 ([]) \OML/cmm/m/it/10 d^^\[];  Q[] \OT1/cmr/m/n/10 = [] [] [] \OML/cmm/m/it/10 ^^Z\OT1/cmr/m/n/10 ([]) \OML/cmm/m/it/10 d^^\[]:
  []
 

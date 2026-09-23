@@ -1,7 +1,7 @@
 # Fdb version 4
-["pdflatex"] 1790041269.93475 "c:/Users/erenr/Documents/McGill/Latex Notes/Fall 2026/Phys253.tex" "Phys253.pdf" "Phys253" 1790041278.88422 0
+["pdflatex"] 1790176953.62604 "c:/Users/erenr/Documents/McGill/Latex Notes/Fall 2026/Phys253.tex" "Phys253.pdf" "Phys253" 1790176958.2024 0
   "../Images/Thermal-Phys-1.png" 1789390622 194508 d5cb3b2d3a4460db2d7f822a073ad12a ""
-  "C:/Users/erenr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1788531305 82507 a9eef8696c92627b87e9975edea03b2a ""
+  "C:/Users/erenr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1790104194 82666 6ae954049cbd801ff08c004e318ae5a8 ""
   "C:/Users/erenr/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk" 1767801684 11548 9ea6db1ff0b947846d8751dabcdcf90a ""
   "C:/Users/erenr/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1767801679 13333486 ad3a4e5807f6f25ced943a60862e7471 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/tcrm1000.tfm" 993062508 1436 c7f957a372ef2fbe93c0982f96625e12 ""
@@ -235,11 +235,11 @@
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/translations/translations.sty" 1644048522 44247 2188b95d0ee74e31eca4d316263c58a7 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
-  "Phys253.aux" 1790041277 7405 a01b0d9245a41f5d83435189b8d4eee7 "pdflatex"
-  "Phys253.out" 1790041277 7609 148311dbab85d1983ec6591c6140f1f7 "pdflatex"
-  "Phys253.tex" 1790041267 34811 20f167e520cd6bdc2e9c45f681f66bb7 ""
-  "Phys253.toc" 1790041277 4403 130e52b126a623fc559160f381f311a4 "pdflatex"
-  "c:/Users/erenr/Documents/McGill/Latex Notes/Fall 2026/Phys253.tex" 1790041267 34811 20f167e520cd6bdc2e9c45f681f66bb7 ""
+  "Phys253.aux" 1790176957 7405 a01b0d9245a41f5d83435189b8d4eee7 "pdflatex"
+  "Phys253.out" 1790176957 7609 148311dbab85d1983ec6591c6140f1f7 "pdflatex"
+  "Phys253.tex" 1790176948 34826 736c62c1f252c2b149d023faf3adc687 ""
+  "Phys253.toc" 1790176957 4403 130e52b126a623fc559160f381f311a4 "pdflatex"
+  "c:/Users/erenr/Documents/McGill/Latex Notes/Fall 2026/Phys253.tex" 1790176948 34826 736c62c1f252c2b149d023faf3adc687 ""
   (generated)
   "Phys253.aux"
   "Phys253.log"
