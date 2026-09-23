@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1790019641.40135 "c:/Users/erenr/Documents/McGill/Latex Notes/Fall 2026/Math475.tex" "Math475.pdf" "Math475" 1790019646.60105 0
-  "C:/Users/erenr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1788531305 82507 a9eef8696c92627b87e9975edea03b2a ""
+["pdflatex"] 1790176590.49587 "c:/Users/erenr/Documents/McGill/Latex Notes/Fall 2026/Math475.tex" "Math475.pdf" "Math475" 1790176596.75049 0
+  "C:/Users/erenr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1790104194 82666 6ae954049cbd801ff08c004e318ae5a8 ""
   "C:/Users/erenr/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk" 1767801684 11548 9ea6db1ff0b947846d8751dabcdcf90a ""
   "C:/Users/erenr/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1767801679 13333486 ad3a4e5807f6f25ced943a60862e7471 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/tcrm1000.tfm" 993062508 1436 c7f957a372ef2fbe93c0982f96625e12 ""
@@ -212,11 +212,11 @@
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/tools/indentfirst.sty" 1761901070 1618 30b01152766afcef2ed8f904cfdd3cc6 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
-  "Math475.aux" 1790019645 6827 b1bc6735f3c775b4afb25d18cf67b12b "pdflatex"
-  "Math475.out" 1790019645 8961 26a18322affb0480e73645545f8984d8 "pdflatex"
-  "Math475.tex" 1790019631 48798 4b7b727d9e8e7b62edac258300c6ec85 ""
-  "Math475.toc" 1790019645 4364 a334c7a3da3ffc71e2169b86efce0e9c "pdflatex"
-  "c:/Users/erenr/Documents/McGill/Latex Notes/Fall 2026/Math475.tex" 1790019631 48798 4b7b727d9e8e7b62edac258300c6ec85 ""
+  "Math475.aux" 1790176595 6827 b1bc6735f3c775b4afb25d18cf67b12b "pdflatex"
+  "Math475.out" 1790176595 8961 26a18322affb0480e73645545f8984d8 "pdflatex"
+  "Math475.tex" 1790176587 48769 84b77e0ab7a557e855a98b277b188f36 ""
+  "Math475.toc" 1790176595 4364 a334c7a3da3ffc71e2169b86efce0e9c "pdflatex"
+  "c:/Users/erenr/Documents/McGill/Latex Notes/Fall 2026/Math475.tex" 1790176587 48769 84b77e0ab7a557e855a98b277b188f36 ""
   (generated)
   "Math475.aux"
   "Math475.log"
