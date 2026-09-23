@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  23 SEP 2026 11:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  23 SEP 2026 11:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -550,11 +550,11 @@ Package hyperref Info: Link coloring ON on input line 38.
 
 Package pgfplots notification 'compat/show suggested version=true': document has been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 47.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 45.
 (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 47.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 45.
  (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
@@ -566,12 +566,12 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \openout5 = `Math475.toc'.
 
  [3]
-Underfull \hbox (badness 10000) in paragraph at lines 83--83
+Underfull \hbox (badness 10000) in paragraph at lines 75--75
 []\OT1/cmr/m/n/10 August 31,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 116--116
+Underfull \hbox (badness 10000) in paragraph at lines 103--103
 []\OT1/cmr/m/n/10 September 2,
  []
 
@@ -579,11 +579,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 116--116
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.126     \begin{enumerate}[label=(\arabic*)]
-                                              [1
+l.111         \item $
+                     u \in C^k$, that is $u$ is $k$ times continuously diffe... [1
 
 ]
-Overfull \hbox (4.47276pt too wide) detected at line 147
+Overfull \hbox (4.47276pt too wide) detected at line 129
 [][][]\OML/cmm/m/it/10 u[] \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 ^^@\OML/cmm/m/it/10 c[]k[]u;  u[] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 k e[] []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 kx\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ;  u[] \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 ^^@\OML/cmm/m/it/10 k[]e[] []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 kx\OT1/cmr/m/n/10 ) = \OMS/cmsy/m/n/10 ^^@\OML/cmm/m/it/10 k[]u;
  []
 
@@ -591,81 +591,81 @@ Overfull \hbox (4.47276pt too wide) detected at line 147
 pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.179 \end{definition}
+l.157 \end{definition}
                        [2]
 pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.242     \end{equation}
+l.210     \end{equation}
                          [3] [4] [5] [6]
-Underfull \hbox (badness 10000) in paragraph at lines 444--444
+Underfull \hbox (badness 10000) in paragraph at lines 384--384
 []\OT1/cmr/m/n/10 September 9,
  []
 
 [7] [8] [9] [10]
-Overfull \hbox (13.99463pt too wide) in paragraph at lines 636--636
+Overfull \hbox (13.99463pt too wide) in paragraph at lines 551--551
 []\OT1/cmr/bx/n/14.4 Variable Co-ef-fi-cients and In-ho-mo-ge-neous Trans-
  []
 
 [11] [12] [13]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 829.
+(hyperref)                removing `math shift' on input line 723.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\delta' on input line 829.
+(hyperref)                removing `\delta' on input line 723.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 829.
+(hyperref)                removing `subscript' on input line 723.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 829.
+(hyperref)                removing `math shift' on input line 723.
 
 [14]
-Overfull \hbox (15.84299pt too wide) in paragraph at lines 885--885
+Overfull \hbox (15.84299pt too wide) in paragraph at lines 772--772
 []\OT1/cmr/bx/n/14.4 Distributions B: Dis-tri-bu-tions and Their Deriva-
  []
 
 [15]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 891.
+(hyperref)                removing `math shift' on input line 776.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 891.
+(hyperref)                removing `math shift' on input line 776.
 
 [16] [17] [18]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1071.
+(hyperref)                removing `math shift' on input line 926.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\begingroup' on input line 1071.
+(hyperref)                removing `\begingroup' on input line 926.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 1071.
+(hyperref)                removing `superscript' on input line 926.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\endgroup' on input line 1071.
+(hyperref)                removing `\endgroup' on input line 926.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@@over' on input line 1071.
+(hyperref)                removing `\@@over' on input line 926.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 1071.
+(hyperref)                removing `superscript' on input line 926.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1071.
+(hyperref)                removing `math shift' on input line 926.
 
 [19] [20] (Math475.aux)
  ***********
@@ -684,7 +684,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  99i,10n,118p,776b,739s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\erenr\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Math475.pdf (23 pages, 418292 bytes).
+Output written on Math475.pdf (23 pages, 418293 bytes).
 PDF statistics:
  687 PDF objects out of 1000 (max. 8388607)
  240 named destinations out of 1000 (max. 500000)

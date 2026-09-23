@@ -36,25 +36,18 @@
     colorlinks=true,
 }
 \begin{document}
-
-%------- Title page -----------
 \title{MATH 475: Honours Partial Differential Equations}
 \author{W.R.YCH.}
 \date{August \(31^{st}\), 2026}
 \setcounter{Maxaffil}{0}
 \renewcommand\Affilfont{\itshape\small}
 \maketitle
-
-%------- Abstract -----------
 \noindent\rule{\textwidth}{0.4pt}
 \thispagestyle{empty}
 \begin{abstract}
-
 \end{abstract}
 \noindent\rule{\textwidth}{0.4pt}
 \clearpage
-
-%------- Table of Contents -----------
 \pagestyle{empty}
 {
   \hypersetup{linkcolor=black}
@@ -62,9 +55,9 @@
 }
 \clearpage
 \pagestyle{plain}
-
-%------- Introduction -----------
 \setcounter{page}{1}
+
+
 \section{Introduction}
 Taught by Adam Oberman. Mondays and Wednesdays from 14:35 to 15:55 in Stewart Biology Building N2/2. Course grading is divided as follows:
 \begin{itemize}
@@ -75,26 +68,21 @@ Taught by Adam Oberman. Mondays and Wednesdays from 14:35 to 15:55 in Stewart Bi
     \item 50\% final exam.
 \end{itemize}
 
-% ============================================================
+
 \section{Basic Definitions and Classification}
-% ============================================================
 
 \subsection{Ways to Write a PDE}
 \marginpar{August 31, 2026}
-
 \begin{definition}[Partial Differential Equation]
     A partial differential equation (PDE) is a differential equation whose unknown function depends on more than one independent variable.
 \end{definition}
-
 \begin{remark}
     Physics rarely hands us $u$ directly. It gives a law for how $u$ changes. Example: heat flows from hot to cold, so the temperature $u(x,t)$ in a room changes in time wherever it varies in space. Made precise (flux plus the divergence theorem) this gives $u_t = \alpha\Delta u$. Recovering $u$ from such a relation is the whole subject.
 \end{remark}
-
 Many of the classical equations are built from a single operator, the Laplacian
 \begin{equation}
     \Delta u = \sum_{i=1}^{n} \frac{\partial^2 u}{\partial x_i^2}.
 \end{equation}
-
 \begin{center}
 \begin{tabular}{lll}
     \textbf{Equation} & \textbf{Form} & \textbf{Type} \\
@@ -105,7 +93,6 @@ Many of the classical equations are built from a single operator, the Laplacian
     Wave & $u_{tt} = \Delta u$ & hyperbolic \\
 \end{tabular}
 \end{center}
-
 Not every PDE fits this pattern. Nonlinear examples include Burgers' equation
 \begin{equation}
     u_t + u u_x = 0,
@@ -114,13 +101,10 @@ and the Navier-Stokes equations.
 
 \subsection{Order and Solutions}
 \marginpar{September 2, 2026}
-
 \begin{definition}[Order]
     The order of a PDE is the order of the highest derivative appearing in it.
 \end{definition}
-
 For example $u_{xx} = 0$ is second order, and $u_t + u u_x = 0$ is first order.
-
 \begin{definition}[Classical solution]
     Let the PDE be written as $F(u) = 0$ and let $k$ be its order. A function $u$ is a (classical) solution if
     \begin{enumerate}[label=(\arabic*)]
@@ -129,7 +113,6 @@ For example $u_{xx} = 0$ is second order, and $u_t + u u_x = 0$ is first order.
     \end{enumerate}
     Later (Section \ref{sec:distB}) we meet solutions ``in the sense of distributions'', which need not even be continuous.
 \end{definition}
-
 \begin{example}[Transport equation]
     Let $u = u(x,t)$ and $F(u_t, u_x) = u_t + c u_x = 0$ with $c \in \mathbb{R}$. Let $\Phi$ be any differentiable function and set $u(x,t) = \Phi(x - ct)$. Then
     \begin{equation}
@@ -137,7 +120,6 @@ For example $u_{xx} = 0$ is second order, and $u_t + u u_x = 0$ is first order.
     \end{equation}
     so $u_t + c u_x = 0$. The whole family $\Phi$ solves the equation. Meaning: the initial profile $\Phi$ slides rigidly to the right at speed $c$.
 \end{example}
-
 \begin{example}[Heat equation]
     Let $u_t = c^2 u_{xx}$ and take the ansatz $u(x,t) = e^{-c^2k^2 t}\sin(kx)$ for an arbitrary constant $k$. Then
     \begin{equation}
@@ -147,7 +129,6 @@ For example $u_{xx} = 0$ is second order, and $u_t + u u_x = 0$ is first order.
     \end{equation}
     so $u_t = c^2 u_{xx}$. Meaning: the sine keeps its shape and decays, and high frequencies (large $k$) decay faster, at rate $c^2k^2$. Diffusion smooths.
 \end{example}
-
 \begin{example}[Wave equation]
     Let $u_{tt} = c^2 u_{xx}$ and take $u(x,t) = \cos(kct)\sin(kx)$. Then
     \begin{equation}
@@ -157,7 +138,6 @@ For example $u_{xx} = 0$ is second order, and $u_t + u u_x = 0$ is first order.
 \end{example}
 
 \subsection{Linear and Nonlinear}
-
 \begin{definition}[Linear PDE]
     A PDE $F(u, u_x, x) = 0$ is linear if it can be rewritten as
     \begin{equation}
@@ -165,7 +145,6 @@ For example $u_{xx} = 0$ is second order, and $u_t + u u_x = 0$ is first order.
     \end{equation}
     where $L$ is linear in $u$ and its derivatives, i.e.\ $L(u_1 + c u_2) = L(u_1) + cL(u_2)$, and $f$ depends on $x$ only.
 \end{definition}
-
 \begin{example}
     Take $F(u, u_x, x) = 3u + u_x - x^2$. Setting $L(u, u_x) = 3u + u_x$ and $f(x) = x^2$ gives
     \begin{equation}
@@ -173,21 +152,17 @@ For example $u_{xx} = 0$ is second order, and $u_t + u u_x = 0$ is first order.
     \end{equation}
     so the equation is linear. The same definition works in higher dimensions.
 \end{example}
-
 \begin{definition}[Homogeneous]
     A linear PDE $L(u) = f(x)$ is homogeneous if $f \equiv 0$, and inhomogeneous otherwise.
 \end{definition}
-
 \begin{example}
     $u_t + a u_x = x^3$ is linear with $L(u) = u_t + a u_x$ and $f(x) = x^3$, so it is inhomogeneous.
 \end{example}
-
 \begin{example}
     $u_t + u u_x = f(x)$ is nonlinear, because the term $u u_x$ is not linear in $u$.
 \end{example}
 
 \subsection{Principle of Superposition}
-
 \begin{principle}[Superposition]
     Let $L$ be linear.
     \begin{enumerate}[label=(\arabic*)]
@@ -195,7 +170,6 @@ For example $u_{xx} = 0$ is second order, and $u_t + u u_x = 0$ is first order.
         \item If $L(u_p) = f$ and $L(u_h) = 0$, then $L(u_p + u_h) = f$: one particular solution plus any homogeneous solution solves the inhomogeneous equation.
     \end{enumerate}
 \end{principle}
-
 \begin{proof}
     By linearity of $L$,
     \begin{equation}
@@ -204,7 +178,6 @@ For example $u_{xx} = 0$ is second order, and $u_t + u u_x = 0$ is first order.
         L(u_p + u_h) = f + 0 = f. \qedhere
     \end{equation}
 \end{proof}
-
 \begin{example}
     For $u_t = c^2 u_{xx}$, both
     \begin{equation}
@@ -214,19 +187,15 @@ For example $u_{xx} = 0$ is second order, and $u_t + u u_x = 0$ is first order.
     \end{equation}
     are solutions, so $u(x,t) = a_1 u_1(x,t) + a_2 u_2(x,t)$ is a solution for any $a_1, a_2 \in \mathbb{R}$. This is how we will later build series solutions.
 \end{example}
-
 \footnote{80\% chance that what we have written so far is not on the final.}
 
-% ============================================================
+
 \section{General Solutions}
-% ============================================================
 
 \subsection{Solving by Direct Integration}
-
 \begin{example}
     Solve $u_x = 0$ for $u(x,y)$ on $\mathbb{R}^2$. The solution is $u(x,y) = f(y)$ for an arbitrary $f$.
 \end{example}
-
 \begin{example}
     Solve $u_{xx} = 0$. Set $v(x,y) = u_x$. Then $v_x = 0$, so by the previous example $v(x,y) = f(y)$, hence $u_x = f(y)$. Fixing $y$ and integrating in $x$ (the ``constant'' of integration only has to be constant in $x$) gives
     \begin{equation}
@@ -234,7 +203,6 @@ For example $u_{xx} = 0$ is second order, and $u_t + u u_x = 0$ is first order.
     \end{equation}
     Check: $u_x = f(y)$ and $u_{xx} = 0$.
 \end{example}
-
 \begin{example}
     Solve $u_{xy} = 0$. Set $v(x,y) = u_x$. Then $v_y = 0$, so $v(x,y) = f(x)$, hence $u_x = f(x)$. Fixing $y$ and integrating in $x$ gives
     \begin{equation}
@@ -242,27 +210,23 @@ For example $u_{xx} = 0$ is second order, and $u_t + u u_x = 0$ is first order.
     \end{equation}
     Check: $u_x = F'(x)$ depends on $x$ only, so $u_{xy} = 0$.
 \end{example}
-
 \begin{remark}
     In each case the general solution carries arbitrary \emph{functions} rather than arbitrary constants. An ODE of order $k$ has $k$ free constants; a PDE has free functions of the remaining variables. Second order in one variable, or first order in each of two, gives two free functions.
 \end{remark}
 
 \subsection{Auxiliary Conditions}
-
 Auxiliary conditions (initial or boundary conditions) prescribe $u$, and possibly its derivatives, on a lower dimensional set. They cut the family of general solutions down to one. A typical problem on a domain $\Omega \subset \mathbb{R}^d$ reads
 \begin{equation}
     \Delta u = f(x) \quad \text{in } \Omega,
     \qquad
     u(x) = g(x) \quad \text{on } \partial\Omega .
 \end{equation}
-
 The big three problems of the course:
 \begin{align}
     &\text{Heat IVP:} && u_t = \alpha u_{xx},\ u(x,0) = g(x), \\
     &\text{Wave IVP:} && u_{tt} = c^2 u_{xx},\ u(x,0) = g(x),\ u_t(x,0) = h(x), \\
     &\text{Dirichlet problem:} && \Delta u = 0 \text{ in the unit disk } D,\ u = g \text{ on } \partial D.
 \end{align}
-
 \begin{definition}[Well-posed, Hadamard]
     A PDE with auxiliary conditions is well-posed if
     \begin{enumerate}[label=(\arabic*)]
@@ -272,13 +236,11 @@ The big three problems of the course:
     \end{enumerate}
     Stability matters because data comes from measurements (with errors) and computers discretize.
 \end{definition}
-
 \begin{remark}[Counting conditions]
     For ODEs, number of conditions $=$ order. For PDEs this fails: all three problems above are second order, but the wave IVP needs two conditions while heat and Laplace need one.
 \end{remark}
 
 \subsection{Operator Viewpoint}
-
 Write a linear PDE as
 \begin{equation}
     Lu = f,
@@ -293,13 +255,11 @@ so solving a linear PDE is the infinite-dimensional version of inverting $M$. We
     \item $M$ not invertible, $b$ in the range of $M$: solutions exist but are not unique (add anything in the null space).
     \item $M$ not invertible, $b$ not in the range: no solution.
 \end{itemize}
-
 \begin{example}
     $M = \begin{pmatrix} 1 & 1 \\ 1 & 1 \end{pmatrix}$. For $b = (2,2)$ every $x = (2-t, t)$ works: existence without uniqueness. For $b = (1,2)$ there is no solution: the data is incompatible with the equation.
 \end{example}
 
 \subsection{How We Will Solve PDEs}
-
 \begin{enumerate}[label=(\arabic*)]
     \item Assume a smooth solution exists.
     \item Work out what the equation and conditions force on it.
@@ -307,19 +267,16 @@ so solving a linear PDE is the infinite-dimensional version of inverting $M$. We
     \item Verify the formula really solves the problem. The verification is what makes it a proof.
 \end{enumerate}
 
-% ============================================================
+
 \section{Potential Theory}
-% ============================================================
 
 \subsection{Newton's Problem}
-
 Place a point mass $M$ at the origin and a test mass $m$ at $x \in \mathbb{R}^3 \setminus \{0\}$. The gravitational force on $m$ has magnitude $GmM/\|x\|^2$ and points back toward the origin:
 \begin{equation}
     \vec{F}(x) = -\frac{GmM}{\|x\|^2} \cdot \frac{x}{\|x\|} = -\frac{GmM}{\|x\|^3}\, x.
 \end{equation}
 
 \subsection{Toolkit}
-
 \begin{lemma}[Derivative of distance is direction]
     Let $r(x) = \|x\|$ with $x = (x_1,x_2,x_3) \in \mathbb{R}^3$. Then for $x \neq 0$,
     \begin{equation}
@@ -328,7 +285,6 @@ Place a point mass $M$ at the origin and a test mass $m$ at $x \in \mathbb{R}^3 
         \nabla r(x) = \frac{x}{r} = \hat{x}.
     \end{equation}
 \end{lemma}
-
 \begin{proof}
     Start from $r^2 = x_1^2 + x_2^2 + x_3^2$ and differentiate both sides with respect to $x_i$:
     \begin{equation}
@@ -338,29 +294,24 @@ Place a point mass $M$ at the origin and a test mass $m$ at $x \in \mathbb{R}^3 
     \end{equation}
     This requires $r \neq 0$, so the identity fails at the origin.
 \end{proof}
-
 \begin{remark}
     $\nabla r$ is the unit vector pointing radially outward, so $\|\nabla r\| = 1$ everywhere it is defined.
 \end{remark}
 
 \subsection{Radial Chain Rule}
-
 \begin{proposition}
     Let $f : (0,\infty) \to \mathbb{R}$ be differentiable and set $g(x) = f(r(x)) = f(\|x\|)$. Then for $x \neq 0$,
     \begin{equation}
         \nabla g(x) = f'(r)\, \nabla r(x) = f'(r)\, \frac{x}{r}.
     \end{equation}
 \end{proposition}
-
 \begin{proof}
     Componentwise, by the chain rule,
     \begin{equation}
         \frac{\partial g}{\partial x_i} = f'(r(x)) \frac{\partial r}{\partial x_i} = f'(r) \frac{x_i}{r}.
     \end{equation}
 \end{proof}
-
 So the gradient of any radial function points radially, and $f'$ alone controls the magnitude.
-
 \begin{example}[Gradient refresher, non-radial]
     For $g(x) = x_1 x_2 + x_3^2$,
     \begin{equation}
@@ -369,11 +320,9 @@ So the gradient of any radial function points radially, and $f'$ alone controls 
 \end{example}
 
 \subsection{The Laplacian}
-
 Everything below works in $\mathbb{R}^d$ for any $d \geq 1$. Write $x = (x_1, \dots, x_d)$.
 
 \subsubsection*{First form: sum of second partials}
-
 \begin{definition}[Laplacian]
     \begin{equation}
         \Delta = \sum_{i=1}^{d} \frac{\partial^2}{\partial x_i^2},
@@ -381,7 +330,6 @@ Everything below works in $\mathbb{R}^d$ for any $d \geq 1$. Write $x = (x_1, \d
         \Delta f(x) = \sum_{i=1}^{d} \frac{\partial^2 f}{\partial x_i^2}(x).
     \end{equation}
 \end{definition}
-
 \begin{example}
     Let $f(x_1,x_2,x_3) = x_1^2 - x_2^2$. Then
     \begin{equation}
@@ -393,38 +341,32 @@ Everything below works in $\mathbb{R}^d$ for any $d \geq 1$. Write $x = (x_1, \d
 \end{example}
 
 \subsubsection*{Second form: divergence of the gradient}
-
 \begin{definition}[Divergence]
     For a vector field $\vec{v}(x) = (v^1(x), \dots, v^d(x))$, where the superscripts label components and are not powers,
     \begin{equation}
         \nabla \cdot \vec{v} = \operatorname{div} \vec{v} = \sum_{i=1}^{d} \frac{\partial v^i}{\partial x_i}(x).
     \end{equation}
 \end{definition}
-
 Applying this to the gradient field $\vec{v} = \nabla f$, whose $i$-th component is $\partial f / \partial x_i$, gives
 \begin{equation}
     \nabla \cdot (\nabla f) = \sum_{i=1}^{d} \frac{\partial}{\partial x_i}\left( \frac{\partial f}{\partial x_i} \right) = \sum_{i=1}^{d} \frac{\partial^2 f}{\partial x_i^2} = \Delta f.
 \end{equation}
-
 \begin{proposition}
     \begin{equation}
         \Delta = \nabla \cdot \nabla = \operatorname{div} \circ \operatorname{grad}.
     \end{equation}
 \end{proposition}
-
 \begin{remark}
     This second form is the useful one for radial functions: combining it with the radial chain rule turns $\Delta$ into an ODE in $r$.
 \end{remark}
 
 \subsection{Harmonic Radial Functions}
-
 \begin{proposition}[Radial Laplacian]
     For $g(x) = f(r)$, $r = \|x\|$ in $\mathbb{R}^d$, $x \neq 0$:
     \begin{equation}
         \Delta g = f''(r) + \frac{d-1}{r} f'(r).
     \end{equation}
 \end{proposition}
-
 Solve $\Delta f = 0$ in $d = 3$ with the ansatz $f(r) = r^a$:
 \begin{equation}
     \Delta f = a(a-1)r^{a-2} + \frac{2}{r}\, a r^{a-1} = a(a+1)\, r^{a-2},
@@ -433,18 +375,15 @@ which vanishes for $r > 0$ iff $a = 0$ or $a = -1$. So
 \begin{equation}
     g(x) = A + \frac{B}{\|x\|}.
 \end{equation}
-
 \begin{remark}
     $1/\|x\|$ is the Newtonian potential: $\nabla(1/r) = -x/\|x\|^3$, the inverse-square field. Harmonic away from the origin only. Its divergence is $0$ for $x \neq 0$, yet its flux through every sphere around the origin is the same nonzero number ($-4\pi$). So all the ``source'' sits at one point, and no function can describe it. This is the motivation for distributions (Section \ref{sec:distA}).
 \end{remark}
 
-% ============================================================
+
 \section{First Order PDEs and the Solution Operator}
-% ============================================================
 \marginpar{September 9, 2026}
 
 \subsection{The Underlying ODE}
-
 Start from the ODE
 \begin{equation}
     x'(s) = v(x(s), s),
@@ -452,7 +391,6 @@ Start from the ODE
 where $v$ is a velocity field: a particle at $x$ at time $s$ moves with velocity $v(x,s)$. Assume $v(x,s)$ is smooth. By the existence and uniqueness theorem there is a unique trajectory through every point, forwards and backwards in time.
 
 \subsection{The Solution Operator}
-
 \begin{definition}[Solution operator]
     Given times $t_0$ and $t_1$, the solution operator is the map
     \begin{equation}
@@ -460,7 +398,6 @@ where $v$ is a velocity field: a particle at $x$ at time $s$ moves with velocity
     \end{equation}
     where $x(\cdot)$ solves the ODE with initial condition $x(t_0) = x_0$. In words: where is the particle at time $t_1$ if it was at $x_0$ at time $t_0$?
 \end{definition}
-
 \begin{proposition}[Identities]
     \begin{enumerate}
         \item $S_{t \to t}(x) = x$, that is $S_{t \to t} = \mathrm{Id}$.
@@ -468,27 +405,22 @@ where $v$ is a velocity field: a particle at $x$ at time $s$ moves with velocity
         \item $S_{t_1 \to t_0} = \left( S_{t_0 \to t_1} \right)^{-1}$: running time backwards inverts the operator.
     \end{enumerate}
 \end{proposition}
-
 \begin{example}[Constant velocity]
     $v = c$. Trajectories are lines $x(t) = x_0 + c(t - t_0)$, so $S_{t_0\to t_1}(x) = x + c(t_1 - t_0)$.
 \end{example}
-
 \begin{example}[Linear velocity]
     $v(x) = -x$. Trajectories are $x(t) = x_0 e^{-(t-t_0)}$, so $S_{t_0\to t_1}(x) = x\,e^{-(t_1-t_0)}$. In the $(x,t)$ plane these are exponential curves collapsing toward $x = 0$ (the constant velocity ones are parallel lines).
 \end{example}
 
 \subsection{Transporting Labels: Where the PDE Comes From}
-
 Stamp each particle at time $0$ with a label $g(x_0)$ that never changes. Let $u(x,t)$ be the label of the particle sitting at $x$ at time $t$. That particle started at $S_{t\to 0}(x)$ (run the ODE backwards), so
 \begin{equation}\label{eq:label}
     u(x,t) = g\big(S_{t \to 0}(x)\big).
 \end{equation}
 Labels are carried forward by the flow; to evaluate $u$ we track backward to the data.
-
 \begin{example}
     Constant velocity: $u(x,t) = g(x - ct)$, the signal translated at speed $c$. Linear velocity $v = -x$: $u(x,t) = g(x e^{t})$.
 \end{example}
-
 \textbf{Deriving the PDE.} $u$ is constant along every trajectory, so by the chain rule
 \begin{equation}
     0 = \frac{d}{dt} u(x(t), t) = u_t + x'(t)\, u_x = u_t + v(x,t)\, u_x .
@@ -497,21 +429,17 @@ Since a trajectory passes through every point,
 \begin{equation}
     u_t + v(x,t)\, u_x = 0 \qquad \text{(linear transport equation)}.
 \end{equation}
-
 \begin{remark}
     We wrote the solution first and got the PDE by differentiating. The method of characteristics is the reverse trip: read $v$ off the PDE, rebuild the flow, then ``flow backwards, read the label''. The trajectories of $v$ are exactly the characteristics. Formula \eqref{eq:label} only defines $u$ where the backward trajectory hits the data line, so the data must meet each trajectory exactly once. Units: $v$ is length per time.
 \end{remark}
 
 \subsection{Examples of Trajectories}
-
 \begin{example}
     The curve $\vec{x}(s) = (x(s), y(s)) = (3e^{s-2}, 4e^{s-2})$ satisfies $\vec{x}'(s) = \vec{x}(s)$, so it is a trajectory of the velocity field $\vec{v}(x,y) = (x,y)$. It passes through $\vec{x}(2) = (3,4)$ and $\vec{x}(5) = (3e^3, 4e^3)$.
 \end{example}
-
 \begin{example}
     The curve $\vec{x}(s) = (3s+5, 5s+6)$ has constant velocity $\vec{v}(s) = \vec{x}'(s) = (3,5)$, with $\vec{x}(0) = (5,6)$ and $\vec{x}(2) = (11,16)$.
 \end{example}
-
 \begin{example}[Decoupled linear field]
     Take $\vec{v}(x,y) = (c_1 x, c_2 y)$ for constants $c_1, c_2$, so the ODE is
     \begin{equation}
@@ -527,7 +455,6 @@ Since a trajectory passes through every point,
     \end{equation}
     The solution is $x(s) = x_0 e^{c_1 s}$, $y(s) = y_0 e^{c_2 s}$. Check: $x'(s) = c_1 x_0 e^{c_1 s} = c_1 x(s)$, and similarly for $y$.
 \end{example}
-
 \begin{example}[Rotation field]
     Take $\vec{v}(x,y) = (-y, x)$. A circle of radius $r$, $\vec{x}(s) = (r\cos s, r\sin s)$, has $\vec{x}'(s) = (-r\sin s, r\cos s) = (-y, x)$, so circles about the origin are trajectories. The general solution of
     \begin{equation}
@@ -549,30 +476,24 @@ Since a trajectory passes through every point,
 \end{example}
 
 \subsection{Constant Coefficient Transport}
-
 Consider
 \begin{equation}
     a u_x + b u_y = 0, \qquad u = u(x,y), \qquad a, b \in \mathbb{R}.
 \end{equation}
 The left side is $\nabla u \cdot (a,b)$, the directional derivative of $u$ in the direction $(a,b)$. So the PDE says $u$ does not change along lines parallel to $(a,b)$.
-
 \begin{proposition}[Constancy along characteristics]
     Let $\vec{v} = (a,b)$ and let $\vec{x}(s) = (x(s), y(s))$ solve $\vec{x}'(s) = \vec{v}$, that is $x'(s) = a$ and $y'(s) = b$. Then $u(\vec{x}(s))$ is constant in $s$.
 \end{proposition}
-
 \begin{proof}
     By the chain rule,
     \begin{equation}
         \frac{d}{ds} u(x(s), y(s)) = u_x\, x'(s) + u_y\, y'(s) = a u_x + b u_y = 0. \qedhere
     \end{equation}
 \end{proof}
-
 The trajectories of $\vec{v}$ are called \emph{characteristics}. Since $u$ is constant along each one, its value is determined by wherever the characteristic meets the data.
-
 \begin{definition}[Characteristic, informal]
     A curve along which the PDE reduces to an ODE. Knowing $u$ at one point of it, the PDE determines $u$ along the whole curve. (Special to first order: $u$ at a point depends on the data at a single point. Not true for heat or Laplace.)
 \end{definition}
-
 \begin{proposition}[General solution]
     For any differentiable $f$,
     \begin{equation}
@@ -580,17 +501,14 @@ The trajectories of $\vec{v}$ are called \emph{characteristics}. Since $u$ is co
     \end{equation}
     solves $a u_x + b u_y = 0$.
 \end{proposition}
-
 \begin{proof}
     $u_x = -b\, f'(-bx+ay)$ and $u_y = a\, f'(-bx+ay)$, so $a u_x + b u_y = (-ab + ab) f'(-bx+ay) = 0$.
 \end{proof}
-
 \begin{remark}
     The argument $-bx + ay$ is constant exactly along the lines of direction $(a,b)$, which are the characteristics. When $b = 0$ the equation reduces to $a u_x = 0$ and the formula gives $u(x,y) = f(ay)$, a function of $y$ alone, as expected.
 \end{remark}
 
 \subsection{Adding Data}
-
 \begin{example}
     Solve
     \begin{equation}
@@ -601,7 +519,6 @@ The trajectories of $\vec{v}$ are called \emph{characteristics}. Since $u$ is co
     \end{equation}
     where the data is given on the line $\Gamma = \{(x,y) \mid y = 0\}$.
 \end{example}
-
 \begin{method}[Via the general solution]
     With $a = 3$, $b = 2$, the general solution is $u(x,y) = f(-2x + 3y)$. On $y = 0$ this reads $u(x,0) = f(-2x) = x^3$. Setting $z = -2x$, so $x = -z/2$, gives $f(z) = -z^3/8$. Therefore
     \begin{equation}
@@ -609,7 +526,6 @@ The trajectories of $\vec{v}$ are called \emph{characteristics}. Since $u$ is co
     \end{equation}
     Check: $u(x,0) = (2x)^3/8 = x^3$, and $3u_x + 2u_y = \tfrac{3}{8}\cdot 3(2x-3y)^2 \cdot 2 + \tfrac{2}{8}\cdot 3(2x-3y)^2 \cdot (-3) = 0$.
 \end{method}
-
 \begin{method}[Via characteristics]
     \begin{enumerate}[label=(\arabic*)]
         \item $u$ is constant along curves with $x'(s) = 3$, $y'(s) = 2$.
@@ -624,7 +540,6 @@ The trajectories of $\vec{v}$ are called \emph{characteristics}. Since $u$ is co
 \end{method}
 
 \subsection{Which Data Curves Work?}
-
 A data curve works if it meets every characteristic exactly once (here: the $x$-axis, the $y$-axis, $y = x^2$\dots). It fails if it \emph{is} a characteristic. For $3u_x + 2u_y = 0$, $u$ is forced to be constant on the line $2x - 3y = 0$, so:
 \begin{itemize}
     \item nonconstant data on that line: \textbf{no solution};
@@ -632,13 +547,11 @@ A data curve works if it meets every characteristic exactly once (here: the $x$-
 \end{itemize}
 Either way the problem is not well-posed.
 
-% ============================================================
+
 \section{Variable Coefficients and Inhomogeneous Transport}
-% ============================================================
 \marginpar{September 16, 2026}
 
 \subsection{Warm-up: Curved Characteristics}
-
 \begin{example}
     $u_x + y\,u_y = 0$. Now the direction of zero change $(1,y)$ varies from point to point. Follow curves tangent to it: $\frac{dy}{dx} = y$, so $y = Ce^x$. Along such a curve $\frac{d}{dx}u(x, y(x)) = u_x + y u_y = 0$, so $u$ is constant on each exponential curve. Each curve is labelled by $C = y e^{-x}$, so
     \begin{equation}
@@ -647,7 +560,6 @@ Either way the problem is not well-posed.
 \end{example}
 
 \subsection{Problem Setup}
-
 \begin{problem}[Linear transport with variable coefficients]
     Inputs:
     \begin{enumerate}[label=(\arabic*)]
@@ -664,7 +576,6 @@ Either way the problem is not well-posed.
 \end{problem}
 
 \subsection{Method of Characteristics}
-
 \begin{method}[Homogeneous case]
     \begin{enumerate}[label=(\arabic*)]
         \item Solve the characteristic ODE
@@ -693,7 +604,6 @@ Either way the problem is not well-posed.
 \end{method}
 
 \subsection{Inhomogeneous Case}
-
 Now allow a right hand side:
 \begin{equation}
     a(x,y)\,u_x + b(x,y)\,u_y = c_1(x,y)\,u + c_2(x,y).
@@ -717,11 +627,9 @@ so the method becomes a three-dimensional ODE system (the characteristic equatio
     \end{cases}
 \end{equation}
 Because the PDE is linear, the first two equations do not involve $z$: solve them first, then the $z$ equation. If $c_1 = c_2 = 0$ we are back to the homogeneous case.
-
 \begin{remark}[Vocabulary]
     The curves $(x(s), y(s))$ in the plane are the \emph{projected characteristics}. The curve $(x(s), y(s), z(s))$ lies on the solution surface $z = u(x,y)$, and its shadow in the plane is the projected characteristic.
 \end{remark}
-
 \begin{method}[Recipe]
     \begin{enumerate}[label=(\arabic*)]
         \item Solve for $x(s), y(s)$ starting on $\Gamma$; one free parameter (e.g.\ $x_0$) says where on $\Gamma$ you started.
@@ -731,7 +639,6 @@ Because the PDE is linear, the first two equations do not involve $z$: solve the
 \end{method}
 
 \subsection{Worked Example}
-
 \begin{example}
     Solve
     \begin{equation}
@@ -741,17 +648,14 @@ Because the PDE is linear, the first two equations do not involve $z$: solve the
         \end{cases}
     \end{equation}
 \end{example}
-
 \begin{solution}
-    Here $a = -y$, $b = x$, $c_1 = 1$, $c_2 = 0$.
-
+    Here $a = -y$, $b = x$, $c_1 = 1$, $c_2 = 0$.\par
     \textbf{Step 1: characteristic system.}
     \begin{equation}
         x' = -y, \qquad y' = x, \qquad z' = z,
         \qquad
         x(0) = x_0,\; y(0) = 0,\; z(0) = g(x_0).
     \end{equation}
-
     \textbf{Step 2: solve.} From the rotation field example, the general solution of $x' = -y$, $y' = x$ is
     \begin{equation}
         x(s) = a_1 \cos s - a_2 \sin s, \qquad y(s) = a_1 \sin s + a_2 \cos s.
@@ -760,33 +664,28 @@ Because the PDE is linear, the first two equations do not involve $z$: solve the
     \begin{equation}
         x(s) = x_0 \cos s, \qquad y(s) = x_0 \sin s, \qquad z(s) = g(x_0)\, e^{s}.
     \end{equation}
-
     \textbf{Step 3: invert.} Require $x(s_0) = x$, $y(s_0) = y$:
     \begin{equation}
         x = x_0 \cos s_0, \quad y = x_0 \sin s_0
         \quad \Longrightarrow \quad
         x_0 = \sqrt{x^2 + y^2}, \qquad s_0 = \arctan(y/x).
     \end{equation}
-
     \textbf{Step 4: read off $u$.}
     \begin{equation}
         u(x,y) = z(s_0) = g\!\left(\sqrt{x^2 + y^2}\right) \exp\!\big(\arctan(y/x)\big).
     \end{equation}
     In polar coordinates this is $u = g(r)\,e^{\theta}$, and the PDE is $\partial_\theta u = u$, which checks.
 \end{solution}
-
 \begin{remark}
     The characteristics are circles centred at the origin, so every point except the origin is reached from $\Gamma$. At the origin both coefficients vanish and the characteristic direction degenerates, so $u$ is undefined there. The formula with $\arctan$ is valid for $x > 0$; elsewhere use the polar angle $\theta \in [0, 2\pi)$ measured from the positive $x$-axis. Note $u$ jumps by a factor $e^{2\pi}$ across $\Gamma$ itself when $g \neq 0$, since going once around the circle multiplies $z$ by $e^{2\pi}$.
 \end{remark}
 
 \subsection{Time as the Parameter}
-
 If one variable is time, data is at $t = 0$, and the coefficient of $u_t$ is $1$,
 \begin{equation}
     u_t + a(x,t)\, u_x = \dots,
 \end{equation}
 then the characteristic equation for $t$ is $t' = 1$, $t(0) = 0$, so $t = s$. Drop $s$ and use $t$ itself as the parameter: characteristics are curves $x(t)$ in the $(x,t)$ plane. This is exactly the setting of the solution operator section.
-
 \begin{example}[Variable speed transport]
     \begin{equation}
         u_t - x\,u_x = 0, \qquad u(x,0) = \frac{1}{1+x^2}.
@@ -798,19 +697,15 @@ then the characteristic equation for $t$ is $t' = 1$, $t(0) = 0$, so $t = s$. Dr
     Every point of the signal moves toward $0$ at speed $|x|$, so the blip narrows while its height stays $1$. Variable speed distorts the shape; constant speed only translates it.
 \end{example}
 
-% ============================================================
-\section{Distributions A: The Delta ``Function'' Is Not a Function}\label{sec:distA}
-% ============================================================
-\marginpar{September 16, 2026}
 
+\section{Distributions A: The Delta ``Function'' Is Not a Function}\label{sec:distA}
+\marginpar{September 16, 2026}
 Source: Choksi Ch.~5. Goal: a weaker notion of solving, e.g.\ $u'' = f$, that allows a right hand side like a point source. The one idea to keep: \textbf{pointwise values are the wrong data; integrals against test functions are the right data.}
 
 \subsection{Integrable Functions}
-
 \begin{definition}
     $f : \R \to \R$ is \emph{integrable} if $\int_{-\infty}^{\infty} |f(x)|\,dx < \infty$. It is \emph{locally integrable} if $\int_a^b |f(x)|\,dx < \infty$ for all $a < b$.
 \end{definition}
-
 \begin{example}
     \leavevmode
     \begin{itemize}
@@ -821,25 +716,21 @@ Source: Choksi Ch.~5. Goal: a weaker notion of solving, e.g.\ $u'' = f$, that al
         \item $\frac{1}{x}$: not locally integrable, $\int_0^1 \frac{dx}{x} = \log x\big|_0^1 = \infty$.
     \end{itemize}
 \end{example}
-
 \begin{remark}[Paradigm]
     If $f(x) = g(x)$ for all $x \neq 3$ but $f(3) \neq g(3)$, then $\int f = \int g$ over every interval, and $\int f\phi = \int g\phi$ for every $\phi$. Integration cannot see single points, so we treat $f$ and $g$ as the same function.
 \end{remark}
 
 \subsection{What We Want from $\delta_0$}
-
 Informally, $\delta_0$ is a ``point mass'' at $0$: $\delta_0(x) = 0$ for $x \neq 0$ but $\int_{-\infty}^{\infty} \delta_0(x)\,dx = 1$. No function $\delta_0 : \R \to \R$ can do this (by the paradigm, a function that is $0$ except at one point has integral $0$). What we really want is: for every continuous $f$,
 \begin{equation}
     \text{``}\int_{-\infty}^{\infty} \delta_0(x) f(x)\,dx\text{''} = f(0).
 \end{equation}
 
 \subsection{First Appearance: the Derivative of Heaviside}
-
 \begin{equation}
     H(x) = \begin{cases} 0, & x < 0 \\ 1, & x \geq 0 \end{cases}
 \end{equation}
 Pointwise $H'(x) = 0$ for $x \neq 0$ and undefined at $0$. Ignoring the point gives $H' = 0$, but then $H$ would be constant, which it is not. The whole jump happens at $0$.
-
 \textbf{The computation that reveals $H'$.} Fix $\phi$ smooth, vanishing for large $|x|$, and set
 \begin{equation}
     F(a) = \int_{-\infty}^{\infty} H(x-a)\phi(x)\,dx = \int_a^{\infty} \phi(x)\,dx.
@@ -849,7 +740,6 @@ Pointwise $H'(x) = 0$ for $x \neq 0$ and undefined at $0$. Ignoring the point gi
     \item Directly (fundamental theorem of calculus): $F'(a) = -\phi(a)$. Not zero.
 \end{itemize}
 So whatever $H'$ is, $\int H'(x-a)\phi(x)\,dx = \phi(a)$: it picks out the value of $\phi$ where the jump sits. That is exactly $\delta$ at $a$.
-
 \textbf{Same idea with a ramp (in class).} Smooth out the jump:
 \begin{equation}
     g_\epsilon(x) = \begin{cases} 0, & x < 0 \\ x/\epsilon, & 0 \leq x \leq \epsilon \\ 1, & x \geq \epsilon \end{cases}
@@ -859,7 +749,6 @@ So whatever $H'$ is, $\int H'(x-a)\phi(x)\,dx = \phi(a)$: it picks out the value
 Then $\int g_\epsilon'(x) f(x)\,dx = \frac{1}{\epsilon}\int_0^\epsilon f(x)\,dx$, the average of $f$ over $[0,\epsilon]$. If $f$ is continuous near $0$, this tends to $f(0)$ as $\epsilon \to 0$. As $g_\epsilon \to H$, the derivatives act like $\delta_0$.
 
 \subsection{Second Appearance: Spikes}
-
 Define triangles of base $2/n$ and height $n$ (area $1$):
 \begin{equation}
     f_n(x) = \begin{cases} n - n^2|x|, & |x| \leq 1/n \\ 0, & |x| > 1/n. \end{cases}
@@ -868,7 +757,6 @@ Pointwise, $f_n(x) \to 0$ for $x \neq 0$ and $f_n(0) = n \to \infty$: useless, a
 \begin{equation}
     \int f_n \phi\,dx \approx \phi(0)\int f_n\,dx = \phi(0) \quad \Longrightarrow \quad \lim_{n\to\infty}\int f_n\phi\,dx = \phi(0).
 \end{equation}
-
 \begin{example}[In class]
     $\phi = 1$: $\int f_n = 1$. $\phi = x$: $\int f_n x\,dx = 0$ ($f_n$ even, $x$ odd). $\phi = x^2$:
     \begin{equation}
@@ -876,20 +764,16 @@ Pointwise, $f_n(x) \to 0$ for $x \neq 0$ and $f_n(0) = n \to \infty$: useless, a
     \end{equation}
     Each limit equals $\phi(0)$ ($1$, $0$, $0$), as predicted. This is Dirac's picture: a huge spike of area $1$, shape irrelevant.
 \end{example}
-
 \begin{remark}[Punchline]
     $\delta$ appears when differentiating $H$ and as the limit of concentrating functions. Both times pointwise values fail and integrating against a generic $\phi$ succeeds. So we will \emph{define} objects by what they do to test functions.
 \end{remark}
 
-% ============================================================
-\section{Distributions B: Distributions and Their Derivatives}\label{sec:distB}
-% ============================================================
-\marginpar{September 21, 2026}
 
+\section{Distributions B: Distributions and Their Derivatives}\label{sec:distB}
+\marginpar{September 21, 2026}
 Source: Choksi 5.3, 5.4.
 
 \subsection{Motivation: Weak Solutions of $u'' = f$}
-
 A classical solution of $u''(x) = f(x)$ needs $u \in C^2$, so $f$ must be continuous. For example $u'' = -1$ on $(-1,1)$ with $u(-1) = u(1) = 0$ has $u(x) = \frac{1-x^2}{2}$. We want to allow a point source: replace $f$ by concentrating $f_\epsilon$, solve
 \begin{equation}
     u_\epsilon'' = f_\epsilon, \qquad u_\epsilon(-1) = u_\epsilon(1) = 0,
@@ -897,25 +781,20 @@ A classical solution of $u''(x) = f(x)$ needs $u \in C^2$, so $f$ must be contin
 and let $\epsilon \to 0$. To make sense of the limit equation $u'' = \delta_0$ we need distributions.
 
 \subsection{Test Functions}
-
 \begin{definition}[Support]
     The support of a continuous $\phi$ is the closure of $\{x : \phi(x) \neq 0\}$. $\phi$ has \emph{compact support} if $\phi = 0$ outside some interval $[-R,R]$.
 \end{definition}
-
 \begin{definition}[Test functions]
     $\D$ is the set of infinitely differentiable functions with compact support.
 \end{definition}
-
 No polynomial works (a polynomial vanishing on an interval is $0$). The standard example is the \textbf{bump function}
 \begin{equation}
     \phi(x) = \begin{cases} e^{-1/(1-x^2)}, & |x| < 1 \\ 0, & |x| \geq 1, \end{cases}
 \end{equation}
-with support $[-1,1]$. The only issue is smoothness at $x = \pm 1$: every derivative tends to $0$ there because the exponential beats every power (Exercise 5.1).
-
+with support $[-1,1]$. The only issue is smoothness at $x = \pm 1$: every derivative tends to $0$ there because the exponential beats every power (Exercise 5.1).\par
 Building more test functions from one: translates and rescalings $\phi(ax+b)$, sums and scalar multiples, products $\psi\phi$ with $\psi$ any $C^\infty$ function, and most importantly \textbf{derivatives}: $\phi \in \D \Rightarrow \phi^{(k)} \in \D$ for all $k$. This is why we insist on $C^\infty$.
 
 \subsection{Definition of a Distribution}
-
 \begin{definition}[Distribution]
     A distribution $F$ is a rule assigning to each test function $\phi$ a real number,
     \begin{equation}
@@ -928,7 +807,6 @@ Building more test functions from one: translates and rescalings $\phi(ax+b)$, s
     \end{itemize}
     A map from functions to numbers is called a \emph{functional}. $\ip{F}{\phi}$ is just notation for $F(\phi)$, chosen to look like an integral.
 \end{definition}
-
 \begin{definition}[Convergence in $\D$]
     $\phi_n \to \phi$ in $\D$ if
     \begin{enumerate}[label=(\roman*)]
@@ -936,15 +814,12 @@ Building more test functions from one: translates and rescalings $\phi(ax+b)$, s
         \item for every $k \geq 0$, $\max_x |\phi_n^{(k)}(x) - \phi^{(k)}(x)| \to 0$ (every derivative converges uniformly).
     \end{enumerate}
 \end{definition}
-
 Distributions form a vector space: $\ip{F+G}{\phi} = \ip{F}{\phi} + \ip{G}{\phi}$ and $\ip{cF}{\phi} = c\ip{F}{\phi}$.
-
 \begin{remark}[Rule of the game]
     Never ask for the value of a distribution at a point $x$. Ask for its value on a test function $\phi$: think of $\phi$ as a probe.
 \end{remark}
 
 \subsection{Functions as Distributions}
-
 \begin{proposition}
     If $f$ is locally integrable, then
     \begin{equation}
@@ -952,38 +827,31 @@ Distributions form a vector space: $\ip{F+G}{\phi} = \ip{F}{\phi} + \ip{G}{\phi}
     \end{equation}
     defines a distribution $F_f$, the distribution \emph{generated by} $f$.
 \end{proposition}
-
 \begin{proof}
     If $\phi = 0$ outside $[-R,R]$, then $\left|\int f\phi\right| \leq \max|\phi| \int_{-R}^R |f| < \infty$, so it is well defined (this is exactly why we need local integrability). Linearity is linearity of the integral. Continuity: with common support $[-R,R]$,
     \begin{equation}
         |\ip{F_f}{\phi_n} - \ip{F_f}{\phi}| \leq \max|\phi_n - \phi| \int_{-R}^R |f|\,dx \to 0. \qedhere
     \end{equation}
 \end{proof}
-
 \begin{example}[5.3.1]
     $f \equiv 1$: $\ip{F_1}{\phi} = \int \phi\,dx$.
 \end{example}
-
 \begin{remark}
     Functions that differ only on a set integration cannot see (measure zero) generate the same distribution; otherwise $F_f$ determines $f$. Notation: we usually just write $f$ for $F_f$. ``In the sense of distributions'' means the statement is about $F_f$.
 \end{remark}
 
 \subsection{The Delta Function}
-
 \begin{definition}[5.3.2]
     $\ip{\delta_0}{\phi} = \phi(0)$, and for $a \in \R$, $\ip{\delta_a}{\phi} = \phi(a)$.
 \end{definition}
-
 It is linear, and continuous since $\phi_n \to \phi$ uniformly gives $\phi_n(0) \to \phi(0)$.
 \begin{itemize}
     \item There is no integral in the definition. Never write $\delta_0(x)$ or $\int \delta_0(x)\phi(x)\,dx$.
     \item It is not a function:
 \end{itemize}
-
 \begin{proposition}
     There is no locally integrable $f$ with $F_f = \delta_0$.
 \end{proposition}
-
 \begin{proof}
     Suppose $\int f\phi = \phi(0)$ for every test function. Take $\phi = e\cdot(\text{bump})$, so $\phi(0) = 1$, $0 \leq \phi \leq 1$, support $[-1,1]$. Let $\phi_n(x) = \phi(nx)$: support $[-1/n, 1/n]$, $\phi_n(0) = 1$. Then
     \begin{equation}
@@ -993,45 +861,37 @@ It is linear, and continuous since $\phi_n \to \phi$ uniformly gives $\phi_n(0) 
 \end{proof}
 
 \subsection{Derivative of a Distribution}
-
 \textbf{Motivation.} For $f \in C^1$ and a test function $\phi$, integrate by parts (boundary terms vanish by compact support):
 \begin{equation}
     \int f'\phi\,dx = -\int f\phi'\,dx.
 \end{equation}
 The derivative moves onto $\phi$ at the cost of a sign, and the right side makes sense even if $f$ is not differentiable.
-
 \begin{definition}[5.4.1]
     \begin{equation}
         \ip{F'}{\phi} = -\ip{F}{\phi'}.
     \end{equation}
 \end{definition}
-
 This is a distribution ($\phi'$ is a test function; linear; continuous since $\phi_n \to \phi$ implies $\phi_n' \to \phi'$). So \textbf{every distribution, hence every locally integrable function, has a derivative}.
-
 \begin{proposition}[Consistency, 5.20]
     If $f \in C^1$, then $(F_f)' = F_{f'}$: the distributional derivative agrees with the classical one. (Proof: the integration by parts above.)
 \end{proposition}
-
 \begin{example}
     $\ip{\delta_0'}{\phi} = -\phi'(0)$. Higher derivatives, one sign per derivative:
     \begin{equation}
         \ip{F^{(k)}}{\phi} = (-1)^k \ip{F}{\phi^{(k)}}.
     \end{equation}
 \end{example}
-
 \begin{remark}
     Like the transpose in linear algebra ($\langle Ax, y\rangle = \langle x, A^T y\rangle$): the transpose of $\frac{d}{dx}$ is $-\frac{d}{dx}$. Every operation on distributions will be defined this way.
 \end{remark}
 
 \subsection{Derivatives of Piecewise Smooth Functions}
-
 \begin{example}[Heaviside, 5.4.1]
     \begin{equation}
         \ip{H'}{\phi} = -\int_{-\infty}^\infty H\phi'\,dx = -\int_0^\infty \phi'\,dx = -\big(0 - \phi(0)\big) = \phi(0),
     \end{equation}
     using $\phi(\infty) = 0$. So $H' = \delta_0$ in the sense of distributions. (We never wrote $\int\delta_0(x)\phi(x)dx$.)
 \end{example}
-
 \begin{example}[$|x|$, 5.4.2]
     Split at $0$ and integrate by parts on each side:
     \begin{equation}
@@ -1043,7 +903,6 @@ This is a distribution ($\phi'$ is a test function; linear; continuous since $\p
     \end{equation}
     so $|x|'' = 2\delta_0$. The jump of size $2$ in $\operatorname{sgn}$ shows up as $2\delta_0$.
 \end{example}
-
 \begin{theorem}[Derivative of a function with a jump]
     Let $f$ be $C^1$ except at one point $a$, with $f$ and $f'$ having one-sided limits at $a$. Let $\{f'\}$ denote the pointwise derivative for $x \neq a$. Then, in the sense of distributions,
     \begin{equation}
@@ -1051,13 +910,10 @@ This is a distribution ($\phi'$ is a test function; linear; continuous since $\p
     \end{equation}
     In particular, if $f$ is continuous at $a$, then $f' = \{f'\}$.
 \end{theorem}
-
 \begin{proof}[Proof idea]
     Split $-\int f\phi'$ at $a$ and integrate by parts on each side. The interior terms give $\int\{f'\}\phi$; the boundary terms at $a$ give $f(a^+)\phi(a) - f(a^-)\phi(a)$.
 \end{proof}
-
 Checks: $H$ has jump $1$ at $0$, $\{H'\} = 0$, so $H' = \delta_0$. $|x|$ has no jump, so $|x|' = \operatorname{sgn}$.
-
 \begin{method}[Recipe]
     \begin{enumerate}[label=(\arabic*)]
         \item Fix a test function $\phi$ and write $\ip{f'}{\phi} = -\int f\phi'$.
@@ -1065,34 +921,28 @@ Checks: $H$ has jump $1$ at $0$, $\{H'\} = 0$, so $H' = \delta_0$. $|x|$ has no 
         \item Integrate by parts on each piece. Boundary terms at $\pm\infty$ vanish; boundary terms at a singularity add up to (jump of $f$) $\times\,\phi(a)$, i.e.\ a delta.
     \end{enumerate}
 \end{method}
-
 In class: Choksi Exercises 5.2 and 5.8.
 
 \subsection{Fundamental Solution of $\frac{d^2}{dx^2}$}
-
 Divide the $|x|$ example by $2$:
 \begin{equation}
     \left(\frac{|x|}{2}\right)'' = \delta_0 .
 \end{equation}
 A solution of $u'' = \delta_0$ is a \emph{fundamental solution}: the response to a unit source at one point. $u = |x|/2$ is continuous, has a kink at the source, and solves $u'' = 0$ away from it. The solution is two derivatives smoother than the right side.
-
 \begin{example}
     Back to the motivation: $u'' = \delta_0$ on $(-1,1)$ with $u(\pm 1) = 0$ is solved by $u(x) = \frac{|x| - 1}{2}$ (add the constant $-\tfrac12$, which has zero second derivative, to fix the boundary values).
 \end{example}
-
 \begin{remark}
     This is the 1D version of the point mass from week 1: in $\R^3$, $\Delta\frac{1}{|x|} = 0$ away from $0$, and in the sense of distributions $\Delta\frac{1}{|x|} = -4\pi\delta_0$. Proved later with Laplace's equation (Choksi Ch.~8).
 \end{remark}
 
-% ============================================================
+
 \appendix
 \section{Appendix}
-% ============================================================
 
-% ============================================================
+
 \section{Solutions}
-% ============================================================
+
 
 \section{Useful Links}
-
 \end{document}
