@@ -55,7 +55,7 @@
 
 
 \section{Introduction}
-Textbook used is JS Townsend, \emph{A Modern Approach to Quantum Mechanics}, 2nd ed., University Science Books 2012. Taught by Bill Coish. Mondays, Wednesdays and Fridays from 9:35 to 10:25 in Steward Biology Building N2/2. Course grading is divided as follows:
+Textbook used is JS Townsend, \emph{A Modern Approach to Quantum Mechanics}, 2nd ed., University Science Books 2012. Course grading is divided as follows:
 \begin{itemize}
     \item 10\% problem sets (must be handwritten scans).
     \item 40\% quizzes (on Wednesdays, best 8 of 12).
@@ -864,12 +864,118 @@ In matrix form this reads
 \[\psi^z = \begin{pmatrix} \braket{+\hat{z}|\psi} \\ \braket{-\hat{z}|\psi} \end{pmatrix} = \begin{pmatrix} \braket{+\hat{z}|+\hat{x}} & \braket{+\hat{z}|-\hat{x}} \\ \braket{-\hat{z}|+\hat{x}} & \braket{-\hat{z}|-\hat{x}} \end{pmatrix}\begin{pmatrix} \braket{+\hat{x}|\psi} \\ \braket{-\hat{x}|\psi} \end{pmatrix},\]
 and the $2\times2$ matrix is exactly the one found above.
 \begin{result}[Change of basis]
-    \[\psi^z = R\left(\tfrac{\pi}{2}\hat{y}\right)\psi^x, \qquad \psi^x = R^\dagger\left(\tfrac{\pi}{2}\hat{y}\right)\psi^z,\]
-    where the second follows from unitarity. With the state in the $S_z$ basis, expectation values follow from $\braket{S_z} = \psi^{z\dagger}\hat{S}_z\psi^z$.
+    \begin{equation}
+        \psi^z = R\left(\tfrac{\pi}{2}\hat{y}\right)\psi^x, \qquad \psi^x = R^\dagger\left(\tfrac{\pi}{2}\hat{y}\right)\psi^z,
+    \end{equation}
+    where the second follows from unitarity.
+\end{result}
+\begin{result}[Expectation Value]
+    With the state in the $S_z$ basis, expectation values follow from
+    \begin{equation}
+        \braket{S_z} = \psi^{z\dagger}\hat{S}_z\psi^z.
+    \end{equation}
 \end{result}
 \begin{problem}[Expectation value from the $S_x$ basis]
     For $\ket{\psi} = \frac{1}{\sqrt{3}}\ket{+\hat{x}} + i\sqrt{\frac{2}{3}}\ket{-\hat{x}}$, find $\braket{S_z}$ using matrix mechanics.
 \end{problem}
+
+
+\section{Change of Basis in \texorpdfstring{$n$}{n}-Level Systems}
+\marginpar{September 25, 2026}
+
+\subsection{Two bases for the same space}
+Take an $n$-level system with two orthonormal bases,
+\[\{\ket{j} : j = 1,\dots,n\}, \qquad \{\ket{\alpha} : \alpha = 1,\dots,n\},\]
+\[\braket{i|j} = \delta_{ij}, \qquad \braket{\alpha|\beta} = \delta_{\alpha\beta}.\]
+\begin{remark}
+    The cross overlaps are not Kronecker deltas: $\braket{j|\alpha} \neq \delta_{j\alpha}$ in general, just as $\braket{+\hat{x}|+\hat{z}} = \tfrac{1}{\sqrt{2}}$ is neither $0$ nor $1$.
+\end{remark}
+Both bases are complete, so the identity can be inserted either way:
+\begin{equation}
+    \ket{\psi} = \id\ket{\psi} = \sum_{j=1}^{n}\ket{j}\braket{j|\psi} = \sum_{\alpha=1}^{n}\ket{\alpha}\braket{\alpha|\psi}.
+\end{equation}
+The same ket then has two column representations,
+\begin{equation}
+    \ket{\psi} \xrightarrow{\ket{j}} \psi^{j} = \begin{pmatrix} \braket{1|\psi} \\ \braket{2|\psi} \\ \vdots \\ \braket{n|\psi} \end{pmatrix}, \qquad
+    \ket{\psi} \xrightarrow{\ket{\alpha}} \psi^{\alpha} = \begin{pmatrix} \braket{\alpha{=}1|\psi} \\ \braket{\alpha{=}2|\psi} \\ \vdots \\ \braket{\alpha{=}n|\psi} \end{pmatrix}.
+\end{equation}
+
+\subsection{The transformation matrix}
+Inserting $\id = \sum_\alpha\ket{\alpha}\bra{\alpha}$ into each $\ket{j}$ amplitude,
+\[\braket{j|\psi} = \sum_{\alpha=1}^{n}\braket{j|\alpha}\braket{\alpha|\psi},\]
+which is a matrix times a column.
+\begin{result}[Change of basis]
+    \begin{equation}
+        \psi^{j} = U\psi^{\alpha}, \qquad U_{j\alpha} = \braket{j|\alpha}.
+    \end{equation}
+    The columns of $U$ are the new basis kets $\ket{\alpha}$ written in the $\ket{j}$ basis.
+\end{result}
+\begin{theorem}
+    $U$ is unitary: $U^\dagger U = UU^\dagger = \id$.
+\end{theorem}
+\begin{proof}
+    Using $(U^\dagger)_{\alpha j} = U_{j\alpha}^* = \braket{\alpha|j}$ and completeness of $\{\ket{j}\}$,
+    \[(U^\dagger U)_{\alpha\beta} = \sum_j\braket{\alpha|j}\braket{j|\beta} = \braket{\alpha|\beta} = \delta_{\alpha\beta}.\]
+    The same argument with completeness of $\{\ket{\alpha}\}$ gives $UU^\dagger = \id$.
+\end{proof}
+\begin{remark}
+    Normalization is basis-independent, as it must be:
+    \[\braket{\psi|\psi} = \psi^{j\dagger}\psi^{j} = \psi^{\alpha\dagger}U^\dagger U\psi^{\alpha} = \psi^{\alpha\dagger}\psi^{\alpha} = 1.\]
+\end{remark}
+\begin{example}
+    With $\ket{j} = \ket{\pm\hat{z}}$ and $\ket{\alpha} = \ket{\pm\hat{x}}$, $U_{j\alpha} = \braket{\pm\hat{z}|\pm\hat{x}}$ is exactly $R\left(\tfrac{\pi}{2}\hat{y}\right)$ from the previous section, and $\psi^j = U\psi^\alpha$ is $\psi^z = R\,\psi^x$.
+\end{example}
+
+\subsection{Eigenstates and eigenvalues}
+\begin{definition}[Eigenstate]
+    A state $\ket{a_i}$ is an eigenstate of the operator $\hat{A}$ with eigenvalue $a_i$ if
+    \begin{equation}
+        \hat{A}\ket{a_i} = a_i\ket{a_i}.
+    \end{equation}
+    In matrix form this is the familiar $M v = \lambda v$, with $v$ the eigenvector.
+\end{definition}
+\begin{remark}
+    A general operator maps a state to a different state, $\hat{A}\ket{\psi} = c\ket{\phi}$. Eigenstates are the special states that come back to themselves up to a number.
+\end{remark}
+\begin{example}
+    \[\hat{S}_z\ket{\pm\hat{z}} = \pm\frac{\hbar}{2}\ket{\pm\hat{z}},\]
+    so $\ket{\pm\hat{z}}$ are the eigenstates of $\hat{S}_z$ and $\pm\hbar/2$ its eigenvalues, i.e.\ the measurement outcomes.
+\end{example}
+\begin{proposition}[An operator is diagonal in its own eigenbasis]
+    \begin{equation}
+        A_{ij} = \bra{a_i}\hat{A}\ket{a_j} = a_j\braket{a_i|a_j} = a_j\delta_{ij},
+    \end{equation}
+    so
+    \begin{equation}
+        \hat{A} \xrightarrow{\ket{a_j}} D = \begin{pmatrix} a_1 & 0 & \cdots & 0 \\ 0 & a_2 & \cdots & 0 \\ \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & \cdots & a_n \end{pmatrix}.
+    \end{equation}
+    In particular $\bra{a_i}\hat{A}\ket{a_i} = a_i$.
+\end{proposition}
+\begin{example}
+    $\hat{S}_z \xrightarrow{S_z} \dfrac{\hbar}{2}\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}$.
+\end{example}
+
+\subsection{Operators in another basis}
+Let $\ket{j} = \ket{a_j}$ be the eigenbasis of $\hat{A}$, so $\hat{A} \xrightarrow{\ket{a_j}} D$, and let $U_{j\alpha} = \braket{a_j|\alpha}$.
+\begin{proposition}[Similarity transformation]
+    \begin{equation}
+        \hat{A} \xrightarrow{\ket{\alpha}} A^{\alpha} = U^\dagger D\,U.
+    \end{equation}
+\end{proposition}
+\begin{proof}
+    Insert the identity twice:
+    \[A^{\alpha}_{\alpha\beta} = \bra{\alpha}\hat{A}\ket{\beta} = \sum_{i,j}\braket{\alpha|a_i}\bra{a_i}\hat{A}\ket{a_j}\braket{a_j|\beta} = \sum_{i,j}(U^\dagger)_{\alpha i}D_{ij}U_{j\beta} = (U^\dagger D\,U)_{\alpha\beta}.\]
+\end{proof}
+\begin{result}[Expectation value in any basis]
+    \begin{equation}
+        \braket{A} = \bra{\psi}\hat{A}\ket{\psi} = \psi^{j\dagger}D\,\psi^{j} = \psi^{\alpha\dagger}\left[U^\dagger D\,U\right]\psi^{\alpha}.
+    \end{equation}
+    Either change the state to the eigenbasis ($\psi^j = U\psi^\alpha$) or change the operator to the state's basis ($A^\alpha = U^\dagger DU$). Both give the same number.
+\end{result}
+\begin{problem}[$\hat{S}_z$ in the $S_x$ basis]
+    Using $U = R\left(\tfrac{\pi}{2}\hat{y}\right)$, find the matrix of $\hat{S}_z$ in the $S_x$ basis, and use it to redo the problem ``Expectation value from the $S_x$ basis'' without changing the state's basis.
+\end{problem}
+
 
 \appendix
 \section{Appendix}

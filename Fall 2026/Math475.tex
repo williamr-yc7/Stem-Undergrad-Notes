@@ -59,7 +59,7 @@
 
 
 \section{Introduction}
-Taught by Adam Oberman. Mondays and Wednesdays from 14:35 to 15:55 in Stewart Biology Building N2/2. Course grading is divided as follows:
+Textbook used is Rustum Choksi, \emph{Partial Differential Equations, A First Course}, American Mathematical Society. Course grading is divided as follows:
 \begin{itemize}
     \item 10\% 5-6 assignments.
     \item 10\% attendance and participation.
@@ -69,49 +69,75 @@ Taught by Adam Oberman. Mondays and Wednesdays from 14:35 to 15:55 in Stewart Bi
 \end{itemize}
 
 
-\section{Basic Definitions and Classification}
+\section{Background}
 
-\subsection{Ways to Write a PDE}
-\marginpar{August 31, 2026}
+
+\section{Characteristics}
+\marginpar{August 31 - September 2, 2026}
+\subsection{Partial Differential Equations}
 \begin{definition}[Partial Differential Equation]
     A partial differential equation (PDE) is a differential equation whose unknown function depends on more than one independent variable.
 \end{definition}
 \begin{remark}
-    Physics rarely hands us $u$ directly. It gives a law for how $u$ changes. Example: heat flows from hot to cold, so the temperature $u(x,t)$ in a room changes in time wherever it varies in space. Made precise (flux plus the divergence theorem) this gives $u_t = \alpha\Delta u$. Recovering $u$ from such a relation is the whole subject.
+    Physics rarely hands us a function $u$ directly. It gives a law for how $u$ changes. Example: heat flows from hot to cold, so the temperature $u(x,t)$ in a room changes in time wherever it varies in space. Recovering $u$ from such a relation is the whole subject.
 \end{remark}
-Many of the classical equations are built from a single operator, the Laplacian
-\begin{equation}
-    \Delta u = \sum_{i=1}^{n} \frac{\partial^2 u}{\partial x_i^2}.
-\end{equation}
-\begin{center}
-\begin{tabular}{lll}
-    \textbf{Equation} & \textbf{Form} & \textbf{Type} \\
-    \hline
-    Heat & $u_t = \Delta u, \quad t \geq 0$ & parabolic \\
-    Poisson & $\Delta u = f$ & elliptic (stationary) \\
-    Laplace & $\Delta u = 0$ & elliptic (stationary) \\
-    Wave & $u_{tt} = \Delta u$ & hyperbolic \\
-\end{tabular}
-\end{center}
-Not every PDE fits this pattern. Nonlinear examples include Burgers' equation
-\begin{equation}
-    u_t + u u_x = 0,
-\end{equation}
-and the Navier-Stokes equations.
 
-\subsection{Order and Solutions}
-\marginpar{September 2, 2026}
+\subsection{Classification}
+\subsubsection{Order}
 \begin{definition}[Order]
     The order of a PDE is the order of the highest derivative appearing in it.
 \end{definition}
-For example $u_{xx} = 0$ is second order, and $u_t + u u_x = 0$ is first order.
+\begin{example}
+    $u_{xx} = 0$ is second order, and $u_t + u u_x = 0$ is first order.
+\end{example}
+
+\subsubsection{Linearity}
+\begin{definition}[Linear PDE]
+    A PDE is linear if it can be written as $L(u) = f(x)$, where $f$ does not involve $u$ and $L$ satisfies
+    \begin{equation}
+        L(u_1 + c\,u_2) = L(u_1) + c\,L(u_2).
+    \end{equation}
+\end{definition}
+\begin{remark}[Practical test]
+    Every term containing $u$ or a derivative of $u$ must satisfy:
+    \begin{itemize}
+        \item $u$ and its derivatives appear only to the first power (no $u^2$, $(u_x)^2$),
+        \item they are never multiplied together (no $u\,u_x$, $u_x u_y$),
+        \item they never sit inside a function (no $\sin u$, $e^u$, $\ln u$),
+        \item their coefficients depend only on the independent variables, never on $u$.
+    \end{itemize}
+    Each violation creates cross terms, so the superposition identity above fails.
+\end{remark}
+\begin{example}
+    $u_{xx} + xy\,u_y + e^x u = \cos x$ is linear. Nonlinear: $u\,u_x + u_y = 0$ (product), $u_{xx} + (u_y)^2 = 0$ (power), $u_{xx} + \sin u = 0$ (inside a function).
+\end{example}
+\begin{definition}[Degrees of nonlinearity]
+    Let $k$ be the order of the PDE.
+    \begin{itemize}
+        \item \textbf{Semilinear:} linear in the order-$k$ derivatives, with coefficients depending only on $x$; nonlinearity only in lower-order terms. Example: $u_{xx} + \sin u = 0$.
+        \item \textbf{Quasilinear:} linear in the order-$k$ derivatives, but their coefficients may depend on $u$ and its lower-order derivatives. Example: Burgers, $u_t + u\,u_x = 0$.
+        \item \textbf{Fully nonlinear:} the order-$k$ derivatives themselves appear nonlinearly. Example: $(u_x)^2 + (u_y)^2 = 1$.
+    \end{itemize}
+\end{definition}
+
+\subsubsection{Homogeneity}
+\begin{definition}[Homogeneous]
+    A linear PDE $L(u) = f(x)$ is homogeneous if $f \equiv 0$, and inhomogeneous otherwise.
+\end{definition}
+\begin{example}
+    $u_t + a u_x = x^3$ is linear with $L(u) = u_t + a u_x$ and $f(x) = x^3$, so it is inhomogeneous.
+\end{example}
+\begin{example}
+    $u_t + u u_x = f(x)$ is nonlinear, because the term $u u_x$ is not linear in $u$.
+\end{example}
+
+\subsection{Solutions}
 \begin{definition}[Classical solution]
     Let the PDE be written as $F(u) = 0$ and let $k$ be its order. A function $u$ is a (classical) solution if
     \begin{enumerate}[label=(\arabic*)]
-        \item $u \in C^k$, that is $u$ is $k$ times continuously differentiable, and
+        \item $u \in C^k$, and
         \item $F(u) = 0$ at every point of the domain.
     \end{enumerate}
-    Later (Section \ref{sec:distB}) we meet solutions ``in the sense of distributions'', which need not even be continuous.
 \end{definition}
 \begin{example}[Transport equation]
     Let $u = u(x,t)$ and $F(u_t, u_x) = u_t + c u_x = 0$ with $c \in \mathbb{R}$. Let $\Phi$ be any differentiable function and set $u(x,t) = \Phi(x - ct)$. Then
@@ -137,30 +163,6 @@ For example $u_{xx} = 0$ is second order, and $u_t + u u_x = 0$ is first order.
     so $u_{tt} = c^2 u_{xx}$. Meaning: a standing wave that oscillates forever without decaying. Same spatial profile as the heat example, completely different time behaviour.
 \end{example}
 
-\subsection{Linear and Nonlinear}
-\begin{definition}[Linear PDE]
-    A PDE $F(u, u_x, x) = 0$ is linear if it can be rewritten as
-    \begin{equation}
-        L(u) = f(x),
-    \end{equation}
-    where $L$ is linear in $u$ and its derivatives, i.e.\ $L(u_1 + c u_2) = L(u_1) + cL(u_2)$, and $f$ depends on $x$ only.
-\end{definition}
-\begin{example}
-    Take $F(u, u_x, x) = 3u + u_x - x^2$. Setting $L(u, u_x) = 3u + u_x$ and $f(x) = x^2$ gives
-    \begin{equation}
-        F(u, u_x, x) = 0 \iff L(u, u_x) = f(x),
-    \end{equation}
-    so the equation is linear. The same definition works in higher dimensions.
-\end{example}
-\begin{definition}[Homogeneous]
-    A linear PDE $L(u) = f(x)$ is homogeneous if $f \equiv 0$, and inhomogeneous otherwise.
-\end{definition}
-\begin{example}
-    $u_t + a u_x = x^3$ is linear with $L(u) = u_t + a u_x$ and $f(x) = x^3$, so it is inhomogeneous.
-\end{example}
-\begin{example}
-    $u_t + u u_x = f(x)$ is nonlinear, because the term $u u_x$ is not linear in $u$.
-\end{example}
 
 \subsection{Principle of Superposition}
 \begin{principle}[Superposition]
@@ -936,7 +938,27 @@ A solution of $u'' = \delta_0$ is a \emph{fundamental solution}: the response to
     This is the 1D version of the point mass from week 1: in $\R^3$, $\Delta\frac{1}{|x|} = 0$ away from $0$, and in the sense of distributions $\Delta\frac{1}{|x|} = -4\pi\delta_0$. Proved later with Laplace's equation (Choksi Ch.~8).
 \end{remark}
 
+\section{Misc}
+\marginpar{September 23, 2026}
+Review $C_c^{\infty}$: smooth functions with compact support.
+Distribution. $F: C_c^{\infty}\to\R$:
+\begin{enumerate}
+    \item linear
+    \item cts
+    \item write $<F,\phi> = F(\phi)$
+    \item $F(c_1\phi_1+c_2\phi_2)=c_1F(\phi_1)+c_2F(\phi_2)$
+    \item $\phi_n\to\phi\implies F(\phi_n)\to F(\phi)$.
+\end{enumerate}
+Uniform converence: Convergence in $C_c^{\infty}$: uniform converge of $\phi_n\to\phi$ also $\phi'_n\to\phi'$, $\phi^{(k)}_n\to\phi^{(k)}$ for all derivatives.
+Nuild distribution $F_f$ from integrable function $f'$. Given $f$, define $F_f$ by $<F_f,\phi> = \int_{-\infty}^{\infty}f(x)\phi(x)dx$.
+\begin{example}
+    $f(x)=3; <F_3,\phi>=3\int_{-\infty}^{\infty}phi(x)dx$.
+\end{example}
+\begin{example}
+    $h(x) = \begin{cases}1, x\geq 0\\0, x<0\end{cases}, F_h=H, <H,\phi>=\int_{-\infty}^{\infty}h(x)\phi(x)dx=\int_{0}^{\infty}\phi(x)dx$.
+\end{example}
 
+Derivative of a distribution, given F distribution. Define, another one, F' by $<F',\phi>=-<F,\phi'>$. NOte if $F=F_f$ fore some $f$, then $F'=F_{f'}$ when $f'$ exists 
 \appendix
 \section{Appendix}
 
