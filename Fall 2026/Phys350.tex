@@ -455,9 +455,6 @@ The full list of second derivative identities:
     %instead to make it shorter can we just say: if no charge inside gaussian surface the net flux is 0, cause field enter from one side and exit from another.
     Flux is a charge detector. Since $d\vec{a}$ always points outward, a field just passing through a closed surface gives negative flux where it enters and positive where it leaves, and these tend to cancel. Net flux needs field lines diverging out of the volume, which needs charge inside.
 \end{remark}
-\begin{remark}
-    To solve for $\vec{E}$, choose a closed surface on which $E$ is constant and $\vec{E}$ is everywhere parallel or perpendicular to $d\vec{a}$, so $E$ comes out of the integral.
-\end{remark}
 
 \subsubsection{Spherical symmetry}
 \begin{example}[Point charge]
@@ -467,38 +464,37 @@ The full list of second derivative identities:
         \item By geometry, $d\vec{a} = \hat{n}\,da = \hat{r}\,da$ on a sphere.
     \end{itemize}
     So $\vec{E}\cdot d\vec{a} = E\,da$, and
-    \[
-        \oint_S \vec{E}\cdot d\vec{a} = E\underbrace{\oint_S da}_{4\pi r^2} = \frac{q}{\epsilon_0}
-        \quad\Longrightarrow\quad
-        E = \frac{q}{4\pi\epsilon_0 r^2}.
-    \]
-    This is Coulomb's law, with $k = 1/4\pi\epsilon_0$.
+    \[\oiint_S \vec{E}\cdot d\vec{a} = E\underbrace{\oiint_S da}_{4\pi r^2} = \frac{q}{\epsilon_0}\quad\Longrightarrow\quad E = \frac{q}{4\pi\epsilon_0 r^2}.\]
 \end{example}
 
 \subsubsection{Cylindrical symmetry}
 \begin{example}[Infinite line of charge]
+    %Can you add like a reference to the "line of charge" example to say the derivation comes from there that would greatly reduce the size of this current example; and also when saying end caps carry no flux, also say that on a cap (a flat disk), the arrows of E lie in the disk, pointing outward from its center like spokes of a wheel. They are perpendicular to the line of charge, and parallel to the cap's surface.
     For a line with charge $\lambda$ per unit length, take a coaxial\footnote{Sharing a common central axis.} cylinder of radius $z$ and length $d$. $\vec{E}$ is radial, so the end caps carry no flux:
     \[E\,(2\pi z d) = \frac{\lambda d}{\epsilon_0}      \quad\Longrightarrow\quad E = \frac{\lambda}{2\pi\epsilon_0 z}.\]
     The field falls off as $1/z$, not $1/z^2$.
 \end{example}
-
 \begin{example}[Finite versus infinite line]
-    Near the midpoint, a finite line gives a weaker field than an infinite one with the same $\lambda$. The same cylinder encloses the same charge, hence the same total flux, but for the finite line some of it leaks through the end caps, leaving less through the curved surface. The direct integration confirms this: the finite line field is the infinite line field times $L/\sqrt{L^2+z^2} < 1$.
+    %Too long
+    Near the midpoint, a finite line gives a weaker field than an infinite one with the same $\lambda$. The same cylinder encloses the same charge, hence the same total flux, but for the finite line some of it leaks through the end caps, leaving less through the curved surface.
 \end{example}
 
 \subsubsection{Planar symmetry}
 \begin{example}[Infinite plane of charge]
+    %What? curved? I thought we were talking about planes. Gaussian pillbox straddling???
     For a plane with surface charge density $\sigma$, take a Gaussian pillbox straddling the plane with caps of area $A$. By symmetry $\vec{E}$ points straight away from the plane on both sides, so the curved side carries no flux and each cap carries $EA$:
     \[2EA = \frac{\sigma A}{\epsilon_0} \quad\Longrightarrow\quad E = \frac{\sigma}{2\epsilon_0}.\]
     The field does not depend on the distance from the plane.
 \end{example}
 \begin{example}[Infinite plane via Coulomb's law]
+    %So plane is a disk here? and too long
     Use polar coordinates $(r',\phi')$ on the plane, centred below the field point at height $z$. Each piece $\sigma r'\,dr'\,d\phi'$ pushes along $\hat{\mathfrak{r}}$. Sideways components cancel in pairs, so keep only the $\hat{z}$ part via $\cos\psi = z/\sqrt{r'^2+z^2}$:
     \[\vec{E} = \hat{z}\int_0^{2\pi}\!d\phi'\int_0^\infty \frac{\sigma}{4\pi\epsilon_0}\frac{r'z}{(r'^2+z^2)^{3/2}}\,dr' = \frac{\sigma z}{2\epsilon_0}\left[-\frac{1}{\sqrt{r'^2+z^2}}\right]_0^\infty\hat{z} = \frac{\sigma}{2\epsilon_0}\hat{z}.\]
     Why distance drops out: up close each piece pushes hard but mostly at a bad angle; far away each piece is weak but more of them push at a good angle. The two effects cancel exactly. For a line, stepping back also brings in more charge at good angles, but only $\propto r$, not enough to beat $1/r^2$, hence $E \propto 1/r$.
 \end{example}
 
 \subsubsection{Why the fall-off depends on the geometry}
+%what fall-off? i dont see any equation about fall-off referred
 The exponent in the fall-off counts how much charge a cone of field lines can ``see'' as it grows. Picture a narrow cone opening from the observation point toward the source: its cross section at distance $r$ grows like $r^2$, which alone gives the $1/r^2$ dilution of a point charge. For extended sources, the charge inside the cone grows too:
 \begin{itemize}
     \item Line of charge: the cone intercepts a length $\propto r$, so $E \propto r/r^2 = 1/r$.
@@ -510,6 +506,7 @@ The exponent in the fall-off counts how much charge a cone of field lines can ``
 
 \subsection{The Curl of $\vec{E}$}
 \begin{example}[Line integral of a point charge]
+    %What are we  calculating? a point charge moving?
     For a point charge at the origin, $d\vec{l} = dr\,\hat{r} + r\,d\theta\,\hat{\theta} + r\sin\theta\,d\phi\,\hat{\phi}$ and only the radial part survives:
     \[\int_{\vec{a}}^{\vec{b}}\vec{E}\cdot d\vec{l} = \frac{q}{4\pi\epsilon_0}\int_{r_a}^{r_b}\frac{dr}{r^2} = \frac{q}{4\pi\epsilon_0}\left(\frac{1}{r_a} - \frac{1}{r_b}\right).\]
     This depends only on the endpoints, so around a closed loop ($r_a = r_b$) it vanishes.
@@ -518,7 +515,8 @@ The exponent in the fall-off counts how much charge a cone of field lines can ``
     For any electrostatic field, $\oint\vec{E}\cdot d\vec{l} = 0$ and $\vec{\nabla}\times\vec{E} = 0$.
 \end{theorem}
 \begin{proof}
-    By superposition, any static $\vec{E}$ is a sum of point-charge fields, each with zero loop integral. Stokes' theorem then gives $\int_S(\vec{\nabla}\times\vec{E})\cdot d\vec{a} = 0$ for every surface, so $\vec{\nabla}\times\vec{E} = 0$.
+    %for the first sentence can i just say if you sum up all the E you get 0?
+    By superposition, any static $\vec{E}$ is a sum of point-charge fields, each with zero loop integral. Stokes' theorem then gives $\iint_S(\vec{\nabla}\times\vec{E})\cdot d\vec{a} = 0$ for every surface, so $\vec{\nabla}\times\vec{E} = 0$.
 \end{proof}
 \begin{remark}
     Physically, $Q\oint\vec{E}\cdot d\vec{l}$ is the work done on a test charge around a closed loop. If it were nonzero, a charge could gain energy just by circling, violating energy conservation.
