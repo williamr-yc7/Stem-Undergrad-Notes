@@ -440,15 +440,20 @@ The full list of second derivative identities:
 \begin{law}[Gauss' law]
     The flux of $\vec{E}$ through any closed surface is set by the charge inside it:
     \begin{equation}
-        \oiint_S \vec{E}\cdot d\vec{a} \overline{Gauss' Law}= \iiint_V(\vec{\nabla}\cdot\vec{E})d\tau = \frac{Q_{enc}}{\epsilon_0} = \frac{1}{\epsilon_0}\iiint_V \rho\,d\tau.
+        \oiint_S \vec{E}\cdot d\vec{a} \overset{Gauss' Law}{=} \iiint_V(\vec{\nabla}\cdot\vec{E})d\tau = \frac{Q_{enc}}{\epsilon_0} = \frac{1}{\epsilon_0}\iiint_V \rho\,d\tau.
     \end{equation}
-    Applying the divergence theorem to the left side gives $\int_V(\vec{\nabla}\cdot\vec{E})\,d\tau = \int_V (\rho/\epsilon_0)\,d\tau$. Since this holds for every volume $V$, the integrands match, giving the differential form
+    %explain how it equals to Q_enc/eps0 cuz it was not explained previously or maybe I missed it.
+    Since this holds for every volume $V$, the integrands match, giving the differential form
     \begin{equation}
         \vec{\nabla}\cdot\vec{E} = \frac{\rho}{\epsilon_0}.
     \end{equation}
 \end{law}
+\begin{definition}[Gaussian Surface]
+    The Gaussian surface just means an imaginary surface (nothing is physically there)
+\end{definition}
 \begin{remark}
-    Flux is a charge detector. Since $d\vec{a}$ always points outward, a field just passing through a closed surface gives negative flux where it enters and positive where it leaves, and these tend to cancel. Net flux needs field lines diverging out of the volume, which needs charge inside. The Gaussian surface is imaginary: nothing is physically there.
+    %instead to make it shorter can we just say: if no charge inside gaussian surface the net flux is 0, cause field enter from one side and exit from another.
+    Flux is a charge detector. Since $d\vec{a}$ always points outward, a field just passing through a closed surface gives negative flux where it enters and positive where it leaves, and these tend to cancel. Net flux needs field lines diverging out of the volume, which needs charge inside.
 \end{remark}
 \begin{remark}
     To solve for $\vec{E}$, choose a closed surface on which $E$ is constant and $\vec{E}$ is everywhere parallel or perpendicular to $d\vec{a}$, so $E$ comes out of the integral.
