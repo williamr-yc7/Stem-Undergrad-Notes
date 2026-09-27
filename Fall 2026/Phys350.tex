@@ -12,6 +12,7 @@
 \usepackage{circuitikz}
 \usepackage{float} % For [H] float option
 \usepackage{booktabs}
+\usepackage{esint}
 \pgfplotsset{compat=1.18} % Set compatibility level
 \usetikzlibrary{decorations.pathreplacing}
 \newtheorem{theorem}{Theorem}
@@ -75,8 +76,9 @@ Textbook used is David J. Griffiths - Introduction to Electrodynamics Fifth Edit
 \end{itemize}
 
 \section{Vector Analysis}
+\marginpar{August 31 - September 4, 2026}
+
 \subsection{Terminologies}
-\marginpar{August 31, 2026}
 \begin{definition}[Scalar]
     A scalar is a quantity with just a magnitude.
 \end{definition}
@@ -101,7 +103,6 @@ Textbook used is David J. Griffiths - Introduction to Electrodynamics Fifth Edit
 \end{definition}
 
 \subsection{Differential Calculus}
-\marginpar{September 2, 2026}
 \begin{definition}[Del operator]
     The del operator
     \[\vec{\nabla} = \left(\frac{\partial}{\partial x}, \frac{\partial}{\partial y}, \frac{\partial}{\partial z}\right).\]
@@ -137,16 +138,44 @@ Textbook used is David J. Griffiths - Introduction to Electrodynamics Fifth Edit
     \[\int_C \vec{F}\cdot d\vec{l}.\]
 \end{definition}
 \begin{example}
-    Take $\vec{F} = y\hat{x}$ along a counterclockwise quarter circle of radius $R$. On the circle $d\vec{l} = R\,d\phi(-\sin\phi\,\hat{x} + \cos\phi\,\hat{y})$ and $y = R\sin\phi$, so
-    \[\int_C \vec{F}\cdot d\vec{l} = -R^2\int_0^{\pi/2}\sin^2\phi\,d\phi = -\frac{R^2\pi}{4}.\]
+    Take $\vec{F} = y\hat{x}$ along a counterclockwise quarter circle of radius $R$.
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}[scale=1.2, >=latex]
+            \foreach \x in {0,0.5,...,3}{
+                \foreach \y in {0.5,1,...,3}{
+                    \draw[->, gray!55] (\x,\y) -- ++(0.15*\y,0);
+                }
+            }
+            \draw[->] (-0.3,0) -- (3.6,0) node[right] {$x$};
+            \draw[->] (0,-0.3) -- (0,3.6) node[above] {$y$};
+            \draw[very thick, blue, ->] (2.5,0) arc[start angle=0, end angle=50, radius=2.5];
+            \draw[very thick, blue] (45:2.5) arc[start angle=45, end angle=90, radius=2.5];
+            \node[blue] at (35:2.95) {$C$};
+            \fill (2.5,0) circle (1.5pt) node[below] {$R$};
+            \fill (0,2.5) circle (1.5pt) node[left] {$R$};
+            \draw[dashed] (0,0) -- (60:2.5);
+            \draw (0.6,0) arc[start angle=0, end angle=60, radius=0.6];
+            \node at (30:0.85) {$\phi$};
+            \draw[->, very thick, red] (60:2.5) -- ++(0.9,0) node[right] {$\vec{F}$};
+            \draw[->, very thick, blue!60!black] (60:2.5) -- ++(150:0.9) node[above left] {$d\vec{l}$};
+        \end{tikzpicture}
+        \caption{The field $\vec{F} = y\hat{x}$ (gray) and the quarter circle $C$. At a typical point, $\vec{F}$ points along $+\hat{x}$ while $d\vec{l}$ has a $-\hat{x}$ component, so $\vec{F}\cdot d\vec{l} < 0$.}
+        \label{fig:quarter-circle-line-integral}
+        \end{figure}
+    On the circle $d\vec{l} = \frac{d\vec{r}}{d\phi}d\phi = R(-\sin\phi\,\hat{x} + \cos\phi\,\hat{y})d\phi$ and $y = R\sin\phi$, so
+    \[\int_C \vec{F}\cdot d\vec{l} = \int_{0}^{\pi/2}\begin{pmatrix} R\sin\phi \\ 0 \end{pmatrix}\cdot R\begin{pmatrix}-\sin\phi\\ \cos\phi\end{pmatrix}d\phi = -R^2\int_0^{\pi/2}\sin^2\phi\,d\phi = -\frac{R^2\pi}{4}.\]
     It is negative because $\vec{F}$ points along $+\hat{x}$ while we travel in the $-\hat{x}$ direction over most of the arc.
 \end{example}
 \begin{definition}[Flux]
     Flux measures how much of the field pokes through a surface:
     \[\int_S \vec{F}\cdot d\vec{a} = \int_S \vec{F}\cdot\hat{n}\,da.\]
 \end{definition}
+\begin{remark}
+    Flux is the total amount of a vector field flowing through a surface. Divergence is the flux per unit volume at a specific point.
+\end{remark}
 \begin{definition}[Volume Integral]
-    A volume integral sums a scalar over a region, giving the mass if $f$ is a density:
+    A volume integral sums a scalar over a region\footnote{A volume integral gives the mass if $f$ is a density}:
     \[\int_V f\,d^3\vec{r} = \int_V f\,dx\,dy\,dz.\]
 \end{definition}
 \begin{remark}
@@ -157,31 +186,37 @@ Textbook used is David J. Griffiths - Introduction to Electrodynamics Fifth Edit
 Integrating a derivative over a region reduces to evaluating the original object on the boundary of that region.
 \begin{theorem}[Gradient theorem]
     The boundary of a curve is two points:
-    \[\int_a^b \vec{\nabla}h\cdot d\vec{l} = h(b) - h(a).\]
+    \[\int_C \vec{\nabla}h\cdot d\vec{l} = h(b) - h(a).\]
     To find my altitude change climbing a hill, I can compare before and after, or add up all the little changes along the way.
 \end{theorem}
 \begin{theorem}[Stokes' theorem]
     The boundary of a surface is a curve:
-    \[\int_S (\vec{\nabla}\times\vec{F})\cdot d\vec{a} = \oint_C \vec{F}\cdot d\vec{l}.\]
+    \begin{equation}
+        \iint_S (\vec{\nabla}\times\vec{F})\cdot d\vec{S} = \oint_C \vec{F}\cdot d\vec{l}.
+    \end{equation}
     To get the total swirl, I can work out the rotation at the boundary, or add up all the little whirlpools inside. Neighbouring whirlpools cancel along their shared edges, leaving only the boundary.
 \end{theorem}
 \begin{theorem}[Gauss' divergence theorem]
     \label{Gauss-div}
     The boundary of a volume is a surface:
-    \[\int_V (\vec{\nabla}\cdot\vec{F})\,d^3\vec{r} = \oint_S \vec{F}\cdot d\vec{a}.\]
+    \begin{equation}
+        \oiint_S (\vec{F}\cdot\hat{n})dS = \iiint_V(\vec{\nabla}\cdot\vec{F})dV.
+    \end{equation}
     To find the total flux leaking out through the surface, I can add up all the sources inside. Flux between neighbouring cells cancels, leaving only the outer surface.
 \end{theorem}
 \begin{definition}[Current density]
+    %this has nothing to do here, in griffiths it should be in magnetostatics section
     The current $I$ through a wire is not a local quantity, since a wire has finite thickness. The local version is the current density
     \[\vec{J} = \frac{d\vec{I}}{da_\perp},\]
     where $da_\perp$ is the differential cross section perpendicular to the flow.
 \end{definition}
 \begin{remark}
+    %this has nothing to do here, in griffiths it should be in magnetostatics section
     The divergence theorem \ref{Gauss-div} applied to $\vec{J}$ is how the conservation of charge gets written down.
+    \[\frac{d}{dt}\iiint_V\rho dV = - \oiint_S\vec{J}\cdot d\vec{A}.\]
 \end{remark}
 
 \subsection{Index Notation}
-\marginpar{September 4, 2026}
 \begin{remark}
     A matrix carries two indices, $A_{ij}$, where $i$ says which row and $j$ says which column.
 \end{remark}
@@ -202,16 +237,20 @@ Integrating a derivative over a region reduces to evaluating the original object
     \[\vec{w} = A\vec{v} \implies w_i = \sum_j A_{ij}v_j.\]
 \end{proposition}
 \begin{proposition}[Dot Product]
-    \[\vec{v}\cdot\vec{w} = \sum_i v_iw_i; \vec{\nabla}\cdot\vec{F} = \sum_i \partial_i F_i.\]
+    \begin{equation}
+        \vec{v}\cdot\vec{w} = \sum_i v_iw_i; \vec{\nabla}\cdot\vec{F} = \sum_i \partial_i F_i.
+    \end{equation}
 \end{proposition}
 \begin{proposition}[Cross Product]
-    \[(\vec{v}\times\vec{w})_i = \sum_{j,k}\varepsilon_{ijk}v_jw_k; (\vec{\nabla}\times\vec{F})_i = \sum_{j,k}\varepsilon_{ijk}\partial_j F_k.\]
+    \begin{equation}
+        (\vec{v}\times\vec{w})_i = \sum_{j,k}\varepsilon_{ijk}v_jw_k; (\vec{\nabla}\times\vec{F})_i = \sum_{j,k}\varepsilon_{ijk}\partial_j F_k.
+    \end{equation}
 \end{proposition}
 \begin{definition}[Levi-Civita symbol]
     $\varepsilon_{ijk}$ is defined by
     \begin{itemize}
-        \item $\varepsilon_{123} = +1$, and cyclic permutations keep the sign: $\varepsilon_{123} = \varepsilon_{231} = \varepsilon_{312}$.
-        \item Swapping any two indices flips the sign, so $\varepsilon_{321} = \varepsilon_{213} = \varepsilon_{132} = -1$.
+        \item $\varepsilon_{123} = \varepsilon_{231} = \varepsilon_{312} = +1$.
+        \item $\varepsilon_{321} = \varepsilon_{213} = \varepsilon_{132} = -1$.
         \item If any two indices are equal, $\varepsilon_{ijk} = 0$.
     \end{itemize}
 \end{definition}
@@ -220,8 +259,11 @@ Integrating a derivative over a region reduces to evaluating the original object
     \[(\vec{v}\times\vec{w})_1 = \varepsilon_{123}v_2w_3 + \varepsilon_{132}v_3w_2 = v_2w_3 - v_3w_2.\]
 \end{example}
 \begin{proposition}[Epsilon-delta identity]
+    \label{Epsilon-delta-id}
     Contracting two Levi-Civita symbols on a shared index gives
-    \[\sum_i \varepsilon_{ijk}\varepsilon_{imn} = \delta_{jm}\delta_{kn} - \delta_{jn}\delta_{km}.\]
+    \begin{equation}
+        \sum_i \varepsilon_{ijk}\varepsilon_{imn} = \delta_{jm}\delta_{kn} - \delta_{jn}\delta_{km}.
+    \end{equation}
 \end{proposition}
 
 \subsection{Second Derivatives Identities}
@@ -233,9 +275,6 @@ Integrating a derivative over a region reduces to evaluating the original object
 \begin{remark}
     $\nabla^2$ also acts on vector fields, component by component: $(\nabla^2\vec{F})_i = \nabla^2 F_i$.
 \end{remark}
-\begin{example}[Sign of the Laplacian]
-    At a local maximum $\vec{\nabla}f$ points inward from every side, so it has negative divergence and $\nabla^2 f < 0$; at a minimum, $\nabla^2 f > 0$. At a saddle the second derivatives can cancel, so a flat point alone tells you nothing.
-\end{example}
 The full list of second derivative identities:
 \begin{table}[H]
     \centering
@@ -257,30 +296,26 @@ The full list of second derivative identities:
 \begin{proof}[Curl of a Curl]
     Set $\vec{G} \equiv \vec{\nabla}\times(\vec{\nabla}\times\vec{F})$. Then,
     \[G_i = \sum_{j,k}\varepsilon_{ijk}\partial_j\sum_{m,n} \varepsilon_{kmn}\partial_m F_n=\sum_{j,k,m,n}\varepsilon_{ijk}\varepsilon_{kmn}\partial_j\partial_mF_n.\]
-    The shared index $k$ is in the third slot of the first symbol, so rotate it forward with the cyclic property $\varepsilon_{ijk} = \varepsilon_{kij}$ to match the proposition ($k$ now first in both):
+    Using the cyclic permutation $\varepsilon_{ijk} = \varepsilon_{kij}$, so that the summed index $k$ sits first in both epsilons, the epsilon-delta identity~\ref{Epsilon-delta-id} gives
     \[\sum_k \varepsilon_{kij}\varepsilon_{kmn} = \delta_{im}\delta_{jn} - \delta_{in}\delta_{jm}.\]
-    Reading off the proposition with the summed index $k$ removed: the leftover pairs are $(i,j)$ and $(m,n)$, giving straight ($\delta_{im}\delta_{jn}$) minus crossed ($\delta_{in}\delta_{jm}$). Hence
+    Reading off the proposition with the summed index $k$ removed: 
     \[G_i = \sum_{j,m,n}\left(\delta_{im}\delta_{jn} - \delta_{in}\delta_{jm}\right)\partial_j\partial_m F_n.\]
     Each Kronecker delta collapses one sum by setting its indices equal. In the first term $\delta_{im}$ forces $m = i$ and $\delta_{jn}$ forces $n = j$; in the second, $\delta_{in}$ forces $n = i$ and $\delta_{jm}$ forces $m = j$:
-    \[G_i = \sum_j \partial_j\partial_i F_j - \sum_j \partial_j\partial_j F_i.\]
-    The first term is $\partial_i\sum_j\partial_j F_j = \left(\vec{\nabla}(\vec{\nabla}\cdot\vec{F})\right)_i$ and the second is $-(\nabla^2\vec{F})_i$, giving $\vec{\nabla}\times(\vec{\nabla}\times\vec{F}) = \vec{\nabla}(\vec{\nabla}\cdot\vec{F}) - \nabla^2\vec{F}$.
+    \[G_i = \sum_j \partial_j\partial_i F_j - \sum_j \partial_j\partial_j F_i \overset{\footnotemark}{=} \partial_i\sum_j\partial_j F_j - \sum_j \partial_j\partial_j F_i = \left(\vec{\nabla}(\vec{\nabla}\cdot\vec{F})\right)_i - (\nabla^2\vec{F})_i.\]
+    \footnotetext{This equality uses $\partial_j\partial_i = \partial_i\partial_j$, valid for $\vec{F}$ twice continuously differentiable.}
+    \[\therefore \vec{\nabla}\times(\vec{\nabla}\times\vec{F}) = \vec{\nabla}(\vec{\nabla}\cdot\vec{F}) - \nabla^2\vec{F}.\]
 \end{proof}
-
-
 \begin{proof}[Curl of a Gradient]
-    Start from the definition, with $\vec{\nabla}f=\partial_k f$:
+    Let $f$ be twice continuously differentiable. With $(\vec{\nabla}f)_k = \partial_k f$,
     \[\left(\vec{\nabla}\times(\vec{\nabla}f)\right)_i = \sum_{j,k}\varepsilon_{ijk}\partial_j\partial_k f.\]
-    Call this sum $S$. Since $j$ and $k$ are both summed over, they are dummy labels and can be renamed freely; swap $j \leftrightarrow k$ everywhere:
-    \[S = \sum_{j,k}\varepsilon_{ikj}\partial_k\partial_j f.\]
-    Now clean up the two factors. Antisymmetry of $\varepsilon$ gives $\varepsilon_{ikj} = -\varepsilon_{ijk}$, and partial derivatives commute so $\partial_k\partial_j f = \partial_j\partial_k f$. Hence
-    \[S = -\sum_{j,k}\varepsilon_{ijk}\partial_j\partial_k f = -S.\]
-    So $S = -S$, which forces $S = 0$. Therefore $\vec{\nabla}\times(\vec{\nabla}f) = 0$.
+    The indices $j$ and $k$ are summed over, so they can be renamed $j \leftrightarrow k$:
+    \[\left(\vec{\nabla}\times(\vec{\nabla}f)\right)_i = \sum_{j,k}\varepsilon_{ikj}\partial_k\partial_j f.\]
+    Now use antisymmetry, $\varepsilon_{ikj} = -\varepsilon_{ijk}$, and the fact that partial derivatives commute, $\partial_k\partial_j f = \partial_j\partial_k f$:
+    \[\left(\vec{\nabla}\times(\vec{\nabla}f)\right)_i = -\sum_{j,k}\varepsilon_{ijk}\partial_j\partial_k f = -\left(\vec{\nabla}\times(\vec{\nabla}f)\right)_i.\]
+    A number equal to its own negative is zero, so every component vanishes and $\vec{\nabla}\times(\vec{\nabla}f) = \vec{0}$.
 \end{proof}
 
 \subsection{The Theory of Vector Fields}
-\begin{definition}[Irrotational and solenoidal]
-    A field with $\vec{\nabla}\times\vec{F} = 0$ everywhere is irrotational; a field with $\vec{\nabla}\cdot\vec{F} = 0$ everywhere is solenoidal.
-\end{definition}
 \begin{theorem}[Helmholtz]
     If $\vec{\nabla}\cdot\vec{F}$ and $\vec{\nabla}\times\vec{F}$ are specified everywhere and $\vec{F}\to 0$ at infinity, then $\vec{F}$ is uniquely determined. It can be written as $\vec{F} = \vec{\nabla}\psi + \vec{\nabla}\times\vec{A}$, an irrotational part plus a solenoidal part.
 \end{theorem}
@@ -306,9 +341,10 @@ The full list of second derivative identities:
     In electrostatics we will find $\vec{\nabla}\times\vec{E} = 0$, which licenses $\vec{E} = -\vec{\nabla}V$ and the electric potential. In magnetostatics we will find $\vec{\nabla}\cdot\vec{B} = 0$, which licenses $\vec{B} = \vec{\nabla}\times\vec{A}$, the vector potential.
 \end{remark}
 
+
 \section{Electrostatics}
+\marginpar{September 11-16, 2026}
 \subsection{Electric Field}
-\marginpar{September 11, 2026}
 \begin{law}[Coulomb's law]
     The force on a point charge $q_2$ due to a point charge $q_1$ is
     \begin{equation}
@@ -328,6 +364,7 @@ The full list of second derivative identities:
     \end{equation}
 \end{definition}
 \begin{principle}[Superposition]
+    \label{Superposition}
     The field of several sources is the sum of their individual fields, $\vec{E} = \vec{E}_1 + \vec{E}_2 + \dots$
 \end{principle}
 \begin{remark}[Field theory]
@@ -344,11 +381,11 @@ The full list of second derivative identities:
     where $\vec{r}$ is the field point and $\vec{r}'$ the source point.
 \end{definition}
 \begin{remark}
-    $\hat{\mathfrak{r}}$ is not constant: it points differently for every source point $\vec{r}'$, so it cannot come out of the integral. Split it into components first. Direct integration always works (numerically if needed); Gauss' law is quicker but only with symmetry.
+    $\hat{\mathfrak{r}}$ is not constant: it points differently for every source point $\vec{r}'$, so it cannot come out of the integral. Split it into components first.
 \end{remark}
 
-\marginpar{September 14, 2026}
-\begin{example}[Finite line of charge]
+\begin{example}[Line of charge]
+    %correct wording
     A line of length $2L$ along the $x$ axis carries uniform $\lambda$. Find $\vec{E}$ at $P = (0,0,z)$.
         \begin{figure}[H]
         \centering
@@ -385,24 +422,25 @@ The full list of second derivative identities:
     With $\vec{r} = z\hat{z}$ and $\vec{r}' = x'\hat{x}$,
     \[\vec{\mathfrak{r}} = z\hat{z} - x'\hat{x}, \qquad\mathfrak{r} = \sqrt{z^2 + x'^2},\]
     so
-    \[\vec{E} = \frac{\lambda}{4\pi\epsilon_0}\int_{-L}^{L}\frac{z\hat{z} - x'\hat{x}}{(z^2 + x'^2)^{3/2}}\,dx'.\]
-    The $\hat{x}$ term is odd in $x'$ and vanishes by symmetry. Using $\int dx'/(z^2 + x'^2)^{3/2} = x'/\big(z^2\sqrt{z^2 + x'^2}\big)$,
-    \[\vec{E} = \frac{\lambda}{2\pi\epsilon_0 z}\cdot\frac{L}{\sqrt{L^2 + z^2}}\,\hat{z}.\]
+    \[\vec{E} = \frac{\lambda}{4\pi\epsilon_0}\int_{-L}^{L}\frac{z\hat{z} - x'\hat{x}}{(z^2 + x'^2)^{3/2}}\,dx' = \frac{\lambda}{4\pi\epsilon_0}\left[\int_{-L}^{L}\frac{z}{(z^2+x'^2)^{3/2}}dx' - \int_{-L}^{L}\frac{x'}{(z^2+x'^2)^{3/2}}dx'\right].\]
+    The second integral vanishes by symmetry, and the first integral you use trig sub with $x'=z\tan\theta$ to end up with 
+    \[\vec{E} = \frac{\lambda}{4\pi\epsilon_0}\cdot(\frac{1}{z}\left[\frac{x'}{\sqrt{x'^2+z^2}}\right]_{-L}^{L}) = \frac{\lambda}{4\pi\epsilon_0}\cdot(\frac{2L}{z\sqrt{L^2+z^2}}) = \frac{\lambda}{2\pi\epsilon_0 z}\cdot\frac{L}{\sqrt{L^2 + z^2}}\,\hat{z}.\]
+    Which then leads us to two possibilities:
     \begin{itemize}
-        \item $z \ll L$: $\vec{E} \to \dfrac{\lambda}{2\pi\epsilon_0 z}\hat{z}$, the infinite line.
-        \item $z \gg L$: $\vec{E} \to \dfrac{Q}{4\pi\epsilon_0 z^2}\hat{z}$ with $Q = 2\lambda L$, a point charge.
+        \item The infinite line ($z \ll L$): $\vec{E} \to \dfrac{\lambda}{2\pi\epsilon_0 z}\hat{z}$.
+        \item The point charge ($z \gg L$): $\vec{E} \to \dfrac{Q}{4\pi\epsilon_0 z^2}\hat{z}$ with $Q = 2\lambda L$.
     \end{itemize}
 \end{example}
 \begin{remark}
-    Always check limits: a finite distribution should reduce to a simpler known field up close and far away.
+    %correct wording
+    A distribution should reduce to a simpler known field up close and far away, otherwise you got your answer wrong
 \end{remark}
 
 \subsection{Gauss' Law}
 \begin{law}[Gauss' law]
     The flux of $\vec{E}$ through any closed surface is set by the charge inside it:
     \begin{equation}
-        \oint_S \vec{E}\cdot d\vec{a} = \frac{Q_{\text{enc}}}{\epsilon_0},
-        \qquad Q_{\text{enc}} = \int_V \rho\,d\tau.
+        \oiint_S \vec{E}\cdot d\vec{a} \overline{Gauss' Law}= \iiint_V(\vec{\nabla}\cdot\vec{E})d\tau = \frac{Q_{enc}}{\epsilon_0} = \frac{1}{\epsilon_0}\iiint_V \rho\,d\tau.
     \end{equation}
     Applying the divergence theorem to the left side gives $\int_V(\vec{\nabla}\cdot\vec{E})\,d\tau = \int_V (\rho/\epsilon_0)\,d\tau$. Since this holds for every volume $V$, the integrands match, giving the differential form
     \begin{equation}
@@ -488,7 +526,6 @@ The exponent in the fall-off counts how much charge a cone of field lines can ``
     The minus sign is convention: positive charges are pushed toward lower potential energy.
 \end{definition}
 
-\marginpar{September 16, 2026}
 \begin{remark}
     $\oint\vec{E}\cdot d\vec{l} = 0$ holds only in electrostatics. If fields vary in time, a charge can gain net energy around a loop.
 \end{remark}
