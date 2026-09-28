@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1790539427.23212 "c:/Users/erenr/Documents/McGill/Latex Notes/Fall 2026/Phys350.tex" "Phys350.pdf" "Phys350" 1790539439.40988 0
+["pdflatex"] 1790600466.11228 "c:/Users/erenr/Documents/McGill/Latex Notes/Fall 2026/Phys350.tex" "Phys350.pdf" "Phys350" 1790600472.42244 0
   "C:/Users/erenr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1790466715 82666 6ae954049cbd801ff08c004e318ae5a8 ""
   "C:/Users/erenr/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk" 1767801684 11548 9ea6db1ff0b947846d8751dabcdcf90a ""
   "C:/Users/erenr/AppData/Local/MiKTeX/fonts/pk/ljfour/public/esint/dpi600/esint10.pk" 1790466735 10544 df5cbf0dc8496785d2050852a0278f76 ""
@@ -52,7 +52,6 @@
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1247596667 32762 7fee39e011c23b3589931effd97b9702 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1247596667 32726 39f0f9e62e84beb801509898a605dbd5 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1247596667 32569 5e5ddc8df908dea60932f3c484a54c0d ""
-  "C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb" 1247596666 32915 7bf7720c61a5b3a7ff25b0964421c9b6 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb" 1247596667 32587 65067f817f408bc71a7312f3d9828a9b ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1247596666 32716 08e384dc442464e7285e891af9f45947 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1247596667 32626 5abc8bb2f28aa647d4c70f8ea38cc0d3 ""
@@ -245,11 +244,11 @@
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/tools/indentfirst.sty" 1761901070 1618 30b01152766afcef2ed8f904cfdd3cc6 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
-  "Phys350.aux" 1790539438 5177 fe59a0ce75c3fdaa37d6e44fddf53445 "pdflatex"
-  "Phys350.out" 1790539438 4502 98937b3e9cd27f44dc0445a2adcdb93c "pdflatex"
-  "Phys350.tex" 1790539420 41781 468705ecacae76fae2bb39bdb59e445a ""
-  "Phys350.toc" 1790539438 2464 157d0221e03563be5d674999a07193fb "pdflatex"
-  "c:/Users/erenr/Documents/McGill/Latex Notes/Fall 2026/Phys350.tex" 1790539420 41781 468705ecacae76fae2bb39bdb59e445a ""
+  "Phys350.aux" 1790600471 5980 c82a9da3ecec11a2b54889eff7ac8981 "pdflatex"
+  "Phys350.out" 1790600471 4934 5b76d9b57c28bce4567f20bab6e2e680 "pdflatex"
+  "Phys350.tex" 1790600464 48472 f783f0a41f68f39110fea75b54d94587 ""
+  "Phys350.toc" 1790600471 2658 2b0617f21cdaedb6dcc82195c1c1d5e9 "pdflatex"
+  "c:/Users/erenr/Documents/McGill/Latex Notes/Fall 2026/Phys350.tex" 1790600464 48472 f783f0a41f68f39110fea75b54d94587 ""
   (generated)
   "Phys350.aux"
   "Phys350.log"

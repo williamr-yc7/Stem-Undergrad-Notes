@@ -31,7 +31,6 @@
     colorlinks=true,
 }
 \begin{document}
-
 % ============================================================
 %  Title page
 % ============================================================
@@ -41,7 +40,6 @@
 \setcounter{Maxaffil}{0}
 \renewcommand\Affilfont{\itshape\small}
 \maketitle
-
 % ============================================================
 %  Abstract
 % ============================================================
@@ -51,7 +49,6 @@
 \end{abstract}
 \noindent\rule{\textwidth}{0.4pt}
 \clearpage
-
 % ============================================================
 %  Table of Contents
 % ============================================================
@@ -64,6 +61,7 @@
 \pagestyle{plain}
 \setcounter{page}{1}
 
+
 % ============================================================
 %  INTRODUCTION
 % ============================================================
@@ -74,6 +72,7 @@ Textbook used is David J. Griffiths - Introduction to Electrodynamics Fifth Edit
     \item 25\% midterm.
     \item 40\% final exam.
 \end{itemize}
+
 
 \section{Vector Analysis}
 \marginpar{August 31 - September 4, 2026}
@@ -87,13 +86,17 @@ Textbook used is David J. Griffiths - Introduction to Electrodynamics Fifth Edit
 \end{definition}
 \begin{definition}[Cross Product]
     The cross product is a vector perpendicular to both, set by the right hand rule, and it vanishes for parallel vectors:
-    \[\vec{v}\times\vec{w} = |\vec{v}||\vec{w}|\sin\theta\,\hat{n}
-    = \begin{vmatrix} \hat{x} & \hat{y} & \hat{z} \\ v_x & v_y & v_z \\ w_x & w_y & w_z \end{vmatrix}
-    = \hat{x}(v_yw_z - w_yv_z) - \hat{y}(v_xw_z - w_xv_z) + \hat{z}(v_xw_y - w_xv_y).\]
+    \begin{equation}
+        \vec{v}\times\vec{w} = |\vec{v}||\vec{w}|\sin\theta\,\hat{n}
+        = \begin{vmatrix} \hat{x} & \hat{y} & \hat{z} \\ v_x & v_y & v_z \\ w_x & w_y & w_z \end{vmatrix}
+        = \hat{x}(v_yw_z - w_yv_z) - \hat{y}(v_xw_z - w_xv_z) + \hat{z}(v_xw_y - w_xv_y).
+    \end{equation}
 \end{definition}
 \begin{definition}[Dot Product]
     The dot product measures how much of $\vec{v}$ points along $\vec{w}$, so it is zero for perpendicular vectors:
-    \[\vec{v}\cdot\vec{w} = v_xw_x + v_yw_y + v_zw_z = |\vec{v}||\vec{w}|\cos\theta.\]
+    \begin{equation}
+        \vec{v}\cdot\vec{w} = v_xw_x + v_yw_y + v_zw_z = |\vec{v}||\vec{w}|\cos\theta.
+    \end{equation}
 \end{definition}
 \begin{remark}
     Note $\vec{v}\times\vec{w} = -\vec{w}\times\vec{v}$, and $|\vec{v}| = \sqrt{\vec{v}\cdot\vec{v}}$.
@@ -109,18 +112,24 @@ Textbook used is David J. Griffiths - Introduction to Electrodynamics Fifth Edit
 \end{definition}
 \begin{definition}[Gradient]
     The gradient turns a scalar into a vector, pointing in the direction of steepest increase of $f$:
-    \[\vec{\nabla}f = \frac{\partial f}{\partial x}\hat{x} + \frac{\partial f}{\partial y}\hat{y} + \frac{\partial f}{\partial z}\hat{z}.\]
+    \begin{equation}
+        \vec{\nabla}f = \frac{\partial f}{\partial x}\hat{x} + \frac{\partial f}{\partial y}\hat{y} + \frac{\partial f}{\partial z}\hat{z}.
+    \end{equation}
 \end{definition}
 \begin{remark}
     The gradient points in the steepest uphill direction, and its length grows where the hill is steeper. It is always perpendicular to the contours of constant $f$.
 \end{remark}
 \begin{definition}[Divergence]
     Divergence turns a vector into a scalar, measuring sources and sinks. For a small box, non-zero divergence means the inflow and outflow through its faces do not balance: arrows spreading from a point (positive) mean fluid is created there, arrows converging (negative) mean it is destroyed.
-    \[\vec{\nabla}\cdot\vec{F} = \frac{\partial F_x}{\partial x} + \frac{\partial F_y}{\partial y} + \frac{\partial F_z}{\partial z}.\]
+    \begin{equation}
+        \vec{\nabla}\cdot\vec{F} = \frac{\partial F_x}{\partial x} + \frac{\partial F_y}{\partial y} + \frac{\partial F_z}{\partial z}.
+    \end{equation}
 \end{definition}
 \begin{definition}[Curl]
     Curl turns a vector into a vector, measuring local rotation. Picture a small paddle wheel: if the flow spins it, the curl is non-zero there. Uniform flow does not spin it, but shear flow (parallel arrows, longer on one side) does, so straight field lines do not imply zero curl.
-    \[\vec{\nabla}\times\vec{F} = \begin{vmatrix} \hat{x} & \hat{y} & \hat{z} \\[2pt] \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\[2pt] F_x & F_y & F_z \end{vmatrix} = \left(\frac{\partial}{\partial y}F_z - \frac{\partial}{\partial z}F_y, -(\frac{\partial}{\partial x}F_z - \frac{\partial}{\partial z}F_x), \frac{\partial}{\partial x}F_y - \frac{\partial}{\partial y}F_x\right).\]
+    \begin{equation}
+        \vec{\nabla}\times\vec{F} = \begin{vmatrix} \hat{x} & \hat{y} & \hat{z} \\[2pt] \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\[2pt] F_x & F_y & F_z \end{vmatrix} = \left(\frac{\partial}{\partial y}F_z - \frac{\partial}{\partial z}F_y, -(\frac{\partial}{\partial x}F_z - \frac{\partial}{\partial z}F_x), \frac{\partial}{\partial x}F_y - \frac{\partial}{\partial y}F_x\right).
+    \end{equation}
 \end{definition}
 \begin{remark}
     The direction of the curl follows the right-hand rule: curl your fingers along the paddle wheel's rotation and your thumb points along $\vec{\nabla}\times\vec{F}$.
@@ -204,17 +213,6 @@ Integrating a derivative over a region reduces to evaluating the original object
     \end{equation}
     To find the total flux leaking out through the surface, I can add up all the sources inside. Flux between neighbouring cells cancels, leaving only the outer surface.
 \end{theorem}
-\begin{definition}[Current density]
-    %this has nothing to do here, in griffiths it should be in magnetostatics section
-    The current $I$ through a wire is not a local quantity, since a wire has finite thickness. The local version is the current density
-    \[\vec{J} = \frac{d\vec{I}}{da_\perp},\]
-    where $da_\perp$ is the differential cross section perpendicular to the flow.
-\end{definition}
-\begin{remark}
-    %this has nothing to do here, in griffiths it should be in magnetostatics section
-    The divergence theorem \ref{Gauss-div} applied to $\vec{J}$ is how the conservation of charge gets written down.
-    \[\frac{d}{dt}\iiint_V\rho dV = - \oiint_S\vec{J}\cdot d\vec{A}.\]
-\end{remark}
 
 \subsection{Index Notation}
 \begin{remark}
@@ -237,14 +235,10 @@ Integrating a derivative over a region reduces to evaluating the original object
     \[\vec{w} = A\vec{v} \implies w_i = \sum_j A_{ij}v_j.\]
 \end{proposition}
 \begin{proposition}[Dot Product]
-    \begin{equation}
-        \vec{v}\cdot\vec{w} = \sum_i v_iw_i; \vec{\nabla}\cdot\vec{F} = \sum_i \partial_i F_i.
-    \end{equation}
+    \[\vec{v}\cdot\vec{w} = \sum_i v_iw_i; \vec{\nabla}\cdot\vec{F} = \sum_i \partial_i F_i.\]
 \end{proposition}
 \begin{proposition}[Cross Product]
-    \begin{equation}
-        (\vec{v}\times\vec{w})_i = \sum_{j,k}\varepsilon_{ijk}v_jw_k; (\vec{\nabla}\times\vec{F})_i = \sum_{j,k}\varepsilon_{ijk}\partial_j F_k.
-    \end{equation}
+    \[(\vec{v}\times\vec{w})_i = \sum_{j,k}\varepsilon_{ijk}v_jw_k; (\vec{\nabla}\times\vec{F})_i = \sum_{j,k}\varepsilon_{ijk}\partial_j F_k.\]
 \end{proposition}
 \begin{definition}[Levi-Civita symbol]
     $\varepsilon_{ijk}$ is defined by
@@ -261,15 +255,15 @@ Integrating a derivative over a region reduces to evaluating the original object
 \begin{proposition}[Epsilon-delta identity]
     \label{Epsilon-delta-id}
     Contracting two Levi-Civita symbols on a shared index gives
-    \begin{equation}
-        \sum_i \varepsilon_{ijk}\varepsilon_{imn} = \delta_{jm}\delta_{kn} - \delta_{jn}\delta_{km}.
-    \end{equation}
+    \[\sum_i \varepsilon_{ijk}\varepsilon_{imn} = \delta_{jm}\delta_{kn} - \delta_{jn}\delta_{km}.\]
 \end{proposition}
 
 \subsection{Second Derivatives Identities}
 \begin{definition}[Laplacian]
     Taking the divergence of a gradient gives
-    \[\vec{\nabla}\cdot(\vec{\nabla}f) = \frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2} + \frac{\partial^2 f}{\partial z^2} \equiv \nabla^2 f,\]
+    \begin{equation}
+        \vec{\nabla}\cdot(\vec{\nabla}f) = \frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2} + \frac{\partial^2 f}{\partial z^2} \equiv \nabla^2 f,
+    \end{equation}
     where $\nabla^2$ is the Laplacian\footnote{Mathematicians often write $\Delta$, but in physics we use $\nabla^2$.}.
 \end{definition}
 \begin{remark}
@@ -298,7 +292,7 @@ The full list of second derivative identities:
     \[G_i = \sum_{j,k}\varepsilon_{ijk}\partial_j\sum_{m,n} \varepsilon_{kmn}\partial_m F_n=\sum_{j,k,m,n}\varepsilon_{ijk}\varepsilon_{kmn}\partial_j\partial_mF_n.\]
     Using the cyclic permutation $\varepsilon_{ijk} = \varepsilon_{kij}$, so that the summed index $k$ sits first in both epsilons, the epsilon-delta identity~\ref{Epsilon-delta-id} gives
     \[\sum_k \varepsilon_{kij}\varepsilon_{kmn} = \delta_{im}\delta_{jn} - \delta_{in}\delta_{jm}.\]
-    Reading off the proposition with the summed index $k$ removed: 
+    Reading off the proposition with the summed index $k$ removed:
     \[G_i = \sum_{j,m,n}\left(\delta_{im}\delta_{jn} - \delta_{in}\delta_{jm}\right)\partial_j\partial_m F_n.\]
     Each Kronecker delta collapses one sum by setting its indices equal. In the first term $\delta_{im}$ forces $m = i$ and $\delta_{jn}$ forces $n = j$; in the second, $\delta_{in}$ forces $n = i$ and $\delta_{jm}$ forces $m = j$:
     \[G_i = \sum_j \partial_j\partial_i F_j - \sum_j \partial_j\partial_j F_i \overset{\footnotemark}{=} \partial_i\sum_j\partial_j F_j - \sum_j \partial_j\partial_j F_i = \left(\vec{\nabla}(\vec{\nabla}\cdot\vec{F})\right)_i - (\nabla^2\vec{F})_i.\]
@@ -344,6 +338,7 @@ The full list of second derivative identities:
 
 \section{Electrostatics}
 \marginpar{September 11-16, 2026}
+
 \subsection{Electric Field}
 \begin{law}[Coulomb's law]
     The force on a point charge $q_2$ due to a point charge $q_1$ is
@@ -383,10 +378,9 @@ The full list of second derivative identities:
 \begin{remark}
     $\hat{\mathfrak{r}}$ is not constant: it points differently for every source point $\vec{r}'$, so it cannot come out of the integral. Split it into components first.
 \end{remark}
-
 \begin{example}[Line of charge]
-    %correct wording
-    A line of length $2L$ along the $x$ axis carries uniform $\lambda$. Find $\vec{E}$ at $P = (0,0,z)$.
+    \label{ex:line-charge}
+    A straight segment of length $2L$, centred at the origin on the $x$ axis, carries a uniform line charge density $\lambda$. Find $\vec{E}$ at the point $P = (0,0,z)$, a height $z$ above its midpoint.
         \begin{figure}[H]
         \centering
         \begin{tikzpicture}[scale=1.1, >=stealth]
@@ -422,38 +416,49 @@ The full list of second derivative identities:
     With $\vec{r} = z\hat{z}$ and $\vec{r}' = x'\hat{x}$,
     \[\vec{\mathfrak{r}} = z\hat{z} - x'\hat{x}, \qquad\mathfrak{r} = \sqrt{z^2 + x'^2},\]
     so
-    \[\vec{E} = \frac{\lambda}{4\pi\epsilon_0}\int_{-L}^{L}\frac{z\hat{z} - x'\hat{x}}{(z^2 + x'^2)^{3/2}}\,dx' = \frac{\lambda}{4\pi\epsilon_0}\left[\int_{-L}^{L}\frac{z}{(z^2+x'^2)^{3/2}}dx' - \int_{-L}^{L}\frac{x'}{(z^2+x'^2)^{3/2}}dx'\right].\]
-    The second integral vanishes by symmetry, and the first integral you use trig sub with $x'=z\tan\theta$ to end up with 
-    \[\vec{E} = \frac{\lambda}{4\pi\epsilon_0}\cdot(\frac{1}{z}\left[\frac{x'}{\sqrt{x'^2+z^2}}\right]_{-L}^{L}) = \frac{\lambda}{4\pi\epsilon_0}\cdot(\frac{2L}{z\sqrt{L^2+z^2}}) = \frac{\lambda}{2\pi\epsilon_0 z}\cdot\frac{L}{\sqrt{L^2 + z^2}}\,\hat{z}.\]
-    Which then leads us to two possibilities:
+    \[\vec{E} = \frac{\lambda}{4\pi\epsilon_0}\int_{-L}^{L}\frac{z\hat{z} - x'\hat{x}}{(z^2 + x'^2)^{3/2}}\,dx' = \frac{\lambda}{4\pi\epsilon_0}\left[\hat{z}\int_{-L}^{L}\frac{z}{(z^2+x'^2)^{3/2}}dx' - \hat{x}\int_{-L}^{L}\frac{x'}{(z^2+x'^2)^{3/2}}dx'\right].\]
+    The second integral vanishes by symmetry: its integrand is odd in $x'$, so the pieces at $x'$ and $-x'$ cancel. The first is done with the substitution $x' = z\tan\theta$, giving
+    \[\vec{E} = \frac{\lambda}{4\pi\epsilon_0}\,\frac{1}{z}\left[\frac{x'}{\sqrt{x'^2+z^2}}\right]_{-L}^{L}\hat{z} = \frac{\lambda}{4\pi\epsilon_0}\,\frac{2L}{z\sqrt{L^2+z^2}}\,\hat{z} = \frac{\lambda}{2\pi\epsilon_0 z}\cdot\frac{L}{\sqrt{L^2 + z^2}}\,\hat{z}.\]
+    This has two limits:
     \begin{itemize}
-        \item The infinite line ($z \ll L$): $\vec{E} \to \dfrac{\lambda}{2\pi\epsilon_0 z}\hat{z}$.
-        \item The point charge ($z \gg L$): $\vec{E} \to \dfrac{Q}{4\pi\epsilon_0 z^2}\hat{z}$ with $Q = 2\lambda L$.
+        \item Close to the line ($z \ll L$), it looks like an infinite line: $\vec{E} \to \dfrac{\lambda}{2\pi\epsilon_0 z}\hat{z}$.
+        \item Far from the line ($z \gg L$), it looks like a point charge: $\vec{E} \to \dfrac{Q}{4\pi\epsilon_0 z^2}\hat{z}$ with $Q = 2\lambda L$.
     \end{itemize}
 \end{example}
 \begin{remark}
-    %correct wording
-    A distribution should reduce to a simpler known field up close and far away, otherwise you got your answer wrong
+    Sanity check: an answer for an extended distribution should reduce to a simpler known field in the limits (up close and far away). If it does not, the answer is wrong.
 \end{remark}
 
 \subsection{Gauss' Law}
 \begin{law}[Gauss' law]
     The flux of $\vec{E}$ through any closed surface is set by the charge inside it:
     \begin{equation}
-        \oiint_S \vec{E}\cdot d\vec{a} \overset{Gauss' Law}{=} \iiint_V(\vec{\nabla}\cdot\vec{E})d\tau = \frac{Q_{enc}}{\epsilon_0} = \frac{1}{\epsilon_0}\iiint_V \rho\,d\tau.
+        \oiint_S \vec{E}\cdot d\vec{a} = \frac{Q_{enc}}{\epsilon_0}.
     \end{equation}
-    %explain how it equals to Q_enc/eps0 cuz it was not explained previously or maybe I missed it.
-    Since this holds for every volume $V$, the integrands match, giving the differential form
+\end{law}
+\begin{proof}[Where $Q_{enc}/\epsilon_0$ comes from]
+    Start with a single point charge $q$ at the centre of a sphere of radius $r$. On the sphere $\vec{E}$ is radial and $d\vec{a} = \hat{r}\,da$, so by Coulomb's law
+    \[\oiint_S\vec{E}\cdot d\vec{a} = \frac{q}{4\pi\epsilon_0 r^2}\oiint_S da = \frac{q}{4\pi\epsilon_0 r^2}\cdot 4\pi r^2 = \frac{q}{\epsilon_0}.\]
+    The $r^2$ cancels, so every sphere around $q$ gets the same flux. Three observations extend this:
+    \begin{itemize}
+        \item Any closed surface around $q$, of any shape: the same field lines that pierce the sphere must pierce it too, so its flux is still $q/\epsilon_0$.
+        \item A charge outside the surface: each of its field lines enters once and leaves once, so it contributes zero net flux.
+        \item Many charges: by superposition (Principle~\ref{Superposition}) the fluxes add, and only the enclosed charges contribute, giving $Q_{enc}/\epsilon_0$.
+    \end{itemize}
+\end{proof}
+\begin{proposition}[Differential form]
+    Apply the divergence theorem (Theorem~\ref{Gauss-div}) to the left side and write $Q_{enc} = \iiint_V\rho\,d\tau$:
+    \[\iiint_V(\vec{\nabla}\cdot\vec{E})\,d\tau = \frac{1}{\epsilon_0}\iiint_V \rho\,d\tau.\]
+    Since this holds for every volume $V$, the integrands match:
     \begin{equation}
         \vec{\nabla}\cdot\vec{E} = \frac{\rho}{\epsilon_0}.
     \end{equation}
-\end{law}
+\end{proposition}
 \begin{definition}[Gaussian Surface]
-    The Gaussian surface just means an imaginary surface (nothing is physically there)
+    The Gaussian surface just means an imaginary surface (nothing is physically there).
 \end{definition}
 \begin{remark}
-    %instead to make it shorter can we just say: if no charge inside gaussian surface the net flux is 0, cause field enter from one side and exit from another.
-    Flux is a charge detector. Since $d\vec{a}$ always points outward, a field just passing through a closed surface gives negative flux where it enters and positive where it leaves, and these tend to cancel. Net flux needs field lines diverging out of the volume, which needs charge inside.
+    If there is no charge inside the Gaussian surface, the net flux is zero: every field line that enters on one side leaves on another.
 \end{remark}
 
 \subsubsection{Spherical symmetry}
@@ -469,33 +474,52 @@ The full list of second derivative identities:
 
 \subsubsection{Cylindrical symmetry}
 \begin{example}[Infinite line of charge]
-    %Can you add like a reference to the "line of charge" example to say the derivation comes from there that would greatly reduce the size of this current example; and also when saying end caps carry no flux, also say that on a cap (a flat disk), the arrows of E lie in the disk, pointing outward from its center like spokes of a wheel. They are perpendicular to the line of charge, and parallel to the cap's surface.
-    For a line with charge $\lambda$ per unit length, take a coaxial\footnote{Sharing a common central axis.} cylinder of radius $z$ and length $d$. $\vec{E}$ is radial, so the end caps carry no flux:
-    \[E\,(2\pi z d) = \frac{\lambda d}{\epsilon_0}      \quad\Longrightarrow\quad E = \frac{\lambda}{2\pi\epsilon_0 z}.\]
+    This recovers the $z \ll L$ limit of the \hyperref[ex:line-charge]{line of charge example} in two lines. For a line with charge $\lambda$ per unit length, take a coaxial\footnote{Sharing a common central axis.} cylinder of radius $z$ and length $d$. On each end cap (a flat disk), the arrows of $\vec{E}$ lie in the disk, pointing outward from its centre like the spokes of a wheel: perpendicular to the line of charge and parallel to the cap. So $\vec{E}\cdot d\vec{a} = 0$ on the caps and only the curved side counts:
+    \[E\,(2\pi z d) = \frac{\lambda d}{\epsilon_0},\]
+    so
+    \begin{equation}
+        E = \frac{\lambda}{2\pi\epsilon_0 z}.
+    \end{equation}
     The field falls off as $1/z$, not $1/z^2$.
 \end{example}
 \begin{example}[Finite versus infinite line]
-    %Too long
-    Near the midpoint, a finite line gives a weaker field than an infinite one with the same $\lambda$. The same cylinder encloses the same charge, hence the same total flux, but for the finite line some of it leaks through the end caps, leaving less through the curved surface.
+    Near its midpoint, a finite line has a weaker field than an infinite one with the same $\lambda$: the cylinder encloses the same charge, but some of the flux now leaks through the caps.
 \end{example}
 
 \subsubsection{Planar symmetry}
 \begin{example}[Infinite plane of charge]
-    %What? curved? I thought we were talking about planes. Gaussian pillbox straddling???
-    For a plane with surface charge density $\sigma$, take a Gaussian pillbox straddling the plane with caps of area $A$. By symmetry $\vec{E}$ points straight away from the plane on both sides, so the curved side carries no flux and each cap carries $EA$:
-    \[2EA = \frac{\sigma A}{\epsilon_0} \quad\Longrightarrow\quad E = \frac{\sigma}{2\epsilon_0}.\]
+    For a plane with surface charge density $\sigma$, use a Gaussian pillbox: a short flat cylinder (like a hockey puck) that pierces the plane, half above and half below. It has two flat caps of area $A$, one on each side of the plane and parallel to it, joined by a side wall. By symmetry $\vec{E}$ points straight away from the plane on both sides, so it runs along the side wall (no flux there) and straight through each cap (flux $EA$ each):
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}[scale=1, >=stealth]
+            \fill[gray!25] (-3,-0.07) rectangle (3,0.07);
+            \node[right] at (3,0) {plane, $\sigma$};
+            \draw[thick] (-0.8,-0.8) rectangle (0.8,0.8);
+            \draw[->, red, thick] (0,0.8) -- (0,1.6) node[above] {$\vec{E}$};
+            \draw[->, red, thick] (0,-0.8) -- (0,-1.6) node[below] {$\vec{E}$};
+            \node[left] at (-0.8,0.8) {cap, area $A$};
+            \node[left] at (-0.8,-0.8) {cap, area $A$};
+            \node[right] at (0.8,0.45) {side wall};
+        \end{tikzpicture}
+        \caption{Side view of the pillbox straddling the plane.}
+    \end{figure}
+    \[2EA = \frac{\sigma A}{\epsilon_0},\]
+    so
+    \begin{equation}
+        E = \frac{\sigma}{2\epsilon_0}.
+    \end{equation}
     The field does not depend on the distance from the plane.
 \end{example}
 \begin{example}[Infinite plane via Coulomb's law]
-    %So plane is a disk here? and too long
-    Use polar coordinates $(r',\phi')$ on the plane, centred below the field point at height $z$. Each piece $\sigma r'\,dr'\,d\phi'$ pushes along $\hat{\mathfrak{r}}$. Sideways components cancel in pairs, so keep only the $\hat{z}$ part via $\cos\psi = z/\sqrt{r'^2+z^2}$:
+    The plane is still infinite, not a disk. We just describe it in polar coordinates $(r',\phi')$ centred directly below the field point at height $z$; letting $r'$ run from $0$ to $\infty$ covers the whole plane. Sideways components cancel in pairs, so each piece $dq = \sigma r'\,dr'\,d\phi'$ contributes only its $\hat{z}$ part, via $\cos\psi = z/\sqrt{r'^2+z^2}$ with $\psi$ the angle between $\hat{\mathfrak{r}}$ and $\hat{z}$:
     \[\vec{E} = \hat{z}\int_0^{2\pi}\!d\phi'\int_0^\infty \frac{\sigma}{4\pi\epsilon_0}\frac{r'z}{(r'^2+z^2)^{3/2}}\,dr' = \frac{\sigma z}{2\epsilon_0}\left[-\frac{1}{\sqrt{r'^2+z^2}}\right]_0^\infty\hat{z} = \frac{\sigma}{2\epsilon_0}\hat{z}.\]
-    Why distance drops out: up close each piece pushes hard but mostly at a bad angle; far away each piece is weak but more of them push at a good angle. The two effects cancel exactly. For a line, stepping back also brings in more charge at good angles, but only $\propto r$, not enough to beat $1/r^2$, hence $E \propto 1/r$.
+    Distance drops out because up close each piece pushes hard but mostly sideways, while far away each piece is weak but pushes more directly upward. The two effects cancel exactly.
 \end{example}
 
 \subsubsection{Why the fall-off depends on the geometry}
-%what fall-off? i dont see any equation about fall-off referred
-The exponent in the fall-off counts how much charge a cone of field lines can ``see'' as it grows. Picture a narrow cone opening from the observation point toward the source: its cross section at distance $r$ grows like $r^2$, which alone gives the $1/r^2$ dilution of a point charge. For extended sources, the charge inside the cone grows too:
+The fall-off is how fast $E$ decreases with the distance $r$ from the source. The examples above give
+\[\text{point charge: } E \propto \frac{1}{r^2}, \qquad \text{infinite line: } E \propto \frac{1}{r}, \qquad \text{infinite plane: } E \propto r^0 \text{ (constant)}.\]
+The exponent counts how much charge a cone of field lines can ``see'' as it grows. Picture a narrow cone opening from the observation point toward the source: its cross section at distance $r$ grows like $r^2$, which alone gives the $1/r^2$ dilution of a point charge. For extended sources, the charge inside the cone grows too:
 \begin{itemize}
     \item Line of charge: the cone intercepts a length $\propto r$, so $E \propto r/r^2 = 1/r$.
     \item Sheet of charge: the cone intercepts an area $\propto r^2$, so $E \propto r^2/r^2$, a constant. The infinite sheet has a uniform field.
@@ -506,17 +530,18 @@ The exponent in the fall-off counts how much charge a cone of field lines can ``
 
 \subsection{The Curl of $\vec{E}$}
 \begin{example}[Line integral of a point charge]
-    %What are we  calculating? a point charge moving?
-    For a point charge at the origin, $d\vec{l} = dr\,\hat{r} + r\,d\theta\,\hat{\theta} + r\sin\theta\,d\phi\,\hat{\phi}$ and only the radial part survives:
+    Nothing moves here. A point charge $q$ sits fixed at the origin, and we compute the line integral of its field, $\int_{\vec{a}}^{\vec{b}}\vec{E}\cdot d\vec{l}$, along an arbitrary path from $\vec{a}$ to $\vec{b}$. (Times a test charge $Q$, this is the work the field would do on $Q$ carried along that path.) In spherical coordinates $d\vec{l} = dr\,\hat{r} + r\,d\theta\,\hat{\theta} + r\sin\theta\,d\phi\,\hat{\phi}$, and since $\vec{E}$ is radial only the $dr$ part survives:
     \[\int_{\vec{a}}^{\vec{b}}\vec{E}\cdot d\vec{l} = \frac{q}{4\pi\epsilon_0}\int_{r_a}^{r_b}\frac{dr}{r^2} = \frac{q}{4\pi\epsilon_0}\left(\frac{1}{r_a} - \frac{1}{r_b}\right).\]
     This depends only on the endpoints, so around a closed loop ($r_a = r_b$) it vanishes.
 \end{example}
 \begin{theorem}[Electrostatic fields are curl-free]
-    For any electrostatic field, $\oint\vec{E}\cdot d\vec{l} = 0$ and $\vec{\nabla}\times\vec{E} = 0$.
+    For any electrostatic field,
+    \begin{equation}
+        \oint\vec{E}\cdot d\vec{l} = 0, \qquad \vec{\nabla}\times\vec{E} = 0.
+    \end{equation}
 \end{theorem}
 \begin{proof}
-    %for the first sentence can i just say if you sum up all the E you get 0?
-    By superposition, any static $\vec{E}$ is a sum of point-charge fields, each with zero loop integral. Stokes' theorem then gives $\iint_S(\vec{\nabla}\times\vec{E})\cdot d\vec{a} = 0$ for every surface, so $\vec{\nabla}\times\vec{E} = 0$.
+    Any static $\vec{E}$ is a sum of point-charge fields (superposition), so its loop integral is the sum of their loop integrals, each of which is zero. Stokes' theorem then gives $\iint_S(\vec{\nabla}\times\vec{E})\cdot d\vec{a} = 0$ for every surface, so $\vec{\nabla}\times\vec{E} = 0$.
 \end{proof}
 \begin{remark}
     Physically, $Q\oint\vec{E}\cdot d\vec{l}$ is the work done on a test charge around a closed loop. If it were nonzero, a charge could gain energy just by circling, violating energy conservation.
@@ -530,10 +555,8 @@ The exponent in the fall-off counts how much charge a cone of field lines can ``
     \end{equation}
     The minus sign is convention: positive charges are pushed toward lower potential energy.
 \end{definition}
-
 \begin{remark}
-    %why? explain a bit more but dont make it too long
-    $\oint\vec{E}\cdot d\vec{l} = 0$ holds only in electrostatics. If fields vary in time, a charge can gain net energy around a loop.
+    $\oint\vec{E}\cdot d\vec{l} = 0$ holds only in electrostatics. A changing magnetic field creates an electric field that circulates in loops (Faraday's law, $\vec{\nabla}\times\vec{E} = -\partial\vec{B}/\partial t$), so a charge can gain net energy going around. This is how a generator drives current around a closed circuit. Energy is still conserved: it comes from whatever is changing $\vec{B}$.
 \end{remark}
 \begin{proposition}[Potential from the field]
     \begin{equation}
@@ -562,55 +585,84 @@ The exponent in the fall-off counts how much charge a cone of field lines can ``
 \subsection{Work and Energy in Electrostatics}
 \begin{proposition}[Potential of a test charge]
     Bringing $Q$ in from infinity against the field takes
-    \[W = -Q\int_\infty^{\vec{r}}\vec{E}\cdot d\vec{l} = QV(\vec{r}).\]
+    \begin{equation}
+        W = -Q\int_\infty^{\vec{r}}\vec{E}\cdot d\vec{l} = QV(\vec{r}).
+    \end{equation}
     So the electric potential $V$ is the potential energy per unit charge, in $\mathrm{J/C} = \mathrm{V}$.
 \end{proposition}
 \begin{proposition}[Energy of $N$ point charges]
     The first charge costs no work, since no field exists yet, and each later one feels the potential $V(\vec{r}_i)$ of those already placed, giving one term per pair:
-    \[U = \frac{1}{2}\sum_{i\neq j}\frac{q_iq_j}{4\pi\epsilon_0|\vec{r}_i - \vec{r}_j|} = \frac{1}{2}\sum_iq_iV(\vec{r}_i),\]
+    \begin{equation}
+        U = \frac{1}{2}\sum_{i\neq j}\frac{q_iq_j}{4\pi\epsilon_0|\vec{r}_i - \vec{r}_j|} = \frac{1}{2}\sum_iq_iV(\vec{r}_i),
+    \end{equation}
     where the $\tfrac12$ corrects for counting each pair twice.
 \end{proposition}
 \begin{remark}
-    %What?
-    $U$ does not obey superposition: fields add, but energy goes like $E^2$, so combining two configurations gives $U = U_1 + U_2 + (\text{interaction cross terms})$.
+    $U$ does not obey superposition, because it is quadratic in the charges rather than linear: doubling every charge doubles $\vec{E}$ but quadruples $U$. If two configurations with energies $U_1$ and $U_2$ are combined, the pair sum picks up new pairs (one charge from each), so $U = U_1 + U_2 + U_{\text{int}}$. In field language (Theorem~\ref{E-stored-in-field}), $E^2 = E_1^2 + E_2^2 + 2\vec{E}_1\cdot\vec{E}_2$, and the cross term is the interaction energy.
 \end{remark}
 \begin{theorem}[Energy stored in the field]
     \label{E-stored-in-field}
     For a continuous distribution,
-    \[U = \frac{1}{2}\int\rho V\,d\tau = \frac{\epsilon_0}{2}\int_{\text{all space}} E^2\,d\tau.\]
+    \begin{equation}
+        U = \frac{1}{2}\int\rho V\,d\tau = \frac{\epsilon_0}{2}\int_{\text{all space}} E^2\,d\tau.
+    \end{equation}
 \end{theorem}
 \begin{definition}[Energy Density]
-    From the previous theorem ~\ref{E-stored-in-field}, we can unfold the energy density
-    \[u = \frac{\epsilon_0}{2}E^2 \text{ (energy density).}.\]
+    From Theorem~\ref{E-stored-in-field}, the energy per unit volume stored in the field is
+    \begin{equation}
+        u = \frac{\epsilon_0}{2}E^2.
+    \end{equation}
 \end{definition}
 \begin{proof}
-    Using the energy of N point charges, $U = \frac{1}{2}\sum_i q_i V(\vec{r}_i)$. For a continuous distribution this becomes $U = \frac{1}{2}\int\rho V\,d\tau$. Substituting $\rho = -\epsilon_0\nabla^2 V$ from Poisson's equation,
-    \[U = -\frac{\epsilon_0}{2}\int(\nabla^2 V)V\,d\tau.\]
-    By the product rule in index notation,
-    %Where does this below come from? and rearrange it so both side are same way.
-    \[\sum_i\partial_i(V\partial_i V) = \sum_i(\partial_i V)^2 + V\sum_i\partial_i\partial_i V
+    Using the energy of $N$ point charges, $U = \frac{1}{2}\sum_i q_i V(\vec{r}_i)$. For a continuous distribution this becomes $U = \frac{1}{2}\int\rho V\,d\tau$. Substituting $\rho = -\epsilon_0\nabla^2 V$ from Poisson's equation,
+    \[U = -\frac{\epsilon_0}{2}\int V\nabla^2 V\,d\tau.\]
+    To rewrite $V\nabla^2V$, use the product rule $\partial_i(fg) = (\partial_i f)g + f(\partial_i g)$ with $f = V$ and $g = \partial_i V$, summed over $i$:
+    \[\underbrace{\sum_i\partial_i(V\partial_i V)}_{\vec{\nabla}\cdot(V\vec{\nabla}V)} = \underbrace{\sum_i(\partial_i V)^2}_{|\vec{\nabla}V|^2} + \underbrace{V\sum_i\partial_i\partial_i V}_{V\nabla^2 V}
     \quad\Longrightarrow\quad
-    (\nabla^2 V)V = \vec{\nabla}\cdot(V\vec{\nabla}V) - |\vec{\nabla}V|^2.\]
-    So
-    %should the negative be on the first term in the equation below?
-    \[U = \frac{\epsilon_0}{2}\int|\vec{\nabla}V|^2\,d\tau - \frac{\epsilon_0}{2}\int\vec{\nabla}\cdot(V\vec{\nabla}V)\,d\tau.\]
-    %What? explain with easier wording
-    The divergence theorem turns the second integral over all space into a flux through its boundary, a sphere at infinity: $\oint V\vec{\nabla}V\cdot d\vec{a}$. For a bounded distribution $V \sim 1/r$ and $|\vec{\nabla}V| \sim 1/r^2$ while the area grows as $r^2$, so this term falls off as $1/r$ and vanishes. With $\vec{E} = -\vec{\nabla}V$, $U = \frac{\epsilon_0}{2}\int E^2\,d\tau$.
+    V\nabla^2 V = \vec{\nabla}\cdot(V\vec{\nabla}V) - |\vec{\nabla}V|^2.\]
+    Substituting, the overall minus sign flips both terms:
+    \[U = -\frac{\epsilon_0}{2}\int\left[\vec{\nabla}\cdot(V\vec{\nabla}V) - |\vec{\nabla}V|^2\right]d\tau = \frac{\epsilon_0}{2}\int|\vec{\nabla}V|^2\,d\tau - \frac{\epsilon_0}{2}\int\vec{\nabla}\cdot(V\vec{\nabla}V)\,d\tau.\]
+    The second integral vanishes. To see this, integrate over a huge sphere of radius $R$ instead of all space, and let $R\to\infty$ at the end. The divergence theorem turns the integral into a flux through the sphere's surface, $\oint V\vec{\nabla}V\cdot d\vec{a}$. If the charge sits in a finite region, then far away $V \sim 1/R$ and $|\vec{\nabla}V| \sim 1/R^2$, so the integrand is $\sim 1/R^3$, while the area is $4\pi R^2$. The flux is therefore $\sim 1/R$, which goes to zero. With $\vec{E} = -\vec{\nabla}V$, $U = \frac{\epsilon_0}{2}\int E^2\,d\tau$.
 \end{proof}
 \begin{remark}[Self-energy]
-    %What? explain with easier wording
-    The discrete sum excludes $i = j$; the continuous integral does not. So $\frac{\epsilon_0}{2}\int E^2\,d\tau$ is always positive, while the pair sum for two opposite charges is negative. The difference is the infinite self-energy of point charges.
+    The two formulas do not always agree. The pair sum only counts the work of bringing different charges together ($i \neq j$); it ignores the work needed to build each point charge itself. The field integral counts everything, including that self-energy. So $\frac{\epsilon_0}{2}\int E^2\,d\tau$ is always positive (since $E^2 \geq 0$), while the pair sum can be negative, e.g.\ $+q$ and $-q$ at distance $d$ give $U = -\frac{q^2}{4\pi\epsilon_0 d}$. For a true point charge the self-energy is infinite: near it $E^2 \sim 1/r^4$, and $\int \frac{1}{r^4}\,r^2\,dr$ blows up at $r = 0$. So use the pair sum for point charges and the field integral for continuous distributions.
 \end{remark}
+
 
 \section{Potentials}
 \marginpar{September 18-,2026}
+
 \subsection{Multipole Expansion}
 \begin{example}[Two charges on the $z$ axis]
-    %Add an illustration please
-    Place $q_1$ at $z = d/2$ and $q_2$ at $z = -d/2$. With $\theta$ measured from the $z$ axis,
-    %I dont understand the \mp like i dont understand how u derived the \mathfrak{r}
-    \[V(\vec{r}) = \frac{1}{4\pi\epsilon_0}\left(\frac{q_1}{\mathfrak{r}_1} + \frac{q_2}{\mathfrak{r}_2}\right),
-    \qquad \mathfrak{r}_{1,2}^2 = r^2 + \left(\frac{d}{2}\right)^2 \mp rd\cos\theta.\]
+    Place $q_1$ at $z = d/2$ and $q_2$ at $z = -d/2$, and measure $\theta$ from the $z$ axis.
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}[scale=1.2, >=stealth]
+            \draw[->] (0,-1.8) -- (0,3.2) node[above] {$z$};
+            \fill[red] (0,1) circle (2.5pt) node[right=3pt] {$q_1$};
+            \fill[blue] (0,-1) circle (2.5pt) node[right=3pt] {$q_2$};
+            \fill (2.4,2.4) circle (2pt) node[above right] {$P$};
+            \draw[->, thick] (0,0) -- (2.4,2.4);
+            \node at (1.75,1.35) {$\vec{r}$};
+            \draw[->, thick, red] (0,1) -- (2.4,2.4);
+            \node[red] at (1.0,2.0) {$\vec{\mathfrak{r}}_1$};
+            \draw[->, thick, blue] (0,-1) -- (2.4,2.4);
+            \node[blue] at (1.55,0.45) {$\vec{\mathfrak{r}}_2$};
+            \draw (0,0.55) arc[start angle=90, end angle=45, radius=0.55];
+            \node at (67.5:0.8) {$\theta$};
+            \draw[decorate, decoration={brace, amplitude=4pt}] (-0.4,0) -- (-0.4,1)
+                node[midway, left=6pt] {$d/2$};
+            \draw[decorate, decoration={brace, amplitude=4pt}] (-0.4,-1) -- (-0.4,0)
+                node[midway, left=6pt] {$d/2$};
+        \end{tikzpicture}
+        \caption{Two charges on the $z$ axis and a far field point $P$ at distance $r$ and angle $\theta$.}
+    \end{figure}
+    Then
+    \[V(\vec{r}) = \frac{1}{4\pi\epsilon_0}\left(\frac{q_1}{\mathfrak{r}_1} + \frac{q_2}{\mathfrak{r}_2}\right).\]
+    To get $\mathfrak{r}_1$, write $\vec{\mathfrak{r}}_1 = \vec{r} - \frac{d}{2}\hat{z}$ and square it, using $\vec{r}\cdot\hat{z} = r\cos\theta$ (this is just the law of cosines):
+    \[\mathfrak{r}_1^2 = r^2 + \left(\frac{d}{2}\right)^2 - 2r\frac{d}{2}\cos\theta = r^2 + \left(\frac{d}{2}\right)^2 - rd\cos\theta.\]
+    For $q_2$ the source sits at $-\frac{d}{2}\hat{z}$, so the cross term flips sign. Both cases in one line, top sign for $q_1$ and bottom sign for $q_2$:
+    \[\mathfrak{r}_{1,2}^2 = r^2 + \left(\frac{d}{2}\right)^2 \mp rd\cos\theta.\]
     Writing $1/\mathfrak{r}_{1,2} = \frac{1}{r}(1+\epsilon_\mp)^{-1/2}$ with $\epsilon_\mp = \frac{d}{2r}\left(\frac{d}{2r} \mp 2\cos\theta\right)$ and expanding for $d \ll r$, $(1+\epsilon)^{-1/2} = 1 - \frac{1}{2}\epsilon + \frac{3}{8}\epsilon^2 - \dots$, gives
     \[V(\vec{r}) = \frac{1}{4\pi\epsilon_0}\left[\underbrace{\frac{q_1+q_2}{r}}_{\text{monopole}} + \underbrace{\frac{(q_1-q_2)d\cos\theta}{2r^2}}_{\text{dipole}} + \underbrace{\frac{(q_1+q_2)d^2}{4}\frac{3\cos^2\theta - 1}{2r^3}}_{\text{quadrupole}} + \dots\right].\]
     Each term gains a power of $1/r$, so $E \sim 1/r^2,\ 1/r^3,\ 1/r^4, \dots$
@@ -618,40 +670,72 @@ The exponent in the fall-off counts how much charge a cone of field lines can ``
 \begin{remark}
     Setting $q_1 = -q_2$ kills the monopole term, leaving $V \sim 1/r^2$ and $E \sim 1/r^3$ at leading order.
 \end{remark}
-\begin{definition}[Ideal dipole]
-    %I dont understand how taking q to inf and d to 0 and ending up with that
-    The $n$-th term carries $q\,d^{\,n}$. Taking $q\to\infty$, $d\to 0$ with $qd$ fixed kills every term beyond the dipole, leaving a point object with dipole moment $\vec{p} = q\vec{d}$ and exactly $V \sim 1/r^2$.
-\end{definition}
 \begin{definition}[Dipole Moment]
-    %Fill in please
+    For charges $+q$ and $-q$ separated by $\vec{d}$ (pointing from $-q$ to $+q$), the dipole moment is
+    \begin{equation}
+        \vec{p} = q\vec{d}, \qquad [\vec{p}] = \mathrm{C\cdot m}.
+    \end{equation}
+    For any distribution,
+    \begin{equation}
+        \vec{p} = \sum_i q_i\vec{r}_i = \int\vec{r}'\rho(\vec{r}')\,d\tau',
+    \end{equation}
+    which reduces to $q\vec{d}$ for the pair. It measures how far apart the positive and negative charge sit, and sets the dipole term of the potential,
+    \begin{equation}
+        V_{\text{dip}} = \frac{1}{4\pi\epsilon_0}\frac{\vec{p}\cdot\hat{r}}{r^2}.
+    \end{equation}
+\end{definition}
+\begin{definition}[Ideal dipole]
+    Take $q_1 = q$ and $q_2 = -q$. The monopole and quadrupole terms vanish, and the dipole term is $\frac{1}{4\pi\epsilon_0}\frac{qd\cos\theta}{r^2}$. Every term in the expansion carries a factor $q\,d^{\,n}$, which we can write as $(qd)\,d^{\,n-1}$. Now shrink $d \to 0$ while raising $q \to \infty$ so that the product $qd$ stays fixed:
+    \begin{itemize}
+        \item The dipole term ($n=1$) contains only $qd$, so it is unchanged.
+        \item Every later term carries at least one extra factor of $d$, so it goes to zero.
+    \end{itemize}
+    ($q$ must grow, otherwise the dipole term would vanish too.) What is left is a point object with dipole moment $\vec{p} = q\vec{d}$ and exactly $V = \frac{1}{4\pi\epsilon_0}\frac{\vec{p}\cdot\hat{r}}{r^2}$.
 \end{definition}
 \begin{remark}
-    Two opposite dipoles placed close together cancel at dipole order, giving a quadrupole with $V \sim 1/r^3$. In general the pattern continues: two opposite $2^n$-poles make a $2^{n+1}$-pole. %instead say in easier word its just multiples of 2: 1,2,4,8,16...
+    The names count charges in powers of 2: monopole (1), dipole (2), quadrupole (4), octupole (8), and so on. Each is built from two opposite copies of the previous one, placed close together so the previous order cancels. For example, two opposite dipoles give a quadrupole with $V \sim 1/r^3$.
 \end{remark}
 \begin{theorem}[Multipole expansion]
     For $r$ large compared with the size of the distribution,
-    \[V(\vec{r}) = \frac{1}{4\pi\epsilon_0}\left(\frac{Q}{r} + \frac{\vec{p}\cdot\hat{r}}{r^2} + \frac{\sum_{i,j}\hat{r}_iQ_{ij}\hat{r}_j}{r^3} + \dots\right),\]
+    \begin{equation}
+        V(\vec{r}) = \frac{1}{4\pi\epsilon_0}\left(\frac{Q}{r} + \frac{\vec{p}\cdot\hat{r}}{r^2} + \frac{\sum_{i,j}\hat{r}_iQ_{ij}\hat{r}_j}{r^3} + \dots\right),
+    \end{equation}
     with
     \[Q = \int\rho(\vec{r}')\,d\tau', \qquad
     \vec{p} = \int\vec{r}'\rho(\vec{r}')\,d\tau', \qquad
     Q_{ij} = \int\frac{1}{2}\left(3r'_ir'_j - r'^2\delta_{ij}\right)\rho(\vec{r}')\,d\tau'.\]
-    %Put the rest below in the appendix i dont think i need to know this by heart
-    Equivalently (Griffiths' form), with $\alpha$ the angle between $\vec{r}$ and $\vec{r}'$ and $P_n$ the Legendre polynomials,
-    \[V(\vec{r}) = \frac{1}{4\pi\epsilon_0}\sum_{n=0}^{\infty}\frac{1}{r^{n+1}}\int(r')^nP_n(\cos\alpha)\rho(\vec{r}')\,d\tau'.\]
-    $P_0 = 1$ gives the monopole, $P_1 = \cos\alpha$ the dipole (since $r'\cos\alpha = \vec{r}'\cdot\hat{r}$), and $P_2 = \frac{1}{2}(3\cos^2\alpha - 1)$ the quadrupole.
+    Griffiths writes the same series with Legendre polynomials; see Appendix~\ref{app:legendre}.
 \end{theorem}
 \begin{remark}
-    %What?
-    This is a series in $1/r$, good at large $r$, the opposite of a Taylor series in $r$.
+    Each term is smaller than the previous one by a factor of roughly $d/r$, where $d$ is the size of the charge distribution. Far away ($r \gg d$) the first nonzero term dominates and the rest are small corrections. Close up ($r \sim d$) the terms no longer shrink and the expansion is useless.
 \end{remark}
 \begin{remark}[Origin dependence]
     Shifting the origin by $\vec{a}$ changes $\vec{p} \to \vec{p} - Q\vec{a}$, so $\vec{p}$ is well defined only when $Q = 0$ (a neutral molecule, not an ion). In general only the first non-vanishing moment is origin-independent.
 \end{remark}
 
+
 \section{Electric Fields in Matter}
+
+
 \section{Magnetostatics}
+
+\subsection{Current Density}
+\begin{definition}[Current density]
+    The current $I$ through a wire is not a local quantity, since a wire has finite thickness. The local version is the current density
+    \[\vec{J} = \frac{d\vec{I}}{da_\perp},\]
+    where $da_\perp$ is the differential cross section perpendicular to the flow.
+\end{definition}
+\begin{remark}
+    Applying the divergence theorem (Theorem~\ref{Gauss-div}) to $\vec{J}$ is how conservation of charge gets written down: the charge inside $V$ can only decrease by flowing out through $S$,
+    \[\frac{d}{dt}\iiint_V\rho\, dV = - \oiint_S\vec{J}\cdot d\vec{A} = -\iiint_V \vec{\nabla}\cdot\vec{J}\,dV \quad\Longrightarrow\quad \frac{\partial\rho}{\partial t} = -\vec{\nabla}\cdot\vec{J}.\]
+\end{remark}
+
+
 \section{Magnetic Fields in Matter}
+
+
 \section{Electrodynamics}
+
 
 % ============================================================
 %  APPENDIX
@@ -659,15 +743,19 @@ The exponent in the fall-off counts how much charge a cone of field lines can ``
 \appendix
 \section{Appendix}
 \begin{remark}[Compactified dimensions]
-    %Add this to the appendix useless info for exam
-    Suppose an extra dimension exists but is curled up, the way a flat sheet with coordinates $(x,y)$ can be rolled into a cylinder whose second coordinate $w$ is periodic with a small radius. At distances much smaller than that radius, field lines spread out into all the dimensions and the field falls off faster than $1/r^2$. At distances much larger than it, there is only room to spread out in the large dimensions and the usual $1/r^2$ is recovered. So a measured deviation from the inverse square law at short range would be evidence for extra dimensions.
-
+    Suppose an extra dimension exists but is curled up, the way a flat sheet with coordinates $(x,y)$ can be rolled into a cylinder whose second coordinate $w$ is periodic with a small radius. At distances much smaller than that radius, field lines spread out into all the dimensions and the field falls off faster than $1/r^2$. At distances much larger than it, there is only room to spread out in the large dimensions and the usual $1/r^2$ is recovered. So a measured deviation from the inverse square law at short range would be evidence for extra dimensions.\par
     This has been tested for gravity by the E\"ot-Wash torsion balance experiments (2004, 2007, 2020), which checked the $1/r^2$ law down to separations of $52\,\mu$m. Newtonian gravity fit the data, ruling out gravitational strength Yukawa interactions with ranges above $38.6\,\mu$m at 95\% confidence.
 \end{remark}
+
+\subsection{Multipole Expansion with Legendre Polynomials}
+\label{app:legendre}
+Griffiths' form of the multipole expansion, with $\alpha$ the angle between $\vec{r}$ and $\vec{r}'$ and $P_n$ the Legendre polynomials:
+\[V(\vec{r}) = \frac{1}{4\pi\epsilon_0}\sum_{n=0}^{\infty}\frac{1}{r^{n+1}}\int(r')^nP_n(\cos\alpha)\rho(\vec{r}')\,d\tau'.\]
+$P_0 = 1$ gives the monopole, $P_1 = \cos\alpha$ the dipole (since $r'\cos\alpha = \vec{r}'\cdot\hat{r}$), and $P_2 = \frac{1}{2}(3\cos^2\alpha - 1)$ the quadrupole.
+
 
 % ============================================================
 %  Useful Links
 % ============================================================
 \section{Useful Links}
-
 \end{document}
