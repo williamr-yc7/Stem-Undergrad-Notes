@@ -31,27 +31,18 @@
     colorlinks=true,
 }
 \begin{document}
-% ============================================================
-%  Title page
-% ============================================================
 \title{PHYS 350: Honours Electricity and Magnetism}
 \author{W.R.YCH.}
 \date{August \(31^{st}\), 2026}
 \setcounter{Maxaffil}{0}
 \renewcommand\Affilfont{\itshape\small}
 \maketitle
-% ============================================================
-%  Abstract
-% ============================================================
 \noindent\rule{\textwidth}{0.4pt}
 \thispagestyle{empty}
 \begin{abstract}
 \end{abstract}
 \noindent\rule{\textwidth}{0.4pt}
 \clearpage
-% ============================================================
-%  Table of Contents
-% ============================================================
 \pagestyle{empty}
 {
   \hypersetup{linkcolor=black}
@@ -62,9 +53,6 @@
 \setcounter{page}{1}
 
 
-% ============================================================
-%  INTRODUCTION
-% ============================================================
 \section{Introduction}
 Textbook used is David J. Griffiths - Introduction to Electrodynamics Fifth Edition. Course grading is divided as follows:
 \begin{itemize}
@@ -337,7 +325,7 @@ The full list of second derivative identities:
 
 
 \section{Electrostatics}
-\marginpar{September 11-16, 2026}
+\marginpar{September 11-16 \& 21-25, 2026}
 
 \subsection{Electric Field}
 \begin{law}[Coulomb's law]
@@ -582,6 +570,66 @@ The exponent counts how much charge a cone of field lines can ``see'' as it grow
     \end{equation}
 \end{law}
 
+\subsection{Boundary Conditions}
+A surface charge $\sigma$ makes $\vec{E}$ jump as you cross it. Gauss' law fixes the jump in the perpendicular part, and $\oint\vec{E}\cdot d\vec{l} = 0$ fixes the parallel part.
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[scale=1, >=stealth]
+        \begin{scope}
+            \draw[thick, blue!60] (-3,0) node[left, black] {$\sigma$} -- (2.6,0);
+            \fill[orange!20] (-0.9,-0.35) rectangle (0.9,0.35);
+            \draw[thick, orange] (-0.9,-0.35) rectangle (0.9,0.35);
+            \node[orange!80!black] at (0,0.62) {cap $A$};
+            \draw[<->] (-1.2,-0.35) -- (-1.2,0.35) node[midway, left] {$\varepsilon$};
+            \draw[->, thick, red] (1.8,0.1) -- (1.8,1.2) node[above] {$E^{\perp}_{\text{above}}$};
+            \draw[->, thick, red] (1.8,-1.3) node[below] {$E^{\perp}_{\text{below}}$} -- (1.8,-0.1);
+        \end{scope}
+        \begin{scope}[xshift=6.5cm]
+            \draw[thick, blue!60] (-3,0) node[left, black] {$\sigma$} -- (2.8,0);
+            \draw[thick, orange] (-0.9,-0.35) rectangle (0.9,0.35);
+            \draw[->, thick, orange] (0.15,0.35) -- (-0.15,0.35);
+            \draw[->, thick, orange] (-0.15,-0.35) -- (0.15,-0.35);
+            \draw[<->] (-1.2,-0.35) -- (-1.2,0.35) node[midway, left] {$\varepsilon$};
+            \draw[<->] (-0.9,-0.8) -- (0.9,-0.8) node[midway, below] {$l$};
+            \draw[->, thick, red] (1.3,0.6) -- (2.5,0.6) node[above] {$E^{\parallel}_{\text{above}}$};
+            \draw[->, thick, red] (1.3,-0.6) -- (2.5,-0.6) node[below] {$E^{\parallel}_{\text{below}}$};
+        \end{scope}
+    \end{tikzpicture}
+    \caption{Side views of a charged surface. Left: a pillbox of cap area $A$ and thickness $\varepsilon$ gives the normal condition. Right: a thin rectangular loop of length $l$ gives the tangential condition.}
+\end{figure}
+\begin{proposition}[Normal component]
+    Take a pillbox of cap area $A$ straddling the surface and shrink its thickness $\varepsilon \to 0$, so the side wall carries no flux. Only the caps count, and the charge inside is $\sigma A$:
+    \[E^{\perp}_{\text{above}}A - E^{\perp}_{\text{below}}A = \frac{\sigma A}{\epsilon_0} \quad\Longrightarrow\quad E^{\perp}_{\text{above}} - E^{\perp}_{\text{below}} = \frac{\sigma}{\epsilon_0}.\]
+\end{proposition}
+\begin{proposition}[Tangential component]
+    Take a thin rectangular loop of length $l$ straddling the surface, again with $\varepsilon \to 0$ so the short sides contribute nothing. Since $\oint\vec{E}\cdot d\vec{l} = 0$,
+    \[E^{\parallel}_{\text{above}}\,l - E^{\parallel}_{\text{below}}\,l = 0 \quad\Longrightarrow\quad \vec{E}^{\parallel}_{\text{above}} = \vec{E}^{\parallel}_{\text{below}}.\]
+\end{proposition}
+\begin{theorem}[Boundary condition on $\vec{E}$]
+    \label{BC-E}
+    With $\hat{n}$ the unit normal pointing from below to above, the two results combine into
+    \begin{equation}
+        \vec{E}_{\text{above}} - \vec{E}_{\text{below}} = \frac{\sigma}{\epsilon_0}\hat{n}.
+    \end{equation}
+    The normal component jumps by $\sigma/\epsilon_0$; the tangential component is continuous.
+\end{theorem}
+\begin{remark}
+    Check with the infinite plane: $\vec{E} = +\frac{\sigma}{2\epsilon_0}\hat{n}$ above and $-\frac{\sigma}{2\epsilon_0}\hat{n}$ below, a jump of exactly $\sigma/\epsilon_0$.
+\end{remark}
+\begin{theorem}[Boundary conditions on $V$]
+    The potential is continuous across the surface,
+    \begin{equation}
+        V_{\text{above}} = V_{\text{below}},
+    \end{equation}
+    because $V_{\text{above}} - V_{\text{below}} = -\int_{\vec{a}}^{\vec{b}}\vec{E}\cdot d\vec{l}$ along a path straight through the surface, and as the path shrinks to zero length the integral vanishes ($\vec{E}$ stays finite). Its slope is not continuous: substituting $\vec{E} = -\vec{\nabla}V$ into Theorem~\ref{BC-E} gives $\vec{\nabla}V_{\text{above}} - \vec{\nabla}V_{\text{below}} = -\frac{\sigma}{\epsilon_0}\hat{n}$, or with the normal derivative $\frac{\partial V}{\partial n} \equiv \vec{\nabla}V\cdot\hat{n}$,
+    \begin{equation}
+        \frac{\partial V_{\text{above}}}{\partial n} - \frac{\partial V_{\text{below}}}{\partial n} = -\frac{\sigma}{\epsilon_0}.
+    \end{equation}
+\end{theorem}
+\begin{remark}
+    So $V$ has a kink at a charged surface, like $|x|$ at $x = 0$: continuous, but its slope changes abruptly. $\vec{E}$, being the slope, jumps.
+\end{remark}
+
 \subsection{Work and Energy in Electrostatics}
 \begin{proposition}[Potential of a test charge]
     Bringing $Q$ in from infinity against the field takes
@@ -628,9 +676,196 @@ The exponent counts how much charge a cone of field lines can ``see'' as it grow
     The two formulas do not always agree. The pair sum only counts the work of bringing different charges together ($i \neq j$); it ignores the work needed to build each point charge itself. The field integral counts everything, including that self-energy. So $\frac{\epsilon_0}{2}\int E^2\,d\tau$ is always positive (since $E^2 \geq 0$), while the pair sum can be negative, e.g.\ $+q$ and $-q$ at distance $d$ give $U = -\frac{q^2}{4\pi\epsilon_0 d}$. For a true point charge the self-energy is infinite: near it $E^2 \sim 1/r^4$, and $\int \frac{1}{r^4}\,r^2\,dr$ blows up at $r = 0$. So use the pair sum for point charges and the field integral for continuous distributions.
 \end{remark}
 
+\subsection{Conductors}
+\begin{definition}[Conductor]
+    A conductor is a material with charges that are free to move (in a metal, the electrons). Placed in an external field, the free charges drift: negative ones pile up on one side and positive ones on the other, until the field they create, $\vec{E}_{\text{int}}$, exactly cancels $\vec{E}_{\text{ext}}$ inside. This happens almost instantly, and the result is electrostatic equilibrium.
+\end{definition}
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[>=stealth]
+        \foreach \y in {0.5,1.5,2.5}{
+            \draw[->, thick, red] (-1.6,\y) -- (0,\y);
+            \draw[->, thick, red] (3,\y) -- (4.6,\y);
+        }
+        \node[red, above] at (-0.8,2.5) {$\vec{E}_{\text{ext}}$};
+        \fill[gray!20] (0,0) rectangle (3,3);
+        \draw[thick] (0,0) rectangle (3,3);
+        \foreach \y in {0.5,1.5,2.5}{
+            \node[blue] at (0.25,\y) {$-$};
+            \node[red] at (2.75,\y) {$+$};
+        }
+        \draw[->, thick, violet] (2.2,1) -- (0.8,1);
+        \node[violet, below] at (1.5,1) {$\vec{E}_{\text{int}}$};
+        \node at (1.5,2) {$\vec{E} = 0$};
+    \end{tikzpicture}
+    \caption{A conductor in an external field. The induced charges create $\vec{E}_{\text{int}}$, which cancels $\vec{E}_{\text{ext}}$ inside the metal. Outside, field lines end on the $-$ charges and start again from the $+$ charges.}
+\end{figure}
+\begin{proposition}[Properties of a conductor in equilibrium]
+    \begin{enumerate}[label=(\roman*)]
+        \item $\vec{E} = 0$ inside, otherwise the free charges would still be moving.
+        \item $\rho = 0$ inside, since $\rho = \epsilon_0\vec{\nabla}\cdot\vec{E} = 0$.
+        \item Any net charge therefore sits on the surface.
+        \item The conductor is an equipotential: for any two points in it, $V(\vec{b}) - V(\vec{a}) = -\int_{\vec{a}}^{\vec{b}}\vec{E}\cdot d\vec{l} = 0$.
+        \item Just outside, $\vec{E}$ is perpendicular to the surface. A tangential part would push the surface charges along the surface, so they would not be in equilibrium.
+    \end{enumerate}
+\end{proposition}
+\begin{proposition}[Field at the surface of a conductor]
+    Theorem~\ref{BC-E} with $\vec{E}_{\text{below}} = 0$ (inside the metal) gives, just outside,
+    \begin{equation}
+        \vec{E} = \frac{\sigma}{\epsilon_0}\hat{n},
+    \end{equation}
+    or in terms of the potential, $\frac{\partial V}{\partial n} = -\frac{\sigma}{\epsilon_0}$. Where $\sigma$ is large, the field outside is strong.
+\end{proposition}
+\begin{remark}
+    Compare the infinite sheet, $E = \sigma/2\epsilon_0$. A sheet sends half its flux up and half down; a conductor has no field inside, so all the flux goes out one side and the field is doubled.
+\end{remark}
+\begin{example}[Neutral conductor near a charged rod]
+    A neutral metal block sits near an insulating rod with uniform positive charge. Negative charge is induced on the side facing the rod and an equal positive charge on the far side. The negative charges are closer, and Coulomb's force falls off with distance, so the attraction beats the repulsion: the neutral conductor is pulled toward the rod.
+\end{example}
+\begin{example}[Conducting versus insulating disk]
+    For a disk with uniform $\sigma$ (an insulator), the disk is not an equipotential and the field lines are not perpendicular to it. That arrangement cannot last on a conductor: the field along the surface pushes charge outward, i.e.\ ``downhill'' in potential, and it piles up at the rim. So a charged conducting disk has a higher $\sigma$ near its edge than near its centre, its surface is an equipotential, and its field lines leave it at right angles.
+\end{example}
+\begin{remark}
+    In general, charge on a conductor concentrates where the surface is most sharply curved (edges, corners, points). Since $E = \sigma/\epsilon_0$ there, the field is strongest at sharp points, which is how lightning rods work.
+\end{remark}
+\begin{remark}[Cavities]
+    If a conductor has an empty cavity, the field inside the cavity is zero: its wall is an equipotential, and a solution of Laplace's equation with constant boundary values is constant (no maxima or minima, see the Laplace's equation section). This is a Faraday cage. If a charge $q$ sits in the cavity, it induces $-q$ on the cavity wall and $+q$ on the outer surface (for a neutral conductor), and the outside cannot tell how the charge inside is arranged.
+\end{remark}
+\begin{example}[Concentric conducting shells]
+    A metal sphere of radius $R$ with charge $q$ sits inside a thick neutral metal shell of inner radius $a$ and outer radius $b$.
+    \begin{enumerate}[label=(\roman*)]
+        \item A Gaussian sphere inside the shell's metal ($a < r < b$) has $\vec{E} = 0$ on it, so it encloses zero charge: the inner surface carries $-q$. The shell is neutral, so the outer surface carries $+q$. By symmetry each is uniform:
+        \[\sigma_R = \frac{q}{4\pi R^2}, \qquad \sigma_a = -\frac{q}{4\pi a^2}, \qquad \sigma_b = \frac{q}{4\pi b^2}.\]
+        \item The field is $\frac{q}{4\pi\epsilon_0 r^2}\hat{r}$ for $r > b$ and $R < r < a$, and zero in both metals. Integrating in from infinity,
+        \[V(0) = -\int_\infty^b\frac{q\,dr}{4\pi\epsilon_0 r^2} - \int_a^R\frac{q\,dr}{4\pi\epsilon_0 r^2} = \frac{q}{4\pi\epsilon_0}\left(\frac{1}{b} + \frac{1}{R} - \frac{1}{a}\right).\]
+        \item Grounding the outer surface sets $V(b) = 0 = V(\infty)$, so there can be no field outside and $\sigma_b = 0$. The Gauss argument in (i) is unchanged, so $\sigma_R$ and $\sigma_a$ stay the same, and the first integral in (ii) disappears: $V(0) = \frac{q}{4\pi\epsilon_0}\left(\frac{1}{R} - \frac{1}{a}\right)$.
+        \item The outer surface now has zero charge; the $+q$ flowed away to the ground, leaving the shell with net charge $-q$. If the outer surface kept a charge $Q'$, the total charge inside a sphere just outside $b$ would be $Q'$, giving $V(b) = \frac{Q'}{4\pi\epsilon_0 b} \neq 0$.
+    \end{enumerate}
+\end{example}
+\begin{example}[Two cavities in a conductor]
+    A neutral conducting sphere of radius $R$ has two spherical cavities, of radii $a$ and $b$, with point charges $q_a$ and $q_b$ at their centres.
+    \begin{enumerate}[label=(\roman*)]
+        \item Each cavity wall carries minus the charge inside it, spread uniformly since the charge is at the centre, and the outer surface carries the rest. The metal shields the outer surface from the cavities, so its charge spreads uniformly as on an isolated sphere:
+        \[\sigma_a = -\frac{q_a}{4\pi a^2}, \qquad \sigma_b = -\frac{q_b}{4\pi b^2}, \qquad \sigma_R = \frac{q_a + q_b}{4\pi R^2}.\]
+        \item Outside, $\vec{E} = \frac{1}{4\pi\epsilon_0}\frac{q_a + q_b}{r^2}\hat{r}$, with $r$ measured from the centre of the big sphere.
+        \item Inside cavity $a$, $\vec{E} = \frac{1}{4\pi\epsilon_0}\frac{q_a}{r_a^2}\hat{r}_a$, with $\vec{r}_a$ measured from the centre of the cavity; the same holds for cavity $b$.
+        \item The force on $q_a$ and $q_b$ is zero. Apart from its own field, $q_a$ only feels the uniform shell of charge on its cavity wall, which produces no field inside it; everything beyond the wall is shielded by the metal.
+        \item Bringing $q_c$ near the outside changes $\sigma_R$ (it is no longer uniform) and the field outside, but nothing inside: $\sigma_a$, $\sigma_b$, the cavity fields and the forces on $q_a$ and $q_b$ stay the same. The conductor shields in both directions.
+    \end{enumerate}
+\end{example}
+
 
 \section{Potentials}
-\marginpar{September 18-,2026}
+\marginpar{September 18-25, 2026}
+
+\subsection{Laplace's Equation}
+We want $V$ because $\vec{E} = -\vec{\nabla}V$. The integral $V = \frac{1}{4\pi\epsilon_0}\int\frac{\rho}{\mathfrak{r}}\,d\tau'$ is exact but often impossible to do, and the multipole expansion is only an approximation. Often we do not even know $\rho$ everywhere: we know the potentials of some conductors instead, and the charge on them is whatever it has to be. In the empty space between the charges, Poisson's equation simplifies.
+\begin{law}[Laplace's equation]
+    In a region with no charge,
+    \begin{equation}
+        \nabla^2 V = \frac{\partial^2 V}{\partial x^2} + \frac{\partial^2 V}{\partial y^2} + \frac{\partial^2 V}{\partial z^2} = 0.
+    \end{equation}
+\end{law}
+\begin{remark}
+    Point charges, charged objects and conductors are where $\nabla^2 V = -\rho/\epsilon_0$ holds with $\rho \neq 0$. Everywhere else $\nabla^2 V = 0$, and the charges only enter as boundary conditions on that empty region.
+\end{remark}
+\begin{remark}[The Laplacian compares a point with its surroundings]
+    In one dimension, $V'' = 0$ gives a straight line, $V = mx + b$, and then $V(x) = \frac{1}{2}\left[V(x+a) + V(x-a)\right]$: every point is the average of its neighbours. In general $\nabla^2 V$ measures how far a point sits from the average of its surroundings, and since $\nabla^2 V = -\rho/\epsilon_0$, that tells you the sign of the charge there.
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}[scale=1.1, >=stealth]
+            \begin{scope}
+                \draw[dashed, gray] (0,1) -- (2,1);
+                \draw[thick, blue] (0,1) parabola bend (1,0.3) (2,1);
+                \draw[red, thick] (1,1) -- (1,0.3);
+                \draw[red, thick] (1,1) circle (2.5pt);
+                \foreach \p in {(0,1),(2,1),(1,0.3)} \fill[blue] \p circle (2pt);
+                \node[align=center] at (1,-0.5) {below the average\\$\nabla^2 V > 0$, so $\rho < 0$};
+            \end{scope}
+            \begin{scope}[xshift=3.5cm]
+                \draw[thick, blue] (0,0.3) -- (2,1.3);
+                \draw[green!50!black, thick] (1,0.8) circle (3.5pt);
+                \foreach \p in {(0,0.3),(2,1.3),(1,0.8)} \fill[blue] \p circle (2pt);
+                \node[align=center] at (1,-0.5) {equal to the average\\$\nabla^2 V = 0$, no charge};
+            \end{scope}
+            \begin{scope}[xshift=7cm]
+                \draw[dashed, gray] (0,0.3) -- (2,0.3);
+                \draw[thick, blue] (0,0.3) parabola bend (1,1) (2,0.3);
+                \draw[red, thick] (1,1) -- (1,0.3);
+                \draw[red, thick] (1,0.3) circle (2.5pt);
+                \foreach \p in {(0,0.3),(2,0.3),(1,1)} \fill[blue] \p circle (2pt);
+                \node[align=center] at (1,-0.5) {above the average\\$\nabla^2 V < 0$, so $\rho > 0$};
+            \end{scope}
+        \end{tikzpicture}
+        \caption{The middle point compared with the average of its two neighbours (open circle).}
+    \end{figure}
+\end{remark}
+\begin{theorem}[Mean value property]
+    If $\nabla^2 V = 0$, the value of $V$ at any point equals its average over any sphere of radius $R$ centred on that point (containing no charge):
+    \begin{equation}
+        V(\vec{r}_0) = \frac{1}{4\pi R^2}\oint_{\text{sphere}} V\,da.
+    \end{equation}
+\end{theorem}
+\begin{corollary}[No local maxima or minima]
+    A solution of Laplace's equation has no local maxima or minima inside the region; extreme values occur only on the boundary. A maximum would be larger than every point around it, so it could not equal their average.
+\end{corollary}
+\begin{theorem}[Earnshaw's theorem]
+    A charged particle cannot be held in stable equilibrium by electrostatic forces alone.
+\end{theorem}
+\begin{proof}
+    Stable equilibrium for a charge $q$ needs its potential energy $qV$ to have a local minimum at that point. But the other charges' $V$ obeys Laplace's equation there, so it has no local minimum. Concretely, if $\frac{\partial^2 V}{\partial x^2} > 0$ (stable along $x$), then $\frac{\partial^2 V}{\partial y^2} + \frac{\partial^2 V}{\partial z^2} < 0$, so the charge escapes sideways. For example, a charge between two equal charges is stable along the line joining them but slips out perpendicular to it.
+\end{proof}
+\begin{theorem}[Uniqueness theorem]
+    The solution of Laplace's equation in a volume is uniquely determined if $V$ is specified on the whole boundary of that volume. Similarly, if the region contains conductors, $\vec{E}$ is uniquely determined once the charge density $\rho$ and the total charge on each conductor are given.
+\end{theorem}
+\begin{remark}
+    The significance: any function that satisfies Laplace's equation and the boundary conditions is \emph{the} answer, no matter how it was found. Guessing is allowed, which is what the method of images exploits.
+\end{remark}
+\begin{proposition}[Method of relaxation]
+    On a grid, the mean value property says each cell equals the average of its neighbours. In two dimensions,
+    \[V_{i,j} = \frac{1}{4}\left(V_{i+1,j} + V_{i-1,j} + V_{i,j+1} + V_{i,j-1}\right).\]
+    This gives a numerical method:
+    \begin{enumerate}
+        \item Initialize the grid with a guess for $V$.
+        \item Sweep through the grid, replacing each value by the average of its nearest neighbours, keeping the boundary values fixed.
+        \item Repeat until the values stop changing.
+    \end{enumerate}
+\end{proposition}
+
+\subsection{The Method of Images}
+\begin{remark}[A solution in search of a problem]
+    Maxwell pointed out that the inverse problem is easier: given a potential, finding conductors that fit it is simpler than finding the potential for given conductors. Any equipotential surface of a known potential can be replaced by a conductor held at that potential, and by uniqueness the field outside it does not change.
+\end{remark}
+\begin{example}[Point charge above a grounded plane]
+    A charge $q$ sits at height $d$ above an infinite grounded conducting plane at $z = 0$. For $z > 0$ we need $\nabla^2 V = 0$ (apart from at $q$), $V = 0$ on the plane, and $V \to 0$ far away. Forget the plane and put an image charge $-q$ at $z = -d$ instead. Every point of the plane is equidistant from the two charges, so this pair gives $V = 0$ there, and it has the same charge in the region $z > 0$. By uniqueness it is the answer for $z \geq 0$:
+    \[V(x,y,z) = \frac{1}{4\pi\epsilon_0}\left[\frac{q}{\sqrt{x^2 + y^2 + (z-d)^2}} - \frac{q}{\sqrt{x^2 + y^2 + (z+d)^2}}\right].\]
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}[>=stealth]
+            \fill[gray!20] (-2,-1.6) rectangle (2,0);
+            \draw[thick] (-2,0) -- (2,0);
+            \node at (0,-0.8) {grounded conductor};
+            \fill (0,1.2) circle (2pt) node[right] {$+q$};
+            \draw[<->] (-0.4,0) -- (-0.4,1.2) node[midway, left] {$d$};
+            \draw[<->, thick] (2.3,0.3) -- (3.2,0.3);
+            \node[align=center] at (2.75,0.85) {\small same $V$\\\small for $z>0$};
+            \begin{scope}[xshift=5.5cm]
+                \draw[dashed] (-2,0) -- (2,0) node[right] {$V = 0$};
+                \fill (0,1.2) circle (2pt) node[right] {$+q$};
+                \fill[red] (0,-1.2) circle (2pt) node[right] {$-q$ (image)};
+                \draw[<->] (-0.4,0) -- (-0.4,1.2) node[midway, left] {$d$};
+                \draw[<->] (-0.4,-1.2) -- (-0.4,0) node[midway, left] {$d$};
+            \end{scope}
+        \end{tikzpicture}
+        \caption{The real problem (left) and the image problem (right) have the same charge and the same boundary values in $z > 0$, so they have the same potential there.}
+    \end{figure}
+\end{example}
+\begin{remark}
+    The image charge is not real; it is bookkeeping. Physically, the field comes from the negative surface charge induced on the plane, and the image reproduces its effect in the region we care about. The formula says nothing about $z < 0$, where $V = 0$ inside the conductor.
+\end{remark}
+\begin{example}[Two charges above a grounded plane]
+    Charges $+Q$ at height $d$ and $+3Q$ at height $2d$ sit above a grounded plane. Each charge on its own is handled by one image, so by superposition we need two: $-Q$ at $-d$ and $-3Q$ at $-2d$. The method works whenever the problem is linear (superposition) and the boundary values come out right (uniqueness).
+\end{example}
 
 \subsection{Multipole Expansion}
 \begin{example}[Two charges on the $z$ axis]
@@ -737,9 +972,6 @@ The exponent counts how much charge a cone of field lines can ``see'' as it grow
 \section{Electrodynamics}
 
 
-% ============================================================
-%  APPENDIX
-% ============================================================
 \appendix
 \section{Appendix}
 \begin{remark}[Compactified dimensions]
@@ -754,8 +986,9 @@ Griffiths' form of the multipole expansion, with $\alpha$ the angle between $\ve
 $P_0 = 1$ gives the monopole, $P_1 = \cos\alpha$ the dipole (since $r'\cos\alpha = \vec{r}'\cdot\hat{r}$), and $P_2 = \frac{1}{2}(3\cos^2\alpha - 1)$ the quadrupole.
 
 
-% ============================================================
-%  Useful Links
-% ============================================================
 \section{Useful Links}
+\begin{itemize}
+    \item Laplace relaxation demo:\\ \url{https://claude.ai/artifact/J2wPx8V3ajec8vDLsARnKX}
+    \item Electrostatics simulation:\\ \url{https://icphysweb.z13.web.core.windows.net/simulation.html}
+\end{itemize}
 \end{document}
