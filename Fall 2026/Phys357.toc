@@ -52,6 +52,7 @@
 \contentsline {subsection}{\numberline {6.2}The transformation matrix}{20}{subsection.6.2}%
 \contentsline {subsection}{\numberline {6.3}Eigenstates and eigenvalues}{21}{subsection.6.3}%
 \contentsline {subsection}{\numberline {6.4}Operators in another basis}{21}{subsection.6.4}%
+\contentsline {section}{\numberline {7}Misc}{22}{section.7}%
 \contentsline {section}{\numberline {A}Appendix}{22}{appendix.A}%
 \contentsline {section}{\numberline {B}Solutions}{22}{appendix.B}%
-\contentsline {section}{\numberline {C}Useful Links}{24}{appendix.C}%
+\contentsline {section}{\numberline {C}Useful Links}{25}{appendix.C}%

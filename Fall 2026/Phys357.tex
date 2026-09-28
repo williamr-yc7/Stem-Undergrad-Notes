@@ -977,6 +977,13 @@ Let $\ket{j} = \ket{a_j}$ be the eigenbasis of $\hat{A}$, so $\hat{A} \xrightarr
 \end{problem}
 
 
+\section{Misc}
+\marginpar{September 28, 2026}
+General Rotations
+Divide rotation into $N>>1$ steps $\delta\theta = \frac{\theta}{N}$. $R(\theta_R\hat{z})R(\theta,\hat{z}) = R((\theta_1+\theta_2)\hat{z}) \implies R(\theta\hat{z}) = [R(\theta/N \hat{z})]^N$. $R(x)=\id + \underset{operator}{\frac{dR(x)}{dx}|_{x=0}x} + \theta(x^2)$, $R(\theta/N \hat{z})=\id - i \frac{J_z}{\hbar}\frac{\theta}{N}+\theta(\frac{1}{N^2})$, $\lim_{N\to\infty}(\id-i\frac{J_z}{\hbar}\frac{\theta}{N}+\theta(1/N^2))^N = e^{-i\frac{J_z\theta}{\hbar}}$, $J_z\to$ Generator of rotations! $[J_z] = [\hbar] = $angular momentum $[\vec{L}] = [\vec{r}\times\vec{p}] = [\vec{J}]$. Spin-1/2: $J_z = S_z.$ $R(\theta\hat{z}) = e^{-iS_z\theta/\hbar}$, $R(\theta\hat{z})\ket{\psi} = \ket{\psi'}$, $\bra{\psi'}\ket{\psi'} = \bra{\psi}|R^+(\theta\hat{z})R(\theta\hat{z})\ket{\psi} = \bra{\psi}e^{+iS_z^+\theta/\hbar}e^{-iS_z\theta/\hbar}\ket{\psi} = 1$. This implies that $S_z^+ = S_z$, which is ok if $S_zS_z^+ = S_z^+S_z \implies S_zS_z^+ - S_z^+S_z = 0 \implies \underset{commutator}{[S_z,S_z^+]} = 0$. $S_z$ Hermitian $S_z = S_z^+$! ``observables'' A all hermitian. $A=A^+$, $A\ket{a} = a\ket{a}$, $\bra{a}A^+=\bra{a}a* \implies a=a*$ if $A=A^+$. End of chapter 2.
+Chapter 3:
+$R(\theta\hat{x})= R_x, R(\theta\hat{y}) = R_y$. $R_xR_y \neq R_yR_x$, imagine having a textbook with a spin rotate it 90 deg using right hand rule first x then y and repeat with y then x you will see that the spine is not pointing in the same direction at the end. $R_x = e^{-i\theta J_x/\hbar}, R_y = e^{-i\theta J_y/\hbar}$, $[J_x,J_y] = i\hbar J_z, [J_y,J_z] = i\hbar J_x, [J_z,J_x] = i\hbar J_y$. $\vec{J}\times\vec{J} = i\hbar\vec{J},$ where $\vec{J} = J_x\hat{x}+J_y\hat{y}+J_z\hat{z}$
+
 \appendix
 \section{Appendix}
 
