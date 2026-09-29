@@ -728,6 +728,11 @@ Inserting $\id = \sum_\alpha\ket{\alpha}\bra{\alpha}$ into each $\ket{j}$ amplit
     \end{equation}
     It is real and symmetric, so $U^\dagger = U$. The matrix taking the $S_y$ basis to $S_z$ has columns $\frac{1}{\sqrt{2}}(1, \pm i)^T$.
 \end{example}
+\begin{remark}[Lecture notation]
+    Bill calls this matrix $R\left(\tfrac{\pi}{2}\hat{y}\right)$ and writes
+    \[\psi^z = R\left(\tfrac{\pi}{2}\hat{y}\right)\psi^x, \qquad \psi^x = R^\dagger\left(\tfrac{\pi}{2}\hat{y}\right)\psi^z,\]
+    because rotating by $90^\circ$ about $\hat{y}$ takes $\ket{\pm\hat{z}}$ to $\ket{\pm\hat{x}}$. It agrees with the true rotation matrix up to the phase of one basis ket (see the phase caveat in Section~\ref{sec:any-axis}).
+\end{remark}
 \begin{problem}[Expectation value from the $S_x$ basis]
     For $\ket{\psi} = \frac{1}{\sqrt{3}}\ket{+\hat{x}} + i\sqrt{\frac{2}{3}}\ket{-\hat{x}}$, find $\braket{S_z} = \psi^{z\dagger}\hat{S}_z\psi^z$ using matrix mechanics.
 \end{problem}
@@ -884,7 +889,10 @@ Taylor expanding one small step about the identity and naming the first-order op
     and Euler's formula gives $2\cos\frac{\phi}{2}$ and $-2i\sin\frac{\phi}{2}$.
 \end{proof}
 \begin{remark}
-    This is the same matrix as $R(\phi\hat{z})$ in the $S_x$ basis.
+    This is the same matrix as $R(\phi\hat{z})$ in the $S_x$ basis. It is also the same as $R(\phi\hat{z})$ in the $S_y$ basis (PS2 Q8): with $\ket{\pm\hat{y}} = \frac{1}{\sqrt{2}}\left(\ket{+\hat{z}} \pm i\ket{-\hat{z}}\right)$,
+    \[\bra{\pm\hat{y}}R(\phi\hat{z})\ket{\pm\hat{y}} = \cos\frac{\phi}{2}, \qquad \bra{\pm\hat{y}}R(\phi\hat{z})\ket{\mp\hat{y}} = -i\sin\frac{\phi}{2},\]
+    so in both bases
+    \[R(\phi\hat{z}) \longrightarrow \begin{pmatrix} \cos\frac{\phi}{2} & -i\sin\frac{\phi}{2} \\ -i\sin\frac{\phi}{2} & \cos\frac{\phi}{2} \end{pmatrix}.\]
 \end{remark}
 \begin{proposition}[$R(\phi\hat{y})$ in the $S_z$ basis]
     \begin{equation}
