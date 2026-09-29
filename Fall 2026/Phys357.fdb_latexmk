@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1790605490.59414 "c:/Users/erenr/Documents/McGill/Latex Notes/Fall 2026/Phys357.tex" "Phys357.pdf" "Phys357" 1790605497.70865 0
+["pdflatex"] 1790717439.87551 "c:/Users/erenr/Documents/McGill/Latex Notes/Fall 2026/Phys357.tex" "Phys357.pdf" "Phys357" 1790717446.68635 0
   "../Images/Stern-Gerlach_apparatus.png" 1788906536 26824 57c4d3ea9550f8354c3e416ebc680541 ""
   "C:/Users/erenr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1790466715 82666 6ae954049cbd801ff08c004e318ae5a8 ""
   "C:/Users/erenr/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk" 1767801684 11548 9ea6db1ff0b947846d8751dabcdcf90a ""
@@ -62,7 +62,6 @@
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb" 1247596667 37944 359e864bd06cde3b1cf57bb20757fb06 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb" 1247596667 31099 342ef5a582aacbd3346f3cf4579679fa ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1247596673 34694 870c211f62cb72718a00e353f14f254d ""
-  "C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm5.pfb" 1247596673 35457 884c5a936fbb3fae6a4c18058662d654 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb" 1247596673 35309 940e81a5b9e04201a07e8b33a3ae6e64 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/doublestroke/dsrom10.pfb" 1030470372 17014 61891910dfe21ad76f9789fdafdd860e ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/context/base/mkii/supp-pdf.mkii" 1580390158 71627 94eb9990bed73c364d7f53f960cc8c5b ""
@@ -248,11 +247,11 @@
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/tools/indentfirst.sty" 1761901070 1618 30b01152766afcef2ed8f904cfdd3cc6 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/erenr/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
-  "Phys357.aux" 1790605496 8948 5251145be12e014572b8dccceee9b639 "pdflatex"
-  "Phys357.out" 1790605496 10635 a80cda2846d49a5a11a78e2908aaf446 "pdflatex"
-  "Phys357.tex" 1790605487 68793 0214341168cfeb388daa602cd13b9084 ""
-  "Phys357.toc" 1790605496 5498 03745113031475f7872068d69bf38997 "pdflatex"
-  "c:/Users/erenr/Documents/McGill/Latex Notes/Fall 2026/Phys357.tex" 1790605487 68793 0214341168cfeb388daa602cd13b9084 ""
+  "Phys357.aux" 1790717445 10077 59a66c19daee5d40beb959c13f1b6434 "pdflatex"
+  "Phys357.out" 1790717445 11635 1786304b54aaf50e379debfe2dfb1454 "pdflatex"
+  "Phys357.tex" 1790717431 83103 d8892ba514404ecef562b640ab6fc863 ""
+  "Phys357.toc" 1790717445 6134 3e974d4042e55f86a469f8c934018c9b "pdflatex"
+  "c:/Users/erenr/Documents/McGill/Latex Notes/Fall 2026/Phys357.tex" 1790717431 83103 d8892ba514404ecef562b640ab6fc863 ""
   (generated)
   "Phys357.aux"
   "Phys357.log"

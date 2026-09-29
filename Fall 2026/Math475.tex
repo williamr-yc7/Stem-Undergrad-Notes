@@ -959,6 +959,24 @@ Nuild distribution $F_f$ from integrable function $f'$. Given $f$, define $F_f$ 
 \end{example}
 
 Derivative of a distribution, given F distribution. Define, another one, F' by $<F',\phi>=-<F,\phi'>$. NOte if $F=F_f$ fore some $f$, then $F'=F_{f'}$ when $f'$ exists 
+
+\marginpar{September 28, 2026}
+Review: Integration by parts: $\int_{a}^{b}(f\phi)'dx = \int_{a}^{b}f'\phi dx +\int_{a}^{b}f\phi'dx$, $\int_{a}^{b}f'\phi dx = -\int_{a}^{b}f\phi' dx + f\phi |_a^b$.
+
+Case: $\phi(a)=\phi(b)=0$, $\int_{a}^{b}f\phi dx = -\int_{a}^{b}f\phi'dx$. Recall: f integrande fn. $F_f$ distribution define by $<F_f,\phi> = \int_{-\infty}^{\infty}f(x)\phi(x)dx = \int_{-L}^{L}f(x)\phi(x)dx$.
+
+Definition: F distributions define $F'$ by $<F',\phi>=-<F,\phi'>$ suppose function f differentiable $f'$: $<F_{f'},\phi> = \int_{-\infty}^{\infty}f'(x)\phi(x)dx$. $<F_{f'},\phi> = -<F_f,\phi>=-\int_{-\infty}^{\infty}f(x)\phi'(x)dx \overset{int by parts}{=} +\int_{-\infty}^{\infty}f'(x)\phi(x)dx$. For any function $<F_H,\phi> = \int_{-\infty}^{\infty}H(x)\phi(x)dx$.
+
+Distributions
+$f(x)=|x|, sgn(x) = \begin{cases}-1, x<0\\0, x=0\\1,x>0\end{cases}, H(x) = \begin{cases}+1, x\geq 0\\ 0 x<0\end{cases}$, $F_{|x|}' = F_{sgn}$, $F_H' = \delta_0, <\delta_0,\phi> = \phi(s)$.
+
+Quiz Hint:
+Show from definiiton $H'(x) = \delta_0$ as distributions.
+
+Example:
+$f(x) = \begin{cases}2x+3, x<0\\x^2, x\geq 0\end{cases}$ $=g(x) - 3H(x)$, $g(x) = \begin{cases}2x+3, x<0\\x^2+3, x\geq 0\end{cases}$, $F_g' = F_{g'}$, $(-3H(x))' = -3 H' = -3\delta_0$, $F_{f}' = F_{g'}-3\delta_0$, where g continuous and piecewise differentiable
+
+Check example 5.4.3 in file distribution B
 \appendix
 \section{Appendix}
 
