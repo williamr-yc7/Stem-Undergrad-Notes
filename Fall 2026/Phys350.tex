@@ -125,6 +125,14 @@ Textbook used is David J. Griffiths - Introduction to Electrodynamics Fifth Edit
 \begin{remark}
     Divergence and curl are themselves fields: they can vanish in some places and not others, and a general field has both.
 \end{remark}
+\begin{example}
+    Judging by eye, then checking:
+    \begin{itemize}
+        \item $\vec{v} = \hat{x}$: nothing spreads, nothing twists, so $\vec{\nabla}\cdot\vec{v} = 0$ and $\vec{\nabla}\times\vec{v} = 0$.
+        \item $\vec{v} = -y\hat{x} + x\hat{y}$: pure rotation, so $\vec{\nabla}\cdot\vec{v} = 0$ and $\vec{\nabla}\times\vec{v} = 2\hat{z}$.
+        \item $\vec{v} = (y+c)\hat{y}$: arrows grow along the direction they point, so $\vec{\nabla}\cdot\vec{v} = 1$ and $\vec{\nabla}\times\vec{v} = 0$.
+    \end{itemize}
+\end{example}
 
 \subsection{Integral Calculus}
 \begin{definition}[Integral]
@@ -201,6 +209,23 @@ Integrating a derivative over a region reduces to evaluating the original object
     \end{equation}
     To find the total flux leaking out through the surface, I can add up all the sources inside. Flux between neighbouring cells cancels, leaving only the outer surface.
 \end{theorem}
+
+\subsection{Spherical Coordinates}
+\begin{definition}[Spherical coordinates]
+    $r$ is the distance from the origin, $\theta\in[0,\pi]$ the angle down from the $+z$ axis, and $\phi\in[0,2\pi)$ the angle around it. The unit vectors $\hat{r},\hat{\theta},\hat{\phi}$ change direction from point to point, so they cannot be pulled out of an integral; convert to $\hat{x},\hat{y},\hat{z}$ first. The elements are
+    \[d\vec{l} = dr\,\hat{r} + r\,d\theta\,\hat{\theta} + r\sin\theta\,d\phi\,\hat{\phi}, \qquad d\tau = r^2\sin\theta\,dr\,d\theta\,d\phi, \qquad d\vec{a}_{\text{sphere}} = R^2\sin\theta\,d\theta\,d\phi\,\hat{r}.\]
+\end{definition}
+\begin{proposition}[Derivatives in spherical coordinates]
+    \begin{align*}
+        \vec{\nabla}f &= \frac{\partial f}{\partial r}\hat{r} + \frac{1}{r}\frac{\partial f}{\partial \theta}\hat{\theta} + \frac{1}{r\sin\theta}\frac{\partial f}{\partial \phi}\hat{\phi},\\
+        \vec{\nabla}\cdot\vec{F} &= \frac{1}{r^2}\frac{\partial}{\partial r}\left(r^2F_r\right) + \frac{1}{r\sin\theta}\frac{\partial}{\partial\theta}\left(\sin\theta\,F_\theta\right) + \frac{1}{r\sin\theta}\frac{\partial F_\phi}{\partial\phi},\\
+        \vec{\nabla}\times\vec{F} &= \frac{1}{r\sin\theta}\left[\frac{\partial}{\partial\theta}(\sin\theta\,F_\phi) - \frac{\partial F_\theta}{\partial\phi}\right]\hat{r} + \frac{1}{r}\left[\frac{1}{\sin\theta}\frac{\partial F_r}{\partial\phi} - \frac{\partial}{\partial r}(rF_\phi)\right]\hat{\theta} + \frac{1}{r}\left[\frac{\partial}{\partial r}(rF_\theta) - \frac{\partial F_r}{\partial\theta}\right]\hat{\phi},\\
+        \nabla^2 f &= \frac{1}{r^2}\frac{\partial}{\partial r}\left(r^2\frac{\partial f}{\partial r}\right) + \frac{1}{r^2\sin\theta}\frac{\partial}{\partial\theta}\left(\sin\theta\frac{\partial f}{\partial\theta}\right) + \frac{1}{r^2\sin^2\theta}\frac{\partial^2 f}{\partial\phi^2}.
+    \end{align*}
+\end{proposition}
+\begin{remark}
+    For a purely radial field $\vec{F} = F_r(r)\hat{r}$, only the first term of the divergence survives, and the curl vanishes. So every central field $f(r)\hat{r}$ is curl-free.
+\end{remark}
 
 \subsection{Index Notation}
 \begin{remark}
@@ -301,6 +326,9 @@ The full list of second derivative identities:
 \begin{theorem}[Helmholtz]
     If $\vec{\nabla}\cdot\vec{F}$ and $\vec{\nabla}\times\vec{F}$ are specified everywhere and $\vec{F}\to 0$ at infinity, then $\vec{F}$ is uniquely determined. It can be written as $\vec{F} = \vec{\nabla}\psi + \vec{\nabla}\times\vec{A}$, an irrotational part plus a solenoidal part.
 \end{theorem}
+\begin{remark}
+    The condition at infinity is needed: a field can be both curl-free and divergence-free without being zero, e.g.\ $\vec{F} = yz\,\hat{x} + zx\,\hat{y} + xy\,\hat{z} = \vec{\nabla}(xyz)$. Adding it to any field changes neither $\vec{\nabla}\cdot\vec{F}$ nor $\vec{\nabla}\times\vec{F}$.
+\end{remark}
 \begin{theorem}[Irrotational fields]
     Let $\vec{F}$ be a $C^1$ vector field on a simply connected domain (e.g.\ all of $\mathbb{R}^3$). The following are equivalent:
     \begin{enumerate}[label=(\roman*)]
@@ -322,6 +350,41 @@ The full list of second derivative identities:
 \begin{remark}
     In electrostatics we will find $\vec{\nabla}\times\vec{E} = 0$, which licenses $\vec{E} = -\vec{\nabla}V$ and the electric potential. In magnetostatics we will find $\vec{\nabla}\cdot\vec{B} = 0$, which licenses $\vec{B} = \vec{\nabla}\times\vec{A}$, the vector potential.
 \end{remark}
+
+\subsection{The Dirac Delta Function}
+\begin{definition}[Dirac delta]
+    $\delta(x)$ is zero everywhere except at $x = 0$, where it is an infinitely tall spike of unit area:
+    \[\int_{-\infty}^{\infty}\delta(x)\,dx = 1.\]
+    It has units of $1/(\text{length})$. In 3D, $\delta^3(\vec{r}) = \delta(x)\delta(y)\delta(z)$, with units $1/(\text{volume})$.
+\end{definition}
+\begin{proposition}[Properties]
+    \begin{enumerate}[label=(\roman*)]
+        \item Sifting: $\int_a^b f(x)\,\delta(x - x_0)\,dx = f(x_0)$ if $a < x_0 < b$, and $0$ if $x_0$ is outside $[a,b]$.
+        \item Scaling: $\delta(kx) = \frac{1}{|k|}\delta(x)$.
+        \item In 3D: $\int_V f(\vec{r})\,\delta^3(\vec{r} - \vec{r}_0)\,d\tau = f(\vec{r}_0)$ if $\vec{r}_0 \in V$.
+    \end{enumerate}
+\end{proposition}
+\begin{example}
+    $\int_0^3 x^3\delta(x+1)\,dx = 0$ since $x = -1$ is outside the range, while
+    \[\int_{-1}^{1}9x^2\,\delta(3x+1)\,dx = \frac{1}{3}\int_{-1}^{1}9x^2\,\delta\!\left(x+\tfrac{1}{3}\right)dx = \frac{1}{3}\cdot 9\cdot\frac{1}{9} = \frac{1}{3}.\]
+\end{example}
+\begin{proposition}[Charge densities with deltas]
+    Each is fixed by requiring $\int\rho\,d\tau$ to give the total charge:
+    \begin{itemize}
+        \item Point charge $q$ at $\vec{r}'$: $\rho(\vec{r}) = q\,\delta^3(\vec{r} - \vec{r}')$.
+        \item Dipole, $-q$ at the origin and $+q$ at $\vec{a}$: $\rho(\vec{r}) = q\,\delta^3(\vec{r} - \vec{a}) - q\,\delta^3(\vec{r})$.
+        \item Thin shell of radius $R$ and charge $Q$: $\rho(r) = \frac{Q}{4\pi R^2}\delta(r - R)$, since $\int\rho\,r^2\sin\theta\,dr\,d\theta\,d\phi = \frac{Q}{4\pi R^2}R^2\cdot 4\pi = Q$.
+        \item $\rho = C\,\delta(x)\,\delta(z-2)$ is a line of charge along $y$ at $x = 0$, $z = 2$. Two deltas cost $1/\text{m}^2$, so $C$ is a line density $\lambda$ in C/m.
+    \end{itemize}
+\end{proposition}
+\begin{theorem}[Divergence of $\hat{r}/r^2$]
+    \label{div-r2}
+    By the spherical divergence, $\vec{\nabla}\cdot\left(\hat{r}/r^2\right) = \frac{1}{r^2}\partial_r(1) = 0$ for $r \neq 0$, yet its flux through any sphere is $\oint\frac{1}{R^2}R^2\sin\theta\,d\theta\,d\phi = 4\pi$. By the divergence theorem, everything sits at the origin:
+    \begin{equation}
+        \vec{\nabla}\cdot\left(\frac{\hat{r}}{r^2}\right) = 4\pi\,\delta^3(\vec{r}).
+    \end{equation}
+    So for a point charge, $\vec{\nabla}\cdot\vec{E} = \frac{q}{\epsilon_0}\delta^3(\vec{r}) = \rho/\epsilon_0$, as Gauss' law requires.
+\end{theorem}
 
 
 \section{Electrostatics}
@@ -442,11 +505,24 @@ The full list of second derivative identities:
         \vec{\nabla}\cdot\vec{E} = \frac{\rho}{\epsilon_0}.
     \end{equation}
 \end{proposition}
+\begin{example}
+    The differential form reads $\rho$ off a known field: $\vec{E} = Ax\,\hat{x}$ gives $\rho = \epsilon_0\vec{\nabla}\cdot\vec{E} = \epsilon_0 A$, a uniform charge density.
+\end{example}
 \begin{definition}[Gaussian Surface]
     The Gaussian surface just means an imaginary surface (nothing is physically there).
 \end{definition}
 \begin{remark}
     If there is no charge inside the Gaussian surface, the net flux is zero: every field line that enters on one side leaves on another.
+\end{remark}
+\begin{remark}[Recipe]
+    Gauss' law always holds, but it only solves for $\vec{E}$ when symmetry lets $E$ come out of the integral, which means spherical, cylindrical or planar symmetry.
+    \begin{enumerate}
+        \item Use symmetry to fix the direction of $\vec{E}$ and what it depends on.
+        \item Pick a surface on which $\vec{E}$ is either parallel to $d\vec{a}$ with constant magnitude, or perpendicular to it.
+        \item Find $Q_{enc}$; for a non-uniform $\rho$, integrate it with the right volume element.
+        \item Solve $E \times (\text{area}) = Q_{enc}/\epsilon_0$, separately inside and outside the charge.
+    \end{enumerate}
+    A uniformly charged cube has no such surface, so its field outside is not that of a point charge at its centre (though it approaches it far away).
 \end{remark}
 
 \subsubsection{Spherical symmetry}
@@ -459,6 +535,15 @@ The full list of second derivative identities:
     So $\vec{E}\cdot d\vec{a} = E\,da$, and
     \[\oiint_S \vec{E}\cdot d\vec{a} = E\underbrace{\oiint_S da}_{4\pi r^2} = \frac{q}{\epsilon_0}\quad\Longrightarrow\quad E = \frac{q}{4\pi\epsilon_0 r^2}.\]
 \end{example}
+\begin{example}[Uniform solid sphere]
+    \label{ex:solid-sphere}
+    A ball of radius $R$ and charge $q$. Inside, a sphere of radius $r$ encloses $q\,r^3/R^3$, so
+    \[\vec{E} = \begin{cases} \dfrac{q\,r}{4\pi\epsilon_0 R^3}\hat{r} & r < R \\[8pt] \dfrac{q}{4\pi\epsilon_0 r^2}\hat{r} & r > R \end{cases}.\]
+    $E$ grows linearly inside and is continuous at $R$, since there is no surface charge. A thin shell instead gives $\vec{E} = 0$ inside and a jump of $\sigma/\epsilon_0$ at $R$.
+\end{example}
+\begin{remark}
+    With spherical symmetry, $E(r)$ depends only on the charge inside radius $r$. Charge further out does not change the field inside it, and the field outside only knows the total. So a uniformly charged shell that pulses in and out, $R(t) = R_0 + A\sin\omega t$, keeps the constant field $\frac{Q}{4\pi\epsilon_0 r^2}\hat{r}$ outside: accelerating charges, but nothing escapes to infinity, so no radiation.
+\end{remark}
 
 \subsubsection{Cylindrical symmetry}
 \begin{example}[Infinite line of charge]
@@ -473,6 +558,16 @@ The full list of second derivative identities:
 \begin{example}[Finite versus infinite line]
     Near its midpoint, a finite line has a weaker field than an infinite one with the same $\lambda$: the cylinder encloses the same charge, but some of the flux now leaks through the caps.
 \end{example}
+\begin{problem}[Midterm 2025, Q2]
+    An infinite non-conducting tube along the $x$ axis has $\rho(s) = A\,s/a$ for $s < a$ and $0$ elsewhere, with $s$ the distance from the axis. Find $\vec{E}$ everywhere.
+\end{problem}
+\begin{solution}
+    By symmetry $\vec{E} = E(s)\hat{s}$, pointing straight away from the axis. Take a coaxial cylinder of radius $s$ and length $L$; the caps carry no flux. With $d\tau = 2\pi s'L\,ds'$,
+    \[Q_{enc} = \int_0^{s}A\frac{s'}{a}\,2\pi s'L\,ds' = \frac{2\pi AL\,s^3}{3a}\quad(s<a), \qquad Q_{enc} = \frac{2\pi AL\,a^2}{3}\quad(s>a).\]
+    Then $E\,(2\pi sL) = Q_{enc}/\epsilon_0$ gives
+    \[\vec{E} = \begin{cases}\dfrac{A s^2}{3\epsilon_0 a}\hat{s} & s < a\\[8pt] \dfrac{A a^2}{3\epsilon_0 s}\hat{s} & s > a\end{cases},\]
+    continuous at $s = a$, and falling as $1/s$ outside like a line charge.
+\end{solution}
 
 \subsubsection{Planar symmetry}
 \begin{example}[Infinite plane of charge]
@@ -497,6 +592,13 @@ The full list of second derivative identities:
         E = \frac{\sigma}{2\epsilon_0}.
     \end{equation}
     The field does not depend on the distance from the plane.
+\end{example}
+\begin{example}[Two planes]
+    Superpose two sheets a distance $d$ apart, each giving $\sigma/2\epsilon_0$ pointing away from itself.
+    \begin{itemize}
+        \item $+\sigma$ and $-\sigma$ (parallel plates): the fields add between the plates, $E = \sigma/\epsilon_0$ from $+$ to $-$, and cancel outside, $E = 0$.
+        \item $+\sigma$ and $+\sigma$: the fields cancel between, $E = 0$, and add outside, $E = \sigma/\epsilon_0$ pointing away from both.
+    \end{itemize}
 \end{example}
 \begin{example}[Infinite plane via Coulomb's law]
     The plane is still infinite, not a disk. We just describe it in polar coordinates $(r',\phi')$ centred directly below the field point at height $z$; letting $r'$ run from $0$ to $\infty$ covers the whole plane. Sideways components cancel in pairs, so each piece $dq = \sigma r'\,dr'\,d\phi'$ contributes only its $\hat{z}$ part, via $\cos\psi = z/\sqrt{r'^2+z^2}$ with $\psi$ the angle between $\hat{\mathfrak{r}}$ and $\hat{z}$:
@@ -534,6 +636,12 @@ The exponent counts how much charge a cone of field lines can ``see'' as it grow
 \begin{remark}
     Physically, $Q\oint\vec{E}\cdot d\vec{l}$ is the work done on a test charge around a closed loop. If it were nonzero, a charge could gain energy just by circling, violating energy conservation.
 \end{remark}
+\begin{remark}
+    The proof only used that each point charge's field is central, $f(\mathfrak{r})\hat{\mathfrak{r}}$. So any central force law, e.g.\ a modified Coulomb's law with an extra factor $(1+\mathfrak{r}/\lambda)e^{-\mathfrak{r}/\lambda}$, still has $\vec{\nabla}\times\vec{E} = 0$ and a potential.
+\end{remark}
+\begin{remark}[Is this field electrostatic?]
+    Check the curl. A field with parallel arrows whose length changes along the arrows, $\vec{E} = E(y)\hat{y}$, is curl-free, so it is allowed (with charge $\rho = \epsilon_0 E'(y)$). A shear field, $\vec{E} = E(y)\hat{x}$ with arrows reversing across a line, has $\vec{\nabla}\times\vec{E} = -E'(y)\hat{z} \neq 0$, so it is impossible in electrostatics.
+\end{remark}
 
 \subsection{Electric Potential}
 \begin{definition}[Electric potential]
@@ -556,6 +664,10 @@ The exponent counts how much charge a cone of field lines can ``see'' as it grow
     Along a radial path,
     \[V(r) = -\frac{q}{4\pi\epsilon_0}\int_\infty^r\frac{dr'}{r'^2} = \frac{q}{4\pi\epsilon_0 r}.\]
 \end{example}
+\begin{example}[Uniform solid sphere]
+    Using the field of Example~\ref{ex:solid-sphere}, outside $V = \frac{q}{4\pi\epsilon_0 r}$. Inside, integrate in from infinity through both regions:
+    \[V(r) = -\int_\infty^R\frac{q\,dr'}{4\pi\epsilon_0 r'^2} - \int_R^r\frac{q\,r'\,dr'}{4\pi\epsilon_0 R^3} = \frac{q}{8\pi\epsilon_0 R}\left(3 - \frac{r^2}{R^2}\right).\]
+\end{example}
 \begin{proposition}[Potential of a distribution]
     By superposition,
     \begin{equation}
@@ -563,6 +675,14 @@ The exponent counts how much charge a cone of field lines can ``see'' as it grow
     \end{equation}
     where $\rho(\vec{r}')d\tau'=dq$. Unlike the integral for $\vec{E}$, there is no $\hat{\mathfrak{r}}$, so computing $V$ first and then $\vec{E} = -\vec{\nabla}V$ is often easier.
 \end{proposition}
+\begin{problem}[Midterm drills]
+    Find $V$ (i) at the centre of a ring of radius $a$ and charge $Q$; (ii) at $x = 2a$ for a line of charge $Q$ from $x = -a$ to $x = a$.
+\end{problem}
+\begin{solution}
+    (i) Every piece of the ring is a distance $a$ away, so $V = \frac{Q}{4\pi\epsilon_0 a}$. Note $\vec{E} = 0$ there by symmetry, but $V \neq 0$.\par
+    (ii) With $\lambda = Q/2a$ and $\mathfrak{r} = 2a - x'$,
+    \[V = \frac{\lambda}{4\pi\epsilon_0}\int_{-a}^{a}\frac{dx'}{2a - x'} = \frac{\lambda}{4\pi\epsilon_0}\ln\frac{3a}{a} = \frac{Q\ln 3}{8\pi\epsilon_0 a}.\]
+\end{solution}
 \begin{law}[Poisson's equation]
     Combining $\vec{\nabla}\cdot\vec{E} = \rho/\epsilon_0$ with $\vec{E} = -\vec{\nabla}V$,
     \begin{equation}
@@ -614,7 +734,10 @@ A surface charge $\sigma$ makes $\vec{E}$ jump as you cross it. Gauss' law fixes
     The normal component jumps by $\sigma/\epsilon_0$; the tangential component is continuous.
 \end{theorem}
 \begin{remark}
-    Check with the infinite plane: $\vec{E} = +\frac{\sigma}{2\epsilon_0}\hat{n}$ above and $-\frac{\sigma}{2\epsilon_0}\hat{n}$ below, a jump of exactly $\sigma/\epsilon_0$.
+    Check with the infinite plane: $\vec{E} = +\frac{\sigma}{2\epsilon_0}\hat{n}$ above and $-\frac{\sigma}{2\epsilon_0}\hat{n}$ below, a jump of exactly $\sigma/\epsilon_0$. Conversely, $\vec{E} = +2\hat{z}$ above and $-2\hat{z}$ below the plane $z = 0$ means $\sigma = 4\epsilon_0$.
+\end{remark}
+\begin{remark}
+    So $\vec{E}$ is not always continuous: it jumps wherever there is a surface charge. The condition holds on any surface, insulator or conductor.
 \end{remark}
 \begin{theorem}[Boundary conditions on $V$]
     The potential is continuous across the surface,
@@ -675,6 +798,20 @@ A surface charge $\sigma$ makes $\vec{E}$ jump as you cross it. Gauss' law fixes
 \begin{remark}[Self-energy]
     The two formulas do not always agree. The pair sum only counts the work of bringing different charges together ($i \neq j$); it ignores the work needed to build each point charge itself. The field integral counts everything, including that self-energy. So $\frac{\epsilon_0}{2}\int E^2\,d\tau$ is always positive (since $E^2 \geq 0$), while the pair sum can be negative, e.g.\ $+q$ and $-q$ at distance $d$ give $U = -\frac{q^2}{4\pi\epsilon_0 d}$. For a true point charge the self-energy is infinite: near it $E^2 \sim 1/r^4$, and $\int \frac{1}{r^4}\,r^2\,dr$ blows up at $r = 0$. So use the pair sum for point charges and the field integral for continuous distributions.
 \end{remark}
+\begin{problem}[Midterm drill]
+    Two plates of area $A$, a distance $d$ apart, carry $+\sigma$ and $-\sigma$ ($A \gg d^2$). Find the energy.
+\end{problem}
+\begin{solution}
+    The field is $\sigma/\epsilon_0$ between the plates and zero outside, so
+    \[U = \frac{\epsilon_0}{2}\left(\frac{\sigma}{\epsilon_0}\right)^2 Ad = \frac{\sigma^2 Ad}{2\epsilon_0}.\]
+\end{solution}
+\begin{problem}[Problem Set 4, Q4]
+    Concentric shells of radii $a < b$ carry $+q$ and $-q$. Find the energy.
+\end{problem}
+\begin{solution}
+    By Gauss, $\vec{E} = \frac{q}{4\pi\epsilon_0 r^2}\hat{r}$ only for $a < r < b$, and zero elsewhere. With $d\tau = 4\pi r^2dr$,
+    \[U = \frac{\epsilon_0}{2}\int_a^b\left(\frac{q}{4\pi\epsilon_0 r^2}\right)^2 4\pi r^2\,dr = \frac{q^2}{8\pi\epsilon_0}\left(\frac{1}{a} - \frac{1}{b}\right).\]
+\end{solution}
 
 \subsection{Conductors}
 \begin{definition}[Conductor]
@@ -709,6 +846,9 @@ A surface charge $\sigma$ makes $\vec{E}$ jump as you cross it. Gauss' law fixes
         \item Just outside, $\vec{E}$ is perpendicular to the surface. A tangential part would push the surface charges along the surface, so they would not be in equilibrium.
     \end{enumerate}
 \end{proposition}
+\begin{remark}
+    Grounding a conductor connects it to $V(\infty) = 0$, so its whole body, not just its surface, sits at $V = 0$. Charge flows to or from the ground as needed to make this happen.
+\end{remark}
 \begin{proposition}[Field at the surface of a conductor]
     Theorem~\ref{BC-E} with $\vec{E}_{\text{below}} = 0$ (inside the metal) gives, just outside,
     \begin{equation}
@@ -729,7 +869,7 @@ A surface charge $\sigma$ makes $\vec{E}$ jump as you cross it. Gauss' law fixes
     In general, charge on a conductor concentrates where the surface is most sharply curved (edges, corners, points). Since $E = \sigma/\epsilon_0$ there, the field is strongest at sharp points, which is how lightning rods work.
 \end{remark}
 \begin{remark}[Cavities]
-    If a conductor has an empty cavity, the field inside the cavity is zero: its wall is an equipotential, and a solution of Laplace's equation with constant boundary values is constant (no maxima or minima, see the Laplace's equation section). This is a Faraday cage. If a charge $q$ sits in the cavity, it induces $-q$ on the cavity wall and $+q$ on the outer surface (for a neutral conductor), and the outside cannot tell how the charge inside is arranged.
+    If a conductor has an empty cavity, the field inside the cavity is zero: its wall is an equipotential, and a solution of Laplace's equation with constant boundary values is constant (no maxima or minima, see the Laplace's equation section). This is a Faraday cage. If a charge $q$ sits in the cavity, it induces $-q$ on the cavity wall and $+q$ on the outer surface (for a neutral conductor), and the outside cannot tell how the charge inside is arranged. In particular, for a sphere the outer charge spreads uniformly even if the cavity is off centre, so the field outside is that of a point charge at the centre of the sphere, not of the cavity.
 \end{remark}
 \begin{example}[Concentric conducting shells]
     A metal sphere of radius $R$ with charge $q$ sits inside a thick neutral metal shell of inner radius $a$ and outer radius $b$.
@@ -742,8 +882,10 @@ A surface charge $\sigma$ makes $\vec{E}$ jump as you cross it. Gauss' law fixes
         \item The outer surface now has zero charge; the $+q$ flowed away to the ground, leaving the shell with net charge $-q$. If the outer surface kept a charge $Q'$, the total charge inside a sphere just outside $b$ would be $Q'$, giving $V(b) = \frac{Q'}{4\pi\epsilon_0 b} \neq 0$.
     \end{enumerate}
 \end{example}
-\begin{example}[Two cavities in a conductor]
-    A neutral conducting sphere of radius $R$ has two spherical cavities, of radii $a$ and $b$, with point charges $q_a$ and $q_b$ at their centres.
+\begin{problem}[Problem Set 4, Q3]
+    A neutral conducting sphere of radius $R$ has two spherical cavities, of radii $a$ and $b$, with point charges $q_a$ and $q_b$ at their centres. (i) Find $\sigma_a$, $\sigma_b$, $\sigma_R$; (ii) the field outside; (iii) the field in each cavity; (iv) the force on $q_a$ and $q_b$; (v) what changes if a charge $q_c$ is brought near the outside?
+\end{problem}
+\begin{solution}
     \begin{enumerate}[label=(\roman*)]
         \item Each cavity wall carries minus the charge inside it, spread uniformly since the charge is at the centre, and the outer surface carries the rest. The metal shields the outer surface from the cavities, so its charge spreads uniformly as on an isolated sphere:
         \[\sigma_a = -\frac{q_a}{4\pi a^2}, \qquad \sigma_b = -\frac{q_b}{4\pi b^2}, \qquad \sigma_R = \frac{q_a + q_b}{4\pi R^2}.\]
@@ -752,7 +894,20 @@ A surface charge $\sigma$ makes $\vec{E}$ jump as you cross it. Gauss' law fixes
         \item The force on $q_a$ and $q_b$ is zero. Apart from its own field, $q_a$ only feels the uniform shell of charge on its cavity wall, which produces no field inside it; everything beyond the wall is shielded by the metal.
         \item Bringing $q_c$ near the outside changes $\sigma_R$ (it is no longer uniform) and the field outside, but nothing inside: $\sigma_a$, $\sigma_b$, the cavity fields and the forces on $q_a$ and $q_b$ stay the same. The conductor shields in both directions.
     \end{enumerate}
-\end{example}
+\end{solution}
+\begin{problem}[Midterm 2025, Q3]
+    A thick conducting shell (inner radius $a$, outer radius $b$, empty cavity) has net charge $-Q$. (a) Where is the charge? (b) Sketch $E_r(r)$. (c) Sketch $V(r)$ with $V(\infty) = 0$. (d) A charge $+q$ with $q > Q$ is placed outside: sketch the negative charge. (e) Find the total charge on the inner surface and (f) on the outer surface.
+\end{problem}
+\begin{solution}
+    \begin{enumerate}[label=(\alph*)]
+        \item $\rho = 0$ in the metal. A Gaussian sphere in the metal has $\vec{E} = 0$, and the cavity is empty, so the inner surface has $\sigma_a = 0$. All the charge is on the outer surface: $\sigma_b = -\frac{Q}{4\pi b^2}$.
+        \item $E_r = 0$ for $r < b$ (cavity and metal); $E_r = -\frac{Q}{4\pi\epsilon_0 r^2}$ for $r > b$ (pointing inward). It jumps at $b$ to its most negative value $-\frac{Q}{4\pi\epsilon_0 b^2}$, then rises toward $0$ as $1/r^2$.
+        \item $V = -\frac{Q}{4\pi\epsilon_0 r}$ for $r > b$, and constant $V = -\frac{Q}{4\pi\epsilon_0 b}$ for all $r \leq b$. It is continuous, with a kink at $b$.
+        \item Negative charge crowds onto the part of the outer surface facing $+q$. Since $q > Q$, the side facing away ends up positive.
+        \item $q_{tot,a} = 0$. A Gaussian surface inside the metal still has $\vec{E} = 0$ on it and encloses only the empty cavity, so the inner wall carries no net charge (and in fact none at all, since the cavity field is zero).
+        \item $q_{tot,b} = -Q$ by charge conservation; only its distribution changed.
+    \end{enumerate}
+\end{solution}
 
 
 \section{Potentials}
@@ -819,7 +974,7 @@ We want $V$ because $\vec{E} = -\vec{\nabla}V$. The integral $V = \frac{1}{4\pi\
     The solution of Laplace's equation in a volume is uniquely determined if $V$ is specified on the whole boundary of that volume. Similarly, if the region contains conductors, $\vec{E}$ is uniquely determined once the charge density $\rho$ and the total charge on each conductor are given.
 \end{theorem}
 \begin{remark}
-    The significance: any function that satisfies Laplace's equation and the boundary conditions is \emph{the} answer, no matter how it was found. Guessing is allowed, which is what the method of images exploits.
+    The significance: any function that satisfies Laplace's equation and the boundary conditions is \emph{the} answer, no matter how it was found. Guessing is allowed, which is what the method of images and separation of variables exploit.
 \end{remark}
 \begin{proposition}[Method of relaxation]
     On a grid, the mean value property says each cell equals the average of its neighbours. In two dimensions,
@@ -861,11 +1016,82 @@ We want $V$ because $\vec{E} = -\vec{\nabla}V$. The integral $V = \frac{1}{4\pi\
     \end{figure}
 \end{example}
 \begin{remark}
-    The image charge is not real; it is bookkeeping. Physically, the field comes from the negative surface charge induced on the plane, and the image reproduces its effect in the region we care about. The formula says nothing about $z < 0$, where $V = 0$ inside the conductor.
+    The image charge is not real; it is bookkeeping. Physically, the field comes from the negative surface charge induced on the plane, and the image reproduces its effect in the region we care about. The formula says nothing about $z < 0$, where $V = 0$ inside the conductor. The image must sit outside the region being solved, otherwise it would change $\rho$ there.
+\end{remark}
+\begin{remark}
+    The induced charge on the plane totals $-q$, and $q$ is attracted to the plane with the force of its image, but the energy is only half of the image pair's, since there is no field in $z < 0$.
 \end{remark}
 \begin{example}[Two charges above a grounded plane]
     Charges $+Q$ at height $d$ and $+3Q$ at height $2d$ sit above a grounded plane. Each charge on its own is handled by one image, so by superposition we need two: $-Q$ at $-d$ and $-3Q$ at $-2d$. The method works whenever the problem is linear (superposition) and the boundary values come out right (uniqueness).
 \end{example}
+
+\subsection{Separation of Variables: Cartesian}
+\begin{proposition}[Separation]
+    Look for solutions $V(x,y,z) = X(x)Y(y)Z(z)$. Substituting into $\nabla^2 V = 0$ and dividing by $V$,
+    \[\frac{X''}{X} + \frac{Y''}{Y} + \frac{Z''}{Z} = 0.\]
+    Each term depends on a different variable, which can be varied alone, so each must be a constant: $X'' = c_xX$, $Y'' = c_yY$, $Z'' = c_zZ$ with $c_x + c_y + c_z = 0$. One PDE becomes three ODEs.
+\end{proposition}
+\begin{remark}
+    Most solutions are not separable (e.g.\ $1/r$), but Laplace's equation is linear, so sums of separable solutions can build general ones.
+\end{remark}
+\begin{proposition}[Three kinds of solution]
+    For each direction,
+    \[c = +k^2:\ X = Ae^{kx} + Be^{-kx}, \qquad c = -k^2:\ X = A\sin kx + B\cos kx, \qquad c = 0:\ X = A + Bx.\]
+    Since the constants sum to zero, they cannot all have the same sign unless all vanish.
+\end{proposition}
+\begin{remark}[Which direction gets which sign]
+    A sinusoid crosses zero infinitely often; an exponential (or $\cosh$, $\sinh$) at most once. So a direction in which $V$ must vanish at two places gets the sinusoid, and the other gets the exponential. Symmetry picks the parity: even $\Rightarrow$ $\cos$, $\cosh$; odd $\Rightarrow$ $\sin$, $\sinh$. $\cosh$ never vanishes; $\sinh$ vanishes only at $0$.
+\end{remark}
+\begin{example}[Square pipe]
+    A long pipe along $z$ with square cross section: sides $x = \pm a/2$ grounded, top and bottom $y = \pm a/2$ held at $V_0$. Nothing depends on $z$, so $c_z = 0$ and $c_x = -c_y$. $V$ vanishes at two values of $x$, so $X$ is sinusoidal and $Y$ hyperbolic; the problem is even in both $x$ and $y$, so
+    \[V = C\cos kx\,\cosh ky.\]
+    $V(\pm a/2, y) = 0$ quantises $k$: $\cos(ka/2) = 0 \Rightarrow k = (2n+1)\pi/a$. Superposing,
+    \[V(x,y) = \sum_{n=0}^\infty C_n\cos\frac{(2n+1)\pi x}{a}\cosh\frac{(2n+1)\pi y}{a}.\]
+    Setting $y = a/2$, multiplying by $\cos\frac{(2m+1)\pi x}{a}$ and integrating over $x$ (Fourier's trick, using orthogonality $\int_{-a/2}^{a/2}\cos\cos\,dx = \frac{a}{2}\delta_{mn}$) picks out one term:
+    \[V(x,y) = \frac{4V_0}{\pi}\sum_{n=0}^{\infty}\frac{(-1)^n}{2n+1}\cos\frac{(2n+1)\pi x}{a}\,\frac{\cosh\left[(2n+1)\pi y/a\right]}{\cosh\left[(2n+1)\pi/2\right]}.\]
+    Check: rotating by $90^\circ$ swaps hot and grounded faces, so $V(0,0) = V_0/2$ exactly; the series gives $0.5074\,V_0$ with one term. The centre is a saddle, as $\nabla^2 V = 0$ requires. Near the corners the series overshoots (Gibbs phenomenon), because the boundary data jumps there.
+\end{example}
+\begin{remark}[Summary]
+    \begin{enumerate}
+        \item Separate: one PDE becomes ODEs with constants summing to zero.
+        \item Choose signs: two or more zeros in a direction $\Rightarrow$ sinusoid; otherwise exponential/hyperbolic.
+        \item Use symmetry to keep only even or odd functions.
+        \item Impose the $V = 0$ boundaries: these quantise $k$.
+        \item Superpose and use Fourier's trick for the coefficients.
+        \item Uniqueness guarantees the result is the answer.
+    \end{enumerate}
+\end{remark}
+
+\subsection{Separation of Variables: Spherical}
+\begin{proposition}[Axially symmetric solutions]
+    If nothing depends on $\phi$, separating $V(r,\theta) = R(r)\Theta(\theta)$ in the spherical Laplacian gives radial solutions $r^l$ and $r^{-(l+1)}$ and angular solutions the Legendre polynomials $P_l(\cos\theta)$, so
+    \begin{equation}
+        V(r,\theta) = \sum_{l=0}^{\infty}\left(A_lr^l + \frac{B_l}{r^{l+1}}\right)P_l(\cos\theta),
+    \end{equation}
+    with $P_0 = 1$, $P_1 = x$, $P_2 = (3x^2-1)/2$, and orthogonality $\int_0^\pi P_mP_n\sin\theta\,d\theta = \frac{2}{2m+1}\delta_{mn}$.
+\end{proposition}
+\begin{proposition}[Sphere with given surface potential $V_0(\theta)$]
+    \begin{itemize}
+        \item Inside, $V$ must be finite at $r = 0$, so $B_l = 0$.
+        \item Outside, $V \to 0$ at infinity, so $A_l = 0$.
+        \item Write $V_0(\theta) = \sum_l C_lP_l(\cos\theta)$ (by inspection if it is a simple polynomial in $\cos\theta$, else by orthogonality). Continuity at $R$ then gives
+        \[V_{\text{in}} = \sum_l C_l\left(\frac{r}{R}\right)^lP_l(\cos\theta), \qquad V_{\text{out}} = \sum_l C_l\left(\frac{R}{r}\right)^{l+1}P_l(\cos\theta).\]
+        \item The surface charge comes from the jump in slope, $\sigma = -\epsilon_0\left(\frac{\partial V_{\text{out}}}{\partial r} - \frac{\partial V_{\text{in}}}{\partial r}\right)_{r=R}$, giving
+        \[\sigma(\theta) = \frac{\epsilon_0}{R}\sum_l(2l+1)C_lP_l(\cos\theta).\]
+    \end{itemize}
+\end{proposition}
+\begin{remark}
+    Rewrite powers of $\cos\theta$ in Legendre polynomials, e.g.\ $\cos^2\theta = \frac{2}{3}P_2 + \frac{1}{3}P_0$. Each $l$ outside is a multipole: $l = 0$ gives $V \propto 1/r$ with total charge $Q = 4\pi\epsilon_0 RC_0$.
+\end{remark}
+\begin{problem}[Midterm 2025, Q5]
+    A spherical shell of radius $R$ has $V(R,\theta) = V_0(1 + \cos\theta)$, no charge elsewhere, and $V(\infty) = 0$. Find $V$ outside, $V$ inside, and $\sigma(\theta)$.
+\end{problem}
+\begin{solution}
+    $V_0(1+\cos\theta) = V_0P_0 + V_0P_1$, so $C_0 = C_1 = V_0$ and all others vanish:
+    \[V_{\text{out}} = V_0\left(\frac{R}{r} + \frac{R^2}{r^2}\cos\theta\right), \qquad V_{\text{in}} = V_0\left(1 + \frac{r}{R}\cos\theta\right),\]
+    \[\sigma(\theta) = \frac{\epsilon_0V_0}{R}\left(1 + 3\cos\theta\right).\]
+    Check: $V_{\text{in}} = V_0 + V_0z/R$ is a uniform field inside, and $V_{\text{out}}$ is a monopole plus a dipole.
+\end{solution}
 
 \subsection{Multipole Expansion}
 \begin{example}[Two charges on the $z$ axis]
@@ -919,6 +1145,12 @@ We want $V$ because $\vec{E} = -\vec{\nabla}V$. The integral $V = \frac{1}{4\pi\
         V_{\text{dip}} = \frac{1}{4\pi\epsilon_0}\frac{\vec{p}\cdot\hat{r}}{r^2}.
     \end{equation}
 \end{definition}
+\begin{proposition}[Dipole field]
+    For $\vec{p} = p\hat{z}$, $V_{\text{dip}} = \frac{p\cos\theta}{4\pi\epsilon_0r^2}$, and $\vec{E} = -\vec{\nabla}V$ in spherical coordinates gives
+    \begin{equation}
+        \vec{E}_{\text{dip}}(r,\theta) = \frac{p}{4\pi\epsilon_0r^3}\left(2\cos\theta\,\hat{r} + \sin\theta\,\hat{\theta}\right).
+    \end{equation}
+\end{proposition}
 \begin{definition}[Ideal dipole]
     Take $q_1 = q$ and $q_2 = -q$. The monopole and quadrupole terms vanish, and the dipole term is $\frac{1}{4\pi\epsilon_0}\frac{qd\cos\theta}{r^2}$. Every term in the expansion carries a factor $q\,d^{\,n}$, which we can write as $(qd)\,d^{\,n-1}$. Now shrink $d \to 0$ while raising $q \to \infty$ so that the product $qd$ stays fixed:
     \begin{itemize}
@@ -942,11 +1174,31 @@ We want $V$ because $\vec{E} = -\vec{\nabla}V$. The integral $V = \frac{1}{4\pi\
     Griffiths writes the same series with Legendre polynomials; see Appendix~\ref{app:legendre}.
 \end{theorem}
 \begin{remark}
-    Each term is smaller than the previous one by a factor of roughly $d/r$, where $d$ is the size of the charge distribution. Far away ($r \gg d$) the first nonzero term dominates and the rest are small corrections. Close up ($r \sim d$) the terms no longer shrink and the expansion is useless.
+    Each term is smaller than the previous one by a factor of roughly $d/r$, where $d$ is the size of the charge distribution. Far away ($r \gg d$) the first nonzero term dominates and the rest are small corrections. Close up ($r \sim d$) the terms no longer shrink and the expansion is useless. So to find the leading behaviour: compute $Q$; if it vanishes, compute $\vec{p}$; if that vanishes too, the leading term is the quadrupole.
 \end{remark}
 \begin{remark}[Origin dependence]
     Shifting the origin by $\vec{a}$ changes $\vec{p} \to \vec{p} - Q\vec{a}$, so $\vec{p}$ is well defined only when $Q = 0$ (a neutral molecule, not an ion). In general only the first non-vanishing moment is origin-independent.
 \end{remark}
+\begin{problem}[Midterm drill]
+    Charges $3q$ at $a\hat{z}$, $q$ at $-a\hat{z}$, and $-2q$ at $\pm a\hat{y}$. (i) Sketch how to find the energy. (ii) Find $V$ to dipole order.
+\end{problem}
+\begin{solution}
+    (i) Sum $\frac{q_iq_j}{4\pi\epsilon_0\mathfrak{r}_{ij}}$ over the $6$ pairs: the two $z$ charges are $2a$ apart, as are the two $y$ charges, and each $z$ charge is $\sqrt{2}a$ from each $y$ charge:
+    \[U = \frac{1}{4\pi\epsilon_0 a}\left[\frac{3q^2}{2} + \frac{4q^2}{2} + \frac{2(3q)(-2q) + 2(q)(-2q)}{\sqrt{2}}\right] = \frac{q^2}{4\pi\epsilon_0 a}\left(\frac{7}{2} - 8\sqrt{2}\right).\]
+    (ii) $Q = 3q + q - 4q = 0$, and $\vec{p} = 3qa\hat{z} - qa\hat{z} - 2qa\hat{y} + 2qa\hat{y} = 2qa\hat{z}$, so
+    \[V \approx \frac{1}{4\pi\epsilon_0}\frac{2qa\cos\theta}{r^2}.\]
+\end{solution}
+\begin{problem}[Midterm 2025, Q4]
+    Charges $+q$ and $-q$, a distance $a$ apart, sit a height $d$ above a conductor filling $z < 0$. (a) Find $\vec{E}$ and $V$ for $z < 0$. (b) Describe how to find the exact $V$ for $z > 0$. (c) Find how $V$ and $|\vec{E}|$ fall off for $r \gg d$.
+\end{problem}
+\begin{solution}
+    \begin{enumerate}[label=(\alph*)]
+        \item $\vec{E} = 0$ inside the conductor, so $V$ is constant, independent of $z$ ($V = 0$, matching the plane at infinity).
+        \item Method of images: place $-q$ at depth $d$ directly below $+q$, and $+q$ directly below $-q$. The four charges give $V = 0$ on $z = 0$, and the images lie outside $z > 0$, so by uniqueness
+        \[V = \frac{1}{4\pi\epsilon_0}\sum_{i=1}^{4}\frac{q_i}{|\vec{r} - \vec{r}_i|}\quad\text{for } z > 0.\]
+        \item Total charge is $0$. The real pair has $\vec{p} = qa\hat{x}$ and the image pair $-qa\hat{x}$, so the dipole moment also cancels. The leading term is the quadrupole: $V \sim 1/r^3$ and $|\vec{E}| \sim 1/r^4$.
+    \end{enumerate}
+\end{solution}
 
 
 \section{Electric Fields in Matter}

@@ -2,52 +2,54 @@
 \contentsline {subsection}{\numberline {1.1}Course Information}{1}{subsection.1.1}%
 \contentsline {section}{\numberline {2}Thermodynamics}{1}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Terminologies}{1}{subsection.2.1}%
-\contentsline {subsubsection}{\numberline {2.1.1}Equilibrium States}{1}{subsubsection.2.1.1}%
-\contentsline {subsubsection}{\numberline {2.1.2}Equations of State}{2}{subsubsection.2.1.2}%
-\contentsline {subsubsection}{\numberline {2.1.3}State Functions}{2}{subsubsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.2}Equilibrium States}{1}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Equations of State and State Functions}{2}{subsection.2.3}%
 \contentsline {section}{\numberline {3}Laws of Thermodynamics}{2}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Zeroth Law}{2}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}First Law}{3}{subsection.3.2}%
 \contentsline {section}{\numberline {4}Energy, Work and Heat}{3}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Energy}{3}{subsection.4.1}%
-\contentsline {paragraph}{Forms of energy.}{3}{section*.2}%
-\contentsline {subsection}{\numberline {4.2}Work}{3}{subsection.4.2}%
-\contentsline {paragraph}{Compression of a gas by a piston.}{4}{section*.3}%
+\contentsline {subsection}{\numberline {4.2}Work}{4}{subsection.4.2}%
+\contentsline {paragraph}{Compression of a gas by a piston.}{4}{section*.2}%
 \contentsline {subsection}{\numberline {4.3}Heat}{4}{subsection.4.3}%
-\contentsline {section}{\numberline {5}Compression and Expansion of an Ideal Gas}{4}{section.5}%
-\contentsline {subsection}{\numberline {5.1}The Two Limiting Cases}{4}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Quasistatic Isothermal Compression and Expansion}{5}{subsection.5.2}%
-\contentsline {paragraph}{Work.}{5}{section*.4}%
-\contentsline {paragraph}{Heat.}{5}{section*.5}%
-\contentsline {subsection}{\numberline {5.3}Quasistatic Adiabatic Compression and Expansion}{5}{subsection.5.3}%
-\contentsline {paragraph}{Equation of the adiabat.}{5}{section*.6}%
+\contentsline {section}{\numberline {5}Reversible Processes and Differentials}{4}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Reversible and Irreversible Processes}{4}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Exact and Inexact Differentials}{5}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Material Properties of a Compressible Fluid}{6}{subsection.5.3}%
 \contentsline {section}{\numberline {6}Heat Capacity}{6}{section.6}%
 \contentsline {subsection}{\numberline {6.1}Definition}{6}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Heat Capacity Depends on the Process}{6}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Measuring Specific Heat: Calorimetry}{7}{subsection.6.3}%
-\contentsline {subsection}{\numberline {6.4}The Mechanical Equivalent of Heat}{8}{subsection.6.4}%
-\contentsline {section}{\numberline {7}Thermodynamic Processes}{8}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Heat and Work Along a Path}{8}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}The Four Basic Processes}{9}{subsection.7.2}%
-\contentsline {paragraph}{Isobaric ($P$ = constant).}{9}{section*.7}%
-\contentsline {paragraph}{Isothermal ($T$ = constant).}{9}{section*.8}%
-\contentsline {paragraph}{Isochoric ($V$ = constant).}{9}{section*.9}%
-\contentsline {paragraph}{Adiabatic ($Q = 0$).}{10}{section*.10}%
-\contentsline {subsection}{\numberline {7.3}Cycles}{10}{subsection.7.3}%
+\contentsline {subsection}{\numberline {6.2}Heat Capacity Depends on the Process}{7}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Enthalpy}{7}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Calorimetry}{8}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}The Mechanical Equivalent of Heat}{8}{subsection.6.5}%
+\contentsline {section}{\numberline {7}Quasistatic Processes of an Ideal Gas}{8}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Isobaric and Isochoric}{9}{subsection.7.1}%
+\contentsline {paragraph}{Isobaric ($P$ constant).}{9}{section*.3}%
+\contentsline {paragraph}{Isochoric ($V$ constant).}{9}{section*.4}%
+\contentsline {subsection}{\numberline {7.2}Isothermal ($T$ constant)}{9}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Adiabatic ($Q = 0$)}{10}{subsection.7.3}%
+\contentsline {paragraph}{Equation of the adiabat.}{10}{section*.5}%
 \contentsline {section}{\numberline {8}Kinetic Theory of Gases}{10}{section.8}%
 \contentsline {subsection}{\numberline {8.1}Pressure from a Single Particle}{10}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Pressure from All $N$ Particles}{11}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.2}Pressure from All $N$ Particles}{10}{subsection.8.2}%
 \contentsline {subsection}{\numberline {8.3}Temperature and the Average Kinetic Energy}{11}{subsection.8.3}%
-\contentsline {section}{\numberline {9}Equipartition and Degrees of Freedom}{12}{section.9}%
-\contentsline {subsection}{\numberline {9.1}The Equipartition Theorem}{12}{subsection.9.1}%
-\contentsline {subsection}{\numberline {9.2}Counting Degrees of Freedom}{12}{subsection.9.2}%
-\contentsline {subsection}{\numberline {9.3}Degrees of Freedom in Solids}{13}{subsection.9.3}%
-\contentsline {subsection}{\numberline {9.4}Freezing Out}{13}{subsection.9.4}%
-\contentsline {section}{\numberline {10}Predicting Heat Capacities}{13}{section.10}%
-\contentsline {subsection}{\numberline {10.1}Ideal Gas}{13}{subsection.10.1}%
-\contentsline {subsection}{\numberline {10.2}Solids: the Rule of Dulong and Petit}{14}{subsection.10.2}%
-\contentsline {section}{\numberline {11}Thermodynamic Equilibrium Revisited}{14}{section.11}%
-\contentsline {subsection}{\numberline {11.1}Local Thermodynamic Equilibrium}{14}{subsection.11.1}%
-\contentsline {subsection}{\numberline {11.2}Equilibrium versus Rates}{15}{subsection.11.2}%
-\contentsline {section}{\numberline {A}Appendix}{15}{appendix.A}%
-\contentsline {section}{\numberline {B}Useful Links}{15}{appendix.B}%
+\contentsline {section}{\numberline {9}Equipartition and Heat Capacities}{11}{section.9}%
+\contentsline {subsection}{\numberline {9.1}The Equipartition Theorem}{11}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Counting Degrees of Freedom}{11}{subsection.9.2}%
+\contentsline {paragraph}{Solids.}{12}{section*.6}%
+\contentsline {subsection}{\numberline {9.3}Freezing Out}{12}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}Predicting Heat Capacities}{12}{subsection.9.4}%
+\contentsline {section}{\numberline {10}Heat Engines and the Second Law}{12}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Cycles and Heat Engines}{12}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Statements of the Second Law}{13}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}The Carnot Cycle and Carnot's Theorem}{13}{subsection.10.3}%
+\contentsline {subsection}{\numberline {10.4}Thermodynamic Temperature Scale}{14}{subsection.10.4}%
+\contentsline {subsection}{\numberline {10.5}Refrigerators and Heat Pumps}{14}{subsection.10.5}%
+\contentsline {subsection}{\numberline {10.6}Real Engines}{15}{subsection.10.6}%
+\contentsline {paragraph}{Otto cycle.}{15}{section*.7}%
+\contentsline {section}{\numberline {11}Entropy}{15}{section.11}%
+\contentsline {subsection}{\numberline {11.1}The Clausius Inequality}{16}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11.2}Definition of Entropy}{16}{subsection.11.2}%
+\contentsline {subsection}{\numberline {11.3}Principle of Increasing Entropy}{17}{subsection.11.3}%
+\contentsline {section}{\numberline {A}Appendix}{17}{appendix.A}%
+\contentsline {section}{\numberline {B}Useful Links}{17}{appendix.B}%

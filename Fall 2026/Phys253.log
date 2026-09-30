@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  25 SEP 2026 08:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  30 SEP 2026 14:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -586,31 +586,31 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@remark=\count366
 \c@proposition=\count367
 Package hyperref Info: Option `colorlinks' set `true' on input line 30.
-Package translations Info: No language package found. I am going to use `english' as default language. on input line 31.
+Package translations Info: No language package found. I am going to use `english' as default language. on input line 32.
  (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count368
 ) (Phys253.aux)
 \openout1 = `Phys253.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
  (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count369
@@ -632,8 +632,8 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 )) (C:\Users\erenr\AppData\Local\Programs\MiKTeX\tex/latex/translations/dicts\translations-basic-dictionary-english.trsl
 File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
 )
-Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 31.
-Package hyperref Info: Link coloring ON on input line 31.
+Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 32.
+Package hyperref Info: Link coloring ON on input line 32.
  (Phys253.out) (Phys253.out)
 \@outlinefile=\write4
 \openout4 = `Phys253.out'.
@@ -658,12 +658,12 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \openout5 = `Phys253.toc'.
 
  [3]
-Underfull \hbox (badness 6708) in paragraph at lines 82--82
+Underfull \hbox (badness 6708) in paragraph at lines 85--85
 []\OT1/cmr/m/n/10 August 31 -
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 82--82
+Underfull \hbox (badness 10000) in paragraph at lines 85--85
 \OT1/cmr/m/n/10 Septem-ber 2,
  []
 
@@ -671,16 +671,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 82--82
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.112 \end{definition}
+l.111 \end{definition}
                        [1
 
 ]
 pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.155     \[
-            \Delta U = Q + W.\] [2]
-Underfull \hbox (badness 10000) in paragraph at lines 169--169
+l.151 \end{remark}
+                   [2]
+Underfull \hbox (badness 10000) in paragraph at lines 179--179
 []\OT1/cmr/m/n/10 September 4,
  []
 
@@ -688,57 +688,82 @@ Underfull \hbox (badness 10000) in paragraph at lines 169--169
 pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.200 \[W = F \, \delta x.\]
-                             [3]
-Underfull \hbox (badness 10000) in paragraph at lines 226--226
-[]\OT1/cmr/m/n/10 September 9,
+l.203     \[W = \int \vec{F} \cdot d\vec{r}.\]
+                                               [3]
+Overfull \hbox (4.12212pt too wide) in paragraph at lines 215--216
+[][]\OT1/cmr/bx/n/10 Remark 12. []\OT1/cmr/m/it/10 En-ergy and work are mea-sured in joules, $\OT1/cmr/m/n/10 1 J = 1 N m = 1 [] m[] s[]$\OT1/cmr/m/it/10 . 
  []
 
 [4] [5] [6] [7]
-<../Images/Thermal-Phys-1.png, id=337, 655.44875pt x 346.79562pt>
+Underfull \hbox (badness 10000) in paragraph at lines 376--376
+[]\OT1/cmr/m/n/10 September 9
+ []
+
+<../Images/Thermal-Phys-1.png, id=368, 655.44875pt x 346.79562pt>
 File: ../Images/Thermal-Phys-1.png Graphic file (type png)
 <use ../Images/Thermal-Phys-1.png>
-Package pdftex.def Info: ../Images/Thermal-Phys-1.png  used on input line 365.
+Package pdftex.def Info: ../Images/Thermal-Phys-1.png  used on input line 382.
 (pdftex.def)             Requested size: 310.4979pt x 164.28513pt.
- [8]
-Overfull \hbox (33.22705pt too wide) detected at line 374
-\OT1/cmr/m/n/10 ^^V\OML/cmm/m/it/10 dQ \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 C[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 T\OT1/cmr/m/n/10 ) \OML/cmm/m/it/10 dT;  Q \OT1/cmr/m/n/10 = [][] \OML/cmm/m/it/10 C[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 T\OT1/cmr/m/n/10 ) \OML/cmm/m/it/10 dT \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 C[] \OT1/cmr/m/n/10 ^^A\OML/cmm/m/it/10 T \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 C[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 T[] \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 T[]\OT1/cmr/m/n/10 ) []\OML/cmm/m/it/10 :
- []
+[8]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 394.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 394.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 403.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 403.
 
 [9
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.387 ...= -\int_{V_1}^{V_2} P \, dV = \Delta U.\]
-                                                   <../Images/Thermal-Phys-1.png>] [10]
+l.406 \paragraph
+                {Equation of the adiabat.} <../Images/Thermal-Phys-1.png>]
+Overfull \hbox (7.00903pt too wide) in paragraph at lines 407--408
+ []\OT1/cmr/bx/n/10 Equation of the adi-a-bat.[] \OT1/cmr/m/n/10 With $\OML/cmm/m/it/10 dU \OT1/cmr/m/n/10 = []\OML/cmm/m/it/10 Nk[] dT \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 ^^@\OML/cmm/m/it/10 P dV$ \OT1/cmr/m/n/10 and $\OML/cmm/m/it/10 P \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 Nk[]T=V$\OT1/cmr/m/n/10 , 
+ []
+
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 423.
+(hyperref)                removing `math shift' on input line 433.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 423.
+(hyperref)                removing `math shift' on input line 433.
 
-[11] [12] [13] [14] [15] (Phys253.aux)
+[10] [11] [12] [13] [14]
+Overfull \hbox (0.69434pt too wide) in paragraph at lines 639--640
+[]\OT1/cmr/m/n/10 Along the adi-a-bats $\OML/cmm/m/it/10 TV[]$ \OT1/cmr/m/n/10 is con-stant: $\OML/cmm/m/it/10 T[]V[] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 T[]V[]$ \OT1/cmr/m/n/10 and $\OML/cmm/m/it/10 T[]V[] \OT1/cmr/m/n/10 =
+ []
+
+[15] [16] [17] (Phys253.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
 Package rerunfilecheck Info: File `Phys253.out' has not changed.
-(rerunfilecheck)             Checksum: 148311DBAB85D1983EC6591C6140F1F7;7609.
+(rerunfilecheck)             Checksum: 558494BE3C11499237DBA12683BF3BE8;8449.
  ) 
 Here is how much of TeX's memory you used:
- 53129 strings out of 467871
- 1404987 string characters out of 5418377
- 2116383 words of memory out of 5000000
- 81328 multiletter control sequences out of 15000+600000
+ 53181 strings out of 467871
+ 1405660 string characters out of 5418377
+ 2116451 words of memory out of 5000000
+ 81340 multiletter control sequences out of 15000+600000
  637570 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,8n,118p,797b,1192s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,8n,118p,797b,1308s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\erenr\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Phys253.pdf (18 pages, 497561 bytes).
+Output written on Phys253.pdf (20 pages, 525895 bytes).
 PDF statistics:
- 511 PDF objects out of 1000 (max. 8388607)
- 123 named destinations out of 1000 (max. 500000)
- 370 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 587 PDF objects out of 1000 (max. 8388607)
+ 163 named destinations out of 1000 (max. 500000)
+ 410 words of extra memory for PDF output out of 10000 (max. 10000000)
 
