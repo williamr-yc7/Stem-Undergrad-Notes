@@ -245,14 +245,19 @@ Atoms leave the oven with spins pointing in random directions, so $S_z = |\vec{S
     \end{equation}
 \end{result}
 \begin{definition}[Spin quantum number]
-    The number $s$, fixed by the particle type, taking values $s = 0, \tfrac12, 1, \tfrac32, \dots$ A measurement of $S_z$ gives one of $n = 2s+1$ outcomes,
+    The number $s$, fixed by the particle type, taking values $s = 0, \tfrac12, 1, \tfrac32, \dots$\footnote{They follow from $[J_x,J_y] = i\hbar J_z$ (Section~\ref{sec:angmom}), which forces $m$ to step by 1 from $-s$ to $+s$, so $2s$ is a whole number.} A measurement of $S_z$ gives
     \begin{equation}
         S_z = m\hbar, \qquad m = -s, -s+1, \dots, +s,
     \end{equation}
-    so $s$ is found by counting beams. Silver gives 2 beams, so the electron has $s = \tfrac12$. The deuteron (a proton and a neutron with aligned spins) gives 3 beams, $S_z = +\hbar, 0, -\hbar$, so $s = 1$.
+    so the number of possible outcomes, and therefore of beams on the screen, is
+    \begin{equation}
+        \label{eq:n-levels}
+        n = 2s+1.
+    \end{equation}
+    Counting the beams gives $s = (n-1)/2$. Silver gives $n = 2$ beams, $S_z = \pm\hbar/2$, so the electron has $s = \tfrac12$. The deuteron (a proton and a neutron with aligned spins) gives $n = 3$ beams, $S_z = +\hbar, 0, -\hbar$, so $s = 1$.
 \end{definition}
 \begin{remark}
-    $S_z$ is a component. The magnitude is $|\vec{S}| = \hbar\sqrt{s(s+1)}$, which for the electron is $\hbar\sqrt{3}/2$, not $\hbar/2$.
+    $S_z$ is a component. The magnitude is $|\vec{S}| = \hbar\sqrt{s(s+1)}$, which for the electron ($s=1/2$) is $\hbar\sqrt{3}/2$.
 \end{remark}
 \begin{definition}[Ket]
     \label{Ket-def}
@@ -385,7 +390,7 @@ Throughout, an \emph{$n$-level system} is one whose measurements have $n$ possib
 
 \subsection{Kets, bras and bases}
 \begin{definition}[Bra and inner product]
-    Every ket (Def.~\ref{Ket-def}) $\ket{\psi}$ has a matching bra $\bra{\psi}$. A bra followed by a ket gives a complex number, the inner product $\braket{\phi|\psi} \in \mathbb{C}$.
+    Every ket (Def.~\ref{Ket-def}) $\ket{\psi}$ has a matching bra $\bra{\psi}$, its conjugate transpose (adjoint): the ket's coefficients are complex conjugated, and the column becomes a row (Section~\ref{sec:bras}). A bra followed by a ket gives a complex number, the inner product $\braket{\phi|\psi} \in \mathbb{C}$.
 \end{definition}
 \begin{definition}[Orthonormal basis]
     The outcome states $\{\ket{j} : j = 1,\dots,n\}$ of one measurement form a basis that is orthonormal:
@@ -445,6 +450,7 @@ Throughout, an \emph{$n$-level system} is one whose measurements have $n$ possib
 \end{remark}
 
 \subsubsection{Bras of superpositions}
+\label{sec:bras}
 Write the bra with unknown coefficients, $\bra{\psi} = c_{+}'\bra{+\hat{z}} + c_{-}'\bra{-\hat{z}}$. By orthonormality,
 \[\braket{\psi|\psi} = c_{+}'c_{+} + c_{-}'c_{-}.\]
 A system in $\ket{\psi}$ is found in $\ket{\psi}$ with certainty, and it is always found in one of the two beams, so this must equal $|c_+|^2 + |c_-|^2 = 1$. That forces $c_{\pm}' = c_{\pm}^{*}$.
@@ -570,6 +576,7 @@ Setting this to $\tfrac12$ forces $\gamma - \delta = \pm\pi/2$. The rest is conv
     Write $\ket{\psi} \xrightarrow{S_z} \psi$, not $\ket{\psi} = \psi$: the ket is basis-independent, the column is not.
 \end{remark}
 \begin{example}
+    \[\ket{+\hat{z}} \xrightarrow{S_z} \begin{pmatrix} 1 \\ 0 \end{pmatrix}, \qquad \ket{-\hat{z}} \xrightarrow{S_z} \begin{pmatrix} 0 \\ 1 \end{pmatrix},\]
     \[\ket{\pm\hat{x}} \xrightarrow{S_z} \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ \pm 1 \end{pmatrix}, \qquad \ket{\pm\hat{y}} \xrightarrow{S_z} \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ \pm i \end{pmatrix}.\]
 \end{example}
 \begin{problem}[Other bases]
@@ -638,6 +645,9 @@ Setting this to $\tfrac12$ forces $\gamma - \delta = \pm\pi/2$. The rest is conv
     \end{equation}
     the familiar $Mv = \lambda v$ in matrix form. A general operator turns a state into a different state; eigenstates come back as themselves times a number. A basis made of eigenstates of $A$ is called an \emph{eigenbasis} of $A$.
 \end{definition}
+\begin{remark}[Eigenstate vs eigenvector]
+    Same thing in two languages. ``Eigenstate'' is the physics word for the ket, e.g.\ $\ket{+\hat{x}}$. ``Eigenvector'' is the linear-algebra word, usually for its column in some basis, e.g.\ $\frac{1}{\sqrt{2}}(1,1)^T$ in the $S_z$ basis.
+\end{remark}
 \begin{proposition}[Operator of an observable]
     For an observable with outcomes $a_j$ and states $\ket{a_j}$, define
     \begin{equation}
@@ -657,6 +667,14 @@ Setting this to $\tfrac12$ forces $\gamma - \delta = \pm\pi/2$. The rest is conv
         \bra{a_i}\hat{A}\ket{a_j} = a_j\delta_{ij}, \qquad \hat{A} \xrightarrow{\ket{a_j}} D = \begin{pmatrix} a_1 & & 0 \\ & \ddots & \\ 0 & & a_n \end{pmatrix}.
     \end{equation}
 \end{proposition}
+\begin{example}
+    Each spin operator in its own eigenbasis, using $\hat{S}_n\ket{\pm\hat{n}} = \pm\frac{\hbar}{2}\ket{\pm\hat{n}}$ and orthonormality:
+    \[\bra{\pm\hat{n}}\hat{S}_n\ket{\pm\hat{n}} = \pm\frac{\hbar}{2}, \qquad \bra{\pm\hat{n}}\hat{S}_n\ket{\mp\hat{n}} = \mp\frac{\hbar}{2}\braket{\pm\hat{n}|\mp\hat{n}} = 0,\]
+    so
+    \[\hat{S}_x \xrightarrow{S_x} \frac{\hbar}{2}\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}, \qquad
+    \hat{S}_y \xrightarrow{S_y} \frac{\hbar}{2}\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}, \qquad
+    \hat{S}_z \xrightarrow{S_z} \frac{\hbar}{2}\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}.\]
+\end{example}
 \begin{definition}[Spin operators]
     Applying this to spin, for $\hat{n} \in \{\hat{x},\hat{y},\hat{z}\}$,
     \begin{equation}
@@ -720,18 +738,20 @@ Inserting $\id = \sum_\alpha\ket{\alpha}\bra{\alpha}$ into each $\ket{j}$ amplit
 \begin{remark}
     So normalization does not depend on the basis: $\psi^{j\dagger}\psi^{j} = \psi^{\alpha\dagger}U^\dagger U\psi^{\alpha} = \psi^{\alpha\dagger}\psi^{\alpha}$.
 \end{remark}
-\begin{example}[From $S_x$ to $S_z$]
+\begin{example}[Between $S_x$ and $S_z$]
     With $\ket{j} = \ket{\pm\hat{z}}$ and $\ket{\alpha} = \ket{\pm\hat{x}}$, the columns of $U$ are the $S_z$ columns of $\ket{\pm\hat{x}}$:
     \begin{equation}
         \label{eq:Uzx}
-        U = \begin{pmatrix} \braket{+\hat{z}|+\hat{x}} & \braket{+\hat{z}|-\hat{x}} \\ \braket{-\hat{z}|+\hat{x}} & \braket{-\hat{z}|-\hat{x}} \end{pmatrix} = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}, \qquad \psi^z = U\psi^x.
+        U = \begin{pmatrix} \braket{+\hat{z}|+\hat{x}} & \braket{+\hat{z}|-\hat{x}} \\ \braket{-\hat{z}|+\hat{x}} & \braket{-\hat{z}|-\hat{x}} \end{pmatrix} = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}.
     \end{equation}
-    It is real and symmetric, so $U^\dagger = U$. The matrix taking the $S_y$ basis to $S_z$ has columns $\frac{1}{\sqrt{2}}(1, \pm i)^T$.
+    The two directions are
+    \[S_x \to S_z: \ \psi^z = U\psi^x, \qquad S_z \to S_x: \ \psi^x = U^\dagger\psi^z = U\psi^z,\]
+    since $U$ is real and symmetric, so $U^\dagger = U$: the same matrix goes both ways ($U^2 = \id$). Bill calls $U$ ``$R\left(\tfrac{\pi}{2}\hat{y}\right)$'', but it is not the actual rotation matrix (see the warning in Section~\ref{sec:any-axis}).
 \end{example}
-\begin{remark}[Lecture notation]
-    Bill calls this matrix $R\left(\tfrac{\pi}{2}\hat{y}\right)$ and writes
-    \[\psi^z = R\left(\tfrac{\pi}{2}\hat{y}\right)\psi^x, \qquad \psi^x = R^\dagger\left(\tfrac{\pi}{2}\hat{y}\right)\psi^z,\]
-    because rotating by $90^\circ$ about $\hat{y}$ takes $\ket{\pm\hat{z}}$ to $\ket{\pm\hat{x}}$. It agrees with the true rotation matrix up to the phase of one basis ket (see the phase caveat in Section~\ref{sec:any-axis}).
+\begin{remark}
+    Between $S_y$ and $S_z$ the matrix has columns $\frac{1}{\sqrt{2}}(1, \pm i)^T$,
+    \[U_y = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 & 1 \\ i & -i \end{pmatrix}, \qquad \psi^z = U_y\psi^y, \qquad \psi^y = U_y^\dagger\psi^z,\]
+    and here $U_y^\dagger \neq U_y$, so the reverse direction needs the actual adjoint.
 \end{remark}
 \begin{problem}[Expectation value from the $S_x$ basis]
     For $\ket{\psi} = \frac{1}{\sqrt{3}}\ket{+\hat{x}} + i\sqrt{\frac{2}{3}}\ket{-\hat{x}}$, find $\braket{S_z} = \psi^{z\dagger}\hat{S}_z\psi^z$ using matrix mechanics.
@@ -912,10 +932,16 @@ Taylor expanding one small step about the identity and naming the first-order op
     \[R\left(\tfrac{\pi}{2}\hat{y}\right) \xrightarrow{S_z} \frac{1}{\sqrt{2}}\begin{pmatrix} 1 & -1 \\ 1 & 1 \end{pmatrix},\]
     whose second column is $-\ket{-\hat{x}}$, while $U$ in Eq.~\eqref{eq:Uzx} has $+\ket{-\hat{x}}$. They differ only by the phase of one basis ket, which is a free choice, so both are valid.
 \end{remark}
+\begin{remark}[WARNING]
+    Plugging $\phi = \pi/2$ into this proposition does \emph{not} give Bill's change-of-basis matrix:
+    \[R\left(\tfrac{\pi}{2}\hat{y}\right) \xrightarrow{S_z} \frac{1}{\sqrt{2}}\begin{pmatrix} 1 & -1 \\ 1 & 1 \end{pmatrix} \neq U = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}.\]
+    The true rotation sends $\ket{-\hat{z}}$ to $-\ket{-\hat{x}}$, not $\ket{-\hat{x}}$. For a change of basis, always use $U$ from Eq.~\eqref{eq:Uzx}.
+\end{remark}
 
 
 %==========================================================================
 \section{Angular Momentum}
+\label{sec:angmom}
 \marginpar{September 28, 2026}
 
 \subsection{Rotations about different axes}
