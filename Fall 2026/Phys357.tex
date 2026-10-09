@@ -64,7 +64,6 @@ Textbook used is JS Townsend, \emph{A Modern Approach to Quantum Mechanics}, 2nd
 \end{itemize}
 
 
-%==========================================================================
 \section{Mathematical Background}
 
 \subsection{Taylor series}
@@ -82,15 +81,11 @@ Textbook used is JS Townsend, \emph{A Modern Approach to Quantum Mechanics}, 2nd
         \sin x = \sum_{n=0}^{\infty}\frac{(-1)^n x^{2n+1}}{(2n+1)!},
     \end{equation}
     \begin{equation}
-        \frac{1}{1-x} = \sum_{n=0}^{\infty}x^n \quad (|x|<1), \qquad (1+u)^N = \sum_{n=0}^{N}\binom{N}{n}u^n \quad (N \in \mathbb{N}).
+        \frac{1}{1-x} = \sum_{n=0}^{\infty}x^n \quad (|x|<1), \qquad (1+u)^N = \sum_{n=0}^{N}\binom{N}{n}u^n \quad (N \in \mathbb{N}),
     \end{equation}
-\end{result}
-\begin{result}[Euler's formula]
-    Comparing the series for $e^{i\theta}$, $\cos\theta$ and $\sin\theta$ gives $e^{i\theta} = \cos\theta + i\sin\theta$, hence
     \begin{equation}
-        \cos\theta = \frac{e^{i\theta}+e^{-i\theta}}{2}, \qquad \sin\theta = \frac{e^{i\theta}-e^{-i\theta}}{2i}.
+        \ln(1+u) = \sum_{n=1}^{\infty}\frac{(-1)^{n+1}u^n}{n} = u - \frac{u^2}{2} + \frac{u^3}{3} - \cdots \quad (|u|<1).
     \end{equation}
-    These are used constantly when rotation matrices are written out.
 \end{result}
 \begin{problem}[The exponential as a limit]
     Show that $\lim_{N\to\infty}\left(1+x/N\right)^N = e^x$.
@@ -98,6 +93,22 @@ Textbook used is JS Townsend, \emph{A Modern Approach to Quantum Mechanics}, 2nd
 \begin{remark}
     This limit is what lets a rotation be written as an exponential (Section~\ref{sec:generators}).
 \end{remark}
+
+\subsection{Euler's formula and trigonometric identities}
+\begin{result}[Euler's formula]
+    Comparing the series for $e^{i\theta}$, $\cos\theta$ and $\sin\theta$ gives $e^{i\theta} = \cos\theta + i\sin\theta$, hence
+    \begin{equation}
+        \cos\theta = \frac{e^{i\theta}+e^{-i\theta}}{2}, \qquad \sin\theta = \frac{e^{i\theta}-e^{-i\theta}}{2i}.
+    \end{equation}
+    These are used constantly when rotation matrices are written out.
+\end{result}
+\begin{result}[Double-angle identities]
+    Squaring $e^{ix} = \cos x + i\sin x$ and comparing with $e^{2ix} = \cos 2x + i\sin 2x$,
+    \begin{equation}
+        \cos^2 x - \sin^2 x = \cos 2x, \qquad 2\sin x\cos x = \sin 2x.
+    \end{equation}
+    These turn the half angles $\phi/2$ in spin rotation matrices back into full angles $\phi$.
+\end{result}
 
 \subsection{Bases}
 \begin{definition}[Basis]
@@ -110,7 +121,6 @@ Textbook used is JS Townsend, \emph{A Modern Approach to Quantum Mechanics}, 2nd
 \end{definition}
 
 
-%==========================================================================
 \section{Stern-Gerlach Experiments}
 \marginpar{August 31 - September 9, 2026}
 
@@ -180,19 +190,18 @@ Writing $\vec{S} = \hbar(\vec{S}/\hbar)$ with $\vec{S}/\hbar$ dimensionless, the
     \end{equation}
     since $m_{p}/m_{e} \approx 1836$.
 \end{definition}
-The electron moment is then
+The magnetic moments are then
 \begin{equation}
-    \vec{\mu}_{e} = g_{e}\,\mu_{B}\,\frac{\vec{S}}{\hbar},
+    \vec{\mu}_{e} = -g_{e}\,\mu_{B}\,\frac{\vec{S}}{\hbar}, \qquad \vec{\mu}_{p,n} = g_{p,n}\,\mu_{N}\,\frac{\vec{S}}{\hbar},
 \end{equation}
-and similarly for the proton and neutron with $\mu_{N}$ in place of $\mu_{B}$.
-
+where the minus sign for the electron comes from its negative charge.
 \begin{table}[H]
 \centering
 \begin{tabular}{lcccc}
 \hline
 Particle & Charge $q$ & Mass $m$ & $g$-factor & Gyromagnetic ratio $\gamma$ \\
 \hline
-Electron & $-|e|$ & $m_{e}$ & $g_{e} \approx 2$ & $g_{e}\mu_{B}/\hbar$ \\
+Electron & $-|e|$ & $m_{e}$ & $g_{e} \approx 2$ & $-g_{e}\mu_{B}/\hbar$ \\
 Proton   & $+|e|$ & $m_{p}$ & $g_{p} \approx 5.59$ & $g_{p}\mu_{N}/\hbar$ \\
 Neutron  & $0$    & $m_{n} \approx m_{p}$ & $g_{n} \approx -3.83$ & $g_{n}\mu_{N}/\hbar$ \\
 \hline
@@ -200,7 +209,7 @@ Neutron  & $0$    & $m_{n} \approx m_{p}$ & $g_{n} \approx -3.83$ & $g_{n}\mu_{N
 \caption{Charges, masses, g-factors and gyromagnetic ratios.}
 \end{table}
 \begin{remark}
-    Classically $\mu = (q/2mc)L_z$ vanishes when $q = 0$, yet the neutral neutron has a moment. So its $\vec{\mu}$ cannot come from a circulating point charge: a first sign the classical picture fails.
+    Classically $\mu = (q/2mc)L_z$ vanishes when $q = 0$, yet the neutral neutron has a moment. The reason is that the neutron is not a point particle: it is made of three charged quarks (one up quark with charge $+\tfrac23|e|$ and two down quarks with $-\tfrac13|e|$ each). The charges add to zero, but the quarks' spins and motion inside the neutron each give a moment, and these moments do not cancel. So its $\vec{\mu}$ cannot come from a single circulating point charge: a first sign the classical picture fails. The same internal structure is why $g_p \approx 5.59$ is far from 2.
 \end{remark}
 \begin{remark}
     Since $m_{p} \gg m_{e}$, $\mu_{N} \ll \mu_{B}$, so nuclei are deflected far less than electrons in a Stern-Gerlach device.
@@ -244,8 +253,10 @@ Atoms leave the oven with spins pointing in random directions, so $S_z = |\vec{S
         S_{z} = \pm\frac{\hbar}{2}.
     \end{equation}
 \end{result}
+
+\subsection{Spin quantization}
 \begin{definition}[Spin quantum number]
-    The number $s$, fixed by the particle type, taking values $s = 0, \tfrac12, 1, \tfrac32, \dots$\footnote{They follow from $[J_x,J_y] = i\hbar J_z$ (Section~\ref{sec:angmom}), which forces $m$ to step by 1 from $-s$ to $+s$, so $2s$ is a whole number.} A measurement of $S_z$ gives
+    The number $s$, fixed by the particle type, taking values $s = 0, \tfrac12, 1, \tfrac32, \dots$\footnote{They follow from $[J_x,J_y] = i\hbar J_z$ via the ladder operators (Section~\ref{sec:ladder}), which force $m$ to step by 1 from $-s$ to $+s$, so $2s$ is a whole number.} A measurement of $S_z$ gives
     \begin{equation}
         S_z = m\hbar, \qquad m = -s, -s+1, \dots, +s,
     \end{equation}
@@ -259,15 +270,15 @@ Atoms leave the oven with spins pointing in random directions, so $S_z = |\vec{S
 \begin{remark}
     $S_z$ is a component. The magnitude is $|\vec{S}| = \hbar\sqrt{s(s+1)}$, which for the electron ($s=1/2$) is $\hbar\sqrt{3}/2$.
 \end{remark}
+
+\subsection{Sequential Stern-Gerlach experiments}
+We write SG$z$ for a device whose gradient points along $z$, and SG$x$ for the same device rotated by $90^\circ$ about the beam axis.
 \begin{definition}[Ket]
     \label{Ket-def}
     A ket $\ket{\,\cdot\,}$ is a label for a quantum state, treated as a vector. For electron spin, the two outcomes of an SG$z$ give
     \[\ket{+\hat{z}} \equiv \ket{\uparrow} \; \text{for } S_{z} = +\frac{\hbar}{2}, \qquad \ket{-\hat{z}} \equiv \ket{\downarrow} \; \text{for } S_{z} = -\frac{\hbar}{2},\]
     and likewise $\ket{\pm\hat{x}}$ for $S_x = \pm\hbar/2$, and so on for any axis. We follow Townsend and use the $\ket{\pm\hat{n}}$ labels.
 \end{definition}
-
-\subsection{Sequential Stern-Gerlach experiments}
-We write SG$z$ for a device whose gradient points along $z$, and SG$x$ for the same device rotated by $90^\circ$ about the beam axis.
 \begin{definition}[Filter]
     Each device sends atoms into two beams. A filter blocks one of them.
 \end{definition}
@@ -285,7 +296,6 @@ We write SG$z$ for a device whose gradient points along $z$, and SG$x$ for the s
     blocked/.style={line width=2.5pt},
     lab/.style={font=\small}
 ]
-% ---------------- Experiment 1 ----------------
 \node[font=\bfseries] at (-1.2,0) {1};
 \node[oven] at (0,0) {Oven};
 \node[sg]   at (2.0,0) {SG$z$};
@@ -297,7 +307,6 @@ We write SG$z$ for a device whose gradient points along $z$, and SG$x$ for the s
 \node[lab] at (2.85,-0.75) {$-\hat{z}$};
 \draw[beam] (5.15,0.15) -- (6.15,0.55) node[lab,right] {$+\hat{z}$: 100\%};
 \draw[beam, dashed] (5.15,-0.15) -- (6.15,-0.55) node[lab,right] {$-\hat{z}$: 0\%};
-% ---------------- Experiment 2 ----------------
 \begin{scope}[yshift=-2.3cm]
 \node[font=\bfseries] at (-1.2,0) {2};
 \node[oven] at (0,0) {Oven};
@@ -311,7 +320,6 @@ We write SG$z$ for a device whose gradient points along $z$, and SG$x$ for the s
 \draw[beam] (5.15,0.15) -- (6.15,0.55) node[lab,right] {$+\hat{x}$: 50\%};
 \draw[beam] (5.15,-0.15) -- (6.15,-0.55) node[lab,right] {$-\hat{x}$: 50\%};
 \end{scope}
-% ---------------- Experiment 3 ----------------
 \begin{scope}[yshift=-4.6cm]
 \node[font=\bfseries] at (-1.2,0) {3};
 \node[oven] at (0,0) {Oven};
@@ -330,7 +338,6 @@ We write SG$z$ for a device whose gradient points along $z$, and SG$x$ for the s
 \draw[beam] (7.75,0.15) -- (8.75,0.55) node[lab,right] {$+\hat{z}$: 50\%};
 \draw[beam] (7.75,-0.15) -- (8.75,-0.55) node[lab,right] {$-\hat{z}$: 50\%};
 \end{scope}
-% ---------------- Experiment 4 ----------------
 \begin{scope}[yshift=-7.2cm]
 \node[font=\bfseries] at (-1.2,0) {4};
 \node[oven] at (0,0) {Oven};
@@ -379,13 +386,14 @@ Filter $+\hat{z}$, pass it through a modified SG$x$ with neither path blocked, t
 \begin{result}
     The atoms cannot be going half through $+\hat{x}$ and half through $-\hat{x}$, since Experiment 3 showed each half alone gives 50/50. Instead the two paths \emph{interfere}: as with water or light waves, contributions from the two paths add and can cancel, here cancelling the $-\hat{z}$ outcome. No definite path can be assigned to an atom. Section~\ref{sec:states} makes this precise.
 \end{result}
+\begin{remark}
+    With one path blocked, a modified SG acts exactly like an ordinary SG.
+\end{remark}
 
 
-%==========================================================================
 \section{Quantum States}
 \label{sec:states}
 \marginpar{September 11-18, 2026}
-
 Throughout, an \emph{$n$-level system} is one whose measurements have $n$ possible outcomes. For spin $s$, $n = 2s+1$, so spin-$\tfrac12$ has $n = 2$.
 
 \subsection{Kets, bras and bases}
@@ -400,7 +408,7 @@ Throughout, an \emph{$n$-level system} is one whose measurements have $n$ possib
     For spin-$\tfrac12$ this is $\braket{\pm\hat{z}|\pm\hat{z}} = 1$ and $\braket{\pm\hat{z}|\mp\hat{z}} = 0$, and the same holds for $\{\ket{\pm\hat{x}}\}$ or any other axis.
 \end{definition}
 \begin{remark}
-    The label $j$ counts \emph{outcomes}, not axes. Choosing to measure $S_x$ gives $\ket{1} = \ket{+\hat{x}}$, $\ket{2} = \ket{-\hat{x}}$; choosing $S_z$ gives $\ket{1} = \ket{+\hat{z}}$, $\ket{2} = \ket{-\hat{z}}$. Either way $n = 2$. A ket may also carry several labels, usually the quantum numbers that pin it down: $\ket{s,m}$ for spin, so $\ket{\pm\hat{z}} = \ket{\tfrac12,\pm\tfrac12}$, and for the deuteron $\ket{1,+1}, \ket{1,0}, \ket{1,-1}$.
+    The label $j$ counts \emph{outcomes}, not axes. Choosing to measure $S_x$ gives $\ket{1} = \ket{+\hat{x}}$, $\ket{2} = \ket{-\hat{x}}$; choosing $S_z$ gives $\ket{1} = \ket{+\hat{z}}$, $\ket{2} = \ket{-\hat{z}}$. Either way $n = 2$. A ket may also carry several labels, usually the quantum numbers that pin it down: $\ket{s,m}$ for spin, so $\ket{\pm\hat{z}} = \ket{\tfrac12,\pm\tfrac12}$, and for the deuteron $\ket{1,+1}, \ket{1,0}, \ket{1,-1}$. Electrons in atoms are labelled the same way (Section~\ref{sec:atomic}).
 \end{remark}
 \begin{definition}[Superposition]
     Any state is a linear combination of basis kets,
@@ -479,6 +487,9 @@ A system in $\ket{\psi}$ is found in $\ket{\psi}$ with certainty, and it is alwa
 \begin{proposition}
     A global phase changes no probability: $\left|\braket{\phi|e^{i\alpha}\psi}\right|^2 = |e^{i\alpha}|^2\left|\braket{\phi|\psi}\right|^2 = \left|\braket{\phi|\psi}\right|^2$ for every $\ket{\phi}$.
 \end{proposition}
+\begin{definition}[Physical state]
+    What the system is actually like, as far as any experiment can tell: the probabilities of every outcome of every possible measurement. Two kets that give the same probabilities for all measurements describe the same physical state.
+\end{definition}
 \begin{result}
     $\ket{\psi}$ and $e^{i\alpha}\ket{\psi}$ are the same physical state, so global phases can be dropped. Relative phases cannot: they leave the $S_z$ probabilities alone but change the $S_x$ and $S_y$ ones (Section~\ref{sec:xy-states}).
 \end{result}
@@ -490,9 +501,6 @@ A system in $\ket{\psi}$ is found in $\ket{\psi}$ with certainty, and it is alwa
         \braket{A} = \sum_j a_j\,P(A = a_j) = \sum_j a_j\left|\braket{a_j|\psi}\right|^2; \qquad \braket{S_z} = \frac{\hbar}{2}|c_+|^2 - \frac{\hbar}{2}|c_-|^2.
     \end{equation}
 \end{definition}
-\begin{remark}
-    For $N$ measurements on identically prepared atoms, with $N_\pm$ giving $\pm\hbar/2$, the measured average is $\braket{S_z}_N = \frac{\hbar}{2}\frac{N_+ - N_-}{N}$, which tends to $\braket{S_z}$ as $N \to \infty$.
-\end{remark}
 \begin{definition}[Uncertainty]
     The standard deviation (typical spread of outcomes around the average):
     \begin{equation}
@@ -509,10 +517,15 @@ A system in $\ket{\psi}$ is found in $\ket{\psi}$ with certainty, and it is alwa
     For $\ket{\psi} = \sqrt{\tfrac{1}{3}}\ket{+\hat{z}} + i\sqrt{\tfrac{2}{3}}\ket{-\hat{z}}$,
     \[\braket{S_z} = \frac{\hbar}{2}\cdot\frac{1}{3} - \frac{\hbar}{2}\cdot\frac{2}{3} = -\frac{\hbar}{6}, \qquad (\Delta S_z)^2 = \frac{\hbar^2}{4} - \frac{\hbar^2}{36} = \frac{2}{9}\hbar^2, \qquad \Delta S_z = \frac{\sqrt{2}}{3}\hbar.\]
 \end{example}
+
+\subsubsection{Measured averages and shot noise}
+\begin{remark}
+    For $N$ measurements on identically prepared atoms, with $N_\pm$ giving $\pm\hbar/2$, the measured average is $\braket{S_z}_N = \frac{\hbar}{2}\frac{N_+ - N_-}{N}$, which tends to $\braket{S_z}$ as $N \to \infty$.
+\end{remark}
 \begin{remark}[Shot noise]
-    The scatter of a finite-sample average around the true expectation value,
+    The measured average $\braket{S_z}_N$ scatters around the true expectation value, and its average deviation from it is
     \[\left|\braket{S_z}_N - \braket{S_z}\right| \sim \frac{\Delta S_z}{\sqrt{N}}.\]
-    It comes from the randomness of individual quantum outcomes, not from a faulty apparatus, and is absent only when $\Delta S_z = 0$, i.e.\ when the state has a definite $S_z$.
+    This scatter is called shot noise. It comes from the randomness of individual quantum outcomes, not from a faulty apparatus, and is absent only when $\Delta S_z = 0$, i.e.\ when the state has a definite $S_z$.
 \end{remark}
 
 \subsection{Spin states along \texorpdfstring{$x$}{x} and \texorpdfstring{$y$}{y}}
@@ -560,7 +573,6 @@ Setting this to $\tfrac12$ forces $\gamma - \delta = \pm\pi/2$. The rest is conv
 \end{example}
 
 
-%==========================================================================
 \section{Matrix Mechanics}
 \marginpar{September 21-25, 2026}
 
@@ -667,6 +679,14 @@ Setting this to $\tfrac12$ forces $\gamma - \delta = \pm\pi/2$. The rest is conv
         \bra{a_i}\hat{A}\ket{a_j} = a_j\delta_{ij}, \qquad \hat{A} \xrightarrow{\ket{a_j}} D = \begin{pmatrix} a_1 & & 0 \\ & \ddots & \\ 0 & & a_n \end{pmatrix}.
     \end{equation}
 \end{proposition}
+
+\subsubsection{Spin operators and Pauli matrices}
+\begin{definition}[Spin operators]
+    Applying the operator of an observable to spin, for $\hat{n} \in \{\hat{x},\hat{y},\hat{z}\}$,
+    \begin{equation}
+        \hat{S}_n = \frac{\hbar}{2}\left(\ket{+\hat{n}}\bra{+\hat{n}} - \ket{-\hat{n}}\bra{-\hat{n}}\right), \qquad \hat{S}_n\ket{\pm\hat{n}} = \pm\frac{\hbar}{2}\ket{\pm\hat{n}}.
+    \end{equation}
+\end{definition}
 \begin{example}
     Each spin operator in its own eigenbasis, using $\hat{S}_n\ket{\pm\hat{n}} = \pm\frac{\hbar}{2}\ket{\pm\hat{n}}$ and orthonormality:
     \[\bra{\pm\hat{n}}\hat{S}_n\ket{\pm\hat{n}} = \pm\frac{\hbar}{2}, \qquad \bra{\pm\hat{n}}\hat{S}_n\ket{\mp\hat{n}} = \mp\frac{\hbar}{2}\braket{\pm\hat{n}|\mp\hat{n}} = 0,\]
@@ -675,14 +695,8 @@ Setting this to $\tfrac12$ forces $\gamma - \delta = \pm\pi/2$. The rest is conv
     \hat{S}_y \xrightarrow{S_y} \frac{\hbar}{2}\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}, \qquad
     \hat{S}_z \xrightarrow{S_z} \frac{\hbar}{2}\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}.\]
 \end{example}
-\begin{definition}[Spin operators]
-    Applying this to spin, for $\hat{n} \in \{\hat{x},\hat{y},\hat{z}\}$,
-    \begin{equation}
-        \hat{S}_n = \frac{\hbar}{2}\left(\ket{+\hat{n}}\bra{+\hat{n}} - \ket{-\hat{n}}\bra{-\hat{n}}\right), \qquad \hat{S}_n\ket{\pm\hat{n}} = \pm\frac{\hbar}{2}\ket{\pm\hat{n}}.
-    \end{equation}
-    In the $S_z$ basis its matrix elements are
-    \[\bra{i}\hat{S}_n\ket{j} = \frac{\hbar}{2}\Big(\braket{i|+\hat{n}}\braket{+\hat{n}|j} - \braket{i|-\hat{n}}\braket{-\hat{n}|j}\Big), \qquad i,j \in \{+\hat{z},-\hat{z}\}.\]
-\end{definition}
+In the $S_z$ basis the matrix elements of $\hat{S}_n$ are
+\[\bra{i}\hat{S}_n\ket{j} = \frac{\hbar}{2}\Big(\braket{i|+\hat{n}}\braket{+\hat{n}|j} - \braket{i|-\hat{n}}\braket{-\hat{n}|j}\Big), \qquad i,j \in \{+\hat{z},-\hat{z}\}.\]
 \begin{problem}[The matrix of $\hat{S}_z$]
     Find the matrix representation of $\hat{S}_z$ in the $S_z$ basis.
 \end{problem}
@@ -711,6 +725,22 @@ Setting this to $\tfrac12$ forces $\gamma - \delta = \pm\pi/2$. The rest is conv
     For $\ket{\psi} = \sqrt{\tfrac{1}{5}}\ket{+\hat{y}} + i\sqrt{\tfrac{4}{5}}\ket{-\hat{y}}$, find $\braket{S_z}$ and $\Delta S_z$ using matrix mechanics.
 \end{problem}
 
+\subsubsection{Hermitian operators}
+\begin{definition}[Hermitian operator]
+    \label{def:hermitian}
+    $A$ is Hermitian if it equals its own adjoint, $A = A^\dagger$ (e.g.\ the Pauli matrices).
+\end{definition}
+\begin{principle}
+    \label{prin:hermitian}
+    Every observable is represented by a Hermitian operator.
+\end{principle}
+\begin{proposition}
+    The eigenvalues of a Hermitian operator are real, so measurement outcomes are real.
+\end{proposition}
+\begin{proof}
+    If $A\ket{a} = a\ket{a}$, the bra is $\bra{a}A^\dagger = a^*\bra{a}$, so $a\braket{a|a} = \bra{a}A\ket{a} = \bra{a}A^\dagger\ket{a} = a^*\braket{a|a}$, and $a = a^*$.
+\end{proof}
+
 \subsection{Change of basis}
 \label{sec:change-basis}
 Take an $n$-level system with two orthonormal bases, $\{\ket{j}\}$ and $\{\ket{\alpha}\}$, $j,\alpha = 1,\dots,n$. Within each basis the overlaps are Kronecker deltas, but across bases they are not: $\braket{+\hat{x}|+\hat{z}} = \tfrac{1}{\sqrt{2}}$ is neither $0$ nor $1$. The same ket then has two columns,
@@ -737,6 +767,9 @@ Inserting $\id = \sum_\alpha\ket{\alpha}\bra{\alpha}$ into each $\ket{j}$ amplit
 \end{proof}
 \begin{remark}
     So normalization does not depend on the basis: $\psi^{j\dagger}\psi^{j} = \psi^{\alpha\dagger}U^\dagger U\psi^{\alpha} = \psi^{\alpha\dagger}\psi^{\alpha}$.
+\end{remark}
+\begin{remark}
+    If a unitary $U$ maps $\ket{\psi}$ to $c\ket{\phi}$ with $\ket{\phi}$ normalized, then $1 = \bra{\psi}U^\dagger U\ket{\psi} = |c|^2$, so $c = e^{i\varphi}$. In particular, eigenvalues of a unitary are pure phases, and $U$ leaves a physical state unchanged only when that state is an eigenstate of $U$.
 \end{remark}
 \begin{example}[Between $S_x$ and $S_z$]
     With $\ket{j} = \ket{\pm\hat{z}}$ and $\ket{\alpha} = \ket{\pm\hat{x}}$, the columns of $U$ are the $S_z$ columns of $\ket{\pm\hat{x}}$:
@@ -780,7 +813,6 @@ Let $\{\ket{j}\} = \{\ket{a_j}\}$ be the eigenbasis of $\hat{A}$, so $\hat{A} \x
 \end{problem}
 
 
-%==========================================================================
 \section{Rotations}
 \marginpar{September 21-28, 2026}
 
@@ -804,9 +836,6 @@ Let $\{\ket{j}\} = \{\ket{a_j}\}$ be the eigenbasis of $\hat{A}$, so $\hat{A} \x
 \begin{proof}
     A rotation must preserve normalization: $\braket{\psi'|\psi'} = \bra{\psi}R^\dagger R\ket{\psi} = 1$ for every $\ket{\psi}$, which forces $R^\dagger R = \id$.
 \end{proof}
-\begin{remark}
-    If a unitary $U$ maps $\ket{\psi}$ to $c\ket{\phi}$ with $\ket{\phi}$ normalized, then $1 = \bra{\psi}U^\dagger U\ket{\psi} = |c|^2$, so $c = e^{i\varphi}$. In particular, eigenvalues of a unitary are pure phases, and $U$ leaves a physical state unchanged only when that state is an eigenstate of $U$.
-\end{remark}
 
 \subsection{Generators of rotations}
 \label{sec:generators}
@@ -828,26 +857,17 @@ Taylor expanding one small step about the identity and naming the first-order op
 \begin{definition}[Generator of rotations]
     The operator $J_z$ above: the thing that, exponentiated, produces rotations about $\hat{z}$. It has units of $\hbar$, i.e.\ of angular momentum ($[\hbar] = [\vec{r}\times\vec{p}]$), so $\vec{J}$ is identified as the angular momentum operator. For spin-$\tfrac12$, $\vec{J} = \vec{S}$ and $R(\theta\hat{n}) = e^{-i\theta\hat{S}_n/\hbar}$.
 \end{definition}
-\begin{definition}[Hermitian operator]
-    $A$ is Hermitian if it equals its own adjoint, $A = A^\dagger$ (e.g.\ the Pauli matrices).
-\end{definition}
 \begin{proposition}
-    The generator $J_z$ is Hermitian.
+    The generator $J_z$ is Hermitian (Def.~\ref{def:hermitian}).
 \end{proposition}
 \begin{proof}
     To first order in $\theta$, $R = \id - i\theta J_z/\hbar$ and $R^\dagger = \id + i\theta J_z^\dagger/\hbar$. Unitarity gives
     \[\id = R^\dagger R = \id + \frac{i\theta}{\hbar}\left(J_z^\dagger - J_z\right) + \mathcal{O}(\theta^2),\]
     so $J_z^\dagger = J_z$.
 \end{proof}
-\begin{principle}
-    Every observable is represented by a Hermitian operator.
-\end{principle}
-\begin{proposition}
-    The eigenvalues of a Hermitian operator are real, so measurement outcomes are real.
-\end{proposition}
-\begin{proof}
-    If $A\ket{a} = a\ket{a}$, the bra is $\bra{a}A^\dagger = a^*\bra{a}$, so $a\braket{a|a} = \bra{a}A\ket{a} = \bra{a}A^\dagger\ket{a} = a^*\braket{a|a}$, and $a = a^*$.
-\end{proof}
+\begin{remark}
+    So $J_z$ qualifies as an observable (Principle~\ref{prin:hermitian}), consistent with identifying it as angular momentum.
+\end{remark}
 
 \subsection{Functions of an operator}
 \begin{proposition}[Function of an operator on an eigenstate]
@@ -878,7 +898,8 @@ Taylor expanding one small step about the identity and naming the first-order op
     This makes sense: a rotation about $\hat{z}$ cannot change $S_z$, so it can only attach phases to the $S_z$ states. In other bases the matrix is not diagonal.
 \end{result}
 \begin{remark}
-    A full turn, $\phi = 2\pi$, gives $R = -\id$: a spin-$\tfrac12$ state needs $4\pi$ to return to itself. The sign is a global phase, so it is invisible on its own.
+    \label{rem:2pi}
+    A full turn, $\phi = 2\pi$, gives $R = -\id$: a spin-$\tfrac12$ state needs $4\pi$ to return to itself. The sign is a global phase, so it is invisible on its own. Its consequences for many particles are in Section~\ref{sec:fermions}.
 \end{remark}
 \begin{problem}[$R(\phi\hat{z})$ in the $S_x$ basis]
     Find the matrix representation of $R(\phi\hat{z})$ in the $S_x$ basis.
@@ -927,39 +948,46 @@ Taylor expanding one small step about the identity and naming the first-order op
 \begin{remark}
     This matrix is real, so $R(\phi\hat{y})$ never introduces factors of $i$ into an $S_z$ column. At $\phi = \pi$ it gives $R(\pi\hat{y})\ket{+\hat{z}} = \ket{-\hat{z}}$, the flip used above to show bras carry $R^\dagger$.
 \end{remark}
-\begin{remark}[Phase caveat]
-    At $\phi = \pi/2$,
-    \[R\left(\tfrac{\pi}{2}\hat{y}\right) \xrightarrow{S_z} \frac{1}{\sqrt{2}}\begin{pmatrix} 1 & -1 \\ 1 & 1 \end{pmatrix},\]
-    whose second column is $-\ket{-\hat{x}}$, while $U$ in Eq.~\eqref{eq:Uzx} has $+\ket{-\hat{x}}$. They differ only by the phase of one basis ket, which is a free choice, so both are valid.
-\end{remark}
-\begin{remark}[WARNING]
+\begin{remark}[WARNING: rotation versus change of basis]
     Plugging $\phi = \pi/2$ into this proposition does \emph{not} give Bill's change-of-basis matrix:
     \[R\left(\tfrac{\pi}{2}\hat{y}\right) \xrightarrow{S_z} \frac{1}{\sqrt{2}}\begin{pmatrix} 1 & -1 \\ 1 & 1 \end{pmatrix} \neq U = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}.\]
-    The true rotation sends $\ket{-\hat{z}}$ to $-\ket{-\hat{x}}$, not $\ket{-\hat{x}}$. For a change of basis, always use $U$ from Eq.~\eqref{eq:Uzx}.
+    The true rotation sends $\ket{-\hat{z}}$ to $-\ket{-\hat{x}}$, not $\ket{-\hat{x}}$, so its second column is $-\ket{-\hat{x}}$ while $U$ in Eq.~\eqref{eq:Uzx} has $+\ket{-\hat{x}}$. They differ only by the phase of one basis ket, which is a free choice, so both are valid. For a change of basis with our convention for $\ket{\pm\hat{x}}$, always use $U$ from Eq.~\eqref{eq:Uzx}.
 \end{remark}
 
 
-%==========================================================================
 \section{Angular Momentum}
 \label{sec:angmom}
 \marginpar{September 28, 2026}
 
-\subsection{Rotations about different axes}
+\subsection{Non-commuting rotations and commutation relations}
 \begin{definition}[Commutator]
     \begin{equation}
         [A,B] = AB - BA.
     \end{equation}
-    $A$ and $B$ commute if $[A,B] = 0$, i.e.\ the order in which they act does not matter.
+    $A$ and $B$ commute if $[A,B] = 0$, i.e.\ the order in which they act does not matter. Directly from the definition, $[B,A] = -[A,B]$ and $[A,BC] = B[A,C] + [A,B]C$.
 \end{definition}
 Rotations about different axes do not commute: $R(\theta\hat{x})R(\theta\hat{y}) \neq R(\theta\hat{y})R(\theta\hat{x})$.
 \begin{remark}
     Rotate a textbook by $90^\circ$ about $\hat{x}$ then about $\hat{y}$ (right-hand rule). Repeat from the same start with $\hat{y}$ first. The spine ends up pointing in different directions.
 \end{remark}
+\begin{remark}[Why the generators cannot commute]
+    With $R_x = R(\theta\hat{x}) = e^{-i\theta J_x/\hbar}$ and $R_y = R(\theta\hat{y}) = e^{-i\theta J_y/\hbar}$, one might guess $R_xR_y = e^{-i\theta(J_x+J_y)/\hbar}$. That would force $R_xR_y = R_yR_x$, since $J_x + J_y = J_y + J_x$, which the textbook shows is false. The guess fails because
+    \begin{equation}
+        e^{A}e^{B} = e^{A+B} \quad \text{if } [A,B] = 0,
+    \end{equation}
+    but not in general otherwise. So the non-commutativity of rotations tells us $[J_x,J_y] = J_xJ_y - J_yJ_x \neq 0$.
+\end{remark}
+\begin{example}[{$[S_x,S_y]$ for spin-$\tfrac12$}]
+    With $\hat{S}_j \xrightarrow{S_z} \frac{\hbar}{2}\sigma_j$,
+    \[[S_x,S_y] \xrightarrow{S_z} \left(\frac{\hbar}{2}\right)^2\left(\sigma_x\sigma_y - \sigma_y\sigma_x\right) = \left(\frac{\hbar}{2}\right)^2\left[\begin{pmatrix} i & 0 \\ 0 & -i \end{pmatrix} - \begin{pmatrix} -i & 0 \\ 0 & i \end{pmatrix}\right] = i\hbar\,\frac{\hbar}{2}\sigma_z \xleftarrow{S_z} i\hbar S_z,\]
+    so $[S_x,S_y] = i\hbar S_z$.
+\end{example}
 \begin{result}[Angular momentum commutation relations]
+    The same relation holds for any angular momentum, and cyclic permutations ($x \to y \to z \to x$) give the other two:
     \begin{equation}
         [J_x,J_y] = i\hbar J_z, \qquad [J_y,J_z] = i\hbar J_x, \qquad [J_z,J_x] = i\hbar J_y,
     \end{equation}
-    or compactly $\vec{J}\times\vec{J} = i\hbar\vec{J}$, with $\vec{J} = J_x\hat{x} + J_y\hat{y} + J_z\hat{z}$.
+    or compactly $\vec{J}\times\vec{J} = i\hbar\vec{J}$, with $\vec{J} = J_x\hat{x} + J_y\hat{y} + J_z\hat{z}$ and $\times$ the vector cross product (e.g.\ $\hat{x}\times\hat{y} = \hat{z}$).
 \end{result}
 
 \subsection{Compatible observables}
@@ -972,22 +1000,57 @@ Rotations about different axes do not commute: $R(\theta\hat{x})R(\theta\hat{y})
 \begin{proof}
     Let $A\ket{a} = a\ket{a}$. Since $AB = BA$,
     \[A\big(B\ket{a}\big) = BA\ket{a} = a\big(B\ket{a}\big),\]
-    so $B\ket{a}$ is also an eigenstate of $A$ with eigenvalue $a$.
-
-    \emph{Nondegenerate case.} If $\ket{a}$ is the only state with eigenvalue $a$, then $B\ket{a} = b\ket{a}$, so $\ket{a}$ is an eigenstate of both.
-
+    so $B\ket{a}$ is also an eigenstate of $A$ with eigenvalue $a$.\par
+    \emph{Nondegenerate case.} If $\ket{a}$ is the only state with eigenvalue $a$, then $B\ket{a} = b\ket{a}$, so $\ket{a}$ is an eigenstate of both.\par
     \emph{Degenerate case.} If $n$ states $\ket{a,i}$ share eigenvalue $a$, then $B$ maps their subspace into itself, so there it is an $n\times n$ matrix $B_{ij} = \bra{a,i}B\ket{a,j}$. Diagonalizing it (finding the basis in which it is diagonal) gives eigenstates
     \[\ket{a,b_j} = \sum_{i}\ket{a,i}\braket{a,i|a,b_j}, \qquad A\ket{a,b_j} = a\ket{a,b_j}, \qquad B\ket{a,b_j} = b_j\ket{a,b_j},\]
     which are still eigenstates of $A$ because they are combinations of states with the same eigenvalue $a$.
 \end{proof}
+\begin{remark}[Block-diagonal picture]
+    Why $B$ cannot mix different eigenvalues of $A$: if $B\ket{a,i} = \sum_{a',j}\braket{a',j|B|a,i}\ket{a',j}$ contained states with $a' \neq a$, then
+    \[A\big(B\ket{a,i}\big) = \sum_{a',j}\braket{a',j|B|a,i}\,a'\ket{a',j},\]
+    which equals $a\big(B\ket{a,i}\big)$ only if $\braket{a',j|B|a,i} \propto \delta_{aa'}$. So in the basis $\{\ket{a_i,j}\}$, $B$ is block diagonal, with one block per eigenvalue of $A$:
+    \[B \xrightarrow{\{\ket{a_i,j}\}} \begin{pmatrix} B(a_1) & 0 & \cdots \\ 0 & B(a_2) & \\ \vdots & & \ddots \end{pmatrix}, \qquad B_{kl}(a_i) = \braket{a_i,k|B|a_i,l}.\]
+    Diagonalizing each block separately gives the simultaneous eigenstates, $\ket{a,b_j} = \sum_i\braket{a,i|a,b_j}\ket{a,i}$.
+\end{remark}
 \begin{definition}[Compatible observables]
     Observables that commute, and so can have definite values at the same time. Otherwise they are incompatible.
 \end{definition}
 \begin{remark}
-    $[J_x,J_y] = i\hbar J_z \neq 0$, so the components of angular momentum are incompatible. This is the operator version of Experiment 3.
+    $[J_x,J_y] = i\hbar J_z \neq 0$, so the components of angular momentum are incompatible: they have no common eigenbasis (for spin-$\tfrac12$, no common eigenstate at all). This is the operator version of Experiment 3: putting $\ket{+\hat{z}}$ into an SG$x$ gives a 50/50 mix of $\ket{\pm\hat{x}}$, so no state gives $S_z = +\hbar/2$ and $S_x = +\hbar/2$ with certainty. Preparing an eigenstate of one observable leaves the outcomes of an incompatible one uncertain; for $\ket{+\hat{z}}$ and $S_x$ the uncertainty is maximal, $\Delta S_x = \hbar/2$.
+\end{remark}
+
+\subsection{Uncertainty relations}
+\begin{result}[Generalized uncertainty relation]
+    For observables $A$ and $B$, in any state,
+    \begin{equation}
+        \Delta A\,\Delta B \geq \frac{1}{2}\left|\braket{[A,B]}\right|.
+    \end{equation}
+    The derivation is in Townsend, Eq.~(3.74). The bound only says something when $[A,B] \neq 0$.
+\end{result}
+\begin{result}
+    For angular momentum, $[J_x,J_y] = i\hbar J_z$ gives
+    \begin{equation}
+        \Delta J_x\,\Delta J_y \geq \frac{\hbar}{2}\left|\braket{J_z}\right|.
+    \end{equation}
+\end{result}
+\begin{example}
+    For $\ket{+\hat{z}}$, $\braket{S_z} = \hbar/2$, and both $S_x$ and $S_y$ give $\pm\hbar/2$ with probability $\tfrac12$, so $\Delta S_x = \Delta S_y = \hbar/2$. Then $\Delta S_x\,\Delta S_y = \hbar^2/4 = \frac{\hbar}{2}\braket{S_z}$: the bound is saturated.
+\end{example}
+\begin{remark}
+    Position and momentum will also turn out not to commute, $[x,p_x] = i\hbar$, which gives the Heisenberg uncertainty relation
+    \begin{equation}
+        \Delta x\,\Delta p_x \geq \frac{\hbar}{2}.
+    \end{equation}
 \end{remark}
 
 \subsection{Total angular momentum}
+\begin{definition}[Total angular momentum]
+    The generator $\vec{J}$ of Section~\ref{sec:generators} is the total angular momentum, the sum of the orbital and spin angular momenta:
+    \begin{equation}
+        \vec{J} = \vec{L} + \vec{S}.
+    \end{equation}
+\end{definition}
 \begin{definition}[Square of the angular momentum]
     \begin{equation}
         \vec{J}^2 = J_x^2 + J_y^2 + J_z^2.
@@ -1008,12 +1071,120 @@ Rotations about different axes do not commute: $R(\theta\hat{x})R(\theta\hat{y})
 \begin{remark}
     $\vec{J}^2$ and $J_z$ are compatible, so they share an eigenbasis.
 \end{remark}
+\begin{definition}[Angular momentum eigenstates]
+    The simultaneous eigenstates of $\vec{J}^2$ and $J_z$ are labelled $\ket{j,m}$, with $\braket{j,m|j,m'} = \delta_{mm'}$. By convention their eigenvalues are written
+    \begin{equation}
+        \label{eq:jm}
+        \vec{J}^2\ket{j,m} = \hbar^2 j(j+1)\ket{j,m}, \qquad J_z\ket{j,m} = \hbar m\ket{j,m}.
+    \end{equation}
+    For spin, $j = s$, matching the labels $\ket{s,m}$ and the magnitude $|\vec{S}| = \hbar\sqrt{s(s+1)}$ used earlier. The allowed values of $j$ and $m$ are derived in Section~\ref{sec:ladder}.
+\end{definition}
+
+\subsection{Ladder operators}
+\label{sec:ladder}
+\begin{definition}[Ladder operators]
+    \begin{equation}
+        J_\pm = J_x \pm iJ_y, \qquad J_x = \frac{1}{2}\left(J_+ + J_-\right), \qquad J_y = \frac{1}{2i}\left(J_+ - J_-\right).
+    \end{equation}
+    They are not Hermitian: $J_+^\dagger = J_x - iJ_y = J_-$.
+\end{definition}
+\begin{proposition}
+    \begin{equation}
+        [J_z,J_\pm] = \pm\hbar J_\pm.
+    \end{equation}
+\end{proposition}
+\begin{proof}
+    $[J_z,J_\pm] = [J_z,J_x] \pm i[J_z,J_y] = i\hbar J_y \pm i(-i\hbar J_x) = \pm\hbar\left(J_x \pm iJ_y\right)$.
+\end{proof}
+\begin{proposition}
+    $J_\pm\ket{j,m}$ is an eigenstate of $J_z$ with eigenvalue $\hbar(m\pm1)$, so $J_\pm\ket{j,m} \propto \ket{j,m\pm1}$.
+\end{proposition}
+\begin{proof}
+    From $[J_z,J_-] = -\hbar J_-$, $J_zJ_- = J_-J_z - \hbar J_- = J_-(J_z - \hbar)$, so
+    \[J_z\big(J_-\ket{j,m}\big) = J_-(J_z - \hbar)\ket{j,m} = \hbar(m-1)\big(J_-\ket{j,m}\big).\]
+    The same steps with $J_zJ_+ = J_+(J_z + \hbar)$ give $\hbar(m+1)$. Since $\vec{J}^2$ commutes with $J_x$ and $J_y$, it commutes with $J_\pm$, so $j$ is unchanged.
+\end{proof}
+\begin{proposition}[Action of the ladder operators]
+    \begin{equation}
+        J_\pm\ket{j,m} = \hbar\sqrt{j(j+1) - m(m\pm1)}\,\ket{j,m\pm1}.
+    \end{equation}
+    $J_-$ is the \emph{lowering operator} and $J_+$ the \emph{raising operator}.
+\end{proposition}
+\begin{proof}
+    Since $J_+ = J_-^\dagger$, the squared norm of $J_-\ket{j,m}$ is $\braket{j,m|J_+J_-|j,m}$. Expanding,
+    \[J_+J_- = (J_x + iJ_y)(J_x - iJ_y) = J_x^2 + J_y^2 - i[J_x,J_y] = \vec{J}^2 - J_z^2 + \hbar J_z,\]
+    so with Eq.~\eqref{eq:jm},
+    \[\braket{j,m|J_+J_-|j,m} = \hbar^2\left[j(j+1) - m^2 + m\right] = \hbar^2\left[j(j+1) - m(m-1)\right].\]
+    Taking the coefficient real and positive (a phase convention) gives the $J_-$ result. The same steps with $J_-J_+ = \vec{J}^2 - J_z^2 - \hbar J_z$ give the $J_+$ result.
+\end{proof}
+\begin{result}[Allowed values of $j$ and $m$]
+    The ladder stops at both ends:
+    \[J_+\ket{j,j} = \hbar\sqrt{j(j+1) - j(j+1)}\,\ket{j,j+1} = 0, \qquad J_-\ket{j,-j} = \hbar\sqrt{j(j+1) - j(j+1)}\,\ket{j,-j-1} = 0.\]
+    Starting from $m = j$ and lowering, $J_-\ket{j,j} \propto \ket{j,j-1}$, $J_-^2\ket{j,j} \propto \ket{j,j-2}$, \dots, $J_-^{2j}\ket{j,j} \propto \ket{j,-j}$. Reaching $-j$ in whole steps requires $2j$ to be a whole number, so
+    \begin{equation}
+        j = 0, \tfrac12, 1, \tfrac32, \dots, \qquad m = -j, -j+1, \dots, j-1, j,
+    \end{equation}
+    giving $2j+1$ states for each $j$, as in Eq.~\eqref{eq:n-levels}.
+\end{result}
+\begin{remark}
+    The ladder cannot run past these ends because squared norms are non-negative: $j(j+1) - m(m\pm1) \geq 0$ keeps $-j \leq m \leq j$.
+\end{remark}
+
+\subsection{Matrix elements}
+\begin{result}
+    In the $\{\ket{j,m}\}$ basis,
+    \begin{equation}
+        \braket{j,m'|J_\pm|j,m} = \hbar\sqrt{j(j+1) - m(m\pm1)}\,\delta_{m',m\pm1}, \qquad \braket{j,m'|J_z|j,m} = \hbar m\,\delta_{m'm}.
+    \end{equation}
+\end{result}
+\begin{example}[Spin 1]
+    For $j = 1$ there are three states, $m = 1, 0, -1$ (e.g.\ the deuteron). Ordering the basis as $\{\ket{1,1}, \ket{1,0}, \ket{1,-1}\}$,
+    \[J_z \longrightarrow \hbar\begin{pmatrix} 1&0&0\\0&0&0\\0&0&-1 \end{pmatrix}, \qquad J_+ \longrightarrow \hbar\begin{pmatrix} 0&\sqrt{2}&0\\0&0&\sqrt{2}\\0&0&0 \end{pmatrix}, \qquad J_- \longrightarrow \hbar\begin{pmatrix} 0&0&0\\\sqrt{2}&0&0\\0&\sqrt{2}&0 \end{pmatrix}.\]
+    With $J_x = \frac{1}{2}(J_+ + J_-)$ and $J_y = \frac{1}{2i}(J_+ - J_-)$,
+    \[J_x \longrightarrow \frac{\hbar}{\sqrt{2}}\begin{pmatrix} 0&1&0\\1&0&1\\0&1&0 \end{pmatrix}, \qquad J_y \longrightarrow \frac{i\hbar}{\sqrt{2}}\begin{pmatrix} 0&-1&0\\1&0&-1\\0&1&0 \end{pmatrix}.\]
+    Check $[J_x,J_y] = i\hbar J_z$:
+    \[[J_x,J_y] \longrightarrow \frac{i\hbar^2}{2}\left[\begin{pmatrix} 1&0&-1\\0&0&0\\1&0&-1 \end{pmatrix} - \begin{pmatrix} -1&0&-1\\0&0&0\\1&0&1 \end{pmatrix}\right] = i\hbar\cdot\hbar\begin{pmatrix} 1&0&0\\0&0&0\\0&0&-1 \end{pmatrix} \longleftarrow i\hbar J_z.\]
+\end{example}
+
+\subsection{\texorpdfstring{Rotations by $2\pi$: fermions and bosons}{Rotations by 2pi: fermions and bosons}}
+\label{sec:fermions}
+Using the spectral form (Section~\ref{sec:any-axis}) with $j$ fixed,
+\[R(2\pi\hat{z}) = e^{-2\pi iJ_z/\hbar}\sum_m\ket{j,m}\bra{j,m} = \sum_m e^{-2\pi im}\ket{j,m}\bra{j,m}.\]
+\begin{result}
+    $R(2\pi\hat{z}) = \id$ only if every $m$ is an integer, i.e.\ $j = 0, 1, 2, \dots$. For half-integer $j$, every $m$ is a half-integer and $R(2\pi\hat{z}) = -\id$.
+\end{result}
+\begin{remark}
+    If we demanded that a $2\pi$ rotation leave every state unchanged, $j$ would have to be an integer. But electrons have $j = \tfrac12$, with $m = \pm\tfrac12$ and $S_z = \pm\hbar/2$, so $R(2\pi\hat{z}) = e^{\mp i\pi} = -\id$ (Remark~\ref{rem:2pi}). For a single spin-$\tfrac12$ particle this is a global phase, $R(2\pi\hat{z})\ket{\psi} = -\ket{\psi} = e^{i\pi}\ket{\psi}$, with no effect on observables. For several particles, this sign for half-integer spin results in the Pauli exclusion principle.
+\end{remark}
+\begin{definition}[Fermions and bosons]
+    Particles with half-integer spin $j = \tfrac12, \tfrac32, \tfrac52, \dots$ are \emph{fermions} and obey Pauli exclusion. Particles with integer spin $j = 0, 1, 2, \dots$ are \emph{bosons}.
+\end{definition}
+\begin{remark}
+    Loosely, this connection to rotations is related to the \emph{exchange} of two identical particles: swapping them is like rotating one around the other.
+\end{remark}
+
+\subsection{Atomic quantum numbers}
+\label{sec:atomic}
+\begin{definition}[Atomic quantum numbers]
+    An electron in an atom is labelled $\ket{n,l,m_l,s,m_s}$, where
+    \begin{itemize}
+        \item $n = 1,2,3,\dots$ is the \emph{principal} quantum number: the size and energy of the electron cloud.
+        \item $l = 0,1,\dots,n-1$ is the \emph{azimuthal} quantum number: the shape of the electron cloud, with $|\vec{L}| = \hbar\sqrt{l(l+1)}$. The values $l = 0,1,2,3$ are called s, p, d, f.
+        \item $m_l = -l, -l+1, \dots, +l$ is the \emph{magnetic} quantum number: the spatial orientation of the electron cloud, with $L_z = m_l\hbar$.
+        \item $s = \tfrac12$ is the \emph{spin} quantum number: the intrinsic angular momentum of the electron, with $m_s = \pm\tfrac12$ giving $S_z = m_s\hbar$.
+    \end{itemize}
+    The total angular momentum $\vec{J} = \vec{L} + \vec{S}$ has its own quantum number $j$, running from $|l-s|$ to $l+s$ in steps of 1. For an electron, $j = l \pm \tfrac12$ (only $j = \tfrac12$ when $l = 0$).
+\end{definition}
+\begin{remark}
+    No two electrons in an atom share all of $n$, $l$, $m_l$, $m_s$ (Pauli exclusion principle). A subshell $l$ has $2l+1$ values of $m_l$, each with two values of $m_s$, so it holds $2(2l+1)$ electrons: 2 for s, 6 for p, 10 for d, 14 for f.
+\end{remark}
+\begin{remark}
+    Two notation clashes: the subshell name s ($l = 0$) is not the spin quantum number $s$, and the quantum number $j$ is not the outcome label $j$ in $\ket{j}$.
+\end{remark}
 
 
-%==========================================================================
 \appendix
 \section{Solutions}
-
 \begin{solution}[The exponential as a limit]
     Take the logarithm:
     \begin{equation*}
@@ -1028,7 +1199,6 @@ Rotations about different axes do not commute: $R(\theta\hat{x})R(\theta\hat{y})
         \lim_{N\to\infty}\left(1+\frac{x}{N}\right)^{N} = e^{x}.
     \end{equation*}
 \end{solution}
-
 \begin{solution}[Other bases]
     \begin{align*}
         \ket{+\hat{z}} &\xrightarrow{S_z} \begin{pmatrix} 1 \\ 0 \end{pmatrix}, \\
@@ -1036,19 +1206,16 @@ Rotations about different axes do not commute: $R(\theta\hat{x})R(\theta\hat{y})
         \ket{+\hat{z}} &\xrightarrow{S_y} \begin{pmatrix} \braket{+\hat{y}|+\hat{z}} \\ \braket{-\hat{y}|+\hat{z}} \end{pmatrix} = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ 1 \end{pmatrix}.
     \end{align*}
 \end{solution}
-
 \begin{solution}[A probability by matrix mechanics]
     \[\psi \xrightarrow{S_z} \frac{1}{\sqrt{5}}\begin{pmatrix} 1 \\ 2i \end{pmatrix}, \qquad \bra{+\hat{x}} \xrightarrow{S_z} \frac{1}{\sqrt{2}}\begin{pmatrix} 1 & 1 \end{pmatrix},\]
     \[\braket{+\hat{x}|\psi} = \frac{1+2i}{\sqrt{10}}, \qquad P\!\left(S_x = +\tfrac{\hbar}{2}\right) = \frac{|1+2i|^2}{10} = \frac{1}{2}.\]
     Take the modulus of the whole sum, not of each term separately.
 \end{solution}
-
 \begin{solution}[The matrix of $\hat{S}_z$]
     Every overlap is $0$ or $1$, so only the diagonal survives:
     \[\bra{\pm\hat{z}}\hat{S}_z\ket{\pm\hat{z}} = \pm\frac{\hbar}{2}, \qquad \hat{S}_z \xrightarrow{S_z} \frac{\hbar}{2}\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}.\]
     An operator is diagonal in its own eigenbasis, with its outcomes on the diagonal.
 \end{solution}
-
 \begin{solution}[The matrix of $\hat{S}_x$]
     The overlaps are $\braket{+\hat{z}|\pm\hat{x}} = \braket{-\hat{z}|+\hat{x}} = \tfrac{1}{\sqrt{2}}$ and $\braket{-\hat{z}|-\hat{x}} = -\tfrac{1}{\sqrt{2}}$, all real. Then
     \begin{align*}
@@ -1060,7 +1227,6 @@ Rotations about different axes do not commute: $R(\theta\hat{x})R(\theta\hat{y})
     where the $+$ signs come from the minus in $\braket{-\hat{z}|-\hat{x}}$ meeting the minus in front of the second projector. So
     \[\hat{S}_x \xrightarrow{S_z} \frac{\hbar}{2}\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}.\]
 \end{solution}
-
 \begin{solution}[The matrix of $\hat{S}_y$]
     The overlaps are complex and the bra side is conjugated: $\braket{-\hat{z}|\pm\hat{y}} = \pm\tfrac{i}{\sqrt{2}}$, $\braket{\pm\hat{y}|-\hat{z}} = \mp\tfrac{i}{\sqrt{2}}$, and $\braket{+\hat{z}|\pm\hat{y}} = \braket{\pm\hat{y}|+\hat{z}} = \tfrac{1}{\sqrt{2}}$. Then
     \begin{align*}
@@ -1070,7 +1236,6 @@ Rotations about different axes do not commute: $R(\theta\hat{x})R(\theta\hat{y})
     and the diagonal entries vanish because $i\cdot(-i) = 1$ in both terms. So
     \[\hat{S}_y \xrightarrow{S_z} \frac{\hbar}{2}\begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix}.\]
 \end{solution}
-
 \begin{solution}[Expectation value and uncertainty by matrix mechanics]
     In the $S_z$ basis,
     \[\psi \xrightarrow{S_z} \frac{1}{\sqrt{10}}\left[\begin{pmatrix} 1 \\ i \end{pmatrix} + \begin{pmatrix} 2i \\ 2 \end{pmatrix}\right] = \frac{1}{\sqrt{10}}\begin{pmatrix} 1+2i \\ 2+i \end{pmatrix}.\]
@@ -1078,7 +1243,6 @@ Rotations about different axes do not commute: $R(\theta\hat{x})R(\theta\hat{y})
     \[\braket{S_z} = \psi^\dagger\hat{S}_z\psi = \frac{\hbar}{2}\cdot\frac{1}{10}\begin{pmatrix} 1-2i & 2-i \end{pmatrix}\begin{pmatrix} 1+2i \\ -(2+i) \end{pmatrix} = \frac{\hbar}{2}\cdot\frac{5-5}{10} = 0.\]
     Since $\hat{S}_z^2 = \tfrac{\hbar^2}{4}\id$, $\braket{S_z^2} = \tfrac{\hbar^2}{4}$, so $\Delta S_z = \hbar/2$: both outcomes have probability $\tfrac12$ and the spread is maximal.
 \end{solution}
-
 \begin{solution}[Expectation value from the $S_x$ basis]
     \[\ket{\psi} \xrightarrow{S_x} \psi^x = \frac{1}{\sqrt{3}}\begin{pmatrix} 1 \\ i\sqrt{2} \end{pmatrix}.\]
     Change to the $S_z$ basis with $U$ from Eq.~\eqref{eq:Uzx}:
@@ -1087,19 +1251,16 @@ Rotations about different axes do not commute: $R(\theta\hat{x})R(\theta\hat{y})
     \[\braket{S_z} = \psi^{z\dagger}\hat{S}_z\psi^z = \frac{\hbar}{2}\cdot\frac{1}{6}\left(|1+i\sqrt{2}|^2 - |1-i\sqrt{2}|^2\right) = \frac{\hbar}{2}\left(\frac{3}{6} - \frac{3}{6}\right) = 0.\]
     Both components have equal modulus, so both $S_z$ outcomes have probability $\tfrac12$.
 \end{solution}
-
 \begin{solution}[$\hat{S}_z$ in the $S_x$ basis]
     $U$ from Eq.~\eqref{eq:Uzx} is real and symmetric, so $U^\dagger = U$ and
     \begin{align*}
         \hat{S}_z \xrightarrow{S_x} U^\dagger D\,U &= \frac{\hbar}{2}\cdot\frac{1}{2}\begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}\begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix} = \frac{\hbar}{2}\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}.
     \end{align*}
-    This is $\frac{\hbar}{2}\sigma_x$: in the $S_x$ basis, $\hat{S}_z$ looks the way $\hat{S}_x$ looks in the $S_z$ basis.
-
+    This is $\frac{\hbar}{2}\sigma_x$: in the $S_x$ basis, $\hat{S}_z$ looks the way $\hat{S}_x$ looks in the $S_z$ basis.\par
     Keeping the state in the $S_x$ basis,
     \[\braket{S_z} = \psi^{x\dagger}\hat{S}_z^{x}\psi^x = \frac{\hbar}{2}\cdot\frac{1}{3}\begin{pmatrix} 1 & -i\sqrt{2} \end{pmatrix}\begin{pmatrix} i\sqrt{2} \\ 1 \end{pmatrix} = \frac{\hbar}{2}\cdot\frac{i\sqrt{2} - i\sqrt{2}}{3} = 0,\]
     matching the previous solution. In general, for $\psi^x = (c_+, c_-)^T$ this gives $\braket{S_z} = \hbar\,\mathrm{Re}\left(c_+^*c_-\right)$, which vanishes here because the relative phase is $i$.
 \end{solution}
-
 \begin{solution}[$R(\phi\hat{z})$ in the $S_x$ basis]
     Expanding the $S_x$ states in $\hat{z}$,
     \[R\ket{\pm\hat{x}} = \frac{1}{\sqrt{2}}\left(e^{-i\phi/2}\ket{+\hat{z}} \pm e^{i\phi/2}\ket{-\hat{z}}\right).\]
@@ -1112,6 +1273,7 @@ Rotations about different axes do not commute: $R(\theta\hat{x})R(\theta\hat{y})
     \[R(\phi\hat{z}) \xrightarrow{S_x} \begin{pmatrix} \cos\frac{\phi}{2} & -i\sin\frac{\phi}{2} \\ -i\sin\frac{\phi}{2} & \cos\frac{\phi}{2} \end{pmatrix}.\]
     Check: at $\phi = \pi/2$, $R\ket{+\hat{x}} \xrightarrow{S_x} \tfrac{1}{\sqrt{2}}(1,-i)^{T}$, which is $\ket{+\hat{y}}$ up to a global phase, as rotating $\hat{x}$ by $90^\circ$ about $\hat{z}$ should give.
 \end{solution}
+
 
 \section{Useful Links}
 \noindent Stern-Gerlach experiment:\\ \url{https://www.youtube.com/shorts/QG7kJXxN1Kk}

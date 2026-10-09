@@ -24,6 +24,7 @@
 \newtheorem*{example}{Example}
 \newtheorem{remark}{Remark}
 \newtheorem{proposition}{Proposition}
+\newtheorem{result}{Result}
 \reversemarginpar
 \hypersetup{
     colorlinks=true,
@@ -103,30 +104,37 @@ The textbook is \textit{An Introduction to Thermal Physics} by Daniel V. Schroed
     A system is in an equilibrium state if all the measurable bulk physical properties of the system are uniform throughout the system and constant in time.
 \end{definition}
 \begin{remark}
-    For a fixed volume of gas in an equilibrium state, the pressure is the same everywhere in the gas and the volume does not change in time. The pressure, volume and mass of a gas fully describe its equilibrium state: once those are fixed, every other measurable bulk property is fixed as well.
+    For a fixed volume of gas in an equilibrium state, the pressure is the same everywhere in the gas and the volume does not change in time.
+\end{remark}
+\begin{remark}
+    The pressure, volume and mass of a gas fully describe its equilibrium state: once those are fixed, every other measurable bulk property is fixed as well.
 \end{remark}
 
 \begin{definition}[Local thermodynamic equilibrium]
-    Divide the system into small volume elements. A volume element $V_i$ is in local thermodynamic equilibrium if the properties inside $V_i$ are the same as those of an equilibrium system at the local $(P, V, T)$ conditions.
+    Divide the system into small volume elements. A volume element $V_i$ is in local thermodynamic equilibrium if the properties inside $V_i$ are the same as those of an equilibrium system at the local $(P, V, T)$ conditions. %can i say instead of at the local... by in the surroundings?
 \end{definition}
 \begin{remark}
+    %what?
     This lets a system with, say, a temperature gradient still be treated cell by cell, with $U$, $H$, $S$ defined in each cell. The approximation is better when relaxation is slow and the gradients in $(P,V,T)$ are gentle.
 \end{remark}
 \begin{remark}
-    Thermodynamics studies equilibrium states themselves, not how long it takes to reach them. Rates of processes belong to a separate subject (transport theory or kinetics).
+    Thermodynamics studies equilibrium states themselves, not how long it takes to reach them. \footnote{Rates of processes belong to a separate subject (transport theory or kinetics).}
 \end{remark}
 
 \subsection{Equations of State and State Functions}
 \begin{definition}[Equation of state]
     An equation of state is a functional relationship between the easily measured state variables\footnote{Such as pressure, volume and temperature.} of a system in an equilibrium state.
 \end{definition}
-
-\begin{example}
-    The ideal gas law is an equation of state relating $(P, V, T)$. It applies to equilibrium states of dilute gases at high temperature:
-    \[PV = nRT = N k_B T,\]
+\begin{law}[Ideal gas law]
+    For a dilute gas at high temperature in an equilibrium state,
+    \begin{equation}
+        PV = nRT = N k_B T,
+    \end{equation}
     where $n$ is the number of moles, $N = n N_A$ is the number of molecules, $R$ is the ideal gas constant and $k_B = R/N_A = \SI{1.38e-23}{\joule\per\kelvin}$ is Boltzmann's constant.
+\end{law}
+\begin{example}
+    The ideal gas law is an equation of state relating $(P, V, T)$.
 \end{example}
-
 \begin{definition}[State function]
     A state function is a property of a system that depends only on the current equilibrium state, and not on the path taken to reach that state. Internal energy, enthalpy, entropy and Gibbs free energy are all state functions.
 \end{definition}
@@ -134,7 +142,7 @@ The textbook is \textit{An Introduction to Thermal Physics} by Daniel V. Schroed
     State functions matter because their values can be compared between two equilibrium states without knowing anything about the process that connected them.
 \end{remark}
 \begin{example}
-    Temperature is a state function. It is the property that determines whether two systems are in thermal equilibrium\footnote{Thermal equilibrium only, not full thermodynamic equilibrium.} with each other.
+    Temperature is a state function. It is the property that determines whether two systems are in thermal equilibrium\footnote{Thermal equilibrium is not full thermodynamic equilibrium, which also requires mechanical and chemical (diffusive) equilibrium.} with each other.
 \end{example}
 
 % ============================================================
@@ -150,20 +158,21 @@ The textbook is \textit{An Introduction to Thermal Physics} by Daniel V. Schroed
     The zeroth law is what makes a thermometer work. System C is the thermometer, and the law guarantees that two systems reading the same value on it are in thermal equilibrium with each other.
 \end{remark}
 \begin{remark}
-    Thermal equilibrium (equal $T$) is not full thermodynamic equilibrium, which also requires mechanical and chemical (diffusive) equilibrium.
-\end{remark}
-\begin{remark}
+    %What?
     Extrapolating $V(T)$ at fixed $P$ for any sample of ideal gas gives $V \to 0$ at the same temperature, $-273.15\,^\circ$C $= 0$ K, which defines absolute zero. A gas thermometer reads $T = PV/nR$.
 \end{remark}
 
 \subsection{First Law}
 \begin{law}[First Law of Thermodynamics]
     The relationship between the heat $Q$ added to a system, the work $W$ done on it and the change in its internal energy $U$ is dictated by the conservation of energy:
-    \[\Delta U = Q + W.\]
+    \begin{equation}
+        \label{eq:first-law}
+        \Delta U = Q + W.
+    \end{equation}
 \end{law}
 
-\begin{remark}
-    Sign convention: $Q > 0$ when heat flows into the system, and $W > 0$ when work is done on the system. Both raise the internal energy.
+\begin{remark}[Sign Convention]
+    $Q > 0$ when heat flows into the system. $W > 0$ when work is done on the system. Both raise the internal energy.
 \end{remark}
 \begin{remark}
     For an isolated system $Q = W = 0$, so $U$ is constant.
@@ -180,7 +189,7 @@ The textbook is \textit{An Introduction to Thermal Physics} by Daniel V. Schroed
 
 \subsection{Energy}
 \begin{definition}[Energy]
-    Energy, from the Greek \textit{energeia} meaning "in work," is the capacity to do work. It is a property of a thermodynamic system, and it is stored in different forms depending on the phase and composition of the matter involved.
+    Energy, from the Greek \textit{energeia} meaning "in work," is the capacity to do work.
 \end{definition}
 
 \begin{definition}[Kinetic energy]
@@ -193,8 +202,11 @@ The textbook is \textit{An Introduction to Thermal Physics} by Daniel V. Schroed
 
 \begin{definition}[Internal energy of an ideal gas]
     For an ideal gas the internal energy depends only on temperature. It is the number of molecules times the average kinetic energy per molecule:
-    \[U(T) = N \bar{e}_k = \frac{f}{2} N k_B T,\]
-    where $f$ is the number of degrees of freedom per molecule. For a monatomic gas $f = 3$ (translation only), so $U = \tfrac{3}{2} N k_B T$. More complex molecules have extra rotational or vibrational degrees of freedom, so $f > 3$.
+    \begin{equation}
+        \label{eq:internal-energy}
+        U(T) = N \bar{e}_k = \frac{f}{2} N k_B T,
+    \end{equation}
+    where $f$ is the number of degrees of freedom per molecule. For a monatomic gas $f = 3$ and $f = 5$ for diatomic, so $U = \tfrac{3}{2} N k_B T$. More complex molecules have extra rotational or vibrational degrees of freedom, so $f > 3$.
 \end{definition}
 
 \subsection{Work}
@@ -203,12 +215,18 @@ The textbook is \textit{An Introduction to Thermal Physics} by Daniel V. Schroed
     \[W = \int \vec{F} \cdot d\vec{r}.\]
     In thermodynamics, work is any transfer of energy into or out of a system that is not heat.
 \end{definition}
+\begin{definition}[Quasistatic Process]
+    Idealized thermodynamic process that happens slowly enough for a system to stay in continuous internal equilibrium.
+\end{definition}
 
 \paragraph{Compression of a gas by a piston.}
 Take a gas in a cylinder closed by a piston of area $A$. Pushing the piston in by $\delta x$ does work $W = F\,\delta x = PA\,\delta x$. For a quasistatic compression\footnote{Slow enough that the gas stays in internal equilibrium at every instant, so the pressure is uniform throughout the volume and the equation of state still applies.}, $\delta V = -A \, \delta x$, so the work done \textit{on} the gas is
 \[W = -P \, \delta V \qquad \text{(quasistatic)}.\]
 Compressing the gas means $\delta V < 0$, so $W > 0$ and the energy of the gas goes up. For a finite change,
-\[W = -\int_{V_i}^{V_f} P \, dV,\]
+\begin{equation}
+    \label{eq:work}
+    W = -\int_{V_i}^{V_f} P \, dV,
+\end{equation}
 which is the area under the curve on a $P$-$V$ diagram.
 
 \begin{remark}
@@ -241,63 +259,84 @@ which is the area under the curve on a $P$-$V$ diagram.
         \item reversible heat: thermal equilibrium, $T_{\text{surr}} = T_{\text{sys}}$.
     \end{itemize}
 \end{definition}
-
 \begin{remark}
-    These are limiting cases: for anything to happen there must be at least a differential $dP$ or $dT$ between system and surroundings. Their value is that the change in any state function between two equilibrium states can always be computed along a reversible path, whatever the actual path was.
+    Reversible processes are an idealization: nothing would actually happen unless there were at least a tiny difference $dP$ or $dT$ between system and surroundings. They are still useful: a state function's change depends only on the end points, so it can always be computed along a reversible path.
 \end{remark}
 
 \begin{example}[Isothermal expansion of an ideal gas, $V_i \to V_f$]
-    Reversible ($P_{\text{ext}} = P_{\text{gas}}$ throughout):
-    \[W_{\text{rev}} = -Nk_BT\ln\frac{V_f}{V_i}.\]
-    Irreversible single step ($P_{\text{ext}} = P_f \neq P_{\text{gas}}$):
+    Reversible, with $P = Nk_BT/V$ throughout:
+    \[W_{\text{rev}} = -\int_{V_i}^{V_f} \frac{Nk_BT}{V}\,dV = -Nk_BT\ln\frac{V_f}{V_i}.\]
+    Irreversible, in one step against $P_{\text{ext}} = P_f \neq P_{gas}$:
     \[W_{\text{irr}} = -P_f(V_f - V_i).\]
-    In both cases $\Delta U = 0$ and $Q = -W$, but $|W_{\text{irr}}| < |W_{\text{rev}}|$: the rectangle under $P_f$ is smaller than the area under the isotherm.
+    Same end temperature, so $\Delta U = 0$ and $Q = -W$ in both, but $|W_{\text{irr}}| < |W_{\text{rev}}|$: the rectangle under $P_f$ is smaller than the area under the isotherm.
 \end{example}
-
 \begin{remark}
-    The work done \textit{by} the gas in an expansion is maximized when the process is reversible. Reversing the endpoints, the work that must be done \textit{on} the gas in a compression is minimized when reversible (a single step at $P_{\text{ext}} = P_i$ gives a larger rectangle than the area under the isotherm). Heat and work are path dependent; $\Delta U$ is not.
+    A reversible path gives the most work out of an expansion and needs the least work in for a compression. $W$ and $Q$ depend on the path; $\Delta U$ does not.
 \end{remark}
 
 \subsection{Exact and Inexact Differentials}
 For a function $Z(x,y)$, a differential change has the form
-\[dZ = M(x,y)\,dx + N(x,y)\,dy.\]
+\begin{equation}
+    \label{eq:dZ}
+    dZ = M(x,y)\,dx + N(x,y)\,dy.
+\end{equation}
 
 \begin{theorem}[Test for exactness]
     $dZ$ is exact (path independent, so $Z$ is a state function) if and only if
-    \[\left(\frac{\partial M}{\partial y}\right)_x = \left(\frac{\partial N}{\partial x}\right)_y.\]
+    \begin{equation}
+        \left(\frac{\partial M}{\partial y}\right)_x = \left(\frac{\partial N}{\partial x}\right)_y.
+    \end{equation}
     Otherwise $dZ$ is inexact (path dependent).
 \end{theorem}
-\begin{proof}
-    If $Z$ exists, $M = (\partial Z/\partial x)_y$ and $N = (\partial Z/\partial y)_x$, and equality of mixed partials gives the condition. Along any path $(x(t), y(t))$ from $P$ to $R$, the chain rule backwards gives
-    \[\int_P^R M\,dx + N\,dy = \int_a^b \frac{d}{dt} Z(x(t),y(t))\,dt = Z(R) - Z(P),\]
-    which depends only on the endpoints.
-\end{proof}
-
-\begin{example}
-    $U(V,T)$ of an ideal gas: $dU = (\partial U/\partial V)_T\,dV + (\partial U/\partial T)_V\,dT = 0\,dV + C_V\,dT$. Then $(\partial 0/\partial T)_V = 0 = (\partial C_V/\partial V)_T$ since $C_V = \tfrac{f}{2}Nk_B$. Exact, so $U$ is a state function.
-
-    Work: $dW = -P\,dV + 0\,dT$. Then $(\partial P/\partial T)_V = nR/V \neq 0 = (\partial 0/\partial V)_T$. Inexact, so $W$ is not a state function.
+\begin{example}[Internal energy of an ideal gas]
+    For $U(V,T)$, since $U$ depends only on $T$,
+    \[dU = \left(\frac{\partial U}{\partial V}\right)_T dV + \left(\frac{\partial U}{\partial T}\right)_V dT = 0\,dV + C_V\,dT, \qquad C_V = \tfrac{f}{2}Nk_B.\]
+    Testing: $M = 0$ and $N = C_V$ is constant, so
+    \[\left(\frac{\partial M}{\partial T}\right)_V = 0 = \left(\frac{\partial N}{\partial V}\right)_T.\]
+    The differential is exact, so $U$ is a state function.
+\end{example}
+\begin{example}[Work]
+    For a reversible process,
+    \[\dbar W = -P\,dV + 0\,dT.\]
+    Testing: $M = -P = -nRT/V$ and $N = 0$, so
+    \[\left(\frac{\partial M}{\partial T}\right)_V = -\frac{nR}{V} \neq 0 = \left(\frac{\partial N}{\partial V}\right)_T.\]
+    The differential is inexact, so $W$ is not a state function.
 \end{example}
 
-Inexact differentials are written $\dbar Q$ and $\dbar W$ to signal that they depend on the path. Totals are integrals along the path:
+\begin{remark}
+    Inexact differentials are written $\dbar Q$ and $\dbar W$ to signal that they depend on the path.
+\end{remark}
+Totals are integrals along the path:
 \[W = \int \dbar W = -\int_{V_1}^{V_2} P \, dV, \qquad Q = \int \dbar Q,\]
-so different paths between the same two states give different $W$ and $Q$, but the same $\Delta U = Q + W$.
+so different paths between the same two states\footnote{Same start and end states, different route in between. A different end state is not a different path.} give different $W$ and $Q$, but the same $\Delta U = Q + W$.
 
 \subsection{Material Properties of a Compressible Fluid}
-For a fluid with equation of state $g(P,V,T) = 0$, only two of $(P,V,T)$ are independent. Writing $V(P,T)$,
-\[dV = \left(\frac{\partial V}{\partial T}\right)_P dT + \left(\frac{\partial V}{\partial P}\right)_T dP = \beta V\,dT - \frac{V}{B}\,dP,\]
-where the partial derivatives define measurable properties:
+A fluid has an equation of state $g(P,V,T) = 0$\footnote{for an ideal gas, $g = PV - Nk_BT$}. Picking two of $(P,V,T)$ fixes the third, so we can write $V = V(P,T)$. By the chain rule, a small change in $V$ is
+\[dV = \left(\frac{\partial V}{\partial T}\right)_P dT + \left(\frac{\partial V}{\partial P}\right)_T dP,\]
+where the subscript is the variable held fixed. These two derivatives are measurable properties of the material:
 
 \begin{definition}[Thermal expansivity, bulk modulus, compressibility]
-    \[\beta = \frac{1}{V}\left(\frac{\partial V}{\partial T}\right)_P, \qquad B = -V\left(\frac{\partial P}{\partial V}\right)_T, \qquad \kappa = \frac{1}{B} = -\frac{1}{V}\left(\frac{\partial V}{\partial P}\right)_T.\]
+    \begin{equation}
+        \beta = \frac{1}{V}\left(\frac{\partial V}{\partial T}\right)_P, \qquad B = -V\left(\frac{\partial P}{\partial V}\right)_T, \qquad \kappa = \frac{1}{B} = -\frac{1}{V}\left(\frac{\partial V}{\partial P}\right)_T.
+    \end{equation}
 \end{definition}
 
-Likewise, for $U(V,T)$ along a reversible path,
-\[dU = \left(\frac{\partial U}{\partial V}\right)_T dV + \left(\frac{\partial U}{\partial T}\right)_V dT = -P\,dV + \dbar Q_{\text{rev}}.\]
-If $dV = 0$, then $\dbar Q_{\text{rev}} = (\partial U/\partial T)_V\,dT = C_V\,dT$.
+In terms of these,
+\begin{equation}
+    dV = \beta V\,dT - \frac{V}{B}\,dP.
+\end{equation}
+
+Likewise, write $dU$ two ways. By the chain rule \eqref{eq:dZ}, and by the first law \eqref{eq:first-law} on a reversible step where $\dbar W = -P\,dV$ from \eqref{eq:work},
+\[dU = \left(\frac{\partial U}{\partial V}\right)_T dV + \left(\frac{\partial U}{\partial T}\right)_V dT = \dbar Q_{\text{rev}} - P\,dV.\]
+These are equal as a whole, not term by term. Solving for the heat,
+\begin{equation}
+    \label{eq:dQrev}
+    \dbar Q_{\text{rev}} = \left(\frac{\partial U}{\partial T}\right)_V dT + \left[\left(\frac{\partial U}{\partial V}\right)_T + P\right] dV.
+\end{equation}
+At constant volume ($dV = 0$), $\dbar Q_{\text{rev}} = (\partial U/\partial T)_V\,dT = C_V\,dT$.
 
 \begin{remark}
-    $(\partial U/\partial V)_T = 0$ for an ideal gas, since particles do not interact. For a real fluid with strong interactions it is nonzero and hard to measure directly; it will be recast into measurable form later using Maxwell relations.
+    $(\partial U/\partial V)_T$ is not $-P$: that would be the change of $U$ with $V$ when no heat flows, not at constant $T$. For an ideal gas $(\partial U/\partial V)_T = 0$, since particles do not interact. For a real fluid it is nonzero and hard to measure directly; it will be recast into measurable form later using Maxwell relations.
 \end{remark}
 
 % ============================================================
@@ -309,8 +348,17 @@ If $dV = 0$, then $\dbar Q_{\text{rev}} = (\partial U/\partial T)_V\,dT = C_V\,d
 \subsection{Definition}
 \begin{definition}[Heat capacity]
     The heat capacity $C$ of a system is the heat needed to raise its temperature by \SI{1}{\kelvin}:
-    \[C = \frac{Q}{\Delta T}.\]
-    It is extensive: doubling the amount of material doubles $C$. The specific heat capacity $c \equiv C/m$ is intensive and a property of the material.
+    \begin{equation}
+        \label{eq:heat-capacity}
+        C = \frac{Q}{\Delta T}.
+    \end{equation}
+\end{definition}
+\begin{definition}[Specific heat capacity]
+    The specific heat capacity $c \equiv C/m$ is intensive and a property of the material. With \eqref{eq:heat-capacity}, the heat needed to change the temperature of a mass $m$ by $\Delta T$ is
+    \begin{equation}
+        \label{eq:mcdT}
+        Q = mc\,\Delta T.
+    \end{equation}
 \end{definition}
 
 \subsection{Heat Capacity Depends on the Process}
@@ -318,18 +366,19 @@ Using the first law, $Q = \Delta U - W$, so
 \[C = \frac{\Delta U - W}{\Delta T}.\]
 $C$ depends on how much work is done during the heating (it would almost be better named the "energy capacity"), so the process must be specified.
 
-\begin{definition}[Heat capacity at constant volume]
+\begin{result}[Heat capacity at constant volume]
     If $V$ is fixed, $W = 0$ and
     \[C_V = \left(\frac{\partial U}{\partial T}\right)_V.\]
-\end{definition}
-
-\begin{definition}[Heat capacity at constant pressure]
-    Most materials expand when heated\footnote{Some materials contract over certain ranges of $T$ (negative thermal expansion), but they are the exception.}, doing work $W = -P\,\Delta V < 0$ on the surroundings, so extra heat is needed. At constant (usually atmospheric) pressure,
-    \[C_P = \left(\frac{\partial U}{\partial T}\right)_P + P\left(\frac{\partial V}{\partial T}\right)_P.\]
-\end{definition}
+\end{result}
+\begin{result}[Heat capacity at constant pressure]
+    Most materials expand when heated\footnote{Some materials contract over certain ranges of $T$ (negative thermal expansion), but they are the exception.}, doing work $W = -P\,\Delta V < 0$ on the surroundings, so extra heat is needed. Dividing \eqref{eq:dQrev} by $dT$ at constant $P$,
+    \begin{equation}
+        C_P = C_V + \left[\left(\frac{\partial U}{\partial V}\right)_T + P\right]\left(\frac{\partial V}{\partial T}\right)_P.
+    \end{equation}
+\end{result}
 
 \begin{remark}
-    The first term is not exactly $C_V$ (constant $P$, not $V$). The second term is the heat lost to expansion work. For solids and liquids $(\partial V/\partial T)_P \approx 0$, so $C_P \approx C_V$; for gases it is significant.
+    For solids and liquids $(\partial V/\partial T)_P \approx 0$, so $C_P \approx C_V$; for gases the correction is significant.
 \end{remark}
 
 \begin{proposition}[$C_P$ of an ideal gas]
@@ -340,34 +389,39 @@ $C$ depends on how much work is done during the heating (it would almost be bett
 \subsection{Enthalpy}
 \begin{definition}[Enthalpy]
     Enthalpy is the state function
-    \[H = U + PV.\]
+    \begin{equation}
+        \label{enthalpy}
+        H = U + PV.
+    \end{equation}
     It is the convenient energy to use for processes at constant pressure.
 \end{definition}
 
 \begin{proposition}
     At constant $P$, $dH = \dbar Q$, and therefore
-    \[C_P = \left(\frac{\partial H}{\partial T}\right)_P.\]
+    \begin{equation}
+        C_P = \left(\frac{\partial H}{\partial T}\right)_P.
+    \end{equation}
 \end{proposition}
 \begin{proof}
-    $dH = dU + P\,dV + V\,dP = (\dbar Q - P\,dV) + P\,dV + V\,dP = \dbar Q + V\,dP$. At constant $P$, $dH = \dbar Q$, and dividing by $dT$ gives $C_P$.
+    Differentiate \ref{enthalpy} with the product rule, $dH = dU + P\,dV + V\,dP$. On a reversible step, the first law \eqref{eq:first-law} with $\dbar W = -P\,dV$ from \eqref{eq:work} gives $dU = \dbar Q_{\text{rev}} - P\,dV$. Substituting,
+    \[dH = \left(\dbar Q_{\text{rev}} - P\,dV\right) + P\,dV + V\,dP = \dbar Q_{\text{rev}} + V\,dP.\]
+    At constant pressure $dP = 0$, so $dH = \dbar Q_{\text{rev}}$. The heat capacity \eqref{eq:heat-capacity} is the heat absorbed per unit temperature change, so at constant pressure
+    \[C_P = \left(\frac{\dbar Q_{\text{rev}}}{dT}\right)_P = \left(\frac{\partial H}{\partial T}\right)_P.\]
 \end{proof}
 
 \subsection{Calorimetry}
-A calorimeter is an insulated container in which two bodies at different temperatures reach a common final temperature. Since the whole is isolated,
-\[Q_{\text{system}} = -Q_{\text{surroundings}}.\]
-
+\begin{definition}[Calorimeter]
+    A calorimeter is an insulated container in which two bodies at different temperatures reach a common final temperature. Since the whole is isolated,
+    \[Q_{\text{system}} = -Q_{\text{surroundings}}.\]
+\end{definition}
 \begin{example}
-    \SI{150.0}{\gram} of lead at \SI{100}{\celsius} is dropped into \SI{50.0}{\gram} of water at \SI{22.0}{\celsius}; the final temperature is \SI{28.8}{\celsius}. With $c_{\text{water}} = \SI{4.18}{\joule\per\gram\per\kelvin}$,
+    \SI{150.0}{\gram} of lead at \SI{100}{\celsius} is dropped into \SI{50.0}{\gram} of water at \SI{22.0}{\celsius}; the final temperature is \SI{28.8}{\celsius}. With $c_{\text{water}} = \SI{4.18}{\joule\per\gram\per\kelvin}$, \eqref{eq:mcdT} gives
     \[q_{\text{water}} = (\SI{50}{\gram})(\SI{4.18}{\joule\per\gram\per\celsius})(\SI{6.8}{\celsius}) = \SI{1.4e3}{\joule} = -q_{\text{lead}},\]
-    \[c_{\text{lead}} = \frac{-\SI{1.4e3}{\joule}}{(\SI{150}{\gram})(28.8 - 100)\,\si{\celsius}} = \SI{0.13}{\joule\per\gram\per\celsius}.\]
+    \[c_{\text{lead}} = \frac{q_{\text{lead}}}{m_{\text{lead}}\,\Delta T_{\text{lead}}} = \frac{-\SI{1.4e3}{\joule}}{(\SI{150}{\gram})(28.8 - 100)\,\si{\celsius}} = \SI{0.13}{\joule\per\gram\per\celsius}.\]
 \end{example}
 
 \subsection{The Mechanical Equivalent of Heat}
 In Joule's experiment (1850), a falling weight spins a paddle wheel in insulated water; the lost potential energy $mg\,\Delta h$ raises the water's temperature. He found about \SI{4.2}{\joule} per gram per \si{\celsius}, close to the modern \SI{4.18}{\joule\per\gram\per\kelvin}. This showed that $W$ and $Q$ are interchangeable forms of energy, and that a given amount of work always produces the same amount of heat (energy is conserved).
-
-\begin{remark}
-    See Problem 1.30 in Schroeder: shake a sealed bottle of water for several minutes and compare the measured temperature rise with a rough estimate.
-\end{remark}
 
 % ============================================================
 %  PROCESSES OF AN IDEAL GAS
@@ -385,36 +439,111 @@ Since $PV = Nk_BT$, how $P$ changes with $V$ depends on what happens to $T$, so 
 \end{figure}
 
 \subsection{Isobaric and Isochoric}
-\paragraph{Isobaric ($P$ constant).} A horizontal line:
+\begin{definition}[Isobaric process]
+    A process at constant pressure.
+\end{definition}
+On a $P$-$V$ diagram it is a horizontal line. With $P$ constant, \eqref{eq:work} and the definition of $C_P$ give
 \[W = -P(V_2 - V_1), \qquad Q = \int_{T_1}^{T_2} C_P\,dT = C_P\,\Delta T \quad \text{(constant $C_P$)}.\]
 
-\paragraph{Isochoric ($V$ constant).} A vertical line:
+\begin{definition}[Isochoric process]
+    A process at constant volume.
+\end{definition}
+On a $P$-$V$ diagram it is a vertical line. With $dV = 0$, \eqref{eq:work} gives no work, so by the first law \eqref{eq:first-law} all the heat goes into $U$:
 \[W = 0, \qquad Q = \Delta U = C_V\,\Delta T.\]
 
-\subsection{Isothermal ($T$ constant)}
-The gas is in contact with a reservoir that supplies or absorbs heat. With $P = Nk_BT/V$,
+\subsection{Isothermal}
+\begin{definition}[Isothermal process]
+    A process at constant temperature.
+\end{definition}
+On a $P$-$V$ diagram it follows the hyperbola $P = Nk_BT/V$, called an isotherm (Figure~\ref{fig:isothermal}). The gas is in contact with a reservoir that supplies or absorbs heat. With $P = Nk_BT/V$,
 \[W = -\int_{V_i}^{V_f} \frac{N k_B T}{V} \, dV = N k_B T \ln\frac{V_i}{V_f}.\]
-Since $U$ depends only on $T$, $\Delta U = 0$ and
+Since $U$ depends only on $T$ \eqref{eq:internal-energy}, $\Delta U = \frac{f}{2}Nk_B(T_f-T_i) = 0$ and
 \[Q = -W = N k_B T \ln\frac{V_f}{V_i}.\]
-In an expansion the gas does work and absorbs an equal heat from the reservoir; in a compression the work done on the gas is dumped into the reservoir as heat.
+\begin{remark}
+    In an expansion the gas does work and absorbs an equal heat from the reservoir; in a compression the work done on the gas is dumped into the reservoir as heat.
+\end{remark}
 
-% TODO: figure with two P-V diagrams (isothermal expansion and compression), pressure on the vertical axis and volume on the horizontal axis. The isotherm is the curve P = NkT/V and the work is the area under it.
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            width=0.46\textwidth,
+            axis lines=left,
+            xlabel={$V$}, ylabel={$P$},
+            xmin=0, xmax=4, ymin=0, ymax=3.2,
+            xtick={1,3}, xticklabels={$V_i$,$V_f$},
+            ytick=\empty,
+            title={Expansion},
+        ]
+            \addplot[fill=blue!15, draw=none, domain=1:3, samples=60] {2/x} \closedcycle;
+            \addplot[gray, domain=0.7:3.8, samples=100] {2/x};
+            \addplot[blue, very thick, ->, domain=1:3, samples=60] {2/x};
+            \node[gray] at (axis cs:3.5,0.85) {$T$};
+        \end{axis}
+    \end{tikzpicture}
+    \hfill
+    \begin{tikzpicture}
+        \begin{axis}[
+            width=0.46\textwidth,
+            axis lines=left,
+            xlabel={$V$}, ylabel={$P$},
+            xmin=0, xmax=4, ymin=0, ymax=3.2,
+            xtick={1,3}, xticklabels={$V_f$,$V_i$},
+            ytick=\empty,
+            title={Compression},
+        ]
+            \addplot[fill=red!15, draw=none, domain=1:3, samples=60] {2/x} \closedcycle;
+            \addplot[gray, domain=0.7:3.8, samples=100] {2/x};
+            \addplot[red, very thick, ->, domain=1:3, samples=60] ({4-x}, {2/(4-x)});
+            \node[gray] at (axis cs:3.5,0.85) {$T$};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Isothermal processes of an ideal gas. The shaded area under the isotherm is $|W|$. Left: expansion, $W < 0$ and heat flows in. Right: compression, $W > 0$ and heat flows out.}
+    \label{fig:isothermal}
+\end{figure}
 
-\subsection{Adiabatic ($Q = 0$)}
-The gas is insulated, or the process is too fast for heat to flow. Then $\Delta U = W$: an adiabatic compression heats the gas and an expansion cools it.
+\subsection{Adiabatic}
+\begin{definition}[Adiabatic process]
+    A process with no heat flow, $Q = 0$.
+\end{definition}
+On a $P$-$V$ diagram it follows an adiabat, $PV^\gamma = \text{constant}$ (Figure~\ref{fig:adiabat}). The gas is insulated, or the process is too fast for heat to flow. The first law \eqref{eq:first-law} gives $W = \Delta U = C_V\,\Delta T$: an adiabatic compression heats the gas and an expansion cools it.
 
 \paragraph{Equation of the adiabat.}
-With $dU = \tfrac{f}{2} N k_B \, dT = -P \, dV$ and $P = Nk_BT/V$,
-\[\frac{f}{2} \frac{dT}{T} = -\frac{dV}{V} \quad\Longrightarrow\quad \frac{f}{2} \ln\frac{T_f}{T_i} = -\ln\frac{V_f}{V_i} \quad\Longrightarrow\quad V T^{f/2} = \text{constant}.\]
+With $Q = 0$, $dU = \dbar W$. Using \eqref{eq:internal-energy} for $dU$, \eqref{eq:work} for $\dbar W$, and $P = Nk_BT/V$,
+\[\frac{f}{2} N k_B \, dT = -\frac{Nk_BT}{V} \, dV \quad\Longrightarrow\quad \frac{f}{2} \frac{dT}{T} = -\frac{dV}{V} \quad\Longrightarrow\quad \frac{f}{2} \ln\frac{T_f}{T_i} = -\ln\frac{V_f}{V_i} \quad\Longrightarrow\quad V T^{f/2} = \text{constant}.\]
 
 \begin{proposition}[Adiabat in terms of $P$ and $V$]
-    Eliminating $T = PV/Nk_B$,
     \[P V^{\gamma} = \text{constant}, \qquad TV^{\gamma - 1} = \text{constant}, \qquad \gamma = \frac{f+2}{f} = \frac{C_P}{C_V}.\]
 \end{proposition}
+\begin{proof}
+    Raise $VT^{f/2} = \text{constant}$ to the power $2/f$: $TV^{2/f} = \text{constant}$, and $2/f = \gamma - 1$. Substituting $T = PV/Nk_B$ gives $PV^{1 + 2/f} = PV^\gamma = \text{constant}$. Finally, $C_V = \tfrac{f}{2}Nk_B$ and $C_P = C_V + Nk_B = \tfrac{f+2}{2}Nk_B$, so $C_P/C_V = (f+2)/f = \gamma$.
+\end{proof}
 
 \begin{remark}
-    Since $\gamma > 1$, an adiabat is steeper than an isotherm on a $P$-$V$ diagram. Monatomic: $\gamma = 5/3$. Diatomic (air): $\gamma = 7/5$. The work is $W = \Delta U = C_V\,\Delta T$.
+    Since $\gamma > 1$, an adiabat is steeper than an isotherm and crosses from one to a colder (expansion) or hotter (compression) one. Monatomic: $\gamma = 5/3$. Diatomic (air): $\gamma = 7/5$.
 \end{remark}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            width=0.6\textwidth,
+            axis lines=left,
+            xlabel={$V$}, ylabel={$P$},
+            xmin=0, xmax=4, ymin=0, ymax=3.2,
+            xtick={1,3}, xticklabels={$V_i$,$V_f$},
+            ytick=\empty,
+        ]
+            \addplot[gray, dashed, domain=0.65:3.8, samples=100] {2/x};
+            \addplot[gray, dashed, domain=0.45:3.8, samples=100] {1.29/x};
+            \addplot[orange, very thick, ->, domain=1:3, samples=80] {2*x^(-1.4)};
+            \node[gray] at (axis cs:3.65,0.75) {$T_1$};
+            \node[gray] at (axis cs:3.65,0.2) {$T_2$};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Adiabatic expansion (orange) between the isotherms $T_1 > T_2$ (dashed).}
+    \label{fig:adiabat}
+\end{figure}
 
 % ============================================================
 %  KINETIC THEORY OF GASES
@@ -422,7 +551,9 @@ With $dU = \tfrac{f}{2} N k_B \, dT = -P \, dV$ and $P = Nk_BT/V$,
 \section{Kinetic Theory of Gases}
 \marginpar{September 14, 2026}
 
-Kinetic theory is a microscopic model for $U(T)$ and $C$ of an ideal gas: relate $P$ to the kinetic energy of the particles, then use $PV = Nk_BT$ to relate that to $T$.
+\begin{definition}[Kinetic theory]
+    Kinetic theory is a microscopic model for $U(T)$ and $C$ of an ideal gas: relate $P$ to the kinetic energy of the particles, then use $PV = Nk_BT$ to relate that to $T$.
+\end{definition}
 
 \subsection{Pressure from a Single Particle}
 One particle of mass $m$ bounces between the walls of a box of length $L$ with $x$-velocity $u_x$. Each collision reverses its momentum, giving the wall
@@ -454,29 +585,32 @@ No direction is preferred, so $\overline{u^2} = 3\,\overline{u_x^2}$ and $PV = \
 
 \subsection{The Equipartition Theorem}
 \begin{definition}[Degree of freedom]
-    A degree of freedom (DOF) is a form of energy that enters the total energy as a quadratic function of a position or velocity component (Cartesian or angular): translational, rotational and vibrational kinetic energy, and elastic potential energy.
+    A degree of freedom (DOF) is a quadratic term in the total energy of a molecule. The number of such terms is $f$.
 \end{definition}
-
+\begin{example}[Monatomic gas]
+    Translation: $\tfrac{1}{2}mv_x^2 + \tfrac{1}{2}mv_y^2 + \tfrac{1}{2}mv_z^2$, three terms $(v_x,v_y,v_z)$, so $f = 3$.
+\end{example}
 \begin{principle}[Equipartition theorem]
-    At thermal equilibrium at temperature $T$, each accessible quadratic degree of freedom carries an average energy $\tfrac{1}{2} k_B T$. For $N$ molecules with $f$ DOF each,
+    At temperature $T$, each degree of freedom has an average energy of $\tfrac{1}{2} k_B T$. So $N$ molecules with $f$ DOF each have
     \[U_{\text{thermal}} = N f \cdot \frac{1}{2} k_B T.\]
 \end{principle}
-
 \begin{remark}
-    Except for ideal gases, $U_{\text{thermal}}$ is not the total energy: there is also "static" energy (chemical bonds, rest energies $mc^2$). Equipartition still describes energy changes with $T$, as long as no phase transitions or bond-breaking occur.
+    $U_{\text{thermal}}$ is not the total energy, which also includes fixed energy like chemical bonds. Equipartition still gives how $U$ changes with $T$, unless bonds break or the phase changes.
 \end{remark}
-
 \subsection{Counting Degrees of Freedom}
-A molecule of $N$ atoms has $3N$ independent displacements:
+Each of the $N$ atoms in a molecule can move in $x$, $y$, $z$, giving $3N$ motions in total, split into:
 \begin{itemize}
-    \item \textbf{Translational:} $3$ (centre of mass).
-    \item \textbf{Rotational:} $2$ (linear) or $3$ (nonlinear).
-    \item \textbf{Vibrational:} $3N - 5$ (linear) or $3N - 6$ (nonlinear).
+    \item \textbf{Translational:} $3$, the whole molecule moving.
+    \item \textbf{Rotational:} $3$ (nonlinear) or $2$ (linear, since spinning about its own axis does nothing).
+    \item \textbf{Vibrational:} the rest, $3N - 6$ (nonlinear) or $3N - 5$ (linear), atoms moving relative to each other.
 \end{itemize}
-Translations and rotations count as one quadratic DOF each; each vibrational mode counts as two (kinetic and potential).
+Translations and rotations are kinetic only, so one DOF each. Each vibration is a spring, kinetic plus potential, so two DOF each.
 
-\begin{example}[NH$_3$]
-    $N = 4$, nonlinear: 3 translational, 3 rotational, $12 - 6 = 6$ vibrational modes, so $f = 3 + 3 + 2(6) = 18$.
+\begin{example}[O$_2$, linear]
+    $3N = 6$: 3 translational, 2 rotational, $6 - 5 = 1$ vibration, so $f = 3 + 2 + 2(1) = 7$.
+\end{example}
+\begin{example}[H$_2$O, nonlinear]
+    $3N = 9$: 3 translational, 3 rotational, $9 - 6 = 3$ vibrations, so $f = 3 + 3 + 2(3) = 12$.
 \end{example}
 
 \paragraph{Solids.}
