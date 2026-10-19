@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  9 OCT 2026 13:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.7)  19 OCT 2026 10:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -647,7 +647,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has 
                                                   \__shipout_drop_firstpage_...
 l.221 \end{definition}
                       ]
-<../Images/Stern-Gerlach_apparatus.png, id=389, 587.19376pt x 257.96375pt>
+<../Images/Stern-Gerlach_apparatus.png, id=394, 587.19376pt x 257.96375pt>
 File: ../Images/Stern-Gerlach_apparatus.png Graphic file (type png)
 <use ../Images/Stern-Gerlach_apparatus.png>
 Package pdftex.def Info: ../Images/Stern-Gerlach_apparatus.png  used on input line 224.
@@ -716,26 +716,51 @@ Overfull \hbox (14.63948pt too wide) detected at line 1146
 \OT1/cmr/m/n/10 [\OML/cmm/m/it/10 J[]; J[]\OT1/cmr/m/n/10 ] [][]\OMS/cmsy/m/n/10 ! [] [] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 i\U/msb/m/n/10 ~ \OMS/cmsy/m/n/10 ^^A \U/msb/m/n/10 ~ [] \OMS/cmsy/m/n/10  [][] \OML/cmm/m/it/10 i\U/msb/m/n/10 ~\OML/cmm/m/it/10 J[]:
  []
 
-[26] [27] [28] [29] [30] (Phys357.aux)
+[26]
+Overfull \hbox (9.29778pt too wide) in paragraph at lines 1188--1189
+[]\OT1/cmr/m/n/10 Time de-pen-dence: $[] = \OML/cmm/m/it/10 U\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ) []$, $\OML/cmm/m/it/10 U\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 e[]$\OT1/cmr/m/n/10 , if $\OML/cmm/m/it/10 H$ \OT1/cmr/m/n/10 is time-independent.
+ []
+
+
+Overfull \hbox (21.81895pt too wide) in paragraph at lines 1188--1189
+[][] []\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 ^^G\OML/cmm/m/it/10 i![]t=\OT1/cmr/m/n/10 2)[] [] = \OML/cmm/m/it/10 e[] []$\OT1/cmr/m/n/10 . $[] = []  =[]\OMS/cmsy/m/n/10 )  [] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 e[] [] \OT1/cmr/m/n/10 =
+ []
+
+
+Overfull \hbox (19.14487pt too wide) in paragraph at lines 1188--1189
+\OML/cmm/m/it/10 e[][]\OT1/cmr/m/n/10 ([] + []) = [](\OML/cmm/m/it/10 e[] [] \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 e[] []\OT1/cmr/m/n/10 )$. $\OML/cmm/m/it/10 P[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ) = \OMS/cmsy/m/n/10 j [] j[]$\OT1/cmr/m/n/10 .
+ []
+
+
+Overfull \hbox (7.42488pt too wide) in paragraph at lines 1188--1189
+[] \OML/cmm/m/it/10 S[] [] \OMS/cmsy/m/n/10 ! [] [] [] [] [] [] \OT1/cmr/m/n/10 = [] [](\OML/cmm/m/it/10 ![]t\OT1/cmr/m/n/10 )$.
+ []
+
+
+Overfull \hbox (50.20761pt too wide) in paragraph at lines 1188--1189
+\OT1/cmr/m/n/10 Al-ter-na-tive: $[] = []\OML/cmm/m/it/10 P[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^@ []\OML/cmm/m/it/10 P[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ) = [] [] = [] [] =
+ []
+
+[27] [28] [29] [30] (Phys357.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
 Package rerunfilecheck Info: File `Phys357.out' has not changed.
-(rerunfilecheck)             Checksum: FF1EFED4C5080A037126CBBA29233AEE;10720.
+(rerunfilecheck)             Checksum: 0122C792CCEE327FFDABCC90AB4164AC;10784.
  ) 
 Here is how much of TeX's memory you used:
- 49652 strings out of 467871
- 1290249 string characters out of 5418377
- 2046213 words of memory out of 5000000
- 77655 multiletter control sequences out of 15000+600000
+ 49654 strings out of 467871
+ 1290269 string characters out of 5418377
+ 2044214 words of memory out of 5000000
+ 77656 multiletter control sequences out of 15000+600000
  639560 words of font info for 89 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,18n,118p,797b,859s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,18n,118p,3430b,859s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\erenr\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/doublestroke/dsrom10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/erenr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on Phys357.pdf (33 pages, 579932 bytes).
+Output written on Phys357.pdf (33 pages, 590436 bytes).
 PDF statistics:
- 916 PDF objects out of 1000 (max. 8388607)
- 316 named destinations out of 1000 (max. 500000)
- 498 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 921 PDF objects out of 1000 (max. 8388607)
+ 317 named destinations out of 1000 (max. 500000)
+ 506 words of extra memory for PDF output out of 10000 (max. 10000000)
 

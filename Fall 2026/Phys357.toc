@@ -56,5 +56,6 @@
 \contentsline {subsection}{\numberline {7.6}Matrix elements}{26}{subsection.7.6}%
 \contentsline {subsection}{\numberline {7.7}Rotations by $2\pi $: fermions and bosons}{26}{subsection.7.7}%
 \contentsline {subsection}{\numberline {7.8}Atomic quantum numbers}{27}{subsection.7.8}%
-\contentsline {section}{\numberline {A}Solutions}{27}{appendix.A}%
+\contentsline {section}{\numberline {8}Misc}{27}{section.8}%
+\contentsline {section}{\numberline {A}Solutions}{28}{appendix.A}%
 \contentsline {section}{\numberline {B}Useful Links}{30}{appendix.B}%
