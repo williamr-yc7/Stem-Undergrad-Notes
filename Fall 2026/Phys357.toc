@@ -67,5 +67,5 @@
 \contentsline {subsubsection}{\numberline {8.5.1}The rotating frame}{32}{subsubsection.8.5.1}%
 \contentsline {subsubsection}{\numberline {8.5.2}Rotating-wave approximation}{33}{subsubsection.8.5.2}%
 \contentsline {subsubsection}{\numberline {8.5.3}Rabi oscillations}{33}{subsubsection.8.5.3}%
-\contentsline {section}{\numberline {A}Solutions}{34}{appendix.A}%
-\contentsline {section}{\numberline {B}Useful Links}{36}{appendix.B}%
+\contentsline {section}{\numberline {A}Solutions}{35}{appendix.A}%
+\contentsline {section}{\numberline {B}Useful Links}{37}{appendix.B}%

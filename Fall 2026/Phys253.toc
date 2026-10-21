@@ -49,5 +49,19 @@
 \contentsline {subsection}{\numberline {11.1}The Clausius Inequality}{17}{subsection.11.1}%
 \contentsline {subsection}{\numberline {11.2}Definition of Entropy}{18}{subsection.11.2}%
 \contentsline {subsection}{\numberline {11.3}Principle of Increasing Entropy}{19}{subsection.11.3}%
-\contentsline {section}{\numberline {A}Appendix}{19}{appendix.A}%
-\contentsline {section}{\numberline {B}Useful Links}{19}{appendix.B}%
+\contentsline {subsection}{\numberline {11.4}Temperature-Entropy Diagrams}{19}{subsection.11.4}%
+\contentsline {subsection}{\numberline {11.5}The Thermodynamic Identity}{20}{subsection.11.5}%
+\contentsline {subsection}{\numberline {11.6}Entropy of an Ideal Gas}{20}{subsection.11.6}%
+\contentsline {subsection}{\numberline {11.7}Entropy of the Universe}{21}{subsection.11.7}%
+\contentsline {section}{\numberline {12}Statistical Thermodynamics}{22}{section.12}%
+\contentsline {subsection}{\numberline {12.1}Microstates and Macrostates}{22}{subsection.12.1}%
+\contentsline {subsection}{\numberline {12.2}Sharpening of the Distribution}{22}{subsection.12.2}%
+\contentsline {subsection}{\numberline {12.3}The Two-State Paramagnet}{23}{subsection.12.3}%
+\contentsline {subsection}{\numberline {12.4}The Einstein Solid}{23}{subsection.12.4}%
+\contentsline {subsection}{\numberline {12.5}Two Einstein Solids in Thermal Contact}{23}{subsection.12.5}%
+\contentsline {subsection}{\numberline {12.6}Large Systems}{24}{subsection.12.6}%
+\contentsline {subsection}{\numberline {12.7}Statistical Definition of Entropy}{25}{subsection.12.7}%
+\contentsline {subsection}{\numberline {12.8}Maxwell's Demon}{26}{subsection.12.8}%
+\contentsline {subsection}{\numberline {12.9}Entropy of an Ideal Gas}{27}{subsection.12.9}%
+\contentsline {section}{\numberline {A}Appendix}{27}{appendix.A}%
+\contentsline {section}{\numberline {B}Useful Links}{27}{appendix.B}%

@@ -782,7 +782,7 @@ A simplified model of a gasoline engine (a good model of the 2-stroke cycle, or 
 %  ENTROPY
 % ============================================================
 \section{Entropy}
-The second law is about the direction of spontaneous processes: heat flows from hot to cold, and the reverse requires work. Entropy quantifies this. The plan: derive the Clausius inequality for any cycle, use it on reversible paths to define $S$ as a state function, then compare reversible and irreversible processes.
+The second law is about the direction of spontaneous processes: heat flows from hot to cold, and the reverse requires work. Entropy quantifies this. The plan: derive the Clausius inequality for any cycle, use it on reversible paths to define $S$ as a state function, then compare reversible and irreversible processes.\footnote{Schroeder does not follow this approach; the closest is 3.1 and 3.2 (Measuring Entropy, The Macroscopic View of Entropy).}
 
 \subsection{The Clausius Inequality}
 \begin{theorem}[Clausius inequality]
@@ -853,9 +853,303 @@ Take a reversible cycle: $i \to f$ along $R_1$, back along $R_2$. The corollary 
     The principle applies to the whole isolated system, not to its parts. If $T_A > T_B$ inside an adiabatic wall, heat flows from $A$ to $B$: $S_A$ decreases, $S_B$ increases, and the total increases.
 \end{remark}
 
+\begin{remark}[Entropy maximization]
+    A thermally isolated system evolves until $S$ is maximal; a totally isolated one (thermally and mechanically) until $S$ is maximal at fixed $U$. For a thermodynamic universe made of such systems, $\Delta S_{\text{universe}} \geq 0$. Whether this applies to the actual universe depends on whether it is finite and isolated.
+\end{remark}
+
+\begin{remark}[Arrow of time]
+    Most dynamical laws (Newton's second law, the Schr\"odinger equation) are unchanged under $t \to -t$. Entropy increase is one of the few laws that picks a direction, and it is the most widely accepted explanation of the arrow of time.
+\end{remark}
+
+\subsection{Temperature-Entropy Diagrams}
+Any two independent state variables fix the state, so $(T,S)$ works as well as $(P,V)$. On a reversible path $\dbar Q_R = T\,dS$, so
+\[Q = \int_R T\,dS,\]
+the area under the curve on a $T$-$S$ diagram, just as $|W|$ is the area under a $P$-$V$ curve.
+
+\begin{definition}[Isentropic process]
+    A process at constant $S$. Since $dS = \dbar Q_R/T$, a process is isentropic if and only if it is both adiabatic and reversible. An irreversible adiabatic process, like a free expansion, is not isentropic.
+\end{definition}
+
+\begin{example}[Carnot cycle on a $T$-$S$ diagram]
+    The isotherms are horizontal and the reversible adiabats are vertical (isentropes), so the cycle is a rectangle (Figure~\ref{fig:carnot-ts}). With $\Delta S$ its width, $Q_1 = T_1\,\Delta S$ and $Q_2 = T_2\,\Delta S$, so the net heat, equal to the net work, is the enclosed area, and
+    \[\eta_C = 1 - \frac{Q_2}{Q_1} = 1 - \frac{T_2}{T_1}.\]
+\end{example}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[>=stealth]
+        \draw[->] (0,0) -- (5,0) node[right] {$S$};
+        \draw[->] (0,0) -- (0,4) node[above] {$T$};
+        \fill[gray!15] (1.2,1) rectangle (3.8,3);
+        \draw[gray, dashed] (0,3) -- (1.2,3);
+        \draw[gray, dashed] (0,1) -- (1.2,1);
+        \node[left] at (0,3) {$T_1$};
+        \node[left] at (0,1) {$T_2$};
+        \draw[very thick, ->] (1.2,3) -- (3.8,3);
+        \draw[very thick, ->] (3.8,3) -- (3.8,1);
+        \draw[very thick, ->] (3.8,1) -- (1.2,1);
+        \draw[very thick, ->] (1.2,1) -- (1.2,3);
+        \node[above left] at (1.2,3) {$a$};
+        \node[above right] at (3.8,3) {$b$};
+        \node[below right] at (3.8,1) {$c$};
+        \node[below left] at (1.2,1) {$d$};
+        \node[above] at (2.5,3) {$Q_1$ in};
+        \node[below] at (2.5,1) {$Q_2$ out};
+        \node at (2.5,2) {$W$};
+    \end{tikzpicture}
+    \caption{Carnot cycle on a $T$-$S$ diagram: $a \to b$ and $c \to d$ isothermal, $b \to c$ and $d \to a$ isentropic. The enclosed area is $Q_1 - Q_2 = W$.}
+    \label{fig:carnot-ts}
+\end{figure}
+
+\subsection{The Thermodynamic Identity}
+\begin{theorem}[Thermodynamic identity]
+    \begin{equation}
+        \label{eq:thermo-identity}
+        dU = T\,dS - P\,dV, \qquad \text{or} \qquad T\,dS = dU + P\,dV.
+    \end{equation}
+\end{theorem}
+\begin{proof}
+    On a reversible step, the first law \eqref{eq:first-law} reads $dU = \dbar Q_{\text{rev}} + \dbar W_{\text{rev}}$, with $\dbar W_{\text{rev}} = -P\,dV$ from \eqref{eq:work} and $\dbar Q_{\text{rev}} = T\,dS$ from the definition of entropy.
+\end{proof}
+\begin{remark}
+    It was derived on a reversible step, but it contains only state variables ($T$, $P$) and state functions ($U$, $S$, $V$), so it holds for any infinitesimal process between equilibrium states. For an irreversible one, $T\,dS$ and $-P\,dV$ are no longer $\dbar Q$ and $\dbar W$ separately. It combines the first and second laws, and the rest of thermodynamics follows from it the way mechanics follows from Newton's laws.
+\end{remark}
+
+\subsection{Entropy of an Ideal Gas}
+\begin{proposition}[Molar entropy of an ideal gas]
+    With molar quantities $s = S/n$, $c_v = C_V/n$ and $v = V/n$,
+    \[s = c_v \ln T + R \ln v + s_0,\]
+    where $s_0$ is a constant fixed by a reference state $(T_0, v_0)$.
+\end{proposition}
+\begin{proof}
+    For an ideal gas $U = U(T)$, so $dU = C_V\,dT$, and $P = nRT/V$. The thermodynamic identity \eqref{eq:thermo-identity} gives
+    \[T\,dS = C_V\,dT + \frac{nRT}{V}\,dV.\]
+    Dividing by $nT$, $ds = c_v\,dT/T + R\,dv/v$. Integrating from $(T_0, v_0)$ to $(T, v)$ and absorbing $-c_v \ln T_0 - R \ln v_0$ into $s_0$ gives the result.
+\end{proof}
+\begin{remark}
+    $s_0$ cancels in any difference $s_f - s_i$, which is all classical thermodynamics defines.
+\end{remark}
+\begin{example}[Free expansion again]
+    At constant $T$, doubling the volume gives $\Delta s = R \ln 2$. For \SI{1}{\mole}, $\Delta S = (\SI{8.315}{\joule\per\mole\per\kelvin})\ln 2 = \SI{5.76}{\joule\per\kelvin}$, the same as the free expansion result, since $S$ is a state function.
+\end{example}
+
+\subsection{Entropy of the Universe}
+For any process, $\Delta S_{\text{universe}} = \Delta S_{\text{system}} + \Delta S_{\text{surroundings}}$.
+
+\begin{example}[Heating water on one reservoir]
+    In the water example, the reservoir stays at $T_f = \SI{373}{\kelvin}$ and loses $Q = C_P(T_f - T_i)$. Computing its entropy change along a reversible path (as if through an intermediate reservoir just below \SI{100}{\celsius}),
+    \[\Delta S_{\text{reservoir}} = -\frac{Q}{T_f} = -C_P\,\frac{\SI{80}{\kelvin}}{\SI{373}{\kelvin}},\]
+    \[\Delta S_{\text{universe}} = C_P\left[\ln\frac{373}{293} - \frac{80}{373}\right] = C_P(0.241 - 0.214) = 0.027\,C_P > 0.\]
+\end{example}
+\begin{remark}
+    $\Delta S_{\text{universe}}$ is much smaller than the changes of either part, but no choice of parameters can make it negative.
+\end{remark}
+
+\begin{example}[Heating water in two stages]
+    First on a reservoir at \SI{323}{\kelvin}, then on one at \SI{373}{\kelvin}. $\Delta S_{\text{water}}$ is unchanged (same end states), and
+    \[\Delta S_{\text{universe}} = C_P\left[\ln\frac{373}{293} - \frac{30}{323} - \frac{50}{373}\right] = 0.014\,C_P,\]
+    about half the one-stage result. More stages bring the process closer to reversible.
+\end{example}
+
+\begin{proposition}[Reversible heating]
+    If the water is heated by an infinitesimal Carnot engine running between the reservoir at \SI{373}{\kelvin} and the water at $T$, then $\Delta S_{\text{universe}} = 0$.
+\end{proposition}
+\begin{proof}
+    In each tiny cycle the engine takes $\dbar Q_1$ from the reservoir and delivers $\dbar Q_2 = C_P\,dT$ to the water. For a Carnot engine $\dbar Q_1/\dbar Q_2 = (\SI{373}{\kelvin})/T$, so
+    \[\Delta S_{\text{reservoir}} = -\int \frac{\dbar Q_1}{\SI{373}{\kelvin}} = -\int_{293}^{373} \frac{C_P\,dT}{T} = -C_P \ln\frac{373}{293} = -\Delta S_{\text{water}}.\]
+    The engine returns to its initial state every cycle, so $\Delta S_{\text{universe}} = 0$.
+\end{proof}
+
+% ============================================================
+%  STATISTICAL THERMODYNAMICS
+% ============================================================
+\section{Statistical Thermodynamics}
+Classical thermodynamics says entropy increases in irreversible processes, but not what $S$ measures. The statistical approach answers this by counting the ways energy can be arranged among the constituents of a system (combinatorics). The conclusion: irreversible processes are not inevitable, only overwhelmingly probable for macroscopic systems. This is Schroeder chapter 2.
+
+\subsection{Microstates and Macrostates}
+Flip three distinguishable coins (penny, nickel, dime). Each has 2 outcomes, so there are $2^3 = 8$ equally likely outcomes. If only the number of heads can be measured, there are 4 possible results, with probabilities $1/8$ (0 heads), $3/8$ (1), $3/8$ (2), $1/8$ (3).
+
+\begin{definition}[Microstate, macrostate, multiplicity]
+    A microstate specifies the state of every individual particle (e.g.\ HHT). A macrostate specifies only a coarse, measurable quantity (e.g.\ two heads). The multiplicity $\Omega$ of a macrostate is the number of microstates giving that macrostate.
+\end{definition}
+\begin{remark}
+    Macrostates can be told apart by measurement; microstates with the same macrostate cannot. Knowing the microstate fixes the macrostate, not the reverse.
+\end{remark}
+\begin{example}[Three coins]
+    $\Omega(3) = 1$, $\Omega(2) = 3$, $\Omega(1) = 3$, $\Omega(0) = 1$: the $n = 3$ row of Pascal's triangle. The total is $\Omega(\text{all}) = 8$.
+\end{example}
+
+\begin{proposition}[Multiplicity of $N$ coins]
+    The probability of a macrostate is $\Omega(n)/\Omega(\text{all})$, and for $N$ coins with $n$ heads,
+    \[\Omega(N, n) = \binom{N}{n} = \frac{N!}{n!\,(N-n)!}, \qquad \Omega(\text{all}) = 2^N.\]
+\end{proposition}
+\begin{remark}
+    There are only $N+1$ macrostates but $2^N$ microstates.
+\end{remark}
+
+\subsection{Sharpening of the Distribution}
+The number of heads follows a binomial distribution with $p = 1/2$: mean $N/2$, variance $N/4$, so $\sigma = \sqrt{N}/2$ and
+\[\frac{\sigma}{N} = \frac{1}{2\sqrt{N}}.\]
+The fraction of heads is peaked ever more sharply at $1/2$ as $N$ grows. A fraction of $0.4$ is no surprise with 10 coins, but with 1000 coins it is more than $6\sigma$ away and essentially never happens.
+
+\subsection{The Two-State Paramagnet}
+\begin{definition}[Two-state paramagnet]
+    A material of $N$ magnetic dipoles (unpaired electrons or nuclear moments) that do not interact with each other. Along an applied $\vec{B}$, quantum mechanics allows each dipole only two states: up (aligned) or down (anti-aligned).
+\end{definition}
+The combinatorics are those of coins. The macrostate is labelled by $N_\uparrow$, with magnetization $M \propto N_\uparrow - N_\downarrow$, and
+\[\Omega(N_\uparrow) = \binom{N}{N_\uparrow} = \frac{N!}{N_\uparrow!\,N_\downarrow!}.\]
+\begin{remark}
+    For $\vec{B} \approx \vec{0}$ each dipole is a fair coin, so we measure $M \approx 0$, simply because it is the overwhelmingly most probable macrostate.
+\end{remark}
+
+\subsection{The Einstein Solid}
+\begin{definition}[Einstein solid]
+    A collection of $N$ identical quantum harmonic oscillators with frequency $f$. Each has evenly spaced levels separated by $hf$, so the total energy is $U = q\,hf$ with $q$ the number of energy units. In 3D each atom oscillates in 3 directions, so $N$ oscillators are $N/3$ atoms.
+\end{definition}
+
+\begin{proposition}[Multiplicity of an Einstein solid]
+    \[\Omega(N, q) = \binom{q + N - 1}{q} = \frac{(q + N - 1)!}{q!\,(N-1)!}.\]
+\end{proposition}
+\begin{proof}
+    Represent a microstate by $q$ dots (energy units) and $N - 1$ bars (partitions between oscillators). For example, with $N = 4$, $\bullet \,|\, \bullet\bullet\bullet \,|\,|\, \bullet\bullet\bullet\bullet$ gives energies $1, 3, 0, 4$. Every arrangement of the $q + N - 1$ symbols is a distinct microstate, and there are $\binom{q+N-1}{q}$ ways to choose which are dots.
+\end{proof}
+\begin{example}[$N = 3$]
+    $\Omega(0) = 1$, $\Omega(1) = 3$, $\Omega(2) = 6$, $\Omega(3) = 10$.
+\end{example}
+
+\subsection{Two Einstein Solids in Thermal Contact}
+Take two solids $A$ and $B$ that exchange energy inside an isolated box, each internally in equilibrium (local equilibrium). The macrostate is labelled by $q_A$, with $q_B = q - q_A$. The solids are independent, so for each microstate of $A$ there are $\Omega_B$ of $B$:
+\[\Omega_{\text{total}} = \Omega_A\,\Omega_B.\]
+
+\begin{example}[$N_A = N_B = 3$, $q = 6$]
+    \begin{center}
+    \begin{tabular}{ccccc}
+        $q_A$ & $\Omega_A$ & $q_B$ & $\Omega_B$ & $\Omega_{\text{total}}$ \\
+        \hline
+        0 & 1 & 6 & 28 & 28 \\
+        1 & 3 & 5 & 21 & 63 \\
+        2 & 6 & 4 & 15 & 90 \\
+        3 & 10 & 3 & 10 & 100 \\
+        4 & 15 & 2 & 6 & 90 \\
+        5 & 21 & 1 & 3 & 63 \\
+        6 & 28 & 0 & 1 & 28 \\
+        \hline
+        & & & & $462 = \binom{6+6-1}{6}$
+    \end{tabular}
+    \end{center}
+\end{example}
+
+\begin{principle}[Fundamental assumption of statistical mechanics]
+    In an isolated system in thermal equilibrium, all accessible microstates are equally probable.
+\end{principle}
+\begin{remark}
+    Microscopically every process is reversible: the system moves freely between microstates. But macrostates are not equally probable. Above, $q_A = 3$ has probability $100/462$ and $q_A = 0$ only $28/462$. So energy starting all in $B$ will probably spread out, though with numbers this small, finding it all in $B$ again is not surprising.
+\end{remark}
+
+\begin{example}[$N_A = 300$, $N_B = 200$, $q = 100$]
+    The peak is at $q_A = 60$ (energy shared in proportion to the number of oscillators), with $\Omega_{\text{total}}(60)/\Omega_{\text{total}}(0) \sim 10^{33}$. Nearly all of $\Omega(\text{all}) \approx 9.3 \times 10^{115}$ comes from $q_A \approx 55$ to $65$. The probability of $q_A < 30$ or $q_A > 90$ is below $10^{-6}$, and of $q_A < 10$ below $10^{-20}$: checking a hundred times per second for the age of the universe ($< 10^{18}$ s) would barely catch it once.
+\end{example}
+
+\begin{remark}[Irreversibility]
+    Starting at $q_A = 0$ or $40$ and waiting, we will almost certainly find energy has flowed from $B$ to $A$ toward $q_A \approx 60$, and stays there up to small fluctuations. Heat flow is a probabilistic phenomenon: not certain, just overwhelmingly likely. This "law of increase of multiplicity" is a statistical form of the second law. It is not fundamental, only a very strong statement about probabilities, which becomes a law as $N$ grows.
+\end{remark}
+
+\subsection{Large Systems}
+For $N \sim 10^{23}$ we cannot compute factorials directly.
+\begin{proposition}[Stirling's approximation]
+    For $N \gg 1$,
+    \[N! \approx N^N e^{-N}\sqrt{2\pi N}, \qquad \ln N! \approx N \ln N - N.\]
+\end{proposition}
+\begin{remark}
+    Derived in Schroeder Appendix B. For $N = 100$ the first is off by $0.083\%$ and the second by $0.89\%$.
+\end{remark}
+
+\begin{proposition}[Large Einstein solid, high temperature]
+    For $q \gg N$,
+    \[\Omega(N, q) \approx \left(\frac{eq}{N}\right)^N.\]
+\end{proposition}
+\begin{proof}
+    Replacing $(N-1)!$ by $N!$ and $(q+N-1)!$ by $(q+N)!$ changes $\Omega$ only by factors of order $q$ and $N$, negligible against a number this large, so $\Omega \approx (q+N)!/(q!\,N!)$. By Stirling,
+    \[\ln\Omega \approx (q+N)\ln(q+N) - q\ln q - N\ln N.\]
+    For $q \gg N$, $\ln(q+N) = \ln q + \ln(1 + N/q) \approx \ln q + N/q$, so
+    \[\ln\Omega \approx N \ln\frac{q}{N} + N + \frac{N^2}{q} \approx N\ln\frac{q}{N} + N.\]
+    Exponentiating gives the result.
+\end{proof}
+\begin{remark}
+    Since the exponent $N$ is huge, a small increase in $N$ or $q$ increases $\Omega$ enormously.
+\end{remark}
+
+\begin{proposition}[Width of the peak]
+    For two solids with $N_A = N_B = N$ and $q \gg N$, writing $q_A = q/2 + x$, $q_B = q/2 - x$ with $x \ll q$,
+    \[\Omega \approx \Omega_{\max}\,e^{-N(2x/q)^2}, \qquad \Omega_{\max} = \left(\frac{e}{N}\right)^{2N}\left(\frac{q}{2}\right)^{2N}.\]
+    This is a Gaussian of width $\sigma = q/(2\sqrt{N})$.
+\end{proposition}
+\begin{proof}
+    $\Omega = (e/N)^{2N}(q_A q_B)^N = (e/N)^{2N}\left[(q/2)^2 - x^2\right]^N$, maximal at $x = 0$. Taking the log,
+    \[N\ln\left[\left(\tfrac{q}{2}\right)^2 - x^2\right] = N\ln\left(\tfrac{q}{2}\right)^2 + N\ln\left[1 - \left(\tfrac{2x}{q}\right)^2\right] \approx N\ln\left(\tfrac{q}{2}\right)^2 - N\left(\tfrac{2x}{q}\right)^2.\]
+    $\Omega$ falls to $1/e$ of $\Omega_{\max}$ when $N(2x/q)^2 = 1$, i.e.\ $x = q/(2\sqrt{N})$.
+\end{proof}
+
+\begin{definition}[Thermodynamic limit]
+    The limit where a system is large enough that measurable fluctuations away from the most likely macrostate never occur.
+\end{definition}
+\begin{example}
+    For $N = 10^{20}$, $\sigma/(q/2) = 1/\sqrt{N} = 10^{-10}$: seeing a one-$\sigma$ fluctuation would need the energy of a subsystem to ten significant figures. So once equilibrium is reached, we may take the system to be in its most likely macrostate.
+\end{example}
+
+\subsection{Statistical Definition of Entropy}
+Any large system in equilibrium is found in the macrostate of greatest multiplicity, up to fluctuations too small to measure. The statistical second law: multiplicity tends to increase.
+
+\begin{definition}[Boltzmann entropy]
+    \[S \equiv k_B \ln \Omega.\]
+\end{definition}
+\begin{remark}
+    The log tames the huge numbers and is monotonic, so it changes nothing qualitatively; $k_B$ gives $S$ units of \si{\joule\per\kelvin}, matching the classical state function. Entropy measures multiplicity.
+\end{remark}
+
+\begin{example}[Large Einstein solid]
+    With $\Omega = (eq/N)^N$,
+    \[S = k_B \ln\left(\frac{eq}{N}\right)^N = Nk_B\left[\ln\frac{q}{N} + 1\right].\]
+    For $N = 10^{22}$ and $q = 10^{24}$, $S = Nk_B(5.6) = \SI{0.77}{\joule\per\kelvin}$.
+\end{example}
+\begin{remark}
+    $S$ increases with both $q$ and $N$, though not in proportion. Unlike the classical definition, $S = k_B\ln\Omega$ gives absolute values, not just differences.
+\end{remark}
+
+\begin{proposition}[Additivity]
+    For two weakly coupled, independent systems in the thermodynamic limit,
+    \[S_{\text{total}} = S_A + S_B.\]
+\end{proposition}
+\begin{proof}
+    Rigorously $\Omega_{\text{total}} = \sum_{A,B}\Omega_A\Omega_B$ over all macrostates allowed by the total energy. In the thermodynamic limit the sum is dominated by the peak, $\Omega_{\text{total}} \approx \Omega_{A,\max}\,\Omega_{B,\max}$, so
+    \[S_{\text{total}} = k_B\ln\left(\Omega_{A,\max}\,\Omega_{B,\max}\right) = k_B\ln\Omega_{A,\max} + k_B\ln\Omega_{B,\max} = S_A + S_B.\]
+\end{proof}
+\begin{remark}
+    For small $N$ the macrostates of $A$ and $B$ fluctuate and the full sum is needed.
+\end{remark}
+
+\begin{law}[Second law, statistical form]
+    Spontaneous, irreversible processes increase the entropy (total multiplicity) of the universe. Any large system in equilibrium is found in the macrostate of greatest entropy.
+\end{law}
+
+\begin{remark}[Entropy is not disorder]
+    "Entropy = disorder" works for a shuffled deck (sorted has $\Omega = 1$), but fails elsewhere: crushed ice looks more disordered than water, yet water has much higher entropy. Think "entropy = multiplicity" instead.
+\end{remark}
+
+\subsection{Maxwell's Demon}
+Maxwell (1867) imagined a demon working a door between two chambers of gas, letting only fast molecules through one way and slow ones the other. One side warms, the other cools, and total entropy seems to drop with no work done. This led to links between entropy and information theory (Landauer). The consensus is that the demon cannot violate the second law once the entropy it generates itself is counted.
+
+\subsection{Entropy of an Ideal Gas}
+Reading: Schroeder 2.5 and 2.6. The multiplicity of a monatomic ideal gas is
+\[\Omega_N \approx \frac{1}{N!}\frac{V^N}{h^{3N}}\frac{\pi^{3N/2}}{(3N/2)!}\left(\sqrt{2mU}\right)^{3N} = f(N)\,V^N U^{3N/2},\]
+which leads to the Sackur--Tetrode equation
+\[S = Nk_B\left[\ln\left(\frac{V}{N}\left(\frac{4\pi m U}{3Nh^2}\right)^{3/2}\right) + \frac{5}{2}\right].\]
+The text also covers interacting gases and the entropy of mixing.
+
 % ============================================================
 %  APPENDIX
 % ============================================================
+\newpage
 \appendix
 \section{Appendix}
 
