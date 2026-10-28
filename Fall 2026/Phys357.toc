@@ -16,7 +16,7 @@
 \contentsline {subsubsection}{\numberline {3.3.2}Silver atoms}{5}{subsubsection.3.3.2}%
 \contentsline {subsubsection}{\numberline {3.3.3}Classical prediction versus observation}{6}{subsubsection.3.3.3}%
 \contentsline {subsection}{\numberline {3.4}Spin quantization}{6}{subsection.3.4}%
-\contentsline {subsection}{\numberline {3.5}Sequential Stern-Gerlach experiments}{6}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.5}Sequential Stern-Gerlach experiments}{7}{subsection.3.5}%
 \contentsline {subsubsection}{\numberline {3.5.1}Experiment 1: SG$z$ then SG$z$}{8}{subsubsection.3.5.1}%
 \contentsline {subsubsection}{\numberline {3.5.2}Experiment 2: SG$z$ then SG$x$}{8}{subsubsection.3.5.2}%
 \contentsline {subsubsection}{\numberline {3.5.3}Experiment 3: SG$z$, SG$x$, then SG$z$}{8}{subsubsection.3.5.3}%
@@ -24,13 +24,13 @@
 \contentsline {section}{\numberline {4}Quantum States}{8}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Kets, bras and bases}{9}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Measurement and probability}{10}{subsection.4.2}%
-\contentsline {subsubsection}{\numberline {4.2.1}Bras of superpositions}{10}{subsubsection.4.2.1}%
-\contentsline {subsubsection}{\numberline {4.2.2}Normalization}{10}{subsubsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Bras}{10}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}Normalization}{11}{subsubsection.4.2.2}%
 \contentsline {subsubsection}{\numberline {4.2.3}Global and relative phase}{11}{subsubsection.4.2.3}%
 \contentsline {subsection}{\numberline {4.3}Expectation value and uncertainty}{11}{subsection.4.3}%
 \contentsline {subsubsection}{\numberline {4.3.1}Measured averages and shot noise}{12}{subsubsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.4}Spin states along $x$ and $y$}{12}{subsection.4.4}%
-\contentsline {subsubsection}{\numberline {4.4.1}The state $\mathinner {|{+\hat {x}}\rangle }$}{12}{subsubsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4}Spin states along $x$ and $y$}{13}{subsection.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.1}The state $\mathinner {|{+\hat {x}}\rangle }$}{13}{subsubsection.4.4.1}%
 \contentsline {subsubsection}{\numberline {4.4.2}Experiment 5: measuring $S_y$}{13}{subsubsection.4.4.2}%
 \contentsline {subsubsection}{\numberline {4.4.3}Fixing the phases}{13}{subsubsection.4.4.3}%
 \contentsline {section}{\numberline {5}Matrix Mechanics}{14}{section.5}%
@@ -43,19 +43,19 @@
 \contentsline {subsubsection}{\numberline {5.4.1}Operators in another basis}{19}{subsubsection.5.4.1}%
 \contentsline {section}{\numberline {6}Rotations}{20}{section.6}%
 \contentsline {subsection}{\numberline {6.1}The rotation operator}{20}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Generators of rotations}{20}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.2}Generators of rotations}{21}{subsection.6.2}%
 \contentsline {subsection}{\numberline {6.3}Functions of an operator}{21}{subsection.6.3}%
 \contentsline {subsubsection}{\numberline {6.3.1}Rotations about $\hat {z}$}{22}{subsubsection.6.3.1}%
 \contentsline {subsection}{\numberline {6.4}Rotations about any axis}{22}{subsection.6.4}%
-\contentsline {section}{\numberline {7}Angular Momentum}{23}{section.7}%
+\contentsline {section}{\numberline {7}Angular Momentum}{24}{section.7}%
 \contentsline {subsection}{\numberline {7.1}Non-commuting rotations and commutation relations}{24}{subsection.7.1}%
 \contentsline {subsection}{\numberline {7.2}Compatible observables}{25}{subsection.7.2}%
 \contentsline {subsection}{\numberline {7.3}Uncertainty relations}{26}{subsection.7.3}%
-\contentsline {subsection}{\numberline {7.4}Total angular momentum}{26}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.4}Total angular momentum}{27}{subsection.7.4}%
 \contentsline {subsection}{\numberline {7.5}Ladder operators}{27}{subsection.7.5}%
 \contentsline {subsection}{\numberline {7.6}Matrix elements}{28}{subsection.7.6}%
 \contentsline {subsection}{\numberline {7.7}Rotations by $2\pi $: fermions and bosons}{29}{subsection.7.7}%
-\contentsline {subsection}{\numberline {7.8}Atomic quantum numbers}{29}{subsection.7.8}%
+\contentsline {subsection}{\numberline {7.8}Atomic quantum numbers}{30}{subsection.7.8}%
 \contentsline {section}{\numberline {8}Time Evolution}{30}{section.8}%
 \contentsline {subsection}{\numberline {8.1}The time-evolution operator and the Hamiltonian}{30}{subsection.8.1}%
 \contentsline {subsubsection}{\numberline {8.1.1}When $H$ is constant}{32}{subsubsection.8.1.1}%

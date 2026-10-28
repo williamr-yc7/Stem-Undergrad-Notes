@@ -264,20 +264,23 @@ Atoms leave the oven with spins pointing in random directions, so $S_z = |\vec{S
 \subsection{Spin quantization}
 Now if we generalize the SG experiment for any random particles (electron, deutron, atoms, proton, neutron...), we get a specific amount of spots on the screen. The number of spots is the number of beams $n$, which is related to the spin quantum number $s$ by
 \begin{equation}
-    n=2s + 1.
+    \label{eq:spin-quantization}
+    n=2s+1.
 \end{equation}
 \begin{definition}[Spin quantum number]
     From the amount of beams on the screen, we can determine the spin quantum number $s$ of the particle.
     \[s = \frac{n-1}{2}.\]
 \end{definition}
 The number $s$, fixed by the particle type, taking values $s = 0, \tfrac12, 1, \tfrac32, \dots$ A measurement of $S_z$ gives
-\begin{equation}
-    S_z = m\hbar.
-\end{equation}
+\[S_z = m\hbar.\]
 \begin{definition}[Magnetic quantum number]
-    The number $m$ is called the magnetic quantum number, and it takes values
+    The number $m$ is called the magnetic quantum number, it defines the orientation of the spin, and it takes values
     \[m = -s, -s+1, \dots, +s.\]
 \end{definition}
+\begin{example}
+    To get the values of the spin of an electron we use the silver atom in the SG apparatus, since the spin of silver is defined by its lonely valence electron. We get 2 beams, so $n=2$, therefore $s=1/2$, and the possible values of $m$ are $m = -1/2, +1/2$, which gives the two possible values of $S_z$:
+    \[S_z = \pm\frac{\hbar}{2}.\]
+\end{example}
 \begin{remark}
     $S_z$ is a component. The magnitude is $|\vec{S}| = \hbar\sqrt{s(s+1)}$, which for the electron ($s=1/2$) is $\hbar\sqrt{3}/2$.
 \end{remark}
@@ -408,28 +411,40 @@ Filter $+\hat{z}$, pass it through a modified SG$x$ with neither path blocked, t
 \section{Quantum States}
 \label{sec:states}
 \marginpar{September 11-18, 2026}
-Throughout, an \emph{$n$-level system} is one whose measurements have $n$ possible outcomes. For spin $s$, $n = 2s+1$, so spin-$\tfrac12$ has $n = 2$.
+Throughout, an \emph{$n$-level system} is one whose measurements have $n$ possible outcomes \eqref{eq:spin-quantization}.
 
 \subsection{Kets, bras and bases}
-\begin{definition}[Bra and inner product]
-    Every ket (Def.~\ref{Ket-def}) $\ket{\psi}$ has a matching bra $\bra{\psi}$, its conjugate transpose (adjoint): the ket's coefficients are complex conjugated, and the column becomes a row (Section~\ref{sec:bras}). A bra followed by a ket gives a complex number, the inner product $\braket{\phi|\psi} \in \mathbb{C}$.
+\begin{definition}[Bra]
+    Every ket (Def.~\ref{Ket-def}) $\ket{\psi}$ has a matching bra $\bra{\psi}$, its conjugate transpose (adjoint): the ket's coefficients are complex conjugated, and the column becomes a row, its derivation is shown in Section~\ref{sec:bras}.
+\end{definition}
+\begin{definition}[Inner product]
+    A bra followed by a ket gives a complex number, the inner product $\braket{\phi|\psi} \in \mathbb{C}$.
 \end{definition}
 \begin{definition}[Orthonormal basis]
-    The outcome states $\{\ket{j} : j = 1,\dots,n\}$ of one measurement form a basis that is orthonormal:
+    The outcome states $\{\ket{j} : j = 1,\dots,n\}$ of one measurement form an orthonormal basis of the $n$-dimensional state space:
     \begin{equation}
-        \braket{i|j} = \delta_{ij}.
+        \braket{i|j} = \delta_{ij} = \begin{cases}1 & \text{if } i = j, \\ 0 & \text{if } i \neq j.\end{cases} \quad \forall i, j \in \{1,\dots,n\},
     \end{equation}
-    For spin-$\tfrac12$ this is $\braket{\pm\hat{z}|\pm\hat{z}} = 1$ and $\braket{\pm\hat{z}|\mp\hat{z}} = 0$, and the same holds for $\{\ket{\pm\hat{x}}\}$ or any other axis.
 \end{definition}
+\begin{example}
+    For spin-$\tfrac12$ this is $\braket{\pm\hat{z}|\pm\hat{z}} = 1$ and $\braket{\pm\hat{z}|\mp\hat{z}} = 0$, and the same holds for $\{\ket{\pm\hat{n}}\}$.
+\end{example}
 \begin{remark}
-    The label $j$ counts \emph{outcomes}, not axes. Choosing to measure $S_x$ gives $\ket{1} = \ket{+\hat{x}}$, $\ket{2} = \ket{-\hat{x}}$; choosing $S_z$ gives $\ket{1} = \ket{+\hat{z}}$, $\ket{2} = \ket{-\hat{z}}$. Either way $n = 2$. A ket may also carry several labels, usually the quantum numbers that pin it down: $\ket{s,m}$ for spin, so $\ket{\pm\hat{z}} = \ket{\tfrac12,\pm\tfrac12}$, and for the deuteron $\ket{1,+1}, \ket{1,0}, \ket{1,-1}$. Electrons in atoms are labelled the same way (Section~\ref{sec:atomic}).
+    The label $j$ counts \emph{outcomes}, not axes. Choosing to measure $S_x$ gives $\ket{1} = \ket{+\hat{x}}$, $\ket{2} = \ket{-\hat{x}}$; choosing $S_z$ gives $\ket{1} = \ket{+\hat{z}}$, $\ket{2} = \ket{-\hat{z}}$. Either way $n = 2$.
+\end{remark}
+\begin{remark}
+    A ket may also carry several labels, usually the quantum numbers that pin it down: $\ket{s,m}$. For the deuteron $\ket{1,+1}, \ket{1,0}, \ket{1,-1}$.
 \end{remark}
 \begin{definition}[Superposition]
     Any state is a linear combination of basis kets,
     \begin{equation}
-        \ket{\psi} = \sum_{j=1}^{n} c_j\ket{j}, \qquad c_j \in \mathbb{C}; \qquad \text{spin-}\tfrac12: \ \ket{\psi} = c_{+}\ket{+\hat{z}} + c_{-}\ket{-\hat{z}}.
+        \ket{\psi} = \sum_{j=1}^{n} c_j\ket{j}, \qquad c_j \in \mathbb{C}.
     \end{equation}
 \end{definition}
+\begin{example}
+    A state in the $S_z$ basis is a superposition of the two outcomes, with complex coefficients $c_\pm$:
+    \[\text{spin-}\tfrac12: \ \ket{\psi} = c_{+}\ket{+\hat{z}} + c_{-}\ket{-\hat{z}}.\]
+\end{example}
 \begin{proposition}[Coefficients are inner products]
     \begin{equation}
         c_j = \braket{j|\psi}.
@@ -446,17 +461,23 @@ Throughout, an \emph{$n$-level system} is one whose measurements have $n$ possib
 \begin{proposition}[Completeness relation]
     Because every state can be expanded in the basis, the projectors sum to the identity:
     \begin{equation}
-        \id = \sum_{j=1}^{n}\ket{j}\bra{j}; \qquad \text{spin-}\tfrac12: \ \id = \ket{+\hat{n}}\bra{+\hat{n}} + \ket{-\hat{n}}\bra{-\hat{n}} \text{ for any axis } \hat{n}.
+        \id = \sum_{j=1}^{n}\ket{j}\bra{j}.
     \end{equation}
 \end{proposition}
+\begin{example}
+    \[\text{spin-}\tfrac12: \ \id = \ket{+\hat{n}}\bra{+\hat{n}} + \ket{-\hat{n}}\bra{-\hat{n}} \text{ for any axis } \hat{n}.\]
+\end{example}
 \begin{remark}[Inserting the identity]
-    Writing $\id$ in this form in front of a state reproduces its expansion, $\ket{\psi} = \sum_j\ket{j}\braket{j|\psi}$. This trick is used in almost every derivation below.
+    Writing $\id$ in this form in front of a state reproduces its expansion, $\ket{\psi} = \id\ket{\psi} = \sum_j\ket{j}\braket{j|\psi}$. This trick is used in almost every derivation below.
 \end{remark}
 
 \subsection{Measurement and probability}
 \begin{definition}[Observable]
-    A measurable quantity $A$. Its possible outcomes $a_j$ each come with a state $\ket{a_j}$, and these states form an orthonormal basis. For spin-$\tfrac12$, $A$ can be $S_x$, $S_y$ or $S_z$, with outcomes $\pm\hbar/2$.
+    A measurable quantity $A$. Its possible outcomes $a_j$ each come with a state $\ket{a_j}$, and these states form an orthonormal basis.
 \end{definition}
+\begin{example}
+    For spin-$\tfrac12$, $A$ can be $S_x$, $S_y$ or $S_z$, with outcomes $\pm\hbar/2$.
+\end{example}
 \begin{principle}[Born rule]
     The probability that a system in $\ket{\psi}$ is found in $\ket{\phi}$ is
     \begin{equation}
@@ -465,7 +486,7 @@ Throughout, an \emph{$n$-level system} is one whose measurements have $n$ possib
     In particular $P(A = a_j) = |\braket{a_j|\psi}|^2$, e.g.\ $P(S_z = \pm\hbar/2) = |c_\pm|^2$.
 \end{principle}
 \begin{definition}[Probability amplitude]
-    The complex number $\braket{\phi|\psi}$ whose modulus squared is the probability.
+    The amplitude of the probability of outcome $a_j$ is the complex number $\braket{a_j|\psi}$.
 \end{definition}
 \begin{remark}
     The Born rule has no deeper derivation: it is a postulate that agrees with every experiment. As David Mermin put it, "shut up and calculate."
@@ -474,13 +495,15 @@ Throughout, an \emph{$n$-level system} is one whose measurements have $n$ possib
     Consider the quantum state $\ket{\psi} = \sqrt{\tfrac{1}{5}}\ket{+\hat{z}} + i\sqrt{\tfrac{4}{5}}\ket{-\hat{z}}$. Calculate the probability of measuring the spin $z$-component to be $S_z = +\hbar/2$.
 \end{problem}
 
-\subsubsection{Bras of superpositions}
+\subsubsection{Bras}
 \label{sec:bras}
-Write the bra with unknown coefficients, $\bra{\psi} = c_{+}'\bra{+\hat{z}} + c_{-}'\bra{-\hat{z}}$. By orthonormality,
-\[\braket{\psi|\psi} = c_{+}'c_{+} + c_{-}'c_{-}.\]
-A system in $\ket{\psi}$ is found in $\ket{\psi}$ with certainty, and it is always found in one of the two beams, so this must equal $|c_+|^2 + |c_-|^2 = 1$. That forces $c_{\pm}' = c_{\pm}^{*}$.
+\begin{proof}
+    Write the bra with unknown coefficients, $\bra{\psi} = c_{+}'\bra{+\hat{z}} + c_{-}'\bra{-\hat{z}}$. By orthonormality,
+    \[\braket{\psi|\psi} = c_{+}'c_{+} + c_{-}'c_{-}.\]
+    A system in $\ket{\psi}$ is found in $\ket{\psi}$ with certainty, and it is always found in one of the two beams, so this must equal $|c_+|^2 + |c_-|^2 = 1$. That forces $c_{\pm}' = c_{\pm}^{*}$.
+\end{proof}
 \begin{result}
-    Going from a ket to its bra, conjugate the coefficients:
+    Going from a ket to its bra:
     \begin{equation}
         \bra{\psi} = \sum_j c_j^*\bra{j}, \qquad \braket{\phi|\psi} = \braket{\psi|\phi}^{*}.
     \end{equation}
@@ -502,13 +525,16 @@ A system in $\ket{\psi}$ is found in $\ket{\psi}$ with certainty, and it is alwa
 
 \subsubsection{Global and relative phase}
 \begin{definition}[Global and relative phase]
-    A \emph{global} phase multiplies the whole ket: $e^{i\alpha}\ket{\psi}$ with $\alpha \in \mathbb{R}$. A \emph{relative} phase sits between the terms of a superposition, like the $e^{i\delta}$ in $c_+\ket{+\hat{z}} + e^{i\delta}c_-\ket{-\hat{z}}$, and cannot be pulled out front.
+    A global phase multiplies the whole ket: $e^{i\alpha}\ket{\psi}$ with $\alpha \in \mathbb{R}$. 
 \end{definition}
 \begin{proposition}
     A global phase changes no probability: $\left|\braket{\phi|e^{i\alpha}\psi}\right|^2 = |e^{i\alpha}|^2\left|\braket{\phi|\psi}\right|^2 = \left|\braket{\phi|\psi}\right|^2$ for every $\ket{\phi}$.
 \end{proposition}
+\begin{definition}[Relative phase]
+    A relative phase sits between the terms of a superposition, like the $e^{i\delta}$ in $c_+\ket{+\hat{z}} + e^{i\delta}c_-\ket{-\hat{z}}$, and cannot be pulled out front.
+\end{definition}
 \begin{definition}[Physical state]
-    What the system is actually like, as far as any experiment can tell: the probabilities of every outcome of every possible measurement. Two kets that give the same probabilities for all measurements describe the same physical state.
+    What the system is actually like, as far as any experiment can tell. Two kets that give the same probabilities for all measurements describe the same physical state.
 \end{definition}
 \begin{result}
     $\ket{\psi}$ and $e^{i\alpha}\ket{\psi}$ are the same physical state, so global phases can be dropped. Relative phases cannot: they leave the $S_z$ probabilities alone but change the $S_x$ and $S_y$ ones (Section~\ref{sec:xy-states}).
@@ -518,9 +544,12 @@ A system in $\ket{\psi}$ is found in $\ket{\psi}$ with certainty, and it is alwa
 \begin{definition}[Expectation value]
     The average outcome, weighted by the probabilities:
     \begin{equation}
-        \braket{A} = \sum_j a_j\,P(A = a_j) = \sum_j a_j\left|\braket{a_j|\psi}\right|^2; \qquad \braket{S_z} = \frac{\hbar}{2}|c_+|^2 - \frac{\hbar}{2}|c_-|^2.
+        \braket{A} = \sum_j a_j\,P(A = a_j) = \sum_j a_j\left|\braket{a_j|\psi}\right|^2.
     \end{equation}
 \end{definition}
+\begin{example}
+    \[\braket{S_z} = \frac{\hbar}{2}|c_+|^2 - \frac{\hbar}{2}|c_-|^2.\]
+\end{example}
 \begin{definition}[Uncertainty]
     The standard deviation (typical spread of outcomes around the average):
     \begin{equation}
@@ -531,7 +560,7 @@ A system in $\ket{\psi}$ is found in $\ket{\psi}$ with certainty, and it is alwa
     For spin-$\tfrac12$ both outcomes square to $\hbar^2/4$, so $\braket{S_z^2} = \hbar^2/4$ for every state.
 \end{remark}
 \begin{example}
-    For $\ket{+\hat{x}}$, Experiment 3 gives both $S_z$ probabilities $1/2$, so $\braket{S_z} = 0$ and $\Delta S_z = \hbar/2$. The average is zero but every single measurement gives $\pm\hbar/2$: maximal spread.
+    For $\ket{+\hat{x}}$, Experiment 3 gives both $S_z$ probabilities $1/2$, so $\braket{S_z} = 0$ and $\Delta S_z = \hbar/2$.
 \end{example}
 \begin{example}
     For $\ket{\psi} = \sqrt{\tfrac{1}{3}}\ket{+\hat{z}} + i\sqrt{\tfrac{2}{3}}\ket{-\hat{z}}$,
@@ -551,11 +580,17 @@ A system in $\ket{\psi}$ is found in $\ket{\psi}$ with certainty, and it is alwa
 
 \subsubsection{Measured averages and shot noise}
 \begin{remark}
-    For $N$ measurements on identically prepared atoms, with $N_\pm$ giving $\pm\hbar/2$, the measured average is $\braket{S_z}_N = \frac{\hbar}{2}\frac{N_+ - N_-}{N}$, which tends to $\braket{S_z}$ as $N \to \infty$.
+    For $N$ measurements on identically prepared atoms, with $N_\pm$ giving $\pm\hbar/2$, the measured average is
+    \begin{equation}
+        \braket{S_z}_N = \frac{\hbar}{2}\frac{N_+ - N_-}{N},
+    \end{equation}
+    which tends to $\braket{S_z}$ as $N \to \infty$.
 \end{remark}
 \begin{remark}[Shot noise]
     The measured average $\braket{S_z}_N$ scatters around the true expectation value, and its average deviation from it is
-    \[\left|\braket{S_z}_N - \braket{S_z}\right| \sim \frac{\Delta S_z}{\sqrt{N}}.\]
+    \begin{equation}
+        \left|\braket{S_z}_N - \braket{S_z}\right| \sim \frac{\Delta S_z}{\sqrt{N}}.
+    \end{equation}
     This scatter is called shot noise. It comes from the randomness of individual quantum outcomes, not from a faulty apparatus, and is absent only when $\Delta S_z = 0$, i.e.\ when the state has a definite $S_z$.
 \end{remark}
 
@@ -614,7 +649,7 @@ Setting this to $\tfrac12$ forces $\gamma - \delta = \pm\pi/2$. The rest is conv
 \end{example}
 
 
-\section{Matrix Mechanics}
+\section{Matrix Mechanics}%read and annotate
 \marginpar{September 21-25, 2026}
 \chapterstart{2}
 
@@ -1652,6 +1687,12 @@ $\frac{\Delta A}{\Delta t} \approx |\braket{\frac{dA(t)}{dt}}|\braket{A(t)} = \b
 
 Chapter 5: two spins 1/2.
 complete set $\{\ket{+\hat{z},+\hat{z}}, \ket{+\hat{z},-\hat{z}}, \ket{-\hat{z},+\hat{z}}, \ket{-\hat{z},-\hat{z}}\}$, $S_{z1}$ and $S_{z2}$ are just the first and second item in the kets, and $[S_{z1}, S_{z2}] = 0$. Or: $\{\ket{+\hat{z},+\hat{x}}, \ket{+\hat{z},-\hat{x}}, \ket{-\hat{z},+\hat{x}}, \ket{-\hat{z},-\hat{x}}\}$.
+$\ket{+\hat{z},+\hat{z}} = \ket{+\hat{z}} \otimes \ket{+\hat{z}}= \ket{+\hat{z}}_1\ket{+\hat{z}}_2$. $S_{z2}\ket{+\hat{z}} \otimes \ket{+\hat{z}} = \ket{+\hat{z}} \otimes S_{z2}\ket{+\hat{z}} = \frac{\hbar}{2}(\ket{+\hat{z}} \otimes \ket{+\hat{z}})$. $\{\ket{1},\ket{2},\ket{3},\ket{4}\}$, where $\ket{1} = \ket{+\hat{z},+\hat{z}}$, $\ket{2} = \ket{+\hat{z},-\hat{z}}$, $\ket{3} = \ket{-\hat{z},+\hat{z}}$, $\ket{4} = \ket{-\hat{z},-\hat{z}}$. $\vec{S_2}\cdot\vec{S_2} = S_{1z}S_{2z} - 1/2 (S_{1+}S_{2-} + S_{1-}S_{2+})$. $S_{i\pm} = S_{ix} \pm iS_{iy}$, $H = \frac{A}{\hbar^2}\vec{S_i}\vec{S_2} \overset{\ket{1_j}-basis}{\to}\begin{pmatrix}
+    \bra{1}H\ket{1} & \bra{1}H\ket{2} & \bra{1}H\ket{3} & \bra{1}H\ket{4}\\
+    \bra{2}H\ket{1} & \bra{2}H\ket{2} & \bra{2}H\ket{3} & \bra{2}H\ket{4}\\
+    \bra{3}H\ket{1} & \bra{3}H\ket{2} & \bra{3}H\ket{3} & \bra{3}H\ket{4}\\
+    \bra{4}H\ket{1} & \bra{4}H\ket{2} & \bra{4}H\ket{3} & \bra{4}H\ket{4}
+\end{pmatrix}$.
 \newpage
 \appendix
 \section{Solutions}
